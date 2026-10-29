@@ -16,7 +16,7 @@ from typing import Any, Callable, Dict, List, Optional, Tuple
 
 SkillFn = Callable[..., Any]
 
-_TOKEN_RE = re.compile(r"[a-z0-9]+|[一-鿿]")
+_TOKEN_RE = re.compile(r"[a-z0-9]+|[\u4e00-\u9fff]")
 
 
 def tokenize(text: str) -> List[str]:
@@ -109,7 +109,7 @@ class SkillRegistry:
         return sorted(self._skills.keys())
 
     def all(self) -> List[Skill]:
-        return [self._skills[k] for k in sorted(self._skills.keys())]
+        return [self._skills[k] for k in sorted(self._skills)]
 
     # ------------------------------------------------------------ 自动匹配
     def score(self, skill: Skill, query_tokens: List[str]) -> float:
