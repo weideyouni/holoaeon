@@ -4,7 +4,7 @@
 用法：
     python scripts/make_release.py [版本号] [输出zip路径]
 
-默认版本号取自 holoaeon.spec.VERSION，输出到 F:\doubaowork\holoaeon_v<version>_<date>.zip。
+默认版本号取自 holoaeon.spec.VERSION，输出到 F:\\doubaowork\\holoaeon_v<version>_<date>.zip。
 注意：飞书入库入口文档（HoloAeon_入库入口_全文.md）是独立产物，不打入代码包，
 这样入口文档里记录的 zip SHA256 才能稳定（避免自引用）。
 """
