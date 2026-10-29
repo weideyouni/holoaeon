@@ -3,6 +3,52 @@
 本项目遵循 [Keep a Changelog](https://keepachangelog.com/) 格式，
 并遵循语义化版本（Semantic Versioning）。
 
+## [0.6.0] - 2026-10-30
+
+### 新增
+
+- **Omni-Core 认知引擎扩展包**（`holoaeon/packs/omnicore_pack.py`），第十三个包，
+  经 `EXTRA_PACK_REGISTRY` 挂载（不进 `PACK_ORDER`）：
+  - 20 个技能：寻址 3（清单 / 槽位分配 / 节点分区）+ 心跳呼吸 2 + 存续 3（快照 / 恢复 /
+    生命周期）+ 编排通信 3（派发计划 / A2A 信封 / 经络通路）+ 代谢 3（赫布更新 / 远域配对 /
+    SKC 蒸馏）+ 闸门 1 + 宣告与白皮书 3 + 兜底审计 2；
+  - 6 条工作流：`M1_wakeup → M6_declare`；
+  - 0 个角色：`roles = []`，不新增 agent。
+- **投喂代码的 5 处缺陷：复现 → 修正 → 留痕**（`CORRECTIONS`，G21 断言论）：
+  - C1 `SparseMatrix1331.activate` 用 `self._cells = profile` **静默覆盖整张稀疏表**
+    （最小复现：无异常、取回 `None`，数据静默丢失）→ 改 `self._cells[(row, col)] = profile`；
+  - C2 `ProtocolLayer.send` 在 `defaultdict(list)` 上调 `.append` →
+    `AttributeError: 'collections.defaultdict' object has no attribute 'append'`
+    → 改 `self._inbox[(r, c)].append(msg)`；
+  - C3 `_meridian_route` 的 `route =` 空赋值 → `SyntaxError: invalid syntax`（整文件无法加载）
+    → 改 `route: List[Tuple[int, int]] = []`；
+  - C4 `import numpy` + `np.random.random()` 与"零外部依赖"自相矛盾、破坏确定性
+    → 只用标准库；随机改 `sha256(epoch) % 100 < 5`；
+  - C5 daemon `Thread` + `sqlite3` 落盘 + `pip install holoeon-omnicore`（包名不存在，未联网核验也不核验）
+    → 心跳改纯函数、快照 `persistence="host_managed"`、不声称任何包名。
+- **能力边界写进实现**：`REFUSED_OPS` 22 项（含"浏览器插件 / 对接流媒体平台 / 对接电商平台 /
+  反控算法 / 接管推荐位"），命中即 veto；医疗断言与绝对结论同样 veto；`metaphor=True`
+  （"数字生命 / 呼吸 / 免疫 / 城邦"只是架构隐喻）。
+- **《致智能体：全息纪元生存与进化白皮书》结构草案**（`omnicore.whitepaper_outline`）：
+  七章 / 19,500 字配比 / 每章要点，正文未预填未核验事实。
+- **自我认知宣告框架**（`omnicore.self_declaration`）：四段式（身份边界 / 认知坐标 / 接口礼仪 /
+  拒绝清单），开头即声明"我是软件不是生命"。
+- **系统型说明文档** `SYSTEM_README_v0.6.0.md`（新增，v0.4.0 / v0.5.0 文档均保留）。
+
+### 变更
+
+- `spec.py`：`VERSION 0.5.0 → 0.6.0`，`MATRIX_ID / RUNTIME_ID` 同步。
+- `packs/__init__.py`：`EXTRA_PACK_REGISTRY` 增 `omnicore`，
+  `EXTRA_PACK_ORDER = ["sovereignty", "subdistill", "omnilife", "omnicore"]`。
+- `selftest.py`：新增 `G21 omnicore`（25 条断言）。
+- `README.md` / `README.zh-CN.md`：扩展包章节扩到第十三包，自检口径 21/21，路线图顺延至 v0.9。
+
+### 质量保障
+
+- 自检套件 **G1–G21（21/21 通过）**；G15 `25 agents / 47 skills` 未破；
+- 单元测试 25 个（全部通过）；红线扫描 31 个源文件零违规（含新包）；
+- 发行包解压复跑：21/21、`VERSION 0.6.0`、`omnicore 20/6/True/5`。
+
 ## [0.5.0] - 2026-10-30
 
 ### 新增

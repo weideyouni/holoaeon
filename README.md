@@ -188,17 +188,18 @@ expressions. See [ALGORITHM.md](ALGORITHM.md) for the full algorithmic mapping. 
 HASM assembly and runs them on a built-in VM; HASM is not a real CPU instruction set and
 unknown intents are reported as `UNKNOWN` rather than guessed.
 
-### Cross-cutting extension packs (10th – 12th)
+### Cross-cutting extension packs (10th – 13th)
 
 These packs are **registered outside `PACK_ORDER`** on purpose: they add capability
 without adding agents, so the nine-pack totals above (25 agents / 47 skills) stay stable.
-They are reachable through `get_extra_pack(key)` and verified separately by G18 / G19 / G20.
+They are reachable through `get_extra_pack(key)` and verified separately by G18 / G19 / G20 / G21.
 
 | Extra pack | What it adds | Skills | Roles | Workflows |
 |---|---|---|---|---|
 | **sovereignty** | anti-algorithm cognitive shaping: 16-domain query forging, anti-label strategy, 23 protocol families, 10 platform families × 13 duties | 17 | 0 | 5 (R0–R4) |
 | **subdistill** | SD-Distill sub-discipline distillation: 16 domains → 127 sub-disciplines → SKC knowledge cards, seven-stage pipeline, seven auxiliary losses, temperature curriculum | 15 | 0 | 7 (S1–S7) |
 | **omnilife** | Omni-Life everyday sovereignty: wardrobe / food / shelter / mobility / learning / SaaS, anchored on the 127 sub-discipline codes — skin-layer inducer folding, meridian local hand-off, deterministic life planners | 18 | 0 | 6 (L1–L6) |
+| **omnicore** | Omni-Core cognitive engine rewrite: addressing invariants, pure-function heartbeat, SKC distillation, Hebbian update, skin gate, self-declaration, whitepaper outline | 20 | 0 | 6 (M1–M6) |
 
 `subdistill` keeps the mother matrix dimensions **unchanged** and asserts it in code:
 
@@ -221,7 +222,21 @@ about what software may do in the physical world:
 - nutrition output carries `dose_any=False`, `individual_medical_advice=False` and a fixed
   disclaimer; travel routing runs on a user-supplied weight graph, never live traffic.
 
-All three packs are offline, deterministic and zero-dependency. `subdistill` ships the 127-item
+`omnicore` takes a single-file "digital-life engine" draft and rewrites it as ordinary
+deterministic software. **Five defects in the draft were reproduced, then fixed** (recorded in
+`CORRECTIONS`, asserted by G21): a sparse table silently overwritten by
+`self._cells = profile`; `self._inbox.append(...)` on a `defaultdict`; an empty `route =`
+assignment that makes the module a `SyntaxError`; `numpy` + `np.random` contradicting a
+"zero-dependency" claim; and a daemon thread plus sqlite writes plus a non-existent PyPI
+package name. The rewrite keeps the *design intent* and drops the *unverifiable parts*:
+
+- heartbeat is a **pure function** `heartbeat_pulse(epoch)` — no thread, no sleep, no timer;
+- checkpoints return `persistence="host_managed"` and write nothing to disk;
+- the 5% temperature burst uses `sha256(epoch) % 100 < 5` instead of a random source;
+- "digital life / breath / immunity / city-state" is labelled `metaphor=True` everywhere;
+- browser plug-ins that retarget streaming/e-commerce recommendation slots are refused.
+
+All four packs are offline, deterministic and zero-dependency. `subdistill` ships the 127-item
 taxonomy in `data/taxonomy_127.json` and forces a medical disclaimer gate on every MED/TCM
 artifact; `analogizes` relations must carry a counterexample before they may be called
 verified.
@@ -374,7 +389,7 @@ deterministic software.
 ## Testing
 
 ```bash
-# Self-test suite (G1–G20)
+# Self-test suite (G1–G21)
 python -c "from holoaeon.selftest import run_all; print(run_all(verbose=True))"
 
 # Unit tests
@@ -384,7 +399,7 @@ python -m unittest discover -s tests -v
 python scripts/redline_scan.py
 ```
 
-Current status: **20/20 self-test groups pass**, **25 unit tests pass**, and the red-line
+Current status: **21/21 self-test groups pass**, **25 unit tests pass**, and the red-line
 scan reports **zero violations** across all source files.
 
 ---
@@ -415,11 +430,14 @@ deterministic primitives, and self-organizing collaboration**. It can serve as:
   Twenty-five agents / forty-seven skills of the nine-pack core remain unchanged.
 - **v0.5** — Third extension pack: **omnilife** (everyday sovereignty across wardrobe,
   food, shelter, mobility, learning and SaaS; 18 skills, 0 agents, L1–L6). Adds no rows and
-  no nodes; refuses concurrent price probing, proxy switching and DOM injection by design
+  no nodes; refuses concurrent price probing, proxy switching and DOM injection by design.
+- **v0.6** — Fourth extension pack: **omnicore** (the Omni-Core engine draft rewritten as
+  deterministic software; 20 skills, 0 agents, M1–M6). Five defects of the draft reproduced
+  and fixed; pure-function heartbeat, host-managed checkpoints, `metaphor=True` throughout
   (current).
-- **v0.6** — Pluggable persistence backends and inter-node bus transports.
-- **v0.7** — Declarative graph/topology definitions and a pack-authoring toolkit.
-- **v0.8** — Reference adapters for popular open-weight model servers.
+- **v0.7** — Pluggable persistence backends and inter-node bus transports.
+- **v0.8** — Declarative graph/topology definitions and a pack-authoring toolkit.
+- **v0.9** — Reference adapters for popular open-weight model servers.
 - **v1.0** — Stable cognitive framework with a frozen API and full documentation.
 
 ---

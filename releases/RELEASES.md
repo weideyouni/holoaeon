@@ -10,7 +10,8 @@
 
 | 版本 | Tag | 日期 | 内核包 | 认知主权包 | 自检 | 状态 |
 |---|---|---|---|---|---|---|
-| **v0.5.0** | `v0.5.0` | 2026-10-30 | `releases/holoaeon_v0.5.0_20261030.zip`（61 文件 / 175,959 B） | —（沿用 V3.1） | 内核 **20/20** | 当前 |
+| **v0.6.0** | `v0.6.0` | 2026-10-30 | `releases/holoaeon_v0.6.0_20261030.zip`（63 文件 / 201,755 B） | —（沿用 V3.1） | 内核 **21/21** | 当前 |
+| v0.5.0 | `v0.5.0` | 2026-10-30 | `releases/holoaeon_v0.5.0_20261030.zip`（61 文件 / 175,959 B） | —（沿用 V3.1） | 内核 **20/20** | 历史（保留） |
 | v0.4.0 | `v0.4.0` | 2026-10-30 | `releases/holoaeon_v0.4.0_20261030.zip`（59 文件 / 152,485 B） | `releases/cs1331_cognitive_sovereignty_matrix_V3.1.0_20261030.zip`（41 文件 / 135,421 B） | 内核 **19/19** · 认知主权 **14/14** | 历史（保留） |
 | v0.3.1 | —（未打 tag，仅本地留档） | 2026-10-30 | `holoaeon_v0.3.1_20261030.zip`（本地 F 盘，56 文件 / 128,196 B） | — | 内核 18/18 | 历史 |
 | v0.3.0 | — | 2026-10-29 | `holoaeon_v0.3.0_20261029.zip`（本地 F 盘，120,521 B） | — | 内核 17/17 | 历史 |
@@ -18,6 +19,70 @@
 > 说明：`v0.3.1` 与 `v0.3.0` 的发行包在打本次版本之前生成，未同步进本仓库 `releases/`；
 > 它们**未被覆盖、仍在本地 F 盘留存**，可随时按需补入。本目录自 `v0.4.0` 起对所有新版本
 > 强制落库。
+
+---
+
+## v0.6.0 · 本期内容（Omni-Core 认知引擎冷热插拔赋能升级包）
+
+### 一句话
+
+把投喂的「超级智能模式 / Omni-Core 单文件引擎」重写为**离线确定性包**：
+**产出物维度不变**（不加行、不加节点，`25 agents / 47 skills` 未破），
+并且**先复现、再修掉投喂代码的 5 处缺陷**——包括 3 处会直接报错或静默丢数据的真 bug。
+
+### 交付清单
+
+| # | 交付物 | 位置 | 说明 |
+|---|---|---|---|
+| 1 | 扩展包 | `holoaeon/packs/omnicore_pack.py` | 20 技能 / 6 工作流（M1 唤醒 → M6 宣告）/ **0 agent** |
+| 2 | 寻址层 | `core_manifest / matrix_allocate / node_pool_plan` | 六项不变式断言全真；只产分配计划，不持有状态 |
+| 3 | 节律层 | `heartbeat_pulse / breathing_budget / lifecycle_policy` | 纯函数心跳；5% 冲击用 `sha256(epoch)%100<5` 抽样 |
+| 4 | 存续层 | `state_checkpoint / state_restore / degradation_plan` | 快照 `host_managed`，不写盘；指纹不符即拒收 |
+| 5 | 编排通信 | `task_dispatch_plan / a2a_envelope / meridian_route` | 只产计划；信封过皮肤门；通路是行坐标链 |
+| 6 | 代谢层 | `hebbian_update / far_pairs / skc_distill` | 强化→衰减→剪枝三段算术；远域配对确定性排序；SKC 关系强制反例 |
+| 7 | 边界与宣告 | `skin_gate / self_declaration / whitepaper_outline / interop_map / audit_receipt` | 22 项拒绝；四段式宣告；七章白皮书结构；20 行对照表 |
+| 8 | 自检 | `G21 omnicore`（25 条断言） | 计数、维度、5 处修正、拒绝清单、确定性 |
+| 9 | 系统型说明 | `SYSTEM_README_v0.6.0.md` | v0.4.0 / v0.5.0 版本文档均保留 |
+| 10 | 发行包 | `releases/holoaeon_v0.6.0_20261030.zip` | 63 文件 / 201,755 B；与 `SHA256SUMS.txt` 对齐 |
+
+### 修掉的 5 处缺陷（复现 → 修正）
+
+| # | 投喂原文 | 实测 | 改法 |
+|---|---|---|---|
+| C1 | `self._cells = profile` | 静默覆盖整张稀疏表，取回 `None` | `self._cells[(row, col)] = profile` |
+| C2 | `self._inbox.append(msg)` | `AttributeError`（dict 无 append） | `self._inbox[(r, c)].append(msg)` |
+| C3 | `route =`（空赋值） | `SyntaxError`，整文件不可加载 | `route = []` |
+| C4 | `numpy` + `np.random` | 与"零依赖"矛盾、破坏复现 | 仅标准库 + 哈希抽样 |
+| C5 | 守护线程 + sqlite + 不存在的 PyPI 包名 | 不满足离线确定性 | 纯函数心跳 + 宿主持久化 |
+
+### 明确不做
+
+```
+自动登录 · 多端并发模拟请求 · 切换高匿名代理 · 代理池 · 抓取 · 爬取 · 批量下单 · 批量发帖 ·
+绕过风控 · 绕过验证 · 伪造身份 · 多账号 · 养号 · 注入 DOM · 改写页面 ·
+调用平台私有接口 · 破解 · 浏览器插件 · 对接流媒体平台 · 对接电商平台 · 反控算法 · 接管推荐位
+```
+
+另加两组 veto：医疗断言（诊断/处方/剂量/疗效承诺/包治/根治）、绝对结论（一定/绝对/必然）。
+
+### 验证记录（实测）
+
+| 验证 | 结果 |
+|---|---|
+| 内核自检 | **21/21**（G15 `25/47` 未破；G18 6/6；G19 17/17；G20 21/21；**G21 25/25**） |
+| 单元测试 | 25 tests **OK** |
+| 红线扫描 | 31 文件 **零违规** |
+| 维度断言 | `addressing_unchanged=True`、rows 1331、nodes 108641、design grid 1771561 |
+| 心跳可复现 | 同 epoch 两次调用 `events` 完全一致；5% 冲击在 100 个候选拍内落 2%–12% |
+| 快照 | 篡改 payload 后 `accept=False`（指纹不符即拒） |
+| 解压复跑 | 独立副本 21/21；`VERSION=0.6.0`；`omnicore 20/6/True/5` |
+
+### 升级路径（从 v0.5.0 起）
+
+1. `git checkout v0.6.0`，或解压 `releases/holoaeon_v0.6.0_20261030.zip`；
+2. 既有代码无需改动：`EXTRA_PACK_REGISTRY` 自动多出 `omnicore`，`EXTRA_PACK_ORDER` 变四项；
+3. 只要引擎骨架：拷 `holoaeon/packs/omnicore_pack.py` + `data/taxonomy_127.json` 即可独立运行；
+4. 回滚：切回 v0.5.0；扩展包不写宿主状态，回滚即干净。
 
 ---
 

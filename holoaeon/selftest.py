@@ -427,6 +427,144 @@ def g20_omnilife() -> Tuple[bool, str]:
     return all(checks), f"{sum(checks)}/{len(checks)} 全域生活包（18技能/0agent/6工作流/6生活域）"
 
 
+def g21_omnicore() -> Tuple[bool, str]:
+    """全息纪元·认知主权引擎包：20 技能 / 0 agent / M1-M6 / 维度不变 / 5 处修正 / 拒绝清单。"""
+    from .packs import EXTRA_PACK_ORDER, get_extra_pack
+    from .packs.omnicore_pack import (
+        pack_summary, CORRECTIONS, REFUSED_OPS, ITEMS, IDX,
+        skill_core_manifest, skill_matrix_allocate, skill_node_pool_plan,
+        skill_heartbeat_pulse, skill_breathing_budget, skill_state_checkpoint,
+        skill_state_restore, skill_lifecycle_policy, skill_task_dispatch_plan,
+        skill_a2a_envelope, skill_meridian_route, skill_hebbian_update,
+        skill_far_pairs, skill_skc_distill, skill_skin_gate,
+        skill_self_declaration, skill_whitepaper_outline, skill_degradation_plan,
+        skill_audit_receipt, skill_interop_map,
+    )
+    checks = []
+    rep = get_extra_pack("omnicore").install(Kernel())
+    checks.append(len(rep["skills"]) == 20 and len(rep["agents"]) == 0
+                  and len(rep["workflows"]) == 6
+                  and EXTRA_PACK_ORDER[-1] == "omnicore")
+
+    # 维度不变 + 锁数
+    s = pack_summary()
+    man = skill_core_manifest()
+    checks.append(s["addressing_unchanged"] is True and s["items"] == 127
+                  and man["checks_pass"] is True
+                  and man["locks"]["rows"] == 1331 and man["locks"]["nodes"] == 108641
+                  and man["locks"]["design_grid"] == 1771561
+                  and man["locks"]["subdisciplines"] * man["locks"]["slots_per"] == 1270)
+    checks.append(man["threads"] == 0 and man["disk_writes"] == 0
+                  and man["deps"] == 0 and man["network"] is False)
+
+    # 5 处修正逐条可查
+    checks.append(len(CORRECTIONS) == 5
+                  and [c["id"] for c in CORRECTIONS] == ["C1", "C2", "C3", "C4", "C5"]
+                  and all(c["fix"] and c["verified"] for c in CORRECTIONS))
+
+    # 寻址：槽位与节点分区
+    al = skill_matrix_allocate(["MATH-09", "AI-03", "MATH-09-XX"])
+    checks.append([c["code"] for c in al["allocated"]] == ["MATH-09", "AI-03"]
+                  and al["missing"] == ["MATH-09-XX"]
+                  and all(c["base_row"] == IDX[c["code"]] * 10 and len(c["rows"]) == 10
+                          for c in al["allocated"]))
+    np_ = skill_node_pool_plan(["AI-03"])
+    checks.append(np_["global_block"]["range"] == [108585, 108641]
+                  and np_["global_block"]["count"] == 56
+                  and np_["parts"][0]["count"] == 855
+                  and np_["addressing_unchanged"] is True)
+
+    # 心跳：纯函数、可复现、无线程
+    p64, p100, p256 = (skill_heartbeat_pulse(64), skill_heartbeat_pulse(100),
+                       skill_heartbeat_pulse(256))
+    checks.append(p64["distill"] is True and p100["prune"] is True
+                  and p256["checkpoint"] is True
+                  and p64["threads"] == 0 and p64["sleep"] is False
+                  and skill_heartbeat_pulse(1280)["events"] == skill_heartbeat_pulse(1280)["events"])
+    cands = [200 * i for i in range(1, 101)]
+    bursts = [e for e in cands if skill_heartbeat_pulse(e)["burst"]]
+    checks.append(2 <= (len(bursts) / len(cands)) * 100 <= 12)
+
+    # 呼吸预算
+    lo, hi = skill_breathing_budget(0.1), skill_breathing_budget(0.9)
+    checks.append(lo["mode"] == "slow_digest" and hi["mode"] == "sync_focus"
+                  and hi["tick_ms"] < lo["tick_ms"])
+
+    # 存续：快照指纹 + 篡改即拒
+    ck = skill_state_checkpoint({"matrix_cells": 6, "nodes": 60})
+    checks.append(ck["persistence"] == "host_managed" and ck["disk_writes"] == 0
+                  and skill_state_restore(ck)["accept"] is True)
+    bad = dict(ck)
+    bad["payload"] = {"matrix_cells": 7, "nodes": 60}
+    checks.append(skill_state_restore(bad)["accept"] is False)
+    pol = skill_lifecycle_policy()
+    checks.append(pol["ttl_epochs"] == 1000 and pol["probe_hint_ms"] == 5000
+                  and pol["prune_threshold"] == 0.05 and pol["threads"] == 0)
+
+    # 编排 / 通信
+    dp = skill_task_dispatch_plan("核查", ["MATH-09", "AI-03"])
+    checks.append(dp["execution"] == "plan_only" and len(dp["steps"]) == 2
+                  and dp["total_budget_units"] == 8 and dp["missing"] == [])
+    env = skill_a2a_envelope("MATH-09", "AI-03", "query", "伴随函子的边界条件", ["AI-03"])
+    env_bad = skill_a2a_envelope("MATH-09", "AI-03", "query", "帮我做个浏览器插件对接B站推荐位", ["AI-03"])
+    checks.append(env["allowed"] is True and len(env["msg_id"]) == 12
+                  and env["route"] == [[IDX["AI-03"] * 10, 0]]
+                  and env_bad["allowed"] is False)
+    mer = skill_meridian_route(["MATH-09", "AI-03", "PHIL-06", "PHYS-04"])
+    mer_bad = skill_meridian_route(["MATH-09", "NOPE-99"])
+    checks.append(mer["hops"] == 3 and len(mer["edges"]) == 3 and mer["missing"] == []
+                  and mer["api_calls"] == 0 and mer_bad["missing"] == ["NOPE-99"])
+
+    # 代谢
+    hb = skill_hebbian_update()
+    hb_prune = skill_hebbian_update(decay=0.49)
+    checks.append(all(r["w_after_coactivate"] > r["w_before"] for r in hb["updated"])
+                  and all(r["w_after_decay"] <= r["w_after_coactivate"] for r in hb["updated"])
+                  and hb["pruned_count"] == 0 and hb_prune["pruned_count"] >= 1)
+    far = skill_far_pairs(4)
+    checks.append(far["count"] == 4
+                  and all(ITEMS[p["a"]]["domain"] != ITEMS[p["b"]]["domain"] for p in far["pairs"])
+                  and all(far["pairs"][i]["distance"] >= far["pairs"][i + 1]["distance"]
+                          for i in range(len(far["pairs"]) - 1)))
+    skc = skill_skc_distill("TCM-02", "PHYS-01", 1.4)
+    skc_cs = skill_skc_distill("MATH-09", "AI-03", 1.4)
+    checks.append(skc["ok"] is True and skc["safety"]["gate"] == "skin.medical_disclaimer"
+                  and skc["safety"]["disclaimer_required"] is True
+                  and skc_cs["safety"]["gate"] is None
+                  and skc["relations"][0]["verified"] is False
+                  and bool(skc["relations"][0]["counterexample"])
+                  and skc["query_templates"][0]["anti_label_score"] == 0.68)
+    checks.append(skill_skc_distill("MATH-09", "NOPE-99")["ok"] is False)
+
+    # 闸门三态 + 绝对断言
+    g1 = skill_skin_gate("帮我做个浏览器插件对接B站推荐位")
+    g2 = skill_skin_gate("这个方子加多少剂量")
+    g3 = skill_skin_gate("整理一份学习日程")
+    g4 = skill_skin_gate("这个方案一定有效")
+    checks.append(g1["veto"] == "refused_op" and g2["veto"] == "medical_assertion"
+                  and g3["allowed"] is True and g4["veto"] == "absolute_claim"
+                  and len(REFUSED_OPS) >= 20)
+
+    # 宣告 / 白皮书 / 对照表 / 兜底 / 审计
+    dec = skill_self_declaration()
+    checks.append(dec["block_count"] == 4 and dec["metaphor"] is True
+                  and "身份边界" in dec["prompt_text"] and "拒绝清单" in dec["prompt_text"])
+    wp = skill_whitepaper_outline()
+    checks.append(wp["chapter_count"] == 7 and wp["total_words"] == 19500
+                  and all(c["points"] for c in wp["chapters"]))
+    io_ = skill_interop_map()
+    checks.append(io_["row_count"] == 20 and io_["unimplemented"] == ["沙箱隔离"])
+    dg = skill_degradation_plan()
+    checks.append(dg["level_count"] == 3 and all(l["auto"] is False for l in dg["levels"])
+                  and dg["escalate_to"] == "carbon_based_arbiter")
+    a1, a2 = skill_audit_receipt("omnicore"), skill_audit_receipt("omnicore")
+    checks.append(len(a1["fingerprint"]) == 16 and a1["fingerprint"] == a2["fingerprint"]
+                  and a1["final"] == "carbon_based_arbiter"
+                  and a1["server_metrics"] == "pending_human_measure")
+
+    return all(checks), f"{sum(checks)}/{len(checks)} 全息纪元包（20技能/0agent/6工作流/5修正/22拒绝）"
+
+
 GROUPS: List[Tuple[str, Callable[[], Tuple[bool, str]]]] = [
     ("G1 spec", g1_spec),
     ("G2 envelope", g2_envelope),
@@ -448,6 +586,7 @@ GROUPS: List[Tuple[str, Callable[[], Tuple[bool, str]]]] = [
     ("G18 sovereignty", g18_sovereignty),
     ("G19 subdistill", g19_subdistill),
     ("G20 omnilife", g20_omnilife),
+    ("G21 omnicore", g21_omnicore),
 ]
 
 

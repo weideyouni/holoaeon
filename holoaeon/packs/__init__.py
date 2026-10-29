@@ -14,6 +14,7 @@ from .optimization import OptimizationPack
 from .quant import QuantPack
 from .research import ResearchPack
 from .sovereignty_pack import SovereigntyPack
+from .omnicore_pack import OmniCorePack
 from .omnilife_pack import OmniLifePack
 from .subdistill_pack import SubdistillPack
 from .writing import WritingPack
@@ -55,9 +56,10 @@ EXTRA_PACK_REGISTRY: Dict[str, type] = {
     SovereigntyPack.key: SovereigntyPack,
     SubdistillPack.key: SubdistillPack,
     OmniLifePack.key: OmniLifePack,
+    OmniCorePack.key: OmniCorePack,
 }
 
-EXTRA_PACK_ORDER: List[str] = ["sovereignty", "subdistill", "omnilife"]
+EXTRA_PACK_ORDER: List[str] = ["sovereignty", "subdistill", "omnilife", "omnicore"]
 
 
 def get_extra_pack(key: str) -> DomainPack:

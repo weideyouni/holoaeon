@@ -169,16 +169,17 @@ HoloAeon 内置九个包，覆盖知识工作的全部谱系。全部安装后�
 自然语言请求确定性编译为本项目自定义的 HASM 汇编并由内置虚拟机执行；HASM 不是真实 CPU
 指令集，识别不到的意图如实报 `UNKNOWN`，不猜测。
 
-### 横切扩展包（第十、第十一、第十二包）
+### 横切扩展包（第十、第十一、第十二、第十三包）
 
 这些包**故意不进入 `PACK_ORDER`**：只加能力、不加 agent，因此上面九包口径
-（25 智能体 / 47 技能）保持不变。通过 `get_extra_pack(key)` 取用，由 G18 / G19 / G20 单独验证。
+（25 智能体 / 47 技能）保持不变。通过 `get_extra_pack(key)` 取用，由 G18 / G19 / G20 / G21 单独验证。
 
 | 扩展包 | 新增能力 | 技能 | 角色 | 工作流 |
 |---|---|---|---|---|
 | **sovereignty** | 反算法认知塑形：16 学科查询锻造、反标签策略、23 协议族、10 平台族 × 13 职责 | 17 | 0 | 5（R0–R4） |
 | **subdistill** | SD-Distill 亚学科辅助蒸馏：16 域 → 127 亚学科 → SKC 知识卡、七阶段管线、七项辅助损失、温度课程 | 15 | 0 | 7（S1–S7） |
 | **omnilife** | 全域生活主权：衣 / 食 / 住 / 行 / 教 / SaaS 六域，全部锚定 127 亚学科编码；皮肤层折叠诱导话术、经络层本地交接、确定性生活规划器 | 18 | 0 | 6（L1–L6） |
+| **omnicore** | 全息纪元认知引擎重写：寻址不变式、纯函数心跳、SKC 蒸馏、赫布更新、皮肤闸门、自我宣告、白皮书结构 | 20 | 0 | 6（M1–M6） |
 
 `subdistill` 保持母矩阵维度**严格不变**，并在代码里断言：
 
@@ -197,7 +198,19 @@ HoloAeon 内置九个包，覆盖知识工作的全部谱系。全部安装后�
 - 餐单带 `dose_any=False`、`individual_medical_advice=False` 与固定免责声明；
   出行在本人给的权重图上跑最短路，不取实时路况。
 
-三个包均离线、确定性、零依赖。`subdistill` 随包提供 `data/taxonomy_127.json` 的 127 项
+`omnicore` 把投喂的"单文件数字生命引擎"重写为普通确定性软件。
+**先复现、再修掉投喂代码的 5 处缺陷**（写进 `CORRECTIONS`，由 G21 断言）：
+`self._cells = profile` 静默覆盖整张稀疏表；`defaultdict` 上调 `.append`；
+空赋值 `route =` 导致 `SyntaxError`；`numpy` + `np.random` 与"零依赖"自相矛盾；
+守护线程 + sqlite 落盘 + 不存在的 PyPI 包名。重写保留设计意图、丢掉不可核验部分：
+
+- 心跳是**纯函数** `heartbeat_pulse(epoch)`：无线程、无 sleep、无定时器；
+- 快照 `persistence="host_managed"`，本包**不写盘**；
+- 5% 温度冲击用 `sha256(epoch) % 100 < 5` 替代随机源，可复现；
+- "数字生命 / 呼吸 / 免疫 / 城邦"一律标 `metaphor=True`，实证部分只是确定性软件；
+- 对接流媒体/电商推荐位的浏览器插件一律拒绝。
+
+四个包均离线、确定性、零依赖。`subdistill` 随包提供 `data/taxonomy_127.json` 的 127 项
 亚学科编码表，对每个 MED/TCM 产物强制医学免责闸门；`analogizes` 关系必须带反例，
 否则只能称“隐喻”，不得称已验证。
 
@@ -301,8 +314,8 @@ holoaeon/
 ├── hypervector.py     # HRR + 手写 FFT
 ├── model_adapter.py   # 任意 LLM 适配层
 ├── redline.py         # AST 红线扫描器
-├── selftest.py        # G1–G20 自检套件
-└── packs/             # 九大领域包（含 optimization.py、gaoyi_pack.py）+ 横切扩展包（sovereignty_pack.py、subdistill_pack.py、omnilife_pack.py）
+├── selftest.py        # G1–G21 自检套件
+└── packs/             # 九大领域包（含 optimization.py、gaoyi_pack.py）+ 横切扩展包（sovereignty_pack.py、subdistill_pack.py、omnilife_pack.py、omnicore_pack.py）
 examples/              # 四个可运行示例
 tests/                 # unittest 套件
 scripts/               # 红线扫描与本地启动器
@@ -331,7 +344,7 @@ ALGORITHM.md           # 认知优化与自组织搜索
 ## 测试
 
 ```bash
-# 自检套件（G1–G20）
+# 自检套件（G1–G21）
 python -c "from holoaeon.selftest import run_all; print(run_all(verbose=True))"
 
 # 单元测试
@@ -341,7 +354,7 @@ python -m unittest discover -s tests -v
 python scripts/redline_scan.py
 ```
 
-当前状态：**20/20 自检组通过**、**25 个单元测试通过**、红线扫描对全部源文件报告
+当前状态：**21/21 自检组通过**、**25 个单元测试通过**、红线扫描对全部源文件报告
 **零违规**。
 
 ---
@@ -367,10 +380,13 @@ HoloAeon 不试图替代 LangChain、LlamaIndex、AutoGen、CrewAI、Semantic Ke
   **subdistill**（SD-Distill：127 亚学科、七阶段蒸馏、七项辅助损失、C1–C4 温度课程）；
   九包核心的 25 智能体 / 47 技能口径保持不变。
 - **v0.5**——第三个横切扩展包：**omnilife**（全域生活主权：衣 / 食 / 住 / 行 / 教 / SaaS，
-  18 技能、0 agent、L1–L6）；不新增行与节点，设计上拒绝并发探测、代理切换与 DOM 注入（当前）。
-- **v0.6**——可插拔持久化后端与节点间总线传输。
-- **v0.7**——声明式图/拓扑定义与包创作工具包。
-- **v0.8**——面向主流开源权重模型服务器的参考适配器。
+  18 技能、0 agent、L1–L6）；不新增行与节点，设计上拒绝并发探测、代理切换与 DOM 注入。
+- **v0.6**——第四个横切扩展包：**omnicore**（把投喂的 Omni-Core 引擎重写为确定性软件；
+  20 技能、0 agent、M1–M6）。复现并修掉投喂代码 5 处缺陷；纯函数心跳、快照交宿主持久化、
+  全篇 `metaphor=True`（当前）。
+- **v0.7**——可插拔持久化后端与节点间总线传输。
+- **v0.8**——声明式图/拓扑定义与包创作工具包。
+- **v0.9**——面向主流开源权重模型服务器的参考适配器。
 - **v1.0**——稳定认知框架，API 冻结，文档完整。
 
 ---
