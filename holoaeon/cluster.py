@@ -61,9 +61,9 @@ class Cluster:
     def __init__(self, agents: List[Agent]):
         if not agents:
             raise ValueError("Cluster 至少需要一个 Agent")
-        self.workers: Dict[str, ActorWorker] = {}
-        for a in agents:
-            self.workers[a.agent_id] = ActorWorker(a)
+        self.workers: Dict[str, ActorWorker] = {
+            a.agent_id: ActorWorker(a) for a in agents
+        }
         self.results: "queue.Queue[dict]" = queue.Queue()
         self._lock = threading.Lock()
 
