@@ -19,7 +19,7 @@ def main() -> None:
     # 1) 主题订阅：多个订阅者
     log = []
     bus.subscribe("task.new", lambda env: log.append(("sub", env.payload)))
-    bus.subscribe("task.new", lambda lambda env: log.append(("audit", env.payload)))
+    bus.subscribe("task.new", lambda env: log.append(("audit", env.payload)))
 
     # 2) 直接寻址：注册一个地址
     bus.register_address("executor", lambda env: f"executed:{env.payload['task']}")

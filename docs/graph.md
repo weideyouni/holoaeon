@@ -21,7 +21,6 @@
 | `shortest_path(a, b)` | Dijkstra 最短路，先验流边作为引导 |
 | `apply_load({node: load})` | 施加负载（裁剪到 0–1） |
 | `fan_in(node)` | 入边数量 |
-| `fan_in(node)` | 入边数量 |
 | `bottleneck()` | fan-in 最大且负载最高的节点 |
 | `detect_cycles()` | 反馈环检测（六边形天然含环） |
 | `hebbian_step(active)` | 共激活节点强化共享边 |
