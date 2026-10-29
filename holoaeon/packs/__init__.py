@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""HoloAeon 九大领域包注册表。"""
+"""HoloAeon 九大领域包注册表 + 横切扩展包（第十包：认知主权；第十一包：SD-Distill 亚学科蒸馏）。"""
 from __future__ import annotations
 
 from typing import Dict, List
@@ -13,6 +13,8 @@ from .literature import LiteraturePack
 from .optimization import OptimizationPack
 from .quant import QuantPack
 from .research import ResearchPack
+from .sovereignty_pack import SovereigntyPack
+from .subdistill_pack import SubdistillPack
 from .writing import WritingPack
 
 # 九大领域包（每次调用返回新实例，避免共享状态）
@@ -42,3 +44,25 @@ def get_pack(key: str) -> DomainPack:
 
 def all_packs() -> List[DomainPack]:
     return [PACK_REGISTRY[k]() for k in PACK_ORDER]
+
+
+# ------------------------------------------------------------------------------------
+# 横切扩展包（第十包起）：**不进 PACK_ORDER**，故不改变 G15 的 n_agents==25 / n_skills==47
+# 断言；由 G18 单独验证，也可显式 get_extra_pack("sovereignty") 取用。
+# ------------------------------------------------------------------------------------
+EXTRA_PACK_REGISTRY: Dict[str, type] = {
+    SovereigntyPack.key: SovereigntyPack,
+    SubdistillPack.key: SubdistillPack,
+}
+
+EXTRA_PACK_ORDER: List[str] = ["sovereignty", "subdistill"]
+
+
+def get_extra_pack(key: str) -> DomainPack:
+    if key not in EXTRA_PACK_REGISTRY:
+        raise KeyError(f"未知扩展包：{key}，可选：{EXTRA_PACK_ORDER}")
+    return EXTRA_PACK_REGISTRY[key]()
+
+
+def all_extra_packs() -> List[DomainPack]:
+    return [EXTRA_PACK_REGISTRY[k]() for k in EXTRA_PACK_ORDER]

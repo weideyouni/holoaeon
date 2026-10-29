@@ -3,6 +3,56 @@
 本项目遵循 [Keep a Changelog](https://keepachangelog.com/) 格式，
 并遵循语义化版本（Semantic Versioning）。
 
+## [0.4.0] - 2026-10-30
+
+### 新增
+
+- **SD-Distill 亚学科辅助蒸馏扩展包**（`holoaeon/packs/subdistill_pack.py`），第十一个包，
+  经 `EXTRA_PACK_REGISTRY` 挂载（不进 `PACK_ORDER`）：
+  - 16 宏观域下切 **127 亚学科**，随包提供 `data/taxonomy_127.json`（127 项编码 + 术语种子）；
+  - 15 个技能：分类 3（`taxonomy_encode / nearest / far_pairs`）+ 教师卡 1 + 七阶段 5 可见阶段技能
+    （`s1_acquire / s2_parse / s3_concept / s4_relate / s5_align / s6_distill / s7_commit`）
+    + 七项损失 1 + 温度课程 1 + 反标签 1 + SKC 校验 1；
+  - 7 条工作流：`S1_acquire → S2_parse → S3_concept → S4_relate → S5_align → S6_distill → S7_commit`；
+  - 0 个角色：`roles = []`，不新增 agent。
+- **维度不变式**：`127 × 10 + 61 = 1331` 行、`127 × 855 + 56 = 108641` 节点，写进
+  `pack_summary()` 并在 `G19` 中断言；母体 12 项锁数一个不动。
+- **安全闸门**：MED / TCM 产物强制 `skin.medical_disclaimer` 与免责声明；`analogizes`
+  关系必须带反例；禁用断言 `诊断 / 处方 / 疗效承诺` 由 `skc_validate` 拦截。
+- **系统型说明文档** `SYSTEM_README.md`：描述"内核 + 两个扩展包"的系统边界、维度不变式、
+  冷热插拔契约、验证矩阵与版本纪律。
+
+### 变更
+
+- `spec.py`：`VERSION 0.3.1 → 0.4.0`，`MATRIX_ID / RUNTIME_ID` 同步为 `0.4.0`。
+- `packs/__init__.py`：`EXTRA_PACK_REGISTRY` 增加 `subdistill`，`EXTRA_PACK_ORDER`
+  变为 `["sovereignty", "subdistill"]`。
+- `selftest.py`：G18 改为只对 `sovereignty` 包计数（避免扩展包数量增长打穿 `17/0/5` 断言），
+  新增 `G19 subdistill`（17 条断言）。
+- `README.md` / `README.zh-CN.md`：新增"横切扩展包（第十、第十一包）"章节，自检口径更新为 19/19。
+
+### 质量保障
+
+- 自检套件扩展为 **G1–G19（19/19 通过）**；
+- 单元测试保持 25 个（全部通过）；
+- 红线扫描保持零违规；
+- 发行包解压复跑：19/19 通过，`taxonomy_loaded=True`、`items=127`。
+
+## [0.3.1] - 2026-10-30
+
+### 新增
+
+- **认知主权扩展包**（`holoaeon/packs/sovereignty_pack.py`），第十个包，经
+  `EXTRA_PACK_REGISTRY` 挂载（不进 `PACK_ORDER`）：
+  - 17 个技能 = 17 条认知主权通道（`SO-01…SO-17`）；
+  - 5 条工作流：`R0_encoding / R1_forging / R2_strategy / R3_interop / R4_compliance`；
+  - 0 个角色；平台侧指标一律 `pending_human_measure`，执行列恒为 `human_manual`。
+
+### 质量保障
+
+- 自检套件扩展为 G1–G18（18/18 通过），新增 `G18 sovereignty`（6 条断言）；
+- 红线扫描保持零违规；九包核心 `25 agents / 47 skills` 断言未被破坏。
+
 ## [0.3.0] - 2026-10-29
 
 ### 新增

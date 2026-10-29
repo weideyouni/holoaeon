@@ -27,12 +27,12 @@ from typing import Tuple
 # ============================================================ 身份
 PKG_NAME = "holoaeon"
 PACKAGE_NAME = PKG_NAME
-VERSION = "0.3.0"
-MATRIX_ID = "HOLOAEON-MATRIX-0.3.0"
-RUNTIME_ID = "HOLOAEON-RUNTIME-0.3.0"
+VERSION = "0.4.0"
+MATRIX_ID = "HOLOAEON-MATRIX-0.4.0"
+RUNTIME_ID = "HOLOAEON-RUNTIME-0.4.0"
 PROTOCOL_ID = "HOLOAEON-DATAPROTO v1.0"
 BUS_ID = "HOLOAEON-BUS-v1.0"
-DATE = "2026-10-29"
+DATE = "2026-10-30"
 
 # 门禁令牌（本地边界演示用；非安全密钥，不应在真实部署中当作鉴权）
 GATE_OPEN = "holoaeon-gate-open"

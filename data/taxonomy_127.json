@@ -1,0 +1,1353 @@
+{
+  "meta": {
+    "module": "SD-Distill",
+    "matrix_id": "SG-MASTER-COGNITIVE-SOVEREIGNTY-1331x1331-SUPER-MAS-V3.1",
+    "version": "V3.1.0",
+    "date": "2026-10-30",
+    "count": 127,
+    "domains": 16,
+    "slots_per_subdiscipline": 10,
+    "reserved_slots": 61,
+    "nodes_per_subdiscipline": 855,
+    "global_coordinator_nodes": 56,
+    "seal": "潮起开门，潮落闭嘴"
+  },
+  "domains": [
+    {
+      "key": "MATH",
+      "count": 10
+    },
+    {
+      "key": "LOGIC",
+      "count": 8
+    },
+    {
+      "key": "CS",
+      "count": 8
+    },
+    {
+      "key": "PHYS",
+      "count": 10
+    },
+    {
+      "key": "BIO",
+      "count": 8
+    },
+    {
+      "key": "MED",
+      "count": 8
+    },
+    {
+      "key": "PHIL",
+      "count": 8
+    },
+    {
+      "key": "HIST",
+      "count": 8
+    },
+    {
+      "key": "LIT",
+      "count": 7
+    },
+    {
+      "key": "AEST",
+      "count": 7
+    },
+    {
+      "key": "SEMI",
+      "count": 7
+    },
+    {
+      "key": "SOC",
+      "count": 8
+    },
+    {
+      "key": "TCM",
+      "count": 8
+    },
+    {
+      "key": "AI",
+      "count": 8
+    },
+    {
+      "key": "FUT",
+      "count": 7
+    },
+    {
+      "key": "SF",
+      "count": 7
+    }
+  ],
+  "items": [
+    {
+      "code": "MATH-01",
+      "domain": "MATH",
+      "domain_cn": "数学",
+      "name": "数论与素数分布",
+      "seeds": [
+        "素数定理",
+        "黎曼猜想"
+      ]
+    },
+    {
+      "code": "MATH-02",
+      "domain": "MATH",
+      "domain_cn": "数学",
+      "name": "代数与表示论",
+      "seeds": [
+        "群论",
+        "李代数"
+      ]
+    },
+    {
+      "code": "MATH-03",
+      "domain": "MATH",
+      "domain_cn": "数学",
+      "name": "拓扑与几何",
+      "seeds": [
+        "同胚",
+        "流形"
+      ]
+    },
+    {
+      "code": "MATH-04",
+      "domain": "MATH",
+      "domain_cn": "数学",
+      "name": "分析与泛函",
+      "seeds": [
+        "测度",
+        "算子"
+      ]
+    },
+    {
+      "code": "MATH-05",
+      "domain": "MATH",
+      "domain_cn": "数学",
+      "name": "概率与随机过程",
+      "seeds": [
+        "鞅",
+        "布朗运动"
+      ]
+    },
+    {
+      "code": "MATH-06",
+      "domain": "MATH",
+      "domain_cn": "数学",
+      "name": "组合与图论",
+      "seeds": [
+        "极值组合",
+        "匹配"
+      ]
+    },
+    {
+      "code": "MATH-07",
+      "domain": "MATH",
+      "domain_cn": "数学",
+      "name": "信息论与编码",
+      "seeds": [
+        "熵",
+        "纠错码"
+      ]
+    },
+    {
+      "code": "MATH-08",
+      "domain": "MATH",
+      "domain_cn": "数学",
+      "name": "优化与变分",
+      "seeds": [
+        "凸优化",
+        "变分法"
+      ]
+    },
+    {
+      "code": "MATH-09",
+      "domain": "MATH",
+      "domain_cn": "数学",
+      "name": "范畴论与同调",
+      "seeds": [
+        "伴随函子",
+        "导出函子"
+      ]
+    },
+    {
+      "code": "MATH-10",
+      "domain": "MATH",
+      "domain_cn": "数学",
+      "name": "计算数学与数值方法",
+      "seeds": [
+        "有限元",
+        "谱方法"
+      ]
+    },
+    {
+      "code": "LOGIC-01",
+      "domain": "LOGIC",
+      "domain_cn": "逻辑学",
+      "name": "经典数理逻辑",
+      "seeds": [
+        "命题演算",
+        "一阶逻辑"
+      ]
+    },
+    {
+      "code": "LOGIC-02",
+      "domain": "LOGIC",
+      "domain_cn": "逻辑学",
+      "name": "模态与时态逻辑",
+      "seeds": [
+        "可能世界",
+        "Kripke语义"
+      ]
+    },
+    {
+      "code": "LOGIC-03",
+      "domain": "LOGIC",
+      "domain_cn": "逻辑学",
+      "name": "直觉主义与构造性逻辑",
+      "seeds": [
+        "BHK解释",
+        "可实现性"
+      ]
+    },
+    {
+      "code": "LOGIC-04",
+      "domain": "LOGIC",
+      "domain_cn": "逻辑学",
+      "name": "证明论与类型论",
+      "seeds": [
+        "切消",
+        "依赖类型"
+      ]
+    },
+    {
+      "code": "LOGIC-05",
+      "domain": "LOGIC",
+      "domain_cn": "逻辑学",
+      "name": "模型论",
+      "seeds": [
+        "紧致性",
+        "超积"
+      ]
+    },
+    {
+      "code": "LOGIC-06",
+      "domain": "LOGIC",
+      "domain_cn": "逻辑学",
+      "name": "递归论与可计算性",
+      "seeds": [
+        "图灵机",
+        "不可判定"
+      ]
+    },
+    {
+      "code": "LOGIC-07",
+      "domain": "LOGIC",
+      "domain_cn": "逻辑学",
+      "name": "非经典与模糊逻辑",
+      "seeds": [
+        "三值逻辑",
+        "粗糙集"
+      ]
+    },
+    {
+      "code": "LOGIC-08",
+      "domain": "LOGIC",
+      "domain_cn": "逻辑学",
+      "name": "悖论与自指",
+      "seeds": [
+        "说谎者",
+        "哥德尔句"
+      ]
+    },
+    {
+      "code": "CS-01",
+      "domain": "CS",
+      "domain_cn": "计算机科学",
+      "name": "计算复杂度",
+      "seeds": [
+        "P与NP",
+        "归约"
+      ]
+    },
+    {
+      "code": "CS-02",
+      "domain": "CS",
+      "domain_cn": "计算机科学",
+      "name": "编程语言与编译",
+      "seeds": [
+        "类型系统",
+        "SSA"
+      ]
+    },
+    {
+      "code": "CS-03",
+      "domain": "CS",
+      "domain_cn": "计算机科学",
+      "name": "分布式与共识",
+      "seeds": [
+        "Raft",
+        "一致性"
+      ]
+    },
+    {
+      "code": "CS-04",
+      "domain": "CS",
+      "domain_cn": "计算机科学",
+      "name": "数据库与信息检索",
+      "seeds": [
+        "索引",
+        "查询优化"
+      ]
+    },
+    {
+      "code": "CS-05",
+      "domain": "CS",
+      "domain_cn": "计算机科学",
+      "name": "图形学与计算机视觉",
+      "seeds": [
+        "渲染",
+        "特征匹配"
+      ]
+    },
+    {
+      "code": "CS-06",
+      "domain": "CS",
+      "domain_cn": "计算机科学",
+      "name": "密码学与系统安全",
+      "seeds": [
+        "零知识",
+        "形式化验证"
+      ]
+    },
+    {
+      "code": "CS-07",
+      "domain": "CS",
+      "domain_cn": "计算机科学",
+      "name": "体系结构与并行计算",
+      "seeds": [
+        "缓存一致",
+        "向量化"
+      ]
+    },
+    {
+      "code": "CS-08",
+      "domain": "CS",
+      "domain_cn": "计算机科学",
+      "name": "形式验证",
+      "seeds": [
+        "模型检验",
+        "精化"
+      ]
+    },
+    {
+      "code": "PHYS-01",
+      "domain": "PHYS",
+      "domain_cn": "物理学",
+      "name": "经典力学与连续介质",
+      "seeds": [
+        "哈密顿",
+        "弹性"
+      ]
+    },
+    {
+      "code": "PHYS-02",
+      "domain": "PHYS",
+      "domain_cn": "物理学",
+      "name": "电磁与场论",
+      "seeds": [
+        "麦克斯韦",
+        "规范场"
+      ]
+    },
+    {
+      "code": "PHYS-03",
+      "domain": "PHYS",
+      "domain_cn": "物理学",
+      "name": "热力学与统计物理",
+      "seeds": [
+        "配分函数",
+        "熵"
+      ]
+    },
+    {
+      "code": "PHYS-04",
+      "domain": "PHYS",
+      "domain_cn": "物理学",
+      "name": "量子力学与量子信息",
+      "seeds": [
+        "密度矩阵",
+        "纠缠"
+      ]
+    },
+    {
+      "code": "PHYS-05",
+      "domain": "PHYS",
+      "domain_cn": "物理学",
+      "name": "相对论与引力",
+      "seeds": [
+        "测地线",
+        "黑洞"
+      ]
+    },
+    {
+      "code": "PHYS-06",
+      "domain": "PHYS",
+      "domain_cn": "物理学",
+      "name": "凝聚态与材料",
+      "seeds": [
+        "能带",
+        "超导"
+      ]
+    },
+    {
+      "code": "PHYS-07",
+      "domain": "PHYS",
+      "domain_cn": "物理学",
+      "name": "粒子与核物理",
+      "seeds": [
+        "标准模型",
+        "衰变"
+      ]
+    },
+    {
+      "code": "PHYS-08",
+      "domain": "PHYS",
+      "domain_cn": "物理学",
+      "name": "天体与宇宙学",
+      "seeds": [
+        "红移",
+        "暗能量"
+      ]
+    },
+    {
+      "code": "PHYS-09",
+      "domain": "PHYS",
+      "domain_cn": "物理学",
+      "name": "非线性与混沌",
+      "seeds": [
+        "吸引子",
+        "分岔"
+      ]
+    },
+    {
+      "code": "PHYS-10",
+      "domain": "PHYS",
+      "domain_cn": "物理学",
+      "name": "生物物理与量子生物",
+      "seeds": [
+        "膜电位",
+        "相干态"
+      ]
+    },
+    {
+      "code": "BIO-01",
+      "domain": "BIO",
+      "domain_cn": "生物学",
+      "name": "分子与细胞",
+      "seeds": [
+        "蛋白质折叠",
+        "细胞周期"
+      ]
+    },
+    {
+      "code": "BIO-02",
+      "domain": "BIO",
+      "domain_cn": "生物学",
+      "name": "遗传与表观遗传",
+      "seeds": [
+        "甲基化",
+        "染色质"
+      ]
+    },
+    {
+      "code": "BIO-03",
+      "domain": "BIO",
+      "domain_cn": "生物学",
+      "name": "微生物与免疫",
+      "seeds": [
+        "T细胞",
+        "菌群"
+      ]
+    },
+    {
+      "code": "BIO-04",
+      "domain": "BIO",
+      "domain_cn": "生物学",
+      "name": "神经科学与可塑性",
+      "seeds": [
+        "突触",
+        "长时程增强"
+      ]
+    },
+    {
+      "code": "BIO-05",
+      "domain": "BIO",
+      "domain_cn": "生物学",
+      "name": "发育与进化",
+      "seeds": [
+        "形态发生",
+        "选择压力"
+      ]
+    },
+    {
+      "code": "BIO-06",
+      "domain": "BIO",
+      "domain_cn": "生物学",
+      "name": "生态与系统生物学",
+      "seeds": [
+        "食物网",
+        "稳态"
+      ]
+    },
+    {
+      "code": "BIO-07",
+      "domain": "BIO",
+      "domain_cn": "生物学",
+      "name": "结构生物与生物信息",
+      "seeds": [
+        "晶体学",
+        "序列比对"
+      ]
+    },
+    {
+      "code": "BIO-08",
+      "domain": "BIO",
+      "domain_cn": "生物学",
+      "name": "合成生物与生物工程",
+      "seeds": [
+        "基因线路",
+        "底盘细胞"
+      ]
+    },
+    {
+      "code": "MED-01",
+      "domain": "MED",
+      "domain_cn": "医学",
+      "name": "解剖与生理",
+      "seeds": [
+        "器官系统",
+        "稳态"
+      ]
+    },
+    {
+      "code": "MED-02",
+      "domain": "MED",
+      "domain_cn": "医学",
+      "name": "病理与发病机制",
+      "seeds": [
+        "炎症",
+        "凋亡"
+      ]
+    },
+    {
+      "code": "MED-03",
+      "domain": "MED",
+      "domain_cn": "医学",
+      "name": "药理与毒理",
+      "seeds": [
+        "受体",
+        "药代"
+      ]
+    },
+    {
+      "code": "MED-04",
+      "domain": "MED",
+      "domain_cn": "医学",
+      "name": "影像与诊断",
+      "seeds": [
+        "分割",
+        "征象"
+      ]
+    },
+    {
+      "code": "MED-05",
+      "domain": "MED",
+      "domain_cn": "医学",
+      "name": "循证与流行病学",
+      "seeds": [
+        "随机对照试验",
+        "偏倚"
+      ]
+    },
+    {
+      "code": "MED-06",
+      "domain": "MED",
+      "domain_cn": "医学",
+      "name": "临床专科与诊疗逻辑",
+      "seeds": [
+        "鉴别诊断",
+        "临床路径"
+      ]
+    },
+    {
+      "code": "MED-07",
+      "domain": "MED",
+      "domain_cn": "医学",
+      "name": "康复与功能医学",
+      "seeds": [
+        "运动处方",
+        "功能评定"
+      ]
+    },
+    {
+      "code": "MED-08",
+      "domain": "MED",
+      "domain_cn": "医学",
+      "name": "公共卫生与医学伦理",
+      "seeds": [
+        "筛查",
+        "知情同意"
+      ]
+    },
+    {
+      "code": "PHIL-01",
+      "domain": "PHIL",
+      "domain_cn": "哲学",
+      "name": "形而上与存在论",
+      "seeds": [
+        "本体",
+        "因果"
+      ]
+    },
+    {
+      "code": "PHIL-02",
+      "domain": "PHIL",
+      "domain_cn": "哲学",
+      "name": "认识论与科学哲学",
+      "seeds": [
+        "证伪",
+        "范式"
+      ]
+    },
+    {
+      "code": "PHIL-03",
+      "domain": "PHIL",
+      "domain_cn": "哲学",
+      "name": "伦理与政治哲学",
+      "seeds": [
+        "义务论",
+        "正义"
+      ]
+    },
+    {
+      "code": "PHIL-04",
+      "domain": "PHIL",
+      "domain_cn": "哲学",
+      "name": "现象学与诠释学",
+      "seeds": [
+        "意向性",
+        "视域"
+      ]
+    },
+    {
+      "code": "PHIL-05",
+      "domain": "PHIL",
+      "domain_cn": "哲学",
+      "name": "语言与心灵哲学",
+      "seeds": [
+        "指称",
+        "意识"
+      ]
+    },
+    {
+      "code": "PHIL-06",
+      "domain": "PHIL",
+      "domain_cn": "哲学",
+      "name": "数学哲学与逻辑哲学",
+      "seeds": [
+        "柏拉图主义",
+        "构造性"
+      ]
+    },
+    {
+      "code": "PHIL-07",
+      "domain": "PHIL",
+      "domain_cn": "哲学",
+      "name": "技术哲学与AI伦理",
+      "seeds": [
+        "对齐",
+        "自主性"
+      ]
+    },
+    {
+      "code": "PHIL-08",
+      "domain": "PHIL",
+      "domain_cn": "哲学",
+      "name": "东方哲学",
+      "seeds": [
+        "性空",
+        "中庸"
+      ]
+    },
+    {
+      "code": "HIST-01",
+      "domain": "HIST",
+      "domain_cn": "历史与考古",
+      "name": "史学理论与方法",
+      "seeds": [
+        "史料批判",
+        "长时段"
+      ]
+    },
+    {
+      "code": "HIST-02",
+      "domain": "HIST",
+      "domain_cn": "历史与考古",
+      "name": "中国史",
+      "seeds": [
+        "断代",
+        "制度史"
+      ]
+    },
+    {
+      "code": "HIST-03",
+      "domain": "HIST",
+      "domain_cn": "历史与考古",
+      "name": "世界史与全球史",
+      "seeds": [
+        "比较史",
+        "殖民"
+      ]
+    },
+    {
+      "code": "HIST-04",
+      "domain": "HIST",
+      "domain_cn": "历史与考古",
+      "name": "考古与物质文化",
+      "seeds": [
+        "层位",
+        "类型学"
+      ]
+    },
+    {
+      "code": "HIST-05",
+      "domain": "HIST",
+      "domain_cn": "历史与考古",
+      "name": "古文字与碑铭",
+      "seeds": [
+        "甲骨",
+        "释读"
+      ]
+    },
+    {
+      "code": "HIST-06",
+      "domain": "HIST",
+      "domain_cn": "历史与考古",
+      "name": "科技史与知识史",
+      "seeds": [
+        "发明",
+        "传播"
+      ]
+    },
+    {
+      "code": "HIST-07",
+      "domain": "HIST",
+      "domain_cn": "历史与考古",
+      "name": "社会史与日常史",
+      "seeds": [
+        "微观史",
+        "心态史"
+      ]
+    },
+    {
+      "code": "HIST-08",
+      "domain": "HIST",
+      "domain_cn": "历史与考古",
+      "name": "数字人文与计量史",
+      "seeds": [
+        "文本挖掘",
+        "地理信息"
+      ]
+    },
+    {
+      "code": "LIT-01",
+      "domain": "LIT",
+      "domain_cn": "文学",
+      "name": "叙事学与文体",
+      "seeds": [
+        "视角",
+        "叙事时间"
+      ]
+    },
+    {
+      "code": "LIT-02",
+      "domain": "LIT",
+      "domain_cn": "文学",
+      "name": "诗学与韵律",
+      "seeds": [
+        "格律",
+        "意象"
+      ]
+    },
+    {
+      "code": "LIT-03",
+      "domain": "LIT",
+      "domain_cn": "文学",
+      "name": "戏剧与表演文本",
+      "seeds": [
+        "场面",
+        "潜台词"
+      ]
+    },
+    {
+      "code": "LIT-04",
+      "domain": "LIT",
+      "domain_cn": "文学",
+      "name": "比较文学与翻译",
+      "seeds": [
+        "可译性",
+        "影响"
+      ]
+    },
+    {
+      "code": "LIT-05",
+      "domain": "LIT",
+      "domain_cn": "文学",
+      "name": "文学批评与理论",
+      "seeds": [
+        "结构主义",
+        "解构"
+      ]
+    },
+    {
+      "code": "LIT-06",
+      "domain": "LIT",
+      "domain_cn": "文学",
+      "name": "现当代与科幻文学",
+      "seeds": [
+        "现代性",
+        "叙事原型"
+      ]
+    },
+    {
+      "code": "LIT-07",
+      "domain": "LIT",
+      "domain_cn": "文学",
+      "name": "古典文献与版本学",
+      "seeds": [
+        "校勘",
+        "目录"
+      ]
+    },
+    {
+      "code": "AEST-01",
+      "domain": "AEST",
+      "domain_cn": "美学",
+      "name": "美学史与范畴",
+      "seeds": [
+        "崇高",
+        "优美"
+      ]
+    },
+    {
+      "code": "AEST-02",
+      "domain": "AEST",
+      "domain_cn": "美学",
+      "name": "艺术理论与形式分析",
+      "seeds": [
+        "构图",
+        "形式"
+      ]
+    },
+    {
+      "code": "AEST-03",
+      "domain": "AEST",
+      "domain_cn": "美学",
+      "name": "音乐与时间艺术",
+      "seeds": [
+        "节奏",
+        "和声"
+      ]
+    },
+    {
+      "code": "AEST-04",
+      "domain": "AEST",
+      "domain_cn": "美学",
+      "name": "视觉与空间艺术",
+      "seeds": [
+        "色彩",
+        "透视"
+      ]
+    },
+    {
+      "code": "AEST-05",
+      "domain": "AEST",
+      "domain_cn": "美学",
+      "name": "媒介与数字美学",
+      "seeds": [
+        "界面",
+        "沉浸"
+      ]
+    },
+    {
+      "code": "AEST-06",
+      "domain": "AEST",
+      "domain_cn": "美学",
+      "name": "生成与算法美学",
+      "seeds": [
+        "涌现",
+        "参数化"
+      ]
+    },
+    {
+      "code": "AEST-07",
+      "domain": "AEST",
+      "domain_cn": "美学",
+      "name": "审美认知与神经美学",
+      "seeds": [
+        "知觉",
+        "偏好"
+      ]
+    },
+    {
+      "code": "SEMI-01",
+      "domain": "SEMI",
+      "domain_cn": "符号学",
+      "name": "结构符号学",
+      "seeds": [
+        "二元对立",
+        "组合与聚合"
+      ]
+    },
+    {
+      "code": "SEMI-02",
+      "domain": "SEMI",
+      "domain_cn": "符号学",
+      "name": "皮尔士符号与溯因",
+      "seeds": [
+        "像似",
+        "索引"
+      ]
+    },
+    {
+      "code": "SEMI-03",
+      "domain": "SEMI",
+      "domain_cn": "符号学",
+      "name": "语义与语用",
+      "seeds": [
+        "预设",
+        "言语行为"
+      ]
+    },
+    {
+      "code": "SEMI-04",
+      "domain": "SEMI",
+      "domain_cn": "符号学",
+      "name": "多模态与视觉符号",
+      "seeds": [
+        "图像语法",
+        "视线"
+      ]
+    },
+    {
+      "code": "SEMI-05",
+      "domain": "SEMI",
+      "domain_cn": "符号学",
+      "name": "文化符号与神话",
+      "seeds": [
+        "神话素",
+        "仪式"
+      ]
+    },
+    {
+      "code": "SEMI-06",
+      "domain": "SEMI",
+      "domain_cn": "符号学",
+      "name": "形式语义与知识表示",
+      "seeds": [
+        "真值",
+        "本体"
+      ]
+    },
+    {
+      "code": "SEMI-07",
+      "domain": "SEMI",
+      "domain_cn": "符号学",
+      "name": "机器符号与提示语义",
+      "seeds": [
+        "指令",
+        "对齐"
+      ]
+    },
+    {
+      "code": "SOC-01",
+      "domain": "SOC",
+      "domain_cn": "社会学",
+      "name": "社会理论与范式",
+      "seeds": [
+        "结构功能",
+        "符号互动"
+      ]
+    },
+    {
+      "code": "SOC-02",
+      "domain": "SOC",
+      "domain_cn": "社会学",
+      "name": "社会网络与结构",
+      "seeds": [
+        "弱连接",
+        "中心性"
+      ]
+    },
+    {
+      "code": "SOC-03",
+      "domain": "SOC",
+      "domain_cn": "社会学",
+      "name": "组织与制度",
+      "seeds": [
+        "科层",
+        "制度变迁"
+      ]
+    },
+    {
+      "code": "SOC-04",
+      "domain": "SOC",
+      "domain_cn": "社会学",
+      "name": "城市与空间",
+      "seeds": [
+        "区位",
+        "空间生产"
+      ]
+    },
+    {
+      "code": "SOC-05",
+      "domain": "SOC",
+      "domain_cn": "社会学",
+      "name": "媒介与传播社会学",
+      "seeds": [
+        "议程设置",
+        "沉默螺旋"
+      ]
+    },
+    {
+      "code": "SOC-06",
+      "domain": "SOC",
+      "domain_cn": "社会学",
+      "name": "教育与知识传播",
+      "seeds": [
+        "课程",
+        "知识分工"
+      ]
+    },
+    {
+      "code": "SOC-07",
+      "domain": "SOC",
+      "domain_cn": "社会学",
+      "name": "计算社会科学与行为数据",
+      "seeds": [
+        "主体建模",
+        "因果推断"
+      ]
+    },
+    {
+      "code": "SOC-08",
+      "domain": "SOC",
+      "domain_cn": "社会学",
+      "name": "性别与阶层",
+      "seeds": [
+        "交叉性",
+        "社会流动"
+      ]
+    },
+    {
+      "code": "TCM-01",
+      "domain": "TCM",
+      "domain_cn": "中医",
+      "name": "基础理论",
+      "seeds": [
+        "阴阳",
+        "藏象"
+      ]
+    },
+    {
+      "code": "TCM-02",
+      "domain": "TCM",
+      "domain_cn": "中医",
+      "name": "经络与腧穴",
+      "seeds": [
+        "十二经",
+        "得气"
+      ]
+    },
+    {
+      "code": "TCM-03",
+      "domain": "TCM",
+      "domain_cn": "中医",
+      "name": "病因病机与辨证",
+      "seeds": [
+        "六淫",
+        "八纲"
+      ]
+    },
+    {
+      "code": "TCM-04",
+      "domain": "TCM",
+      "domain_cn": "中医",
+      "name": "方药与配伍",
+      "seeds": [
+        "君臣佐使",
+        "方证"
+      ]
+    },
+    {
+      "code": "TCM-05",
+      "domain": "TCM",
+      "domain_cn": "中医",
+      "name": "针灸与外治",
+      "seeds": [
+        "刺法",
+        "灸法"
+      ]
+    },
+    {
+      "code": "TCM-06",
+      "domain": "TCM",
+      "domain_cn": "中医",
+      "name": "经典文献",
+      "seeds": [
+        "内经",
+        "伤寒论"
+      ]
+    },
+    {
+      "code": "TCM-07",
+      "domain": "TCM",
+      "domain_cn": "中医",
+      "name": "治未病与养生",
+      "seeds": [
+        "四时",
+        "导引"
+      ]
+    },
+    {
+      "code": "TCM-08",
+      "domain": "TCM",
+      "domain_cn": "中医",
+      "name": "中西医结合与现代化研究",
+      "seeds": [
+        "病证结合",
+        "循证"
+      ]
+    },
+    {
+      "code": "AI-01",
+      "domain": "AI",
+      "domain_cn": "人工智能",
+      "name": "机器学习基础",
+      "seeds": [
+        "偏差方差",
+        "正则化"
+      ]
+    },
+    {
+      "code": "AI-02",
+      "domain": "AI",
+      "domain_cn": "人工智能",
+      "name": "深度学习与表示学习",
+      "seeds": [
+        "反向传播",
+        "表征"
+      ]
+    },
+    {
+      "code": "AI-03",
+      "domain": "AI",
+      "domain_cn": "人工智能",
+      "name": "大模型与对齐",
+      "seeds": [
+        "预训练",
+        "RLHF"
+      ]
+    },
+    {
+      "code": "AI-04",
+      "domain": "AI",
+      "domain_cn": "人工智能",
+      "name": "多模态与生成",
+      "seeds": [
+        "扩散模型",
+        "跨模态"
+      ]
+    },
+    {
+      "code": "AI-05",
+      "domain": "AI",
+      "domain_cn": "人工智能",
+      "name": "强化学习与决策",
+      "seeds": [
+        "策略梯度",
+        "值函数"
+      ]
+    },
+    {
+      "code": "AI-06",
+      "domain": "AI",
+      "domain_cn": "人工智能",
+      "name": "知识图谱与符号推理",
+      "seeds": [
+        "三元组",
+        "推理链"
+      ]
+    },
+    {
+      "code": "AI-07",
+      "domain": "AI",
+      "domain_cn": "人工智能",
+      "name": "具身智能与机器人",
+      "seeds": [
+        "感知运动",
+        "仿真到现实"
+      ]
+    },
+    {
+      "code": "AI-08",
+      "domain": "AI",
+      "domain_cn": "人工智能",
+      "name": "AI安全与可解释",
+      "seeds": [
+        "鲁棒性",
+        "归因"
+      ]
+    },
+    {
+      "code": "FUT-01",
+      "domain": "FUT",
+      "domain_cn": "未来科技",
+      "name": "量子与先进计算",
+      "seeds": [
+        "量子门",
+        "纠错"
+      ]
+    },
+    {
+      "code": "FUT-02",
+      "domain": "FUT",
+      "domain_cn": "未来科技",
+      "name": "脑机接口与神经技术",
+      "seeds": [
+        "电极",
+        "解码"
+      ]
+    },
+    {
+      "code": "FUT-03",
+      "domain": "FUT",
+      "domain_cn": "未来科技",
+      "name": "合成生命与基因编辑",
+      "seeds": [
+        "CRISPR",
+        "底盘"
+      ]
+    },
+    {
+      "code": "FUT-04",
+      "domain": "FUT",
+      "domain_cn": "未来科技",
+      "name": "能源与材料革命",
+      "seeds": [
+        "钙钛矿",
+        "储能"
+      ]
+    },
+    {
+      "code": "FUT-05",
+      "domain": "FUT",
+      "domain_cn": "未来科技",
+      "name": "航天与行星工程",
+      "seeds": [
+        "轨道",
+        "着陆"
+      ]
+    },
+    {
+      "code": "FUT-06",
+      "domain": "FUT",
+      "domain_cn": "未来科技",
+      "name": "纳米与微系统",
+      "seeds": [
+        "自组装",
+        "微机电"
+      ]
+    },
+    {
+      "code": "FUT-07",
+      "domain": "FUT",
+      "domain_cn": "未来科技",
+      "name": "数字孪生与虚拟空间",
+      "seeds": [
+        "仿真",
+        "同步"
+      ]
+    },
+    {
+      "code": "SF-01",
+      "domain": "SF",
+      "domain_cn": "科幻",
+      "name": "科幻史与流派",
+      "seeds": [
+        "黄金时代",
+        "新浪潮"
+      ]
+    },
+    {
+      "code": "SF-02",
+      "domain": "SF",
+      "domain_cn": "科幻",
+      "name": "硬科幻与科学设定",
+      "seeds": [
+        "物理自洽",
+        "推演"
+      ]
+    },
+    {
+      "code": "SF-03",
+      "domain": "SF",
+      "domain_cn": "科幻",
+      "name": "赛博朋克与后人类",
+      "seeds": [
+        "义体",
+        "数字意识"
+      ]
+    },
+    {
+      "code": "SF-04",
+      "domain": "SF",
+      "domain_cn": "科幻",
+      "name": "时间与时空叙事",
+      "seeds": [
+        "时间旅行",
+        "平行宇宙"
+      ]
+    },
+    {
+      "code": "SF-05",
+      "domain": "SF",
+      "domain_cn": "科幻",
+      "name": "社会科幻与乌托邦",
+      "seeds": [
+        "反乌托邦",
+        "制度想象"
+      ]
+    },
+    {
+      "code": "SF-06",
+      "domain": "SF",
+      "domain_cn": "科幻",
+      "name": "科幻美学与视觉",
+      "seeds": [
+        "概念设计",
+        "视觉语法"
+      ]
+    },
+    {
+      "code": "SF-07",
+      "domain": "SF",
+      "domain_cn": "科幻",
+      "name": "未来学与推演",
+      "seeds": [
+        "情景法",
+        "技术预测"
+      ]
+    }
+  ]
+}

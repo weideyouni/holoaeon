@@ -169,6 +169,27 @@ HoloAeon 内置九个包，覆盖知识工作的全部谱系。全部安装后�
 自然语言请求确定性编译为本项目自定义的 HASM 汇编并由内置虚拟机执行；HASM 不是真实 CPU
 指令集，识别不到的意图如实报 `UNKNOWN`，不猜测。
 
+### 横切扩展包（第十、第十一包）
+
+这两个包**故意不进入 `PACK_ORDER`**：只加能力、不加 agent，因此上面九包口径
+（25 智能体 / 47 技能）保持不变。通过 `get_extra_pack(key)` 取用，由 G18 / G19 单独验证。
+
+| 扩展包 | 新增能力 | 技能 | 角色 | 工作流 |
+|---|---|---|---|---|
+| **sovereignty** | 反算法认知塑形：16 学科查询锻造、反标签策略、23 协议族、10 平台族 × 13 职责 | 17 | 0 | 5（R0–R4） |
+| **subdistill** | SD-Distill 亚学科辅助蒸馏：16 域 → 127 亚学科 → SKC 知识卡、七阶段管线、七项辅助损失、温度课程 | 15 | 0 | 7（S1–S7） |
+
+`subdistill` 保持母矩阵维度**严格不变**，并在代码里断言：
+
+```
+127 × 10 亚学科槽位 + 61 保留行   = 1331 行
+127 × 855 亚学科节点 + 56 全局协调 = 108641 节点
+```
+
+两个包均离线、确定性、零依赖。`subdistill` 随包提供 `data/taxonomy_127.json` 的 127 项
+亚学科编码表，对每个 MED/TCM 产物强制医学免责闸门；`analogizes` 关系必须带反例，
+否则只能称“隐喻”，不得称已验证。
+
 ---
 
 ## 快速开始
@@ -226,7 +247,7 @@ python scripts/launch_local.py status                 # 健康快照
 python scripts/launch_local.py demo                   # 内外部融合全链路
 python scripts/launch_local.py run "任务文本"          # 提交任务（自动选 agent）
 python scripts/launch_local.py hotplug optimization   # 运行时加载包，不重启
-python scripts/launch_local.py selftest               # 16 组自检
+python scripts/launch_local.py selftest               # 19 组自检
 ```
 
 - **冷插拔**：启动时 `bootstrap()` 安装全部领域包、绑定内部协作图、注册外部模型后端。
@@ -269,8 +290,8 @@ holoaeon/
 ├── hypervector.py     # HRR + 手写 FFT
 ├── model_adapter.py   # 任意 LLM 适配层
 ├── redline.py         # AST 红线扫描器
-├── selftest.py        # G1–G17 自检套件
-└── packs/             # 九大领域包（含 optimization.py、gaoyi_pack.py）
+├── selftest.py        # G1–G19 自检套件
+└── packs/             # 九大领域包（含 optimization.py、gaoyi_pack.py）+ 横切扩展包（sovereignty_pack.py、subdistill_pack.py）
 examples/              # 四个可运行示例
 tests/                 # unittest 套件
 scripts/               # 红线扫描与本地启动器
@@ -299,7 +320,7 @@ ALGORITHM.md           # 认知优化与自组织搜索
 ## 测试
 
 ```bash
-# 自检套件（G1–G16）
+# 自检套件（G1–G19）
 python -c "from holoaeon.selftest import run_all; print(run_all(verbose=True))"
 
 # 单元测试
@@ -309,7 +330,7 @@ python -m unittest discover -s tests -v
 python scripts/redline_scan.py
 ```
 
-当前状态：**17/17 自检组通过**、**25 个单元测试通过**、红线扫描对全部源文件报告
+当前状态：**19/19 自检组通过**、**25 个单元测试通过**、红线扫描对全部源文件报告
 **零违规**。
 
 ---
@@ -330,10 +351,13 @@ HoloAeon 不试图替代 LangChain、LlamaIndex、AutoGen、CrewAI、Semantic Ke
 
 - **v0.1**——核心原语、机制、七大领域包、自检与文档。
 - **v0.2**——优化与自组织搜索层、本地启动器、冷/热插拔、内/外部融合协议。
-- **v0.3**——高译（GaoYi）包：自然语言确定性编译为 HASM 并由内置虚拟机执行意图路由（九大领域包，当前）。
-- **v0.4**——可插拔持久化后端与节点间总线传输。
-- **v0.5**——声明式图/拓扑定义与包创作工具包。
-- **v0.6**——面向主流开源权重模型服务器的参考适配器。
+- **v0.3**——高译（GaoYi）包：自然语言确定性编译为 HASM 并由内置虚拟机执行意图路由（九大领域包）。
+- **v0.4**——两个横切扩展包：**sovereignty**（认知主权：17 技能、0 agent、R0–R4）与
+  **subdistill**（SD-Distill：127 亚学科、七阶段蒸馏、七项辅助损失、C1–C4 温度课程）；
+  九包核心的 25 智能体 / 47 技能口径保持不变（当前）。
+- **v0.5**——可插拔持久化后端与节点间总线传输。
+- **v0.6**——声明式图/拓扑定义与包创作工具包。
+- **v0.7**——面向主流开源权重模型服务器的参考适配器。
 - **v1.0**——稳定认知框架，API 冻结，文档完整。
 
 ---

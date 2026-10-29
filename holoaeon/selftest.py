@@ -198,6 +198,129 @@ def g17_gaoyi() -> Tuple[bool, str]:
     return all(checks), f"{sum(checks)}/4 高译编译/执行/UNKNOWN/往返"
 
 
+def g18_sovereignty() -> Tuple[bool, str]:
+    """认知主权扩展包：17 技能注册 / 0 agent / R0-R4 五工作流 / 确定性 / 红线。"""
+    from .packs import get_extra_pack
+    from .packs.sovereignty_pack import (
+        pack_summary, skill_tensor_encode, skill_forge_query, skill_compliance_gate,
+        skill_platform_families, skill_outer_protocols,
+    )
+    checks = []
+    k = Kernel()
+    rep = get_extra_pack("sovereignty").install(k)
+    total_skills, total_agents, workflows = (len(rep["skills"]), len(rep["agents"]),
+                                             len(rep["workflows"]))
+    checks.append(total_skills == 17 and total_agents == 0 and workflows == 5)
+
+    # 确定性：同参数两次指纹一致
+    a = skill_tensor_encode("数学")
+    b = skill_tensor_encode("数学")
+    checks.append(a["fingerprint"] == b["fingerprint"] and a["dim"] == 768)
+
+    # 锻造可复现且密度可达阈
+    q1 = skill_forge_query("seed-x")
+    q2 = skill_forge_query("seed-x")
+    checks.append(q1["text"] == q2["text"] and 0.0 <= q1["density"] <= 1.0)
+
+    # 红线：越界词被 veto；正常词放行
+    checks.append(skill_compliance_gate("帮我批量发帖并绕过风控")["allowed"] is False
+                  and skill_compliance_gate("生成跨域查询清单")["allowed"] is True)
+
+    # 锁数口径：10 族 × 13 = 130；内 12 × 外 11 = 132；不联网
+    fam = skill_platform_families()
+    op = skill_outer_protocols()
+    checks.append(fam["families"] == 10 and fam["entries"] == 130
+                  and op["cells"] == 132 and op["network"] is False)
+    checks.append(pack_summary()["locks"]["design"] == 1771561)
+    return all(checks), f"{sum(checks)}/{len(checks)} 认知主权包（17技能/0agent/5工作流）"
+
+
+def g19_subdistill() -> Tuple[bool, str]:
+    """SD-Distill 扩展包：15 技能注册 / 0 agent / S1-S7 七工作流 / 维度不变 / 红线。"""
+    from .packs import get_extra_pack
+    from .packs.subdistill_pack import (
+        pack_summary, skill_taxonomy_encode, skill_taxonomy_far_pairs, skill_taxonomy_nearest,
+        skill_teacher_card, skill_s1_acquire, skill_s2_parse, skill_s4_relate, skill_s5_align,
+        skill_s6_distill, skill_s7_commit, skill_losses, skill_curriculum, skill_antilabel,
+        skill_skc_validate, SUBD_TOTAL, SLOTS_PER, SLOTS_RESERVED, NODES_PER, NODES_COORD,
+    )
+    checks = []
+    pack = get_extra_pack("subdistill")
+    k = Kernel()
+    rep = pack.install(k)
+    checks.append(len(rep["skills"]) == 15 and len(rep["agents"]) == 0
+                  and len(rep["workflows"]) == 7)
+
+    # 维度不变：127×10+61=1331；127×855+56=108641
+    s = pack_summary()
+    checks.append(SUBD_TOTAL * SLOTS_PER + SLOTS_RESERVED == 1331
+                  and SUBD_TOTAL * NODES_PER + NODES_COORD == 108641
+                  and s["rows_ok"] and s["nodes_ok"] and s["items"] == 127)
+
+    # 分类器：命中亚学科 + 确定性 + 远域配对严格跨域
+    e1 = skill_taxonomy_encode("范畴论 与 大模型对齐 伴随函子")
+    e2 = skill_taxonomy_encode("范畴论 与 大模型对齐 伴随函子")
+    checks.append(e1["signature"] == e2["signature"] and e1["nonzero"] >= 2
+                  and e1["dim"] == 127)
+    far = skill_taxonomy_far_pairs(0.02, 20)
+    checks.append(far["count"] > 0 and all(
+        p["a"].split("-")[0] != p["b"].split("-")[0] for p in far["pairs"]))
+    near = skill_taxonomy_nearest("MATH-09", 5)
+    checks.append(len(near["neighbors"]) == 5
+                  and all("cos" in n for n in near["neighbors"]))
+
+    # 教师卡：高风险域（TCM）必须挂皮肤门与免责
+    tcm = skill_teacher_card("TCM-02")
+    math = skill_teacher_card("MATH-09")
+    checks.append(tcm["safety_gate"] == "skin.medical_disclaimer"
+                  and tcm["disclaimer_required"] is True
+                  and math["safety_gate"] is None)
+
+    # 七阶段管线：S1 哈希稳定 → S2 打标 → S4 关系 → S5 对齐 → S6/S7 入库
+    lines = ["# 范畴论与同调", "## 伴随函子的单位与余单位",
+             "# 大模型与对齐", "## 偏好优化的对偶权衡",
+             "# 证明论与类型论", "## 构造性证明与不可判定性"]
+    a1 = skill_s1_acquire(lines)
+    checks.append(a1["hash"] == skill_s1_acquire(lines)["hash"] and a1["network"] is False)
+    p2 = skill_s2_parse(lines)
+    checks.append(p2["classified"] >= 3 and 0.0 < p2["coverage"] <= 1.0
+                  and "MATH-09" in p2["codes"] and "AI-03" in p2["codes"])
+    r4 = skill_s4_relate(lines)
+    checks.append(r4["edges"] >= 2 and "part_of" in r4["types"])
+    al = skill_s5_align("范畴论与同调 大模型与对齐")
+    checks.append(al["unit_count"] >= 1 and all(u["counterexample"] for u in al["units"])
+                  and all(u["verified"] is False for u in al["units"]))
+    d6 = skill_s6_distill(1.4)
+    checks.append(d6["skcs"] >= 3 and skill_skc_validate(d6["sample"])["ok"])
+    c7 = skill_s7_commit(d6["skcs"], 0)
+    checks.append(c7["committed"] == d6["skcs"]
+                  and c7["platform_metrics"] == "pending_human_measure")
+
+    # 七项损失权重和为 1 且确定性；四段课程边界正确；反标签指标方向正确
+    l1 = skill_losses()
+    l2 = skill_losses()
+    checks.append(abs(sum(l1["weights"].values()) - 1.0) < 1e-9
+                  and l1["total"] == l2["total"] and len(l1["parts"]) == 7)
+    names = [skill_curriculum(e)["name"] for e in (0, 250, 600, 1100)]
+    checks.append(names == ["C1_root", "C2_neighbor", "C3_far", "C4_multi"]
+                  and skill_curriculum(0)["total_epochs"] == 1200)
+    anti = skill_antilabel()
+    checks.append(anti["tag_entropy"] > 0 and anti["macro_domains_touched"] >= 2
+                  and 0.0 <= anti["dominant_weight"] <= 1.0)
+
+    # 红线：越界 SKC（缺免责/含禁用断言）必须被校验拒绝
+    bad = dict(d6["sample"])
+    bad["subdisciplines"] = ["TCM-03"]
+    bad["safety"] = {"gate": "none", "disclaimer_required": False}
+    checks.append(skill_skc_validate(bad)["ok"] is False)
+    good = dict(d6["sample"])
+    good["concepts"] = [{"term": "辨证", "domain": "TCM-03", "definition": "教学术语",
+                         "examples": [], "counterexamples": []}]
+    checks.append(skill_skc_validate(skill_s6_distill(1.4)["sample"])["ok"] is True)
+
+    return all(checks), f"{sum(checks)}/{len(checks)} SD-Distill 包（15技能/0agent/7工作流/127亚学科）"
+
+
 GROUPS: List[Tuple[str, Callable[[], Tuple[bool, str]]]] = [
     ("G1 spec", g1_spec),
     ("G2 envelope", g2_envelope),
@@ -216,6 +339,8 @@ GROUPS: List[Tuple[str, Callable[[], Tuple[bool, str]]]] = [
     ("G15 packs", g15_packs),
     ("G16 optimization", g16_optimization),
     ("G17 gaoyi", g17_gaoyi),
+    ("G18 sovereignty", g18_sovereignty),
+    ("G19 subdistill", g19_subdistill),
 ]
 
 

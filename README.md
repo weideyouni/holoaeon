@@ -188,6 +188,29 @@ expressions. See [ALGORITHM.md](ALGORITHM.md) for the full algorithmic mapping. 
 HASM assembly and runs them on a built-in VM; HASM is not a real CPU instruction set and
 unknown intents are reported as `UNKNOWN` rather than guessed.
 
+### Cross-cutting extension packs (10th – 11th)
+
+These two packs are **registered outside `PACK_ORDER`** on purpose: they add capability
+without adding agents, so the nine-pack totals above (25 agents / 47 skills) stay stable.
+They are reachable through `get_extra_pack(key)` and verified separately by G18 / G19.
+
+| Extra pack | What it adds | Skills | Roles | Workflows |
+|---|---|---|---|---|
+| **sovereignty** | anti-algorithm cognitive shaping: 16-domain query forging, anti-label strategy, 23 protocol families, 10 platform families × 13 duties | 17 | 0 | 5 (R0–R4) |
+| **subdistill** | SD-Distill sub-discipline distillation: 16 domains → 127 sub-disciplines → SKC knowledge cards, seven-stage pipeline, seven auxiliary losses, temperature curriculum | 15 | 0 | 7 (S1–S7) |
+
+`subdistill` keeps the mother matrix dimensions **unchanged** and asserts it in code:
+
+```
+127 × 10  sub-discipline slots + 61 reserved rows      = 1331 rows
+127 × 855 sub-discipline nodes + 56 global co-ordinators = 108641 nodes
+```
+
+Both packs are offline, deterministic and zero-dependency. `subdistill` ships the 127-item
+taxonomy in `data/taxonomy_127.json` and forces a medical disclaimer gate on every MED/TCM
+artifact; `analogizes` relations must carry a counterexample before they may be called
+verified.
+
 ---
 
 ## Quick Start
@@ -333,7 +356,7 @@ python -m unittest discover -s tests -v
 python scripts/redline_scan.py
 ```
 
-Current status: **16/16 self-test groups pass**, **24 unit tests pass**, and the red-line
+Current status: **19/19 self-test groups pass**, **24 unit tests pass**, and the red-line
 scan reports **zero violations** across all source files.
 
 ---
@@ -357,10 +380,14 @@ deterministic primitives, and self-organizing collaboration**. It can serve as:
 - **v0.2** — Optimization & self-organizing search layer, local launcher, cold/hot plug,
   and internal/external fusion protocols.
 - **v0.3** — GaoYi pack: deterministic NL→HASM compilation and a built-in VM for
-  intent routing (nine packs, current).
-- **v0.4** — Pluggable persistence backends and inter-node bus transports.
-- **v0.5** — Declarative graph/topology definitions and a pack-authoring toolkit.
-- **v0.6** — Reference adapters for popular open-weight model servers.
+  intent routing (nine packs).
+- **v0.4** — Two cross-cutting extension packs: **sovereignty** (cognitive sovereignty:
+  17 skills, 0 agents, R0–R4) and **subdistill** (SD-Distill: 127 sub-disciplines,
+  seven-stage distillation, seven auxiliary losses, C1–C4 temperature curriculum).
+  Twenty-five agents / forty-seven skills of the nine-pack core remain unchanged (current).
+- **v0.5** — Pluggable persistence backends and inter-node bus transports.
+- **v0.6** — Declarative graph/topology definitions and a pack-authoring toolkit.
+- **v0.7** — Reference adapters for popular open-weight model servers.
 - **v1.0** — Stable cognitive framework with a frozen API and full documentation.
 
 ---
