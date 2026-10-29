@@ -100,7 +100,7 @@ class SchedulerConfig:
     snapshot_enabled: bool = True
     body_count: int = 70                 # 健康体数量
     id_base: int = 8700                  # 号段基（id_base .. id_base+body_count-1）
-    state_dim: int = 768                 # 状态向量状态向量维度
+    state_dim: int = 768                 # 状态向量维度
     alpha: float = 0.18                  # 指数平滑系数
 
     @property
