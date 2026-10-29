@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-HoloAeon SelfTest —— 自检套件（G1-G16）
+HoloAeon SelfTest —— 自检套件（G1-G17）
 ================================================================================
 逐组验证核心模块与机制，全部确定性、离线、零依赖。
 run_all() 返回 {groups, passed, failed, ok, details}。
@@ -149,7 +149,7 @@ def g15_packs() -> Tuple[bool, str]:
     for pack in all_packs():
         rep = pack.install(k)
         n_skills += len(rep["skills"]); n_agents += len(rep["agents"])
-    return n_agents == 24 and n_skills == 44, \
+    return n_agents == 25 and n_skills == 47, \
         f"agents={n_agents}, skills={n_skills}"
 
 
@@ -178,6 +178,26 @@ def g16_optimization() -> Tuple[bool, str]:
     return all(checks), f"{sum(checks)}/7 优化算法收敛"
 
 
+def g17_gaoyi() -> Tuple[bool, str]:
+    """高译包：NL→HASM 编译、虚拟机执行、UNKNOWN 兜底、汇编往返。"""
+    from .packs.gaoyi_pack import compile_nl, HasmProgram, GaoyiVm
+    checks = []
+    # 1) 编译：大纲意图正确派单
+    p, meta = compile_nl("帮我做个大纲：人工智能")
+    checks.append(meta["intent"] == "outline_gen"
+                  and meta["agent"] == "writing_planner")
+    # 2) 虚拟机执行全链路（虚拟机内部会安装全部包）
+    rep = GaoyiVm(Kernel()).run(p)
+    checks.append(bool(rep["ok"]) and rep["matched"] == "outline_gen")
+    # 3) 无关键词如实报 UNKNOWN，不猜测
+    _, m2 = compile_nl("今天天气怎么样啊哈哈")
+    checks.append(m2["intent"] == "UNKNOWN")
+    # 4) 汇编往返：parse 反汇编文本，指令数一致
+    parsed = HasmProgram.parse(meta["assembly"])
+    checks.append(len(parsed.ops) == len(p.ops))
+    return all(checks), f"{sum(checks)}/4 高译编译/执行/UNKNOWN/往返"
+
+
 GROUPS: List[Tuple[str, Callable[[], Tuple[bool, str]]]] = [
     ("G1 spec", g1_spec),
     ("G2 envelope", g2_envelope),
@@ -195,6 +215,7 @@ GROUPS: List[Tuple[str, Callable[[], Tuple[bool, str]]]] = [
     ("G14 model_adapter", g14_model_adapter),
     ("G15 packs", g15_packs),
     ("G16 optimization", g16_optimization),
+    ("G17 gaoyi", g17_gaoyi),
 ]
 
 

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""HoloAeon 八大领域包注册表。"""
+"""HoloAeon 九大领域包注册表。"""
 from __future__ import annotations
 
 from typing import Dict, List
@@ -7,6 +7,7 @@ from typing import Dict, List
 from .base import DomainPack
 from .business import BusinessPack
 from .data import DataPack
+from .gaoyi_pack import GaoyiPack
 from .growth import GrowthPack
 from .literature import LiteraturePack
 from .optimization import OptimizationPack
@@ -14,7 +15,7 @@ from .quant import QuantPack
 from .research import ResearchPack
 from .writing import WritingPack
 
-# 八大领域包（每次调用返回新实例，避免共享状态）
+# 九大领域包（每次调用返回新实例，避免共享状态）
 PACK_REGISTRY: Dict[str, type] = {
     WritingPack.key: WritingPack,
     LiteraturePack.key: LiteraturePack,
@@ -24,11 +25,12 @@ PACK_REGISTRY: Dict[str, type] = {
     BusinessPack.key: BusinessPack,
     QuantPack.key: QuantPack,
     OptimizationPack.key: OptimizationPack,
+    GaoyiPack.key: GaoyiPack,
 }
 
 PACK_ORDER: List[str] = [
     "writing", "literature", "research", "data",
-    "growth", "business", "quant", "optimization",
+    "growth", "business", "quant", "optimization", "gaoyi",
 ]
 
 

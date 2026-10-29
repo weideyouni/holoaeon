@@ -151,8 +151,19 @@ class TestPacks(unittest.TestCase):
         for pack in all_packs():
             rep = pack.install(k)
             agents += len(rep["agents"]); skills += len(rep["skills"])
-        self.assertEqual(agents, 24)
-        self.assertEqual(skills, 44)
+        self.assertEqual(agents, 25)
+        self.assertEqual(skills, 47)
+
+    def test_gaoyi_compile_and_run(self):
+        from holoaeon.packs.gaoyi_pack import compile_nl, GaoyiVm
+        p, meta = compile_nl("帮我做个大纲：人工智能")
+        self.assertEqual(meta["intent"], "outline_gen")
+        self.assertEqual(meta["agent"], "writing_planner")
+        rep = GaoyiVm(Kernel()).run(p)
+        self.assertTrue(rep["ok"])
+        self.assertEqual(rep["matched"], "outline_gen")
+        _, m2 = compile_nl("无意义的句子xyz哈哈")
+        self.assertEqual(m2["intent"], "UNKNOWN")
 
 
 class TestOptimization(unittest.TestCase):

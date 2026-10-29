@@ -20,7 +20,7 @@ HoloAeon is a **pure standard-library, fully offline, deterministic** cognitive 
 for building multi-agent systems on top of any large language model. It provides a layered
 set of primitives — envelopes, a message bus, agents, skills, memory, a heartbeat scheduler,
 a security guard, an adaptive collaboration graph, a parallel actor cluster, hyperdimensional
-representations, and a model-adapter layer — plus **eight ready-to-use domain packs** that span
+representations, and a model-adapter layer — plus **nine ready-to-use domain packs** that span
 the everyday work of knowledge professionals, including a deterministic **optimization &
 self-organizing search** layer (see [ALGORITHM.md](ALGORITHM.md)).
 
@@ -164,10 +164,10 @@ modality-match, …), formats messages across **10 masking/message formats**, an
 
 ---
 
-## The Eight Domain Packs
+## The Nine Domain Packs
 
-HoloAeon ships eight packs that cover the full spectrum of knowledge work. Installing all of
-them yields **24 agents, 44 skills, and 8 end-to-end workflows**.
+HoloAeon ships nine packs that cover the full spectrum of knowledge work. Installing all of
+them yields **25 agents, 47 skills, and 9 end-to-end workflows**.
 
 | Pack | Example capabilities | Roles |
 |---|---|---|
@@ -179,10 +179,14 @@ them yields **24 agents, 44 skills, and 8 end-to-end workflows**.
 | **business** | business model canvas, KPI, unit economics, risk | strategist, operator, risk manager |
 | **quant** | returns, Sharpe, drawdown, risk metrics | analyst, researcher, risk |
 | **optimization** | golden-section, gradient descent, Newton, conjugate gradient, simplex, penalty, genetic algorithm | line searcher, gradient solver, global solver |
+| **gaoyi** | NL→HASM compile, VM execution, assembly replay (deterministic intent routing) | gaoyi translator |
 
 Each pack is a self-contained `DomainPack` and can be installed independently. The
 optimization pack runs only on **built-in safe benchmarks** — it never evaluates arbitrary
-expressions. See [ALGORITHM.md](ALGORITHM.md) for the full algorithmic mapping.
+expressions. See [ALGORITHM.md](ALGORITHM.md) for the full algorithmic mapping. The
+**gaoyi** pack deterministically compiles natural-language requests into the project's own
+HASM assembly and runs them on a built-in VM; HASM is not a real CPU instruction set and
+unknown intents are reported as `UNKNOWN` rather than guessed.
 
 ---
 
@@ -288,8 +292,8 @@ holoaeon/
 ├── hypervector.py     # HRR + hand-written FFT
 ├── model_adapter.py   # any-LLM adapter layer
 ├── redline.py         # AST red-line scanner
-├── selftest.py        # G1–G16 self-test suite
-└── packs/             # eight domain packs (incl. optimization.py)
+├── selftest.py        # G1–G17 self-test suite
+└── packs/             # nine domain packs (incl. optimization.py, gaoyi_pack.py)
 examples/              # four runnable walkthroughs
 tests/                 # unittest suite
 scripts/               # red-line scanner & local launcher
@@ -351,10 +355,12 @@ deterministic primitives, and self-organizing collaboration**. It can serve as:
 
 - **v0.1** — Core primitives, mechanisms, seven domain packs, self-test, and docs.
 - **v0.2** — Optimization & self-organizing search layer, local launcher, cold/hot plug,
-  and internal/external fusion protocols (current).
-- **v0.3** — Pluggable persistence backends and inter-node bus transports.
-- **v0.4** — Declarative graph/topology definitions and a pack-authoring toolkit.
-- **v0.5** — Reference adapters for popular open-weight model servers.
+  and internal/external fusion protocols.
+- **v0.3** — GaoYi pack: deterministic NL→HASM compilation and a built-in VM for
+  intent routing (nine packs, current).
+- **v0.4** — Pluggable persistence backends and inter-node bus transports.
+- **v0.5** — Declarative graph/topology definitions and a pack-authoring toolkit.
+- **v0.6** — Reference adapters for popular open-weight model servers.
 - **v1.0** — Stable cognitive framework with a frozen API and full documentation.
 
 ---

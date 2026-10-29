@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "holoaeon"
-version = "0.2.0"
+version = "0.3.0"
 description = "HoloAeon: a dependency-free, deterministic, local-first kernel for weaving multi-agent systems from a logical matrix and an adaptive collaboration graph."
 readme = "README.md"
 requires-python = ">=3.8"
