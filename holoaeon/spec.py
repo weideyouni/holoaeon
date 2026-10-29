@@ -59,7 +59,8 @@ CAPABILITIES = (
 )
 CAPABILITY_COUNT = len(CAPABILITIES)
 
-# 七大通用领域包（领域知识以数据/配置注入，引擎不绑定）
+# 七大基础通用业务包（领域知识以数据/配置注入，引擎不绑定）。
+# 另有两个横切扩展包：optimization（优化求解）、gaoyi（高译），合计九大领域包（见 packs/__init__.py）。
 DOMAIN_PACKS = (
     ("writing", "文字创作", "小说/文案/剧本/新媒体/打磨"),
     ("literature", "文献梳理", "检索/筛选/综述/引用图谱/溯源"),

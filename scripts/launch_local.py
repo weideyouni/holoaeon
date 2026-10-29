@@ -17,7 +17,7 @@ HoloAeon 本地启动器 / 融合引导（Local Launcher）
   python scripts/launch_local.py demo                  # 内部+外部融合全链路演示
   python scripts/launch_local.py run "任务文本"        # 提交任务（自动选 agent）
   python scripts/launch_local.py hotplug optimization  # 运行时热插拔加载一个包
-  python scripts/launch_local.py selftest              # 16 组自检
+  python scripts/launch_local.py selftest              # 17 组自检
 """
 from __future__ import annotations
 
