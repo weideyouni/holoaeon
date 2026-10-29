@@ -1,7 +1,7 @@
-# 七大领域包
+# 九大领域包
 
 领域包是自包含的能力集合：若干技能 + 若干角色 + 一个端到端工作流。全部安装后共
-**21 个智能体、37 个技能、7 个工作流**。
+**25 个智能体、47 个技能、9 个工作流**。
 
 ## 1. writing（文字创作）
 
@@ -45,7 +45,20 @@
 - 角色：quant_analyst、quant_researcher、quant_risk
 - 工作流：`quant_pipeline`（收益 → 研究 → 风险）
 
-## 8. 安装方式
+## 8. optimization（优化求解）
+
+- 技能：黄金分割、梯度下降、牛顿、共轭梯度、单纯形、惩罚、遗传算法（7 个）
+- 角色：line_searcher、gradient_solver、global_solver
+- 工作流：优化求解流水线（只在**内置安全 benchmark** 上运行，绝不计算任意表达式）
+
+## 9. gaoyi（高译）
+
+- 技能：`gaoyi_compile`（自然语言→HASM 编译）、`gaoyi_run`（编译并执行全链路）、`gaoyi_exec`（执行 HASM 文本）
+- 角色：gaoyi_translator
+- 工作流：`gaoyi_pipeline`（自然语言 → 编译 HASM → 虚拟机执行 → 回执）
+- 说明：HASM 是本项目自定义的指令集，**不是真实 CPU 汇编**；识别不到的意图如实报 `UNKNOWN`，不猜测。
+
+## 10. 安装方式
 
 ```python
 from holoaeon.kernel import Kernel
@@ -57,7 +70,7 @@ for p in all_packs():            # 安装全部
     p.install(k)
 ```
 
-## 9. 自定义领域包
+## 11. 自定义领域包
 
 继承 `DomainPack`，定义 `key`、`skills`（SkillSpec 列表）、`roles`（RoleSpec 列表）、
 `workflows`（WorkflowSpec 列表），然后在 `packs/__init__.py` 注册即可。所有技能函数
