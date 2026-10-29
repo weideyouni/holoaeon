@@ -81,7 +81,7 @@ def newton_1d(f, x0: float, max_iter: int = 50,
     it = 0
     for it in range(1, max_iter + 1):
         h = 1e-6
-        fp = (f([x + h]) - f([x - h]) / (2 * h))
+        fp = (f([x + h]) - f([x - h])) / (2 * h)
         fpp = (f([x + h]) - 2 * f([x]) + f([x - h])) / (h * h)
         if abs(fpp) < 1e-14:
             break
