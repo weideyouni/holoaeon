@@ -211,6 +211,19 @@ taxonomy in `data/taxonomy_127.json` and forces a medical disclaimer gate on eve
 artifact; `analogizes` relations must carry a counterexample before they may be called
 verified.
 
+### Versioned releases (add-only, never overwritten)
+
+Every release ships as a versioned zip under [`releases/`](releases/RELEASES.md), with a
+`SHA256SUMS.txt` next to it and an entry in the version index. Older zips are kept as-is, so
+any version can be unpacked, self-tested and run independently of the current checkout.
+
+```bash
+python scripts/make_release.py          # -> holoaeon_v<version>_<date>.zip (idempotent)
+```
+
+See **[releases/RELEASES.md](releases/RELEASES.md)** for the version index, per-version
+highlights, upgrade path and verification records.
+
 ---
 
 ## Quick Start

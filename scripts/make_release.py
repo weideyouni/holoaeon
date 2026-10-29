@@ -15,7 +15,7 @@ import zipfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-EXCLUDE_DIRS = {"__pycache__", ".git", ".pytest_cache"}
+EXCLUDE_DIRS = {"__pycache__", ".git", ".pytest_cache", "releases"}
 EXCLUDE_FILES = {"HoloAeon_入库入口_全文.md"}
 EXCLUDE_SUFFIX = (".pyc", ".pyo")
 
