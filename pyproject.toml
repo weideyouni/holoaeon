@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "holoaeon"
+version = "0.2.0"
+description = "HoloAeon: a dependency-free, deterministic, local-first kernel for weaving multi-agent systems from a logical matrix and an adaptive collaboration graph."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "Apache-2.0" }
+authors = [{ name = "weideyouni" }]
+keywords = [
+    "multi-agent",
+    "agents",
+    "agent-framework",
+    "agent-matrix",
+    "orchestration",
+    "deterministic",
+    "local-first",
+    "offline",
+    "vsa",
+    "hyperdimensional-computing",
+    "graph",
+    "llm",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+]
+dependencies = []
+
+[project.optional-dependencies]
+# The runtime itself is dependency-free. These are only used by optional examples.
+examples = []
+
+[project.urls]
+Homepage = "https://github.com/weideyouni/holoaeon"
+Repository = "https://github.com/weideyouni/holoaeon"
+Issues = "https://github.com/weideyouni/holoaeon/issues"
+Documentation = "https://github.com/weideyouni/holoaeon/tree/main/docs"
+
+[tool.setuptools.packages.find]
+include = ["holoaeon*"]
+
+[tool.setuptools.package-data]
+holoaeon = ["py.typed"]
