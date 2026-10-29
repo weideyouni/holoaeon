@@ -3,6 +3,50 @@
 本项目遵循 [Keep a Changelog](https://keepachangelog.com/) 格式，
 并遵循语义化版本（Semantic Versioning）。
 
+## [0.5.0] - 2026-10-30
+
+### 新增
+
+- **Omni-Life 全域生活扩展包**（`holoaeon/packs/omnilife_pack.py`），第十二个包，
+  经 `EXTRA_PACK_REGISTRY` 挂载（不进 `PACK_ORDER`）：
+  - 6 个生活域：衣 / 食 / 住 / 行 / 教 / SaaS 工作流，每域锚定 3–4 个亚学科编码
+    （合计 17 个唯一锚点，全部落在 `data/taxonomy_127.json`）；
+  - 18 个技能：本体 1 + 皮肤层 6（高维搜索 / 诱导折叠 / 价格台账 / 价差复核 / 投诉话术 /
+    材料筛选卡）+ 经络层 3（本地交接路由 / 语境触发 / 数据保险箱）+ 生活规划器 5
+    （餐单 / 拓扑出行 / 空间粗算 / 学习路径 / SaaS 计划）+ 闸门与审计 3
+    （皮肤闸门 / 审计回执 / 日常作息）；
+  - 6 条工作流：`L1_wardrobe → L6_saas`；
+  - 0 个角色：`roles = []`，不新增 agent。
+- **维度不变式延续**：本包**不新增行、不新增节点**，只消费 `127 × 10 + 61 = 1331` 行
+  与 `127 × 855 + 56 = 108641` 节点做寻址，`pack_summary()["addressing_unchanged"]` 断言。
+- **能力边界写进代码**（不是文档承诺）：
+  - `skill_price_ledger` 只产出空台账，`concurrent_probe=False`、`proxy_switch=False`、
+    `api_calls=0`；多端并发探测、代理切换、抓取比价列入 `REFUSED_OPS`（17 项）命中即拒绝；
+  - `skill_consumerism_blocker` 只输出「平台自带不感兴趣/屏蔽关键词」处置规则，
+    `dom_injection=False`，不做页面改写；
+  - `skill_meridian_route` 的跨 SaaS 通路是「本人导出 → 本地归档 → 人工引用」，
+    `mode=local_handoff`、`network=False`；
+  - `skill_nutrition_plan` 带 `dose_any=False`、`individual_medical_advice=False` 与固定免责
+    （「仅作为饮食结构与知识框架探讨，不构成诊疗建议」）；
+  - `skill_travel_route` 在本人给的权重图上跑确定性最短路，不取实时路况、不碰平台推荐位。
+- **系统型说明文档** `SYSTEM_README_v0.5.0.md`（新增，v0.4.0 文档保留为历史快照）。
+
+### 变更
+
+- `spec.py`：`VERSION 0.4.0 → 0.5.0`，`MATRIX_ID / RUNTIME_ID` 同步为 `0.5.0`。
+- `packs/__init__.py`：`EXTRA_PACK_REGISTRY` 增加 `omnilife`，
+  `EXTRA_PACK_ORDER = ["sovereignty", "subdistill", "omnilife"]`。
+- `selftest.py`：新增 `G20 omnilife`（21 条断言）；G18 / G19 计数不受影响。
+- `README.md` / `README.zh-CN.md`：扩展包章节扩到第十至第十二包，自检口径 20/20，
+  路线图 v0.5 换为 Omni-Life、原 v0.5–v0.7 顺延为 v0.6–v0.8。
+
+### 质量保障
+
+- 自检套件扩展为 **G1–G20（20/20 通过）**；
+- 单元测试 25 个（全部通过）；
+- 红线扫描 30 个源文件零违规；
+- 发行包解压复跑：20/20，`pack_summary()["addressing_unchanged"]=True`、锚点零缺失。
+
 ## [0.4.0] - 2026-10-30
 
 ### 新增

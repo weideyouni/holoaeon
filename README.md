@@ -188,16 +188,17 @@ expressions. See [ALGORITHM.md](ALGORITHM.md) for the full algorithmic mapping. 
 HASM assembly and runs them on a built-in VM; HASM is not a real CPU instruction set and
 unknown intents are reported as `UNKNOWN` rather than guessed.
 
-### Cross-cutting extension packs (10th – 11th)
+### Cross-cutting extension packs (10th – 12th)
 
-These two packs are **registered outside `PACK_ORDER`** on purpose: they add capability
+These packs are **registered outside `PACK_ORDER`** on purpose: they add capability
 without adding agents, so the nine-pack totals above (25 agents / 47 skills) stay stable.
-They are reachable through `get_extra_pack(key)` and verified separately by G18 / G19.
+They are reachable through `get_extra_pack(key)` and verified separately by G18 / G19 / G20.
 
 | Extra pack | What it adds | Skills | Roles | Workflows |
 |---|---|---|---|---|
 | **sovereignty** | anti-algorithm cognitive shaping: 16-domain query forging, anti-label strategy, 23 protocol families, 10 platform families × 13 duties | 17 | 0 | 5 (R0–R4) |
 | **subdistill** | SD-Distill sub-discipline distillation: 16 domains → 127 sub-disciplines → SKC knowledge cards, seven-stage pipeline, seven auxiliary losses, temperature curriculum | 15 | 0 | 7 (S1–S7) |
+| **omnilife** | Omni-Life everyday sovereignty: wardrobe / food / shelter / mobility / learning / SaaS, anchored on the 127 sub-discipline codes — skin-layer inducer folding, meridian local hand-off, deterministic life planners | 18 | 0 | 6 (L1–L6) |
 
 `subdistill` keeps the mother matrix dimensions **unchanged** and asserts it in code:
 
@@ -206,7 +207,21 @@ They are reachable through `get_extra_pack(key)` and verified separately by G18 
 127 × 855 sub-discipline nodes + 56 global co-ordinators = 108641 nodes
 ```
 
-Both packs are offline, deterministic and zero-dependency. `subdistill` ships the 127-item
+`omnilife` **adds no rows and no nodes** — it only consumes the same 127 codes as life-domain
+anchors, and `pack_summary()["addressing_unchanged"]` proves it. It is deliberately narrow
+about what software may do in the physical world:
+
+- price watching is a **blank ledger the human fills in** (`concurrent_probe=False`,
+  `proxy_switch=False`); concurrent multi-endpoint probing, proxy switching and price scraping
+  are refused by name;
+- inducement folding emits **rules for the platform's own "not interested / mute" controls**,
+  never DOM injection (`dom_injection=False`);
+- cross-SaaS routing is a **manual export → local archive → human reference** hand-off
+  (`api_calls=0`, `network=False`);
+- nutrition output carries `dose_any=False`, `individual_medical_advice=False` and a fixed
+  disclaimer; travel routing runs on a user-supplied weight graph, never live traffic.
+
+All three packs are offline, deterministic and zero-dependency. `subdistill` ships the 127-item
 taxonomy in `data/taxonomy_127.json` and forces a medical disclaimer gate on every MED/TCM
 artifact; `analogizes` relations must carry a counterexample before they may be called
 verified.
@@ -359,7 +374,7 @@ deterministic software.
 ## Testing
 
 ```bash
-# Self-test suite (G1–G16)
+# Self-test suite (G1–G20)
 python -c "from holoaeon.selftest import run_all; print(run_all(verbose=True))"
 
 # Unit tests
@@ -369,7 +384,7 @@ python -m unittest discover -s tests -v
 python scripts/redline_scan.py
 ```
 
-Current status: **19/19 self-test groups pass**, **24 unit tests pass**, and the red-line
+Current status: **20/20 self-test groups pass**, **25 unit tests pass**, and the red-line
 scan reports **zero violations** across all source files.
 
 ---
@@ -397,10 +412,14 @@ deterministic primitives, and self-organizing collaboration**. It can serve as:
 - **v0.4** — Two cross-cutting extension packs: **sovereignty** (cognitive sovereignty:
   17 skills, 0 agents, R0–R4) and **subdistill** (SD-Distill: 127 sub-disciplines,
   seven-stage distillation, seven auxiliary losses, C1–C4 temperature curriculum).
-  Twenty-five agents / forty-seven skills of the nine-pack core remain unchanged (current).
-- **v0.5** — Pluggable persistence backends and inter-node bus transports.
-- **v0.6** — Declarative graph/topology definitions and a pack-authoring toolkit.
-- **v0.7** — Reference adapters for popular open-weight model servers.
+  Twenty-five agents / forty-seven skills of the nine-pack core remain unchanged.
+- **v0.5** — Third extension pack: **omnilife** (everyday sovereignty across wardrobe,
+  food, shelter, mobility, learning and SaaS; 18 skills, 0 agents, L1–L6). Adds no rows and
+  no nodes; refuses concurrent price probing, proxy switching and DOM injection by design
+  (current).
+- **v0.6** — Pluggable persistence backends and inter-node bus transports.
+- **v0.7** — Declarative graph/topology definitions and a pack-authoring toolkit.
+- **v0.8** — Reference adapters for popular open-weight model servers.
 - **v1.0** — Stable cognitive framework with a frozen API and full documentation.
 
 ---

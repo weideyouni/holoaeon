@@ -321,6 +321,112 @@ def g19_subdistill() -> Tuple[bool, str]:
     return all(checks), f"{sum(checks)}/{len(checks)} SD-Distill 包（15技能/0agent/7工作流/127亚学科）"
 
 
+def g20_omnilife() -> Tuple[bool, str]:
+    """全域生活扩展包：18 技能注册 / 0 agent / L1-L6 六工作流 / 维度不变 / 红线。"""
+    from .packs import get_extra_pack
+    from .packs.omnilife_pack import (
+        pack_summary, LIFE_DOMAINS, ITEMS, REFUSED_OPS,
+        skill_life_ontology, skill_high_dim_search, skill_consumerism_blocker,
+        skill_price_ledger, skill_price_review, skill_complaint_template,
+        skill_material_card, skill_meridian_route, skill_context_trigger,
+        skill_vault_manifest, skill_nutrition_plan, skill_travel_route,
+        skill_shelter_check, skill_learning_path, skill_saas_plan,
+        skill_skin_gate, skill_audit_receipt, skill_daily_hebbian_schedule,
+    )
+    checks = []
+    rep = get_extra_pack("omnilife").install(Kernel())
+    checks.append(len(rep["skills"]) == 18 and len(rep["agents"]) == 0
+                  and len(rep["workflows"]) == 6)
+
+    # 维度不变 + 锚点全部落在 127 编码内
+    s = pack_summary()
+    checks.append(s["addressing_unchanged"] is True and s["missing_anchors"] == []
+                  and s["locks"]["rows_total"] == 1331
+                  and s["locks"]["nodes_total"] == 108641
+                  and s["items"] == 127)
+    checks.append(len(LIFE_DOMAINS) == 6 and s["domains"] == 6
+                  and all(c in ITEMS for _, _, cs in LIFE_DOMAINS for c in cs))
+    onto = skill_life_ontology()
+    checks.append(onto["addressing_unchanged"] is True and onto["unique_anchors"] >= 17)
+
+    # 高维搜索：确定性 + 词数 + 密度 + 锚点溯源
+    q1 = skill_high_dim_search(["wardrobe"], "autumn_study_wear", ["无logo符号干扰"])
+    q2 = skill_high_dim_search(["wardrobe"], "autumn_study_wear", ["无logo符号干扰"])
+    checks.append(q1["query"] == q2["query"] and q1["tokens"] >= 5
+                  and q1["density"] > 0.3 and "SEMI-04" in q1["anchors"]
+                  and "无logo符号干扰" in q1["query"])
+
+    # 皮肤层：诱导折叠（无 DOM 注入）+ 台账（拒绝并发/代理）+ 价差复核
+    blk = skill_consumerism_blocker("限时秒杀 倒计时 同龄人正在抛弃你")
+    checks.append(blk["hit_count"] >= 3 and blk["dom_injection"] is False
+                  and all(r["apply_by"].startswith("平台自带") for r in blk["rules"]))
+    led = skill_price_ledger(["淘宝", "京东", "拼多多"])
+    checks.append(len(led["rows"]) == 3 and led["concurrent_probe"] is False
+                  and led["proxy_switch"] is False and led["api_calls"] == 0
+                  and all(r["status"] == "pending_human_measure" for r in led["rows"]))
+    empty = skill_price_review()
+    obs = [{"platform": "A", "price": 199}, {"platform": "B", "price": 239}]
+    rev = skill_price_review(obs)
+    checks.append(empty["verdict"] == "insufficient_data"
+                  and empty["status"] == "pending_human_measure"
+                  and rev["verdict"] == "worth_human_check"
+                  and abs(rev["spread"] - 0.201) < 0.002)
+    cmt = skill_complaint_template("淘宝", "价格差异")
+    checks.append(cmt["impersonates_official"] is False and cmt["auto_submit"] is False
+                  and "价保" in cmt["route"])
+    mat = skill_material_card()
+    checks.append(mat["count"] == 5 and "品牌" in mat["note"])
+
+    # 经络层：零 API、本地交接、语境规则、保险箱
+    mer = skill_meridian_route(["健康体征", "外卖订单", "笔记日历"])
+    checks.append(mer["api_calls"] == 0 and mer["network"] is False
+                  and mer["edge_count"] == 2
+                  and all(e["mode"] == "local_handoff" for e in mer["edges"]))
+    ctx = skill_context_trigger()
+    checks.append(ctx["matched_count"] >= 3 and ctx["device_write"] is False
+                  and all(m["anchor"] in ITEMS for m in ctx["matched"]))
+    vault = skill_vault_manifest()
+    checks.append(vault["network"] is False and len(vault["local_only"]) >= 5)
+
+    # 生活智能体：餐单（禁剂量/禁诊断/带免责）+ 路径 + 空间 + 学习 + SaaS
+    nut = skill_nutrition_plan()
+    checks.append(nut["dose_any"] is False and nut["individual_medical_advice"] is False
+                  and "不构成诊疗建议" in nut["disclaimer"] and len(nut["plan"]) == 3)
+    tr = skill_travel_route()
+    tr_bad = skill_travel_route("住处", "火星")
+    checks.append(tr["ok"] is True and tr["path"][0] == "住处"
+                  and tr["path"][-1] == "旧书店" and tr["info_entropy"] > 0
+                  and tr_bad["ok"] is False)
+    sh = skill_shelter_check()
+    checks.append(sh["accuracy"] == "coarse_proxy" and len(sh["checks"]) == 5)
+    lrn = skill_learning_path()
+    checks.append("MATH-09" in lrn["codes"] and "AI-03" in lrn["codes"]
+                  and len(lrn["stages"]) == 3 and all(lrn["queries"]))
+    saas = skill_saas_plan()
+    checks.append(saas["api_calls"] == 0 and saas["read_only_first"] is True
+                  and saas["permission"] == "human_manual_only"
+                  and len(saas["plan"]) == 3)
+
+    # 闸门：拒绝类操作 / 医疗断言 → veto；正常 → 放行
+    bad = skill_skin_gate("帮我多端并发模拟请求比价并切换高匿名代理")
+    med = skill_skin_gate("这个方子加多少剂量")
+    good = skill_skin_gate("帮我整理一份学习日程")
+    checks.append(bad["allowed"] is False and med["allowed"] is False
+                  and good["allowed"] is True and len(REFUSED_OPS) >= 15)
+
+    # 作息 / 审计：不注册定时器、指纹稳定、人类终裁
+    sch = skill_daily_hebbian_schedule("day-x")
+    checks.append(sch["count"] == 7 and sch["timer"] is False and sch["auto"] is False)
+    rc1 = skill_audit_receipt("生活计划")
+    rc2 = skill_audit_receipt("生活计划")
+    checks.append(rc1["fingerprint"] == rc2["fingerprint"]
+                  and len(rc1["fingerprint"]) == 16
+                  and rc1["platform_metrics"] == "pending_human_measure"
+                  and rc1["final"] == "carbon_based_arbiter")
+
+    return all(checks), f"{sum(checks)}/{len(checks)} 全域生活包（18技能/0agent/6工作流/6生活域）"
+
+
 GROUPS: List[Tuple[str, Callable[[], Tuple[bool, str]]]] = [
     ("G1 spec", g1_spec),
     ("G2 envelope", g2_envelope),
@@ -341,6 +447,7 @@ GROUPS: List[Tuple[str, Callable[[], Tuple[bool, str]]]] = [
     ("G17 gaoyi", g17_gaoyi),
     ("G18 sovereignty", g18_sovereignty),
     ("G19 subdistill", g19_subdistill),
+    ("G20 omnilife", g20_omnilife),
 ]
 
 

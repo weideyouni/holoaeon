@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""HoloAeon 九大领域包注册表 + 横切扩展包（第十包：认知主权；第十一包：SD-Distill 亚学科蒸馏）。"""
+"""HoloAeon 九大领域包注册表 + 横切扩展包（第十：认知主权；第十一：SD-Distill；第十二：全域生活）。"""
 from __future__ import annotations
 
 from typing import Dict, List
@@ -14,6 +14,7 @@ from .optimization import OptimizationPack
 from .quant import QuantPack
 from .research import ResearchPack
 from .sovereignty_pack import SovereigntyPack
+from .omnilife_pack import OmniLifePack
 from .subdistill_pack import SubdistillPack
 from .writing import WritingPack
 
@@ -48,14 +49,15 @@ def all_packs() -> List[DomainPack]:
 
 # ------------------------------------------------------------------------------------
 # 横切扩展包（第十包起）：**不进 PACK_ORDER**，故不改变 G15 的 n_agents==25 / n_skills==47
-# 断言；由 G18 单独验证，也可显式 get_extra_pack("sovereignty") 取用。
+# 断言；由 G18 / G19 / G20 分别验证，也可显式 get_extra_pack(key) 取用。
 # ------------------------------------------------------------------------------------
 EXTRA_PACK_REGISTRY: Dict[str, type] = {
     SovereigntyPack.key: SovereigntyPack,
     SubdistillPack.key: SubdistillPack,
+    OmniLifePack.key: OmniLifePack,
 }
 
-EXTRA_PACK_ORDER: List[str] = ["sovereignty", "subdistill"]
+EXTRA_PACK_ORDER: List[str] = ["sovereignty", "subdistill", "omnilife"]
 
 
 def get_extra_pack(key: str) -> DomainPack:

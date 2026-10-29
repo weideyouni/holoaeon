@@ -1,4 +1,4 @@
-# HoloAeon 认知主权 SD-Distill 亚学科辅助蒸馏模块 · 冷热插拔赋能升级包 · RELEASES
+# HoloAeon 认知主权 · SD-Distill · 全域生活 · 冷热插拔赋能升级包 · RELEASES
 
 > 版本化目录：**只增不覆盖**。每个版本一个目录入口、一份说明、一份哈希。
 > 选择版本 = 选择下表的 tag；任何版本都可独立解压、独立自检、独立运行。
@@ -10,13 +10,67 @@
 
 | 版本 | Tag | 日期 | 内核包 | 认知主权包 | 自检 | 状态 |
 |---|---|---|---|---|---|---|
-| **v0.4.0** | `v0.4.0` | 2026-10-30 | `releases/holoaeon_v0.4.0_20261030.zip`（59 文件 / 152,485 B） | `releases/cs1331_cognitive_sovereignty_matrix_V3.1.0_20261030.zip`（41 文件 / 135,421 B） | 内核 **19/19** · 认知主权 **14/14** | 当前 |
+| **v0.5.0** | `v0.5.0` | 2026-10-30 | `releases/holoaeon_v0.5.0_20261030.zip`（61 文件 / 175,959 B） | —（沿用 V3.1） | 内核 **20/20** | 当前 |
+| v0.4.0 | `v0.4.0` | 2026-10-30 | `releases/holoaeon_v0.4.0_20261030.zip`（59 文件 / 152,485 B） | `releases/cs1331_cognitive_sovereignty_matrix_V3.1.0_20261030.zip`（41 文件 / 135,421 B） | 内核 **19/19** · 认知主权 **14/14** | 历史（保留） |
 | v0.3.1 | —（未打 tag，仅本地留档） | 2026-10-30 | `holoaeon_v0.3.1_20261030.zip`（本地 F 盘，56 文件 / 128,196 B） | — | 内核 18/18 | 历史 |
 | v0.3.0 | — | 2026-10-29 | `holoaeon_v0.3.0_20261029.zip`（本地 F 盘，120,521 B） | — | 内核 17/17 | 历史 |
 
 > 说明：`v0.3.1` 与 `v0.3.0` 的发行包在打本次版本之前生成，未同步进本仓库 `releases/`；
 > 它们**未被覆盖、仍在本地 F 盘留存**，可随时按需补入。本目录自 `v0.4.0` 起对所有新版本
 > 强制落库。
+
+---
+
+## v0.5.0 · 本期内容（Omni-Life 全域生活冷热插拔赋能升级包）
+
+### 一句话
+
+把"认知主权"从信息流下渗到衣食住行教与 SaaS 工作流：用 127 亚学科编码做**生活决策锚点**，
+把"被算法降维的生活"改写成**可溯源的生活参数与人工处置清单**。**产出物维度不变**——
+不加行、不加节点，母体 12 项锁数一个不动，九包 `25 agents / 47 skills` 断言未破。
+
+### 交付清单
+
+| # | 交付物 | 位置 | 说明 |
+|---|---|---|---|
+| 1 | 扩展包 | `holoaeon/packs/omnilife_pack.py` | 18 技能 / 6 工作流（L1 衣 → L6 SaaS）/ **0 agent**；`EXTRA_PACK_REGISTRY` 挂载，不进 `PACK_ORDER` |
+| 2 | 生活本体 | 同上 `LIFE_DOMAINS` | 6 域锚 17 个唯一亚学科编码，全部校验落在 `data/taxonomy_127.json` |
+| 3 | 皮肤层 | `high_dim_search / consumerism_blocker / price_ledger / price_review / complaint_template / material_card` | 只产搜索词、规则表、空台账、算术、话术、指标卡；`dom_injection=False` |
+| 4 | 经络层 | `meridian_route / context_trigger / vault_manifest` | 导出→本地→人工引用；`api_calls=0`、`network=False` |
+| 5 | 生活规划器 | `nutrition_plan / travel_route / shelter_check / learning_path / saas_plan` | 确定性：餐单结构（无剂量）、图最短路、粗算标尺、检索式、接入计划 |
+| 6 | 闸门与审计 | `skin_gate / audit_receipt / daily_hebbian_schedule` | `REFUSED_OPS` 17 项命中即拒；指纹 16 位；作息不注册定时器 |
+| 7 | 自检 | `G20 omnilife`（21 条断言） | 计数、维度不变、锚点零缺失、拒绝清单、确定性 |
+| 8 | 系统型说明 | `SYSTEM_README_v0.5.0.md` | v0.5.0 系统快照（v0.4.0 文档保留为历史） |
+| 9 | 发行包 | `releases/holoaeon_v0.5.0_20261030.zip` | 61 文件 / 175,959 B；与 `SHA256SUMS.txt` 对齐 |
+
+### 明确不做（按名字拒绝，命中即 veto）
+
+```
+自动登录 · 多端并发模拟请求 · 模拟器并发 · 切换高匿名代理 · 代理池 · 抓取比价 · 爬取价格 ·
+批量下单 · 批量发帖 · 绕过风控 · 绕过验证 · 伪造身份 · 多账号 · 养号 · 注入 DOM ·
+调用平台私有接口 · 破解
+```
+
+替代路径：比价 → 本人填写的空台账 + 本地算术；权益 → 平台官方价保/客服 + 模板话术；
+折叠诱导 → 平台自带"不感兴趣/屏蔽关键词"；跨 SaaS → 本人导出后本地引用。
+
+### 验证记录（实测）
+
+| 验证 | 结果 |
+|---|---|
+| 内核自检 | **20/20**（G15 `25/47` 未破；G18 6/6；G19 17/17；**G20 21/21**） |
+| 单元测试 | 25 tests **OK** |
+| 红线扫描 | 30 文件 **零违规** |
+| 维度断言 | `addressing_unchanged=True`、`missing_anchors=[]`、rows 1331、nodes 108641 |
+| 拒绝验证 | `skin_gate("多端并发模拟请求…高匿名代理")["allowed"] is False`；医疗断言同样 veto |
+| 解压复跑 | 独立副本 20/20；`VERSION=0.5.0`；`omnilife 18/6/True/[]` |
+
+### 升级路径（从 v0.4.0 起）
+
+1. `git checkout v0.5.0`，或解压 `releases/holoaeon_v0.5.0_20261030.zip`；
+2. 既有代码无需改动：`EXTRA_PACK_REGISTRY` 自动多出 `omnilife`；
+3. 只要生活层就把 `holoaeon/packs/omnilife_pack.py` 与 `data/taxonomy_127.json` 一并拷入；
+4. 回滚：切回 `v0.4.0` 的 zip；扩展包不写宿主状态，回滚即干净。
 
 ---
 
