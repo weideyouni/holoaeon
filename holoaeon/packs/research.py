@@ -57,7 +57,7 @@ def reproduce_check(text: str) -> dict:
              "环境/版本", "分析流程", "材料方法"]
     hit = [it for it in items if it in text]
     return {"checklist": items, "present": hit,
-            "missing": [it for it in items if it not in text]}
+            "missing": [it for it in items if it not in hit]}
 
 
 class ResearchPack(DomainPack):
