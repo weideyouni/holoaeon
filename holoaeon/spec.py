@@ -100,7 +100,7 @@ class SchedulerConfig:
     snapshot_enabled: bool = True
     body_count: int = 70                 # 健康体数量
     id_base: int = 8700                  # 号段基（id_base .. id_base+body_count-1）
-    state_dim: int = 768                 # 状态向量维度
+    state_dim: int = 768                 # 状态向量状态向量维度
     alpha: float = 0.18                  # 指数平滑系数
 
     @property
@@ -180,7 +180,7 @@ def config_verify(cfg: HoloAeonConfig = DEFAULT_CONFIG) -> bool:
     checks = [
         # 逻辑矩阵规模为正，稀疏默认开启
         m.rows > 0 and m.cols > 0 and m.node_capacity > 0,
-        m.design_grid == m.rows * self.cols if False else m.design_grid == m.rows * m.cols,
+        m.design_grid == m.rows * m.cols,
         m.sparse is True,
         # 健康体号段自洽
         s.body_count > 0 and s.id_top == s.id_base + s.body_count - 1,
