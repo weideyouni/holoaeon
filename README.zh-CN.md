@@ -169,11 +169,11 @@ HoloAeon 内置九个包，覆盖知识工作的全部谱系。全部安装后�
 自然语言请求确定性编译为本项目自定义的 HASM 汇编并由内置虚拟机执行；HASM 不是真实 CPU
 指令集，识别不到的意图如实报 `UNKNOWN`，不猜测。
 
-### 横切扩展包（第十、第十一、第十二、第十三、第十四包）
+### 横切扩展包（第十至第十五包）
 
 这些包**故意不进入 `PACK_ORDER`**：只加能力、不加 agent，因此上面九包口径
 （25 智能体 / 47 技能）保持不变。通过 `get_extra_pack(key)` 取用，由
-G18 / G19 / G20 / G21 / G22 单独验证。
+G18 / G19 / G20 / G21 / G22 / G23 单独验证。
 
 | 扩展包 | 新增能力 | 技能 | 角色 | 工作流 |
 |---|---|---|---|---|
@@ -182,6 +182,7 @@ G18 / G19 / G20 / G21 / G22 单独验证。
 | **omnilife** | 全域生活主权：衣 / 食 / 住 / 行 / 教 / SaaS 六域，全部锚定 127 亚学科编码；皮肤层折叠诱导话术、经络层本地交接、确定性生活规划器 | 18 | 0 | 6（L1–L6） |
 | **omnicore** | 全息纪元认知引擎重写：寻址不变式、纯函数心跳、SKC 蒸馏、赫布更新、皮肤闸门、自我宣告、白皮书结构 | 20 | 0 | 6（M1–M6） |
 | **metab** | 代谢层治理：六染色体基因组准入、四问定态、八阶段生命周期、三层授权（fail-closed）、消化道双通道、信任半径、组合白名单、度量红线 | 26 | 0 | 8（T1–T8） |
+| **nephron** | 肾单位层 P0（只读观测）：只追加认知账本、窗口构成表、理由码、零侵入钩子、回放（窗口 / 槽位 / 决策输入 / 时间线）、代际指纹、隐私擦除 | 24 | 0 | 7（W1–W7） |
 
 `subdistill` 保持母矩阵维度**严格不变**，并在代码里断言：
 
@@ -223,7 +224,29 @@ G18 / G19 / G20 / G21 / G22 单独验证。
 - 血统是可验的哈希链，篡改节点按位置报告，整链判不可信；
 - 组合安全走白名单：**未知配对不生效**，含放大关系的组合须整体评审。
 
-五个包均离线、确定性、零依赖。`subdistill` 随包提供 `data/taxonomy_127.json` 的 127 项
+`nephron` 是**只读观测**的肾单位层（P0 阶段）。它记录窗口做过什么——进 / 摘要 / 拒 /
+命中 / 未命中 / 检索 / 淘汰 / 降级 / 指纹失配 / 预算越界——并能事后回放任意已记录的 tick。
+**它不做任何决策**：不分页、不压缩、不淘汰、不做预算控制。规格里 10 处内在冲突逐条列出、
+每种给两个消解方案并择一落库（`CONFLICTS` N1–N10），另有 3 处字段缺口修正（`FIXES` F1–F3）：
+
+- "异步队列 + 批量刷写"**不在包内实现**：包只给队列语义与丢弃计数
+  （`dropped_queue_full / failed_write / failed_serialize`），线程与落盘归宿主（N1）；
+- `sampled` 与 `off` 档账本**不可完整回放**，只有 `full` 满足"任意历史 tick"（N2）——
+  对采样做插值等于伪造账本；
+- 擦除把摘要替换为 `ERASED:<hash>` 并**追加一条擦除记录**，隐私与只追加同时成立（N3）；
+- `compression_ratio` 在 P0 恒为 `null`（N4）；`UNKNOWN` 是保留码，单独计数并告警，
+  绝不静默吞掉（N5）；
+- 时钟回跳在写入口**直接拒绝**（N6）；`raw_len` 锁死 token 口径（N8）；
+- `WINDOW_BUILD_COMPLETE` 由评审 R-01 新增，给 `window_build` 一个合法码（N9）；
+- 槽位回放读**旁挂快照**并披露快照年龄（N10）：P0 **不重演槽位变化**，明说而不假装。
+
+两项声明**永远不会写成 "pass"**：账本关闭态与开启态逐字节一致（`A1`）、`full` 档真实开销
+（`A2`）。它们恒为 `pending_human_measure`，只交付断言契约——纯函数包无法自证这两件事。
+黄金样例（`examples/nephron_ledger_sample.jsonl` + `examples/nephron_replay_report.md`，
+由 `scripts/make_nephron_sample.py` 生成）用来证明 41 个字段足以完成回放。
+完整规范见 [`docs/nephron.md`](docs/nephron.md)。
+
+六个包均离线、确定性、零依赖。`subdistill` 随包提供 `data/taxonomy_127.json` 的 127 项
 亚学科编码表，对每个 MED/TCM 产物强制医学免责闸门；`analogizes` 关系必须带反例，
 否则只能称“隐喻”，不得称已验证。`metab` 的完整规范见 [`docs/metab.md`](docs/metab.md)。
 
@@ -327,8 +350,8 @@ holoaeon/
 ├── hypervector.py     # HRR + 手写 FFT
 ├── model_adapter.py   # 任意 LLM 适配层
 ├── redline.py         # AST 红线扫描器
-├── selftest.py        # G1–G22 自检套件
-└── packs/             # 九大领域包（含 optimization.py、gaoyi_pack.py）+ 横切扩展包（sovereignty_pack.py、subdistill_pack.py、omnilife_pack.py、omnicore_pack.py、metab_pack.py）
+├── selftest.py        # G1–G23 自检套件
+└── packs/             # 九大领域包（含 optimization.py、gaoyi_pack.py）+ 横切扩展包（sovereignty_pack.py、subdistill_pack.py、omnilife_pack.py、omnicore_pack.py、metab_pack.py、nephron_pack.py）
 examples/              # 四个可运行示例
 tests/                 # unittest 套件
 scripts/               # 红线扫描与本地启动器
@@ -357,7 +380,7 @@ ALGORITHM.md           # 认知优化与自组织搜索
 ## 测试
 
 ```bash
-# 自检套件（G1–G22）
+# 自检套件（G1–G23）
 python -c "from holoaeon.selftest import run_all; print(run_all(verbose=True))"
 
 # 单元测试
@@ -367,7 +390,7 @@ python -m unittest discover -s tests -v
 python scripts/redline_scan.py
 ```
 
-当前状态：**22/22 自检组通过**、**25 个单元测试通过**、红线扫描对全部源文件报告
+当前状态：**23/23 自检组通过**、**25 个单元测试通过**、红线扫描对全部源文件报告
 **零违规**。
 
 ---
@@ -399,9 +422,12 @@ HoloAeon 不试图替代 LangChain、LlamaIndex、AutoGen、CrewAI、Semantic Ke
   全篇 `metaphor=True`。
 - **v0.7**——第五个横切扩展包：**metab**（把 METAB 代谢层落成可判定治理层；26 技能、
   0 agent、T1–T8）。六染色体准入、四问定态、八阶段生命周期、三层授权、消化道双通道、
-  信任半径、组合白名单；规格内 8 处冲突逐条消解（当前）。
-- **v0.8**——可插拔持久化后端与节点间总线传输。
-- **v0.9**——声明式图/拓扑定义与包创作工具包。
+  信任半径、组合白名单；规格内 8 处冲突逐条消解。
+- **v0.8**——第六个横切扩展包：**nephron**（肾单位层 P0：只追加认知账本与回放；24 技能、
+  0 agent、W1–W7）。只读观测，不分页 / 不压缩 / 不淘汰 / 不做预算控制；规格内 10 处冲突
+  逐条消解（N1–N10），两项验收声明恒为 `pending_human_measure`（当前）。
+- **v0.9**——可插拔持久化后端与节点间总线传输。
+- **v0.10**——声明式图/拓扑定义与包创作工具包。
 - **v1.0**——稳定认知框架，API 冻结，文档完整。
 
 ---

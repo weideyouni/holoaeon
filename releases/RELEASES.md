@@ -1,4 +1,4 @@
-# HoloAeon 认知主权 · SD-Distill · 全域生活 · 全息纪元 · 代谢层 · 冷热插拔赋能升级包 · RELEASES
+# HoloAeon 认知主权 · SD-Distill · 全域生活 · 全息纪元 · 代谢层 · 肾单位 · 冷热插拔赋能升级包 · RELEASES
 
 > 版本化目录：**只增不覆盖**。每个版本一个目录入口、一份说明、一份哈希。
 > 选择版本 = 选择下表的 tag；任何版本都可独立解压、独立自检、独立运行。
@@ -10,7 +10,8 @@
 
 | 版本 | Tag | 日期 | 内核包 | 认知主权包 | 自检 | 状态 |
 |---|---|---|---|---|---|---|
-| **v0.7.0** | `v0.7.0` | 2026-10-30 | `releases/holoaeon_v0.7.0_20261030.zip`（66 文件 / 250,721 B） | —（沿用 V3.1） | 内核 **22/22** | 当前 |
+| **v0.8.0** | `v0.8.0` | 2026-10-30 | `releases/holoaeon_v0.8.0_20261030.zip`（72 文件 / 303,727 B） | —（沿用 V3.1） | 内核 **23/23** | 当前 |
+| v0.7.0 | `v0.7.0` | 2026-10-30 | `releases/holoaeon_v0.7.0_20261030.zip`（66 文件 / 250,721 B） | —（沿用 V3.1） | 内核 **22/22** | 历史（保留） |
 | v0.6.0 | `v0.6.0` | 2026-10-30 | `releases/holoaeon_v0.6.0_20261030.zip`（63 文件 / 201,755 B） | —（沿用 V3.1） | 内核 **21/21** | 历史（保留） |
 | v0.5.0 | `v0.5.0` | 2026-10-30 | `releases/holoaeon_v0.5.0_20261030.zip`（61 文件 / 175,959 B） | —（沿用 V3.1） | 内核 **20/20** | 历史（保留） |
 | v0.4.0 | `v0.4.0` | 2026-10-30 | `releases/holoaeon_v0.4.0_20261030.zip`（59 文件 / 152,485 B） | `releases/cs1331_cognitive_sovereignty_matrix_V3.1.0_20261030.zip`（41 文件 / 135,421 B） | 内核 **19/19** · 认知主权 **14/14** | 历史（保留） |
@@ -20,6 +21,100 @@
 > 说明：`v0.3.1` 与 `v0.3.0` 的发行包在打本次版本之前生成，未同步进本仓库 `releases/`；
 > 它们**未被覆盖、仍在本地 F 盘留存**，可随时按需补入。本目录自 `v0.4.0` 起对所有新版本
 > 强制落库。
+
+---
+
+## v0.8.0 · 本期内容（NEPHRON 肾单位层 P0 冷热插拔赋能升级包）
+
+### 一句话
+
+把投喂的「NEPHRON 肾单位层 P0」规格落成**只读观测的第六个扩展包**：
+**产出物维度不变**（不加行、不加节点，`25 agents / 47 skills` 未破），
+并且先把规格内部的 **10 处内在冲突逐条摊开、每种给两个消解方案再择一**，
+再补掉 **3 处字段缺口**——最后才写码。P0 只记与回，不改与算。
+
+### 交付清单
+
+| # | 交付物 | 位置 | 说明 |
+|---|---|---|---|
+| 1 | 扩展包 | `holoaeon/packs/nephron_pack.py` | 24 技能 / 7 工作流（W1 观测 → W7 验收）/ **0 agent** |
+| 2 | 设计文档 | `docs/nephron.md` | 13 章：定位 / 10 冲突与 3 修正 / 字段字典 / 理由码 / 采集开关 / 回放器 / 接口清单 / 隐私 / 测试结果 / 7 条限制 / 7 项 P1 / 10 项开放问题 |
+| 3 | 记录结构 | `page_schema / page_validate / ledger_record / ledger_verify` | 41 字段（Page 10 / Slot 7 / LedgerRecord 13 / Event 4 / Manifest 7）；主键 `(tick, seq)`；只追加 |
+| 4 | 事件与码 | `reason_codes / event_validate / manifest_build` | 11 类事件 · 27 码 · 10 族 · `UNKNOWN` 保留码不入表；**一个事件只许一个主码** |
+| 5 | 采集开关 | `switch_policy / collect_plan / failure_injection_matrix` | 三档（默认 `off`）· 11 hook · 4 类故障 · 3 类丢弃计数；失败静默降级为不记录 |
+| 6 | 回放 | `replay_window / replay_slots / replay_inputs / replay_timeline / replay_determinism` | 窗口构成 / 槽位快照（含年龄与 stale）/ 决策输入 / 变更时间线；两次回放哈希一致 |
+| 7 | 隐私 | `privacy_policy / erase_operation` | 不存原文；擦除 = `ERASED:<hash>` + 追加擦除记录 + 保留计数与指纹 |
+| 8 | 指纹 | `generation_fingerprint / fingerprint_check` | 权重 / 模板 / 量化 / LoRA / 检索器联合哈希（LoRA 排序归一）；失配必产事件 |
+| 9 | 边界验收 | `zero_intrusion_check / non_goal_scan / acceptance_check` | 零侵入恒 `pending_human_measure`；6 条非目标扫描；A1–A8 状态机 |
+| 10 | 文档回执 | `field_dictionary / audit_receipt` | 字段字典与结构同源（`match_schema=True`）；回执指纹 16 位 |
+| 11 | 黄金样例 | `examples/nephron_ledger_sample.jsonl` + `examples/nephron_replay_report.md` | 7 条记录；逐 tick 窗口表 / 时间线 / 槽位 / A1–A8 状态；由脚本生成 |
+| 12 | 样例生成器 | `scripts/make_nephron_sample.py` | 全部调用包内纯函数，不手写样张；解压复跑字节一致 |
+| 13 | 自检断言 | `G23 nephron`（62 条） | 计数、维度、41 字段、27 码、10 冲突、写入三拒、回放四件套、确定性、指纹、擦除、验收状态机 |
+| 14 | 系统 README | `SYSTEM_README_v0.8.0.md`（11 章） | 五份系统 README 并存，不覆盖 |
+
+### 规格内 10 处冲突与消解（本版最该验收的一段）
+
+| # | 冲突 | 采用 | 一句话理由 |
+|---|---|---|---|
+| N1 | 异步队列/落盘 vs 不起线程不写盘 | **B** | 包只给队列语义与丢弃计数，I/O 归宿主 |
+| N2 | "任意 tick 可回放" vs 三档采样 | **B** | 只有 `full` 满足；插值补齐等于伪造账本 |
+| N3 | 只追加 vs 一键擦除 | **B** | 摘要换 `ERASED:<hash>`，擦除本身成一条记录 |
+| N4 | 有 `compression_ratio` vs 压缩非目标 | **B** | 字段保留但 P0 恒 `null` |
+| N5 | `UNKNOWN` 兜底 vs 表内无此码 | **B** | 保留码不入表，单独计数并告警 |
+| N6 | 主键 vs 时钟回跳 | **B** | 水位线拒绝追加并记 `APPEND_REJECT_CLOCK_REGRESSION` |
+| N7 | 逐字节一致 vs 纯函数不可证 | **B** | 只交断言契约，恒 `pending_human_measure` |
+| N8 | `raw_len` 两种单位单字段 | **B** | 锁死 token 口径，账本级声明，不加字段 |
+| N9 | `window_build` 无合法码 | **B** | 正式走评审新增 `WINDOW_BUILD_COMPLETE`（R-01） |
+| N10 | 要槽位快照 vs 无槽位事件源 | **B** | 旁挂周期快照 + 披露年龄，P0 **不重演槽位变化** |
+
+三处字段缺口修正（`FIXES`）：F1 摘要前后长度改由 `page_summarize` 的 `delta{from_len,to_len}`
+承载（`Page` 结构不动）；F2 `importance` 缺失只告警不改错；F3 账本只存摘要哈希与长度，
+**不存摘要正文**。
+
+### 明确不做（11 项拒绝清单 + 7 条已知限制）
+
+拒绝：删除账本记录 / 改写历史记录 / 把采集失败抛到业务层 / 在业务逻辑内散布记录代码 /
+把采样账本插值成完整账本 / 摘要阶段外送敏感字段 / 记录外部请求体明文 /
+静默复用失配指纹 / 把无血统页写进主干 / 分页压缩淘汰预算控制（P1·P2） /
+重演槽位变化（无事件源，P1）。
+
+已知限制逐条写进 `docs/nephron.md`：A1 与 A2 恒未实测；槽位不重演；不能回放"模型实际
+看到的文本"；`sampled/off` 不可完整回放；内容级篡改需外部锚点；`UNKNOWN` 只能计数。
+
+**本包不执行任何观测或落盘动作**——只产判定与计划，`execution="human_manual"`，终裁留给碳基。
+
+### 验证记录
+
+| 项 | 方式 | 结果 |
+|---|---|---|
+| 内核自检 | `run_all()` | **23/23 组**（G22 52/52、**G23 62/62**、G15 `25 agents / 47 skills` 未破） |
+| 内核单测 | `unittest discover -s tests` | **25 tests OK** |
+| 内核红线 | `scripts/redline_scan.py` | **33 文件零违规**（含 `nephron_pack.py` 与 `make_nephron_sample.py`） |
+| 黄金样例 | `make_nephron_sample.py` | 7 条记录 · `verify_ok=True` · `chain_digest` 16 位 · 两次回放哈希一致 |
+| 发行包 | `make_release.py` | 72 文件 / 303,727 B / `1246269BC14CACEDA6239C32A32C52990548554EBB191476550406290FF88646` |
+| 解压复跑 | 独立副本 `_verify_080` | 23/23；`VERSION=0.8.0`；`nephron 24/7/0/True/1331/108641`；样例重生成后与仓内**字节一致** |
+
+### 本版修掉的 8 处自身缺陷（写码过程中真实踩到）
+
+| # | 位置 | 症状 | 修正 |
+|---|---|---|---|
+| M1 | 三处取整 | `int(_num(x) or -1)` 把**合法主键 0**（`seq=0` / `tick=0`）吞成 `-1`，`ledger_verify` 首例误判失败 | 新增 `_int(v, dflt)`，替换 3 处共 10 个调用点 |
+| M2 | `ledger_verify` | 链摘要比对是**空转**：`want` 与 `got` 同一表达式，篡改永远发现不了 | 改为真链式累加 + 外部 `anchor` 比对，并写明"内容级篡改需逐段锚点" |
+| M3 | `page_validate` | `importance` 缺失被当必填错误，与 F2 冲突 | 必填循环对 `importance` 例外，改走 `warnings` |
+| M4 | `ledger_record` | 残留无意义分支 `if tick == watermark and r.get("seq") is None` | 改为 `seen_keys` 主键查重（`APPEND_REJECT_DUPLICATE_PK`） |
+| M5 | `G23` | 一条断言把 list 直接 append 进 `checks`（`...["append_rejects"]` 未作比较）→ `sum(checks)` 报 `int + list` | 改为与期望列表相等比较 |
+| M6 | `G23` | 一处括号不匹配 `{"working": 1))` → `SyntaxError` | 拆行修正 |
+| M7 | 报告生成器 | "进入为空"一律标"（首帧）"，tick 4/5/6 也标了首帧 | 仅首帧用该标签，其余用"—" |
+| M8 | `make_nephron_sample.py` | 直接运行缺 `sys.path` → `ModuleNotFoundError: holoaeon` | 按 `make_release.py` 惯例插入仓库根 |
+
+### 升级路径
+
+1. 取 `releases/holoaeon_v0.8.0_20261030.zip`（或 `git checkout v0.8.0`）；
+2. 既有代码无需改动：`EXTRA_PACK_REGISTRY` 自动多出 `nephron`，`EXTRA_PACK_ORDER` 变六项；
+3. 只要账本与回放判定：拷 `holoaeon/packs/nephron_pack.py` 即可独立运行（零依赖、不联网、不落盘）；
+4. 要接到真实系统：按 `docs/nephron.md` §5.2 的 11 个 hook 接入，队列与落盘由宿主实现；
+5. 要人读的规范与样例：`docs/nephron.md`（13 章）+ `SYSTEM_README_v0.8.0.md`（11 章）
+   + `examples/nephron_replay_report.md`。
 
 ---
 

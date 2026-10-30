@@ -796,6 +796,241 @@ def g22_metab() -> Tuple[bool, str]:
     return all(checks), f"{sum(checks)}/{len(checks)} 代谢层包（26技能/0agent/8工作流/6染色体/8冲突）"
 
 
+def g23_nephron() -> Tuple[bool, str]:
+    """肾单位 P0 包：24 技能 / 0 agent / W1-W7 / 41 字段 / 27 理由码 / 10 处审视 / 只读回放。"""
+    from .kernel import Kernel
+    from .packs import EXTRA_PACK_ORDER, get_extra_pack
+    from .packs.nephron_pack import (
+        pack_summary, CONFLICTS, FIXES, REFUSED_OPS, NON_GOALS, ACCEPTANCE,
+        REASON_CODES, EVENT_TYPES, APPEND_REJECTS, FIELD_TOTAL, RAW_LEN_UNIT,
+        skill_nephron_page_schema, skill_nephron_page_validate, skill_nephron_ledger_record,
+        skill_nephron_ledger_verify, skill_nephron_reason_codes, skill_nephron_event_validate,
+        skill_nephron_manifest_build, skill_nephron_switch_policy, skill_nephron_collect_plan,
+        skill_nephron_failure_injection_matrix, skill_nephron_replay_window,
+        skill_nephron_replay_slots, skill_nephron_replay_inputs, skill_nephron_replay_timeline,
+        skill_nephron_replay_determinism, skill_nephron_privacy_policy,
+        skill_nephron_erase_operation, skill_nephron_generation_fingerprint,
+        skill_nephron_fingerprint_check, skill_nephron_zero_intrusion_check,
+        skill_nephron_non_goal_scan, skill_nephron_acceptance_check,
+        skill_nephron_field_dictionary, skill_nephron_audit_receipt,
+    )
+    checks: List[bool] = []
+
+    # 包级：注册 / 计数 / 维度不变
+    s = pack_summary()
+    checks.append("nephron" in EXTRA_PACK_ORDER and get_extra_pack("nephron").key == "nephron")
+    checks.append(s["skills"] == 24 and s["workflows"] == 7 and s["agents_created"] == 0
+                  and s["addressing_unchanged"] is True
+                  and s["locks"]["rows_total"] == 1331 and s["locks"]["nodes_total"] == 108641)
+    k = Kernel()
+    rep = get_extra_pack("nephron").install(k)
+    checks.append(len(rep["skills"]) == 24 and len(rep["agents"]) == 0
+                  and k.skills.has("nephron.replay_window"))
+    checks.append(s["structures"] == 5 and s["fields"] == FIELD_TOTAL == 41
+                  and s["event_types"] == 11 and s["reason_codes"] == 27)
+    checks.append(s["conflicts"] == 10 and [c["id"] for c in CONFLICTS]
+                  == ["N%d" % i for i in range(1, 11)]
+                  and all(c["A"] and c["B"] and c["chosen"] in ("A", "B") for c in CONFLICTS))
+    checks.append(s["fixes"] == 3 and all(f["finding"] and f["fix"] for f in FIXES))
+    checks.append(len(REFUSED_OPS) == 11 and len(NON_GOALS) == 6 and len(ACCEPTANCE) == 8
+                  and len(APPEND_REJECTS) == 3)
+
+    # 记录结构：41 字段 / raw_len 口径锁定
+    sch = skill_nephron_page_schema()
+    checks.append(sch["field_total"] == 41 and sch["structure_count"] == 5
+                  and sch["raw_len_unit"] == RAW_LEN_UNIT == "token")
+    fd = skill_nephron_field_dictionary()
+    checks.append(fd["count"] == 41 and fd["match_schema"] is True
+                  and [r["structure"] for r in fd["rows"]][0] == "Page")
+
+    # Page 校验：合格 / 无血统留空 / NONE 合法 / importance 缺失只告警
+    page = {"page_id": "p1", "origin": "session", "payload_digest": "aabbccddeeff0011",
+            "raw_len": 120, "form": "raw", "importance": 0.4, "last_tick": 7,
+            "hit_count": 2, "lineage_ref": "L-9", "fingerprint": "FP1"}
+    checks.append(skill_nephron_page_validate(page)["ok"] is True)
+    checks.append(skill_nephron_page_validate(dict(page, lineage_ref=""))["errors"]
+                  == ["lineage_ref_empty_forbidden"])
+    none_page = {kk: vv for kk, vv in page.items() if kk != "importance"}
+    none_page["lineage_ref"] = "NONE"
+    pv = skill_nephron_page_validate(none_page)
+    checks.append(pv["ok"] is True and pv["warnings"] == ["importance_absent_recorded_as_zero"]
+                  and "显式 NONE" in pv["lineage_tag"])
+    checks.append(skill_nephron_page_validate(dict(page, origin="kernel"))["errors"] == ["enum:origin"])
+
+    # LedgerRecord：合格 / 压缩比必须 null / 时钟回跳 / 主键重复 / 改写字段
+    rec = {"tick": 7, "seq": 0, "window_budget": 8, "window_used": 3,
+           "layer_residency": {"working": 1, "hebbian": 1, "skeleton": 0, "external": 1},
+           "hit_rate": None, "compression_ratio": None, "evicted_pages": 0,
+           "external_calls": 1, "cost_estimate": 0.2, "confidence_estimate": None,
+           "events": [], "fingerprint": "FP1"}
+    checks.append(skill_nephron_ledger_record(rec)["ok"] is True)
+    checks.append(skill_nephron_ledger_record(dict(rec, compression_ratio=0.5))["append_rejects"]
+                  == ["APPEND_REJECT_SCHEMA_INVALID"])
+    checks.append(skill_nephron_ledger_record(dict(rec, tick=3, seq=1),
+                                              watermark=7)["append_rejects"]
+                  == ["APPEND_REJECT_CLOCK_REGRESSION"])
+    checks.append(skill_nephron_ledger_record(dict(rec, seq=1),
+                                              seen_keys=[[7, 1]])["append_rejects"]
+                  == ["APPEND_REJECT_DUPLICATE_PK"])
+    checks.append(skill_nephron_ledger_record(dict(rec, updated_at="now"))["append_rejects"]
+                  == ["APPEND_REJECT_SCHEMA_INVALID"])
+    checks.append(skill_nephron_ledger_record(
+        dict(rec, layer_residency={"working": 1}))["errors"] == ["layer_residency_keys"])
+
+    # 账本核验：正常 / 序号缺口 / tick 倒退 / 锚点不符
+    evs = [{"type": "page_admit", "reason_code": "ADMIT_RECENT", "refs": ["p1"],
+            "delta": {"score": 0.7}},
+           {"type": "page_admit", "reason_code": "ADMIT_LINEAGE_TRUSTED", "refs": ["p2"],
+            "delta": {"score": 0.5}},
+           {"type": "page_summarize", "reason_code": "SUMM_BUDGET_PRESSURE", "refs": ["p3"],
+            "delta": {"from_len": 900, "to_len": 90}},
+           {"type": "page_reject", "reason_code": "REJECT_REDUNDANT", "refs": ["p4"], "delta": {}}]
+    ledger = [dict(rec, events=[]), dict(rec, tick=8, seq=1, window_used=2, events=evs)]
+    good = skill_nephron_ledger_verify(ledger)
+    checks.append(good["ok"] is True and good["checks"]["seq_no_gap"] is True
+                  and len(good["chain_digest"]) == 16)
+    gapped = skill_nephron_ledger_verify([dict(rec, seq=0), dict(rec, tick=8, seq=2)])
+    checks.append(gapped["ok"] is False and gapped["checks"]["seq_no_gap"] is False)
+    backwards = skill_nephron_ledger_verify([dict(rec, tick=9, seq=0), dict(rec, tick=8, seq=1)])
+    checks.append(backwards["ok"] is False and backwards["checks"]["tick_non_decreasing"] is False)
+    checks.append(skill_nephron_ledger_verify(ledger, anchor="DEAD")["anchor_mismatch"] is True)
+    checks.append(skill_nephron_ledger_verify(ledger, anchor=good["chain_digest"])["ok"] is True)
+
+    # 理由码：27 码 / 10 族 / UNKNOWN 不入表 / R-01 评审留痕
+    rc = skill_nephron_reason_codes()
+    checks.append(rc["codes"] == 27 and len(REASON_CODES) == 27
+                  and rc["unknown"]["in_table"] is False and rc["unknown"]["code"] == "UNKNOWN")
+    checks.append(rc["codes_by_family"]["window"] == ["WINDOW_BUILD_COMPLETE"]
+                  and rc["reviews"][0]["id"] == "R-01")
+
+    # 事件校验：合格 / 类型码错配 / UNKNOWN 兜底计数 / 单主码 / delta 非数值
+    ok_ev = skill_nephron_event_validate({"type": "page_admit", "reason_code": "ADMIT_RECENT",
+                                          "refs": ["p1"], "delta": {"score": 0.6}})
+    checks.append(ok_ev["ok"] is True and ok_ev["alarm"] == 0)
+    checks.append(skill_nephron_event_validate({"type": "page_reject",
+                                                "reason_code": "ADMIT_RECENT",
+                                                "refs": ["p1"]})["errors"]
+                  == ["reason_code_type_mismatch"])
+    unk = skill_nephron_event_validate({"type": "page_reject", "reason_code": "UNKNOWN",
+                                        "refs": ["p1"]})
+    checks.append(unk["ok"] is True and unk["unclassified"] is True and unk["alarm"] == 1)
+    checks.append(skill_nephron_event_validate({"type": "window_build",
+                                                "reason_code": "WINDOW_BUILD_COMPLETE",
+                                                "refs": []})["ok"] is True)
+    checks.append(skill_nephron_event_validate({"type": "page_reject",
+                                                "reason_code": "REJECT_REDUNDANT",
+                                                "refs": ["p1"], "sub_reason_code": "X"})["errors"]
+                  == ["single_main_reason_code_only:sub_reason_code"])
+    checks.append(skill_nephron_event_validate({"type": "retrieval",
+                                                "reason_code": "RETRIEVAL_TIMEOUT",
+                                                "refs": [], "delta": {"ms": "slow"}})["errors"]
+                  == ["delta_not_numeric:ms"])
+    checks.append(len(EVENT_TYPES) == 11)
+
+    # 窗口清单：计数 / 摘要变短 / 缺码
+    man = skill_nephron_manifest_build(evs, 8, 2, "FP1")
+    checks.append(man["counts"] == {"admitted": 2, "summarized": 1, "rejected": 1}
+                  and man["ok"] is True)
+    checks.append(skill_nephron_manifest_build(
+        [{"type": "page_summarize", "reason_code": "SUMM_BUDGET_PRESSURE",
+          "refs": ["p9"], "delta": {"from_len": 10, "to_len": 99}}])["issues"]
+                  == ["summary_not_shorter"])
+
+    # 开关三档：可回放范围 / 默认 off / 采样率校验
+    sw = skill_nephron_switch_policy()
+    checks.append(sw["mode"] == "off" and sw["enabled"] is False
+                  and sw["replayable_scope"] == "none" and sw["default"] == "off")
+    checks.append(skill_nephron_switch_policy("sampled", 0.1)["replayable_scope"]
+                  == "only_sampled_ticks")
+    checks.append(skill_nephron_switch_policy("full")["replayable_scope"] == "all_ticks")
+    checks.append(skill_nephron_switch_policy("sampled", 0.0)["errors"]
+                  == ["sample_rate_out_of_range"])
+
+    # 采集契约 / 故障矩阵
+    cp = skill_nephron_collect_plan()
+    checks.append(cp["hook_count"] == 11 and cp["rules"]["flush"].startswith("host_managed")
+                  and len(cp["rules"]["drop_counters"]) == 3)
+    fi = skill_nephron_failure_injection_matrix()
+    checks.append(fi["count"] == 4
+                  and [r["fault"] for r in fi["rows"]]
+                  == ["queue_full", "write_fail", "serialize_fail", "clock_regression"]
+                  and all(r["forbidden"] for r in fi["rows"]))
+
+    # 回放四件套 + 确定性
+    w = skill_nephron_replay_window(ledger, 8, "full")
+    checks.append(w["replayable"] is True and w["counts"]["admitted"] == 2
+                  and w["manifest"]["fingerprint"] == "FP1")
+    checks.append(skill_nephron_replay_window(ledger, 8, "sampled")["reason"]
+                  == "partial_ledger_not_replayable")          # N2
+    checks.append(skill_nephron_replay_window(ledger, 99, "full")["reason"]
+                  == "tick_not_in_ledger")
+    snaps = [{"tick": 4, "entries": [
+        {"slot_id": "s2", "slot_class": "trunk", "occupant_page": "p1", "allocated_tick": 4,
+         "fragment_flag": False, "owner_symbiont": None, "reclaimability": "cold"},
+        {"slot_id": "s1", "slot_class": "reserve", "occupant_page": None, "allocated_tick": 3,
+         "fragment_flag": True, "owner_symbiont": "m-1", "reclaimability": "hot"}]}]
+    sl = skill_nephron_replay_slots(snaps, 8)
+    checks.append(sl["available"] is True and sl["snapshot_tick"] == 4
+                  and sl["age_ticks"] == 4 and sl["stale"] is False
+                  and [e["slot_id"] for e in sl["entries"]] == ["s1", "s2"]
+                  and sl["replay_scope"] == "snapshot_only")     # N10 的降级声明
+    checks.append(skill_nephron_replay_slots(snaps, 40)["stale"] is True)
+    checks.append(skill_nephron_replay_slots([], 8)["reason"] == "no_snapshot_at_or_before_tick")
+    inp = skill_nephron_replay_inputs(ledger, 8)
+    checks.append(inp["available"] is True and inp["window_used"] == 2
+                  and inp["hit_rate"] is None and inp["hit_rate_null_ok"] is True
+                  and inp["compression_ratio"] is None)
+    tl = skill_nephron_replay_timeline(ledger, 0, 99)
+    checks.append(tl["count"] == 2 and tl["rows"][-1]["entered"] == ["p1", "p2"]
+                  and tl["rows"][-1]["rejected"] == 1)
+    det = skill_nephron_replay_determinism(ledger)
+    checks.append(det["stable"] is True and det["hash_1"] == det["hash_2"]
+                  and len(det["hash_1"]) == 16)                  # A4
+
+    # 隐私与擦除
+    pp = skill_nephron_privacy_policy()
+    checks.append(pp["count"] == 6
+                  and any("请求体明文" in r["forbidden"] for r in pp["rows"]))
+    er = skill_nephron_erase_operation([{"page_id": "p1", "payload_digest": "aabbccdd"}])
+    checks.append(er["ok"] is True and er["plan"][0]["payload_digest_after"].startswith("ERASED:")
+                  and "raw_len" in er["plan"][0]["keep"]
+                  and "改写历史记录" in er["forbidden"])            # N3
+
+    # 指纹：联合哈希 / 缺项 / 失配拦截
+    fp = skill_nephron_generation_fingerprint(
+        {"weights": "w", "templates": "t", "quantization": "q4",
+         "loras": ["b", "a"], "retriever": "r1"})
+    checks.append(fp["ok"] is True and fp["missing"] == [] and len(fp["fingerprint"]) == 16
+                  and fp["canonical"]["loras"] == ["a", "b"])
+    checks.append(skill_nephron_generation_fingerprint({"weights": "w"})["missing"]
+                  == ["templates", "quantization", "loras", "retriever"])
+    checks.append(skill_nephron_fingerprint_check("A", "A")["reuse_allowed"] is True)
+    bad_fp = skill_nephron_fingerprint_check("A", "B", model_changed=True)
+    checks.append(bad_fp["mismatch"] is True and bad_fp["reuse_allowed"] is False
+                  and bad_fp["event"]["type"] == "fingerprint_mismatch"
+                  and bad_fp["code"] == "FINGERPRINT_MISMATCH_MODEL")   # A7
+
+    # 边界：零侵入契约（只能是 pending）/ 非目标 / A1-A8 状态机
+    zi = skill_nephron_zero_intrusion_check()
+    checks.append(zi["status"] == "pending_human_measure" and zi["pack_can_prove"] is False)
+    checks.append(skill_nephron_non_goal_scan({"paging": True, "compression": True,
+                                               "budget_control": True})["count"] == 3)
+    ac = skill_nephron_acceptance_check()
+    checks.append(ac["pending"] == ["A1", "A2"] and ac["verdict"] == "provisional"
+                  and ac["count"] == 8)
+    checks.append(skill_nephron_acceptance_check({"A4": "fail"})["verdict"] == "reject")
+    checks.append(all(r["status"] != "pass" or r["pack_can_prove"] == "true"
+                      for r in ac["rows"]))
+
+    # 回执
+    a1, a2 = skill_nephron_audit_receipt([{"kind": "k", "ref": "r", "result": "ok"}]), \
+        skill_nephron_audit_receipt([{"kind": "k", "ref": "r", "result": "ok"}])
+    checks.append(len(a1["fingerprint"]) == 16 and a1["fingerprint"] == a2["fingerprint"]
+                  and a1["execution"] == "human_manual")
+
+    return all(checks), f"{sum(checks)}/{len(checks)} 肾单位 P0 包（24技能/0agent/7工作流/41字段/27码/10审视）"
+
+
 GROUPS: List[Tuple[str, Callable[[], Tuple[bool, str]]]] = [
     ("G1 spec", g1_spec),
     ("G2 envelope", g2_envelope),
@@ -819,6 +1054,7 @@ GROUPS: List[Tuple[str, Callable[[], Tuple[bool, str]]]] = [
     ("G20 omnilife", g20_omnilife),
     ("G21 omnicore", g21_omnicore),
     ("G22 metab", g22_metab),
+    ("G23 nephron", g23_nephron),
 ]
 
 

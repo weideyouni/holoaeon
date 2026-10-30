@@ -3,6 +3,61 @@
 本项目遵循 [Keep a Changelog](https://keepachangelog.com/) 格式，
 并遵循语义化版本（Semantic Versioning）。
 
+## [0.8.0] - 2026-10-30
+
+### 新增
+
+- **NEPHRON 肾单位层 P0 扩展包**（`holoaeon/packs/nephron_pack.py`），第十五个包，
+  经 `EXTRA_PACK_REGISTRY` 挂载（不进 `PACK_ORDER`）：
+  - 24 个技能：记录结构 4（结构 / 校验 / 追加 / 核验）+ 事件理由码 3 + 采集开关 3
+    + 回放 5（窗口 / 槽位 / 决策输入 / 时间线 / 确定性）+ 隐私 2 + 指纹 2
+    + 边界验收 3 + 文档回执 2；
+  - 7 条工作流：`W1_observe → W7_acceptance`；
+  - 0 个角色：`roles = []`，不新增 agent；**只读观测**——不分页、不压缩、不淘汰、
+    不做预算控制，也不改任何既有行为。
+- **规格内 10 处内在冲突的显式消解**（`CONFLICTS` N1–N10，G23 断言论），例如
+  - N1 异步队列/落盘 vs 本项目"不起线程、不写盘" → 包只给队列语义与丢弃计数，I/O 归宿主；
+  - N2 "任意 tick 可回放" vs 三档采样 → 只有 `full` 满足，`sampled/off` 明示不可完整回放；
+  - N3 只追加 vs 一键擦除 → 摘要替换为 `ERASED:<hash>` 并追加一条擦除记录；
+  - N6 主键 vs 时钟回跳 → 设水位线，回跳拒绝追加并记 `APPEND_REJECT_CLOCK_REGRESSION`；
+  - N10 槽位快照无事件源 → 旁挂周期快照 + 披露快照年龄，P0 **不重演槽位变化**（写进限制）。
+- **3 处字段缺口修正**（`FIXES` F1–F3）：摘要前后长度改由 `page_summarize` 的
+  `delta{from_len,to_len}` 承载；`importance` 缺失只告警不改错；账本只存摘要哈希与长度，
+  **不存摘要正文**。
+- **41 字段结构**（Page 10 / SlotLedgerEntry 7 / LedgerRecord 13 / Event 4 / WindowManifest 7），
+  字段字典与结构定义同源，`match_schema` 断言；`raw_len` 锁死 token 口径。
+- **27 个理由码 + 10 码族 + `UNKNOWN` 保留码**，另新增 `WINDOW_BUILD_COMPLETE`（评审 R-01）；
+  拒绝原因 3 码单列（`APPEND_REJECT_*`），不与理由码混用。
+- **零侵入采集契约**：11 个 hook 点、三档开关（默认 `off`）、4 类故障注入矩阵、
+  队列满/写失败/序列化失败三类丢弃计数；失败一律静默降级为不记录。
+- **回放器四件套**：窗口构成表 / 槽位快照（含年龄与 `stale`）/ 决策输入 / 变更时间线；
+  归一化时间戳后两次回放哈希一致（A4）。
+- **代际指纹**（权重 / 模板 / 量化 / LoRA / 检索器联合哈希，LoRA 排序归一）与失配拦截。
+- **隐私与擦除**：不存原文、摘要不出网、外部调用只记指纹与字节数、擦除保留计数与指纹。
+- **黄金样例**：`examples/nephron_ledger_sample.jsonl`（7 条记录）+
+  `examples/nephron_replay_report.md`（逐 tick 窗口表 / 时间线 / 槽位 / A1–A8 状态），
+  由 `scripts/make_nephron_sample.py` 从包内纯函数生成，用于验证 41 字段够用。
+- 设计文档 `docs/nephron.md`（13 章：定位 / 10 处冲突与 3 处修正 / 字段字典 / 理由码表 /
+  采集开关 / 回放器 / 接口清单 / 隐私 / 测试结果 / 7 条已知限制 / 7 项 P1 待办 / 10 项开放问题）。
+
+### 变更
+
+- `spec.py`：`VERSION 0.7.0 → 0.8.0`，`MATRIX_ID / RUNTIME_ID` 同步。
+- `packs/__init__.py`：`EXTRA_PACK_REGISTRY` 增 `nephron`，
+  `EXTRA_PACK_ORDER = [..., "metab", "nephron"]`（六包）。
+- `selftest.py`：新增 `G23 nephron`（62 条断言）；`GROUPS` 追加该项。
+- `README.md` / `README.zh-CN.md`：扩展包章节扩为"第十至第十五包"，自检口径
+  `G1–G22 / 22/22` → `G1–G23 / 23/23`，路线图 v0.8 记为 nephron（当前）。
+
+### 已知限制（不写成"已实现"）
+
+- A1（账本关/开态逐字节一致）与 A2（`full` 档额外开销）恒为 `pending_human_measure`，
+  本包只交付断言契约，必须由宿主在真实负载上实测。
+- 槽位回放只给"最近快照 ≤ tick + 年龄"，**不重演槽位变化**（无 `slot_alloc/slot_free` 事件源，
+  属 P1）。
+- 无法回放"模型当时看到的实际文本"（账本不存摘要正文）。
+- 内容级篡改需宿主保存逐段锚点；本包仅给链摘要与结构异常定位。
+
 ## [0.7.0] - 2026-10-30
 
 ### 新增
