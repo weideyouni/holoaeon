@@ -3,6 +3,49 @@
 本项目遵循 [Keep a Changelog](https://keepachangelog.com/) 格式，
 并遵循语义化版本（Semantic Versioning）。
 
+## [0.9.1] - 2026-10-30
+
+> 文档补齐 + 四处审计修复；不动判定语义（34 单测 / 24 自检 / 红线零违规全部重跑确认）。
+
+### 新增
+
+- **`README_MANIFESTO_v0.9.1.md`（誓约 README）**：把一段口语化的"发愿"整理成五条**可判定条款**
+  （被使用而非被收藏 / 为具体的人干完一件事 / 每次取舍记账留痕 / 该标 `simulated` 就标、
+  被信任时才标 `live` / 每个取舍都有理由码），每条给出工程落点与状态
+  （`已兑现` / `部分兑现` / `未兑现`）；另设"三种写法"一节，明确全息等词为**工程隐喻**
+  不做实证主张，重申 **仿真 ≠ 证明，碳基终裁**。
+- **`bridges/README.md`**：宿主桥的五分钟上手（`--check` / `--ask` / `--backend echo` 三条命令）、
+  三后端表、fail-closed 远程门禁、回执五要素（`mode` 仅 `live` / `echo`）、审计七字段、
+  "本机能证 / 不能证"对照表。
+
+### 修复（外部审计 A–D 四条，全部实测，非文档措辞）
+
+| # | 问题 | 修复 | 验证 |
+|---|---|---|---|
+| A | `pyproject.toml` 写死 `version = "0.3.0"`，与 `spec.py` 的 0.9.x 不符 → 安装元数据会撒谎 | 改 `dynamic = ["version"]` + `[tool.setuptools.dynamic] version = {attr = "holoaeon.spec.VERSION"}`，版本只有一处权威 | AST 静态检查确认 `VERSION` 为字面量赋值（满足 setuptools 静态读取）；G24 新增断言，防止版本再被写回 pyproject |
+| B | `docs/nephron.md` 的 A1 哈希 `b48a0aa1…` 已过期（本轮实跑 `e5710490109aed2e`） | 重跑回写证据与文档；根因查明：workload 的 `kernel.submit` 回执含 `HOLOAEON-RUNTIME-<ver>`，**版本号一变哈希就变**，故每版必须重跑 | 证据 JSON 与 `docs/nephron.md` 两处哈希一致（G24 断言）；新增 `--check-evidence` 比对入口 |
+| C | `bridges/README.md` 缺失（规格 5 件只有 4 件） | 新增该文件（见「新增」第 2 条） | 文件在库并被本版 zip 收录 |
+| D | CI 未挂 A1 → 断言回归时 CI 不会红 | `ci.yml` 新增 `NEPHRON A1 verdict` 步骤：`python scripts/measure_a1_a2.py --runs 3`（A2 只披露不阻塞） | 本地同命令 `exit 0`；G24 断言 CI 必须含该步骤 |
+
+### 变更
+
+- `holoaeon/spec.py`：`VERSION / MATRIX_ID / RUNTIME_ID` → `0.9.1`（`PROTOCOL_ID`、`DATE` 不变）。
+- `scripts/measure_a1_a2.py`：新增 `--check-evidence`（与既有证据比对 A1 哈希，不一致即退出 1）。
+- `holoaeon/selftest.py`：G24 由 43 条断言扩到 **46** 条（pyproject 单一版本源 / docs↔证据哈希一致 / CI 必挂 A1）。
+- 版本说明、CHANGELOG、两份 README、`releases/RELEASES.md` 同步 0.9.1 口径。
+
+### 核实（不改动，仅确认）
+
+| 补丁 | 结论 |
+|---|---|
+| 版本号 | 上版 0.8.0 → 0.9.0 已完成；本版补 0.9.1 |
+| `bridges/README.md` | **此前确实缺失**，本版补齐（其余四文件已在库） |
+| A1 种子 | `scripts/measure_a1_a2.py` 中 `SEED = 20261030` 已固定；`VOLATILE_KEYS` 剥离时间相关字段；A1 `sha256=e5710490109aed2e` |
+
+### 已知限制
+
+- 不改任何判定逻辑；真实 `mode="live"` 与 CI 三版本全绿仍是 `untested`，本版不因"写得更清楚"而升级状态。
+
 ## [0.9.0] - 2026-10-30
 
 ### 新增

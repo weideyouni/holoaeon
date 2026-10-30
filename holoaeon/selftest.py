@@ -1127,6 +1127,43 @@ def g24_uplift() -> Tuple[bool, str]:
     checks.append(skill_uplift_evidence_chain(ev)["verdict"] == "PASS")
     checks.append(skill_uplift_evidence_chain({"script": "s"})["verdict"] == "FAIL")
 
+    # U3.1：证据不许静默过期
+    # (a) pyproject 不得写死版本，必须指向 spec.VERSION（安装元数据与代码同源）
+    py_path = _os.path.join(root, "pyproject.toml")
+    py_txt = ""
+    if _os.path.exists(py_path):
+        with open(py_path, "r", encoding="utf-8") as fh:
+            py_txt = fh.read()
+
+    def _section(text: str, header: str) -> str:
+        if header not in text:
+            return ""
+        return text.split(header, 1)[1].split("\n[", 1)[0]
+
+    proj = _section(py_txt, "[project]")
+    dyn = _section(py_txt, "[tool.setuptools.dynamic]")
+    proj_hardcoded = any(line.strip().startswith("version")
+                         and "=" in line and "{" not in line
+                         for line in proj.splitlines())
+    checks.append('dynamic = ["version"]' in proj
+                  and not proj_hardcoded
+                  and 'attr = "holoaeon.spec.VERSION"' in dyn)
+    # (b) docs/nephron.md 里记的 A1 哈希必须与证据文件一致（任一漂移即红）
+    doc_path = _os.path.join(root, "docs", "nephron.md")
+    doc_txt = ""
+    if _os.path.exists(doc_path):
+        with open(doc_path, "r", encoding="utf-8") as fh:
+            doc_txt = fh.read()
+    ev_hash = str(ev.get("A1", {}).get("sha256_off", ""))[:16]
+    checks.append(bool(ev_hash) and ev_hash in doc_txt)
+    # (c) CI 必须跑 A1（否则断言回归时 CI 不会红）
+    ci_path = _os.path.join(root, ".github", "workflows", "ci.yml")
+    ci_txt = ""
+    if _os.path.exists(ci_path):
+        with open(ci_path, "r", encoding="utf-8") as fh:
+            ci_txt = fh.read()
+    checks.append("measure_a1_a2.py" in ci_txt and "--runs" in ci_txt)
+
     # U5：n-gram / 混合分 / 两用例
     d1 = skill_uplift_ngram_dice({"query": "statistik", "text": "statistics"})
     d2 = skill_uplift_ngram_dice({"query": "统计销售额", "text": "统计数据清洗"})

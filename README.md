@@ -310,8 +310,8 @@ network gate, a receipt missing `ok`, an assertion built on a wrong workload pre
 Two claims are no longer written as a bare "pass", and they are not allowed to become one
 either: byte-identical output with the ledger off (`A1`) and the real cost of `full` (`A2`).
 Since v0.9.0 they are `measured_with_scope` — measured by `scripts/measure_a1_a2.py` at the
-host-orchestration layer (`A1 = PASS`, `sha256=b48a0aa1f3743514`; `A2` median overhead
-**1.83%**, off 11.3708 ms / full 11.5794 ms, 30 runs), and the scope line says plainly that
+host-orchestration layer (`A1 = PASS`, `sha256=e5710490109aed2e`; `A2` median overhead
+**1.79%**, off 11.0140 ms / full 11.2117 ms, 30 runs), and the scope line says plainly that
 this is not a production-hook closure. The verdict is itself put on trial: a **mutation
 test** alters one output step and the verdict must flip to `FAIL (diff_at_step=3)` — no
 mutation proof, no claim of validity. Evidence: `docs/nephron_a1_a2_evidence.json`.
@@ -340,7 +340,14 @@ This is the same principle the project already used for threads (N1) and snapsho
 client refuses at construction time. `echo` is an offline self-check backend and never claims
 to be `live`. Audit lines carry only `seq / backend / model / prompt_sha16 / response_sha16 /
 latency_ms / tokens` — hashes and counters, never plaintext. See
-[docs/bridges.md](docs/bridges.md).
+[docs/bridges.md](docs/bridges.md) and [bridges/README.md](bridges/README.md) for the
+five-minute path.
+
+**What this project promises, in checkable form**: [README_MANIFESTO_v0.9.1.md](README_MANIFESTO_v0.9.1.md)
+turns five spoken vows into clauses you can falsify — used rather than collected; one concrete
+job for one concrete person; every trade-off on an append-only record; `simulated` shown as
+`simulated` and `live` earned; a reason code behind every eviction and degradation.
+No promise is left without a command that could break it.
 
 ### Versioned releases (add-only, never overwritten)
 

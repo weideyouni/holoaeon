@@ -226,6 +226,8 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="NEPHRON P0 A1/A2 实测")
     ap.add_argument("--runs", type=int, default=30, help="A2 每档重复次数（默认 30）")
     ap.add_argument("--write", default="", help="把证据写成 JSON 文件的路径")
+    ap.add_argument("--check-evidence", default="",
+                    help="与既有证据文件比对 A1 哈希；不一致即退出 1（防止证据静默过期）")
     args = ap.parse_args()
 
     a1 = experiment_a1()
@@ -252,7 +254,23 @@ def main() -> int:
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(json.dumps(ev, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print("evidence ->", p)
-    return 0 if (a1["verdict"] == "PASS" and mut["mutant_fail"]) else 1
+    rc = 0 if (a1["verdict"] == "PASS" and mut["mutant_fail"]) else 1
+
+    if args.check_evidence:
+        p = Path(args.check_evidence)
+        try:
+            old = json.loads(p.read_text(encoding="utf-8"))
+            old_hash = str(old.get("A1", {}).get("sha256_off", ""))
+        except Exception as exc:                     # 缺文件也算过期
+            print("EVIDENCE MISSING/UNREADABLE:", exc)
+            return 1
+        if old_hash != a1["sha256_off"]:
+            print("EVIDENCE STALE: 记录 %s != 本次 %s"
+                  % (old_hash[:16] or "<empty>", a1["sha256_off"][:16]))
+            print("             重跑 --write 刷新证据，并同步 docs/nephron.md 的哈希行")
+            return 1
+        print("EVIDENCE OK: %s" % old_hash[:16])
+    return rc
 
 
 if __name__ == "__main__":

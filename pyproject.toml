@@ -4,7 +4,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "holoaeon"
-version = "0.3.0"
+# 版本号只有一个权威来源：holoaeon/spec.py 的 VERSION（字面量赋值，setuptools 静态读取，
+# 构建时不 import 包）。此处不再写死数字，避免安装元数据与代码各说一套。
+dynamic = ["version"]
 description = "HoloAeon: a dependency-free, deterministic, local-first kernel for weaving multi-agent systems from a logical matrix and an adaptive collaboration graph."
 readme = "README.md"
 requires-python = ">=3.8"
@@ -51,8 +53,12 @@ Repository = "https://github.com/weideyouni/holoaeon"
 Issues = "https://github.com/weideyouni/holoaeon/issues"
 Documentation = "https://github.com/weideyouni/holoaeon/tree/main/docs"
 
+[tool.setuptools.dynamic]
+version = {attr = "holoaeon.spec.VERSION"}
+
 [tool.setuptools.packages.find]
 include = ["holoaeon*"]
 
 [tool.setuptools.package-data]
 holoaeon = ["py.typed"]
+

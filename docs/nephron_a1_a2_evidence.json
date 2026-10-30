@@ -4,8 +4,8 @@
   "date_local": "2026-10-30",
   "A1": {
     "verdict": "PASS",
-    "sha256_off": "b48a0aa1f374351498c9568c96f72035afeb2f86e49cb0106f2c564622fb7a1f",
-    "sha256_full": "b48a0aa1f374351498c9568c96f72035afeb2f86e49cb0106f2c564622fb7a1f",
+    "sha256_off": "e5710490109aed2eb79323d56efbb40c14b64207908607c287cf84024fefeb7e",
+    "sha256_full": "e5710490109aed2eb79323d56efbb40c14b64207908607c287cf84024fefeb7e",
     "diff_at_step": null,
     "steps": 16,
     "records_full": 16,
@@ -21,9 +21,9 @@
   },
   "A2": {
     "runs": 30,
-    "median_off_ms": 11.3708,
-    "median_full_ms": 11.5794,
-    "overhead_median_pct": 1.83,
+    "median_off_ms": 11.014,
+    "median_full_ms": 11.2117,
+    "overhead_median_pct": 1.79,
     "threshold": "none — 披露项不是断言项（延续不设虚构目标值）",
     "machine": {
       "python": "3.13.16",

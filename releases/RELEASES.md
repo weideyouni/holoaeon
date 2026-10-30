@@ -10,7 +10,8 @@
 
 | 版本 | Tag | 日期 | 内核包 | 认知主权包 | 自检 | 状态 |
 |---|---|---|---|---|---|---|
-| **v0.9.0** | `v0.9.0` | 2026-10-30 | `releases/holoaeon_v0.9.0_20261030.zip` | —（沿用 V3.1） | 内核 **24/24** | 当前 |
+| **v0.9.1** | `v0.9.1` | 2026-10-30 | `releases/holoaeon_v0.9.1_20261030.zip` | —（沿用 V3.1） | 内核 **24/24** | 当前 |
+| v0.9.0 | `v0.9.0` | 2026-10-30 | `releases/holoaeon_v0.9.0_20261030.zip`（89 文件 / 374,299 B） | —（沿用 V3.1） | 内核 **24/24** | 历史（保留） |
 | v0.8.0 | `v0.8.0` | 2026-10-30 | `releases/holoaeon_v0.8.0_20261030.zip`（72 文件 / 303,727 B） | —（沿用 V3.1） | 内核 **23/23** | 历史（保留） |
 | v0.7.0 | `v0.7.0` | 2026-10-30 | `releases/holoaeon_v0.7.0_20261030.zip`（66 文件 / 250,721 B） | —（沿用 V3.1） | 内核 **22/22** | 历史（保留） |
 | v0.6.0 | `v0.6.0` | 2026-10-30 | `releases/holoaeon_v0.6.0_20261030.zip`（63 文件 / 201,755 B） | —（沿用 V3.1） | 内核 **21/21** | 历史（保留） |
@@ -22,6 +23,77 @@
 > 说明：`v0.3.1` 与 `v0.3.0` 的发行包在打本次版本之前生成，未同步进本仓库 `releases/`；
 > 它们**未被覆盖、仍在本地 F 盘留存**，可随时按需补入。本目录自 `v0.4.0` 起对所有新版本
 > 强制落库。
+
+---
+
+## v0.9.1 · 本期内容（誓约文档化 + 四处审计修复）
+
+### 一句话
+
+v0.9.0 交完加固包之后，外部审计把放大镜怼到"声明与实现是否对齐"，抓到四处**真问题**：
+安装元数据写死旧版本、文档里的实测哈希过期、桥目录缺 README、CI 没挂 A1。
+本版把四条全部修掉——其中"哈希过期"没有靠改一个数字了事，而是**让漂移变成红灯**。
+同时把上一段口语誓愿整理成 `README_MANIFESTO_v0.9.1.md`（五条可判定誓约），
+让"愿要靠 commit 兑现"这句话本身也有证据。
+
+### 交付清单
+
+| # | 交付物 | 位置 | 说明 |
+|---|---|---|---|
+| 1 | 誓约 README | `README_MANIFESTO_v0.9.1.md` | 五条誓约 → 可判定条款 + 工程落点 + 状态；含"三种写法"的隐喻边界声明 |
+| 2 | 桥 README | `bridges/README.md` | 五分钟上手 / 三后端 / 门禁 / 回执五要素 / 审计七字段 / 能证与不能证 |
+| 3 | 版本单一源 | `pyproject.toml` | `dynamic = ["version"]` + `attr = "holoaeon.spec.VERSION"` |
+| 4 | 证据防过期 | `scripts/measure_a1_a2.py` | 新增 `--check-evidence`：与既有证据比对哈希，不一致即退出 1 |
+| 5 | CI 挂 A1 | `.github/workflows/ci.yml` | `NEPHRON A1 verdict`：`--runs 3`，A1 断言、A2 只披露 |
+| 6 | 自检收紧 | `holoaeon/selftest.py` | G24 43 → **46** 条：pyproject 单一版本源 / docs↔证据哈希一致 / CI 必挂 A1 |
+| 7 | 证据回写 | `docs/nephron_a1_a2_evidence.json`、`docs/nephron.md` | A1 `e5710490109aed2e`；A2 1.79%（11.0140 / 11.2117 ms，30 次） |
+
+### 四处审计修复（逐条）
+
+| # | 问题 | 修复 | 验证 |
+|---|---|---|---|
+| A | `pyproject.toml` 写死 `0.3.0` | 改为动态读 `spec.VERSION` | AST 确认 `VERSION` 为字面量（setuptools 可静态读）；G24 断言保护 |
+| B | 文档 A1 哈希过期 | 重跑回写 + 查明根因（workload 含 `HOLOAEON-RUNTIME-<ver>`，版本变则哈希变） | `--check-evidence` 输出 `EVIDENCE OK`；G24 断言文档哈希 == 证据哈希 |
+| C | `bridges/README.md` 缺失 | 新建 | 被本版 zip 收录 |
+| D | CI 未挂 A1 | 增步骤 | 本地同命令 `exit 0`；G24 断言 CI 文本含该步骤 |
+
+### 明确不做
+
+不改"哈希与版本绑定"的设计（否则会削弱两侧版本标识不一致的检出能力）；
+不做发布自动化；不在无本地推理服务的机器上假造 `live` 回执。
+
+### 验证记录
+
+| 项 | 结果 |
+|---|---|
+| 单测 | `Ran 34 tests` OK |
+| 自检 | `24 / 24` 组（G24 = **46** 条断言） |
+| 红线 | 34 文件零违规 |
+| A1 | PASS，`e5710490109aed2e`，`diff_at_step=None` |
+| A1 变异 | PASS → FAIL，`diff_at_step=3` |
+| A2 | full 11.2117 ms / off 11.0140 ms → **+1.79%**（runs=30） |
+| 证据自检 | `EVIDENCE OK: e5710490109aed2e` |
+
+### 未实测（不折叠成结论）
+
+- **A-U6-1** CI 三版本全绿：只能在代码托管平台侧产生。本版新增的 A1 步骤**尚未在平台上跑过**，
+  仍是 `untested`——本版只保证它在本地 `exit 0`。
+- **A-U2-3** 真实 `mode="live"`：本机无本地推理服务。
+- 安装元数据：本机 Python 未装 `setuptools`，**`pip install -e .` 未能本地实跑**；
+  已用 AST 静态校验 attr 指向的符号为字面量赋值（setuptools 静态读取的前提），
+  完整构建需在有 setuptools 的环境复核。
+
+### 升级路径
+
+```
+git fetch --tags && git checkout v0.9.1
+python -m unittest discover -s tests      # 34
+python -c "from holoaeon.selftest import run_all; assert run_all()['ok']"
+python scripts/measure_a1_a2.py --runs 3 --check-evidence docs/nephron_a1_a2_evidence.json
+```
+
+从 v0.9.0 升级：无破坏性改动。新增的 G24 三条断言若在旧树上跑，会因 pyproject/CI/证据未同步而失败，
+这正是它要拦的情况。
 
 ---
 
@@ -46,7 +118,7 @@ issue/PR 模板落地、徽章按实测改写、A1/A2 从 `pending` 变 `measure
 | 6 | 三份模板 | `.github/ISSUE_TEMPLATE/*`、`PULL_REQUEST_TEMPLATE.md` | 五立场勾选 + 两个必答问题 |
 | 7 | 支持矩阵 | `docs/support-matrix.md` | 未跑格子写 `untested`，不写"预计通过" |
 | 8 | 实测脚本 | `scripts/measure_a1_a2.py` | A1 双跑哈希 + **变异实验** + A2 中位披露 |
-| 9 | 实测证据 | `docs/nephron_a1_a2_evidence.json` | A1 PASS / 变异 FAIL / A2 +1.83% / 机器规格 |
+| 9 | 实测证据 | `docs/nephron_a1_a2_evidence.json` | A1 PASS / 变异 FAIL / A2 +1.79% / 机器规格 |
 | 10 | 宿主桥 | `bridges/*.py`、`examples/05_live_model.py` | 三后端 + 远程三重门禁 + 7 字段审计 |
 | 11 | 桥文档 | `docs/bridges.md` | 为什么必须在包外 + 本机能证与不能证 |
 | 12 | 十问裁决 | `docs/nephron.md` §12 / §12.1 | O-1～O-10 六列裁决表 |
@@ -93,9 +165,9 @@ issue/PR 模板落地、徽章按实测改写、A1/A2 从 `pending` 变 `measure
 | 自检 | `24 / 24` 组（G1–G24，G24 = 43 条断言） |
 | 红线 | 34 文件零违规（`exit=0`） |
 | 示例 | 01–05 全 exit 0（05 为 `skip` 分支） |
-| A1 | PASS，`sha256=b48a0aa1f3743514`，`diff_at_step=None` |
+| A1 | PASS，`sha256=e5710490109aed2e`，`diff_at_step=None` |
 | A1 变异 | 篡改一步 → FAIL，`diff_at_step=3` |
-| A2 | full 中位 11.5794 ms / off 11.3708 ms → **+1.83%**（runs=30） |
+| A2 | full 中位 11.2117 ms / off 11.0140 ms → **+1.79%**（runs=30） |
 | 桥 | `--check` exit 2 + 三行指引；echo `ok=True`；远程门禁四分支正确；审计 7 字段无明文 |
 
 ### 未实测（不折叠成结论）

@@ -264,8 +264,8 @@ G18 / G19 / G20 / G21 / G22 / G23 / G24 单独验证。
 
 两项声明不再写成裸 "pass"，也不允许被写成 pass：账本关闭态与开启态逐字节一致（`A1`）、
 `full` 档真实开销（`A2`）。自 v0.9.0 起它们为 `measured_with_scope`——由
-`scripts/measure_a1_a2.py` 在宿主编排层实测（`A1 = PASS`，`sha256=b48a0aa1f3743514`；
-`A2` 中位额外开销 **1.83%**，off 11.3708 ms / full 11.5794 ms，30 次），并明写这不等于
+`scripts/measure_a1_a2.py` 在宿主编排层实测（`A1 = PASS`，`sha256=e5710490109aed2e`；
+`A2` 中位额外开销 **1.79%**，off 11.0140 ms / full 11.2117 ms，30 次），并明写这不等于
 生产钩子闭环。判定本身也要受审：**变异测试**改动一步输出后，判定必须翻成
 `FAIL (diff_at_step=3)`——没有变异证明，就不许说判定有效。证据：
 `docs/nephron_a1_a2_evidence.json`。

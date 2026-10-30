@@ -30,6 +30,11 @@ jobs:
       - name: Red-line scan (network / dependency / dangerous calls)
         run: python scripts/redline_scan.py
 
+      - name: NEPHRON A1 verdict (off-vs-full byte identity + mutation proof)
+        # A1 是断言项：判定必须 PASS，且篡改必须 FAIL，否则本步红。
+        # A2 只是披露项，此处只跑 --runs 3 取中位数打印，不设阈值、不阻塞。
+        run: python scripts/measure_a1_a2.py --runs 3
+
       - name: Examples 01-04 (smoke)
         run: |
           for f in examples/01_basic_matrix.py examples/02_semantic_routing.py \
