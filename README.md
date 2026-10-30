@@ -188,11 +188,12 @@ expressions. See [ALGORITHM.md](ALGORITHM.md) for the full algorithmic mapping. 
 HASM assembly and runs them on a built-in VM; HASM is not a real CPU instruction set and
 unknown intents are reported as `UNKNOWN` rather than guessed.
 
-### Cross-cutting extension packs (10th – 13th)
+### Cross-cutting extension packs (10th – 14th)
 
 These packs are **registered outside `PACK_ORDER`** on purpose: they add capability
 without adding agents, so the nine-pack totals above (25 agents / 47 skills) stay stable.
-They are reachable through `get_extra_pack(key)` and verified separately by G18 / G19 / G20 / G21.
+They are reachable through `get_extra_pack(key)` and verified separately by
+G18 / G19 / G20 / G21 / G22.
 
 | Extra pack | What it adds | Skills | Roles | Workflows |
 |---|---|---|---|---|
@@ -200,6 +201,7 @@ They are reachable through `get_extra_pack(key)` and verified separately by G18 
 | **subdistill** | SD-Distill sub-discipline distillation: 16 domains → 127 sub-disciplines → SKC knowledge cards, seven-stage pipeline, seven auxiliary losses, temperature curriculum | 15 | 0 | 7 (S1–S7) |
 | **omnilife** | Omni-Life everyday sovereignty: wardrobe / food / shelter / mobility / learning / SaaS, anchored on the 127 sub-discipline codes — skin-layer inducer folding, meridian local hand-off, deterministic life planners | 18 | 0 | 6 (L1–L6) |
 | **omnicore** | Omni-Core cognitive engine rewrite: addressing invariants, pure-function heartbeat, SKC distillation, Hebbian update, skin gate, self-declaration, whitepaper outline | 20 | 0 | 6 (M1–M6) |
+| **metab** | METAB governance layer: six-chromosome genome admission, four-question state classification, eight-stage lifecycle, three-tier authorization (fail-closed), gut dual channel, trust radius, combination whitelist, redlines | 26 | 0 | 8 (T1–T8) |
 
 `subdistill` keeps the mother matrix dimensions **unchanged** and asserts it in code:
 
@@ -236,7 +238,23 @@ package name. The rewrite keeps the *design intent* and drops the *unverifiable 
 - "digital life / breath / immunity / city-state" is labelled `metaphor=True` everywhere;
 - browser plug-ins that retarget streaming/e-commerce recommendation slots are refused.
 
-All four packs are offline, deterministic and zero-dependency. `subdistill` ships the 127-item
+`metab` turns a governance spec into **decidable checks**. It executes nothing: it answers
+"may this symbiote enter, which state does this change belong to, what is missing, why is it
+refused". Each of its 26 skills returns a verdict, and every verdict cites the axiom it serves.
+
+- admission requires **all six chromosomes** (phenotype / purity / lineage / toxicity /
+  energy / rhythm); a missing degradation path or a missing attention quota is a veto;
+- state classification is four questions in fixed precedence, and an **unmatched change
+  defaults to the conservative circulation state**, never to the hot state;
+- eight internal contradictions in the spec are listed with two resolutions each and one
+  adopted choice (`CONFLICTS` K1–K8) — e.g. irreversible points are pushed *outside* the
+  system (K1), and "one-key disable" means stop-and-fail-over, not skeleton rollback (K6);
+- lineage is a verifiable hash chain; a tampered node is reported by index and the chain
+  is judged untrusted;
+- combination safety runs on a whitelist: unknown pairs **do not take effect**, amplified
+  pairs need a whole-combination review.
+
+All five packs are offline, deterministic and zero-dependency. `subdistill` ships the 127-item
 taxonomy in `data/taxonomy_127.json` and forces a medical disclaimer gate on every MED/TCM
 artifact; `analogizes` relations must carry a counterexample before they may be called
 verified.
@@ -389,7 +407,7 @@ deterministic software.
 ## Testing
 
 ```bash
-# Self-test suite (G1–G21)
+# Self-test suite (G1–G22)
 python -c "from holoaeon.selftest import run_all; print(run_all(verbose=True))"
 
 # Unit tests
@@ -399,7 +417,7 @@ python -m unittest discover -s tests -v
 python scripts/redline_scan.py
 ```
 
-Current status: **21/21 self-test groups pass**, **25 unit tests pass**, and the red-line
+Current status: **22/22 self-test groups pass**, **25 unit tests pass**, and the red-line
 scan reports **zero violations** across all source files.
 
 ---
@@ -433,11 +451,13 @@ deterministic primitives, and self-organizing collaboration**. It can serve as:
   no nodes; refuses concurrent price probing, proxy switching and DOM injection by design.
 - **v0.6** — Fourth extension pack: **omnicore** (the Omni-Core engine draft rewritten as
   deterministic software; 20 skills, 0 agents, M1–M6). Five defects of the draft reproduced
-  and fixed; pure-function heartbeat, host-managed checkpoints, `metaphor=True` throughout
-  (current).
-- **v0.7** — Pluggable persistence backends and inter-node bus transports.
-- **v0.8** — Declarative graph/topology definitions and a pack-authoring toolkit.
-- **v0.9** — Reference adapters for popular open-weight model servers.
+  and fixed; pure-function heartbeat, host-managed checkpoints, `metaphor=True` throughout.
+- **v0.7** — Fifth extension pack: **metab** (the METAB metabolism layer as decidable
+  governance; 26 skills, 0 agents, T1–T8). Six-chromosome admission, four-question state
+  classification, eight-stage lifecycle, three-tier authorization, gut dual channel, trust
+  radius, combination whitelist; eight internal contradictions resolved explicitly (current).
+- **v0.8** — Pluggable persistence backends and inter-node bus transports.
+- **v0.9** — Declarative graph/topology definitions and a pack-authoring toolkit.
 - **v1.0** — Stable cognitive framework with a frozen API and full documentation.
 
 ---

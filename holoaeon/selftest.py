@@ -444,7 +444,7 @@ def g21_omnicore() -> Tuple[bool, str]:
     rep = get_extra_pack("omnicore").install(Kernel())
     checks.append(len(rep["skills"]) == 20 and len(rep["agents"]) == 0
                   and len(rep["workflows"]) == 6
-                  and EXTRA_PACK_ORDER[-1] == "omnicore")
+                  and "omnicore" in EXTRA_PACK_ORDER)
 
     # 维度不变 + 锁数
     s = pack_summary()
@@ -565,6 +565,237 @@ def g21_omnicore() -> Tuple[bool, str]:
     return all(checks), f"{sum(checks)}/{len(checks)} 全息纪元包（20技能/0agent/6工作流/5修正/22拒绝）"
 
 
+def g22_metab() -> Tuple[bool, str]:
+    """代谢层包：26 技能 / 0 agent / T1-T8 / 维度不变 / 六染色体 / 8 处冲突消解 / fail-closed。"""
+    from .kernel import Kernel
+    from .packs import EXTRA_PACK_ORDER, get_extra_pack
+    from .packs.metab_pack import (
+        pack_summary, CONFLICTS, REFUSED_OPS, CHROMOSOMES, PURITY_LADDER,
+        STATES, STAGES, AUTH_LAYERS, REDLINES, ANTIPATTERNS, COMBO_WHITELIST_SEED,
+        skill_metab_genome_schema, skill_metab_genome_validate, skill_metab_purity_ladder,
+        skill_metab_state_classify, skill_metab_state_effects, skill_metab_rhythm_plan,
+        skill_metab_lifecycle_transition, skill_metab_sham_report, skill_metab_sleep_plan,
+        skill_metab_archive_package, skill_metab_authority_layers,
+        skill_metab_fail_closed_check, skill_metab_gut_channels, skill_metab_contagion_scan,
+        skill_metab_lineage_record, skill_metab_trust_radius, skill_metab_borrowed_ratio,
+        skill_metab_sensor_loop, skill_metab_probe_baseline, skill_metab_combo_check,
+        skill_metab_redlines, skill_metab_scorecard, skill_metab_interface_contract,
+        skill_metab_generation_gate, skill_metab_antipattern_scan, skill_metab_audit_receipt,
+    )
+    checks: List[bool] = []
+
+    # 包级：注册、计数、维度不变
+    s = pack_summary()
+    checks.append("metab" in EXTRA_PACK_ORDER and get_extra_pack("metab").key == "metab")
+    checks.append(s["skills"] == 26 and s["workflows"] == 8 and s["agents_created"] == 0
+                  and s["addressing_unchanged"] is True
+                  and s["locks"]["rows_total"] == 1331 and s["locks"]["nodes_total"] == 108641)
+    k = Kernel()
+    rep = get_extra_pack("metab").install(k)
+    checks.append(len(rep["skills"]) == 26 and len(rep["agents"]) == 0
+                  and k.skills.has("metab.genome_validate"))
+
+    # 六个染色体 + 8 处冲突消解
+    schema = skill_metab_genome_schema()
+    checks.append(schema["count"] == 6
+                  and all(c["criterion"] and c["bad"] and c["axiom"] for c in schema["chromosomes"]))
+    checks.append(len(CONFLICTS) == 8
+                  and all(c["A"] and c["B"] and c["chosen"] in ("A", "B") for c in CONFLICTS)
+                  and len({c["id"] for c in CONFLICTS}) == 8)
+
+    # 基因组校验：缺条 / 合格 / 三类语义 veto
+    v0 = skill_metab_genome_validate()
+    checks.append(v0["allowed"] is False and len(v0["missing_chromosomes"]) == 6)
+    good = {"phenotype": {"does": "a", "produces": "b", "not_do": "c"},
+            "purity": {"level": "官方文档级", "evidence_kind": "doc"},
+            "lineage": {"source": "s", "license": "MIT",
+                        "contagion_class": "none", "hash_chain": ["h1"]},
+            "toxicity": {"blast_radius": "1 slot", "irreversible_point": "none",
+                         "degradation_path": "backup", "level": "green"},
+            "energy": {"compute": "0", "storage": "0", "external_calls": "0",
+                       "attention_quota": "0"},
+            "rhythm": {"plug_state": "breathing", "depends_on": [],
+                       "depended_by": [], "unload_cost": "0"}}
+    checks.append(skill_metab_genome_validate(good)["allowed"] is True)
+    bad_tox = dict(good)
+    bad_tox["toxicity"] = {"blast_radius": "x", "irreversible_point": "x", "level": "red"}
+    checks.append("no_degradation_path" in skill_metab_genome_validate(bad_tox)["vetoes"])
+    bad_pur = dict(good)
+    bad_pur["purity"] = {"level": "黑箱借用级", "evidence_kind": "behavior"}
+    checks.append("black_box_without_borrowed_tag"
+                  in skill_metab_genome_validate(bad_pur)["vetoes"])
+
+    # 纯度四级：黑箱不得进主干
+    lad = skill_metab_purity_ladder("黑箱借用级")["query"]
+    checks.append(lad["rank"] == 3 and lad["may_enter_backbone"] is False
+                  and len(PURITY_LADDER) == 4
+                  and skill_metab_purity_ladder("官方文档级")["query"]["may_enter_backbone"] is True)
+
+    # 四问定态：优先级 + 保守默认
+    checks.append(skill_metab_state_classify({"touches_main_slot": True})["state"] == "metabolism")
+    checks.append(skill_metab_state_classify({"rewrites_hebbian_baseline": True})["state"] == "metabolism")
+    checks.append(skill_metab_state_classify({"crosses_trust_boundary": True})["state"] == "circulation")
+    checks.append(skill_metab_state_classify({"new_data_source": True})["state"] == "metabolism")
+    checks.append(skill_metab_state_classify({"only_threshold": True})["state"] == "breathing")
+    unk = skill_metab_state_classify({})
+    checks.append(unk["state"] == "circulation" and unk["questions_fired"] == [])
+    eff = skill_metab_state_effects()
+    checks.append([r["boundary"] for r in eff["rows"]]
+                  == ["tick 边界", "心跳屏障边界（一次对齐后生效）", "checkpoint 边界"]
+                  and len(STATES) == 3)
+
+    # 节律：依赖优先于态序；有环拒绝装载
+    plan = skill_metab_rhythm_plan([
+        {"id": "a", "state": "metabolism"},
+        {"id": "b", "state": "breathing"},
+        {"id": "c", "state": "circulation", "depends_on": ["a"]}])
+    checks.append(plan["load_order"] == ["b", "a", "c"]
+                  and plan["unload_order"] == ["c", "a", "b"] and plan["ok"] is True)
+    cyc = skill_metab_rhythm_plan([{"id": "x", "depends_on": ["y"]},
+                                   {"id": "y", "depends_on": ["x"]}])
+    checks.append(cyc["ok"] is False and sorted(cyc["cycles"]) == ["x", "y"])
+
+    # 生命周期：假饲不可跳过、负结论阻断、观察有最小拍数、灰度仅在只读态可降级
+    t1 = skill_metab_lifecycle_transition("sham", {"sham_data": True, "sham_verdict": "positive"})
+    checks.append(t1["next"] == "gray" and t1["skippable"] is False)
+    t2 = skill_metab_lifecycle_transition("sham", {"sham_data": True, "sham_verdict": "negative"})
+    checks.append(t2["allowed"] is False and "sham_verdict_negative" in t2["blocked_by"])
+    t3 = skill_metab_lifecycle_transition("observe", {"observe_ticks": 10})
+    checks.append(t3["allowed"] is False and "observe_ticks_below_min" in t3["blocked_by"])
+    t4 = skill_metab_lifecycle_transition("gray", {"gray_ran": True, "read_only": True,
+                                                   "writes_state": False, "external_calls": 0})
+    checks.append(t4["skippable"] is True and len(STAGES) == 8)
+
+    # 假饲报告：样本量与增益阈值
+    sh1 = skill_metab_sham_report({"succ": 0.80}, {"succ": 0.90}, 10)
+    checks.append(sh1["verdict"] == "insufficient" and sh1["may_advance_to_gray"] is False)
+    sh2 = skill_metab_sham_report({"succ": 0.80}, {"succ": 0.90}, 40)
+    checks.append(sh2["verdict"] == "positive" and sh2["effective_now"] is False)
+
+    # 休眠 / 归档
+    sl = skill_metab_sleep_plan({"id": "s1", "hebbian_edges": ["e1"]})
+    checks.append(sl["allowed"] is False and sl["blocked_by"] == ["no_backup_path"]
+                  and sl["hebbian"]["action"] == "freeze")
+    checks.append(skill_metab_sleep_plan({"id": "s1", "backup_path": ["p2"]})["allowed"] is True)
+    checks.append(skill_metab_archive_package({"config": 1})["status"] == "archived_incomplete"
+                  and skill_metab_archive_package({"config": 1, "genome": 1, "lineage": 1,
+                                                   "effect_report": 1, "rebuild_ref": 1,
+                                                   "hash": 1})["status"] == "archived")
+
+    # 三层授权 + fail-closed
+    checks.append(len(AUTH_LAYERS) == 3
+                  and [r["cycle"] for r in skill_metab_authority_layers()["layers"]]
+                  == ["季度级", "周级", "会话级"])
+    bad_cfg = skill_metab_fail_closed_check({"new_symbiote_default": "on",
+                                             "remember_choice": True,
+                                             "fasting_mode": False, "auto_widen": True})
+    checks.append(bad_cfg["compliant"] is False and len(bad_cfg["violations"]) == 6)
+    good_cfg = skill_metab_fail_closed_check({"new_symbiote_default": "off",
+                                              "red_toxicity_second_confirm": True,
+                                              "one_key_return": True, "fasting_mode": True})
+    checks.append(good_cfg["compliant"] is True)
+
+    # 消化道双通道：结构 IR 只放哈希
+    gc = skill_metab_gut_channels({"entities": 1, "provenance_hashes": ["h"],
+                                   "carries_verbatim": False})
+    gb = skill_metab_gut_channels({"text": "原文", "carries_verbatim": True})
+    checks.append(gc["ir_check"]["passed"] is True and gb["ir_check"]["passed"] is False
+                  and "原始材料" in gc["contract"]["construct"]["must_not_read"])
+
+    # 传染性：跨域即隔离区
+    checks.append(skill_metab_contagion_scan({"rewrites_downstream_terms": True,
+                                              "domains": ["MED", "TCM"]})["zone"] == "quarantine")
+    checks.append(skill_metab_contagion_scan({"rewrites_downstream_terms": False})["zone"] == "main")
+
+    # 血统链：可验 + 篡改即断
+    n1 = skill_metab_lineage_record({"symbiote": "s1", "source": "u", "license": "MIT",
+                                     "purity": "p"})
+    node1 = {"chain_hash": n1["chain_hash"], "payload_hash": n1["payload_hash"],
+             "prev_hash": "", "symbiote": "s1", "source": "u", "license": "MIT", "purity": "p"}
+    checks.append(skill_metab_lineage_record(chain=[node1])["verified"] is True)
+    node2 = dict(node1)
+    node2["source"] = "u-tampered"
+    checks.append(skill_metab_lineage_record(chain=[node2])["verified"] is False
+                  and skill_metab_lineage_record(chain=[node2])["broken_at"] == [0])
+
+    # 信任半径 / 借来信念
+    tr = skill_metab_trust_radius({"name": "api", "read_scope": "r", "return_scope": "x",
+                                   "degradation_path": "backup"})
+    checks.append(tr["allowed"] is True and tr["borrowed"] is True
+                  and tr["fasting_unavailable"] is True)
+    br = skill_metab_borrowed_ratio(
+        [{"id": "c%d" % i} for i in range(6)] + [{"id": "c6", "depends_on": ["d1"]}],
+        {"d1": {"audited": False}})
+    checks.append(br["borrowed"] == 1 and br["total"] == 7
+                  and br["borrowed_ratio"] == round(1 / 7, 6) and br["within_limit"] is True)
+
+    # 感受器闭环：收敛即降权；噪声底不动作；基线重建属代谢态
+    se = skill_metab_sensor_loop({"direction": "convergence", "magnitude": 0.08}, {"t1": 0.5})
+    checks.append(se["template_weights_after"] == {"t1": 0.4}
+                  and se["temperature_delta"] == -0.2 and se["state"] == "breathing")
+    checks.append(skill_metab_sensor_loop({"direction": "convergence", "magnitude": 0.001},
+                                          {"t1": 0.5})["action"] == "below_noise_floor")
+    pb = skill_metab_probe_baseline([{"id": "p"}], False)
+    checks.append(pb["allowed"] is False and pb["state"] == "metabolism"
+                  and pb["boundary"] == "checkpoint 边界")
+
+    # 组合治理：白名单 / 未知 / 放大需整体评审 / 传染传播
+    ok_combo = skill_metab_combo_check([{"id": "a", "category": "probe_set",
+                                         "purity": {"level": "公开语料级"}},
+                                        {"id": "b", "category": "strategy",
+                                         "purity": {"level": "公开语料级"}}])
+    checks.append(ok_combo["allowed"] is True and len(COMBO_WHITELIST_SEED) == 4)
+    unk_combo = skill_metab_combo_check([{"id": "a", "category": "probe_set"},
+                                        {"id": "b", "category": "external_capability"}])
+    checks.append(unk_combo["allowed"] is False
+                  and "unknown_pair_not_in_whitelist" in unk_combo["blocked_by"])
+    amp = skill_metab_combo_check([{"id": "a", "category": "probe_set", "amplifies": ["z"]},
+                                   {"id": "b", "category": "strategy"}], reviewed=False)
+    checks.append(amp["review_required"] is True
+                  and "high_risk_combo_needs_whole_review" in amp["blocked_by"])
+
+    # 红线 / 度量卡
+    rl = skill_metab_redlines()
+    checks.append(len(rl["redlines"]) == 4 and len(REDLINES) == 4
+                  and rl["zero_tolerance"] == ["不可逆事件数"])
+    gates_ok = {"sham_data": True, "degradation_path": "b", "one_key_disable": True,
+                "lineage": "h"}
+    energy_ok = {"compute": 0, "storage": 0, "external_calls": 0,
+                 "attention_interruptions": 1}
+    sc_pass = skill_metab_scorecard(
+        {"sham_gain": 0.2, "task_success_rate": 0.95}, energy_ok,
+        {"irreversible_events": 0},
+        {"residue_after_sleep": 0, "core_availability_after_force_remove": 0.995},
+        {"borrowed_belief_ratio": 0.1, "fasting_coverage": 0.5}, gates_ok)
+    checks.append(sc_pass["verdict"] == "pass")
+    sc_rej = skill_metab_scorecard(
+        {"sham_gain": 0.2, "task_success_rate": 0.95}, energy_ok,
+        {"irreversible_events": 1},
+        {"residue_after_sleep": 0, "core_availability_after_force_remove": 0.995},
+        {"borrowed_belief_ratio": 0.1, "fasting_coverage": 0.5}, gates_ok)
+    checks.append(sc_rej["verdict"] == "reject"
+                  and "immunity:irreversible_event_nonzero" in sc_rej["reasons"])
+
+    # 接口契约 / 代际 / 反模式 / 回执
+    ic = skill_metab_interface_contract()
+    checks.append(ic["count"] == 9
+                  and all(r["violation"] for r in ic["rows"]))
+    checks.append(skill_metab_generation_gate(
+        [{"card_id": "c1", "generation": 3}, {"card_id": "c2", "generation": 2}], 3
+    )["stale"] == ["c2"])
+    checks.append(len(ANTIPATTERNS) == 7
+                  and skill_metab_antipattern_scan({"bulk_enable_all": True,
+                                                     "sham_skipped": True})["count"] == 2)
+    a1, a2 = skill_metab_audit_receipt([{"kind": "k", "ref": "r", "result": "ok"}] * 2), \
+        skill_metab_audit_receipt([{"kind": "k", "ref": "r", "result": "ok"}] * 2)
+    checks.append(len(a1["fingerprint"]) == 16 and a1["fingerprint"] == a2["fingerprint"]
+                  and a1["execution"] == "human_manual")
+    checks.append(len(REFUSED_OPS) == 12
+                  and all(len([c for c in CHROMOSOMES]) == 6 for _ in range(1)))
+
+    return all(checks), f"{sum(checks)}/{len(checks)} 代谢层包（26技能/0agent/8工作流/6染色体/8冲突）"
+
+
 GROUPS: List[Tuple[str, Callable[[], Tuple[bool, str]]]] = [
     ("G1 spec", g1_spec),
     ("G2 envelope", g2_envelope),
@@ -587,6 +818,7 @@ GROUPS: List[Tuple[str, Callable[[], Tuple[bool, str]]]] = [
     ("G19 subdistill", g19_subdistill),
     ("G20 omnilife", g20_omnilife),
     ("G21 omnicore", g21_omnicore),
+    ("G22 metab", g22_metab),
 ]
 
 

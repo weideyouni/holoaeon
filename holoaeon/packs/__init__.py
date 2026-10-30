@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-"""HoloAeon 九大领域包注册表 + 横切扩展包（第十：认知主权；第十一：SD-Distill；第十二：全域生活）。"""
+"""HoloAeon 九大领域包注册表 + 横切扩展包（第十：认知主权；第十一：SD-Distill；第十二：全域生活；
+第十三：全息纪元；第十四：代谢层）。"""
 from __future__ import annotations
 
 from typing import Dict, List
@@ -14,6 +15,7 @@ from .optimization import OptimizationPack
 from .quant import QuantPack
 from .research import ResearchPack
 from .sovereignty_pack import SovereigntyPack
+from .metab_pack import MetabPack
 from .omnicore_pack import OmniCorePack
 from .omnilife_pack import OmniLifePack
 from .subdistill_pack import SubdistillPack
@@ -57,9 +59,10 @@ EXTRA_PACK_REGISTRY: Dict[str, type] = {
     SubdistillPack.key: SubdistillPack,
     OmniLifePack.key: OmniLifePack,
     OmniCorePack.key: OmniCorePack,
+    MetabPack.key: MetabPack,
 }
 
-EXTRA_PACK_ORDER: List[str] = ["sovereignty", "subdistill", "omnilife", "omnicore"]
+EXTRA_PACK_ORDER: List[str] = ["sovereignty", "subdistill", "omnilife", "omnicore", "metab"]
 
 
 def get_extra_pack(key: str) -> DomainPack:
