@@ -7,8 +7,10 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.8%2B-green.svg)](https://www.python.org/)
 [![Dependencies](https://img.shields.io/badge/dependencies-0-success.svg)](pyproject.toml)
-[![Tests](https://img.shields.io/badge/tests-24%20passed-success.svg)](#-测试)
-[![SelfTest](https://img.shields.io/badge/selftest-16%2F16-success.svg)](#-测试)
+[![Tests](https://img.shields.io/badge/tests-34%20passed-success.svg)](#-测试)
+[![SelfTest](https://img.shields.io/badge/selftest-24%2F24-success.svg)](#-测试)
+
+<sub>徽章是**本机实测值**（Python 3.13.16 / Windows）。CI 已写在 `.github/workflows/ci.yml`，但**尚未在 GitHub 上实跑过**——见 [`docs/support-matrix.md`](docs/support-matrix.md)，未跑过的格子一律写 `untested`，不按推测填"通过"。</sub>
 
 [English](README.md) · [中文](README.zh-CN.md)
 
@@ -169,11 +171,11 @@ HoloAeon 内置九个包，覆盖知识工作的全部谱系。全部安装后�
 自然语言请求确定性编译为本项目自定义的 HASM 汇编并由内置虚拟机执行；HASM 不是真实 CPU
 指令集，识别不到的意图如实报 `UNKNOWN`，不猜测。
 
-### 横切扩展包（第十至第十五包）
+### 横切扩展包（第十至第十六包）
 
 这些包**故意不进入 `PACK_ORDER`**：只加能力、不加 agent，因此上面九包口径
 （25 智能体 / 47 技能）保持不变。通过 `get_extra_pack(key)` 取用，由
-G18 / G19 / G20 / G21 / G22 / G23 单独验证。
+G18 / G19 / G20 / G21 / G22 / G23 / G24 单独验证。
 
 | 扩展包 | 新增能力 | 技能 | 角色 | 工作流 |
 |---|---|---|---|---|
@@ -183,6 +185,7 @@ G18 / G19 / G20 / G21 / G22 / G23 单独验证。
 | **omnicore** | 全息纪元认知引擎重写：寻址不变式、纯函数心跳、SKC 蒸馏、赫布更新、皮肤闸门、自我宣告、白皮书结构 | 20 | 0 | 6（M1–M6） |
 | **metab** | 代谢层治理：六染色体基因组准入、四问定态、八阶段生命周期、三层授权（fail-closed）、消化道双通道、信任半径、组合白名单、度量红线 | 26 | 0 | 8（T1–T8） |
 | **nephron** | 肾单位层 P0（只读观测）：只追加认知账本、窗口构成表、理由码、零侵入钩子、回放（窗口 / 槽位 / 决策输入 / 时间线）、代际指纹、隐私擦除 | 24 | 0 | 7（W1–W7） |
+| **uplift** | 补齐短板升级包 U1–U6：排序键全序、纯函数契约、回归口径账、CI 契约、模板/徽章/支持矩阵一致性、A1/A2 实测判定（含变异证明）、字符 n-gram 混合分、宿主桥边界与远程门禁、O-1～O-10 裁决、P1 四判据门禁 | 24 | 0 | 7（W1–W7） |
 
 `subdistill` 保持母矩阵维度**严格不变**，并在代码里断言：
 
@@ -240,13 +243,52 @@ G18 / G19 / G20 / G21 / G22 / G23 单独验证。
 - `WINDOW_BUILD_COMPLETE` 由评审 R-01 新增，给 `window_build` 一个合法码（N9）；
 - 槽位回放读**旁挂快照**并披露快照年龄（N10）：P0 **不重演槽位变化**，明说而不假装。
 
-两项声明**永远不会写成 "pass"**：账本关闭态与开启态逐字节一致（`A1`）、`full` 档真实开销
-（`A2`）。它们恒为 `pending_human_measure`，只交付断言契约——纯函数包无法自证这两件事。
+`uplift` 是**加固包**，对象不是新能力，而是 v0.8.0 留下的六个洞。十处规格冲突逐条裁掉
+（`CONFLICTS` X1–X10），每处都写明字面为什么要让步：
+
+- 只按 `agent_id` 排序在同一 agent 多记录时仍有并列，故键改为
+  `(agent_id, 记录规范化指纹)`，并用纯函数测试证明修复不是安慰剂（X1）；
+- 投喂的「6 agent × 30 轮」实测只产出 **6 条**结果（`run()` 只首轮投递任务、`rounds`
+  只驱动屏障），所以改的是断言而不是语义（X2）；
+- CI 徽章无法在本地挣到：workflow 照交，矩阵写 `untested`，README 明说「尚未在 GitHub 实跑」（X3）；
+- 徽章按实测写（**34 单测 / 24 组自检**），包括此前没人发现过期的自检徽章（X4）；
+- A1/A2 改为 `measured_with_scope`——宿主编排层实测，不是生产钩子闭环（X5）；
+- `echo` 永不冒充 `live`；无 Ollama 的机器上真实 `mode="live"` 回执照旧标 `untested`（X6）；
+- 宿主桥保留它本就用来隔离的非确定性，审计只留哈希与计数，不留明文（X7）；
+- 混合分保持量纲自洽：`0.5·Jaccard + 0.5·dice + 0.05·tag`（X8）；
+- **没有**新增 `after_summary` 字段——`summarized ∩ admitted` 语义等价，不破 41 字段冻结（X10）。
+
+另有作者自己犯、自己抓到的五处缺陷（`DEFECTS` M1–M5）：拼错一个字母导致远程开关永久失效、
+离线后端被自家网络门禁拒掉、回执少一个 `ok` 键、断言建立在错误 workload 前提上、
+`platform.os` 的偷懒写法。
+
+两项声明不再写成裸 "pass"，也不允许被写成 pass：账本关闭态与开启态逐字节一致（`A1`）、
+`full` 档真实开销（`A2`）。自 v0.9.0 起它们为 `measured_with_scope`——由
+`scripts/measure_a1_a2.py` 在宿主编排层实测（`A1 = PASS`，`sha256=b48a0aa1f3743514`；
+`A2` 中位额外开销 **1.83%**，off 11.3708 ms / full 11.5794 ms，30 次），并明写这不等于
+生产钩子闭环。判定本身也要受审：**变异测试**改动一步输出后，判定必须翻成
+`FAIL (diff_at_step=3)`——没有变异证明，就不许说判定有效。证据：
+`docs/nephron_a1_a2_evidence.json`。
 黄金样例（`examples/nephron_ledger_sample.jsonl` + `examples/nephron_replay_report.md`，
 由 `scripts/make_nephron_sample.py` 生成）用来证明 41 个字段足以完成回放。
-完整规范见 [`docs/nephron.md`](docs/nephron.md)。
+完整规范见 [`docs/nephron.md`](docs/nephron.md) 与 [`docs/uplift.md`](docs/uplift.md)。
 
-六个包均离线、确定性、零依赖。`subdistill` 随包提供 `data/taxonomy_127.json` 的 127 项
+### 宿主模型桥 `bridges/`——网络被赶出核心包
+
+核心包守三条：零第三方依赖、离线可跑、确定性。真实模型调用总要破坏后两条，所以它在包外：
+
+```
+holoaeon/   零网络 / 零依赖 / 确定性      ← 红线扫描盯着这里
+bridges/    ollama / openai 兼容 / echo   ← 宿主侧，允许联网
+```
+
+与既有的「线程归宿主」（N1）、`host_managed` 快照同源。密钥只从 `HOLOAEON_API_KEY` 读；
+任何非本机地址必须 `HOLOAEON_ALLOW_REMOTE=1` **且** 显式 flag **且** 白名单三者齐全，
+否则构造即拒。`echo` 是离线自检后端，绝不冒充 `live`。审计只记
+`seq / backend / model / prompt_sha16 / response_sha16 / latency_ms / tokens`。
+详见 [`docs/bridges.md`](docs/bridges.md)。
+
+七个包均离线、确定性、零依赖。`subdistill` 随包提供 `data/taxonomy_127.json` 的 127 项
 亚学科编码表，对每个 MED/TCM 产物强制医学免责闸门；`analogizes` 关系必须带反例，
 否则只能称“隐喻”，不得称已验证。`metab` 的完整规范见 [`docs/metab.md`](docs/metab.md)。
 
@@ -307,7 +349,7 @@ python scripts/launch_local.py status                 # 健康快照
 python scripts/launch_local.py demo                   # 内外部融合全链路
 python scripts/launch_local.py run "任务文本"          # 提交任务（自动选 agent）
 python scripts/launch_local.py hotplug optimization   # 运行时加载包，不重启
-python scripts/launch_local.py selftest               # 19 组自检
+python scripts/launch_local.py selftest               # 24 组自检
 ```
 
 - **冷插拔**：启动时 `bootstrap()` 安装全部领域包、绑定内部协作图、注册外部模型后端。
@@ -350,7 +392,7 @@ holoaeon/
 ├── hypervector.py     # HRR + 手写 FFT
 ├── model_adapter.py   # 任意 LLM 适配层
 ├── redline.py         # AST 红线扫描器
-├── selftest.py        # G1–G23 自检套件
+├── selftest.py        # G1–G24 自检套件
 └── packs/             # 九大领域包（含 optimization.py、gaoyi_pack.py）+ 横切扩展包（sovereignty_pack.py、subdistill_pack.py、omnilife_pack.py、omnicore_pack.py、metab_pack.py、nephron_pack.py）
 examples/              # 四个可运行示例
 tests/                 # unittest 套件
@@ -380,7 +422,7 @@ ALGORITHM.md           # 认知优化与自组织搜索
 ## 测试
 
 ```bash
-# 自检套件（G1–G23）
+# 自检套件（G1–G24）
 python -c "from holoaeon.selftest import run_all; print(run_all(verbose=True))"
 
 # 单元测试
@@ -390,7 +432,7 @@ python -m unittest discover -s tests -v
 python scripts/redline_scan.py
 ```
 
-当前状态：**23/23 自检组通过**、**25 个单元测试通过**、红线扫描对全部源文件报告
+当前状态：**24/24 自检组通过**、**34 个单元测试通过**、红线扫描对全部源文件报告
 **零违规**。
 
 ---
@@ -425,9 +467,13 @@ HoloAeon 不试图替代 LangChain、LlamaIndex、AutoGen、CrewAI、Semantic Ke
   信任半径、组合白名单；规格内 8 处冲突逐条消解。
 - **v0.8**——第六个横切扩展包：**nephron**（肾单位层 P0：只追加认知账本与回放；24 技能、
   0 agent、W1–W7）。只读观测，不分页 / 不压缩 / 不淘汰 / 不做预算控制；规格内 10 处冲突
-  逐条消解（N1–N10），两项验收声明恒为 `pending_human_measure`（当前）。
-- **v0.9**——可插拔持久化后端与节点间总线传输。
-- **v0.10**——声明式图/拓扑定义与包创作工具包。
+  逐条消解（N1–N10），两项验收声明在发布时恒为 `pending_human_measure`。
+- **v0.9**——第七个横切扩展包：**uplift**（U1–U6 补齐短板；24 技能、0 agent、W1–W7）。
+  排序键全序、`_fft` 纯函数化、字符 n-gram 混合分、CI 与 issue/PR 模板、徽章与支持矩阵口径
+  对齐、A1/A2 转 `measured_with_scope`（带变异证明）、宿主模型桥 `bridges/`、O-1～O-10
+  裁决；十处冲突消解（X1–X10）、五处自身缺陷登记（M1–M5）。
+- **v0.10**——可插拔持久化后端与节点间总线传输。
+- **v0.11**——声明式图/拓扑定义与包创作工具包。
 - **v1.0**——稳定认知框架，API 冻结，文档完整。
 
 ---

@@ -359,7 +359,8 @@ REFUSED_OPS: Tuple[str, ...] = (
     "把窗内页原文写入账本", "记录外部调用请求体明文",
     "本包内起线程做异步刷写", "本包内直接落盘",
     "把 importance 缺失当成 0 参与排序而不告知",
-    "指纹失配后静默复用旧页", "把 A1 或额外开销改写成'已通过'",
+    "指纹失配后静默复用旧页", "把 A1 或额外开销改写成'已通过'而不带证据与范围",
+    "把 measured_with_scope 说成生产链路已闭环",
     "顺手做分页/压缩/淘汰/预算控制",
 )
 
@@ -860,9 +861,11 @@ def skill_nephron_non_goal_scan(config: Dict[str, Any] | None = None) -> Dict[st
             "stance_guard": "不扩大物理上限：P0 只观测，任何'顺手优化'都算越界"}
 
 
-def skill_nephron_acceptance_check(statuses: Dict[str, Any] | None = None) -> Dict[str, Any]:
-    """A1–A8 验收状态机：pack 可证者自证，不可证者必须 pending。"""
+def skill_nephron_acceptance_check(statuses: Dict[str, Any] | None = None,
+                                   measured: Dict[str, Any] | None = None) -> Dict[str, Any]:
+    """A1–A8 验收状态机：pack 可证者自证，不可证者必须 pending；实测项由外部证据传入。"""
     st = dict(statuses or {})
+    ev = dict(measured or {})
     rows: List[Dict[str, Any]] = []
     for a in ACCEPTANCE:
         provable = a["pack_can_prove"]
@@ -871,14 +874,21 @@ def skill_nephron_acceptance_check(statuses: Dict[str, Any] | None = None) -> Di
             state = given or "pass"
             if given in ("fail", "pending_human_measure"):
                 state = given
+        elif a["id"] in ev:
+            state = "measured_with_scope"      # 只认外部证据，不认自说自话
         else:
             state = given if given == "fail" else "pending_human_measure"
-        rows.append({"id": a["id"], "claim": a["claim"],
-                     "pack_can_prove": provable, "status": state})
+        rows.append({"id": a["id"], "claim": a["claim"], "pack_can_prove": provable,
+                     "status": state, "evidence": ev.get(a["id"], "")})
     pending = [r["id"] for r in rows if r["status"] == "pending_human_measure"]
     failed = [r["id"] for r in rows if r["status"] == "fail"]
+    measured = [r["id"] for r in rows if r["status"] == "measured_with_scope"]
+    verdict = ("reject" if failed else
+               "provisional" if pending else
+               "accepted_with_scope" if measured else "accepted")
     return {"rows": rows, "count": len(rows), "pending": pending, "failed": failed,
-            "verdict": "reject" if failed else ("provisional" if pending else "accepted"),
+            "measured_with_scope": measured, "verdict": verdict,
+            "scope_rule": "measured_with_scope 只表示「宿主侧限定范围实测」，不等于生产链路闭环",
             "rule": "pack 无法证明的项只能是 pending_human_measure，不得写成 pass",
             "stance_guard": "取舍必须留痕：待测项显式挂着，而不是默认合格"}
 

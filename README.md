@@ -7,8 +7,10 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.8%2B-green.svg)](https://www.python.org/)
 [![Dependencies](https://img.shields.io/badge/dependencies-0-success.svg)](pyproject.toml)
-[![Tests](https://img.shields.io/badge/tests-24%20passed-success.svg)](#-testing)
-[![SelfTest](https://img.shields.io/badge/selftest-16%2F16-success.svg)](#-testing)
+[![Tests](https://img.shields.io/badge/tests-34%20passed-success.svg)](#-testing)
+[![SelfTest](https://img.shields.io/badge/selftest-24%2F24-success.svg)](#-testing)
+
+<sub>Badges are **locally measured** (Python 3.13.16, Windows). CI is defined in `.github/workflows/ci.yml` but has **not been executed on GitHub yet** — see [`docs/support-matrix.md`](docs/support-matrix.md), where unrun cells say `untested` rather than an assumed pass.</sub>
 
 [English](README.md) · [中文](README.zh-CN.md)
 
@@ -188,12 +190,12 @@ expressions. See [ALGORITHM.md](ALGORITHM.md) for the full algorithmic mapping. 
 HASM assembly and runs them on a built-in VM; HASM is not a real CPU instruction set and
 unknown intents are reported as `UNKNOWN` rather than guessed.
 
-### Cross-cutting extension packs (10th – 15th)
+### Cross-cutting extension packs (10th – 16th)
 
 These packs are **registered outside `PACK_ORDER`** on purpose: they add capability
 without adding agents, so the nine-pack totals above (25 agents / 47 skills) stay stable.
 They are reachable through `get_extra_pack(key)` and verified separately by
-G18 / G19 / G20 / G21 / G22 / G23.
+G18 / G19 / G20 / G21 / G22 / G23 / G24.
 
 | Extra pack | What it adds | Skills | Roles | Workflows |
 |---|---|---|---|---|
@@ -203,6 +205,7 @@ G18 / G19 / G20 / G21 / G22 / G23.
 | **omnicore** | Omni-Core cognitive engine rewrite: addressing invariants, pure-function heartbeat, SKC distillation, Hebbian update, skin gate, self-declaration, whitepaper outline | 20 | 0 | 6 (M1–M6) |
 | **metab** | METAB governance layer: six-chromosome genome admission, four-question state classification, eight-stage lifecycle, three-tier authorization (fail-closed), gut dual channel, trust radius, combination whitelist, redlines | 26 | 0 | 8 (T1–T8) |
 | **nephron** | NEPHRON kidney layer, phase P0: append-only cognitive ledger, window manifests, reason codes, zero-intrusion hooks, replay (window / slots / inputs / timeline), generation fingerprint, privacy erase | 24 | 0 | 7 (W1–W7) |
+| **uplift** | U1–U6 hardening pack: total-order result key, pure-function contracts, regression ledger, CI contract, template/badge/support-matrix consistency, A1/A2 measurement verdicts with mutation proof, char n-gram + hybrid score, host-bridge boundary and remote gate, O-1–O-10 adjudications, P1 four-criteria gate | 24 | 0 | 7 (W1–W7) |
 
 `subdistill` keeps the mother matrix dimensions **unchanged** and asserts it in code:
 
@@ -276,16 +279,68 @@ field-gap fixes (`FIXES` F1–F3):
 - slot replay reads a **sidecar snapshot** and discloses its age (N10) — P0 does not
   re-derive slot changes, and says so instead of pretending.
 
-Two claims are deliberately **never written as "pass"**: byte-identical output with the
-ledger off (`A1`) and the real cost of `full` (`A2`). They stay `pending_human_measure` with
-the assertion contract attached, because a pure-function pack cannot self-certify them.
+`uplift` is the **hardening** pack, and its subject is not new capability but the six holes
+v0.8.0 left behind. Ten spec contradictions are resolved one by one (`CONFLICTS` X1–X10),
+each with the reason the literal wording had to move:
+
+- sorting by `agent_id` alone leaves ties when one agent has several records, so the key is
+  `(agent_id, canonical record)` and a purity test proves the fix is not a placebo (X1);
+- the suggested 6-agent × 30-round workload actually yields **6 records**, not 180 — `run()`
+  delivers tasks once and `rounds` only drives barriers, so the assertion was corrected
+  instead of the semantics (X2);
+- the CI badge cannot be earned locally: the workflow ships, the matrix says `untested`, and
+  the README says "not executed on GitHub yet" (X3);
+- badges are written from measurement (**34 tests / 24 self-test groups**), including the
+  self-test badge that no one had noticed was stale (X4);
+- A1/A2 move to `measured_with_scope` — a host-orchestration measurement, not a
+  production-hook closure (X5);
+- `echo` never pretends to be `live`; a real `mode="live"` receipt stays `untested` on a
+  machine without Ollama (X6);
+- the host bridge keeps the non-determinism it is designed to isolate, and audits only
+  hashes and counters, never plaintext (X7);
+- the hybrid score stays dimensionally coherent: `0.5·Jaccard + 0.5·dice + 0.05·tag` (X8);
+- `after_summary` was **not** added — `summarized ∩ admitted` carries the same meaning
+  without breaking the 41-field freeze (X10).
+
+Five defects the author introduced and then caught are listed too (`DEFECTS` M1–M5) — an
+env-var typo that silently disabled the remote gate, an offline backend rejected by its own
+network gate, a receipt missing `ok`, an assertion built on a wrong workload premise, and a
+`platform.os` shortcut.
+
+Two claims are no longer written as a bare "pass", and they are not allowed to become one
+either: byte-identical output with the ledger off (`A1`) and the real cost of `full` (`A2`).
+Since v0.9.0 they are `measured_with_scope` — measured by `scripts/measure_a1_a2.py` at the
+host-orchestration layer (`A1 = PASS`, `sha256=b48a0aa1f3743514`; `A2` median overhead
+**1.83%**, off 11.3708 ms / full 11.5794 ms, 30 runs), and the scope line says plainly that
+this is not a production-hook closure. The verdict is itself put on trial: a **mutation
+test** alters one output step and the verdict must flip to `FAIL (diff_at_step=3)` — no
+mutation proof, no claim of validity. Evidence: `docs/nephron_a1_a2_evidence.json`.
 A golden sample (`examples/nephron_ledger_sample.jsonl` + `examples/nephron_replay_report.md`,
 generated by `scripts/make_nephron_sample.py`) proves the 41 fields are sufficient to replay.
 
-All six packs are offline, deterministic and zero-dependency. `subdistill` ships the 127-item
+All seven packs are offline, deterministic and zero-dependency. `subdistill` ships the 127-item
 taxonomy in `data/taxonomy_127.json` and forces a medical disclaimer gate on every MED/TCM
 artifact; `analogizes` relations must carry a counterexample before they may be called
 verified.
+
+### Host bridge (`bridges/`) — network out of the core
+
+The core package keeps three promises: zero third-party dependencies, offline execution, and
+determinism. A real model call breaks the last two, so it lives **outside** the package:
+
+```
+holoaeon/        zero network, zero deps, deterministic   ← what the red-line scan guards
+bridges/         ollama / openai-compatible / echo       ← host side, allowed to be networked
+```
+
+This is the same principle the project already used for threads (N1) and snapshots
+(`host_managed`): the host owns what the core refuses to own. Keys are read only from
+`HOLOAEON_API_KEY` and never written to a file; every non-local address needs
+`HOLOAEON_ALLOW_REMOTE=1` **and** an explicit flag **and** a whitelist entry, otherwise the
+client refuses at construction time. `echo` is an offline self-check backend and never claims
+to be `live`. Audit lines carry only `seq / backend / model / prompt_sha16 / response_sha16 /
+latency_ms / tokens` — hashes and counters, never plaintext. See
+[docs/bridges.md](docs/bridges.md).
 
 ### Versioned releases (add-only, never overwritten)
 
@@ -358,7 +413,7 @@ python scripts/launch_local.py status                 # health snapshot
 python scripts/launch_local.py demo                   # full fusion walkthrough
 python scripts/launch_local.py run "task text"        # submit a task (auto-select agent)
 python scripts/launch_local.py hotplug optimization   # load a pack at runtime, no restart
-python scripts/launch_local.py selftest               # 16 self-test groups
+python scripts/launch_local.py selftest               # 24 self-test groups
 ```
 
 - **Cold plug** — at startup, `bootstrap()` installs all domain packs, binds the internal
@@ -435,7 +490,7 @@ deterministic software.
 ## Testing
 
 ```bash
-# Self-test suite (G1–G23)
+# Self-test suite (G1–G24)
 python -c "from holoaeon.selftest import run_all; print(run_all(verbose=True))"
 
 # Unit tests
@@ -445,8 +500,11 @@ python -m unittest discover -s tests -v
 python scripts/redline_scan.py
 ```
 
-Current status: **23/23 self-test groups pass**, **25 unit tests pass**, and the red-line
-scan reports **zero violations** across all source files.
+Current status: **24/24 self-test groups pass**, **34 unit tests pass**, and the red-line
+scan reports **zero violations** across 34 source files. The same four checks run in
+`.github/workflows/ci.yml` on Python 3.8 / 3.10 / 3.12 — **that workflow has not been executed
+on GitHub yet**, so those cells stay `untested` in
+[docs/support-matrix.md](docs/support-matrix.md).
 
 ---
 
@@ -487,9 +545,15 @@ deterministic primitives, and self-organizing collaboration**. It can serve as:
 - **v0.8** — Sixth extension pack: **nephron** (NEPHRON kidney layer phase P0: append-only
   cognitive ledger plus replay; 24 skills, 0 agents, W1–W7). Observation only — it records
   and replays, never pages, compresses, evicts or budgets; ten contradictions resolved
-  explicitly (N1–N10) and two acceptance claims left pending_human_measure (current).
-- **v0.9** — Pluggable persistence backends and inter-node bus transports.
-- **v0.10** — Declarative graph/topology definitions and a pack-authoring toolkit.
+  explicitly (N1–N10); its two acceptance claims were `pending_human_measure` at release time.
+- **v0.9** — Seventh extension pack: **uplift** (U1–U6 hardening; 24 skills, 0 agents,
+  W1–W7). Total-order result key, `_fft` purity, char n-gram hybrid scoring, CI + issue/PR
+  templates, badge/support-matrix consistency, A1/A2 turned `measured_with_scope` with a
+  mutation proof, the host model bridge (`bridges/`), and O-1–O-10 adjudications; ten
+  contradictions resolved (X1–X10), five author defects logged (M1–M5).
+- **v0.10** — Pluggable persistence backends and inter-node bus transports.
+- **v0.11** — Declarative graph/topology definitions and a pack-authoring toolkit.
+- **v1.0** — Stable cognitive framework with a frozen API and full documentation.
 - **v1.0** — Stable cognitive framework with a frozen API and full documentation.
 
 ---

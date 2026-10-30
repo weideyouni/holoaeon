@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: py${{ matrix.python }} · tests+selftest+redline
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.8", "3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Self-test (all groups)
+        run: |
+          python -c "from holoaeon.selftest import run_all; r=run_all(); print('passed=%s/%s' % (r['passed'], r['groups'])); assert r['ok'] and r['failed']==0"
+
+      - name: Red-line scan (network / dependency / dangerous calls)
+        run: python scripts/redline_scan.py
+
+      - name: Examples 01-04 (smoke)
+        run: |
+          for f in examples/01_basic_matrix.py examples/02_semantic_routing.py \
+                   examples/03_hebbian_collaboration.py examples/04_domain_pipeline.py; do
+            echo "== $f"; python "$f"
+          done

@@ -223,5 +223,131 @@ class TestSelfTest(unittest.TestCase):
         self.assertTrue(rep["ok"], msg=str(rep["details"]))
 
 
+class TestDeterminismU1(unittest.TestCase):
+    """U1：Cluster 结果顺序确定性 + _fft 入参纯函数化（永久回归）。"""
+
+    def _run_once(self, name: str) -> list:
+        import random
+        import time as _t
+
+        r = SkillRegistry()
+
+        def jittery(task: str, _name: str = name) -> str:
+            _t.sleep(random.Random("20261030-" + _name).random() * 0.002)
+            return "w:" + task
+
+        r.register_fn("work", jittery, description="work task")
+        agents = [Agent(f"a{i}", "role", r) for i in range(6)]
+        rep = Cluster(agents).run(30, {f"a{i}": "work task" for i in range(6)})
+        self.assertEqual(rep["faults"], 0)
+        return [c.get("agent_id") for c in rep["results"]]
+
+    def test_t_u1_a_result_order_stable(self):
+        seqs = [self._run_once(str(i)) for i in range(3)]
+        self.assertEqual(seqs[0], seqs[1])
+        self.assertEqual(seqs[1], seqs[2])
+        # 现行 run() 只在首轮投递任务（rounds 只影响 barrier 次数），故每 agent 一条记录
+        self.assertEqual(len(seqs[0]), 6)
+
+    def test_t_u1_a2_order_key_is_total_order(self):
+        """纯函数级：同一 agent 的多条记录也必须稳定排序（线程测试覆盖不到这一层）。"""
+        from holoaeon.cluster import _order_key
+        recs = []
+        for i in range(6):
+            recs.append({"agent_id": f"a{i}", "status": "ok", "out": "x"})
+            recs.append({"agent_id": f"a{i}", "status": "ok", "out": "y"})
+        seqs = [list(map(_order_key, recs)) for _ in range(6)]
+        shuffled = [sorted(recs, key=_order_key) for _ in range(6)]
+        self.assertEqual(seqs[0], seqs[1])
+        self.assertEqual([r["out"] for r in shuffled[0]],
+                         [r["out"] for r in shuffled[5]])
+        self.assertEqual(len({k for k in seqs[0]}), 12)
+
+    def test_t_u1_b_fft_does_not_mutate_input(self):
+        from holoaeon.hypervector import _fft
+        v = [1 + 0j, 2 + 0j, 3 + 0j, 4 + 0j]
+        before = list(v)
+        _fft(v, False)
+        self.assertEqual(v, before)
+        _fft(v, True)
+        self.assertEqual(v, before)
+
+
+class TestMatchingU5(unittest.TestCase):
+    """U5：字符 2-gram Dice 混合分（中文无分词 + 单词形变）。"""
+
+    def test_cn_query_hits_by_char_overlap(self):
+        r = SkillRegistry()
+        r.register_fn("stats_clean", lambda t: "ok",
+                      description="统计数据清洗与汇总", tags=["统计"])
+        r.register_fn("weather", lambda t: "ok",
+                      description="weather forecast lookup", tags=["weather"])
+        self.assertEqual(r.match("统计销售额")[0][0], "stats_clean")
+
+    def test_en_deformed_word_hits(self):
+        r = SkillRegistry()
+        r.register_fn("stats2", lambda t: "ok",
+                      description="statistics summary for numbers")
+        r.register_fn("weather2", lambda t: "ok",
+                      description="weather forecast lookup")
+        self.assertEqual(r.match("statistik")[0][0], "stats2")
+
+    def test_matching_is_bit_identical_over_1000_runs(self):
+        from holoaeon.skill import ngram_dice
+        r = SkillRegistry()
+        r.register_fn("a", lambda t: 1, description="统计数据清洗")
+        r.register_fn("b", lambda t: 1, description="weather forecast")
+        first = r.match("统计销售额数据")
+        for _ in range(1000):
+            self.assertEqual(r.match("统计销售额数据"), first)
+        self.assertEqual(ngram_dice("statistik", "statistics"),
+                         ngram_dice("statistik", "statistics"))
+
+
+class TestUpliftU16(unittest.TestCase):
+    """U1–U6 升级包：注册与维度不变 / n-gram 纯函数 / P1 门禁拒收。"""
+
+    def test_pack_registered_without_dimension_change(self):
+        from holoaeon.packs import EXTRA_PACK_ORDER, get_extra_pack
+        from holoaeon.packs.uplift_pack import pack_summary
+        self.assertIn("uplift", EXTRA_PACK_ORDER)
+        self.assertEqual(len(EXTRA_PACK_ORDER), 7)
+        self.assertEqual(get_extra_pack("uplift").key, "uplift")
+        s = pack_summary()
+        self.assertEqual((s["skills"], s["workflows"], s["agents_created"]), (24, 7, 0))
+        self.assertTrue(s["addressing_unchanged"])
+        self.assertEqual((s["threads"], s["timers"], s["disk_writes"], s["deps"]),
+                         (0, 0, 0, 0))
+        self.assertFalse(s["network"])
+
+    def test_ngram_dice_is_pure_and_repeatable(self):
+        from holoaeon.packs.uplift_pack import skill_uplift_ngram_dice
+        a = skill_uplift_ngram_dice({"query": "statistik", "text": "statistics"})
+        b = skill_uplift_ngram_dice({"query": "statistik", "text": "statistics"})
+        self.assertEqual(a, b)
+        self.assertEqual(a["dice"], 0.82353)
+        q, t = "统计销售额", "统计数据清洗"
+        before = (q, t)
+        skill_uplift_ngram_dice({"query": q, "text": t})
+        self.assertEqual((q, t), before)      # 不修改入参（与 U1 的 _fft 同一条纪律）
+
+    def test_p1_gate_rejects_budget_and_unknown(self):
+        from holoaeon.packs.uplift_pack import skill_uplift_p1_gate
+        ok = skill_uplift_p1_gate({"baseline": {"window_used": 8, "hit_rate": 0.5,
+                                                "admitted": ["p1", "p2"]},
+                                   "candidate": {"window_used": 8, "hit_rate": 0.5,
+                                                 "admitted": ["p1", "p2"], "unknown_events": 0}})
+        self.assertEqual(ok["verdict"], "PASS")
+        bad = skill_uplift_p1_gate({"baseline": {"window_used": 8, "hit_rate": 0.6,
+                                                 "admitted": ["p1"]},
+                                    "candidate": {"window_used": 9, "hit_rate": 0.4,
+                                                  "admitted": ["p2"], "unknown_events": 1}})
+        self.assertEqual(bad["verdict"], "REJECT")
+        self.assertFalse(bad["checks"]["budget_not_up"])
+        self.assertFalse(bad["checks"]["zero_unknown"])
+        self.assertEqual(bad["diff_bundle"],
+                         ["diff_manifest", "diff_score", "diff_reason_codes"])
+
+
 if __name__ == "__main__":
     unittest.main()

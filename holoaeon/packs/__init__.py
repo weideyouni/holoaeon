@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """HoloAeon 九大领域包注册表 + 横切扩展包（第十：认知主权；第十一：SD-Distill；第十二：全域生活；
-第十三：全息纪元；第十四：代谢层；第十五：肾单位 P0 认知账本）。"""
+第十三：全息纪元；第十四：代谢层；第十五：肾单位 P0 认知账本；第十六：补齐短板 UPLIFT）。"""
 from __future__ import annotations
 
 from typing import Dict, List
@@ -20,6 +20,7 @@ from .nephron_pack import NephronPack
 from .omnicore_pack import OmniCorePack
 from .omnilife_pack import OmniLifePack
 from .subdistill_pack import SubdistillPack
+from .uplift_pack import UpliftPack
 from .writing import WritingPack
 
 # 九大领域包（每次调用返回新实例，避免共享状态）
@@ -62,10 +63,11 @@ EXTRA_PACK_REGISTRY: Dict[str, type] = {
     OmniCorePack.key: OmniCorePack,
     MetabPack.key: MetabPack,
     NephronPack.key: NephronPack,
+    UpliftPack.key: UpliftPack,
 }
 
 EXTRA_PACK_ORDER: List[str] = ["sovereignty", "subdistill", "omnilife", "omnicore",
-                                "metab", "nephron"]
+                                "metab", "nephron", "uplift"]
 
 
 def get_extra_pack(key: str) -> DomainPack:

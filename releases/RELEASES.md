@@ -1,4 +1,4 @@
-# HoloAeon 认知主权 · SD-Distill · 全域生活 · 全息纪元 · 代谢层 · 肾单位 · 冷热插拔赋能升级包 · RELEASES
+# HoloAeon 认知主权 · SD-Distill · 全域生活 · 全息纪元 · 代谢层 · 肾单位 · 补齐短板 · 冷热插拔赋能升级包 · RELEASES
 
 > 版本化目录：**只增不覆盖**。每个版本一个目录入口、一份说明、一份哈希。
 > 选择版本 = 选择下表的 tag；任何版本都可独立解压、独立自检、独立运行。
@@ -10,7 +10,8 @@
 
 | 版本 | Tag | 日期 | 内核包 | 认知主权包 | 自检 | 状态 |
 |---|---|---|---|---|---|---|
-| **v0.8.0** | `v0.8.0` | 2026-10-30 | `releases/holoaeon_v0.8.0_20261030.zip`（72 文件 / 303,727 B） | —（沿用 V3.1） | 内核 **23/23** | 当前 |
+| **v0.9.0** | `v0.9.0` | 2026-10-30 | `releases/holoaeon_v0.9.0_20261030.zip` | —（沿用 V3.1） | 内核 **24/24** | 当前 |
+| v0.8.0 | `v0.8.0` | 2026-10-30 | `releases/holoaeon_v0.8.0_20261030.zip`（72 文件 / 303,727 B） | —（沿用 V3.1） | 内核 **23/23** | 历史（保留） |
 | v0.7.0 | `v0.7.0` | 2026-10-30 | `releases/holoaeon_v0.7.0_20261030.zip`（66 文件 / 250,721 B） | —（沿用 V3.1） | 内核 **22/22** | 历史（保留） |
 | v0.6.0 | `v0.6.0` | 2026-10-30 | `releases/holoaeon_v0.6.0_20261030.zip`（63 文件 / 201,755 B） | —（沿用 V3.1） | 内核 **21/21** | 历史（保留） |
 | v0.5.0 | `v0.5.0` | 2026-10-30 | `releases/holoaeon_v0.5.0_20261030.zip`（61 文件 / 175,959 B） | —（沿用 V3.1） | 内核 **20/20** | 历史（保留） |
@@ -21,6 +22,100 @@
 > 说明：`v0.3.1` 与 `v0.3.0` 的发行包在打本次版本之前生成，未同步进本仓库 `releases/`；
 > 它们**未被覆盖、仍在本地 F 盘留存**，可随时按需补入。本目录自 `v0.4.0` 起对所有新版本
 > 强制落库。
+
+---
+
+## v0.9.0 · 本期内容（UPLIFT U1–U6 补齐短板 + 宿主模型桥）
+
+### 一句话
+
+v0.8.0 交完肾单位 P0 之后，仓库里躺着六个**已经实证**的短板；这一版不造新能力，只把六个洞
+连同验证方式一起焊死：结果顺序全序化、`_fft` 纯函数化、中文匹配换字符 n-gram、CI 与
+issue/PR 模板落地、徽章按实测改写、A1/A2 从 `pending` 变 `measured_with_scope`（带变异证明）、
+把网络赶出核心包、十条开放问题逐条裁决。**产出物维度不变**（1331 行 / 108641 节点未破）。
+
+### 交付清单
+
+| # | 交付物 | 位置 | 说明 |
+|---|---|---|---|
+| 1 | 加固包 | `holoaeon/packs/uplift_pack.py` | 24 技能 / 7 工作流（W1 确定性 → W7 总验收）/ **0 agent** |
+| 2 | 排序确定性 | `holoaeon/cluster.py` | `_canon` + `_order_key`，`real.sort(key=_order_key)` |
+| 3 | `_fft` 纯函数化 | `holoaeon/hypervector.py` | 首行 `a = list(a)`；docstring 补三条约定 |
+| 4 | 匹配升级 | `holoaeon/skill.py` | `0.5·Jaccard + 0.5·dice2 + 0.05·tag_hit` + 词级 3-gram 兜底 |
+| 5 | CI | `.github/workflows/ci.yml` | 3.8 / 3.10 / 3.12；单测 → 自检 → 红线 → 示例 01–04 |
+| 6 | 三份模板 | `.github/ISSUE_TEMPLATE/*`、`PULL_REQUEST_TEMPLATE.md` | 五立场勾选 + 两个必答问题 |
+| 7 | 支持矩阵 | `docs/support-matrix.md` | 未跑格子写 `untested`，不写"预计通过" |
+| 8 | 实测脚本 | `scripts/measure_a1_a2.py` | A1 双跑哈希 + **变异实验** + A2 中位披露 |
+| 9 | 实测证据 | `docs/nephron_a1_a2_evidence.json` | A1 PASS / 变异 FAIL / A2 +1.83% / 机器规格 |
+| 10 | 宿主桥 | `bridges/*.py`、`examples/05_live_model.py` | 三后端 + 远程三重门禁 + 7 字段审计 |
+| 11 | 桥文档 | `docs/bridges.md` | 为什么必须在包外 + 本机能证与不能证 |
+| 12 | 十问裁决 | `docs/nephron.md` §12 / §12.1 | O-1～O-10 六列裁决表 |
+| 13 | P1 细则 | `docs/nephron-p1.md` | 打分公式 / 降级链 L0–L3 / 7 步构建 / 四判据 |
+| 14 | 包文档 | `docs/uplift.md` | 六单元 / 十冲突 / 四核实 / 五缺陷 / 24 技能 |
+| 15 | 自检组 | `holoaeon/selftest.py` `g24_uplift` | 43 条断言 |
+| 16 | 单测 | `tests/test_holoaeon.py` `TestUpliftU16` | 3 条（总数 31 → 34） |
+| 17 | 系统 README | `SYSTEM_README_v0.9.0.md` | 11 章，含验证矩阵与两条 `untested` |
+
+### 十处冲突的择定（摘要）
+
+| ID | 投喂字面 | 本版择定 |
+|---|---|---|
+| X1 | 只按 `agent_id` 排序 | 复合键 `(agent_id, 规范化记录)` |
+| X2 | 6×30 轮 → 180 条结果 | 实测 6 条（首轮投递），改断言 + 补纯函数全序测试 |
+| X3 | CI 三版本全绿 | 交 workflow + `untested`，不写 passing |
+| X4 | 徽章写死 25 | 按实测 34，并同时修 selftest 徽章（16→24） |
+| X5 | A1/A2 改 `measured` | `measured_with_scope`（宿主限定范围） |
+| X6 | 需真 Ollama 的 live 回执 | 只证"无 Ollama 分支"，live 标 `untested` |
+| X7 | 审计写盘 | 写盘但只记哈希 + 序号，`.gitignore` |
+| X8 | `0.5·重叠个数 + 0.5·dice` | `0.5·Jaccard + 0.5·dice + 0.05·tag` |
+| X9 | 英文 3-gram | 2-gram 主 + 词级 3-gram 取 max |
+| X10 | 新增 `after_summary` | 不加字段，用 `summarized ∩ admitted` |
+
+### 五处自身缺陷（写完即测，全部修掉）
+
+| ID | 缺陷 | 教训 |
+|---|---|---|
+| M1 | `HOLAEON_ALLOW_REMOTE` 拼错 | fail-closed 安全但功能永久失效，两个方向都要用例 |
+| M2 | `echo://local` 被网络门禁拒掉 | 离线后端不属于网络准入范围 |
+| M3 | echo 回执缺 `ok` | 回执结构必须跨 mode 一致 |
+| M4 | 断言 180 条（实得 6） | 投喂的实验设计也要对代码核一遍 |
+| M5 | `platform.os.cpu_count()` | 不要依赖模块内部导入 |
+
+### 明确不做
+
+改 `Cluster` 线程语义 / 核心包联网 / 第三方依赖 / 发布自动化 / P1 执行淘汰 / echo 冒充 live。
+
+### 验证记录
+
+| 项 | 结果 |
+|---|---|
+| 单测 | `Ran 34 tests` OK |
+| 自检 | `24 / 24` 组（G1–G24，G24 = 43 条断言） |
+| 红线 | 34 文件零违规（`exit=0`） |
+| 示例 | 01–05 全 exit 0（05 为 `skip` 分支） |
+| A1 | PASS，`sha256=b48a0aa1f3743514`，`diff_at_step=None` |
+| A1 变异 | 篡改一步 → FAIL，`diff_at_step=3` |
+| A2 | full 中位 11.5794 ms / off 11.3708 ms → **+1.83%**（runs=30） |
+| 桥 | `--check` exit 2 + 三行指引；echo `ok=True`；远程门禁四分支正确；审计 7 字段无明文 |
+
+### 未实测（不折叠成结论）
+
+- **A-U6-1** CI 三版本全绿：只能在 GitHub Actions 侧产生；本版只交 workflow 与 `untested` 矩阵。
+- **A-U2-3** 真实 `mode="live"` 回执：本机未装 Ollama。
+- A1/A2 为**宿主编排层限定范围**实测，非生产链路闭环。
+
+### 升级路径
+
+```
+git fetch --tags && git checkout v0.9.0
+python -m unittest discover -s tests      # 34
+python -c "from holoaeon.selftest import run_all; assert run_all()['ok']"
+python scripts/redline_scan.py            # 34 文件零违规
+```
+
+从 v0.8.0 升上来：无破坏性变更。`nephron` 的验收技能新增可选 `measured` 参数（旧调用写法仍可用，
+返回结构多了 `measured_with_scope` 与 `scope_rule` 两个键）；`EXTRA_PACK_ORDER` 由 6 项变 7 项
+（只追加，未改既有 key）。
 
 ---
 

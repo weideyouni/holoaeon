@@ -27,9 +27,9 @@ from typing import Tuple
 # ============================================================ 身份
 PKG_NAME = "holoaeon"
 PACKAGE_NAME = PKG_NAME
-VERSION = "0.8.0"
-MATRIX_ID = "HOLOAEON-MATRIX-0.8.0"
-RUNTIME_ID = "HOLOAEON-RUNTIME-0.8.0"
+VERSION = "0.9.0"
+MATRIX_ID = "HOLOAEON-MATRIX-0.9.0"
+RUNTIME_ID = "HOLOAEON-RUNTIME-0.9.0"
 PROTOCOL_ID = "HOLOAEON-DATAPROTO v1.0"
 BUS_ID = "HOLOAEON-BUS-v1.0"
 DATE = "2026-10-30"

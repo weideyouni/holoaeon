@@ -832,7 +832,7 @@ def g23_nephron() -> Tuple[bool, str]:
                   == ["N%d" % i for i in range(1, 11)]
                   and all(c["A"] and c["B"] and c["chosen"] in ("A", "B") for c in CONFLICTS))
     checks.append(s["fixes"] == 3 and all(f["finding"] and f["fix"] for f in FIXES))
-    checks.append(len(REFUSED_OPS) == 11 and len(NON_GOALS) == 6 and len(ACCEPTANCE) == 8
+    checks.append(len(REFUSED_OPS) == 12 and len(NON_GOALS) == 6 and len(ACCEPTANCE) == 8
                   and len(APPEND_REJECTS) == 3)
 
     # 记录结构：41 字段 / raw_len 口径锁定
@@ -1031,6 +1031,174 @@ def g23_nephron() -> Tuple[bool, str]:
     return all(checks), f"{sum(checks)}/{len(checks)} 肾单位 P0 包（24技能/0agent/7工作流/41字段/27码/10审视）"
 
 
+def g24_uplift() -> Tuple[bool, str]:
+    """补齐短板升级包 U1–U6：24 技能 / 0 agent / W1–W7 / 六单元 / 十审视 / 五缺陷 / 十裁决。"""
+    import json as _json
+    import os as _os
+    from .packs import EXTRA_PACK_ORDER, get_extra_pack
+    from .packs.uplift_pack import (
+        pack_summary, UNITS, CONFLICTS, FIXES, DEFECTS, STANCES, NON_GOALS,
+        ACCEPTANCE, ADJUDICATIONS, REFUSED_OPS, REQUIRED_SECTIONS,
+        skill_uplift_unit_registry, skill_uplift_order_key_check,
+        skill_uplift_purity_contract, skill_uplift_regression_ledger,
+        skill_uplift_ci_spec, skill_uplift_template_check, skill_uplift_badge_consistency,
+        skill_uplift_support_matrix, skill_uplift_measure_a1_verdict,
+        skill_uplift_measure_a2_disclosure, skill_uplift_evidence_chain,
+        skill_uplift_ngram_dice, skill_uplift_hybrid_score_parts,
+        skill_uplift_matching_acceptance, skill_uplift_bridge_boundary,
+        skill_uplift_backend_registry, skill_uplift_remote_gate,
+        skill_uplift_audit_policy, skill_uplift_live_receipt_schema,
+        skill_uplift_adjudication, skill_uplift_p1_gate,
+        skill_uplift_stance_matrix, skill_uplift_audit_receipt,
+        skill_uplift_dimension_invariant,
+    )
+    checks: List[bool] = []
+
+    # 包级：注册 / 计数 / 维度不变 / 不进 PACK_ORDER
+    s = pack_summary()
+    checks.append("uplift" in EXTRA_PACK_ORDER
+                  and get_extra_pack("uplift").key == "uplift"
+                  and len(EXTRA_PACK_ORDER) == 7)
+    checks.append(s["skills"] == 24 and s["workflows"] == 7 and s["agents_created"] == 0)
+    checks.append(s["addressing_unchanged"] is True
+                  and s["locks"]["rows_total"] == 1331 and s["locks"]["nodes_total"] == 108641)
+    checks.append(s["threads"] == 0 and s["timers"] == 0 and s["network"] is False
+                  and s["disk_writes"] == 0 and s["deps"] == 0)
+    checks.append(s["units"] == 6 and s["conflicts"] == 10 and s["fixes"] == 4
+                  and s["defects"] == 5 and s["stances"] == 5 and s["non_goals"] == 6
+                  and s["acceptance_items"] == 22 and s["adjudications"] == 10
+                  and s["refused_ops"] == len(REFUSED_OPS) and len(REFUSED_OPS) >= 8)
+
+    # U1：执行顺序 / 排序键全序 / 纯函数契约
+    u = skill_uplift_unit_registry()
+    checks.append(u["order_matches_spec"] is True
+                  and [x["id"] for x in u["units"]] == ["U1", "U6", "U3", "U5", "U2", "U4"])
+    recs = [{"agent_id": "a1", "out": i, "status": "ok"} for i in range(4)]
+    recs += [{"agent_id": "a1", "out": 0, "status": "ok"}]        # 同 agent 同内容
+    ok_key = skill_uplift_order_key_check(recs)
+    checks.append(ok_key["verdict"] == "PASS"
+                  and ok_key["agents_with_multiple_distinct_records"] == 1
+                  and ok_key["distinct_contents"] == 4
+                  and ok_key["key_injective_on_content"] is True)
+    checks.append(skill_uplift_order_key_check([])["verdict"] == "UNCHECKED")
+    checks.append(skill_uplift_purity_contract()["count"] == 4)
+
+    # U6：回归口径 / CI 契约 / 模板 / 徽章 / 支持矩阵
+    rl = skill_uplift_regression_ledger({"tests": 31, "selftest": 24, "redline_files": 37,
+                                         "badge_tests": 31, "badge_selftest": "24/24"})
+    checks.append(rl["verdict"] == "PASS" and rl["tests_not_decreased"] is True
+                  and rl["before"]["badge_tests"] == 24)          # 旧徽章过期是事实
+    ci = skill_uplift_ci_spec()
+    checks.append(ci["pack_can_prove"] is False and len(ci["matrix"]) == 3
+                  and len(ci["steps"]) == 4)
+    tpl = {k: " ".join(v) for k, v in REQUIRED_SECTIONS.items()}
+    checks.append(skill_uplift_template_check(tpl)["verdict"] == "PASS")
+    checks.append(skill_uplift_template_check(
+        {"bug_report": "复现步骤 期望"})["verdict"] == "FAIL")
+    checks.append(skill_uplift_badge_consistency(
+        {"badge": "tests-31%20passed selftest-24%2F24", "measured": {"tests": 31, "selftest": 24},
+         "has_ci_note": True})["verdict"] == "PASS")
+    checks.append(skill_uplift_badge_consistency(
+        {"badge": "tests-31%20passed", "measured": {"tests": 31, "selftest": 24},
+         "has_ci_note": True})["verdict"] == "FAIL")
+    checks.append(skill_uplift_support_matrix(
+        [{"py": "3.8", "status": "untested"}, {"py": "3.12", "status": "measured"}]
+    )["verdict"] == "PASS")
+    checks.append(skill_uplift_support_matrix([{"py": "3.8", "status": "assume pass"}])["verdict"]
+                  == "FAIL")
+
+    # U3：A1 判定（含变异证明）/ A2 披露 / 证据链
+    root = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+    ev_path = _os.path.join(root, "docs", "nephron_a1_a2_evidence.json")
+    ev = {}
+    if _os.path.exists(ev_path):
+        with open(ev_path, "r", encoding="utf-8") as fh:
+            ev = _json.load(fh)
+    a1 = skill_uplift_measure_a1_verdict(ev)
+    checks.append(a1["status"] == "measured_with_scope"
+                  and a1["mutation_makes_it_fail"] is True and a1["scope_declared"] is True)
+    checks.append(skill_uplift_measure_a1_verdict({})["status"] == "pending_human_measure")
+    no_mut = dict(ev)
+    no_mut.pop("mutation_proof", None)
+    checks.append(skill_uplift_measure_a1_verdict(no_mut)["mutation_makes_it_fail"] is False)
+    a2 = skill_uplift_measure_a2_disclosure(ev)
+    checks.append(a2["complete"] is True and a2["status"] == "measured"
+                  and a2["threshold"] == "none — 披露项不是断言项（延续不设虚构目标值）")
+    checks.append(skill_uplift_evidence_chain(ev)["verdict"] == "PASS")
+    checks.append(skill_uplift_evidence_chain({"script": "s"})["verdict"] == "FAIL")
+
+    # U5：n-gram / 混合分 / 两用例
+    d1 = skill_uplift_ngram_dice({"query": "statistik", "text": "statistics"})
+    d2 = skill_uplift_ngram_dice({"query": "统计销售额", "text": "统计数据清洗"})
+    checks.append(d1["dice"] == 0.82353 and d2["dice"] == 0.22222)
+    checks.append(skill_uplift_ngram_dice({"query": "", "text": "abc"})["dice"] == 0.0)
+    checks.append(skill_uplift_hybrid_score_parts(
+        {"jaccard": 1.0, "dice": 1.0, "tag_hit": 1})["score"] == 1.05)
+    checks.append(skill_uplift_matching_acceptance(
+        [{"id": "A-U5-1-cn", "top1": "stats_clean"}, {"id": "A-U5-1-en", "top1": "stats2"}]
+    )["verdict"] == "PASS")
+    checks.append(skill_uplift_matching_acceptance([])["verdict"] == "UNCHECKED")
+
+    # U2：桥边界 / 后端 / 远程门禁 / 审计 / 回执语义
+    checks.append(skill_uplift_bridge_boundary(
+        {"core_files": ["holoaeon/kernel.py"], "bridge_files": ["bridges/transport.py"]}
+    )["verdict"] == "PASS")
+    checks.append(skill_uplift_bridge_boundary(
+        {"core_files": ["holoaeon/http.py"], "bridge_files": ["holoaeon/bridge.py"]}
+    )["verdict"] == "FAIL")
+    bg = skill_uplift_backend_registry()
+    checks.append(bg["count"] == 3 and any(b["name"] == "echo" for b in bg["backends"]))
+    rg = skill_uplift_remote_gate([
+        {"host": "127.0.0.1"},
+        {"host": "10.0.0.5"},
+        {"host": "10.0.0.5", "env_switch": True, "allow_remote": True},
+        {"host": "10.0.0.5", "env_switch": True, "allow_remote": True, "allowlisted": True},
+    ])["cases"]
+    checks.append([c["reason"] for c in rg] == ["LOCAL", "REMOTE_LOCKED",
+                                                "REMOTE_NOT_ALLOWLISTED", "REMOTE_ALLOWED"])
+    checks.append(skill_uplift_audit_policy({"seq": 1, "prompt_sha16": "A", "tokens": {"a": 1}})
+                  ["verdict"] == "PASS")
+    checks.append(skill_uplift_audit_policy({"seq": 1, "prompt": "明文"})["verdict"] == "FAIL")
+    checks.append(skill_uplift_live_receipt_schema()["count"] == 3)
+
+    # U4：裁决 / P1 四判据
+    adj = skill_uplift_adjudication()
+    checks.append(adj["all_decided"] is True and [a["id"] for a in adj["adjudications"]]
+                  == ["O-%d" % i for i in range(1, 11)]
+                  and "after_summary" in adj["deviation"])
+    pair = {"baseline": {"window_used": 8, "hit_rate": 0.5, "admitted": ["p1", "p2", "p3"]},
+            "candidate": {"window_used": 8, "hit_rate": 0.5, "admitted": ["p1", "p2", "p3"],
+                          "unknown_events": 0}}
+    checks.append(skill_uplift_p1_gate(pair)["verdict"] == "PASS")
+    bad_pair = {"baseline": {"window_used": 8, "hit_rate": 0.6, "admitted": ["p1", "p2"]},
+                "candidate": {"window_used": 9, "hit_rate": 0.4, "admitted": ["p3"],
+                              "unknown_events": 2}}
+    bp = skill_uplift_p1_gate(bad_pair)
+    checks.append(bp["verdict"] == "REJECT" and bp["checks"]["budget_not_up"] is False
+                  and bp["checks"]["zero_unknown"] is False)
+    checks.append(skill_uplift_p1_gate(
+        {"baseline": {"hit_rate": None}, "candidate": {"hit_rate": None}}
+    )["hit_rate_detail"]["verdict"] == "skipped")
+
+    # 总：立场 / 维度 / 回执
+    checks.append(skill_uplift_stance_matrix()["each_has_two_checks"] is True)
+    checks.append(len(STANCES) == 5 and len(NON_GOALS) == 6 and len(FIXES) == 4
+                  and len(DEFECTS) == 5 and len(CONFLICTS) == 10 and len(UNITS) == 6
+                  and len(ACCEPTANCE) == 22)
+    checks.append(skill_uplift_dimension_invariant()["verdict"] == "PASS")
+    rc = skill_uplift_audit_receipt([{"unit": x, "ref": "r", "result": "ok"}
+                                     for x in ("U1", "U2", "U3", "U4", "U5", "U6")])
+    rc2 = skill_uplift_audit_receipt([{"unit": x, "ref": "r", "result": "ok"}
+                                      for x in ("U1", "U2", "U3", "U4", "U5", "U6")])
+    checks.append(rc["all_six"] is True and len(rc["fingerprint"]) == 16
+                  and rc["fingerprint"] == rc2["fingerprint"] and rc["seal"] == "潮起开门，潮落闭嘴")
+
+    bad = [i for i, ok in enumerate(checks) if not ok]
+    return all(checks), (f"{sum(checks)}/{len(checks)} 补齐短板升级包（24技能/0agent/7工作流/"
+                         f"6单元/10审视/5缺陷/10裁决/22验收）"
+                         + (f" 失败项序号={bad}" if bad else ""))
+
+
 GROUPS: List[Tuple[str, Callable[[], Tuple[bool, str]]]] = [
     ("G1 spec", g1_spec),
     ("G2 envelope", g2_envelope),
@@ -1055,6 +1223,7 @@ GROUPS: List[Tuple[str, Callable[[], Tuple[bool, str]]]] = [
     ("G21 omnicore", g21_omnicore),
     ("G22 metab", g22_metab),
     ("G23 nephron", g23_nephron),
+    ("G24 uplift", g24_uplift),
 ]
 
 

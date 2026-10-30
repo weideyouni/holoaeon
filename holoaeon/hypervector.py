@@ -28,6 +28,12 @@ PI = math.pi
 
 # ------------------------------------------------------------ FFT（radix-2）
 def _fft(a: List[complex], invert: bool = False) -> List[complex]:
+    """radix-2 FFT。
+
+    不修改入参：内部先做 `a = list(a)`，bit-reversal 置换与蝶形运算只作用于副本。
+    正向变换采用 e^{+2πi} 约定，逆变换内部已除 n。
+    """
+    a = list(a)
     n = len(a)
     j = 0
     for i in range(1, n):

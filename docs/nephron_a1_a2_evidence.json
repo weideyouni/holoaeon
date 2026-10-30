@@ -1,0 +1,47 @@
+{
+  "script": "scripts/measure_a1_a2.py",
+  "seed": 20261030,
+  "date_local": "2026-10-30",
+  "A1": {
+    "verdict": "PASS",
+    "sha256_off": "b48a0aa1f374351498c9568c96f72035afeb2f86e49cb0106f2c564622fb7a1f",
+    "sha256_full": "b48a0aa1f374351498c9568c96f72035afeb2f86e49cb0106f2c564622fb7a1f",
+    "diff_at_step": null,
+    "steps": 16,
+    "records_full": 16,
+    "record_rejects": 0,
+    "volatile_keys_stripped": [
+      "ts",
+      "elapsed_s",
+      "latency_ms",
+      "timestamp",
+      "created_at",
+      "duration_ms"
+    ]
+  },
+  "A2": {
+    "runs": 30,
+    "median_off_ms": 11.3708,
+    "median_full_ms": 11.5794,
+    "overhead_median_pct": 1.83,
+    "threshold": "none — 披露项不是断言项（延续不设虚构目标值）",
+    "machine": {
+      "python": "3.13.16",
+      "implementation": "CPython",
+      "system": "Windows",
+      "release": "10",
+      "machine": "AMD64",
+      "cpu_count": 32,
+      "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel"
+    }
+  },
+  "mutation_proof": {
+    "baseline_verdict": "PASS",
+    "mutant_verdict": "FAIL",
+    "baseline_pass": true,
+    "mutant_fail": true,
+    "mutant_diff_at_step": 3,
+    "conclusion": "判定有效：改动输出即 FAIL"
+  },
+  "scope": "宿主侧编排层记录动作；nephron P0 尚无生产级 writer，故 A1 口径为 measured_with_scope，不等于生产链路闭环"
+}

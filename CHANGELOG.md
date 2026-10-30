@@ -3,6 +3,72 @@
 本项目遵循 [Keep a Changelog](https://keepachangelog.com/) 格式，
 并遵循语义化版本（Semantic Versioning）。
 
+## [0.9.0] - 2026-10-30
+
+### 新增
+
+- **UPLIFT 补齐短板升级包**（`holoaeon/packs/uplift_pack.py`），第十六个包，经
+  `EXTRA_PACK_REGISTRY` 挂载（不进 `PACK_ORDER`，`EXTRA_PACK_ORDER` 由 6 项扩到 7 项）：
+  - 24 个技能，全部纯函数、输入事实输出 `PASS / FAIL / UNCHECKED`：六单元清单 1
+    + 确定性 2（排序键全序 / 纯函数契约）+ 回归口径 1 + 生态 4（CI / 模板 / 徽章 / 支持矩阵）
+    + 实测 3（A1 判定 / A2 披露 / 证据链）+ 匹配 3（n-gram / 混合分 / 用例验收）
+    + 桥 5（边界 / 后端 / 远程门禁 / 审计 / 回执语义）+ 裁决 2（O-1～O-10 / P1 门禁）
+    + 立场 1 + 回执 1 + 维度不变 1；
+  - 7 条工作流：`W1_determinism → W7_acceptance`；0 个角色，不新增 agent。
+- **U1 确定性修复**（`holoaeon/cluster.py`）：`_report()` 对真实结果按
+  `(agent_id, 记录规范化指纹)` 排序；`_canon` / `_order_key` 两个纯函数。
+- **U1 纯函数化**（`holoaeon/hypervector.py`）：`_fft` 首行 `a = list(a)`，bit-reversal
+  置换只作用于副本；docstring 补"不修改入参 / e^{+2πi} 约定 / 逆变换已除 n"。
+- **U5 匹配升级**（`holoaeon/skill.py`）：新增 `_normalize / _ngrams / _dice / ngram_dice`
+  与词级 3-gram 兜底；打分改为 `0.5·Jaccard + 0.5·dice2 + 0.05·tag_hit`，并把原始 query
+  传入 `score()`（Jaccard 为 0 时不再提前返回）。
+- **U6 生态基建**：`.github/workflows/ci.yml`（Python 3.8 / 3.10 / 3.12；单测 → 自检 →
+  红线 → 示例 01–04）、`bug_report.md` / `feature_request.md` / `PULL_REQUEST_TEMPLATE.md`、
+  `docs/support-matrix.md`（未跑格子写 `untested`）。
+- **U3 实测脚本**：`scripts/measure_a1_a2.py`（纯标准库，`--runs` / `--write`），含
+  **变异实验**：篡改 full 侧一步输出，A1 必须翻成 `FAIL`，否则判定视为空转。
+- **U2 宿主模型桥**（`bridges/`，包外，不进红线扫描目标）：`transport.py`（4 类错误分型 +
+  兜底，永不抛异常）、`backends.py`（ollama / openai_compat / echo 三后端 + 远程三重门禁）、
+  `live_client.py`（`mode="live"` / `"echo"` 严格区分，审计只记 7 个字段）、`quickstart.py`、
+  `examples/05_live_model.py`；文档 `docs/bridges.md`。
+- **U4 裁决**：`docs/nephron.md` §12 由开放问题改为 O-1～O-10 六列裁决表，新增 §12.1 P1 索引；
+  P1 判定细则 `docs/nephron-p1.md`（打分公式 / 降级链 L0–L3 / 7 步构建 / 四判据 / 差异三件套）。
+- **G24 uplift 自检组**（43 条断言）+ 3 条单测（`TestUpliftU16`）。
+- **`docs/uplift.md`**：包文档（六单元 / 十冲突 / 四核实 / 五缺陷 / 24 技能 / 立场矩阵 / 限制）。
+
+### 变更
+
+- `holoaeon/spec.py`：`VERSION / MATRIX_ID / RUNTIME_ID` → `0.9.0`。
+- `holoaeon/packs/nephron_pack.py`：`skill_nephron_acceptance_check` 新增 `measured` 参数，
+  支持把不可自证项标为 `measured_with_scope`（裁决值 `accepted_with_scope`）；拒绝项 11 → 12
+  （新增「把 measured_with_scope 说成生产链路已闭环」，并把「改写成已通过」收紧为「不带证据与范围」）。
+  **G23 的拒绝项断言随之由 11 改为 12。**
+- `docs/nephron.md`：L1/L2 由 `pending_human_measure` 改为**已实测（限定范围）**，
+  附 A1 哈希、变异证据、A2 中位数与机器规格。
+- `readme`：徽章 `tests-24 → 34`、`selftest-16%2F16 → 24%2F24`（两处**都是过期值**，
+  投喂稿只点了 tests），正文口径 25 → 34 / 19 组 → 24 组；补第十六包行、v0.9 路线图行、
+  宿主桥小节；新增"徽章是本地实测、CI 尚未在 GitHub 实跑"的注记。
+
+### 修复
+
+- 结果顺序非确定（S1）：6 agent 微抖动压力下此前出现多种顺序；修复后反转输入重排仍同序。
+- `_fft` 未文档化的入参副作用（S1 附带）。
+- 中文无分词场景召回弱（S5）：`统计销售额` 命中 `stats_clean`；`statistik` 命中 `statistics`（dice 0.82353）。
+- 桥自身三处缺陷：`HOLAEON_ALLOW_REMOTE` 拼写错误（远程开关永久失效）、`echo://local` 被
+  自家网络门禁拒掉、echo 回执缺 `ok` 键。
+- `scripts/measure_a1_a2.py`：`platform.os.cpu_count()` → `import os`。
+- 文档修订 `docs/nephron-p1.md` 尾部混入的杂行（重写 116 行正文）。
+
+### 已知限制（不得写成已通过）
+
+- **A-U6-1**（CI 三版本全绿）本地无法产生：workflow 已交，`docs/support-matrix.md` 对应格子
+  为 `untested`，README 明示"尚未在 GitHub 实跑"。
+- **A-U2-3**（真实 `mode="live"` 回执）：本机未安装 Ollama，标 `untested`；已实测的是
+  "无 Ollama 分支（`--check` 退出码 2 + 三行指引）"与 echo 装配。
+- **A1/A2** 为宿主编排层限定范围实测，**不等于生产链路闭环**（P0 无生产 writer）。
+- `O-1` 未采用投喂的 `after_summary` 字段（会破 41 字段冻结），改用 `summarized ∩ admitted`
+  表达；此项为本轮**唯一一处字面偏离**，已写入 `docs/nephron.md` §12。
+
 ## [0.8.0] - 2026-10-30
 
 ### 新增

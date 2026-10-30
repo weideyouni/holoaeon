@@ -15,6 +15,7 @@ Cluster —— HoloAeon 多线程 Actor 邮箱集群
 """
 from __future__ import annotations
 
+import json
 import queue
 import threading
 import time
@@ -22,6 +23,24 @@ from typing import Any, Dict, List, Optional
 
 from .agent import Agent
 from .envelope import Envelope
+
+
+def _canon(rec: dict) -> str:
+    """记录规范化：键排序、分隔符固定、非 JSON 值转字符串——只为排序提供稳定指纹。
+
+    不修改记录本身，也不参与任何业务判定。
+    """
+    return json.dumps(rec, sort_keys=True, ensure_ascii=False,
+                      separators=(",", ":"), default=str)
+
+
+def _order_key(rec: dict) -> tuple:
+    """结果排序键：先 agent_id，再记录内容指纹。
+
+    只用 agent_id 不是全序（同一 agent 的多轮记录 agent_id 相同，仍按完成序抖动），
+    因此补一层内容指纹；内容完全相同的记录彼此可换，顺序不可观测。
+    """
+    return (str(rec.get("agent_id", "")), _canon(rec))
 
 
 class ActorWorker:
@@ -143,6 +162,8 @@ class Cluster:
 
     def _report(self, collected: List[dict], elapsed: float, rounds: int) -> dict:
         real = [c for c in collected if "__forward__" not in c]
+        # 确定性：完成序不可复现，故对真实结果做稳定排序（转发结果保持原处理序）
+        real.sort(key=_order_key)
         faults = [c for c in real if c.get("status") == "fault"]
         ok = [c for c in real if c.get("status") == "ok"]
         alive = sum(1 for w in self.workers.values()
