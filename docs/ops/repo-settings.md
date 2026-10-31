@@ -78,6 +78,9 @@ https://github.com/weideyouni/holoaeon/blob/main/benchmarks/README.md
 - 令牌口径：Gitee 要求 GitHub 私人令牌含 **`repo` + `admin:repo_hook`**（hook 权限用于自动生成 webhook）。
   实测只勾 `public_repo` 的令牌会被判「无效的私人令牌」——权限不够就是不可用，不是网络问题。
 - 本轮实测耗时：请求 `2026-10-31 23:46:48` → 完成 `2026-10-31 23:46:54`（6 秒）。
+- 自动同步实测：首轮同步后向 GitHub `main` 推了一笔文档提交，**2 分钟内 Gitee 侧 `refs/heads/main` 仍停在旧哈希**，
+  未观察到 webhook 自动触发。要立刻对齐就手动点镜像条目的「更新」并确认覆盖；本仓的验收口径是
+  `git ls-remote` 比对哈希，不依赖「自动同步是否生效」这种不可观测的状态。
 
 ### 4.2 三条走不通的通道（省下重新试的时间）
 
