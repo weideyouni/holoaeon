@@ -124,3 +124,11 @@ stdio 传输、JSON-RPC 2.0 换行分隔、零依赖。注册片段（以 Claude
 - Gitee 免费仓库有体积与单文件上限，`vector-sea` 已占 106.91 MB，后续增量要先算体积。
 - 不支持 Git LFS：大二进制文件不能靠 LFS 绕过限制。
 - 令牌永不过期，泄露即等同账号写权限；轮换入口 `https://gitee.com/profile/personal_access_tokens`。
+
+## 8 飞书同步
+
+两份文档已随本通道更新（2026-11-01）：
+
+- HoloAeon DIFF=0 升级合订稿（V3）：`https://my.feishu.cn/docx/GqC7d2rAvoePjkxPlocccFX5nqe`，第十节 §4 由「Gitee 镜像」改写为「Gitee 直传通道」，并补齐脚本、MCP、vector-sea 与验收数字。
+- Gitee 直传与向量海 · 通道说明（新建）：`https://my.feishu.cn/docx/Q1cVdQQ1uogX4lxr2lWcXZ9hnMb`，含通道表、退出码表、MCP 工具表、验收数字与边界。
+
