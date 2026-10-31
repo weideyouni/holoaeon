@@ -38,11 +38,32 @@ jobs:
         run: python -VV
 
       - name: Unit tests
-        run: python -m unittest discover -s tests -v
+        # 失败时把断言明细写进 annotation：未登录也能看到，不用点进日志。
+        run: |
+          set +e
+          log=/tmp/tests.log
+          python -m unittest discover -s tests -v > "$log" 2>&1
+          rc=$?
+          tail -n 40 "$log"
+          if [ $rc -ne 0 ]; then
+            detail=$(grep -E "FAIL:|ERROR:|Traceback|AssertionError|Ran |FAILED" "$log" | head -n 6 | tr '\n' ' ')
+            echo "::error title=unit-tests rc=$rc py=${{ matrix.python }}::${detail:-no-detail}"
+          fi
+          exit $rc
 
       - name: Self-test (all groups)
+        # 同上：断言红要把「哪一组失败」直接抛到 annotation。
         run: |
-          python -c "from holoaeon.selftest import run_all; r=run_all(); print('passed=%s/%s' % (r['passed'], r['groups'])); assert r['ok'] and r['failed']==0"
+          set +e
+          log=/tmp/selftest.log
+          python -c "from holoaeon.selftest import run_all; r=run_all(); print('passed=%s/%s' % (r['passed'], r['groups'])); assert r['ok'] and r['failed']==0" > "$log" 2>&1
+          rc=$?
+          tail -n 40 "$log"
+          if [ $rc -ne 0 ]; then
+            detail=$(grep -E "FAIL|Traceback|AssertionError|passed=" "$log" | head -n 6 | tr '\n' ' ')
+            echo "::error title=selftest rc=$rc py=${{ matrix.python }}::${detail:-no-detail}"
+          fi
+          exit $rc
 
       - name: Red-line scan (network / dependency / dangerous calls)
         # 失败时把扫描明细写进 annotation：未登录也能看到，不用点进日志。
@@ -61,7 +82,17 @@ jobs:
       - name: NEPHRON A1 verdict (off-vs-full byte identity + mutation proof)
         # A1 是断言项：判定必须 PASS，且篡改必须 FAIL，否则本步红。
         # A2 只是披露项，此处只跑 --runs 3 取中位数打印，不设阈值、不阻塞。
-        run: python scripts/measure_a1_a2.py --runs 3
+        run: |
+          set +e
+          log=/tmp/a1.log
+          python scripts/measure_a1_a2.py --runs 3 > "$log" 2>&1
+          rc=$?
+          tail -n 30 "$log"
+          if [ $rc -ne 0 ]; then
+            detail=$(grep -E "A1|A2|Traceback|AssertionError" "$log" | head -n 6 | tr '\n' ' ')
+            echo "::error title=nephron-a1 rc=$rc py=${{ matrix.python }}::${detail:-no-detail}"
+          fi
+          exit $rc
 
       - name: Examples 01-04 (smoke)
         run: |
