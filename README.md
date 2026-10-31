@@ -515,7 +515,7 @@ python scripts/launch_local.py status                 # health snapshot
 python scripts/launch_local.py demo                   # full fusion walkthrough
 python scripts/launch_local.py run "task text"        # submit a task (auto-select agent)
 python scripts/launch_local.py hotplug optimization   # load a pack at runtime, no restart
-python scripts/launch_local.py selftest               # 24 self-test groups
+python scripts/launch_local.py selftest               # 25 self-test groups
 ```
 
 - **Cold plug** — at startup, `bootstrap()` installs all domain packs, binds the internal

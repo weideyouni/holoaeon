@@ -7,7 +7,7 @@
 
 | Python | 单测 `unittest` | 自检 `run_all()` | 红线 `redline_scan` | 示例 01–04 | 采集日期 |
 |---|---|---|---|---|---|
-| **3.13.16** (Windows 10 / AMD64 / 32 核) | measured · 34 tests OK | measured · 24/24 组 | measured · 41 文件零违规 | measured · 全部 exit 0 | 2026-10-31 |
+| **3.13.16** (Windows 10 / AMD64 / 32 核) | measured · 34 tests OK | measured · 25/25 组 | measured · 42 文件零违规 | measured · 全部 exit 0 | 2026-10-31 |
 
 示例 05（宿主桥）同为 `measured · skip 退出 0`（本机无 Ollama，属预期分支）。
 
