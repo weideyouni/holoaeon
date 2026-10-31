@@ -97,12 +97,12 @@ class DataPack(DomainPack):
     name = "数据处理"
     description = "数据清洗、概况、统计、归一化与离群检测。"
     skills = [
-        SkillSpec("csv_profile", csv_profile, "CSV 概况",
+        SkillSpec("csv_profile", csv_profile, "CSV 概况：列类型与分布画像",
                   ["csv", "profile"], {"csv_text": "str"}),
         SkillSpec("missing_report", missing_report, "缺失值报告",
                   ["missing", "clean"], {"csv_text": "str"}),
-        SkillSpec("basic_stats", basic_stats, "描述统计",
-                  ["stats", "eda"], {"csv_text": "str"}),
+        SkillSpec("basic_stats", basic_stats, "描述统计：均值/标准差/中位数/极值",
+                  ["stats", "mean", "std", "eda"], {"csv_text": "str"}),
         SkillSpec("normalize_column", normalize_column, "归一化",
                   ["normalize", "scale"], {"values": "str"}),
         SkillSpec("outlier_detect", outlier_detect, "离群检测",

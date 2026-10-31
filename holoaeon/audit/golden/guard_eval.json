@@ -1,0 +1,13 @@
+{
+  "args": null,
+  "evidence_class": "simulated",
+  "expected_matched": null,
+  "expected_output": null,
+  "expected_reprohash": "98b9b7b340f7f980",
+  "expected_status": "blocked",
+  "frozen_at": "2026-10-31",
+  "note": "守卫必须在投递前拦截：block · L3",
+  "task": "计算 eval(1+1) 的结果",
+  "task_id": "guard_eval",
+  "to": null
+}

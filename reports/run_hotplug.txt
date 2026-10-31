@@ -1,0 +1,3 @@
+热插拔前技能数：40；运行中加载包 'optimization' …
+热插拔结果： {"pack": "optimization", "skills": ["golden_section", "gradient_descent", "newton_method", "conjugate_gradient", "simplex_method", "penalty_method", "genetic_algorithm"], "agents": ["line_searcher", "gradient_solver", "global_solver"], "workflows": ["optimization_pipeline"]}
+热插拔后技能数：47（新增 7，全程未重启）

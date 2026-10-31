@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-HoloAeon SelfTest —— 自检套件（G1-G17）
+HoloAeon SelfTest —— 自检套件（G1-G24）
 ================================================================================
 逐组验证核心模块与机制，全部确定性、离线、零依赖。
 run_all() 返回 {groups, passed, failed, ok, details}。
@@ -1282,3 +1282,18 @@ def run_all(verbose: bool = False) -> Dict[str, Any]:
         "failed": len(GROUPS) - passed,
         "ok": passed == len(GROUPS), "details": details,
     }
+
+
+def main(verbose: bool = True) -> int:
+    """自检 CLI 入口：修复"无 __main__ 导致静默退出码 0"的历史坑。"""
+    print("== HoloAeon 自检（G1-G%d）==" % len(GROUPS))
+    print("推荐入口：python scripts/launch_local.py selftest")
+    result = run_all(verbose=verbose)
+    print("==>", "%d/%d" % (result["passed"], result["groups"]))
+    # 只有真正跑完且全绿才返回 0；导入但未运行时不得被误读为"已通过"
+    return 0 if result["ok"] else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+

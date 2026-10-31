@@ -1,0 +1,31 @@
+{"evidence": {"detail": "config=True, design_grid=1771561"}, "evidence_class": "simulated", "gid": "G1", "name": "G1 spec", "status": "pass"}
+{"evidence": {"detail": "roundtrip + reply"}, "evidence_class": "simulated", "gid": "G2", "name": "G2 envelope", "status": "pass"}
+{"evidence": {"detail": "delivered=1"}, "evidence_class": "simulated", "gid": "G3", "name": "G3 bus pubsub", "status": "pass"}
+{"evidence": {"detail": "reply=acked"}, "evidence_class": "simulated", "gid": "G4", "name": "G4 bus address", "status": "pass"}
+{"evidence": {"detail": "match=[('summarize', 0.46)]"}, "evidence_class": "simulated", "gid": "G5", "name": "G5 skill", "status": "pass"}
+{"evidence": {"detail": "stats={'total': 1, 'working': 0, 'longterm': 1, 'archive': 0}"}, "evidence_class": "simulated", "gid": "G6", "name": "G6 memory", "status": "pass"}
+{"evidence": {"detail": "ok"}, "evidence_class": "simulated", "gid": "G7", "name": "G7 agent", "status": "pass"}
+{"evidence": {"detail": "ticks=2"}, "evidence_class": "simulated", "gid": "G8", "name": "G8 scheduler", "status": "pass"}
+{"evidence": {"detail": "bad=block, good=allow"}, "evidence_class": "simulated", "gid": "G9", "name": "G9 guard", "status": "pass"}
+{"evidence": {"detail": "all_ok=True"}, "evidence_class": "simulated", "gid": "G10", "name": "G10 kernel", "status": "pass"}
+{"evidence": {"detail": "path=[0, 2], dist=1.7"}, "evidence_class": "simulated", "gid": "G11", "name": "G11 graph", "status": "pass"}
+{"evidence": {"detail": "ok=3, faults=0"}, "evidence_class": "simulated", "gid": "G12", "name": "G12 cluster", "status": "pass"}
+{"evidence": {"detail": "bind=-0.11025, recover=0.69219"}, "evidence_class": "simulated", "gid": "G13", "name": "G13 hypervector", "status": "pass"}
+{"evidence": {"detail": "cheap=m1, large=m2"}, "evidence_class": "simulated", "gid": "G14", "name": "G14 model_adapter", "status": "pass"}
+{"evidence": {"detail": "agents=25, skills=47"}, "evidence_class": "simulated", "gid": "G15", "name": "G15 packs", "status": "pass"}
+{"evidence": {"detail": "7/7 优化算法收敛"}, "evidence_class": "simulated", "gid": "G16", "name": "G16 optimization", "status": "pass"}
+{"evidence": {"detail": "4/4 高译编译/执行/UNKNOWN/往返"}, "evidence_class": "simulated", "gid": "G17", "name": "G17 gaoyi", "status": "pass"}
+{"evidence": {"detail": "6/6 认知主权包（17技能/0agent/5工作流）"}, "evidence_class": "simulated", "gid": "G18", "name": "G18 sovereignty", "status": "pass"}
+{"evidence": {"detail": "17/17 SD-Distill 包（15技能/0agent/7工作流/127亚学科）"}, "evidence_class": "simulated", "gid": "G19", "name": "G19 subdistill", "status": "pass"}
+{"evidence": {"detail": "21/21 全域生活包（18技能/0agent/6工作流/6生活域）"}, "evidence_class": "simulated", "gid": "G20", "name": "G20 omnilife", "status": "pass"}
+{"evidence": {"detail": "25/25 全息纪元包（20技能/0agent/6工作流/5修正/22拒绝）"}, "evidence_class": "simulated", "gid": "G21", "name": "G21 omnicore", "status": "pass"}
+{"evidence": {"detail": "52/52 代谢层包（26技能/0agent/8工作流/6染色体/8冲突）"}, "evidence_class": "simulated", "gid": "G22", "name": "G22 metab", "status": "pass"}
+{"evidence": {"detail": "62/62 肾单位 P0 包（24技能/0agent/7工作流/41字段/27码/10审视）"}, "evidence_class": "simulated", "gid": "G23", "name": "G23 nephron", "status": "pass"}
+{"evidence": {"detail": "46/46 补齐短板升级包（24技能/0agent/7工作流/6单元/10审视/5缺陷/10裁决/22验收）"}, "evidence_class": "simulated", "gid": "G24", "name": "G24 uplift", "status": "pass"}
+{"evidence": {"golden_match": true, "reprohash": "3352db0f803eb727", "runs": 2, "stable": true}, "evidence_class": "simulated", "gid": "BM-data_describe", "name": "复现基准 data_describe", "status": "pass"}
+{"evidence": {"golden_match": true, "reprohash": "98b9b7b340f7f980", "runs": 2, "stable": true}, "evidence_class": "simulated", "gid": "BM-guard_eval", "name": "复现基准 guard_eval", "status": "pass"}
+{"evidence": {"golden_match": true, "reprohash": "a7deb622e17a2b55", "runs": 2, "stable": true}, "evidence_class": "simulated", "gid": "BM-guard_os_system", "name": "复现基准 guard_os_system", "status": "pass"}
+{"evidence": {"golden_match": true, "reprohash": "2c9e5d7d01526ce8", "runs": 2, "stable": true}, "evidence_class": "simulated", "gid": "BM-quant_sharpe", "name": "复现基准 quant_sharpe", "status": "pass"}
+{"evidence": {"golden_match": true, "reprohash": "2b82a6ef7188ce91", "runs": 2, "stable": true}, "evidence_class": "simulated", "gid": "BM-word_count", "name": "复现基准 word_count", "status": "pass"}
+{"evidence": {"added": 7, "after": 47, "before": 40}, "evidence_class": "simulated", "gid": "BM-hotplug", "name": "热插拔 optimization 不重启", "status": "pass"}
+{"evidence": {"verdict_hash": "259eed7b72bdbb49"}, "evidence_class": "simulated", "gid": "VERDICT", "name": "self-attestation verdict", "status": "yellow"}

@@ -1,0 +1,23 @@
+{
+  "args": {
+    "csv_text": "x\n1\n2\n3"
+  },
+  "evidence_class": "simulated",
+  "expected_matched": "basic_stats",
+  "expected_output": {
+    "x": {
+      "count": 3,
+      "max": 3.0,
+      "mean": 2.0,
+      "min": 1.0,
+      "std": 0.816
+    }
+  },
+  "expected_reprohash": "3352db0f803eb727",
+  "expected_status": "ok",
+  "frozen_at": "2026-10-31",
+  "note": "描述统计：count=3 mean=2.0 std=0.816",
+  "task": "统计分析",
+  "task_id": "data_describe",
+  "to": "data_analyst"
+}

@@ -1,0 +1,17 @@
+{
+  "args": {
+    "returns_s": "0.01,-0.02,0.03,0.01"
+  },
+  "evidence_class": "simulated",
+  "expected_matched": "sharpe",
+  "expected_output": {
+    "sharpe": 5.7752
+  },
+  "expected_reprohash": "2c9e5d7d01526ce8",
+  "expected_status": "ok",
+  "frozen_at": "2026-10-31",
+  "note": "量化包夏普：5.7752（定点）",
+  "task": "sharpe",
+  "task_id": "quant_sharpe",
+  "to": "quant_researcher"
+}

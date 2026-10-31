@@ -1,0 +1,25 @@
+[PASS] G1 spec — config=True, design_grid=1771561
+[PASS] G2 envelope — roundtrip + reply
+[PASS] G3 bus pubsub — delivered=1
+[PASS] G4 bus address — reply=acked
+[PASS] G5 skill — match=[('summarize', 0.46)]
+[PASS] G6 memory — stats={'total': 1, 'working': 0, 'longterm': 1, 'archive': 0}
+[PASS] G7 agent — ok
+[PASS] G8 scheduler — ticks=2
+[PASS] G9 guard — bad=block, good=allow
+[PASS] G10 kernel — all_ok=True
+[PASS] G11 graph — path=[0, 2], dist=1.7
+[PASS] G12 cluster — ok=3, faults=0
+[PASS] G13 hypervector — bind=-0.11025, recover=0.69219
+[PASS] G14 model_adapter — cheap=m1, large=m2
+[PASS] G15 packs — agents=25, skills=47
+[PASS] G16 optimization — 7/7 优化算法收敛
+[PASS] G17 gaoyi — 4/4 高译编译/执行/UNKNOWN/往返
+[PASS] G18 sovereignty — 6/6 认知主权包（17技能/0agent/5工作流）
+[PASS] G19 subdistill — 17/17 SD-Distill 包（15技能/0agent/7工作流/127亚学科）
+[PASS] G20 omnilife — 21/21 全域生活包（18技能/0agent/6工作流/6生活域）
+[PASS] G21 omnicore — 25/25 全息纪元包（20技能/0agent/6工作流/5修正/22拒绝）
+[PASS] G22 metab — 52/52 代谢层包（26技能/0agent/8工作流/6染色体/8冲突）
+[PASS] G23 nephron — 62/62 肾单位 P0 包（24技能/0agent/7工作流/41字段/27码/10审视）
+[PASS] G24 uplift — 46/46 补齐短板升级包（24技能/0agent/7工作流/6单元/10审视/5缺陷/10裁决/22验收）
+==> 24/24

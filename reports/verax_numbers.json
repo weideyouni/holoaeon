@@ -1,0 +1,128 @@
+{
+  "core": [
+    40,
+    11408
+  ],
+  "audit": [
+    6,
+    685
+  ],
+  "packs": [
+    18,
+    6872
+  ],
+  "packs_table": [
+    {
+      "pack": "writing",
+      "kind": "domain",
+      "skills": 5,
+      "agents": 3,
+      "workflows": 1
+    },
+    {
+      "pack": "literature",
+      "kind": "domain",
+      "skills": 5,
+      "agents": 3,
+      "workflows": 1
+    },
+    {
+      "pack": "research",
+      "kind": "domain",
+      "skills": 5,
+      "agents": 3,
+      "workflows": 1
+    },
+    {
+      "pack": "data",
+      "kind": "domain",
+      "skills": 5,
+      "agents": 3,
+      "workflows": 1
+    },
+    {
+      "pack": "growth",
+      "kind": "domain",
+      "skills": 5,
+      "agents": 3,
+      "workflows": 1
+    },
+    {
+      "pack": "business",
+      "kind": "domain",
+      "skills": 6,
+      "agents": 3,
+      "workflows": 1
+    },
+    {
+      "pack": "quant",
+      "kind": "domain",
+      "skills": 6,
+      "agents": 3,
+      "workflows": 1
+    },
+    {
+      "pack": "optimization",
+      "kind": "domain",
+      "skills": 7,
+      "agents": 3,
+      "workflows": 1
+    },
+    {
+      "pack": "gaoyi",
+      "kind": "domain",
+      "skills": 3,
+      "agents": 1,
+      "workflows": 1
+    },
+    {
+      "pack": "sovereignty",
+      "kind": "extra",
+      "skills": 17,
+      "agents": 0,
+      "workflows": 5
+    },
+    {
+      "pack": "subdistill",
+      "kind": "extra",
+      "skills": 15,
+      "agents": 0,
+      "workflows": 7
+    },
+    {
+      "pack": "omnilife",
+      "kind": "extra",
+      "skills": 18,
+      "agents": 0,
+      "workflows": 6
+    },
+    {
+      "pack": "omnicore",
+      "kind": "extra",
+      "skills": 20,
+      "agents": 0,
+      "workflows": 6
+    },
+    {
+      "pack": "metab",
+      "kind": "extra",
+      "skills": 26,
+      "agents": 0,
+      "workflows": 8
+    },
+    {
+      "pack": "nephron",
+      "kind": "extra",
+      "skills": 24,
+      "agents": 0,
+      "workflows": 7
+    },
+    {
+      "pack": "uplift",
+      "kind": "extra",
+      "skills": 24,
+      "agents": 0,
+      "workflows": 7
+    }
+  ]
+}

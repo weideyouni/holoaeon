@@ -77,8 +77,8 @@ class GrowthPack(DomainPack):
                   ["habit"], {"task": "str"}),
         SkillSpec("task_breakdown", task_breakdown, "任务拆解",
                   ["breakdown", "plan"], {"task": "str"}),
-        SkillSpec("weekly_review", weekly_review, "周复盘",
-                  ["review", "reflection"], {"text": "str"}),
+        SkillSpec("weekly_review", weekly_review, "周复盘：把一周工作整理成周报与总结",
+                  ["review", "summary", "reflection"], {"text": "str"}),
         SkillSpec("energy_mapping", energy_mapping, "精力映射",
                   ["energy", "time"], {"text": "str"}),
     ]

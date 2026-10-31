@@ -1,0 +1,18 @@
+{
+  "args": null,
+  "evidence_class": "simulated",
+  "expected_matched": "word_count",
+  "expected_output": {
+    "chinese_chars": 20,
+    "english_words": 1,
+    "sentences": 1,
+    "total_chars": 31
+  },
+  "expected_reprohash": "2b82a6ef7188ce91",
+  "expected_status": "ok",
+  "frozen_at": "2026-10-31",
+  "note": "V1 黄金回归值：规范化后必须稳定为 2b82a6ef7188ce91",
+  "task": "统计字数：HoloAeon 是零依赖的确定性多智能体认知框架。",
+  "task_id": "word_count",
+  "to": null
+}

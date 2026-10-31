@@ -1,0 +1,247 @@
+# HoloAeon V3 gate run  (2026-10-31T19:58:20)
+
+===== status =====
+$ scripts/launch_local.py status
+{
+  "runtime_id": "HOLOAEON-RUNTIME-0.9.1",
+  "uptime_s": 0.0,
+  "agents": [
+    "writing_planner",
+    "writing_drafter",
+    "writing_editor",
+    "lit_searcher",
+    "lit_reader",
+    "lit_reviewer",
+    "research_designer",
+    "research_executor",
+    "research_analyzer",
+    "data_cleaner",
+    "data_analyst",
+    "data_reporter",
+    "growth_goal_coach",
+    "growth_habit_coach",
+    "growth_review_coach",
+    "biz_strategist",
+    "biz_operator",
+    "biz_risk_manager",
+    "quant_analyst",
+    "quant_researcher",
+    "quant_risk",
+    "line_searcher",
+    "gradient_solver",
+    "global_solver",
+    "gaoyi_translator"
+  ],
+  "skills": [
+    "backtest",
+    "basic_stats",
+    "business_model_canvas",
+    "conjugate_gradient",
+    "csv_profile",
+    "dedup_papers",
+    "design_experiment",
+    "drawdown",
+    "energy_mapping",
+    "extract_abstract",
+    "gaoyi_compile",
+    "gaoyi_exec",
+    "gaoyi_run",
+    "genetic_algorithm",
+    "goal_smart",
+    "golden_section",
+    "gradient_descent",
+    "habit_plan",
+    "hypothesis_check",
+    "keyword_extract",
+    "kpi_dashboard",
+    "meeting_agenda",
+    "missing_report",
+    "moving_average",
+    "newton_method",
+    "normalize_citation",
+    "normalize_column",
+    "okr_gen",
+    "outlier_detect",
+    "outline_gen",
+    "penalty_method",
+    "readability",
+    "reproduce_check",
+    "returns",
+    "risk_register",
+    "sample_size",
+    "screen_papers",
+    "sharpe",
+    "simplex_method",
+    "structure_check",
+    "swot_analysis",
+    "task_breakdown",
+    "title_brainstorm",
+    "variables_split",
+    "volatility",
+    "weekly_review",
+    "word_count"
+  ],
+  "submitted": 0,
+  "blocked": 0,
+  "memory": {
+    "total": 0,
+    "working": 0,
+    "longterm": 0,
+    "archive": 0
+  },
+  "scheduler": {
+    "tick_count": 0,
+    "bodies": 70,
+    "active": 0,
+    "degraded": 0,
+    "idle": 70,
+    "sync_mode": "adaptive",
+    "watch": 25
+  },
+  "guard": {
+    "inspected": 0,
+    "blocked": 0,
+    "layers": 8,
+    "advised": 0
+  },
+  "has_graph": true,
+  "has_adapter": true
+}
+exit=0
+
+===== selftest =====
+$ scripts/launch_local.py selftest
+[PASS] G1 spec — config=True, design_grid=1771561
+[PASS] G2 envelope — roundtrip + reply
+[PASS] G3 bus pubsub — delivered=1
+[PASS] G4 bus address — reply=acked
+[PASS] G5 skill — match=[('summarize', 0.46)]
+[PASS] G6 memory — stats={'total': 1, 'working': 0, 'longterm': 1, 'archive': 0}
+[PASS] G7 agent — ok
+[PASS] G8 scheduler — ticks=2
+[PASS] G9 guard — bad=block, good=allow
+[PASS] G10 kernel — all_ok=True
+[PASS] G11 graph — path=[0, 2], dist=1.7
+[PASS] G12 cluster — ok=3, faults=0
+[PASS] G13 hypervector — bind=-0.11025, recover=0.69219
+[PASS] G14 model_adapter — cheap=m1, large=m2
+[PASS] G15 packs — agents=25, skills=47
+[PASS] G16 optimization — 7/7 优化算法收敛
+[PASS] G17 gaoyi — 4/4 高译编译/执行/UNKNOWN/往返
+[PASS] G18 sovereignty — 6/6 认知主权包（17技能/0agent/5工作流）
+[PASS] G19 subdistill — 17/17 SD-Distill 包（15技能/0agent/7工作流/127亚学科）
+[PASS] G20 omnilife — 21/21 全域生活包（18技能/0agent/6工作流/6生活域）
+[PASS] G21 omnicore — 25/25 全息纪元包（20技能/0agent/6工作流/5修正/22拒绝）
+[PASS] G22 metab — 52/52 代谢层包（26技能/0agent/8工作流/6染色体/8冲突）
+[PASS] G23 nephron — 62/62 肾单位 P0 包（24技能/0agent/7工作流/41字段/27码/10审视）
+[PASS] G24 uplift — 46/46 补齐短板升级包（24技能/0agent/7工作流/6单元/10审视/5缺陷/10裁决/22验收）
+==> 24/24
+exit=0
+
+===== unittest34 =====
+$ -m unittest discover -s tests
+..................................
+----------------------------------------------------------------------
+Ran 34 tests in 0.150s
+
+OK
+exit=0
+
+===== unittest-verax =====
+$ -m unittest discover -s tests/verax
+................
+----------------------------------------------------------------------
+Ran 16 tests in 0.108s
+
+OK
+exit=0
+
+===== unittest-v3 =====
+$ -m unittest discover -s tests/v3
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.374s
+
+OK
+exit=0
+
+===== redline =====
+$ scripts/redline_scan.py
+扫描文件数：41
+结果： 干净（零违规）
+exit=0
+
+===== verax_verify =====
+$ scripts/verax_verify.py --out reports
+========================================================================
+VERAX 门禁：红线 → 自检 → 复现 → 诚实 → 热插拔
+========================================================================
+[1/5] 红线扫描：files=41 violations=0
+[2/5] 自检：24/24
+[3/5] 复现 data_describe    stable=True  golden=True  hash=3352db0f803eb727
+[3/5] 复现 guard_eval       stable=True  golden=True  hash=98b9b7b340f7f980
+[3/5] 复现 guard_os_system  stable=True  golden=True  hash=a7deb622e17a2b55
+[3/5] 复现 quant_sharpe     stable=True  golden=True  hash=2c9e5d7d01526ce8
+[3/5] 复现 word_count       stable=True  golden=True  hash=2b82a6ef7188ce91
+[4/5] 诚实契约：h1=0 h2=0
+[5/5] 热插拔：40 → 47（新增 7，未重启）
+------------------------------------------------------------------------
+conclusion=green verdict_hash=ec516f4ed413b5af
+md=reports\attestation.md
+jsonl=reports\attestation.jsonl
+VERAX_EXIT=0
+exit=0
+
+===== bench_public =====
+$ benchmarks/bench_public.py
+========================================================================
+HoloAeon 公开基准 v0.9.1
+========================================================================
+[1/3] DIFF=0    run1=2fc892cf9af6e755 run2=2fc892cf9af6e755 equal=True
+       敏感性   base=2fc892cf9af6e755 tampered=f42c8229ee5acd73 sensitive=True
+[2/3] 拦截率     16/16 = 100%；合法放行 4/4
+[3/3] 足迹       build=31.66ms peak=1.69MiB agents=25 skills=47
+------------------------------------------------------------------------
+DIFF=0 2fc892cf9af6e755 | 拦截 100% | 冷装配 31.66ms / 峰值 1.69MiB
+written: F:\doubaowork\holoaeon\benchmarks\results-0.9.1.json
+BENCH_EXIT=0
+exit=0
+
+===== bench_semvec =====
+$ scripts/bench_semvec.py
+========================================================================
+semvec 实测  corpus=47 docs  vocab=334  dim=32  fit=185.49ms
+确定性  digest_a=789b71a36bfcd66a digest_b=789b71a36bfcd66a equal=True
+------------------------------------------------------------------------
+意图                           基线               语义               混合0.75          
+统计字数：HoloAeon 是零依赖的确定性多智能体   word_count       word_count       word_count         expect=word_count
+患者数据统计                       word_count       word_count       word_count         expect=basic_stats
+给这列数据算均值和标准差                 basic_stats      basic_stats      basic_stats        expect=basic_stats
+计算夏普比率                       sharpe           drawdown         sharpe             expect=sharpe
+计算收益率                        returns          returns          returns            expect=returns
+最大回撤是多少                      drawdown         drawdown         drawdown           expect=drawdown
+读一下这篇论文的摘要                   extract_abstrac  extract_abstrac  extract_abstrac    expect=extract_abstract
+筛一下相关文献                      screen_papers    screen_papers    screen_papers      expect=screen_papers
+去重论文列表                       dedup_papers     dedup_papers     dedup_papers       expect=dedup_papers
+写周报总结                        weekly_review    weekly_review    weekly_review      expect=weekly_review
+拆解一下这个任务                     task_breakdown   task_breakdown   task_breakdown     expect=task_breakdown
+设计实验的样本量                     design_experime  sample_size      sample_size        expect=sample_size
+------------------------------------------------------------------------
+准确率  基线 10/12 = 83% | 语义 10/12 = 83% | 混合 11/12 = 91%
+written: F:\doubaowork\holoaeon\benchmarks\results-semvec-0.9.1.json
+SEMVEC_EXIT=0
+exit=0
+
+===== ledger_view =====
+$ scripts/ledger_view.py --sample data/ledger_sample.jsonl
+sample written: F:\doubaowork\holoaeon\data/ledger_sample.jsonl (6 records)
+html: F:\doubaowork\holoaeon\reports/ledger.html  size=5860 bytes  sha=98940b774566543b  records=6
+exit=0
+
+===== make_snapshot =====
+$ scripts/make_snapshot.py
+snapshot json: F:\doubaowork\holoaeon\snapshot\project_snapshot.json
+snapshot md  : F:\doubaowork\holoaeon\snapshot\SNAPSHOT.md
+snapshot_sha16=400e979585106b6d
+code: holoaeon/ 41 files / 11675 lines
+exit=0

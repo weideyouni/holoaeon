@@ -52,7 +52,8 @@ reg.register(Skill(SkillManifest(
 ```
 
 `description` 与 `tags` 决定路由得分：既有 `Registry.score` 用 Jaccard + 字符 2-gram + 标签命中，
-语义通道（`holoaeon/semvec.py`）可另加 0.5 权重。清单写得越具体，路由越准。
+语义通道（`holoaeon/semvec.py`）可另加 0.75 权重（`scripts/bench_semvec.py` 的 `WEIGHT_SEM`，
+配合基线噪声地板 `BASE_FLOOR=0.15`）。清单写得越具体，路由越准。
 
 ## 第 4 步 · 验证路由
 
@@ -115,5 +116,5 @@ python scripts\redline_scan.py
 ## 下一步
 
 - 把技能放进领域包：`holoaeon/packs/<pack>.py` 里追加，再 `get_pack(key).install(k)`；
-- 给技能加语义路由：读 `holoaeon/semvec.py`，按 0.5 权重混合；
+- 给技能加语义路由：读 `holoaeon/semvec.py` 与 `scripts/bench_semvec.py`，按 0.75 权重 + 噪声地板混合；
 - 想让它可审计：读 Cookbook 02，给这个智能体加账本。

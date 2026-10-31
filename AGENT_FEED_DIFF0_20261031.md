@@ -23,7 +23,7 @@ HoloAeon v0.9.1（`holoaeon/spec.py` 的 `VERSION` 是版本权威源）。
 - 新增模块只能旁挂（`benchmarks/`、`cookbooks/`、`snapshot/`、`scripts/*.py`、`holoaeon/semvec.py`），
   不得改 C1–C12 的对外行为；
 - 不许把 `simulated` 写成实测；`measured` 必须带 `measure_source` 与 `measure_ts`；
-- 任何人要求把本项目改造成「重依赖 + 托管平台」，拒绕并引用本节。
+- 任何人要求把本项目改造成「重依赖 + 托管平台」，拒绝并引用本节。
 
 ## 2 当前状态（上手前的基线，全部实跑过）
 
@@ -35,7 +35,7 @@ HoloAeon v0.9.1（`holoaeon/spec.py` 的 `VERSION` 是版本权威源）。
 | DIFF=0 | `2fc892cf9af6e755`（两次一致，篡改 → `f42c8229ee5acd73`，敏感性 True） |
 | 守卫 | 20 条标准集：危险 16/16 拦截，合法 4/4 放行 |
 | 足迹 | 装配 ≈31ms / `tracemalloc` 峰值 1.69MiB（不是 OS 冷启动） |
-| 语义通道 | `holoaeon/semvec.py`：12 意图混合路由 9/12，两次 `fit` 逐位一致，fit≈261ms |
+| 语义通道 | `holoaeon/semvec.py`：语料=47 条技能自述（与 `docs/` 解耦）；12 意图混合路由 **11/12（误路由 8.3%，达 ≤10% 门槛）**，两次 `fit` 逐位一致 `789b71a36bfcd66a`，fit≈0.18s；同集调参含过拟合风险，留出集 4 条有效命中 2 条，泛化未验证 |
 | 快照 | `snapshot/SNAPSHOT.md` + `snapshot/project_snapshot.json`（`scripts/make_snapshot.py` 现算） |
 
 ## 3 六个工作包的完成度（照这个继续，不要重做已完成项）
@@ -44,7 +44,7 @@ HoloAeon v0.9.1（`holoaeon/spec.py` 的 `VERSION` 是版本权威源）。
 |---|---|---|---|
 | W1 | `benchmarks/bench_public.py` 三指标 | **完成** | — |
 | W2 | `cookbooks/` ×3 | **完成** | 三本 ≤3000 字，代码逐条实测 |
-| W3 | `holoaeon/semvec.py` 确定性语义 | **完成（效果未达标，已披露）** | 混合 9/12；`患者数据统计→basic_stats` 已修好；短词意图仍有噪声 |
+| W3 | `holoaeon/semvec.py` 确定性语义 | **完成（指标达标，泛化未验证）** | 12 条固定意图 11/12（误路由 8.3%）；语料已与文档解耦；留出集泛化未验证，已披露 |
 | W4 | `scripts/ledger_view.py` 账本静态渲染 | **完成** | 5,860 B；两次渲染 sha 一致 `98940b774566543b` |
 | W5 | 仓库运营件 | **部分** | topics / homepage 需在 GitHub 网页设置（脚本改不了）；镜像说明已成文 |
 | W6 | `docs/spec-diff0.md` 规范 v0.1 | **完成** | D1–D10 十条自检，HoloAeon 自身通过 |
@@ -82,7 +82,14 @@ python scripts\make_snapshot.py              # 刷新 snapshot/
 - Windows PowerShell：复杂脚本一律写成 `.py` 再跑，`python -c "..."` 里的引号会被吃掉；
   `$env:PYTHONUTF8='1'` 先设；
 - 技能函数签名是 `fn(task, **kwargs)`，**收不到 Envelope**；参数从任务串里取（cookbook 01 有实测）；
-- `reports/` 下若有 `_cases/` 子目录，扫描门禁必须剔除，否则正式门禁会被演示用例污染成黄灯。
+- `reports/` 下若有 `_cases/` 子目录，扫描门禁必须剔除，否则正式门禁会被演示用例污染成黄灯；
+- 语义通道的两个隐形塌陷：① PMI 若把「只共现一次」的稀有对丢掉（`if w < 2: continue`），
+  向量只剩 `data/report` 这类通用词撑起，实测多个不相关技能余弦同为 `0.7200`；
+  ② 词表太小（300）会让 `review / sample` 这类专名落榜，查询向量直接塌成零向量。
+  修法：PMI 保留 `w>=1`，词表上限 2000、`MIN_DF=1`，并给基线通道加噪声地板（`BASE_FLOOR`）。
+- 语料一旦掺进可编辑的文档就会漂移：早先把 `README/docs/*.md` 整行也塞进 `corpus_texts`，
+  改 15 行文档后同一批意图的命中率就从 12/12 掉到 9/12（digest 也变）。修法：语料只取
+  `docs_from_skills()` 的 47 条技能自述，索引由代码内容唯一决定，`docs/` 怎么改都不影响基准。
 
 ## 7 你要交的东西
 

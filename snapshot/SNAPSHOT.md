@@ -18,7 +18,7 @@ HoloAeon 是一个**零依赖、默认离线、确定性、带回执**的多智�
 | 领域包 | 9 个（writing / literature / research / data / growth / business / quant / optimization / gaoyi） |
 | 扩展包 | 7 个（sovereignty / subdistill / omnilife / omnicore / metab / nephron / uplift） |
 | 全装后 | 25 智能体 / 191 技能 |
-| 代码量 | holoaeon/ 41 文件 / 11662 行 |
+| 代码量 | holoaeon/ 41 文件 / 11675 行 |
 
 ## 三 · 三个数字（证据入口）
 
@@ -26,16 +26,16 @@ HoloAeon 是一个**零依赖、默认离线、确定性、带回执**的多智�
 |---|---|---|
 | DIFF=0 | `2fc892cf9af6e755`（一致=True，敏感性=True） |
 | 守卫拦截率 | 100%（合法 4/4 放行） |
-| 足迹 | ≈31 ms / 1.69 MiB |
+| 足迹 | 31.66 ms / 1.69 MiB |
 
 ## 四 · 语义通道实测（披露，不设目标值）
 
 | 项 | 值 |
 |---|---|
-| 意图数 / 词表 / 维度 | 12 / 300 / 32 |
-| 基线正确 / 混合正确 | 9 / 9 |
+| 意图数 / 词表 / 维度 | 12 / 334 / 32 |
+| 基线正确 / 混合正确 | 10 / 11 |
 | 两次 fit 逐位一致 | True |
-| fit 耗时 | 261.01 ms |
+| fit 耗时 | 185.49 ms |
 
 ## 五 · 入口命令（照抄可跑）
 
@@ -81,7 +81,7 @@ python scripts/ledger_view.py --sample data/ledger_sample.jsonl
 
 ## 九 · 已知限制（先看这里，别重复踩）
 
-- semvec 语义通道：混合路由 9/12 正确，跨词汇同义改善、短词意图引入噪声
+- semvec 语义通道：语料只取 None 条技能自述（与 docs/ 解耦，改文档不漂移）；12 条固定意图混合路由 11/12 = 91.7% 误路由 1/12（同集调参，含过拟合风险）；留出集 6 条中 2 条期望名不存在，余 4 条命中 2 条 —— 泛化未验证
 - 领域包产骨架不产成稿；账本可视化是静态 HTML，不是托管平台
 - Apache-2.0 不保护功能，只保护标准与证据；双许可决策留给构建者
 
@@ -90,8 +90,8 @@ python scripts/ledger_view.py --sample data/ledger_sample.jsonl
 | 路径 | 类型 | 说明 |
 |---|---|---|
 | `.github/` | dir | 3 项 |
-| `.gitignore` | file | 599 B |
-| `AGENT_FEED_DIFF0_20261031.md` | file | 7048 B |
+| `.gitignore` | file | 788 B |
+| `AGENT_FEED_DIFF0_20261031.md` | file | 8089 B |
 | `AGENT_FEED_VERAX_20261031.md` | file | 9807 B |
 | `ALGORITHM.md` | file | 6980 B |
 | `CHANGELOG.md` | file | 29457 B |
@@ -101,7 +101,7 @@ python scripts/ledger_view.py --sample data/ledger_sample.jsonl
 | `LICENSE` | file | 11541 B |
 | `README.md` | file | 39142 B |
 | `README.zh-CN.md` | file | 16771 B |
-| `README_DIFF0_20261031.md` | file | 5759 B |
+| `README_DIFF0_20261031.md` | file | 6229 B |
 | `README_EMPOWER_20261031.md` | file | 10167 B |
 | `README_MANIFESTO_v0.9.1.md` | file | 11420 B |
 | `README_VERAX_20261031.md` | file | 5565 B |
@@ -115,13 +115,13 @@ python scripts/ledger_view.py --sample data/ledger_sample.jsonl
 | `bridges/` | dir | 6 项 |
 | `cookbooks/` | dir | 3 项 |
 | `data/` | dir | 3 项 |
-| `docs/` | dir | 20 项 |
+| `docs/` | dir | 21 项 |
 | `examples/` | dir | 7 项 |
 | `holoaeon/` | dir | 19 项 |
 | `pyproject.toml` | file | 2179 B |
 | `releases/` | dir | 10 项 |
-| `reports/` | dir | 13 项 |
-| `scripts/` | dir | 16 项 |
+| `reports/` | dir | 14 项 |
+| `scripts/` | dir | 28 项 |
 | `snapshot/` | dir | 2 项 |
 | `tests/` | dir | 3 项 |
 

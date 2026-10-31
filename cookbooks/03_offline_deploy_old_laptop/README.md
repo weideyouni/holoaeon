@@ -75,7 +75,7 @@ python benchmarks\bench_public.py            # 预期 BENCH_EXIT=0
 Select-String -Path pyproject.toml -Pattern "dependencies"
 ```
 
-预期看到 `dependencies = []`。如果这一行变了，说明有人偷偷加了依赖，直接拒绕合入。
+预期看到 `dependencies = []`。如果这一行变了，说明有人偷偷加了依赖，直接拒绝合入。
 
 ## 常见错误
 

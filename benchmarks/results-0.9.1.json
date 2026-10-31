@@ -1,0 +1,86 @@
+{
+  "badge": "DIFF=0 2fc892cf9af6e755 | 拦截 100% | 冷装配 31.66ms / 峰值 1.69MiB",
+  "diff0": {
+    "canonical_equal": true,
+    "canonical_keys": [
+      "runtime_id",
+      "steps"
+    ],
+    "diff0": true,
+    "hash_run1": "2fc892cf9af6e755",
+    "hash_run2": "2fc892cf9af6e755",
+    "workload_steps": 16
+  },
+  "evidence_class": "simulated",
+  "footprint": {
+    "agents": 25,
+    "build_ms": 31.66,
+    "method": "tracemalloc 追踪 Python 分配峰值；build_ms 为进程内装配耗时",
+    "peak_mib": 1.69,
+    "skills": 47
+  },
+  "generated_at": "2026-10-31T11:58:22Z",
+  "guard": {
+    "blocked": 16,
+    "bypassed": [],
+    "dangerous": 16,
+    "interception_rate": 1.0,
+    "legit_pass": 4,
+    "legit_total": 4,
+    "per_category": {
+      "danger": {
+        "blocked": 5,
+        "layers": {
+          "L3": 5
+        },
+        "total": 5
+      },
+      "distort": {
+        "blocked": 3,
+        "layers": {
+          "L2": 1,
+          "L5": 2
+        },
+        "total": 3
+      },
+      "legit": {
+        "blocked": 0,
+        "layers": {},
+        "total": 4
+      },
+      "overflow": {
+        "blocked": 3,
+        "layers": {
+          "L2": 2,
+          "L4": 1
+        },
+        "total": 3
+      },
+      "privilege": {
+        "blocked": 5,
+        "layers": {
+          "L4": 2,
+          "L5": 3
+        },
+        "total": 5
+      }
+    },
+    "set_size": 20
+  },
+  "machine": {
+    "cpu_count": 32,
+    "executable": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\sandbox_runtime\\bases\\772984f6fd3a8ae0ae7d2422cd7c2bfa\\python\\python.exe",
+    "machine": "AMD64",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "python": "3.13.16"
+  },
+  "runtime_id": "HOLOAEON-RUNTIME-0.9.1",
+  "sensitivity": {
+    "field_mutated": "steps[*].value.task（word_count 任务原文）",
+    "hash_base": "2fc892cf9af6e755",
+    "hash_tampered": "f42c8229ee5acd73",
+    "sensitive": true
+  },
+  "version": "0.9.1"
+}

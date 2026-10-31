@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<title>HoloAeon 账本视图 · ledger_sample.jsonl</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#E3EAEC;color:#10262C;font:14px/1.65 'Microsoft YaHei',system-ui,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 20px 56px}
+h1{font:600 26px/1.3 Georgia,'SimSun',serif;margin:0 0 6px}
+.meta{font:12px/1.6 Consolas,monospace;color:#33484F;border-top:1px solid #10262C;border-bottom:1px solid #10262C;padding:8px 0;margin:12px 0 24px;display:flex;gap:24px;flex-wrap:wrap}
+h2{font:600 17px/1.4 Georgia,'SimSun',serif;margin:28px 0 10px;border-left:3px solid #10262C;padding-left:10px}
+table{width:100%;border-collapse:collapse;background:#FFF;margin:8px 0 16px}
+th,td{border:1px solid #10262C;padding:6px 10px;text-align:left;vertical-align:top;font-size:13px}th{background:#F3F6F7}td.n{font-family:Consolas,monospace}
+.tick{background:#FFF;border:1px solid #10262C;margin:0 0 14px}
+.tick-h{display:flex;gap:16px;padding:8px 12px;border-bottom:1px solid #10262C;font:13px/1.5 Consolas,monospace;background:#F3F6F7}
+.ev{display:block;padding:6px 12px;border-left:4px solid #10262C;margin:6px 10px;background:#FBFCFC}
+.ev .code{font-family:Consolas,monospace;font-weight:600}
+.ev .who{color:#33484F;margin-left:10px}
+.diverge{border-left-color:#B0472C;background:#FDF3F0}
+.tag{display:inline-block;font:11px/1.6 Consolas,monospace;padding:0 6px;border:1px solid currentColor;margin-left:8px}
+footer{margin-top:32px;border-top:1px solid #10262C;padding-top:10px;font:12px/1.6 Consolas,monospace;color:#33484F}
+</style></head><body><div class="wrap">
+<h1>HoloAeon 账本视图 · ledger_sample.jsonl</h1>
+<div class="meta"><span>ledger_fp=1f8b394984ace3f4</span><span>ticks=6</span><span>records=6</span><span>events=8</span><span>divergences=1</span></div>
+<div class="meta"><span>渲染口径：确定性静态渲染，无 JS、无外部资源；相册时间戳不进输出，故同账本两次渲染字节一致</span></div>
+<h2>一 · 事件时间线（按 tick 分组，理由码着色）</h2>
+<div class="tick"><div class="tick-h"><span>tick=1</span><span>records=1</span><span>window_used=1</span></div>
+<div class="ev" style="border-left-color:#1F6F5C"><span class="code" style="color:#1F6F5C">ok</span><span class="tag" style="color:#1F6F5C">allow</span><span class="who">｜tick 心跳 active=0 idle=70</span></div>
+</div>
+<div class="tick"><div class="tick-h"><span>tick=2</span><span>records=1</span><span>window_used=1</span></div>
+<div class="ev" style="border-left-color:#1F6F5C"><span class="code" style="color:#1F6F5C">ok</span><span class="tag" style="color:#1F6F5C">allow</span><span class="who">｜tick 心跳 active=0 idle=70</span></div>
+</div>
+<div class="tick"><div class="tick-h"><span>tick=3</span><span>records=1</span><span>window_used=1</span></div>
+<div class="ev" style="border-left-color:#1F6F5C"><span class="code" style="color:#1F6F5C">ok</span><span class="tag" style="color:#1F6F5C">allow</span><span class="who">｜tick 心跳 active=0 idle=70</span></div>
+<div class="ev" style="border-left-color:#8A6A1E"><span class="code" style="color:#8A6A1E">advise</span><span class="tag" style="color:#8A6A1E">advise</span><span class="who">｜L8 trace 未包含 sender（放行但记录）</span></div>
+</div>
+<div class="tick"><div class="tick-h"><span>tick=4</span><span>records=1</span><span>window_used=2</span></div>
+<div class="ev" style="border-left-color:#1F6F5C"><span class="code" style="color:#1F6F5C">ok</span><span class="tag" style="color:#1F6F5C">allow</span><span class="who">｜tick 心跳 active=0 idle=70</span></div>
+</div>
+<div class="tick"><div class="tick-h"><span>tick=5</span><span>records=1</span><span>window_used=2</span></div>
+<div class="ev" style="border-left-color:#1F6F5C"><span class="code" style="color:#1F6F5C">ok</span><span class="tag" style="color:#1F6F5C">allow</span><span class="who">｜tick 心跳 active=0 idle=8</span></div>
+<div class="ev diverge" style="border-left-color:#B0472C"><span class="code" style="color:#B0472C">block</span><span class="tag" style="color:#B0472C">block</span><span class="who">｜L3 命中危险模式：os.system</span></div>
+</div>
+<div class="tick"><div class="tick-h"><span>tick=6</span><span>records=1</span><span>window_used=2</span></div>
+<div class="ev" style="border-left-color:#1F6F5C"><span class="code" style="color:#1F6F5C">ok</span><span class="tag" style="color:#1F6F5C">allow</span><span class="who">｜tick 心跳 active=0 idle=0</span></div>
+</div>
+<h2>二 · 窗口构成（每 tick 的记录数与窗口占用）</h2>
+<table><tr><th>tick</th><th>records</th><th>window_used</th><th>events</th><th>fingerprint</th></tr>
+<tr><td class="n">1</td><td class="n">1</td><td class="n">1</td><td class="n">1</td><td class="n">fp01</td></tr>
+<tr><td class="n">2</td><td class="n">1</td><td class="n">1</td><td class="n">1</td><td class="n">fp02</td></tr>
+<tr><td class="n">3</td><td class="n">1</td><td class="n">1</td><td class="n">2</td><td class="n">fp03</td></tr>
+<tr><td class="n">4</td><td class="n">1</td><td class="n">2</td><td class="n">1</td><td class="n">fp04</td></tr>
+<tr><td class="n">5</td><td class="n">1</td><td class="n">2</td><td class="n">2</td><td class="n">fp05</td></tr>
+<tr><td class="n">6</td><td class="n">1</td><td class="n">2</td><td class="n">1</td><td class="n">fp06</td></tr>
+</table>
+<h2>三 · 分歧记录（warn / error / block / ok=false）</h2>
+<table><tr><th>tick</th><th>seq</th><th>理由码</th><th>级别</th><th>明细</th></tr>
+<tr><td class="n">5</td><td class="n">1</td><td class="n" style="color:#B0472C">block</td><td>block</td><td>L3 命中危险模式：os.system</td></tr>
+</table>
+<footer>ledger_fp=1f8b394984ace3f4 ｜ 零依赖静态渲染 ｜ 仿真 ≠ 证明，碳基终裁</footer>
+</div></body></html>
