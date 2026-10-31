@@ -21,6 +21,7 @@ from .omnicore_pack import OmniCorePack
 from .omnilife_pack import OmniLifePack
 from .subdistill_pack import SubdistillPack
 from .uplift_pack import UpliftPack
+from .persona_quartet_pack import PersonaQuartetPack
 from .writing import WritingPack
 
 # 九大领域包（每次调用返回新实例，避免共享状态）
@@ -55,6 +56,7 @@ def all_packs() -> List[DomainPack]:
 # ------------------------------------------------------------------------------------
 # 横切扩展包（第十包起）：**不进 PACK_ORDER**，故不改变 G15 的 n_agents==25 / n_skills==47
 # 断言；由 G18 / G19 / G20 分别验证，也可显式 get_extra_pack(key) 取用。
+# （第十七：四人全维度数字分身 persona_quartet，2026-10-31 增量旁挂。）
 # ------------------------------------------------------------------------------------
 EXTRA_PACK_REGISTRY: Dict[str, type] = {
     SovereigntyPack.key: SovereigntyPack,
@@ -64,10 +66,11 @@ EXTRA_PACK_REGISTRY: Dict[str, type] = {
     MetabPack.key: MetabPack,
     NephronPack.key: NephronPack,
     UpliftPack.key: UpliftPack,
+    PersonaQuartetPack.key: PersonaQuartetPack,
 }
 
 EXTRA_PACK_ORDER: List[str] = ["sovereignty", "subdistill", "omnilife", "omnicore",
-                                "metab", "nephron", "uplift"]
+                                "metab", "nephron", "uplift", "persona_quartet"]
 
 
 def get_extra_pack(key: str) -> DomainPack:

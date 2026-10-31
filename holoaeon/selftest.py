@@ -1058,7 +1058,7 @@ def g24_uplift() -> Tuple[bool, str]:
     s = pack_summary()
     checks.append("uplift" in EXTRA_PACK_ORDER
                   and get_extra_pack("uplift").key == "uplift"
-                  and len(EXTRA_PACK_ORDER) == 7)
+                  and len(EXTRA_PACK_ORDER) >= 7)
     checks.append(s["skills"] == 24 and s["workflows"] == 7 and s["agents_created"] == 0)
     checks.append(s["addressing_unchanged"] is True
                   and s["locks"]["rows_total"] == 1331 and s["locks"]["nodes_total"] == 108641)
@@ -1236,6 +1236,49 @@ def g24_uplift() -> Tuple[bool, str]:
                          + (f" 失败项序号={bad}" if bad else ""))
 
 
+def g25_persona_quartet() -> Tuple[bool, str]:
+    """四人全维度数字分身包：4技能/4分身+1总控角色/1工作流/注册/蒸馏目录/确定性推演。"""
+    from .kernel import Kernel
+    from .packs import EXTRA_PACK_ORDER, get_extra_pack
+    from .packs.persona_quartet_pack import (
+        CATALOG, DIMS, persona_view, persona_roundtable, persona_compare,
+        persona_mission, selftest_check,
+    )
+    checks: List[bool] = []
+
+    # 注册与包级契约
+    checks.append("persona_quartet" in EXTRA_PACK_ORDER
+                  and get_extra_pack("persona_quartet").key == "persona_quartet")
+    ok_catalog, msg_catalog = selftest_check()
+    checks.append(ok_catalog and msg_catalog == f"catalog={len(CATALOG)} dims={len(DIMS)}")
+
+    k = Kernel()
+    rep = get_extra_pack("persona_quartet").install(k)
+    checks.append(len(rep["skills"]) == 4 and len(rep["agents"]) == 5
+                  and k.skills.has("persona_quartet.persona_view")
+                  and len(rep["workflows"]) == 1)
+
+    # 确定性推演：单分身 / 圆桌 / 对比 / 任务模拟
+    v = persona_view("sutskever")
+    checks.append(v["id"] == "sutskever" and len(v["dimensions"]) == 7
+                  and "终审" in v["dimensions"]["约束边界"][0])
+    rt = persona_roundtable("数字生物学")
+    checks.append(len(rt["rows"]) == 4 and all(r["opinions"] for r in rt["rows"]))
+    cp = persona_compare("核心学术观点")
+    checks.append(len(cp["rows"]) == 4 and all(len(r["items"]) >= 1 for r in cp["rows"]))
+    m1 = persona_mission("分布式算力与自动化科研平台")
+    m2 = persona_mission("蛋白质结构与新药靶点筛选")
+    checks.append(m1["rank"][0]["persona"] == "dean"
+                  and m2["rank"][0]["persona"] == "hassabis")
+    # 蒸馏目录每个维度非空
+    checks.append(all(all(p[d] for d in DIMS) for p in CATALOG))
+
+    bad = [i for i, ok in enumerate(checks) if not ok]
+    return all(checks), (f"{sum(checks)}/{len(checks)} 四人全维度数字分身包"
+                         f"（4技能/5角色/1工作流/4主体×7维度/归因仿真）"
+                         + (f" 失败项序号={bad}" if bad else ""))
+
+
 GROUPS: List[Tuple[str, Callable[[], Tuple[bool, str]]]] = [
     ("G1 spec", g1_spec),
     ("G2 envelope", g2_envelope),
@@ -1261,6 +1304,7 @@ GROUPS: List[Tuple[str, Callable[[], Tuple[bool, str]]]] = [
     ("G22 metab", g22_metab),
     ("G23 nephron", g23_nephron),
     ("G24 uplift", g24_uplift),
+    ("G25 persona_quartet", g25_persona_quartet),
 ]
 
 
