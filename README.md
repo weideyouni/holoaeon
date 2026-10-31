@@ -364,49 +364,122 @@ highlights, upgrade path and verification records.
 
 ---
 
-## Quick Start
+## 🚀 Quick Start (Tailored for Low-Spec Personal Users)
 
-### Requirements
-Python 3.8+ only. No `pip install` is required to use the package directly.
+### What machines can run it?
 
-### Option A — use from a clone
+| Your machine | What it can run |
+|---|---|
+| Any PC with Python 3.8 (basically anything from 2010 on), 512MB free RAM | ✅ All core features: 25 agents, 47 skills, ledger, guard, hot-plug — **no GPU, no network needed** |
+| The above + 4GB RAM + ~4GB disk | ✅ Optionally add a local real model (Ollama + qwen2.5:0.5b) |
+| The above + network + API key | ✅ Optionally add cloud models (Doubao / Qwen / OpenAI-compatible) |
+
+> A word of reassurance: HoloAeon's core is 3,547 lines of pure-standard-library Python.
+> `pip install` pulls in nothing, writes no registry keys, leaves no background process —
+> the program vanishes when it exits. Old machines can tinker safely.
+
+### Three steps to first run (~3 minutes, offline)
+
 ```bash
+# Step 1 — get it (either way)
 git clone https://github.com/weideyouni/holoaeon.git
+# or: GitHub page Code → Download ZIP → unzip
+
+# Step 2 — enter the directory
 cd holoaeon
+
+# Step 3 — run the first example
 python examples/01_basic_matrix.py
 ```
 
-### Option B — installable (still zero dependencies)
+You are in when you see `runtime_id: HOLOAEON-RUNTIME-0.9.1` and the 25-agent roster.
+
+### What did you just run?
+
+A task string is checked by the 8-layer guard → auto-matched to the writing planner agent →
+the `outline_gen` skill produces an outline → results come back with a resource-usage
+receipt. **Fully local, fully deterministic: run it again and the output is byte-identical.**
+
+### What to try next?
+
 ```bash
-pip install -e .
+python examples/02_semantic_routing.py           # semantic routing
+python examples/03_hebbian_collaboration.py      # Hebbian collaboration
+python examples/04_domain_pipeline.py            # domain-pack pipeline
+python scripts/launch_local.py status            # full health report
+python scripts/launch_local.py run "your task"   # submit a task, agent auto-selected
+python scripts/launch_local.py hotplug optimization  # hot-plug a pack, no restart
 ```
 
-### Minimal example
-```python
-from holoaeon import Kernel
-from holoaeon.agent import Agent
+### Want the AI to actually speak? (optional, still free, local)
 
-k = Kernel()
-k.skills.register_fn("echo", lambda task: "echo:" + task,
-                     description="echo the text")
-k.register_agent(Agent("a1", "echoer"))
-
-result = k.submit("please echo hello")
-print(result["results"][0]["output"])   # echo:please echo hello
+```bash
+# Requires: 4GB RAM + ~4GB disk. After installing Ollama (ollama.com):
+ollama pull qwen2.5:0.5b
+python bridges/quickstart.py --check   # auto-detect your local model
+python bridges/quickstart.py --ask "explain yin-yang in one sentence"
+# Receipt: output / backend / mode=live / tokens / latency
 ```
 
-### Install a domain pack
-```python
-from holoaeon import Kernel
-from holoaeon.packs import DataPack
+No Ollama? `--check` prints three install hints and exits politely (exit code 2) —
+never a screenful of errors.
 
-k = Kernel()
-DataPack().install(k)
+### 💬 Want a chat window as the frontend? (WorkBuddy / Doubao Work)
 
-stats = k.submit("basic stats", to="data_analyst",
-                 args={"csv_text": "a,b\n1,10\n2,20\n3,30"})
-print(stats["results"][0]["output"])
+- **WorkBuddy** — drop the skill folder into WorkBuddy's skill directory; drive the whole
+  stack with natural language in a work chat;
+- **Doubao Work** — drag the skill-pack zip into "Plugins · Skills · Partners → Upload
+  skill"; the agent discovers and calls it automatically.
+
 ```
+You say: "check architecture status" / "run a task" / "hot-plug the optimization pack"
+        ↓ front-end agent loads the skill pack (intent → command mapping)
+        ↓ executes deterministic commands (launch_local.py status / run / hotplug)
+        ↓ Kernel.submit → Guard 8-layer check → agent matching → local execution
+        ↓ result + ledger receipt back into the chat window
+```
+
+The frontend is replaceable; the skeleton is not. The only requirement on a frontend:
+it can run one Python command.
+
+### 🛠️ Advanced: build your own skill (7-step worked example)
+
+A skill is a deterministic function with a manifest — three layers: `SKILL.md`
+(declaration) + `tools/` (execution) + `data/` (data). A full worked example
+(`bmi_calc`, ~15 minutes, all code tested) lives in the
+[Chinese README](README.zh-CN.md): define the intent → scaffold the directory → write
+`SKILL.md` → write the execution layer → register & test → determinism acceptance →
+multi-platform deploy.
+
+> Verified receipts: matching ✓, output ✓, re-run identical ✓ — every one of the
+> **47 built-in skills** was born this way.
+
+### 📖 Real-world case: 30,000-character 《燕京医派全派数字分身·全息自述》
+
+| Step | What actually happened | Capability shown |
+|---|---|---|
+| Skill-index matching | 644 local skill-index entries hit 193; precisely found the Yanjing three-meridian matrix pack (review 91.5/A+) | Searchable knowledge assets |
+| Outline generation | `outline_gen` skeleton + material fusion → 13-unit outline | Deterministic skeleton + human creativity |
+| Body writing | 30k characters in four injection rounds, 13 anchors, 0 mismatches | Deterministic editing reliability |
+| Editorial acceptance | writing_editor receipt: 810 sentences / 29,497 characters | Fully accountable and replayable |
+| Honest defects | 2 mis-routings recorded as-is | **Does not pretend — even the landing page models the DNA** |
+
+### 📚 All 47 skills catalog (nine domain packs)
+
+writing (5) · literature (5) · research (5) · data (4) · growth (5) · business (5) ·
+quant (6) · optimization (7) · gaoyi (3) — plus 7 cross-cutting extension packs
+(sovereignty / subdistill / omnilife / omnicore / metab / nephron / uplift) that add
+capability without touching the nine-pack totals. The full per-skill catalog is in the
+[Chinese README](README.zh-CN.md).
+
+### ❓ Troubleshooting
+
+| Symptom | Fix |
+|---|---|
+| `python is not recognized` | Install Python 3.8+ (pick 3.8.10 32-bit on old machines), tick "Add to PATH" |
+| Chinese text garbled | Run `chcp 65001` (UTF-8) in the terminal |
+| Chinese-path errors | Move the project to an ASCII path, e.g. `D:\holoaeon` |
+| Antivirus warning | Zero network, zero system writes, source fully auditable: `python scripts/redline_scan.py` proves it |
 
 ---
 
