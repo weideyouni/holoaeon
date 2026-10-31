@@ -67,6 +67,12 @@ SOURCE = {
     "footprint": "benchmarks/bench_public.py::measure_footprint",
 }
 
+# measure_ts 是物理量、不进 verdict_hash，但它会进文件字节。为了让
+# 「同机重跑 → 证据文件 sha256 不变 → 快照 sha 不变」这条回放判据真的成立，
+# 默认取固定时刻；要看真实运行时刻时用 HOLOAEON_MEASURE_TS 覆盖，
+# 那时文件字节随运行时间变化，属预期，不再是字节可复现件。
+MEASURE_TS = os.environ.get("HOLOAEON_MEASURE_TS", "2026-11-01T00:00:00")
+
 
 def row_hash(row: dict) -> str:
     body = {k: v for k, v in row.items()
@@ -82,7 +88,7 @@ def _row(evidence: str, golden, observed, verdict: str,
         "evidence": evidence,
         "evidence_class": evidence_class,
         "measure_source": SOURCE.get(evidence, "unknown"),
-        "measure_ts": time.strftime("%Y-%m-%dT%H:%M:%S"),
+        "measure_ts": MEASURE_TS,
         "golden_value": golden,
         "observed_value": observed,
         "verdict": verdict,

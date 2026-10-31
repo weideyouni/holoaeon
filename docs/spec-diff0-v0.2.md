@@ -95,7 +95,7 @@ v0.1 只要求"证据带来源与时刻"，v0.2 追加三条：
 | `semvec_digest_v1` | `789b71a36bfcd66a` | `789b71a36bfcd66a`（两次 fit 逐位相同） | pass |
 | `mutation_selftest_v2` | `5/5` | `5/5` | pass |
 | `semvec_kfold_std` | `<=0.05` | `mean=0.9957 std=0.0085 folds=5` | pass |
-| `footprint` | n/a（物理量） | `agents=47 skills=47 peak=1.69MiB` | info |
+| `footprint` | n/a（物理量） | `agents=25 skills=47 peak=1.69MiB` | info |
 
 条文：证据行只许有两种 verdict 取值面——`pass/fail`（有黄金值的断言）与
 `info`（无黄金值、只披露）。新增 `warn` 仅用于"有阈值但允许黄灯"的项

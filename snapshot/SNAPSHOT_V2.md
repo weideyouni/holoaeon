@@ -36,7 +36,7 @@
 |---|---|---|
 | mutate | 5/5 全变（`sensitive=True`） | `scripts/verax_verify.py --mutate 5` |
 | semvec kfold | mean=0.9957 / std=0.0085（folds=5，limit 0.05） | `scripts/bench_semvec_kfold.py` |
-| repro_core | 10 行，全绿=True，sha16=`14873af555385549` | `reports/repro_core.jsonl` |
+| repro_core | 10 行，全绿=True，sha16=`e320111ec8491b05` | `reports/repro_core.jsonl` |
 | fail-loud | ON（3 条硬红线，不可降级） | `holoaeon/audit/verdict_policy.py` |
 
 ## 五 · semvec 语义通道（披露，不设目标值）
