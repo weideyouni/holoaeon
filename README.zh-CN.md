@@ -258,7 +258,10 @@ python scripts/redline_scan.py          # 红线扫描：零违规
 python scripts/measure_a1_a2.py         # A1/A2 宿主侧实测（CI 已挂载）
 ```
 
-当前状态：**34 单测通过｜自检 24/24 组｜红线扫描零违规｜A1 证据哈希 CI 防漂移**。
+当前状态：**34 单测通过｜自检 24/24 组｜红线扫描零违规（41 文件）｜A1 证据哈希 CI 防漂移**；
+CI 已在 GitHub 实跑并通过：[run #25](https://github.com/weideyouni/holoaeon/actions/runs/41202167792)
+在 Python 3.8 / 3.10 / 3.12 三版本全绿（0 error 0 warning），对应格子见
+[`docs/support-matrix.md`](docs/support-matrix.md)。
 
 ## 路线图
 
