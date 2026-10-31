@@ -2,8 +2,8 @@
 HoloAeon VERAX 自证报告（Self-Attestation）
 ========================================================================
 runtime_id : HOLOAEON-RUNTIME-0.9.1
-commit     : b660cb193700
-ts_build   : 2026-10-31T11:58:22Z   （物理量，不进 verdict_hash）
+commit     : 7e973ee5c29c
+ts_build   : 2026-10-31T12:32:27Z   （物理量，不进 verdict_hash）
 verdict    : GREEN
 verdict_hash : ec516f4ed413b5af
 证据分级   : 本报告全部条目默认 simulated；仿真≠证明。
