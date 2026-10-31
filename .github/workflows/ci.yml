@@ -44,7 +44,18 @@ jobs:
           python -c "from holoaeon.selftest import run_all; r=run_all(); print('passed=%s/%s' % (r['passed'], r['groups'])); assert r['ok'] and r['failed']==0"
 
       - name: Red-line scan (network / dependency / dangerous calls)
-        run: python scripts/redline_scan.py
+        # 失败时把扫描明细写进 annotation：未登录也能看到，不用点进日志。
+        run: |
+          set +e
+          log=/tmp/redline.log
+          python scripts/redline_scan.py > "$log" 2>&1
+          rc=$?
+          cat "$log"
+          if [ $rc -ne 0 ]; then
+            detail=$(grep -E "^  \[|Traceback|Error" "$log" | head -n 4 | tr '\n' ' ')
+            echo "::error title=redline rc=$rc py=${{ matrix.python }}::${detail:-no-detail}"
+          fi
+          exit $rc
 
       - name: NEPHRON A1 verdict (off-vs-full byte identity + mutation proof)
         # A1 是断言项：判定必须 PASS，且篡改必须 FAIL，否则本步红。
