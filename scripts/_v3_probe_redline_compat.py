@@ -27,8 +27,16 @@ def main():
     if hasattr(sys, "stdlib_module_names"):
         del sys.stdlib_module_names
     ok_38 = run("simulated py3.8 fallback")
-    print("both_clean=%s" % (ok_now and ok_38))
-    return 0 if (ok_now and ok_38) else 1
+    from holoaeon.redline import _stdlib_names
+
+    names = _stdlib_names()
+    # 扩展模块（Linux 上是 lib-dynload/*.so）最容易漏：CI 的 py3.8 就是被
+    # math / cmath 误判成第三方而 red 的，这两条必须显式断言。
+    missing = [n for n in ("math", "cmath", "shutil", "tempfile") if n not in names]
+    print("fallback_size=%s missing=%s" % (len(names), missing or "none"))
+    ok = ok_now and ok_38 and not missing
+    print("both_clean=%s" % ok)
+    return 0 if ok else 1
 
 
 if __name__ == "__main__":

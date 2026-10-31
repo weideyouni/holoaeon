@@ -44,8 +44,11 @@ def _stdlib_fallback() -> set:
     """3.8/3.9 没有 sys.stdlib_module_names，改用解释器自身的标准库目录判定。
 
     早先这里写死一份「本项目实际用到的标准库」最小清单，3.8 上立刻把
-    shutil / tempfile / textwrap 之外的一切模块误报成 third_party_import，
-    红线在 CI 里假红（进程 exit 1）。判定依据必须来自解释器，而不是人工枚举。
+    shutil / tempfile 等误报成 third_party_import，红线在 CI 里假红（exit 1）。
+
+    注意扩展模块：Linux 上 math / cmath / _csv 是 lib-dynload/*.so，不是 .py，
+    只枚举 .py 会让它们被误判成第三方（实测 py3.8 annotation 就是这么红起来的）。
+    因此同时枚举 .py、.so/.pyd（取首个点号前的名字）与子包目录。
     """
     names = set(sys.builtin_module_names)
     try:
@@ -54,13 +57,25 @@ def _stdlib_fallback() -> set:
         stdlib_dir = sysconfig.get_paths().get("stdlib", "")
     except Exception:
         stdlib_dir = ""
-    if stdlib_dir and os.path.isdir(stdlib_dir):
-        for entry in os.listdir(stdlib_dir):
+
+    def _collect(directory: str) -> None:
+        try:
+            entries = os.listdir(directory)
+        except OSError:
+            return
+        for entry in entries:
+            path = os.path.join(directory, entry)
             if entry.endswith(".py"):
                 names.add(entry[:-3])
+            elif entry.endswith((".so", ".pyd")):
+                names.add(entry.split(".")[0])
             elif (not entry.startswith((".", "_"))
-                  and os.path.isdir(os.path.join(stdlib_dir, entry))):
+                  and os.path.isdir(path)):
                 names.add(entry)
+
+    if stdlib_dir and os.path.isdir(stdlib_dir):
+        _collect(stdlib_dir)
+        _collect(os.path.join(stdlib_dir, "lib-dynload"))
     return names
 
 
