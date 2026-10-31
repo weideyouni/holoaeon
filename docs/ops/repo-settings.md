@@ -1,5 +1,10 @@
 # 仓库运营件（W5）
 
+> 当前状态（2026-10-31）：代码已入库（`main` = `25b6a5c`，182 个受控文件），
+> **只剩本节两个网页开关没打开**——GitHub 的 topics / homepage 没有 API 可写（`github-remote` MCP
+> 只覆盖文件、Issue、PR，不覆盖仓库设置），必须在已登录 `weideyouni` 的浏览器里点两下。
+> 下面步骤按「打开即做」写成，预计 3 分钟。
+
 ## 1 GitHub topics（网页手工一步，脚本改不了）
 
 仓库首页 → 右上 ⚙ Settings → Topics，粘贴下面 7 个（逗号分隔）：
@@ -26,6 +31,23 @@ https://github.com/weideyouni/holoaeon/blob/main/benchmarks/README.md
 - [ ] O1-1 topics 生效：仓库页右侧出现 7 个标签；
 - [ ] O1-2 homepage 生效：仓库页顶部出现 Website 链接，点开是 benchmarks 页面；
 - [ ] O2 Gitee 镜像克隆可跑通三步（见下）。
+
+### 3.1 一次做完的操作路径
+
+1. 浏览器登录 `weideyouni` → 打开 `https://github.com/weideyouni/holoaeon`；
+2. 点右上 ⚙ **Settings**；留在 **General** 页，右侧 **Topics** 输入框逐个粘贴 7 个词（每粘一个按空格或逗号确认）；
+3. 同一页往下 **Website** 填 homepage URL → **Save changes**；
+4. 回到仓库首页刷新：右侧应出现 7 个 topic 胶囊，顶部 About 区应出现 Website 链接。
+
+### 3.2 做完怎么验证（不用登录也能查）
+
+```powershell
+# topics 是否生效（无需登录，读 HTML 里的 topic 链接）
+(Invoke-WebRequest -UseBasicParsing "https://github.com/weideyouni/holoaeon").Content -match "topics/"
+```
+
+页面 HTML 里出现 `topics/multi-agent` 这类链接即生效；homepage 同理，仓库 About 区出现 `benchmarks/README.md` 的外链。
+两项都勾上后把本节三条 `[ ]` 改成 `[x]` 并提交，W5 才算闭环。
 
 ## 4 Gitee 镜像说明（不做自动同步承诺）
 

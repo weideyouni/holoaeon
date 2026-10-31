@@ -337,7 +337,7 @@
     "python scripts/bench_semvec.py",
     "python scripts/ledger_view.py --sample data/ledger_sample.jsonl"
   ],
-  "generated_at": "2026-10-31T11:59:50Z",
+  "generated_at": "2026-10-31T12:31:19Z",
   "how_to_join": [
     "读 snapshot/SNAPSHOT.md 的「不变量」与「入口」，先在本地跑通 3 条命令",
     "改动前用 tests\\ + selftest + redline 三闸确认基线全绿",
