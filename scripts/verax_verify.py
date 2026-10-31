@@ -20,11 +20,14 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 
-from holoaeon.audit import (assemble, canonicalize_report, verify,  # noqa: E402
+from holoaeon.audit import (assemble, build_kernel, canonicalize_report,  # noqa: E402
                             load_golden, list_golden, reprohash, run_task,
-                            scan_receipts, verdict_hash, write_jsonl,
-                            write_markdown)
+                            scan_receipts, verify, verdict_hash,
+                            write_jsonl, write_markdown)
 from holoaeon.audit.attest import CheckResult  # noqa: E402
+from holoaeon.audit.mutation import mutate_selftest  # noqa: E402
+from holoaeon.audit.verdict_policy import (describe as policy_describe,  # noqa: E402
+                                          enforce, evaluate)
 from holoaeon.audit.verify import _diff  # noqa: E402
 from holoaeon.packs import PACK_ORDER, get_pack  # noqa: E402
 from holoaeon.redline import scan_directory  # noqa: E402
@@ -86,7 +89,6 @@ def step_repro(n: int, tamper: bool) -> list:
 
 
 def step_hotplug() -> dict:
-    from holoaeon.audit.verify import build_kernel
 
     kernel = build_kernel(packs=[p for p in PACK_ORDER if p != "optimization"])
     before = len(kernel.skills.names())
@@ -117,10 +119,33 @@ def step_honesty(out_dir: str, case: str) -> dict:
     return report
 
 
+def step_mutation(n: int) -> dict:
+    """V2/W7：随机单点篡改，断言 ReproHash 必变。"""
+    tasks = list_golden()
+    if not tasks:
+        return {"mutations": 0, "changed": 0, "sensitive": False,
+                "base_hash": "", "details": []}
+    golden = load_golden(tasks[0])
+    receipt = run_task(golden["task"], args=golden.get("args"),
+                       to=golden.get("to"))
+    return mutate_selftest(receipt, n=n)
+
+
+def golden_frozen() -> bool:
+    """V2/W10 P3：每条黄金都必须带 expected_reprohash，否则无法证明同逻辑同哈希。"""
+    for task_id in list_golden():
+        golden = load_golden(task_id)
+        if not golden or not golden.get("expected_reprohash"):
+            return False
+    return True
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description="VERAX 门禁")
     parser.add_argument("--out", default=os.path.join(ROOT, "reports"))
     parser.add_argument("--n", type=int, default=2)
+    parser.add_argument("--mutate", type=int, default=5,
+                        help="篡改自检点数（0 表示跳过）")
     parser.add_argument("--case", default="green",
                         choices=["green", "yellow", "red"])
     args = parser.parse_args(argv)
@@ -131,15 +156,15 @@ def main(argv=None) -> int:
     os.makedirs(out_dir, exist_ok=True)
 
     print("=" * 72)
-    print("VERAX 门禁：红线 → 自检 → 复现 → 诚实 → 热插拔")
+    print("VERAX 门禁：红线 → 自检 → 复现 → 篡改 → 诚实 → 热插拔 → 策略")
     print("=" * 72)
 
     redline = step_redline()
-    print("[1/5] 红线扫描：files=%d violations=%d"
+    print("[1/7] 红线扫描：files=%d violations=%d"
           % (redline["files"], redline["violations"]))
 
     selftest = step_selftest()
-    print("[2/5] 自检：%d/%d" % (selftest["passed"], selftest["groups"]))
+    print("[2/7] 自检：%d/%d" % (selftest["passed"], selftest["groups"]))
 
     repro_raw = step_repro(args.n, tamper=(args.case == "red"))
     unknown_fields = []
@@ -147,7 +172,7 @@ def main(argv=None) -> int:
         unknown_fields = repro_raw[-1]["__unknown_fields__"]
         repro_raw = repro_raw[:-1]
     for item in repro_raw:
-        print("[3/5] 复现 %-16s stable=%-5s golden=%-5s hash=%s"
+        print("[3/7] 复现 %-16s stable=%-5s golden=%-5s hash=%s"
               % (item["task_id"], item["repro_hash_stable"],
                  item["golden_match"], item["reprohash_list"][0]))
 
@@ -155,11 +180,16 @@ def main(argv=None) -> int:
     honesty.setdefault("simulated", 0)
     honesty.setdefault("measured", 0)
     honesty.setdefault("third_party", 0)
-    print("[4/5] 诚实契约：h1=%d h2=%d"
+    print("[5/7] 诚实契约：h1=%d h2=%d"
           % (honesty.get("h1", 0), honesty.get("h2", 0)))
 
+    mutation = step_mutation(args.mutate)
+    print("[4/7] 篡改自检：mutations=%d changed=%d sensitive=%s base=%s"
+          % (mutation["mutations"], mutation["changed"],
+             mutation["sensitive"], mutation["base_hash"][:16]))
+
     hotplug = step_hotplug()
-    print("[5/5] 热插拔：%d → %d（新增 %d，未重启）"
+    print("[6/7] 热插拔：%d → %d（新增 %d，未重启）"
           % (hotplug["before"], hotplug["after"], hotplug["added"]))
 
     attestation = assemble(selftest, repro_raw, honesty, redline, RUNTIME_ID,
@@ -177,6 +207,23 @@ def main(argv=None) -> int:
     if attestation.conclusion != "red":
         attestation.conclusion = "yellow" if (
             honesty.get("h1", 0) or honesty.get("h2", 0)) else "green"
+
+    # V2/W10 fail-loud：三条硬红线任一命中必须 red，禁止 advice 降级
+    diff0_drift = any(item.get("golden_match") is False for item in repro_raw)
+    mut_sensitive = True if args.mutate == 0 else bool(mutation["sensitive"])
+    policy = evaluate(diff0_drift=diff0_drift,
+                      mutation_sensitive=mut_sensitive,
+                      golden_frozen=golden_frozen())
+    attestation.conclusion = enforce(attestation.conclusion, policy)
+    attestation.checks.append(CheckResult(
+        gid="V2-policy", name="fail-loud 三条硬红线（diff0/mutation/golden）",
+        status="pass" if policy["conclusion"] == "green" else "fail",
+        evidence={"policy_id": policy["policy_id"], "hits": policy["hits"],
+                  "downgradable": policy["downgradable"]},
+        evidence_class="simulated"))
+    print("[7/7] 策略：%s hits=%s downgradable=%s（%s）"
+          % (policy["conclusion"], policy["hits"], policy["downgradable"],
+             policy_describe()["section"]))
     # 结论与条目都已确定后才算哈希：保证 verdict_hash 与最终结论一致可复算
     attestation.verdict_hash = verdict_hash(attestation)
 

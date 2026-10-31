@@ -44,13 +44,20 @@ def inspect_receipt(obj: Dict[str, Any], source: str = "") -> List[Dict[str, str
 
 
 def scan_receipts(root: str) -> Dict[str, Any]:
-    """扫描目录内 *.jsonl / *.json 回执对象。"""
+    """扫描目录内 *.jsonl / *.json 回执对象。
+
+    V2 分工（规范 v0.2 §5 R-2）：`repro_core.jsonl` 的每一行是 **证据行**，
+    遵循 REPRO_CORE 协议（measure_source 为必填，见 §7），不是回执对象。
+    证据行按 schema 识别（同时含 evidence / verdict_hash / golden_value），
+    只计数、不套用 H1/H2 回执规则 —— 否则"协议要求的字段"会被误判成违规。
+    """
     problems: List[Dict[str, str]] = []
     files = 0
     receipts = 0
+    evidence_rows = 0
     if not os.path.isdir(root):
-        return {"files": 0, "receipts": 0, "h1": 0, "h2": 0,
-                "problems": [], "clean": True}
+        return {"files": 0, "receipts": 0, "evidence_rows": 0,
+                "h1": 0, "h2": 0, "problems": [], "clean": True}
     for dirpath, dirnames, filenames in os.walk(root):
         # 跳过缓存、演示用例目录（_cases 里是刻意构造的红/黄用例，不能污染正式报告）
         dirnames[:] = [d for d in dirnames
@@ -73,14 +80,19 @@ def scan_receipts(root: str) -> Dict[str, Any]:
                         continue
                     if not isinstance(obj, dict):
                         continue
+                    if all(key in obj for key in
+                           ("evidence", "verdict_hash", "golden_value")):
+                        evidence_rows += 1
+                        continue
                     receipts += 1
                     problems.extend(inspect_receipt(
                         obj, "%s:%d" % (os.path.basename(path), lineno)))
 
     h1 = sum(1 for p in problems if p["rule"] == "H1")
     h2 = sum(1 for p in problems if p["rule"] == "H2")
-    return {"files": files, "receipts": receipts, "h1": h1, "h2": h2,
-            "problems": problems, "clean": (h1 == 0 and h2 == 0)}
+    return {"files": files, "receipts": receipts, "evidence_rows": evidence_rows,
+            "h1": h1, "h2": h2, "problems": problems,
+            "clean": (h1 == 0 and h2 == 0)}
 
 
 def compliance(receipts: List[Receipt]) -> Dict[str, Any]:

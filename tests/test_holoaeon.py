@@ -310,8 +310,10 @@ class TestUpliftU16(unittest.TestCase):
     def test_pack_registered_without_dimension_change(self):
         from holoaeon.packs import EXTRA_PACK_ORDER, get_extra_pack
         from holoaeon.packs.uplift_pack import pack_summary
+        # uplift 不许丢，且不得低于原基线 7 个扩展包；
+        # 更多的扩展包（如 persona_quartet）只能旁挂，由各自专属测试守护。
         self.assertIn("uplift", EXTRA_PACK_ORDER)
-        self.assertEqual(len(EXTRA_PACK_ORDER), 7)
+        self.assertGreaterEqual(len(EXTRA_PACK_ORDER), 7)
         self.assertEqual(get_extra_pack("uplift").key, "uplift")
         s = pack_summary()
         self.assertEqual((s["skills"], s["workflows"], s["agents_created"]), (24, 7, 0))

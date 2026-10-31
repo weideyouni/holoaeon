@@ -1,0 +1,131 @@
+{
+  "bench": {
+    "diff0_equal": true,
+    "diff0_hash": "2fc892cf9af6e755",
+    "footprint": "32.58ms / 1.69MiB",
+    "guard_allow": "4/4",
+    "guard_blocked": "16/16",
+    "sensitivity": true,
+    "sensitivity_hash": "f42c8229ee5acd73"
+  },
+  "code": {
+    "files": 44,
+    "lines": 12212
+  },
+  "dimensions": {
+    "agents": 25,
+    "domain_packs": 9,
+    "extra_packs": 8,
+    "primitives": 12,
+    "selftests": 25,
+    "skills": 47,
+    "tests_core": 34,
+    "tests_v3": 5,
+    "tests_verax": 21,
+    "workflows": 9
+  },
+  "entry_commands": [
+    "python scripts\\launch_local.py selftest",
+    "python scripts\\launch_local.py demo",
+    "python scripts\\verax_verify.py --mutate 5",
+    "python scripts\\bench_semvec_kfold.py --folds 5",
+    "python scripts\\repro_core_emit.py --out reports\\repro_core.jsonl",
+    "python scripts\\repro_core_emit.py --check reports\\repro_core.jsonl",
+    "python benchmarks\\bench_public.py",
+    "python scripts\\gitee_publish.py --repo F:\\doubaowork\\holoaeon --branch main"
+  ],
+  "goldens": {
+    "diff0": "2fc892cf9af6e755",
+    "ledger_sha": "98940b774566543b",
+    "semvec_digest_v1": "789b71a36bfcd66a",
+    "verdict_hash_v2": "f2fb0236c8bbd721",
+    "word_count": "2b82a6ef7188ce91"
+  },
+  "invariants": [
+    "维度不变：25 智能体 / 47 技能 / 9 领域包 / ≥7 扩展包（现 8）/ 34 单测 / 25 自检",
+    "零依赖 dependencies=[]；零联网；零密钥；零遥测",
+    "DIFF=0 黄金 2fc892cf9af6e755 不许漂移；V1 golden 全保留",
+    "C1–C12 对外行为不许改；新增能力只能旁挂",
+    "assertGreaterEqual(EXTRA_PACK_ORDER, 7) 不许改回精确等值"
+  ],
+  "known_limits": [
+    "kfold 5 折是问法风格分层，std 读作风格敏感度，不是泛化能力",
+    "235 条语料含规范术语导致 P@1 虚高；跨词汇以 12 意图 11/12 为准",
+    "篡改自检默认抽样 5 点，非穷举",
+    "足迹属物理量：不进哈希，随机器浮动",
+    "两条稳定未命中：拆解任务、设计实验样本量，未调参复赛"
+  ],
+  "no_go": [
+    "不新增第 18 个扩展包去锁上界；每个新扩展包自带专属测试",
+    "不调参把 semvec 11/12 刷成 12/12",
+    "不改三本 cookbook 已发布实测数字",
+    "不用 advice 把 red 降成 yellow",
+    "不为数字漂亮把 golden 改成自适应"
+  ],
+  "project": {
+    "evidence_class": "simulated",
+    "generated_at": "2026-10-31T17:34:08Z",
+    "matrix_id": "HOLOAEON-MATRIX-0.9.1",
+    "name": "HoloAeon",
+    "protocol_id": "HOLOAEON-DATAPROTO v1.0",
+    "version_doc": "0.9.2",
+    "version_runtime": "0.9.1"
+  },
+  "repro_core": {
+    "all_pass": true,
+    "rows": 10,
+    "sha": "14873af555385549",
+    "verdict_hashes": {
+      "diff0_hash": "a9e62d66c664b385",
+      "footprint": "275f0d889f37e2ee",
+      "guard_allow": "7c95f8f4d32b4528",
+      "guard_block": "b4b313caf56181ad",
+      "ledger_sha": "462d7e6f18540d48",
+      "mutation_selftest_v2": "f7f68e44f49b26e7",
+      "mutation_sensitivity_v1": "325d28962c42e2d4",
+      "semvec_digest_v1": "dd63cbe1463cf200",
+      "semvec_kfold_std": "5bed5676e3bccfea",
+      "word_count_golden": "27a1929a3906e700"
+    },
+    "verdicts": {
+      "diff0_hash": "pass",
+      "footprint": "info",
+      "guard_allow": "pass",
+      "guard_block": "pass",
+      "ledger_sha": "pass",
+      "mutation_selftest_v2": "pass",
+      "mutation_sensitivity_v1": "pass",
+      "semvec_digest_v1": "pass",
+      "semvec_kfold_std": "pass",
+      "word_count_golden": "pass"
+    }
+  },
+  "semvec": {
+    "baseline": 0.8333,
+    "bitwise_equal": true,
+    "corpus_digest_v1": "789b71a36bfcd66a",
+    "dim": 32,
+    "hybrid": 0.9167,
+    "intents": 12,
+    "semantic": 0.8333,
+    "vocab": 334
+  },
+  "semvec_kfold": {
+    "anchor_v1_intents": {
+      "hybrid_correct": 11,
+      "hybrid_rate": 0.9167,
+      "intents": 12
+    },
+    "folds": 5,
+    "mean_p1": 0.9957,
+    "std_limit": 0.05,
+    "std_p1": 0.0085
+  },
+  "v2_deltas": {
+    "W10": "fail-loud verdict_policy.py + spec-diff0-v0.2 §8",
+    "W11": "本快照（SNAPSHOT_V2.md + project_snapshot_v2.json）",
+    "W7": "自动篡改自检 mutation.py + --mutate 5（单测 +5）",
+    "W8": "semvec 分层留出 bench_semvec_kfold.py + corpus v2（235）",
+    "W9": "REPRO_CORE repro_core_emit.py + spec-diff0-v0.2 §7"
+  }
+}

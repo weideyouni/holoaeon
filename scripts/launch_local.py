@@ -28,6 +28,7 @@ import sys
 
 # 允许从 scripts/ 直接运行：把项目根加入模块搜索路径
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 from holoaeon import (
     AdaptiveGraph,
@@ -35,7 +36,7 @@ from holoaeon import (
     ModelAdapter,
 )
 from holoaeon.model_adapter import ModelBackend
-from holoaeon.spec import AdaptiveGraphConfig
+from holoaeon.spec import DOC_VERSION, VERSION, AdaptiveGraphConfig
 from holoaeon.packs import PACK_ORDER, get_pack
 
 
@@ -141,6 +142,34 @@ def cmd_hotplug(args) -> int:
     return 0
 
 
+def cmd_v2(_args) -> int:
+    """V2 一键本地跑通：篡改自检 → kfold → REPRO_CORE → 策略 → 快照。"""
+    import subprocess
+    k = bootstrap()
+    print("=" * 64)
+    print("HoloAeon V2 本地装载自检（运行态 %s / 文档 %s）" % (VERSION, DOC_VERSION))
+    print("=" * 64)
+    steps = [
+        ("W7 篡改自检", [sys.executable, os.path.join(ROOT, "scripts", "verax_verify.py"), "--mutate", "5"]),
+        ("W8 分层留出", [sys.executable, os.path.join(ROOT, "scripts", "bench_semvec_kfold.py"), "--folds", "5"]),
+        ("W9 证据链", [sys.executable, os.path.join(ROOT, "scripts", "repro_core_emit.py"), "--out", os.path.join(ROOT, "reports", "repro_core.jsonl")]),
+        ("W11 快照", [sys.executable, os.path.join(ROOT, "scripts", "snapshot_v2.py")]),
+    ]
+    failed = []
+    for name, cmd in steps:
+        proc = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
+        tail = [ln for ln in proc.stdout.splitlines() if ln.strip()][-3:]
+        print("\n[%s] rc=%d" % (name, proc.returncode))
+        for ln in tail:
+            print("    " + ln)
+        if proc.returncode != 0:
+            failed.append(name)
+    print("\n" + "=" * 64)
+    print("V2 本地装载：%s" % ("全部通过" if not failed else "失败 %s" % failed))
+    print("=" * 64)
+    return 0 if not failed else 1
+
+
 def cmd_selftest(_args) -> int:
     from holoaeon.selftest import run_all
     r = run_all(verbose=True)
@@ -158,6 +187,7 @@ def main(argv=None) -> int:
     p_hot = sub.add_parser("hotplug"); p_hot.add_argument("pack")
     p_hot.set_defaults(func=cmd_hotplug)
     sub.add_parser("selftest").set_defaults(func=cmd_selftest)
+    sub.add_parser("v2").set_defaults(func=cmd_v2)
     args = parser.parse_args(argv)
     return args.func(args)
 

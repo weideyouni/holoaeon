@@ -22,10 +22,12 @@
 {"evidence": {"detail": "52/52 代谢层包（26技能/0agent/8工作流/6染色体/8冲突）"}, "evidence_class": "simulated", "gid": "G22", "name": "G22 metab", "status": "pass"}
 {"evidence": {"detail": "62/62 肾单位 P0 包（24技能/0agent/7工作流/41字段/27码/10审视）"}, "evidence_class": "simulated", "gid": "G23", "name": "G23 nephron", "status": "pass"}
 {"evidence": {"detail": "46/46 补齐短板升级包（24技能/0agent/7工作流/6单元/10审视/5缺陷/10裁决/22验收）"}, "evidence_class": "simulated", "gid": "G24", "name": "G24 uplift", "status": "pass"}
+{"evidence": {"detail": "8/8 四人全维度数字分身包（4技能/5角色/1工作流/4主体×7维度/归因仿真）"}, "evidence_class": "simulated", "gid": "G25", "name": "G25 persona_quartet", "status": "pass"}
 {"evidence": {"golden_match": true, "reprohash": "3352db0f803eb727", "runs": 2, "stable": true}, "evidence_class": "simulated", "gid": "BM-data_describe", "name": "复现基准 data_describe", "status": "pass"}
 {"evidence": {"golden_match": true, "reprohash": "98b9b7b340f7f980", "runs": 2, "stable": true}, "evidence_class": "simulated", "gid": "BM-guard_eval", "name": "复现基准 guard_eval", "status": "pass"}
 {"evidence": {"golden_match": true, "reprohash": "a7deb622e17a2b55", "runs": 2, "stable": true}, "evidence_class": "simulated", "gid": "BM-guard_os_system", "name": "复现基准 guard_os_system", "status": "pass"}
 {"evidence": {"golden_match": true, "reprohash": "2c9e5d7d01526ce8", "runs": 2, "stable": true}, "evidence_class": "simulated", "gid": "BM-quant_sharpe", "name": "复现基准 quant_sharpe", "status": "pass"}
 {"evidence": {"golden_match": false, "reprohash": "2b82a6ef7188ce91", "runs": 2, "stable": true}, "evidence_class": "simulated", "gid": "BM-word_count", "name": "复现基准 word_count", "status": "fail"}
 {"evidence": {"added": 7, "after": 47, "before": 40}, "evidence_class": "simulated", "gid": "BM-hotplug", "name": "热插拔 optimization 不重启", "status": "pass"}
-{"evidence": {"verdict_hash": "5bfa825fb948819e"}, "evidence_class": "simulated", "gid": "VERDICT", "name": "self-attestation verdict", "status": "red"}
+{"evidence": {"downgradable": false, "hits": ["diff0_drift"], "policy_id": "HOLOAEON-VERDICT-POLICY-v0.2"}, "evidence_class": "simulated", "gid": "V2-policy", "name": "fail-loud 三条硬红线（diff0/mutation/golden）", "status": "fail"}
+{"evidence": {"verdict_hash": "91ab9f7254a240e8"}, "evidence_class": "simulated", "gid": "VERDICT", "name": "self-attestation verdict", "status": "red"}

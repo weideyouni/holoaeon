@@ -2,14 +2,14 @@
 HoloAeon VERAX 自证报告（Self-Attestation）
 ========================================================================
 runtime_id : HOLOAEON-RUNTIME-0.9.1
-commit     : b660cb193700
-ts_build   : 2026-10-31T10:55:06Z   （物理量，不进 verdict_hash）
+commit     : baf36888e92c
+ts_build   : 2026-10-31T17:33:35Z   （物理量，不进 verdict_hash）
 verdict    : RED
-verdict_hash : 5bfa825fb948819e
+verdict_hash : 91ab9f7254a240e8
 证据分级   : 本报告全部条目默认 simulated；仿真≠证明。
 
 ------------------------------------------------------------------------
-一、自检与基准逐项（G1–G24 + BM）
+一、自检与基准逐项（G1–G25 + BM）
 ------------------------------------------------------------------------
 GID        NAME                               STATUS EVIDENCE
 G1         G1 spec                            pass   config=True, design_grid=1771561
@@ -36,12 +36,14 @@ G21        G21 omnicore                       pass   25/25 全息纪元包（20�
 G22        G22 metab                          pass   52/52 代谢层包（26技能/0agent/8工作流/6染色体/8冲突）
 G23        G23 nephron                        pass   62/62 肾单位 P0 包（24技能/0agent/7工作流/41字段/27码/10审视）
 G24        G24 uplift                         pass   46/46 补齐短板升级包（24技能/0agent/7工作流/6单元/10审视/5缺陷/10裁决/22验收）
+G25        G25 persona_quartet                pass   8/8 四人全维度数字分身包（4技能/5角色/1工作流/4主体×7维度/归因仿真）
 BM-data_describe 复现基准 data_describe                 pass   hash=3352db0f803eb727 golden=True
 BM-guard_eval 复现基准 guard_eval                    pass   hash=98b9b7b340f7f980 golden=True
 BM-guard_os_system 复现基准 guard_os_system               pass   hash=a7deb622e17a2b55 golden=True
 BM-quant_sharpe 复现基准 quant_sharpe                  pass   hash=2c9e5d7d01526ce8 golden=True
 BM-word_count 复现基准 word_count                    fail   hash=2b82a6ef7188ce91 golden=False
 BM-hotplug 热插拔 optimization 不重启               pass   hash=None golden=None
+V2-policy  fail-loud 三条硬红线（diff0/mutation/g   fail   hash=None golden=None
 
 ------------------------------------------------------------------------
 二、复现判定（ReproVerdict）
@@ -69,7 +71,7 @@ H1（measured 无来源）/ H2（缺 evidence_class）命中计数：0
 ------------------------------------------------------------------------
 四、红线（redline）
 ------------------------------------------------------------------------
-扫描文件数=40 violations=0
+扫描文件数=44 violations=0
 未登记字段（按物理量处理，已告警）：$.results[0].input.csv_text, $.results[0].input.returns_s
 
 五、门禁退出码：0=绿 / 1=红 / 2=黄（scripts/verax_verify.py）

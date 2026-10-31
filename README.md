@@ -9,6 +9,7 @@
 [![Dependencies](https://img.shields.io/badge/dependencies-0-success.svg)](pyproject.toml)
 [![Tests](https://img.shields.io/badge/tests-34%20passed-success.svg)](#-testing)
 [![SelfTest](https://img.shields.io/badge/selftest-25%2F25-success.svg)](#-testing)
+[![V2](https://img.shields.io/badge/V2-mutate%205%2F5%20%C2%B7%20fail--loud%20ON-blue.svg)](#v2--evidence-hardening-092-docs)
 
 <sub>Badges are **locally measured** (Python 3.13.16, Windows). CI has now actually run on GitHub:
 Python 3.8 / 3.10 / 3.12 all green in [run #25](https://github.com/weideyouni/holoaeon/actions/runs/41202167792)
@@ -38,6 +39,44 @@ self-organizing search** layer (see [ALGORITHM.md](ALGORITHM.md)).
 > synchronization, boundary control, routing, structural support, and self-organization in a
 > multi-agent system — not biological organs or medical structures. A precise
 > [metaphor → engineering-concept map](#-metaphor--engineering-concept-map) is included below.
+
+---
+
+## V2 · Evidence Hardening (0.9.2, docs)
+
+> **Dimensions unchanged.** 25 agents / 47 skills / 9 domain packs + ≥7 extension packs /
+> 34 tests / 25 self-checks — V2 only *adds sidecar evidence machinery*, it never touches the
+> twelve primitives' behaviour or the V1 goldens.
+
+The V1 numbers above (`DIFF=0 2fc892cf9af6e755`, interception 100%, footprint) stay exactly as they
+were. V2 adds four things, all measured on this machine on 2026-11-01:
+
+| V2 badge | Value | How it is measured |
+|---|---|---|
+| **mutate** | `5/5` — every sampled mutation changes the hash | `python scripts\verax_verify.py --mutate 5` |
+| **semvec k-fold** | `mean 0.9957 / std 0.0085` over 5 style folds (limit 0.05) | `python scripts\bench_semvec_kfold.py --folds 5` |
+| **repro_core** | `10` rows, every row hash-recomputable | `python scripts\repro_core_emit.py --check reports\repro_core.jsonl` |
+| **fail-loud** | `ON` — 3 hard rules, red cannot be downgraded | `holoaeon/audit/verdict_policy.py` |
+
+What each one buys, in one line:
+
+- **mutate** — a self-check that *generates counter-examples* instead of comparing to a golden
+  twice. If the hash were insensitive to content, `DIFF=0` would only prove "stably wrong".
+- **k-fold** — the 12-intent set was chosen on the same set it is scored on. V2 scores a
+  235-query corpus split into five *style* folds and reports mean/std, so a reviewer sees a range
+  instead of a point. Cross-vocabulary ability is still anchored by the V1 12-intent set
+  (`11/12`), deliberately **not** tuned to 12/12.
+- **repro_core** — the three headline numbers used to live in three scripts and get hand-copied
+  into this README. They are now one JSONL where each row carries
+  `evidence_class / measure_source / measure_ts / golden_value / observed_value / verdict /
+  verdict_hash`, and the verdict hash recomputes deterministically.
+- **fail-loud** — DIFF drift, hash insensitivity, and an unfrozen golden are each *red by
+  contract*, exit code `1`, no advisory downgrade. Determinism is an alignment claim; when it
+  fails it must fail loudly.
+
+Read the clauses: [`docs/spec-diff0-v0.2.md`](docs/spec-diff0-v0.2.md) (§7 evidence protocol,
+§8 fail-loud, §9 known limits). Machine-readable snapshot for other agents:
+[`snapshot/SNAPSHOT_V2.md`](snapshot/SNAPSHOT_V2.md).
 
 ---
 

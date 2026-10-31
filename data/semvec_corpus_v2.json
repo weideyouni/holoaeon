@@ -1,0 +1,1663 @@
+{
+  "corpus_sha": "db56e107aa1f0fa6",
+  "count": 235,
+  "evidence_class": "simulated",
+  "generated_by": "scripts/build_semvec_corpus_v2.py",
+  "items": [
+    {
+      "evidence_class": "simulated",
+      "expect": "backtest",
+      "id": "backtest@t0_raw",
+      "query": "用历史行情把策略回测一遍",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "backtest",
+      "id": "backtest@t1_casual",
+      "query": "帮我用历史行情把策略回测一遍",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "backtest",
+      "id": "backtest@t2_polite",
+      "query": "能不能用历史行情把策略回测一遍？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "backtest",
+      "id": "backtest@t3_formal",
+      "query": "请对以下内容执行：用历史行情把策略回测一遍",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "backtest",
+      "id": "backtest@t4_appended",
+      "query": "用历史行情把策略回测一遍，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "basic_stats",
+      "id": "basic_stats@t0_raw",
+      "query": "给这列数据算均值和标准差",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "basic_stats",
+      "id": "basic_stats@t1_casual",
+      "query": "帮我给这列数据算均值和标准差",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "basic_stats",
+      "id": "basic_stats@t2_polite",
+      "query": "能不能给这列数据算均值和标准差？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "basic_stats",
+      "id": "basic_stats@t3_formal",
+      "query": "请对以下内容执行：给这列数据算均值和标准差",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "basic_stats",
+      "id": "basic_stats@t4_appended",
+      "query": "给这列数据算均值和标准差，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "business_model_canvas",
+      "id": "business_model_canvas@t0_raw",
+      "query": "画一张商业模式画布",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "business_model_canvas",
+      "id": "business_model_canvas@t1_casual",
+      "query": "帮我画一张商业模式画布",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "business_model_canvas",
+      "id": "business_model_canvas@t2_polite",
+      "query": "能不能画一张商业模式画布？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "business_model_canvas",
+      "id": "business_model_canvas@t3_formal",
+      "query": "请对以下内容执行：画一张商业模式画布",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "business_model_canvas",
+      "id": "business_model_canvas@t4_appended",
+      "query": "画一张商业模式画布，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "conjugate_gradient",
+      "id": "conjugate_gradient@t0_raw",
+      "query": "用共轭梯度法解线性方程组",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "conjugate_gradient",
+      "id": "conjugate_gradient@t1_casual",
+      "query": "帮我用共轭梯度法解线性方程组",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "conjugate_gradient",
+      "id": "conjugate_gradient@t2_polite",
+      "query": "能不能用共轭梯度法解线性方程组？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "conjugate_gradient",
+      "id": "conjugate_gradient@t3_formal",
+      "query": "请对以下内容执行：用共轭梯度法解线性方程组",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "conjugate_gradient",
+      "id": "conjugate_gradient@t4_appended",
+      "query": "用共轭梯度法解线性方程组，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "csv_profile",
+      "id": "csv_profile@t0_raw",
+      "query": "看一下这个 CSV 的列类型和分布",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "csv_profile",
+      "id": "csv_profile@t1_casual",
+      "query": "帮我看一下这个 CSV 的列类型和分布",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "csv_profile",
+      "id": "csv_profile@t2_polite",
+      "query": "能不能看一下这个 CSV 的列类型和分布？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "csv_profile",
+      "id": "csv_profile@t3_formal",
+      "query": "请对以下内容执行：看一下这个 CSV 的列类型和分布",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "csv_profile",
+      "id": "csv_profile@t4_appended",
+      "query": "看一下这个 CSV 的列类型和分布，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "dedup_papers",
+      "id": "dedup_papers@t0_raw",
+      "query": "把论文列表去重",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "dedup_papers",
+      "id": "dedup_papers@t1_casual",
+      "query": "帮我把论文列表去重",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "dedup_papers",
+      "id": "dedup_papers@t2_polite",
+      "query": "能不能把论文列表去重？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "dedup_papers",
+      "id": "dedup_papers@t3_formal",
+      "query": "请对以下内容执行：把论文列表去重",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "dedup_papers",
+      "id": "dedup_papers@t4_appended",
+      "query": "把论文列表去重，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "design_experiment",
+      "id": "design_experiment@t0_raw",
+      "query": "给实验设计一个方案模板",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "design_experiment",
+      "id": "design_experiment@t1_casual",
+      "query": "帮我给实验设计一个方案模板",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "design_experiment",
+      "id": "design_experiment@t2_polite",
+      "query": "能不能给实验设计一个方案模板？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "design_experiment",
+      "id": "design_experiment@t3_formal",
+      "query": "请对以下内容执行：给实验设计一个方案模板",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "design_experiment",
+      "id": "design_experiment@t4_appended",
+      "query": "给实验设计一个方案模板，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "drawdown",
+      "id": "drawdown@t0_raw",
+      "query": "最大回撤是多少",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "drawdown",
+      "id": "drawdown@t1_casual",
+      "query": "帮我最大回撤是多少",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "drawdown",
+      "id": "drawdown@t2_polite",
+      "query": "能不能最大回撤是多少？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "drawdown",
+      "id": "drawdown@t3_formal",
+      "query": "请对以下内容执行：最大回撤是多少",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "drawdown",
+      "id": "drawdown@t4_appended",
+      "query": "最大回撤是多少，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "energy_mapping",
+      "id": "energy_mapping@t0_raw",
+      "query": "做一张精力映射表",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "energy_mapping",
+      "id": "energy_mapping@t1_casual",
+      "query": "帮我做一张精力映射表",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "energy_mapping",
+      "id": "energy_mapping@t2_polite",
+      "query": "能不能做一张精力映射表？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "energy_mapping",
+      "id": "energy_mapping@t3_formal",
+      "query": "请对以下内容执行：做一张精力映射表",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "energy_mapping",
+      "id": "energy_mapping@t4_appended",
+      "query": "做一张精力映射表，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "extract_abstract",
+      "id": "extract_abstract@t0_raw",
+      "query": "从这篇论文里抽取式摘要",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "extract_abstract",
+      "id": "extract_abstract@t1_casual",
+      "query": "帮我从这篇论文里抽取式摘要",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "extract_abstract",
+      "id": "extract_abstract@t2_polite",
+      "query": "能不能从这篇论文里抽取式摘要？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "extract_abstract",
+      "id": "extract_abstract@t3_formal",
+      "query": "请对以下内容执行：从这篇论文里抽取式摘要",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "extract_abstract",
+      "id": "extract_abstract@t4_appended",
+      "query": "从这篇论文里抽取式摘要，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "gaoyi_compile",
+      "id": "gaoyi_compile@t0_raw",
+      "query": "把这段话编译成高译汇编",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "gaoyi_compile",
+      "id": "gaoyi_compile@t1_casual",
+      "query": "帮我把这段话编译成高译汇编",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "gaoyi_compile",
+      "id": "gaoyi_compile@t2_polite",
+      "query": "能不能把这段话编译成高译汇编？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "gaoyi_compile",
+      "id": "gaoyi_compile@t3_formal",
+      "query": "请对以下内容执行：把这段话编译成高译汇编",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "gaoyi_compile",
+      "id": "gaoyi_compile@t4_appended",
+      "query": "把这段话编译成高译汇编，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "gaoyi_exec",
+      "id": "gaoyi_exec@t0_raw",
+      "query": "执行这段高译汇编",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "gaoyi_exec",
+      "id": "gaoyi_exec@t1_casual",
+      "query": "帮我执行这段高译汇编",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "gaoyi_exec",
+      "id": "gaoyi_exec@t2_polite",
+      "query": "能不能执行这段高译汇编？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "gaoyi_exec",
+      "id": "gaoyi_exec@t3_formal",
+      "query": "请对以下内容执行：执行这段高译汇编",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "gaoyi_exec",
+      "id": "gaoyi_exec@t4_appended",
+      "query": "执行这段高译汇编，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "gaoyi_run",
+      "id": "gaoyi_run@t0_raw",
+      "query": "自然语言直接编译并运行高译",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "gaoyi_run",
+      "id": "gaoyi_run@t1_casual",
+      "query": "帮我自然语言直接编译并运行高译",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "gaoyi_run",
+      "id": "gaoyi_run@t2_polite",
+      "query": "能不能自然语言直接编译并运行高译？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "gaoyi_run",
+      "id": "gaoyi_run@t3_formal",
+      "query": "请对以下内容执行：自然语言直接编译并运行高译",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "gaoyi_run",
+      "id": "gaoyi_run@t4_appended",
+      "query": "自然语言直接编译并运行高译，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "genetic_algorithm",
+      "id": "genetic_algorithm@t0_raw",
+      "query": "用遗传算法做群体进化",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "genetic_algorithm",
+      "id": "genetic_algorithm@t1_casual",
+      "query": "帮我用遗传算法做群体进化",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "genetic_algorithm",
+      "id": "genetic_algorithm@t2_polite",
+      "query": "能不能用遗传算法做群体进化？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "genetic_algorithm",
+      "id": "genetic_algorithm@t3_formal",
+      "query": "请对以下内容执行：用遗传算法做群体进化",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "genetic_algorithm",
+      "id": "genetic_algorithm@t4_appended",
+      "query": "用遗传算法做群体进化，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "goal_smart",
+      "id": "goal_smart@t0_raw",
+      "query": "检查这个目标是否符合 SMART",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "goal_smart",
+      "id": "goal_smart@t1_casual",
+      "query": "帮我检查这个目标是否符合 SMART",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "goal_smart",
+      "id": "goal_smart@t2_polite",
+      "query": "能不能检查这个目标是否符合 SMART？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "goal_smart",
+      "id": "goal_smart@t3_formal",
+      "query": "请对以下内容执行：检查这个目标是否符合 SMART",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "goal_smart",
+      "id": "goal_smart@t4_appended",
+      "query": "检查这个目标是否符合 SMART，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "golden_section",
+      "id": "golden_section@t0_raw",
+      "query": "用黄金分割法做一维搜索",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "golden_section",
+      "id": "golden_section@t1_casual",
+      "query": "帮我用黄金分割法做一维搜索",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "golden_section",
+      "id": "golden_section@t2_polite",
+      "query": "能不能用黄金分割法做一维搜索？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "golden_section",
+      "id": "golden_section@t3_formal",
+      "query": "请对以下内容执行：用黄金分割法做一维搜索",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "golden_section",
+      "id": "golden_section@t4_appended",
+      "query": "用黄金分割法做一维搜索，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "gradient_descent",
+      "id": "gradient_descent@t0_raw",
+      "query": "用梯度下降求解",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "gradient_descent",
+      "id": "gradient_descent@t1_casual",
+      "query": "帮我用梯度下降求解",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "gradient_descent",
+      "id": "gradient_descent@t2_polite",
+      "query": "能不能用梯度下降求解？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "gradient_descent",
+      "id": "gradient_descent@t3_formal",
+      "query": "请对以下内容执行：用梯度下降求解",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "gradient_descent",
+      "id": "gradient_descent@t4_appended",
+      "query": "用梯度下降求解，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "habit_plan",
+      "id": "habit_plan@t0_raw",
+      "query": "制定习惯养成计划",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "habit_plan",
+      "id": "habit_plan@t1_casual",
+      "query": "帮我制定习惯养成计划",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "habit_plan",
+      "id": "habit_plan@t2_polite",
+      "query": "能不能制定习惯养成计划？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "habit_plan",
+      "id": "habit_plan@t3_formal",
+      "query": "请对以下内容执行：制定习惯养成计划",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "habit_plan",
+      "id": "habit_plan@t4_appended",
+      "query": "制定习惯养成计划，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "hypothesis_check",
+      "id": "hypothesis_check@t0_raw",
+      "query": "检验这个假设能不能被检验",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "hypothesis_check",
+      "id": "hypothesis_check@t1_casual",
+      "query": "帮我检验这个假设能不能被检验",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "hypothesis_check",
+      "id": "hypothesis_check@t2_polite",
+      "query": "能不能检验这个假设能不能被检验？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "hypothesis_check",
+      "id": "hypothesis_check@t3_formal",
+      "query": "请对以下内容执行：检验这个假设能不能被检验",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "hypothesis_check",
+      "id": "hypothesis_check@t4_appended",
+      "query": "检验这个假设能不能被检验，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "keyword_extract",
+      "id": "keyword_extract@t0_raw",
+      "query": "提取关键词",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "keyword_extract",
+      "id": "keyword_extract@t1_casual",
+      "query": "帮我提取关键词",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "keyword_extract",
+      "id": "keyword_extract@t2_polite",
+      "query": "能不能提取关键词？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "keyword_extract",
+      "id": "keyword_extract@t3_formal",
+      "query": "请对以下内容执行：提取关键词",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "keyword_extract",
+      "id": "keyword_extract@t4_appended",
+      "query": "提取关键词，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "kpi_dashboard",
+      "id": "kpi_dashboard@t0_raw",
+      "query": "做一个 KPI 看板",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "kpi_dashboard",
+      "id": "kpi_dashboard@t1_casual",
+      "query": "帮我做一个 KPI 看板",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "kpi_dashboard",
+      "id": "kpi_dashboard@t2_polite",
+      "query": "能不能做一个 KPI 看板？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "kpi_dashboard",
+      "id": "kpi_dashboard@t3_formal",
+      "query": "请对以下内容执行：做一个 KPI 看板",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "kpi_dashboard",
+      "id": "kpi_dashboard@t4_appended",
+      "query": "做一个 KPI 看板，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "meeting_agenda",
+      "id": "meeting_agenda@t0_raw",
+      "query": "排一份会议议程",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "meeting_agenda",
+      "id": "meeting_agenda@t1_casual",
+      "query": "帮我排一份会议议程",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "meeting_agenda",
+      "id": "meeting_agenda@t2_polite",
+      "query": "能不能排一份会议议程？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "meeting_agenda",
+      "id": "meeting_agenda@t3_formal",
+      "query": "请对以下内容执行：排一份会议议程",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "meeting_agenda",
+      "id": "meeting_agenda@t4_appended",
+      "query": "排一份会议议程，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "missing_report",
+      "id": "missing_report@t0_raw",
+      "query": "出一份缺失值报告",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "missing_report",
+      "id": "missing_report@t1_casual",
+      "query": "帮我出一份缺失值报告",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "missing_report",
+      "id": "missing_report@t2_polite",
+      "query": "能不能出一份缺失值报告？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "missing_report",
+      "id": "missing_report@t3_formal",
+      "query": "请对以下内容执行：出一份缺失值报告",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "missing_report",
+      "id": "missing_report@t4_appended",
+      "query": "出一份缺失值报告，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "moving_average",
+      "id": "moving_average@t0_raw",
+      "query": "算移动平均",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "moving_average",
+      "id": "moving_average@t1_casual",
+      "query": "帮我算移动平均",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "moving_average",
+      "id": "moving_average@t2_polite",
+      "query": "能不能算移动平均？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "moving_average",
+      "id": "moving_average@t3_formal",
+      "query": "请对以下内容执行：算移动平均",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "moving_average",
+      "id": "moving_average@t4_appended",
+      "query": "算移动平均，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "newton_method",
+      "id": "newton_method@t0_raw",
+      "query": "用牛顿法做二阶加速",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "newton_method",
+      "id": "newton_method@t1_casual",
+      "query": "帮我用牛顿法做二阶加速",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "newton_method",
+      "id": "newton_method@t2_polite",
+      "query": "能不能用牛顿法做二阶加速？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "newton_method",
+      "id": "newton_method@t3_formal",
+      "query": "请对以下内容执行：用牛顿法做二阶加速",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "newton_method",
+      "id": "newton_method@t4_appended",
+      "query": "用牛顿法做二阶加速，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "normalize_citation",
+      "id": "normalize_citation@t0_raw",
+      "query": "把引用格式规范化",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "normalize_citation",
+      "id": "normalize_citation@t1_casual",
+      "query": "帮我把引用格式规范化",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "normalize_citation",
+      "id": "normalize_citation@t2_polite",
+      "query": "能不能把引用格式规范化？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "normalize_citation",
+      "id": "normalize_citation@t3_formal",
+      "query": "请对以下内容执行：把引用格式规范化",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "normalize_citation",
+      "id": "normalize_citation@t4_appended",
+      "query": "把引用格式规范化，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "normalize_column",
+      "id": "normalize_column@t0_raw",
+      "query": "把这列数据归一化",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "normalize_column",
+      "id": "normalize_column@t1_casual",
+      "query": "帮我把这列数据归一化",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "normalize_column",
+      "id": "normalize_column@t2_polite",
+      "query": "能不能把这列数据归一化？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "normalize_column",
+      "id": "normalize_column@t3_formal",
+      "query": "请对以下内容执行：把这列数据归一化",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "normalize_column",
+      "id": "normalize_column@t4_appended",
+      "query": "把这列数据归一化，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "okr_gen",
+      "id": "okr_gen@t0_raw",
+      "query": "生成一份 OKR",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "okr_gen",
+      "id": "okr_gen@t1_casual",
+      "query": "帮我生成一份 OKR",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "okr_gen",
+      "id": "okr_gen@t2_polite",
+      "query": "能不能生成一份 OKR？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "okr_gen",
+      "id": "okr_gen@t3_formal",
+      "query": "请对以下内容执行：生成一份 OKR",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "okr_gen",
+      "id": "okr_gen@t4_appended",
+      "query": "生成一份 OKR，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "outlier_detect",
+      "id": "outlier_detect@t0_raw",
+      "query": "检测离群值",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "outlier_detect",
+      "id": "outlier_detect@t1_casual",
+      "query": "帮我检测离群值",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "outlier_detect",
+      "id": "outlier_detect@t2_polite",
+      "query": "能不能检测离群值？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "outlier_detect",
+      "id": "outlier_detect@t3_formal",
+      "query": "请对以下内容执行：检测离群值",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "outlier_detect",
+      "id": "outlier_detect@t4_appended",
+      "query": "检测离群值，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "outline_gen",
+      "id": "outline_gen@t0_raw",
+      "query": "生成文章结构大纲",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "outline_gen",
+      "id": "outline_gen@t1_casual",
+      "query": "帮我生成文章结构大纲",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "outline_gen",
+      "id": "outline_gen@t2_polite",
+      "query": "能不能生成文章结构大纲？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "outline_gen",
+      "id": "outline_gen@t3_formal",
+      "query": "请对以下内容执行：生成文章结构大纲",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "outline_gen",
+      "id": "outline_gen@t4_appended",
+      "query": "生成文章结构大纲，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "penalty_method",
+      "id": "penalty_method@t0_raw",
+      "query": "用惩罚函数做约束优化",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "penalty_method",
+      "id": "penalty_method@t1_casual",
+      "query": "帮我用惩罚函数做约束优化",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "penalty_method",
+      "id": "penalty_method@t2_polite",
+      "query": "能不能用惩罚函数做约束优化？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "penalty_method",
+      "id": "penalty_method@t3_formal",
+      "query": "请对以下内容执行：用惩罚函数做约束优化",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "penalty_method",
+      "id": "penalty_method@t4_appended",
+      "query": "用惩罚函数做约束优化，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "readability",
+      "id": "readability@t0_raw",
+      "query": "算可读性指标",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "readability",
+      "id": "readability@t1_casual",
+      "query": "帮我算可读性指标",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "readability",
+      "id": "readability@t2_polite",
+      "query": "能不能算可读性指标？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "readability",
+      "id": "readability@t3_formal",
+      "query": "请对以下内容执行：算可读性指标",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "readability",
+      "id": "readability@t4_appended",
+      "query": "算可读性指标，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "reproduce_check",
+      "id": "reproduce_check@t0_raw",
+      "query": "出一份可复现性清单",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "reproduce_check",
+      "id": "reproduce_check@t1_casual",
+      "query": "帮我出一份可复现性清单",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "reproduce_check",
+      "id": "reproduce_check@t2_polite",
+      "query": "能不能出一份可复现性清单？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "reproduce_check",
+      "id": "reproduce_check@t3_formal",
+      "query": "请对以下内容执行：出一份可复现性清单",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "reproduce_check",
+      "id": "reproduce_check@t4_appended",
+      "query": "出一份可复现性清单，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "returns",
+      "id": "returns@t0_raw",
+      "query": "算收益率序列",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "returns",
+      "id": "returns@t1_casual",
+      "query": "帮我算收益率序列",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "returns",
+      "id": "returns@t2_polite",
+      "query": "能不能算收益率序列？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "returns",
+      "id": "returns@t3_formal",
+      "query": "请对以下内容执行：算收益率序列",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "returns",
+      "id": "returns@t4_appended",
+      "query": "算收益率序列，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "risk_register",
+      "id": "risk_register@t0_raw",
+      "query": "建一个风险登记表",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "risk_register",
+      "id": "risk_register@t1_casual",
+      "query": "帮我建一个风险登记表",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "risk_register",
+      "id": "risk_register@t2_polite",
+      "query": "能不能建一个风险登记表？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "risk_register",
+      "id": "risk_register@t3_formal",
+      "query": "请对以下内容执行：建一个风险登记表",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "risk_register",
+      "id": "risk_register@t4_appended",
+      "query": "建一个风险登记表，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "sample_size",
+      "id": "sample_size@t0_raw",
+      "query": "估算实验样本量",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "sample_size",
+      "id": "sample_size@t1_casual",
+      "query": "帮我估算实验样本量",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "sample_size",
+      "id": "sample_size@t2_polite",
+      "query": "能不能估算实验样本量？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "sample_size",
+      "id": "sample_size@t3_formal",
+      "query": "请对以下内容执行：估算实验样本量",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "sample_size",
+      "id": "sample_size@t4_appended",
+      "query": "估算实验样本量，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "screen_papers",
+      "id": "screen_papers@t0_raw",
+      "query": "筛选相关文献",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "screen_papers",
+      "id": "screen_papers@t1_casual",
+      "query": "帮我筛选相关文献",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "screen_papers",
+      "id": "screen_papers@t2_polite",
+      "query": "能不能筛选相关文献？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "screen_papers",
+      "id": "screen_papers@t3_formal",
+      "query": "请对以下内容执行：筛选相关文献",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "screen_papers",
+      "id": "screen_papers@t4_appended",
+      "query": "筛选相关文献，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "sharpe",
+      "id": "sharpe@t0_raw",
+      "query": "计算夏普比率",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "sharpe",
+      "id": "sharpe@t1_casual",
+      "query": "帮我计算夏普比率",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "sharpe",
+      "id": "sharpe@t2_polite",
+      "query": "能不能计算夏普比率？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "sharpe",
+      "id": "sharpe@t3_formal",
+      "query": "请对以下内容执行：计算夏普比率",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "sharpe",
+      "id": "sharpe@t4_appended",
+      "query": "计算夏普比率，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "simplex_method",
+      "id": "simplex_method@t0_raw",
+      "query": "用单纯形法解线性规划",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "simplex_method",
+      "id": "simplex_method@t1_casual",
+      "query": "帮我用单纯形法解线性规划",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "simplex_method",
+      "id": "simplex_method@t2_polite",
+      "query": "能不能用单纯形法解线性规划？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "simplex_method",
+      "id": "simplex_method@t3_formal",
+      "query": "请对以下内容执行：用单纯形法解线性规划",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "simplex_method",
+      "id": "simplex_method@t4_appended",
+      "query": "用单纯形法解线性规划，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "structure_check",
+      "id": "structure_check@t0_raw",
+      "query": "检查文章结构",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "structure_check",
+      "id": "structure_check@t1_casual",
+      "query": "帮我检查文章结构",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "structure_check",
+      "id": "structure_check@t2_polite",
+      "query": "能不能检查文章结构？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "structure_check",
+      "id": "structure_check@t3_formal",
+      "query": "请对以下内容执行：检查文章结构",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "structure_check",
+      "id": "structure_check@t4_appended",
+      "query": "检查文章结构，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "swot_analysis",
+      "id": "swot_analysis@t0_raw",
+      "query": "做一次 SWOT 分析",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "swot_analysis",
+      "id": "swot_analysis@t1_casual",
+      "query": "帮我做一次 SWOT 分析",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "swot_analysis",
+      "id": "swot_analysis@t2_polite",
+      "query": "能不能做一次 SWOT 分析？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "swot_analysis",
+      "id": "swot_analysis@t3_formal",
+      "query": "请对以下内容执行：做一次 SWOT 分析",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "swot_analysis",
+      "id": "swot_analysis@t4_appended",
+      "query": "做一次 SWOT 分析，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "task_breakdown",
+      "id": "task_breakdown@t0_raw",
+      "query": "拆解一下这个任务",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "task_breakdown",
+      "id": "task_breakdown@t1_casual",
+      "query": "帮我拆解一下这个任务",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "task_breakdown",
+      "id": "task_breakdown@t2_polite",
+      "query": "能不能拆解一下这个任务？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "task_breakdown",
+      "id": "task_breakdown@t3_formal",
+      "query": "请对以下内容执行：拆解一下这个任务",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "task_breakdown",
+      "id": "task_breakdown@t4_appended",
+      "query": "拆解一下这个任务，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "title_brainstorm",
+      "id": "title_brainstorm@t0_raw",
+      "query": "想几个标题候选",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "title_brainstorm",
+      "id": "title_brainstorm@t1_casual",
+      "query": "帮我想几个标题候选",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "title_brainstorm",
+      "id": "title_brainstorm@t2_polite",
+      "query": "能不能想几个标题候选？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "title_brainstorm",
+      "id": "title_brainstorm@t3_formal",
+      "query": "请对以下内容执行：想几个标题候选",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "title_brainstorm",
+      "id": "title_brainstorm@t4_appended",
+      "query": "想几个标题候选，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "variables_split",
+      "id": "variables_split@t0_raw",
+      "query": "把变量拆分",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "variables_split",
+      "id": "variables_split@t1_casual",
+      "query": "帮我把变量拆分",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "variables_split",
+      "id": "variables_split@t2_polite",
+      "query": "能不能把变量拆分？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "variables_split",
+      "id": "variables_split@t3_formal",
+      "query": "请对以下内容执行：把变量拆分",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "variables_split",
+      "id": "variables_split@t4_appended",
+      "query": "把变量拆分，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "volatility",
+      "id": "volatility@t0_raw",
+      "query": "算年化波动率",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "volatility",
+      "id": "volatility@t1_casual",
+      "query": "帮我算年化波动率",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "volatility",
+      "id": "volatility@t2_polite",
+      "query": "能不能算年化波动率？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "volatility",
+      "id": "volatility@t3_formal",
+      "query": "请对以下内容执行：算年化波动率",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "volatility",
+      "id": "volatility@t4_appended",
+      "query": "算年化波动率，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "weekly_review",
+      "id": "weekly_review@t0_raw",
+      "query": "把一周工作整理成周报",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "weekly_review",
+      "id": "weekly_review@t1_casual",
+      "query": "帮我把一周工作整理成周报",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "weekly_review",
+      "id": "weekly_review@t2_polite",
+      "query": "能不能把一周工作整理成周报？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "weekly_review",
+      "id": "weekly_review@t3_formal",
+      "query": "请对以下内容执行：把一周工作整理成周报",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "weekly_review",
+      "id": "weekly_review@t4_appended",
+      "query": "把一周工作整理成周报，给出结果",
+      "tier": "t4_appended"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "word_count",
+      "id": "word_count@t0_raw",
+      "query": "统计字数",
+      "tier": "t0_raw"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "word_count",
+      "id": "word_count@t1_casual",
+      "query": "帮我统计字数",
+      "tier": "t1_casual"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "word_count",
+      "id": "word_count@t2_polite",
+      "query": "能不能统计字数？",
+      "tier": "t2_polite"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "word_count",
+      "id": "word_count@t3_formal",
+      "query": "请对以下内容执行：统计字数",
+      "tier": "t3_formal"
+    },
+    {
+      "evidence_class": "simulated",
+      "expect": "word_count",
+      "id": "word_count@t4_appended",
+      "query": "统计字数，给出结果",
+      "tier": "t4_appended"
+    }
+  ],
+  "note": "5 个问法层 × 47 技能；分层是风格分层，不是训练折；semvec 索引只在技能自述上 fit，问句从不进语料。",
+  "skills": 47,
+  "tiers": [
+    "t0_raw",
+    "t1_casual",
+    "t2_polite",
+    "t3_formal",
+    "t4_appended"
+  ],
+  "version": "v2"
+}

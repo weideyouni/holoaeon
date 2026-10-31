@@ -5,7 +5,7 @@
   "corpus_docs": 47,
   "dim": 32,
   "evidence_class": "simulated",
-  "fit_ms": 193.09,
+  "fit_ms": 187.36,
   "hybrid_correct": 11,
   "hybrid_rate": 0.9167,
   "intents": 12,
