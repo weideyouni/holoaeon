@@ -28,6 +28,11 @@ from holoaeon.spec import (CAPABILITIES, DOC_VERSION, MATRIX_ID,  # noqa: E402
 JSON_OUT = os.path.join(ROOT, "snapshot", "project_snapshot_v2.json")
 MD_OUT = os.path.join(ROOT, "snapshot", "SNAPSHOT_V2.md")
 
+# 快照里的时间戳不进内容：默认取固定日期，保证「现算两遍字节一致」这条
+# 回放判据成立；需要真时间时用环境变量 HOLOAEON_SNAPSHOT_TS 覆盖，但那时
+# 快照就不再字节可复现，只作展示用。
+DEFAULT_SNAPSHOT_TS = "2026-11-01"
+
 
 def code_stats() -> dict:
     files = 0
@@ -107,7 +112,7 @@ def build() -> dict:
             "version_doc": DOC_VERSION,
             "matrix_id": MATRIX_ID,
             "protocol_id": PROTOCOL_ID,
-            "generated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+            "generated_at": os.environ.get("HOLOAEON_SNAPSHOT_TS", DEFAULT_SNAPSHOT_TS),
             "evidence_class": "simulated",
         },
         "dimensions": {
