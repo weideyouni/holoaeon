@@ -1,0 +1,49 @@
+name: sync-from-gitee
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Align main from Gitee (keep github workflows)
+        run: |
+          set -uo pipefail
+          LOG=/tmp/sync.log
+          : > "$LOG"
+          echo "runner_at=$(date -u +%FT%TZ)" >> "$LOG"
+          git remote add gitee https://gitee.com/weideyouni/holoaeon.git >> "$LOG" 2>&1
+          if git fetch --no-tags gitee '+refs/heads/main:refs/remotes/gitee/main' >> "$LOG" 2>&1; then
+            echo "fetch=ok" >> "$LOG"
+          else
+            echo "fetch=fail" >> "$LOG"
+          fi
+          echo "gitee_head=$(git rev-parse refs/remotes/gitee/main)" >> "$LOG"
+          git checkout -B align refs/remotes/gitee/main >> "$LOG" 2>&1
+          git checkout origin/main -- .github >> "$LOG" 2>&1 && echo "keep_workflows=ok" >> "$LOG"
+          git -c user.name="sync-bot" -c user.email="sync-bot@users.noreply.github.com" commit -q -m "sync: align all files from gitee main (keep github workflows)" >> "$LOG" 2>&1 && echo "commit=ok" >> "$LOG"
+          if git push --force origin align:refs/heads/main >> "$LOG" 2>&1; then
+            echo "push=ok" >> "$LOG"
+          else
+            echo "push=fail" >> "$LOG"
+          fi
+      - name: Publish diagnostic log to sync-status branch
+        if: always()
+        run: |
+          set -euo pipefail
+          git checkout --orphan status-tmp
+          git rm -rqf . > /dev/null 2>&1 || true
+          mkdir -p .sync
+          { echo "run_id: $GITHUB_RUN_ID"; echo "sha: $GITHUB_SHA"; echo; cat /tmp/sync.log; } > .sync/last.log
+          git add -f .sync/last.log
+          git -c user.name="sync-bot" -c user.email="sync-bot@users.noreply.github.com" commit -q -m "sync log $GITHUB_RUN_ID"
+          git push --force origin status-tmp:refs/heads/sync-status
