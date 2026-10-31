@@ -37,11 +37,31 @@ def _stdlib_names() -> set:
     names = getattr(sys, "stdlib_module_names", None)
     if names:
         return set(names)
-    # 回退：本项目实际使用的标准库（最小集合）
-    return {"os", "sys", "ast", "io", "csv", "re", "math", "time", "cmath",
-            "heapq", "queue", "hashlib", "threading", "dataclasses",
-            "typing", "collections", "enum", "json", "abc", "itertools",
-            "pathlib", "functools", "contextlib", "types", "inspect", "textwrap"}
+    return _stdlib_fallback()
+
+
+def _stdlib_fallback() -> set:
+    """3.8/3.9 没有 sys.stdlib_module_names，改用解释器自身的标准库目录判定。
+
+    早先这里写死一份「本项目实际用到的标准库」最小清单，3.8 上立刻把
+    shutil / tempfile / textwrap 之外的一切模块误报成 third_party_import，
+    红线在 CI 里假红（进程 exit 1）。判定依据必须来自解释器，而不是人工枚举。
+    """
+    names = set(sys.builtin_module_names)
+    try:
+        import sysconfig
+
+        stdlib_dir = sysconfig.get_paths().get("stdlib", "")
+    except Exception:
+        stdlib_dir = ""
+    if stdlib_dir and os.path.isdir(stdlib_dir):
+        for entry in os.listdir(stdlib_dir):
+            if entry.endswith(".py"):
+                names.add(entry[:-3])
+            elif (not entry.startswith((".", "_"))
+                  and os.path.isdir(os.path.join(stdlib_dir, entry))):
+                names.add(entry)
+    return names
 
 
 class RedlineVisitor(ast.NodeVisitor):
