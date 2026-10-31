@@ -8,7 +8,7 @@
 [![Python](https://img.shields.io/badge/python-3.8%2B-green.svg)](https://www.python.org/)
 [![Dependencies](https://img.shields.io/badge/dependencies-0-success.svg)](pyproject.toml)
 [![Tests](https://img.shields.io/badge/tests-34%20passed-success.svg)](#-testing)
-[![SelfTest](https://img.shields.io/badge/selftest-24%2F24-success.svg)](#-testing)
+[![SelfTest](https://img.shields.io/badge/selftest-25%2F25-success.svg)](#-testing)
 
 <sub>Badges are **locally measured** (Python 3.13.16, Windows). CI has now actually run on GitHub:
 Python 3.8 / 3.10 / 3.12 all green in [run #25](https://github.com/weideyouni/holoaeon/actions/runs/41202167792)
@@ -193,12 +193,12 @@ expressions. See [ALGORITHM.md](ALGORITHM.md) for the full algorithmic mapping. 
 HASM assembly and runs them on a built-in VM; HASM is not a real CPU instruction set and
 unknown intents are reported as `UNKNOWN` rather than guessed.
 
-### Cross-cutting extension packs (10th – 16th)
+### Cross-cutting extension packs (10th – 17th)
 
 These packs are **registered outside `PACK_ORDER`** on purpose: they add capability
 without adding agents, so the nine-pack totals above (25 agents / 47 skills) stay stable.
 They are reachable through `get_extra_pack(key)` and verified separately by
-G18 / G19 / G20 / G21 / G22 / G23 / G24.
+G18 / G19 / G20 / G21 / G22 / G23 / G24 / G25.
 
 | Extra pack | What it adds | Skills | Roles | Workflows |
 |---|---|---|---|---|
@@ -209,6 +209,7 @@ G18 / G19 / G20 / G21 / G22 / G23 / G24.
 | **metab** | METAB governance layer: six-chromosome genome admission, four-question state classification, eight-stage lifecycle, three-tier authorization (fail-closed), gut dual channel, trust radius, combination whitelist, redlines | 26 | 0 | 8 (T1–T8) |
 | **nephron** | NEPHRON kidney layer, phase P0: append-only cognitive ledger, window manifests, reason codes, zero-intrusion hooks, replay (window / slots / inputs / timeline), generation fingerprint, privacy erase | 24 | 0 | 7 (W1–W7) |
 | **uplift** | U1–U6 hardening pack: total-order result key, pure-function contracts, regression ledger, CI contract, template/badge/support-matrix consistency, A1/A2 measurement verdicts with mutation proof, char n-gram + hybrid score, host-bridge boundary and remote gate, O-1–O-10 adjudications, P1 four-criteria gate | 24 | 0 | 7 (W1–W7) |
+| **persona_quartet** | four codename personas (P1–P4: 探微 Explorer / 筑基 Builder / 构弦 Architect / 持衡 Sentinel) distilled from public papers, interviews, project archives and industry history into a seven-dimension knowledge catalog (profile → capability → discipline → opinions → tech path → use cases → constraints). Attribution-faithful simulation only: it never claims to speak for the real persons, never offers clinical/medication/investment advice, and requires human expert review. Four skills (single persona view / roundtable / cross-persona compare / mission scoring) + five roles + one workflow | 4 | 5 | 1 (P-Flow) |
 
 `subdistill` keeps the mother matrix dimensions **unchanged** and asserts it in code:
 
@@ -327,6 +328,22 @@ All seven packs are offline, deterministic and zero-dependency. `subdistill` shi
 taxonomy in `data/taxonomy_127.json` and forces a medical disclaimer gate on every MED/TCM
 artifact; `analogizes` relations must carry a counterexample before they may be called
 verified.
+
+`persona_quartet` is the **eighth cross-cutting extension pack** (G25): four codename
+personas — **P1 探微 Explorer** (AGI strategy · AI for science), **P2 筑基 Builder**
+(distributed systems · engineering infrastructure · automated discovery), **P3 构弦 Architect**
+(multimodal · model architecture · shipping), **P4 持衡 Sentinel** (sequence modeling ·
+alignment · safe superintelligence) — each distilled from public papers, interviews,
+project archives and industry history into a uniform seven-dimension knowledge catalog:
+profile → capability → discipline → core opinions → tech-path lineage → use cases →
+constraints. Every opinion carries an attribution marker; the pack is simulation only and
+never claims to speak for the underlying real persons ("原型人物"), never offers
+clinical / medication / investment advice, does not disclose unpublished internal plans,
+and requires human expert review before any decision use (`仿真≠证明, 碳基终裁`). Four
+skills expose it (single persona view / quartet roundtable / cross-persona comparison /
+mission scoring against tech paths), five roles register the personas, and one workflow
+(P-Flow) ties them together. The personas are codenamed — no personal names appear in the
+pack, the self-test anchors, or this README.
 
 ### Host bridge (`bridges/`) — network out of the core
 
@@ -473,7 +490,7 @@ multi-platform deploy.
 
 writing (5) · literature (5) · research (5) · data (4) · growth (5) · business (5) ·
 quant (6) · optimization (7) · gaoyi (3) — plus 7 cross-cutting extension packs
-(sovereignty / subdistill / omnilife / omnicore / metab / nephron / uplift) that add
+(sovereignty / subdistill / omnilife / omnicore / metab / nephron / uplift / persona_quartet) that add
 capability without touching the nine-pack totals. The full per-skill catalog is in the
 [Chinese README](README.zh-CN.md).
 
@@ -544,7 +561,7 @@ holoaeon/
 ├── hypervector.py     # HRR + hand-written FFT
 ├── model_adapter.py   # any-LLM adapter layer
 ├── redline.py         # AST red-line scanner
-├── selftest.py        # G1–G17 self-test suite
+├── selftest.py        # G1–G25 self-test suite
 └── packs/             # nine domain packs (incl. optimization.py, gaoyi_pack.py)
 examples/              # four runnable walkthroughs
 tests/                 # unittest suite
@@ -575,7 +592,7 @@ deterministic software.
 ## Testing
 
 ```bash
-# Self-test suite (G1–G24)
+# Self-test suite (G1–G25)
 python -c "from holoaeon.selftest import run_all; print(run_all(verbose=True))"
 
 # Unit tests
@@ -585,8 +602,8 @@ python -m unittest discover -s tests -v
 python scripts/redline_scan.py
 ```
 
-Current status: **24/24 self-test groups pass**, **34 unit tests pass**, and the red-line
-scan reports **zero violations** across 41 source files. The same four checks run in
+Current status: **25/25 self-test groups pass**, **34 unit tests pass**, and the red-line
+scan reports **zero violations** across 42 source files. The same four checks run in
 `.github/workflows/ci.yml` on Python 3.8 / 3.10 / 3.12, and **that workflow has now run on GitHub**:
 [run #25](https://github.com/weideyouni/holoaeon/actions/runs/41202167792) is green on all three
 interpreters (0 errors, 0 warnings), so the corresponding cells are `measured` in
@@ -637,9 +654,12 @@ deterministic primitives, and self-organizing collaboration**. It can serve as:
   templates, badge/support-matrix consistency, A1/A2 turned `measured_with_scope` with a
   mutation proof, the host model bridge (`bridges/`), and O-1–O-10 adjudications; ten
   contradictions resolved (X1–X10), five author defects logged (M1–M5).
+- **v0.9.1** — Eighth extension pack: **persona_quartet** (four codename personas
+  P1–P4, 4 skills / 5 roles / 1 workflow; G25, 25/25 self-test). All personal names are
+  replaced by codenames end-to-end; opinions carry attribution markers and stay
+  simulation-only (never speaks for 原型人物, human expert review required).
 - **v0.10** — Pluggable persistence backends and inter-node bus transports.
 - **v0.11** — Declarative graph/topology definitions and a pack-authoring toolkit.
-- **v1.0** — Stable cognitive framework with a frozen API and full documentation.
 - **v1.0** — Stable cognitive framework with a frozen API and full documentation.
 
 ---

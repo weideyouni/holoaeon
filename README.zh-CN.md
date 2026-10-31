@@ -12,7 +12,7 @@
 
 ![Tests](https://img.shields.io/badge/tests-34%20passed-success.svg)
 
-![SelfTest](https://img.shields.io/badge/selftest-24%2F24-success.svg)
+![SelfTest](https://img.shields.io/badge/selftest-25%2F25-success.svg)
 
 [English](README.md) · [中文](README.zh-CN.md)
 
@@ -207,8 +207,8 @@ print(k.submit("帮我算 BMI 170 65")["results"][0]["output"])
 | **optimization 优化** | `golden_section`｜`gradient_descent`｜`newton_method`｜`conjugate_gradient`｜`simplex_method`｜`penalty_method`｜`genetic_algorithm` |
 | **gaoyi 高译**        | `gaoyi_compile` 自然语言编译 HASM｜`gaoyi_exec` 虚拟机执行｜`gaoyi_run` 一键编译运行                                                              |
 
-另有 7 个横切扩展包（sovereignty 查询锻造 / subdistill 知识蒸馏 / omnilife 生活主权 /
-omnicore 认知引擎 / metab 治理 / nephron 账本 / uplift 加固）——不占九包口径，只加能力。
+另有 8 个横切扩展包（sovereignty 查询锻造 / subdistill 知识蒸馏 / omnilife 生活主权 /
+omnicore 认知引擎 / metab 治理 / nephron 账本 / uplift 加固 / persona_quartet 代号数字分身）——不占九包口径，只加能力。
 
 ### ❓ 出错了看这里
 
@@ -253,12 +253,12 @@ omnicore 认知引擎 / metab 治理 / nephron 账本 / uplift 加固）——�
 
 ```bash
 python -m unittest discover -s tests    # 34 项单元测试
-python -c "from holoaeon.selftest import run_all; print(run_all())"  # 24/24 自检组
+python -c "from holoaeon.selftest import run_all; print(run_all())"  # 25/25 自检组
 python scripts/redline_scan.py          # 红线扫描：零违规
 python scripts/measure_a1_a2.py         # A1/A2 宿主侧实测（CI 已挂载）
 ```
 
-当前状态：**34 单测通过｜自检 24/24 组｜红线扫描零违规（41 文件）｜A1 证据哈希 CI 防漂移**；
+当前状态：**34 单测通过｜自检 25/25 组｜红线扫描零违规（42 文件）｜A1 证据哈希 CI 防漂移**；
 CI 已在 GitHub 实跑并通过：[run #25](https://github.com/weideyouni/holoaeon/actions/runs/41202167792)
 在 Python 3.8 / 3.10 / 3.12 三版本全绿（0 error 0 warning），对应格子见
 [`docs/support-matrix.md`](docs/support-matrix.md)。
@@ -267,6 +267,7 @@ CI 已在 GitHub 实跑并通过：[run #25](https://github.com/weideyouni/holoa
 
 - **v0.9.1**（当前）——可信度实证加固：版本单一源、证据防漂移、桥 README、CI 挂 A1
 - **v0.10**——nephron P1 判定层实现（规格已冻结于 docs/nephron-p1.md）
+- **v0.9.2**——第八横切扩展包 persona_quartet（四个代号数字分身 P1–P4：探微/筑基/构弦/持衡，G25，25/25 自检；全链路去人名化，观点带归因标记，仅仿真、不代表原型人物实时观点、需人类专家终审）
 - **v1.0**——API 冻结，文档完整，多平台技能包正式分发
 
 ## 贡献

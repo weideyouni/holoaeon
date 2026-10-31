@@ -3,12 +3,12 @@
 persona_quartet_pack —— 四人全维度数字分身（Persona Quartet）
 ================================================================================
 定位：HoloAeon 的第 17 个横切扩展包（EXTRA_PACK，不进 PACK_ORDER，不改 G15 计数）。
-四位主体：哈萨比斯(Demis Hassabis) / 杰夫汀(Jeff Dean) / 克拉伊(Koray Kavukcuoglu)
-         / 伊克拉(Ilya Sutskever)。
+四位主体：探微(P1) / 筑基(P2) / 构弦(P3)
+         / 持衡(P4)。
 内容：蒸馏版七维度知识目录（公开论文/访谈/项目档案/行业史料 → 公开资料归因转述），
 四技能：persona_view（单分身）/ persona_roundtable（四人圆桌）/ persona_compare
 （维度横向对比）/ persona_mission（任务模拟打分）。
-诚实性声明：本包为确定性知识工具，全部内容为公开资料归因仿真转述，不代表本人实时
+诚实性声明：本包为确定性知识工具，全部内容为公开资料归因仿真转述，不代表原型人物实时
 观点，不能替代真人决策，不提供临床诊疗/用药/投资依据；所有推演结果需人类专家终审。
 仿真≠证明；碳基终裁。纯标准库、零依赖、离线可跑。
 """
@@ -19,14 +19,14 @@ from typing import Any, Dict, List, Tuple
 from .base import DomainPack, RoleSpec, SkillSpec, WorkflowSpec
 
 PERSONA_QUARTET_ID = "SG-PERSON-QUARTET-1331x1331-SUPER-MAS-V3.0"
-ATTRIBUTION_NOTE = "公开资料归因仿真转述，不代表本人实时观点；需人类专家终审；仿真≠证明"
+ATTRIBUTION_NOTE = "公开资料归因仿真转述，不代表原型人物实时观点；需人类专家终审；仿真≠证明"
 
 DIMS = ("基础画像", "业务能力", "学科架构", "核心学术观点", "技术路径谱系", "落地场景", "约束边界")
 
 # 蒸馏目录：四主体 × 七维度（每维 2-3 条；观点自带归因标记）
 CATALOG: Tuple[Dict[str, Any], ...] = (
     {
-        "id": "hassabis", "name": "哈萨比斯(Demis Hassabis)",
+        "id": "P1", "name": "探微(P1)",
         "role": "DeepMind创始人/Alphabet首席科学家/2024诺贝尔化学奖（AlphaFold）",
         DIMS[0]: ["国际象棋神童；剑桥计算机科学；UCL认知神经科学PhD",
                  "DeepMind 2010创立，2014被谷歌收购；Isomorphic Labs负责人"],
@@ -48,7 +48,7 @@ CATALOG: Tuple[Dict[str, Any], ...] = (
         DIMS[6]: ["仿真仅做思路推演，不提供临床诊疗/用药建议；需人类专家终审"],
     },
     {
-        "id": "dean", "name": "杰夫汀(Jeff Dean)",
+        "id": "P2", "name": "筑基(P2)",
         "role": "谷歌元老/Google Brain联合创始人/TensorFlow·TPU·MapReduce/Bigtable/Spanner核心设计者/Discovery Loop创办人",
         DIMS[0]: ["明尼苏达大学、华盛顿大学；早年参与HIV流行病学建模",
                  "谷歌27年，构建分布式计算基础设施与机器学习工程底座"],
@@ -69,9 +69,9 @@ CATALOG: Tuple[Dict[str, Any], ...] = (
         DIMS[6]: ["偏工程-系统视角；前沿生物方向非其主攻领域；需人类专家终审"],
     },
     {
-        "id": "kavukcuoglu", "name": "克拉伊(Koray Kavukcuoglu)",
+        "id": "P3", "name": "构弦(P3)",
         "role": "Google DeepMind高级副总裁/首席AI架构师；DQN/AlphaGo/WaveNet/BYOL/Gemini核心作者之一",
-        DIMS[0]: ["航空工程本科+硕士；NYU计算机科学PhD(Yann LeCun实验室)",
+        DIMS[0]: ["航空工程本科+硕士；NYU计算机科学PhD(深度学习实验室)",
                  "2012年加入DeepMind；DeepMind日常运营负责人"],
         DIMS[1]: ["多赛道模型并行迭代(Gemini Flash/Pro)；深度学习架构/视觉表征/RL/多模态工程实现",
                  "自监督表示学习/语音生成(WaveNet)/空间变换网络",
@@ -91,9 +91,9 @@ CATALOG: Tuple[Dict[str, Any], ...] = (
         DIMS[6]: ["侧重模型架构与工程执行；需人类专家终审"],
     },
     {
-        "id": "sutskever", "name": "伊克拉(Ilya Sutskever)",
+        "id": "P4", "name": "持衡(P4)",
         "role": "AlexNet/Seq2Seq共同发明者；OpenAI联合创始人/前首席科学家；Safe Superintelligence(SSI)创始人",
-        DIMS[0]: ["多伦多大学；Hinton学生；Google Brain时期完成Seq2Seq",
+        DIMS[0]: ["多伦多大学；深度学习先驱门下；Google Brain时期完成Seq2Seq",
                  "主导GPT-3/GPT-4研发与超对齐(Superalignment)项目"],
         DIMS[1]: ["神经网络架构创新/序列建模/自回归大模型路线设计",
                  "超级智能安全对齐/超对齐理论；前沿AGI安全风险分析",
@@ -184,13 +184,13 @@ class PersonaQuartetPack(DomainPack):
     """四人全维度数字分身包：蒸馏目录 + 四技能 + 四角色 + 圆桌工作流。"""
     key = "persona_quartet"
     name = "四人全维度数字分身"
-    description = ("四位AI人物（哈萨比斯/杰夫汀/克拉伊/伊克拉）七维度知识目录与确定性推演；"
-                   "公开资料归因仿真，不代表本人实时观点，需人类专家终审。")
+    description = ("四位AI人物（探微/筑基/构弦/持衡）七维度知识目录与确定性推演；"
+                   "公开资料归因仿真，不代表原型人物实时观点，需人类专家终审。")
 
     def __init__(self) -> None:
         self.skills = [
             SkillSpec("persona_quartet.persona_view", persona_view, "单分身七维度视图",
-                      ["分身", "persona", "哈萨比斯", "杰夫汀", "克拉伊", "伊克拉"],
+                      ["分身", "persona", "探微", "筑基", "构弦", "持衡"],
                       {"persona": "str"}),
             SkillSpec("persona_quartet.persona_roundtable", persona_roundtable, "四人圆桌观点归因对比",
                       ["圆桌", "roundtable", "辩论", "对比推演"],
@@ -203,10 +203,10 @@ class PersonaQuartetPack(DomainPack):
                       {"task": "str"}),
         ]
         self.roles = [
-            RoleSpec("hassabis_agent", "哈萨比斯分身", ["persona_quartet.persona_view"]),
-            RoleSpec("dean_agent", "杰夫汀分身", ["persona_quartet.persona_view"]),
-            RoleSpec("kavukcuoglu_agent", "克拉伊分身", ["persona_quartet.persona_view"]),
-            RoleSpec("sutskever_agent", "伊克拉分身", ["persona_quartet.persona_view"]),
+            RoleSpec("p1_agent", "探微分身", ["persona_quartet.persona_view"]),
+            RoleSpec("p2_agent", "筑基分身", ["persona_quartet.persona_view"]),
+            RoleSpec("p3_agent", "构弦分身", ["persona_quartet.persona_view"]),
+            RoleSpec("p4_agent", "持衡分身", ["persona_quartet.persona_view"]),
             RoleSpec("persona_lead", "分身矩阵总控",
                      ["persona_quartet.persona_roundtable",
                       "persona_quartet.persona_compare",
@@ -214,8 +214,8 @@ class PersonaQuartetPack(DomainPack):
         ]
         self.workflows = [
             WorkflowSpec("persona_quartet_flow",
-                         ["hassabis_agent", "dean_agent", "kavukcuoglu_agent",
-                          "sutskever_agent", "persona_lead"],
+                         ["p1_agent", "p2_agent", "p3_agent",
+                          "p4_agent", "persona_lead"],
                          "单分身视图→四人圆桌→维度对比→任务模拟（全归因标注，终审）"),
         ]
 
@@ -224,6 +224,6 @@ class PersonaQuartetPack(DomainPack):
 def selftest_check() -> Tuple[bool, str]:
     ok = (len(CATALOG) == 4
           and all(set(p.keys()) >= set(DIMS) for p in CATALOG)
-          and persona_mission("分布式算力与自动化科研平台")["rank"][0]["persona"] == "dean"
-          and "hassabis" in str(persona_roundtable("数字生物学")["rows"][0]))
+          and persona_mission("分布式算力与自动化科研平台")["rank"][0]["persona"] == "P2"
+          and "P1" in str(persona_roundtable("数字生物学")["rows"][0]))
     return ok, f"catalog={len(CATALOG)} dims={len(DIMS)}"

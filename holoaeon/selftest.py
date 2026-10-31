@@ -1259,8 +1259,8 @@ def g25_persona_quartet() -> Tuple[bool, str]:
                   and len(rep["workflows"]) == 1)
 
     # 确定性推演：单分身 / 圆桌 / 对比 / 任务模拟
-    v = persona_view("sutskever")
-    checks.append(v["id"] == "sutskever" and len(v["dimensions"]) == 7
+    v = persona_view("P4")
+    checks.append(v["id"] == "P4" and len(v["dimensions"]) == 7
                   and "终审" in v["dimensions"]["约束边界"][0])
     rt = persona_roundtable("数字生物学")
     checks.append(len(rt["rows"]) == 4 and all(r["opinions"] for r in rt["rows"]))
@@ -1268,8 +1268,8 @@ def g25_persona_quartet() -> Tuple[bool, str]:
     checks.append(len(cp["rows"]) == 4 and all(len(r["items"]) >= 1 for r in cp["rows"]))
     m1 = persona_mission("分布式算力与自动化科研平台")
     m2 = persona_mission("蛋白质结构与新药靶点筛选")
-    checks.append(m1["rank"][0]["persona"] == "dean"
-                  and m2["rank"][0]["persona"] == "hassabis")
+    checks.append(m1["rank"][0]["persona"] == "P2"
+                  and m2["rank"][0]["persona"] == "P1")
     # 蒸馏目录每个维度非空
     checks.append(all(all(p[d] for d in DIMS) for p in CATALOG))
 
