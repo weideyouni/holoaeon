@@ -161,6 +161,8 @@ python scripts\gitee_publish.py --repo F:\doubaowork\holoaeon --branch main
 | V2-6 | 物理量写进被哈希字段 → `--check` 必失败 | 物理量只打印不落行 |
 | V2-7 | 新证据文件被旧"诚实校验"扫成黄灯（`simulated` 带 `measure_source` 被判违规） | 按 schema 分流：同时含 `evidence/verdict_hash/golden_value` 的行算证据行，只计数不套回执规则 |
 | V2-8 | `--mutate 0` 时若仍断言 sensitive，会假装通过 | `n=0` 返回 `sensitive=False`，门禁按"未评估"披露 |
+| V2-9 | 快照里写 `time.gmtime()` → 两次现算字节不同，W11"回放一致"判据永远不成立 | `generated_at` 固定为常量（`HOLOAEON_SNAPSHOT_TS` 可覆盖）；两次现算 sha256 实测一致 `E06FACA61265293D` |
+| V2-10 | PowerShell 里 `Set-Location` 后用 .NET `ReadAllText("README.md")`：读走进程 CWD、写走 PS 路径，把 A 仓库 README 覆盖到 B 仓库 | 读写一律绝对路径 + `Get-Content -Raw` / `[IO.File]::WriteAllText`；误覆盖用 `git checkout -- <file>` 恢复 |
 
 ---
 
