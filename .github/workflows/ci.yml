@@ -6,19 +6,35 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
   test:
     name: py${{ matrix.python }} · tests+selftest+redline
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        python: ["3.8", "3.10", "3.12"]
+        # 3.8 必须钉在 ubuntu-22.04：ubuntu-latest 已滚到 26.04，
+        # 该镜像的预编译 Python 清单里没有 3.8，setup-python 会直接报
+        # "The version '3.8' with architecture 'x64' was not found"。
+        include:
+          - python: "3.8"
+            os: ubuntu-22.04
+          - python: "3.10"
+            os: ubuntu-latest
+          - python: "3.12"
+            os: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
+
+      - name: Interpreter
+        run: python -VV
 
       - name: Unit tests
         run: python -m unittest discover -s tests -v
