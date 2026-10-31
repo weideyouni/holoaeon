@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "gitee": {
+      "command": "python",
+      "args": ["F:\\doubaowork\\holoaeon\\scripts\\mcp_gitee_server.py"],
+      "env": {
+        "GITEE_TOKEN": "<Gitee 私人令牌>"
+      }
+    }
+  }
+}
