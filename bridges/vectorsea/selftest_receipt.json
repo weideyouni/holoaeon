@@ -1,0 +1,87 @@
+{
+ "bridge_id": "SG-VECTORSEA-HOLOAEON-BRIDGE-V1.0",
+ "catalog_total_dirs": 1161,
+ "catalog_with_skill_md": 1146,
+ "catalog_with_name": 1140,
+ "registerable": 1140,
+ "skipped_duplicate_builtin": 0,
+ "skipped_no_name": 21,
+ "doc_skill_count": 1124,
+ "tool_skills_total": 16,
+ "tool_preflight": {
+  "verified": 2,
+  "pending": 15,
+  "verified_names": [
+   "shengui-shenma-shishu-yidao-xiayingtang-super-matrix",
+   "wenxuan-collapse-core"
+  ],
+  "pending_names": [
+   "arena-sandbox-1331",
+   "auto-archive-doubaowork",
+   "cgm42000-matrix-runtime",
+   "cognitive-sovereignty-1331",
+   "diagram-design-skills-1331",
+   "kwp-knowledge-work-1331",
+   "life-meridian-1331",
+   "magpie-modeladapter-1331",
+   "memsalvage-memory-salvage-1331",
+   "meridian6-1331",
+   "openmontage-video-skills-1331",
+   "privacy-router-1331",
+   "rea-reverse-engineer-1331",
+   "realeng-skills-1331",
+   "rehab-line1-1331"
+  ]
+ },
+ "registry_verify": {
+  "count": 1140,
+  "no_duplicates": true
+ },
+ "match_demos": [
+  {
+   "query": "帮我做一次数据统计",
+   "top_matches": [
+    {
+     "name": "klein-convergence-engine-harvest",
+     "score": 0.03263
+    },
+    {
+     "name": "mobius-expansion-engine-harvest",
+     "score": 0.03261
+    }
+   ]
+  },
+  {
+   "query": "写一份商业计划书",
+   "top_matches": [
+    {
+     "name": "office-20000-harvest-education",
+     "score": 0.03226
+    },
+    {
+     "name": "quant-account-review-template",
+     "score": 0.02551
+    }
+   ]
+  },
+  {
+   "query": "中医康复融合",
+   "top_matches": [
+    {
+     "name": "shengui-shenma-shishu-yidao-tianhelu-super-matrix",
+     "score": 0.04802
+    },
+    {
+     "name": "shengui-shenma-zhoudesheng-super-matrix",
+     "score": 0.04564
+    }
+   ]
+  }
+ ],
+ "sample_skill": [
+  "agent-manager-5000-matrix",
+  "agri-engineering-sop-guide",
+  "ai-cmd-optimize-v2"
+ ],
+ "mode": "sidecar (main-core untouched)"
+}
