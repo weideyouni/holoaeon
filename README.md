@@ -10,7 +10,10 @@
 [![Tests](https://img.shields.io/badge/tests-34%20passed-success.svg)](#-testing)
 [![SelfTest](https://img.shields.io/badge/selftest-24%2F24-success.svg)](#-testing)
 
-<sub>Badges are **locally measured** (Python 3.13.16, Windows). CI is defined in `.github/workflows/ci.yml` but has **not been executed on GitHub yet** — see [`docs/support-matrix.md`](docs/support-matrix.md), where unrun cells say `untested` rather than an assumed pass.</sub>
+<sub>Badges are **locally measured** (Python 3.13.16, Windows). CI has now actually run on GitHub:
+Python 3.8 / 3.10 / 3.12 all green in [run #25](https://github.com/weideyouni/holoaeon/actions/runs/41202167792)
+(0 errors, 0 warnings — the only remaining notices are GitHub's own `ubuntu-latest` migration announcement).
+See [`docs/support-matrix.md`](docs/support-matrix.md) for which cells are `measured` and which are still `untested`.</sub>
 
 [English](README.md) · [中文](README.zh-CN.md)
 
@@ -288,8 +291,10 @@ each with the reason the literal wording had to move:
 - the suggested 6-agent × 30-round workload actually yields **6 records**, not 180 — `run()`
   delivers tasks once and `rounds` only drives barriers, so the assertion was corrected
   instead of the semantics (X2);
-- the CI badge cannot be earned locally: the workflow ships, the matrix says `untested`, and
-  the README says "not executed on GitHub yet" (X3);
+- the CI badge cannot be earned locally: at v0.9.1 the workflow had shipped but never run, so the
+  matrix said `untested` and the README said "not executed on GitHub yet" (X3). That state has since
+  been closed for real — run #25 is green on 3.8 / 3.10 / 3.12 — and the matrix now says `measured`
+  where it is measured;
 - badges are written from measurement (**34 tests / 24 self-test groups**), including the
   self-test badge that no one had noticed was stale (X4);
 - A1/A2 move to `measured_with_scope` — a host-orchestration measurement, not a
@@ -581,9 +586,10 @@ python scripts/redline_scan.py
 ```
 
 Current status: **24/24 self-test groups pass**, **34 unit tests pass**, and the red-line
-scan reports **zero violations** across 34 source files. The same four checks run in
-`.github/workflows/ci.yml` on Python 3.8 / 3.10 / 3.12 — **that workflow has not been executed
-on GitHub yet**, so those cells stay `untested` in
+scan reports **zero violations** across 41 source files. The same four checks run in
+`.github/workflows/ci.yml` on Python 3.8 / 3.10 / 3.12, and **that workflow has now run on GitHub**:
+[run #25](https://github.com/weideyouni/holoaeon/actions/runs/41202167792) is green on all three
+interpreters (0 errors, 0 warnings), so the corresponding cells are `measured` in
 [docs/support-matrix.md](docs/support-matrix.md).
 
 ---
