@@ -27,9 +27,10 @@ jobs:
           - python: "3.12"
             os: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      # v5 / v6 起 action 本体跑在 Node 24 上，消掉 "Node.js 20 is deprecated" 警告。
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python }}
 
