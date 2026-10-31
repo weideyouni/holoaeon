@@ -1,7 +1,9 @@
 # 仓库运营件（W5）
 
-> 当前状态（2026-10-31）：代码已入库并推送（`main` = `afb31ed`，182 个受控文件），
-> CI 已全绿（run #25：py3.8 / 3.10 / 3.12 三 job 全过，0 error 0 warning）。
+> 当前状态（2026-10-31）：代码与文档均已入库并推送，工作树干净；CI 已在 GitHub 实跑并全绿
+> （Python 3.8 / 3.10 / 3.12 三 job 全过，0 error 0 warning），最近一次运行见
+> `https://github.com/weideyouni/holoaeon/actions`。状态行故意不写死 commit 哈希——每次改文档都会
+> 让它过期，看 run 列表比看哈希可靠。
 > **只剩本节两个网页开关没打开**——GitHub 的 topics / homepage 没有 API 可写（`github-remote` MCP
 > 只覆盖文件、Issue、PR，不覆盖仓库设置），必须在已登录 `weideyouni` 的浏览器里点两下。
 > 下面步骤按「打开即做」写成，预计 3 分钟。
