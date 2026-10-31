@@ -121,6 +121,7 @@ def semvec() -> dict:
         "intents": r["intents"], "vocab": r["vocab_size"], "dim": r["dim"],
         "base_correct": r["base_correct"], "hybrid_correct": r["hybrid_correct"],
         "bitwise_equal": r["bitwise_equal"], "fit_ms": r["fit_ms"],
+        "corpus_docs": r.get("corpus_docs"), "digest": r.get("vector_digest_a"),
     }
 
 

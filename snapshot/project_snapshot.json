@@ -337,7 +337,7 @@
     "python scripts/bench_semvec.py",
     "python scripts/ledger_view.py --sample data/ledger_sample.jsonl"
   ],
-  "generated_at": "2026-10-31T12:31:19Z",
+  "generated_at": "2026-10-31T12:32:07Z",
   "how_to_join": [
     "读 snapshot/SNAPSHOT.md 的「不变量」与「入口」，先在本地跑通 3 条命令",
     "改动前用 tests\\ + selftest + redline 三闸确认基线全绿",
@@ -354,7 +354,7 @@
     "维度不变：25 智能体 / 47 技能 / 9 领域包 + 7 扩展包 / 34 单测 / 24 自检"
   ],
   "known_limits": [
-    "semvec 语义通道：语料只取 None 条技能自述（与 docs/ 解耦，改文档不漂移）；12 条固定意图混合路由 11/12 = 91.7% 误路由 1/12（同集调参，含过拟合风险）；留出集 6 条中 2 条期望名不存在，余 4 条命中 2 条 —— 泛化未验证",
+    "semvec 语义通道：语料只取 47 条技能自述（与 docs/ 解耦，改文档不漂移）；12 条固定意图混合路由 11/12 = 91.7% 误路由 1/12（同集调参，含过拟合风险）；留出集 6 条中 2 条期望名不存在，余 4 条命中 2 条 —— 泛化未验证",
     "领域包产骨架不产成稿；账本可视化是静态 HTML，不是托管平台",
     "Apache-2.0 不保护功能，只保护标准与证据；双许可决策留给构建者"
   ],
@@ -549,6 +549,8 @@
   "semvec": {
     "base_correct": 10,
     "bitwise_equal": true,
+    "corpus_docs": 47,
+    "digest": "789b71a36bfcd66a",
     "dim": 32,
     "fit_ms": 185.49,
     "hybrid_correct": 11,
