@@ -1,3 +1,17 @@
+
+> ## V4 · 冷热插拔赋能升级（2026-11-02）· B0 批次已冻结
+>
+> - 七闸全绿：`v3_gate 32/32` · `unittest 34 OK` · `selftest 25/25` · `skill_matrix 17/17` · `redline 零违规` · `fusion 17/17` · `ivsa 21/21`
+> - 14 维锁 + 黄金值未漂：`diff0=2fc892cf9af6e755` / `tamper=f42c8229ee5acd73`，`spec.VERSION=0.9.1` 未动
+> - 技能自动匹配 `1229 → 365` 条候选（索引 digest `9a565741e1f72ab7`）；**`智能体/技能/领域包 = 25/47/9` 不变**
+> - 五地同步刚性 DNA `SG-DNA-FIVE-SITE-SYNC-V1.0`：本地 · Gitee · GitHub · 向量海 · Hugging Face（飞书 docx 作阅读入口）
+>
+> V4 唯一入口：[`README_FUSION_V4_20261102.md`](README_FUSION_V4_20261102.md) ·
+> 同步规则：[`data/FIVE_SITE_SYNC_DNA.md`](data/FIVE_SITE_SYNC_DNA.md) ·
+> 离线校验：`python scripts/five_site_dna.py verify`（漂移必须为空）
+>
+> 密令：潮起开门，潮落闭嘴 · `evidence_class=simulated`（仿真 ≠ 证明，碳基终裁）
+
 <div align="center">
 
 # HoloAeon

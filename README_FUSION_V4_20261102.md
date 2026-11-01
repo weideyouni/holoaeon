@@ -1,5 +1,7 @@
 # HoloAeon · V4 冷热插拔赋能升级
 
+> 本文是 V4 唯一入口；主 `README.md` / `README.zh-CN.md` 顶部已加指针，五地同步回执见 `vector-sea\_holoaeon_v4_five_site_receipt_20261102.json`。
+
 > **装一个扩展包，门禁不变，能力可插拔。**
 > 不合并引擎、不合并编号、不动维度锁：`25 agents / 47 skills / 9 packs` 仍是那个 `25/47/9`。
 
