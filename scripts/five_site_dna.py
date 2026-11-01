@@ -39,8 +39,10 @@ PKG_FILES = [
     "data/冷热插拔清单.csv",
     "data/六机制对照与通道映射.csv",
     "data/全域技能匹配清单.csv",
+    "data/FIVE_SITE_SYNC_DNA.md",
     "reports/b0_lock_v4fusion.json",
     "reports/fusion_selftest.json",
+    "reports/preflight_v11.json",
 ]
 
 REPO_FILES = [

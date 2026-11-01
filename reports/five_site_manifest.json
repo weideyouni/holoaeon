@@ -6,7 +6,7 @@
   "package_root": "F:\\doubaowork\\HoloAeon_V4冷热插拔赋能升级_20261102",
   "repo_root": "F:\\doubaowork\\holoaeon",
   "counts": {
-    "package": 16,
+    "package": 18,
     "repo": 10,
     "missing": 0
   },
@@ -47,6 +47,10 @@
       "bytes": 83726,
       "sha256": "9bad2e79be10d7aa774de1a4d03a265df4ee8e3556065c356add5e15cda06cd8"
     },
+    "data/FIVE_SITE_SYNC_DNA.md": {
+      "bytes": 10105,
+      "sha256": "953f4239eaecaedf3082c59a82f4efc3e3b4d5edc5131ec5b3464e8e45e2dbf1"
+    },
     "data/全域技能匹配清单.csv": {
       "bytes": 44223,
       "sha256": "c1f45c97ca512949e9842711d0c07f476c592e02a115df2222562eef00e463ef"
@@ -75,6 +79,10 @@
     "reports/fusion_selftest.json": {
       "bytes": 2582,
       "sha256": "bf0be6d01de5ea652dd4e808b6bf1f0077c27601f36406a36b505a55debc7457"
+    },
+    "reports/preflight_v11.json": {
+      "bytes": 773,
+      "sha256": "1a05004a0b41c31eaaf4a3cc85a52bc905aa3f1d31d148cf02425a52c8e0b0fd"
     }
   },
   "repo": {
@@ -115,8 +123,8 @@
       "sha256": "bbbe9b9b475da8098c5733a3569956c2cd7bcf10eb2cb286a7d82c3bbef06681"
     },
     "scripts/five_site_dna.py": {
-      "bytes": 9155,
-      "sha256": "f0dd787bc992ba964ef71b28b19f9e3758982f4cdea0bff7f4e95a5b3bb46242"
+      "bytes": 9223,
+      "sha256": "a3f2bcb39a908ae5576907ada5fbb94a9154ff306eb182ed62fb66a9c90f1f4d"
     }
   },
   "missing": []
