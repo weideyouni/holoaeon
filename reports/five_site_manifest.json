@@ -32,8 +32,8 @@
       "sha256": "d949b0586d8debd6ec0956fe6381867d39932e8fb3fbbb6b1c54b5fd84490622"
     },
     "06_验收票据.md": {
-      "bytes": 8826,
-      "sha256": "1f58a56d718c548d1861ab7fc42ff680111806a6a29d98568feb91448ff2ead8"
+      "bytes": 9562,
+      "sha256": "4d885124fd35bcb0beebf8d483ef35c88b00600ceafe35c5f31c3094bce67d47"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
@@ -64,9 +64,9 @@
       "sha256": "1fca5f7be9390d868665fadcf42a18d57205ce9ad22d152f615312fbb8fe0281"
     },
     "holoaeon_v4_fusion_upgrade_20261102.zip": {
-      "bytes": 80753,
-      "sha256": "20dbeff84b8fd37335e186e3904c4566f4173ff1d1fee037a61c4c8fdb662676",
-      "sha16": "20dbeff84b8fd373"
+      "bytes": 83863,
+      "sha256": "bafc519f9332657360215a6eb9d9e611021d671e9667e6f9c51bd6d92ef55b9d",
+      "sha16": "bafc519f93326573"
     },
     "reports/b0_lock_v4fusion.json": {
       "bytes": 988,
@@ -79,8 +79,8 @@
   },
   "repo": {
     "README_FUSION_V4_20261102.md": {
-      "bytes": 9149,
-      "sha256": "7e4da6137803a4840d8c0449928e5f6bd5f89f303661c58b4d00f3a2c6aa7f8b"
+      "bytes": 10019,
+      "sha256": "189b82f1f7c659d1974fa8b5c046d03152ab0d2e614ec0c248b1faa50d5eca43"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
