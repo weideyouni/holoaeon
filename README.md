@@ -1,3 +1,20 @@
+---
+pretty_name: HoloAeon
+license: apache-2.0
+language:
+  - en
+  - zh
+tags:
+  - multi-agent-systems
+  - agent-framework
+  - deterministic
+  - zero-dependency
+  - offline
+  - bio-inspired
+  - python
+  - llm
+---
+
 <div align="center">
 
 # HoloAeon
