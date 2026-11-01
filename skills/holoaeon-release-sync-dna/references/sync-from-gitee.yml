@@ -1,0 +1,84 @@
+name: sync-from-gitee
+
+# 三地同步的第②跳：本机到 GitHub 不可写时，由 GitHub runner 从 Gitee 拉全量并对齐 main。
+# 事实约束（逐条踩过）：
+#  1) 缺 schedule 则 Gitee 单独前进时 GitHub 永远追不上；有 schedule 也不保证准时（UTC、会排队/丢轮）
+#  2) .github/ 是唯一允许两地不同的目录，必须从 origin/main 捞回来（keep_workflows）
+#  3) GITHUB_TOKEN 的 push 不再触发工作流，无回环
+#  4) run: 默认 bash -e → 任何一步 git 失败整步 exit 128 且匿名不可见，故 set +e + 逐条 *_rc= 记账
+#  5) 验收票据写到孤儿分支 sync-status，不污染 main
+#  6) 对象摘要 = sha256(ls-tree -r 剔除 .github/ 后按字节序排序)，三端一个字符串可比
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '*/30 * * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-from-gitee
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Align main from Gitee (keep github workflows)
+        run: |
+          set +e
+          set -uo pipefail
+          LOG=/tmp/sync.log
+          : > "$LOG"
+          mkdir -p /tmp/out
+          echo "runner_at=$(date -u +%FT%TZ)" >> "$LOG"
+          git remote add gitee https://gitee.com/<OWNER>/<REPO>.git >> "$LOG" 2>&1
+          echo "remote_add_rc=$?" >> "$LOG"
+          git fetch --no-tags gitee '+refs/heads/main:refs/remotes/gitee/main' >> "$LOG" 2>&1
+          echo "fetch_rc=$?" >> "$LOG"
+          GITEE_HEAD=$(git rev-parse refs/remotes/gitee/main 2>>"$LOG")
+          echo "gitee_head=$GITEE_HEAD" >> "$LOG"
+          git checkout -B align refs/remotes/gitee/main >> "$LOG" 2>&1
+          echo "checkout_rc=$?" >> "$LOG"
+          git checkout origin/main -- .github >> "$LOG" 2>&1
+          echo "keep_workflows_rc=$?" >> "$LOG"
+          git -c user.name="sync-bot" -c user.email="sync-bot@users.noreply.github.com" commit -q -m "sync: align all files from gitee main (gitee=$GITEE_HEAD)" >> "$LOG" 2>&1
+          echo "commit_rc=$?" >> "$LOG"
+          git push --force origin align:refs/heads/main >> "$LOG" 2>&1
+          echo "push_rc=$?" >> "$LOG"
+          echo "github_head=$(git rev-parse HEAD)" >> "$LOG"
+          git ls-tree -r --full-tree HEAD > /tmp/out/manifest.txt 2>>"$LOG"
+          echo "file_count=$(wc -l < /tmp/out/manifest.txt)" >> "$LOG"
+          grep -v -P '^\S+ \S+ \S+\t\.github/' /tmp/out/manifest.txt > /tmp/out/manifest.nogithub.txt
+          LC_ALL=C sort /tmp/out/manifest.nogithub.txt > /tmp/out/manifest.nogithub.sorted.txt
+          echo "nogithub_count=$(wc -l < /tmp/out/manifest.nogithub.sorted.txt)" >> "$LOG"
+          sha256sum /tmp/out/manifest.nogithub.sorted.txt | awk '{print $1}' > /tmp/out/object_digest.txt
+          echo "object_digest=$(cat /tmp/out/object_digest.txt)" >> "$LOG"
+          cat "$LOG" >> "$GITHUB_STEP_SUMMARY" || true
+      - name: Publish diagnostic + object manifest to sync-status branch
+        if: always()
+        run: |
+          set +e
+          set -uo pipefail
+          git checkout --orphan status-tmp >> /tmp/pub.log 2>&1
+          echo "orphan_rc=$?" >> /tmp/pub.log
+          git rm -rqf . >> /tmp/pub.log 2>&1
+          mkdir -p .sync
+          { echo "run_id: $GITHUB_RUN_ID"; echo "sha: $GITHUB_SHA"; echo "event: $GITHUB_EVENT_NAME"; echo; cat /tmp/sync.log 2>/dev/null || true; } > .sync/last.log
+          { cat /tmp/sync.log 2>/dev/null | grep -E '^(gitee_head|github_head|file_count|nogithub_count|object_digest|.*_rc)=' || true; } > .sync/heads.txt
+          cp /tmp/out/manifest.txt .sync/manifest.txt 2>/dev/null || true
+          cp /tmp/out/manifest.nogithub.sorted.txt .sync/manifest.nogithub.sorted.txt 2>/dev/null || true
+          cp /tmp/out/object_digest.txt .sync/object_digest.txt 2>/dev/null || true
+          wc -l < .sync/manifest.txt > .sync/manifest.count 2>/dev/null || echo 0 > .sync/manifest.count
+          git add -f .sync/last.log .sync/heads.txt .sync/manifest.txt .sync/manifest.nogithub.sorted.txt .sync/object_digest.txt .sync/manifest.count >> /tmp/pub.log 2>&1
+          git -c user.name="sync-bot" -c user.email="sync-bot@users.noreply.github.com" commit -q -m "sync status $GITHUB_RUN_ID" >> /tmp/pub.log 2>&1
+          echo "commit_rc=$?" >> /tmp/pub.log
+          git push --force origin status-tmp:refs/heads/sync-status >> /tmp/pub.log 2>&1
+          echo "push_rc=$?" >> /tmp/pub.log
+          cat /tmp/pub.log >> "$GITHUB_STEP_SUMMARY" || true
