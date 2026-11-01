@@ -1,0 +1,151 @@
+{
+ "as_of": "2026-11-02",
+ "fusion": {
+  "id": "SG-FUSION-UPGRADE-HOLOAEON-V4.0",
+  "doc_version": "0.9.4-fusion",
+  "protocol": "HOLOAEON-FUSION-PROTOCOL-v1.0",
+  "evidence_class": "simulated"
+ },
+ "version": {
+  "runtime": "0.9.1",
+  "doc": "0.9.3",
+  "policy": "运行态 VERSION 不动（写进回执参与 ReproHash）；融合版本单列"
+ },
+ "locks": {
+  "agents": 25,
+  "skills": 47,
+  "packs": 9
+ },
+ "manifest": {
+  "core": 9,
+  "extra": 10,
+  "skills": 206,
+  "digest": "31e7f77eba5a10e7"
+ },
+ "index": {
+  "present": true,
+  "count": 1229,
+  "digest": "9a565741e1f72ab7",
+  "by_mechanism": {
+   "cytoskeleton": 209,
+   "hebbian_field": 315,
+   "holographic_heartbeat": 241,
+   "meridian": 4,
+   "semantic_bus": 19,
+   "skin_v6": 368,
+   "unmapped": 73
+  },
+  "by_domain": {
+   "business": 4,
+   "data": 110,
+   "gaoyi": 209,
+   "growth": 45,
+   "literature": 359,
+   "optimization": 52,
+   "quant": 15,
+   "research": 325,
+   "unmapped": 81,
+   "writing": 29
+  },
+  "unmapped": 73,
+  "roots": [
+   "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.skills",
+   "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills",
+   "C:\\Users\\Administrator\\DoubaoWork\\skills",
+   "C:\\Users\\Administrator\\.agents\\skills",
+   "F:\\doubaowork\\.agents\\skills"
+  ]
+ },
+ "contract": {
+  "pairs": 6,
+  "mechanisms": [
+   "holographic_heartbeat",
+   "cytoskeleton",
+   "skin_v6",
+   "semantic_bus",
+   "hebbian_field",
+   "meridian"
+  ],
+  "channels": {
+   "mapped": 12,
+   "targets": 17,
+   "pending": 5
+  }
+ },
+ "plan": {
+  "version": "V2.0",
+  "batches": 12,
+  "total_hours": 15.0,
+  "ids": [
+   "B0",
+   "B1a",
+   "B1b",
+   "B2a",
+   "B2b",
+   "B3",
+   "B4",
+   "B5",
+   "B6",
+   "B7",
+   "B8",
+   "B9"
+  ],
+  "by_owner": {
+   "P1 探微": 2,
+   "P2 筑基": 4,
+   "P3 构弦": 3,
+   "P4 持衡": 2,
+   "四透镜合议": 1
+  },
+  "digest": "fe8b68f97d9086d7"
+ },
+ "quartet": {
+  "rank": [
+   {
+    "persona": "P2",
+    "name": "筑基(P2)",
+    "overlap": 3
+   },
+   {
+    "persona": "P1",
+    "name": "探微(P1)",
+    "overlap": 1
+   },
+   {
+    "persona": "P3",
+    "name": "构弦(P3)",
+    "overlap": 1
+   },
+   {
+    "persona": "P4",
+    "name": "持衡(P4)",
+    "overlap": 1
+   }
+  ],
+  "top": "P2"
+ },
+ "gates_last_known": {
+  "holoaeon_v3_gate": "32/32 PASS, A1=25/47/9",
+  "holoaeon_unittest": "34 OK",
+  "holoaeon_selftest": "25/25",
+  "holoaeon_redline": "0 violations",
+  "ivsa_main": "21/21 PASS",
+  "ivsa_unittest": "16 OK",
+  "ivsa_redline": "hits=56 safe=56 violations=0",
+  "note": "本组为上次已知值；接收方须按 recheck 现场复跑"
+ },
+ "recheck": [
+  "python scripts/v3_gate.py --json reports/gate.json",
+  "python -m unittest discover -s tests",
+  "python scripts/verify_fusion_upgrade.py",
+  "cd ../开源发布_中西医融合康复工程_20261026/integrative-rehab-vsa && python main.py"
+ ],
+ "honesty": {
+  "network_calls": 0,
+  "third_party_deps": 0,
+  "external_skills_executed": 0,
+  "note": "1229 外部技能只读 SKILL.md 头部，从未 import/run"
+ },
+ "attribution_note": "四人组为公开资料归因仿真转述，不代表原型人物实时观点；需人类终审；仿真≠证明",
+ "seal": "12a624c4658f5a3e"
+}

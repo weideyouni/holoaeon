@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """HoloAeon 九大领域包注册表 + 横切扩展包（第十：认知主权；第十一：SD-Distill；第十二：全域生活；
-第十三：全息纪元；第十四：代谢层；第十五：肾单位 P0 认知账本；第十六：补齐短板 UPLIFT）。"""
+第十三：全息纪元；第十四：代谢层；第十五：肾单位 P0 认知账本；第十六：补齐短板 UPLIFT；
+第十七：四人全维度数字分身；第十八：全量技能矩阵六机制；第十九：冷热插拔赋能升级与内外融合协议）。"""
 from __future__ import annotations
 
 from typing import Dict, List
@@ -22,6 +23,8 @@ from .omnilife_pack import OmniLifePack
 from .subdistill_pack import SubdistillPack
 from .uplift_pack import UpliftPack
 from .persona_quartet_pack import PersonaQuartetPack
+from .skill_matrix_pack import SkillMatrixPack
+from .fusion_upgrade_pack import FusionUpgradePack
 from .writing import WritingPack
 
 # 九大领域包（每次调用返回新实例，避免共享状态）
@@ -57,6 +60,8 @@ def all_packs() -> List[DomainPack]:
 # 横切扩展包（第十包起）：**不进 PACK_ORDER**，故不改变 G15 的 n_agents==25 / n_skills==47
 # 断言；由 G18 / G19 / G20 分别验证，也可显式 get_extra_pack(key) 取用。
 # （第十七：四人全维度数字分身 persona_quartet，2026-10-31 增量旁挂。）
+# （第十八：全量技能矩阵 skill_matrix，2026-11-02 增量旁挂，六机制跨线程可调。）
+# （第十九：冷热插拔赋能升级 fusion_upgrade，2026-11-02 增量旁挂，内外融合协议可跑。）
 # ------------------------------------------------------------------------------------
 EXTRA_PACK_REGISTRY: Dict[str, type] = {
     SovereigntyPack.key: SovereigntyPack,
@@ -67,10 +72,13 @@ EXTRA_PACK_REGISTRY: Dict[str, type] = {
     NephronPack.key: NephronPack,
     UpliftPack.key: UpliftPack,
     PersonaQuartetPack.key: PersonaQuartetPack,
+    SkillMatrixPack.key: SkillMatrixPack,
+    FusionUpgradePack.key: FusionUpgradePack,
 }
 
 EXTRA_PACK_ORDER: List[str] = ["sovereignty", "subdistill", "omnilife", "omnicore",
-                                "metab", "nephron", "uplift", "persona_quartet"]
+                                "metab", "nephron", "uplift", "persona_quartet",
+                                "skill_matrix", "fusion_upgrade"]
 
 
 def get_extra_pack(key: str) -> DomainPack:
