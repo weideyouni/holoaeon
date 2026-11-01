@@ -172,3 +172,24 @@ python scripts/fusion_local.py status        # 25 agents / 47 skills / 9 packs �
 ---
 
 潮起开门，潮落闭嘴。
+
+## First upgrade landed — B0 baseline freeze (2026-11-02)
+
+| gate | command | result |
+|---|---|---|
+| v3_gate | `python scripts/v3_gate.py --json reports/gate_b0_v4.json` | **32/32**, A1 = 25/47/9 |
+| unittest | `python -m unittest discover -s tests` | **Ran 34 OK** |
+| launch selftest | `python scripts/launch_local.py selftest` | **25/25** |
+| skill matrix | `python scripts/verify_skill_matrix.py` | **17/17**, digest `9a565741e1f72ab7` |
+| redline | `python scripts/redline_scan.py` | 67 files, **0 violations** |
+| fusion | `python scripts/verify_fusion_upgrade.py` | **17/17** |
+| ivsa | `cd integrative-rehab-vsa && python main.py` | **21/21** |
+
+Golden values unchanged: `diff0=2fc892cf9af6e755`, `tamper=f42c8229ee5acd73`, `spec.VERSION=0.9.1`.
+
+- 14-dimension lock: `reports/b0_lock_v4fusion.json`
+- Ticket: `data/B0_基线票据_v4fusion.md`
+- Skill auto-match (1229 → 365 candidates, deterministic, offline, zero external skills executed): `python scripts/b0_match.py` → `data/B0_自动匹配技能.csv`
+- Batch progress: `data/B0_批次进度.csv` (B0 done, B1a next)
+
+Next batch **B1a contract field draft** stays blocked until this ticket is re-run green.

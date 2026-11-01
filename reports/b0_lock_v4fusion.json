@@ -1,0 +1,35 @@
+{
+  "lock_id": "B0-LOCK-V4-FUSION-20261102",
+  "batch": "B0",
+  "frozen_at": "2026-11-02T01:20+08:00",
+  "evidence_class": "simulated",
+  "note": "仿真≠证明，碳基终裁；本轮为 B0 现场复算，与 01:04 版 reports/dimension_lock.json 并行核对一致",
+  "dimensions": {
+    "D01_agents": 25,
+    "D02_skills": 47,
+    "D03_packs": 9,
+    "D04_spec_version": "0.9.1",
+    "D05_doc_version": "0.9.4-fusion",
+    "D06_extra_packs": 10,
+    "D07_unittests": "34/21/5",
+    "D08_launch_selftest": "25/25",
+    "D09_diff0_hash": "2fc892cf9af6e755",
+    "D10_tamper_hash": "f42c8229ee5acd73",
+    "D11_v3_gate": "32/32",
+    "D12_ivsa_selftest": "21/21",
+    "D13_fusion_selftest": "17/17",
+    "D14_skill_matrix": "17/17"
+  },
+  "observed": {
+    "A1_detail": {
+      "agents": 25,
+      "packs": 9,
+      "skills": 47
+    },
+    "gate_verdict": "PASS"
+  },
+  "skill_match": {
+    "matched": 365,
+    "index_digest": "9a565741e1f72ab7"
+  }
+}

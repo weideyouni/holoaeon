@@ -1,0 +1,56 @@
+{
+  "matched_for": "B0 基线冻结",
+  "source_index": {
+    "count": 1229,
+    "digest": "9a565741e1f72ab7"
+  },
+  "matched_total": 365,
+  "top20": [
+    "avatar-person-quartet-1331",
+    "slv2-matrix-base-1331x131",
+    "silicon-bridge-code-framework",
+    "qilu-holo-avatar-matrix",
+    "shuzi-fenshen-sidecar-deploy",
+    "coldhot-upgrade-package-harvest",
+    "holoaeon-v2-empower-upgrade",
+    "shengui-shenma-dual-system-base-super-matrix",
+    "rehab-line1-1331",
+    "shengui-shenma-chengdan-super-matrix",
+    "shengui-shenma-samalt-1331x1331-super-matrix",
+    "shengui-shenma-shishu-yidao-ouyue-super-matrix",
+    "shengui-shenma-wenxuan-1331x1331-super-matrix",
+    "holoaeon-diff0-20261031",
+    "shengui-shenma-jingu-edu-heroes",
+    "cognitive-sovereignty-1331",
+    "cold-hot-plug-deployment",
+    "cold-hot-plug-upgrade",
+    "holoaeon-empower-20261031",
+    "plug-play-rollback-sop"
+  ],
+  "by_mechanism": {
+    "hebbian_field": 193,
+    "skin_v6": 77,
+    "holographic_heartbeat": 51,
+    "cytoskeleton": 35,
+    "semantic_bus": 6,
+    "unmapped": 2,
+    "meridian": 1
+  },
+  "by_domain": {
+    "literature": 114,
+    "gaoyi": 87,
+    "unmapped": 49,
+    "research": 46,
+    "data": 29,
+    "writing": 18,
+    "optimization": 14,
+    "growth": 5,
+    "quant": 2,
+    "business": 1
+  },
+  "scoring": "sum(keyword_weight*hit) + 0.6*shingle_overlap; sort by score desc then name asc",
+  "honesty": {
+    "external_skills_executed": 0,
+    "mode": "只读索引打分，未 import 未执行"
+  }
+}

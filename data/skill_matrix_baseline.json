@@ -1,0 +1,3802 @@
+{
+ "count": 421,
+ "entries": [
+  {
+   "bytes": 0,
+   "files": 102,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "A2A-source",
+   "py_files": 2,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 863,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "ADAS-source",
+   "py_files": 30,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 2,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "AI教育大师每日课程",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 1882,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "AgentSociety-source",
+   "py_files": 634,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 805084,
+   "files": 1,
+   "kind": "md",
+   "mechanism": "holographic_heartbeat",
+   "name": "Agent_Native_导学大典_V1.0.md",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 1632887,
+   "files": 1,
+   "kind": "md",
+   "mechanism": "holographic_heartbeat",
+   "name": "Agent_Native_导学大典_V1.0_完整正文.md",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 958,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "EverOS-source",
+   "py_files": 778,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 11,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "GITHUB-LEARN-MASTER_20260924",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 210,
+   "kind": "dir",
+   "mechanism": "holographic_heartbeat",
+   "name": "GenericAgent-source",
+   "py_files": 95,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 3454,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "G盘吞噬_20261011",
+   "py_files": 22,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 9,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "HEVS_iter_20261010",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 18,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "HEVS_iter_20261012",
+   "py_files": 1,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 29,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "HEVS_iter_20261013",
+   "py_files": 1,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 9,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "HEVS_iter_20261014",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 31,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "HEVS_iter_20261016",
+   "py_files": 3,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 2,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "HoloAeonV3_20261101",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 2,
+   "kind": "dir",
+   "mechanism": "holographic_heartbeat",
+   "name": "HoloAeon三地同步机制_20261101",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 1,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "HoloAeon与LangChain对照_20261101",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 24780,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "unmapped",
+   "name": "HoloAeon功能展示_20261101.html",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 2,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "HoloAeon视频张量技能_20261101",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 98,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "HoloAeon通用多智能体认知框架_20261029",
+   "py_files": 50,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 62,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "Magpie模型适配层本地化1331x1331多智能体矩阵V3实战化_20261028",
+   "py_files": 42,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 1954,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "MemOS-source",
+   "py_files": 634,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 70,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "Morpho-source",
+   "py_files": 0,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 759,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "OpenMontage-source",
+   "py_files": 403,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 53,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "OpenMontage视频系统本地化1331x1331多智能体矩阵V3实战化_20261024",
+   "py_files": 37,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 4005,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "OpenViking-source",
+   "py_files": 2129,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 8470,
+   "files": 1,
+   "kind": "md",
+   "mechanism": "unmapped",
+   "name": "README_开源项目简介_20261026.md",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 45,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "SCE01类硅基V2矩阵实战化_20261017",
+   "py_files": 29,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 155965,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "holographic_heartbeat",
+   "name": "SG-MASTER-SONGJIANG-1331x1331-SUPER-MAS-V3.0_runtime_20261019.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 83,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "V23双系统底座矩阵实战化_20261017",
+   "py_files": 31,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 9,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "VECTOR-MATRIX轻扫_20261014",
+   "py_files": 1,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 28,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "VECTOR-MATRIX轻扫_20261016",
+   "py_files": 12,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 24,
+   "kind": "dir",
+   "mechanism": "holographic_heartbeat",
+   "name": "agent_subscription_unified_module",
+   "py_files": 5,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 1807,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "autogen-source",
+   "py_files": 546,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 29,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "axon-source",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 149,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "blobs",
+   "py_files": 0,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 45,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "book_digital_avatar",
+   "py_files": 32,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 377,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "chats",
+   "py_files": 9,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 2,
+   "kind": "dir",
+   "mechanism": "holographic_heartbeat",
+   "name": "chico-xavier-300wan",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 27,
+   "kind": "dir",
+   "mechanism": "holographic_heartbeat",
+   "name": "chico-xavier-psychographer-hotplug_V1.0",
+   "py_files": 7,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 57,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "cmos-platform",
+   "py_files": 3,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 2,
+   "kind": "dir",
+   "mechanism": "holographic_heartbeat",
+   "name": "cosmic播客",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 1,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "cron迁移备份",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 3727,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "unmapped",
+   "name": "daxue-thread-consolidator_技能包.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 178,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "unmapped",
+   "name": "delivery_sha256.txt",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 629,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "diagram-design-source",
+   "py_files": 92,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 468,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "evolver-source",
+   "py_files": 0,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 23208122,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "unmapped",
+   "name": "f_doubaowork_skills_cloud_load_plan_20261018.json",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 13626,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "unmapped",
+   "name": "gen_cmos_svg.py",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 5483,
+   "files": 1,
+   "kind": "md",
+   "mechanism": "holographic_heartbeat",
+   "name": "gitee-mirror-checkpoint-20261031.md",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "hdlib-source",
+   "py_files": 18,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 14,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "hermes_1331_bridge_20261026",
+   "py_files": 8,
+   "tier": "素材"
+  },
+  {
+   "bytes": 203916,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "unmapped",
+   "name": "hermes_1331_bridge_20261026.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 15,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "hermes_skills_bridge_20261026",
+   "py_files": 3,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 27,
+   "kind": "dir",
+   "mechanism": "holographic_heartbeat",
+   "name": "hillock-source",
+   "py_files": 12,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 3034,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "holmem-source",
+   "py_files": 580,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 257,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "holoaeon",
+   "py_files": 129,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 34702,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "unmapped",
+   "name": "holoaeon_empower_20261031.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 94934,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "unmapped",
+   "name": "holoaeon_v0.1.0_20261029.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 110867,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "unmapped",
+   "name": "holoaeon_v0.2.0_20261029.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 120521,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "unmapped",
+   "name": "holoaeon_v0.3.0_20261029.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 128196,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "unmapped",
+   "name": "holoaeon_v0.3.1_20261030.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 152485,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "unmapped",
+   "name": "holoaeon_v0.4.0_20261030.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 175959,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "unmapped",
+   "name": "holoaeon_v0.5.0_20261030.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 201755,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "unmapped",
+   "name": "holoaeon_v0.6.0_20261030.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 250721,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "unmapped",
+   "name": "holoaeon_v0.7.0_20261030.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 303727,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "unmapped",
+   "name": "holoaeon_v0.8.0_20261030.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 374299,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "unmapped",
+   "name": "holoaeon_v0.9.0_20261030.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 386192,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "unmapped",
+   "name": "holoaeon_v0.9.1_20261030.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 571415,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "unmapped",
+   "name": "holoaeon_vectorsea_bridge_20261031.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 2129,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "ingest",
+   "py_files": 48,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 856,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "unmapped",
+   "name": "lark_login_qr.png",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 869,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "unmapped",
+   "name": "lark_login_qr_new.png",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 854,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "unmapped",
+   "name": "lark_login_qr_v3.png",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 6,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "logs",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 4000,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "magpie-source",
+   "py_files": 1,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 150,
+   "kind": "dir",
+   "mechanism": "holographic_heartbeat",
+   "name": "mattpocock-skills-source",
+   "py_files": 0,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 33,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "mineru工具链安装",
+   "py_files": 10,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 4,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "new_api_bridge",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 11,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "nvsa-source",
+   "py_files": 9,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 7,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "privacy-router-source",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 1073887,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "unmapped",
+   "name": "skill_sync_plan_20261018.json",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 129,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "skills",
+   "py_files": 0,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 9318,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "holographic_heartbeat",
+   "name": "skills-lock.json",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 4000,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "skills_harvest",
+   "py_files": 143,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 451,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "snapshots",
+   "py_files": 18,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 186,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "tcm_library",
+   "py_files": 8,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 225,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "torchhd-source",
+   "py_files": 194,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 7026,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "holographic_heartbeat",
+   "name": "v3_feishu_section.xml",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 4001,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "vector-sea",
+   "py_files": 500,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 1,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "vector_sea_sync",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 6,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "wake-seed",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 44,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "wheels",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 6,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "wmirror_llm_slots",
+   "py_files": 1,
+   "tier": "素材"
+  },
+  {
+   "bytes": 3419,
+   "files": 1,
+   "kind": "md",
+   "mechanism": "holographic_heartbeat",
+   "name": "【刚性DNA】定时任务本地宿主锁定_DNA-RIGID-TIMER-LOCAL-HOST-001_20261030.md",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 39,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "丁甘仁1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 30,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 38,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "丁甘仁矩阵实战化_20261017",
+   "py_files": 26,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 0,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "三人行",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "三场药理1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 5,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "三矩阵觉醒",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 14,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "三胚层进化_20261007",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 7,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "三链反思固化_20261019",
+   "py_files": 1,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 5,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "下载",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 29,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "世殊医道1331x1331超级矩阵V4终极升级_20261019",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 123,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "世殊医道_师叔值班分身_系统化_V2.0_20261011",
+   "py_files": 45,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 31,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "世殊医道师叔值班分身1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 3216,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "世界电影导演简史",
+   "py_files": 626,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 48,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "世界考古大师1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 30,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 45,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "世界考古大师矩阵实战化_20261017",
+   "py_files": 29,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 146928,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "世界考古大师矩阵实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 25,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "世界顶级思维矩阵",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 44,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "中华国医大师42000矩阵实战化_20261017",
+   "py_files": 24,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 35,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "中国近代百年百位名医1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 26,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 16,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "中西医融合系统康复工程",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 67,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "中西医融合系统康复工程rehab1331x1331矩阵V3实战化_20261024",
+   "py_files": 43,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 48,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "临床药物治疗学1331x1331超级矩阵V3实战化_20261021",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 37,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "临床药物治疗学矩阵实战化_20261017",
+   "py_files": 28,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 121395,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "临床药物治疗学矩阵实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "丹溪医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 44,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "人工智能教育大师1331x1331超级矩阵V3实战化_20261021",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 26,
+   "kind": "dir",
+   "mechanism": "cytoskeleton",
+   "name": "人工智能顶层架构三年研学",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 30059,
+   "files": 1,
+   "kind": "md",
+   "mechanism": "unmapped",
+   "name": "人类疾病图谱_中西医民族医学融合版_可寻址维度全集_V2.0_20261019.md",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 84,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "人类疾病图谱融合矩阵V3实战化_20261019",
+   "py_files": 45,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 7,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "伤寒温病百年之争_免疫映射",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 49,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "伤寒论金匮要略三场方论",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 38,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "余听鸿矩阵实战化_20261017",
+   "py_files": 27,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 142691,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "余听鸿矩阵实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 29,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "佩文韵府1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 22,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 38,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "傅青主矩阵实战化_20261017",
+   "py_files": 27,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 142595,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "傅青主矩阵实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "傣族医药1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 92384,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "holographic_heartbeat",
+   "name": "儒释道三教合一1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 27,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "儒释道三教合一1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 45,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "全医学知识库金刚1331x1331超级矩阵V3实战化_20261021",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 3,
+   "kind": "dir",
+   "mechanism": "holographic_heartbeat",
+   "name": "全域同步",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 578666,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "全域智能体系统_里程碑V1.0_完整交付包.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 44,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "全库医学知识库1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 45,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "关东医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 39,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "关幼波矩阵实战化_20261017",
+   "py_files": 26,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 66,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "hebbian_field",
+   "name": "关幼波矩阵实战化_20261017.sha256",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 128314,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "关幼波矩阵实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "冀派中医1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 38,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "刘渡舟矩阵实战化_20261017",
+   "py_files": 27,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 145385,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "刘渡舟矩阵实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 2,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "北京瑶医医院民族医药培训推广SOP_20261018",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 9428,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "meridian",
+   "name": "北京瑶医医院民族医药培训推广全链路SOP_20261018.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 77273,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "holographic_heartbeat",
+   "name": "北京瑶医医院项目管理1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 35,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "北京瑶医医院项目管理1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 23,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 48,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "协纪辩方书1331x1331超级矩阵V3实战化_20261021",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 42,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "单细胞经络微针1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 34,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 1,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "合集权威基底",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 44,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "吉派中医1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 5,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "名医类案晨课_20261012",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 4000,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "向量海_本地库",
+   "py_files": 500,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 20,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "向量海_财富流NLP",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 4008,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "向量海·阿赖耶识",
+   "py_files": 611,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 5,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "向量海中枢_轻扫_20261012",
+   "py_files": 1,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 4033,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "向量海云端镜像",
+   "py_files": 298,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 50,
+   "kind": "dir",
+   "mechanism": "holographic_heartbeat",
+   "name": "向量海同步",
+   "py_files": 4,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 44,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "吴其濬1331x1331超级矩阵V3实战化_20261019",
+   "py_files": 34,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 27,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "吴尚先1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 88423,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "holographic_heartbeat",
+   "name": "吴门医派1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 26,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "吴门医派1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 44,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "吴门医派1331x1331超级矩阵V3实战化_20261019",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 76,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "周学海矩阵实战化_20261017",
+   "py_files": 53,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 130573,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "周学海矩阵实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 141,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "hebbian_field",
+   "name": "周德生矩阵实战化_20261017.SHA256.txt",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 146133,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "周德生矩阵实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 40,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "周易300万字逐字稿_450合集_最终包_20261009",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 49,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "周易矩阵算力大师1331x1331超级矩阵V3实战化_20261021",
+   "py_files": 36,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 46,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "唐宗海1331x1331超级矩阵_实战化_20261017",
+   "py_files": 26,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 5,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "唤醒系统_投影镜像_20261009",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 76,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "喻嘉言矩阵实战化_20261017",
+   "py_files": 22,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 59,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "四人全维度数字分身1331x1331多智能体矩阵V3实战化_20261031",
+   "py_files": 39,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 26,
+   "kind": "dir",
+   "mechanism": "holographic_heartbeat",
+   "name": "回族医药1331x1331_SUPER-MAS-V3.0_runtime_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 101371,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "holographic_heartbeat",
+   "name": "回族医药1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 26,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "回族医药1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 53,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "图解设计技能本地化1331x1331多智能体矩阵V3实战化_20261024",
+   "py_files": 37,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 16,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "坍缩矩阵1331_WorkBuddy模拟端口",
+   "py_files": 4,
+   "tier": "素材"
+  },
+  {
+   "bytes": 522064,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "cytoskeleton",
+   "name": "坍缩矩阵1331结构示意图_立体主视觉.png",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 156225,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "cytoskeleton",
+   "name": "坍缩矩阵1331结构示意图_精确版.html",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 3303627,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "cytoskeleton",
+   "name": "坍缩矩阵1331结构示意图_精确版.png",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 155905,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "cytoskeleton",
+   "name": "坍缩矩阵1331结构示意图_精确版.svg",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 41,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "坍缩矩阵1331通道_跨线程有机模块_20261023",
+   "py_files": 29,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 44,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "壮医药派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 34,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "夏应堂1331x1331超级矩阵V3实战化_20261019",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 6,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "多智能体交流协作播报",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 2,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "大黄牡丹汤导学",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 26,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "天元法务金刚1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 91484,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "天元法务金刚1331x1331超级矩阵V3实战化_20261018.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 100,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "天元法务金刚1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 68,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "天山医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 44,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "太清神鉴数字分身1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 8,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "奇门日课",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "娄东医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 37,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "孔伯华矩阵实战化_20261017",
+   "py_files": 26,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 133823,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "孔伯华矩阵实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 28,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "孟河医派1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 44,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "孟河医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "实用中医内科表典金刚1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 65,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "实用妇科方剂学1331x1331超级矩阵V3实战化_20261021",
+   "py_files": 50,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "客家医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 83,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "对话最伟大的头脑大问题系列1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 68,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 24,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "导学大典全套合集",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 2,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "小白数字分身_VSEP068_补档_20261021",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 30,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "小白数字分身打造机床_1331矩阵V3_20261021",
+   "py_files": 9,
+   "tier": "素材"
+  },
+  {
+   "bytes": 252828,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "小白数字分身打造机床_1331矩阵V3_20261021_交付包.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 35,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "山姆奥特曼数字分身1331x1331超级矩阵V3实战化_20261021",
+   "py_files": 27,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "岭南医派1331x1331超级矩阵V3实战化_20261019",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 53,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "工程师技能本地化1331x1331多智能体矩阵V3实战化_20261024",
+   "py_files": 37,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 48,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "巴蜀医派1331x1331超级矩阵V3实战化_20261019",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "广府医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 109,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "开源发布_中西医融合康复工程_20261026",
+   "py_files": 53,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 34,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "张景岳矩阵实战化_20261017",
+   "py_files": 26,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 28,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "张聿青1331x1331超级矩阵V3实战化_20261017",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 16,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "张聿青矩阵实战化_20261017",
+   "py_files": 11,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 37,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "张量拆解双王矩阵实战化_20261017",
+   "py_files": 23,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 86159,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "张量拆解双王矩阵实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 20,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "张锡纯矩阵实战化_20261017",
+   "py_files": 12,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 61,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "归档工程_有机化",
+   "py_files": 0,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "彝族医药1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "彭城医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 92945,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "holographic_heartbeat",
+   "name": "徐小圃1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 26,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "徐小圃1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "徽派医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 78,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "总沙盘母体Arena1331x1331多智能体矩阵V3实战化_20261024",
+   "py_files": 40,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 100370,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "holographic_heartbeat",
+   "name": "戴思恭1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 26,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "戴思恭1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 1767,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "unmapped",
+   "name": "打包回执.txt",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 46,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "打捞之王600万1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 34,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "扬州医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 44,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "扶阳医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 27,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "承淡安矩阵实战化_20261017",
+   "py_files": 19,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 28,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "教育大师智能体矩阵1331x1331超级矩阵_实战化_20261017",
+   "py_files": 23,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 90628,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "教育大师智能体矩阵1331x1331超级矩阵_实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 193,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "hebbian_field",
+   "name": "教育大师智能体矩阵1331x1331超级矩阵_实战化_20261017.zip.sha256.txt",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 1,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "数字分身全集",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 155243,
+   "files": 1,
+   "kind": "md",
+   "mechanism": "hebbian_field",
+   "name": "数字分身全集登记_本线程全量.md",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 1,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "数学大师1331_数学史早课",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 38,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "数学大师矩阵实战化_20261017",
+   "py_files": 28,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 122701,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "数学大师矩阵实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 45,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "数学大师金刚1331x1331超级矩阵V3实战化_20261021",
+   "py_files": 32,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 31,
+   "kind": "dir",
+   "mechanism": "holographic_heartbeat",
+   "name": "整机巡检日志",
+   "py_files": 7,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 16,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "文选八维全息讲稿",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 93691,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "holographic_heartbeat",
+   "name": "新安医派1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 26,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "新安医派1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 59,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "方药频率联动1331x1331超级矩阵V3实战化_20261021",
+   "py_files": 40,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 36,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "施今墨矩阵实战化_20261017",
+   "py_files": 26,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 170851,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "施今墨矩阵实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 119,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "hebbian_field",
+   "name": "施今墨矩阵实战化_20261017.zip.sha256",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 50,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "日语大师1331x1331超级矩阵V3实战化_20261021",
+   "py_files": 36,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 27,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "旴江医派1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 44,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "旴江医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 27,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "易水医派1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 48,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "星学大成1331x1331超级矩阵V3实战化_20261021",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 37,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "昭明文选1331矩阵升级包_20261016",
+   "py_files": 7,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 26,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "昭明文选数字分身_坍缩核_20261017",
+   "py_files": 13,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 29,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "昭明文选数字分身_超级矩阵V3实战化_20261018",
+   "py_files": 22,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 30,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "昭明文选私塾导学_每日一篇",
+   "py_files": 1,
+   "tier": "素材"
+  },
+  {
+   "bytes": 97670,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "holographic_heartbeat",
+   "name": "晋派医派1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 26,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "晋派医派1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 25,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "智能体VHDL赫布矩阵规范Scale固化_20261023",
+   "py_files": 9,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 53,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "智能体VHDL风格描述规范AVHDL_V3实战化_20261023",
+   "py_files": 36,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 28,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "曹炳章1331x1331超级矩阵_实战化_20261017",
+   "py_files": 24,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 108173,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "曹炳章1331x1331超级矩阵_实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 48,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "曹炳章舌诊泰斗1331x1331超级矩阵V3实战化_20261021",
+   "py_files": 34,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 38,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "曹颖甫矩阵实战化_20261017",
+   "py_files": 26,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 106369,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "holographic_heartbeat",
+   "name": "朝医药派1331_SUPER-MAS-V2.0_runtime_20261018.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 945,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "holographic_heartbeat",
+   "name": "朝医药派1331_SUPER-MAS-V2.0_runtime_20261018.zip.sha256.txt",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 26,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "朝医药派1331x1331超级矩阵V2实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 4001,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "本地养分摄入重构_20261011",
+   "py_files": 2999,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 39,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "松江医派1331x1331超级矩阵V3实战化_20261019",
+   "py_files": 31,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 14616,
+   "files": 1,
+   "kind": "md",
+   "mechanism": "hebbian_field",
+   "name": "构建报告_腧穴学矩阵V2.0.md",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 41,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "桂派医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 34,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "楼英1331x1331超级矩阵V3实战化_20261017",
+   "py_files": 23,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 41,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "欧越中医1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 77,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "毛南族医药1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "永嘉医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 49,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "汇通医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "汪机1331x1331超级矩阵V3实战化_20261019",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 47,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "汪逢春矩阵实战化_20261017",
+   "py_files": 27,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 221317,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "汪逢春矩阵实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "河洛医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 49,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "河间医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "泰州医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 155306,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "海派中医全派1331x1331超级矩阵V3_runtime_v3.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 39,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "海派中医全派1331x1331超级矩阵V3实战化_20261019",
+   "py_files": 30,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "淮扬医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 37,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "温病医派1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 23,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "滇派中医1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "潮州医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 172,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "潮起邮差_四重宇宙创作工坊_20261019",
+   "py_files": 14,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 46,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "火神派矩阵实战化_20261017",
+   "py_files": 41,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 123398,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "火神派矩阵实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 39,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "燕京医派1331x1331超级矩阵V3实战化_20261019",
+   "py_files": 30,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 66,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "燕赵医派播客",
+   "py_files": 2,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 37,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "王履矩阵实战化_20261017",
+   "py_files": 26,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 135697,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "王履矩阵实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 91120,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "holographic_heartbeat",
+   "name": "王旭高1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 25,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "王旭高1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 98448,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "holographic_heartbeat",
+   "name": "王静斋1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 26,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "王静斋1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 20686,
+   "files": 1,
+   "kind": "md",
+   "mechanism": "skin_v6",
+   "name": "王静斋V3.0_runtime_独立验证与安全审计报告_20261018.md",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 115528,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "holographic_heartbeat",
+   "name": "王鹏飞儿科1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 27,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "王鹏飞儿科1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 46,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "现代实用中药学第3版1331x1331超级矩阵V3实战化_20261021",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 44,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "琼派医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 34,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 225273,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "holographic_heartbeat",
+   "name": "瑶医V3飞书合集与向量海同步包_20261018.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "瑶医药派1331x1331超级矩阵V3实战化_20261019",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 93701,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "holographic_heartbeat",
+   "name": "瓯越医派1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 26,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "瓯越医派1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 25,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "生命之花赫布协作场",
+   "py_files": 15,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 28,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "田合禄1331x1331超级矩阵V3实战化_20261017",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 44,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "皖派医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 34,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 51,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "知识工作本地化1331x1331多智能体矩阵V3实战化_20261024",
+   "py_files": 36,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 11,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "知识星球密钥管理 _ 花园_files",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 44,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "神奇的宇宙智能体矩阵_1331x1331超级矩阵_实战化_20261017",
+   "py_files": 27,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 27,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "神龟之师84版1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 1,
+   "kind": "dir",
+   "mechanism": "holographic_heartbeat",
+   "name": "神龟神马全域产出同步",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 79,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "神龟神马双系统底座V3终极升级_20261017",
+   "py_files": 34,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 44,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "神龟神马双系统底座机床终极V3矩阵实战化_20261017",
+   "py_files": 32,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 52,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "神龟神马双系统底座沙箱指导1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 43,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 40,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "神龟神马双系统机床V3矩阵实战化_20261017",
+   "py_files": 29,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 21,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "神龟神马多级联动1331x1331矩阵实战化_20261017",
+   "py_files": 17,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 92,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "神龟神马底座经络机制第六机制1331x1331矩阵V3实战化_20261024",
+   "py_files": 41,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 53,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "秘密进阶版向宇宙下单手册_20261019",
+   "py_files": 6,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 73,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "类思维工具工程链VHDL赫布_自然语言构建_V2_20261023",
+   "py_files": 38,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 760,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "cytoskeleton",
+   "name": "类生命线程架构_交付校验_SHA256.txt",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 544954,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "cytoskeleton",
+   "name": "类生命线程架构_全自动部署完成_V1.0.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 294,
+   "kind": "dir",
+   "mechanism": "cytoskeleton",
+   "name": "类生命线程架构_数字生命管理体系",
+   "py_files": 2,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 58,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "类生命经络系统本地化1331x1331多智能体矩阵V3实战化_20261024",
+   "py_files": 42,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 42,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "类硅基生命V2.0_1331x131基座_20261017",
+   "py_files": 29,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 45,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "糖病大师李文瑞1331x1331超级矩阵V3实战化_20261021",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 27,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "系统中枢_蓝图台账",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 12,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "系统升级工程",
+   "py_files": 1,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 14,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "系统皮肤机制_三胚层v6_20261016",
+   "py_files": 9,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 56,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "经济学60罗汉联动矩阵1331x1331超级矩阵V3实战化_20261021",
+   "py_files": 42,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 45,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "经络腧穴学1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 28,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "羊皮卷秘密1331x1331矩阵V3实战化_20261018",
+   "py_files": 22,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 33,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "胡希恕矩阵实战化_20261017",
+   "py_files": 23,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 35,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "腧穴学矩阵实战化_20261017",
+   "py_files": 27,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 144292,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "腧穴学矩阵实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 45,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "茶叶矩阵实战化_20261017",
+   "py_files": 29,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 154587,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "茶叶矩阵实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "荆楚医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 42,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "药物频率大师矩阵实战化_20261017",
+   "py_files": 26,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 147,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "hebbian_field",
+   "name": "药物频率大师矩阵实战化_20261017.SHA256.txt",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 172195,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "药物频率大师矩阵实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 47,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "萧龙友矩阵实战化_20261017",
+   "py_files": 26,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 156182,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "萧龙友矩阵实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "蒙医药派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 40,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "蒲辅周矩阵实战化_20261017",
+   "py_files": 26,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 29,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "薛立斋1331x1331超级矩阵V3实战化_20261017",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 46,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "藏医药派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "虞山医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 103807,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "holographic_heartbeat",
+   "name": "虞抟1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 26,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "虞抟1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 38,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "袁鹤侪矩阵实战化_20261017",
+   "py_files": 27,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 143087,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "袁鹤侪矩阵实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 42,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "袖珍方剂速查手册1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 34,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 8416,
+   "files": 1,
+   "kind": "md",
+   "mechanism": "unmapped",
+   "name": "装配方案_开源壳选型_20261022.md",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 47,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "西医乳腺矩阵实战化_20261017",
+   "py_files": 29,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 8,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "视频张量_空间之谜_20261101",
+   "py_files": 2,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 321,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "计算机语言通史3000万字",
+   "py_files": 4,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "认知主权1331x1331多智能体矩阵V3实战化_20261030",
+   "py_files": 23,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 2173,
+   "files": 1,
+   "kind": "md",
+   "mechanism": "unmapped",
+   "name": "豆包Work云端技能加载报告_20261018.md",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 974125,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "unmapped",
+   "name": "豆包Work云端技能加载清单_20261018.json",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "豫章医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "贝叶斯多智能体衍射推理1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 34,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 57,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "账号记忆打捞1331x1331多智能体矩阵V3实战化_20261023",
+   "py_files": 36,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 93937,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "holographic_heartbeat",
+   "name": "费伯雄1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 26,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "费伯雄1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 47,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "赵献可矩阵实战化_20261017",
+   "py_files": 26,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 155800,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "赵献可矩阵实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "超级办公之王1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 46,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "越派中医1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 36,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 44,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "辽派中医1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 34,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 17,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "迪克地理科幻世界",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 52,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "逆向工程REA技能本地化1331x1331多智能体矩阵V3实战化_20261024",
+   "py_files": 36,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 32,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "道藏1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 25,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 22,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "道藏讲习录_三年全息工程",
+   "py_files": 7,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 37,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "邢锡波矩阵实战化_20261017",
+   "py_files": 26,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 144547,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "邢锡波矩阵实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 1088,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "skin_v6",
+   "name": "里程碑版本_交付校验_SHA256.txt",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 39,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "量子推演1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 32,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 41,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "金古英雄1331x1331超级矩阵V3实战化_20261021",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 42,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "金庸文学修炼养成金刚1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 15,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "金庸通史",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "钱塘医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 34,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "锡山医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "长白山医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 97558,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "holographic_heartbeat",
+   "name": "闽南医派1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 738,
+   "files": 1,
+   "kind": "file",
+   "mechanism": "holographic_heartbeat",
+   "name": "闽南医派1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip.sha256.txt",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 26,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "闽南医派1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 26,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "陆懋修1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 28,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "陆懋修矩阵实战化_20261017",
+   "py_files": 16,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 91477,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "holographic_heartbeat",
+   "name": "陆瘦燕1331x1331_SUPER-MAS-V3.0_runtime_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 25,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "陆瘦燕1331x1331超级矩阵_实战化_20261017",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 43,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "陇派中医1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 8,
+   "kind": "dir",
+   "mechanism": "unmapped",
+   "name": "陈丽华_episode_drafts",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 44,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "陈丽华女士1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 34,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 45,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "陈任枚1331x1331超级矩阵V3实战化_20261019",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 99236,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "holographic_heartbeat",
+   "name": "陈伯坛1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 26,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "陈伯坛1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 48,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "陈荣华心脏康复1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 37,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 131,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "隐私门控路由本地化1331x1331多智能体矩阵V3实战化_20261031",
+   "py_files": 89,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 95510,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "holographic_heartbeat",
+   "name": "雷丰1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 26,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "雷丰1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 86,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "靶向之王1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 66,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 39,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "颜德馨1331x1331超级矩阵V3实战化_20261019",
+   "py_files": 30,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 15,
+   "kind": "dir",
+   "mechanism": "holographic_heartbeat",
+   "name": "飞书同步",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 45,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "高维认知大师矩阵实战化_20261017",
+   "py_files": 35,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 85622,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "hebbian_field",
+   "name": "高维认知大师矩阵实战化_20261017.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 30,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "黄杰熙1331x1331超级矩阵V3实战化_20261017",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 44,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "黄杰熙1331x1331超级矩阵V3实战化_20261019",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 97041,
+   "files": 1,
+   "kind": "zip",
+   "mechanism": "holographic_heartbeat",
+   "name": "齐鲁医派1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+   "py_files": 0,
+   "tier": "素材"
+  },
+  {
+   "bytes": 0,
+   "files": 26,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "齐鲁医派1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 21,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 50,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "齐鲁医派1331x1331超级矩阵V3实战化_20261020",
+   "py_files": 33,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 41,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "龙江医派1331x1331超级矩阵V3实战化_20261019",
+   "py_files": 31,
+   "tier": "基座候选"
+  },
+  {
+   "bytes": 0,
+   "files": 34,
+   "kind": "dir",
+   "mechanism": "hebbian_field",
+   "name": "龟马双系统底座1331x1331超级矩阵V3实战化_20261018",
+   "py_files": 23,
+   "tier": "基座候选"
+  }
+ ],
+ "source": "F:\\doubaowork",
+ "summary": {
+  "baseline_candidates": 246,
+  "dirs": 317,
+  "md": 11,
+  "py_total": 18426,
+  "zips": 68
+ }
+}
