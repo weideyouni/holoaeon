@@ -28,6 +28,26 @@ HoloAeon 是**纯标准库、全离线、确定性**的多智能体认知框架�
 **它的定位：给大模型当管家。**&#x5927;模型负责语言与生成，HoloAeon 负责安检、记账、路由、
 复现——让 AI 的每一次回答旁边，站着一个可审计的记忆体。
 
+### V3 · 借鉴 LangChain 的工程形态（文档版本 0.9.3）
+
+一句话完成升级：`python scripts\launch_v3.py` —— 装载 V3 旁挂件、跑通内部融合 + 外部路由 +
+桥 conformance，末行打印 `ALL_OK=True`。
+
+维度不变：**25 智能体 / 47 技能 / 9 领域包 + 8 扩展包 / 34·21·5 单测 / 25 自检**，
+`spec.VERSION` 仍是 `0.9.1`，`DIFF=0 2fc892cf9af6e755` 与篡改哈希 `f42c8229ee5acd73` 未动。
+V3 新增 32 项门禁检查，**独立计数**，不并入上面任何一格。
+
+八个旁挂工作包（全部零依赖、可跑）：统一调用协议与五段钩子（`runnable.py`）、
+可哈希 span 树（`audit/span_tree.py`）、结构化 schema 校验与有限修复环（`skill_schema.py`）、
+47 条评测集与双轨 diff（`scripts/eval_set.py` / `eval_diff.py`）、
+interrupt 审批令牌与三档 checkpoint（`interrupt.py`）、渐进加载与字节缓存
+（`skill_loader.py` / `cache.py`）、replay 分支与 7 类事件流（`replay_branch.py` / `event_channel.py`）、
+桥 conformance 与迁移/弃用页（`bridges/conformance.py` / `docs/migration-from-langchain.md`）。
+
+实测（本机 2026-11-01）：V3 门禁 `32/32 PASS`；`eval_47` 确定性轨 `47/47`（自述自证，
+只证明路由不退化）；对抗变体 `cross` `0/47` 且 diff 判 `REGRESSED`（证明能抓回归）；
+kfold 仍 `mean 0.9957 / std 0.0085`。机器可读接手页：[`snapshot/SNAPSHOT_V3.md`](snapshot/SNAPSHOT_V3.md)。
+
 ## 为什么选择 HoloAeon
 
 | 原则       | 实际含义                            | 实测证据                         |

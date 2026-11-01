@@ -1,5 +1,5 @@
 {
-  "badge": "DIFF=0 2fc892cf9af6e755 | 拦截 100% | 冷装配 32.58ms / 峰值 1.69MiB",
+  "badge": "DIFF=0 2fc892cf9af6e755 | 拦截 100% | 冷装配 31.6ms / 峰值 1.69MiB",
   "diff0": {
     "canonical_equal": true,
     "canonical_keys": [
@@ -14,12 +14,12 @@
   "evidence_class": "simulated",
   "footprint": {
     "agents": 25,
-    "build_ms": 32.58,
+    "build_ms": 31.6,
     "method": "tracemalloc 追踪 Python 分配峰值；build_ms 为进程内装配耗时",
     "peak_mib": 1.69,
     "skills": 47
   },
-  "generated_at": "2026-10-31T17:09:41Z",
+  "generated_at": "2026-11-01T12:53:09Z",
   "guard": {
     "blocked": 16,
     "bypassed": [],

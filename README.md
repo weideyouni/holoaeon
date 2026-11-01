@@ -27,6 +27,7 @@ tags:
 [![Tests](https://img.shields.io/badge/tests-34%20passed-success.svg)](#-testing)
 [![SelfTest](https://img.shields.io/badge/selftest-25%2F25-success.svg)](#-testing)
 [![V2](https://img.shields.io/badge/V2-mutate%205%2F5%20%C2%B7%20fail--loud%20ON-blue.svg)](#v2--evidence-hardening-092-docs)
+[![V3](https://img.shields.io/badge/V3-32%2F32%20gate%20%C2%B7%20eval%2047-9cf.svg)](#v3--engineering-form-from-langchain-093-docs)
 
 <sub>Badges are **locally measured** (Python 3.13.16, Windows). CI has now actually run on GitHub:
 Python 3.8 / 3.10 / 3.12 all green in [run #25](https://github.com/weideyouni/holoaeon/actions/runs/41202167792)
@@ -94,6 +95,76 @@ What each one buys, in one line:
 Read the clauses: [`docs/spec-diff0-v0.2.md`](docs/spec-diff0-v0.2.md) (§7 evidence protocol,
 §8 fail-loud, §9 known limits). Machine-readable snapshot for other agents:
 [`snapshot/SNAPSHOT_V2.md`](snapshot/SNAPSHOT_V2.md).
+
+---
+
+## V3 · Engineering Form from LangChain (0.9.3, docs)
+
+**One line to complete the upgrade**: `python scripts\launch_v3.py` — it loads the V3 sidecars,
+runs internal fusion + external routing + bridge conformance, and prints `ALL_OK=True`.
+
+> **Dimensions unchanged.** 25 agents / 47 skills / 9 domain packs + 8 extension packs (≥7) /
+> 34 · 21 · 5 tests / 25 self-checks — V3 only *adds sidecar engineering form*, it never touches
+> the twelve primitives' behaviour or the V1 goldens. The V3 gate is **32 separate checks**,
+> deliberately **not** folded into the 34/21/5 suites.
+
+LangChain 1.x / LangGraph / LangSmith are worth copying as **engineering form**, not as
+**cost structure**. V3 lands eight sidecar work packages (W12–W19), all zero-dependency:
+
+| # | Work package | Landing | Gate |
+|---|---|---|---|
+| W12 | Unified call protocol + five-stage hook chain | `holoaeon/runnable.py` | A4.1–A4.4 |
+| W13 | Trace span tree (hashable, timing excluded) | `holoaeon/audit/span_tree.py` | A5.1–A5.4 |
+| W14 | Structured schema validation + bounded repair loop | `holoaeon/skill_schema.py` | A6.1–A6.5 |
+| W15 | Eval set (47) + two-track diff | `scripts/eval_set.py`, `data/eval_47.json`, `scripts/eval_diff.py` | A7.1–A7.3 |
+| W16 | Interrupt (frozen envelope + approval token) + 3-tier checkpoint | `holoaeon/interrupt.py` | A8.1–A8.5 |
+| W17 | Progressive skill loading + byte cache | `holoaeon/skill_loader.py`, `holoaeon/cache.py` | A9.1–A9.4 |
+| W18 | Replay branch + typed event channel (7 types) | `holoaeon/replay_branch.py`, `holoaeon/event_channel.py` | A10.1–A10.4 |
+| W19 | Bridge conformance + migration / deprecation / monthly example | `bridges/conformance.py`, `docs/migration-from-langchain.md`, `docs/deprecation.md`, `examples/monthly/` | A11.1 |
+
+Measured on this machine, 2026-11-01:
+
+```text
+V3 gate               32/32 PASS        -> reports/v3_gate.json
+eval_47 (raw)         47/47 routing@1   (self-scoring on skill descriptions - not a quality claim)
+eval_diff (cross)     0/47 REGRESSED    (adversarial variant proves the diff catches regressions)
+kfold (0.9.3 file)    mean 0.9957 std 0.0085   (unchanged from V2)
+DIFF=0                2fc892cf9af6e755 (unchanged)   tampered f42c8229ee5acd73
+launch_v3             ALL_OK=True       (internal bus 25 agents / 47 skills, external route local+cloud)
+```
+
+What the V3 additions buy, in one line each:
+
+- **runnable / pipeline** — a skill, a guard and a sink compose into one callable chain with
+  hooks in a fixed order (`admit → route → before_skill → after_skill → egress`), and a hook
+  that throws is located by `HookError(stage, hook, cause)` instead of a bare traceback.
+- **span tree** — a run exports a hashable structure whose `structure_hash` covers only
+  `span_id / parent / name / kind / verdict / children`; `latency_ms` is printed, never hashed.
+- **schema** — missing / mistyped / extra fields are named explicitly, with a repair loop
+  bounded to 2 attempts; no silent fallback.
+- **eval set** — one deterministic track decides, a disclosure track only reports; the diff
+  prints improved / regressed / unchanged, and a regression is a regression only on the
+  deterministic track.
+- **interrupt + checkpoint** — an action that needs sign-off is frozen with an offline token,
+  never executed unapproved; after a hard kill the run resumes from the last checkpoint and
+  produces a byte-identical result.
+- **progressive loading / cache** — 47 manifests stay resident, bodies load only for candidates
+  (`body_guard` proves no others were read); the same input hits the cache and returns identical
+  bytes.
+- **replay branch / event channel** — branching from step N leaves the original ledger byte-identical;
+  the event channel is read-only, zero-network, 7 event types.
+- **bridge conformance** — a new bridge implements only `advertise / invoke / close` and passes
+  6 checks (methods, advertise shape, invoke shape, idempotent close, offline, no kernel edit).
+
+Read the clauses: [`docs/migration-from-langchain.md`](docs/migration-from-langchain.md) (5 scenarios),
+[`docs/deprecation.md`](docs/deprecation.md) (sunset conditions per coexistence item),
+[`snapshot/SNAPSHOT_V3.md`](snapshot/SNAPSHOT_V3.md) (machine-readable hand-off).
+
+**Not copied** (the cost structure of the ecosystem): breaking zero-dependency to onboard a
+service; maintaining two entry points at once; hosting observability/eval on a closed platform;
+wrapping defaults so thickly that failures become undiagnosable; diluting single-point quality
+for integration breadth; treating an LLM-judge score as the only evidence; writing physical
+quantities into a hashed trace.
 
 ---
 

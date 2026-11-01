@@ -1,0 +1,339 @@
+{
+  "cases": [
+    {
+      "evidence_class": "simulated",
+      "input": "教学回测",
+      "reference": "backtest",
+      "scorer": "routing@1",
+      "skill": "backtest"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "描述统计：均值/标准差/中位数/极值",
+      "reference": "basic_stats",
+      "scorer": "routing@1",
+      "skill": "basic_stats"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "商业模式画布",
+      "reference": "business_model_canvas",
+      "scorer": "routing@1",
+      "skill": "business_model_canvas"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "共轭梯度法",
+      "reference": "conjugate_gradient",
+      "scorer": "routing@1",
+      "skill": "conjugate_gradient"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "CSV 概况：列类型与分布画像",
+      "reference": "csv_profile",
+      "scorer": "routing@1",
+      "skill": "csv_profile"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "文献去重",
+      "reference": "dedup_papers",
+      "scorer": "routing@1",
+      "skill": "dedup_papers"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "实验设计模板",
+      "reference": "design_experiment",
+      "scorer": "routing@1",
+      "skill": "design_experiment"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "最大回撤",
+      "reference": "drawdown",
+      "scorer": "routing@1",
+      "skill": "drawdown"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "精力映射",
+      "reference": "energy_mapping",
+      "scorer": "routing@1",
+      "skill": "energy_mapping"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "抽取式摘要",
+      "reference": "extract_abstract",
+      "scorer": "routing@1",
+      "skill": "extract_abstract"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "高译编译器：自然语言编译为高译汇编",
+      "reference": "gaoyi_compile",
+      "scorer": "routing@1",
+      "skill": "gaoyi_compile"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "高译虚拟机：执行高译汇编文本",
+      "reference": "gaoyi_exec",
+      "scorer": "routing@1",
+      "skill": "gaoyi_exec"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "高译运行器：自然语言编译并执行全链路",
+      "reference": "gaoyi_run",
+      "scorer": "routing@1",
+      "skill": "gaoyi_run"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "遗传算法群体进化",
+      "reference": "genetic_algorithm",
+      "scorer": "routing@1",
+      "skill": "genetic_algorithm"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "SMART 目标检查",
+      "reference": "goal_smart",
+      "scorer": "routing@1",
+      "skill": "goal_smart"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "黄金分割一维搜索",
+      "reference": "golden_section",
+      "scorer": "routing@1",
+      "skill": "golden_section"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "梯度下降求解",
+      "reference": "gradient_descent",
+      "scorer": "routing@1",
+      "skill": "gradient_descent"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "习惯养成计划",
+      "reference": "habit_plan",
+      "scorer": "routing@1",
+      "skill": "habit_plan"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "假设可检验性",
+      "reference": "hypothesis_check",
+      "scorer": "routing@1",
+      "skill": "hypothesis_check"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "关键词提取",
+      "reference": "keyword_extract",
+      "scorer": "routing@1",
+      "skill": "keyword_extract"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "KPI 看板",
+      "reference": "kpi_dashboard",
+      "scorer": "routing@1",
+      "skill": "kpi_dashboard"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "会议议程",
+      "reference": "meeting_agenda",
+      "scorer": "routing@1",
+      "skill": "meeting_agenda"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "缺失值报告",
+      "reference": "missing_report",
+      "scorer": "routing@1",
+      "skill": "missing_report"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "移动平均",
+      "reference": "moving_average",
+      "scorer": "routing@1",
+      "skill": "moving_average"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "牛顿法二阶加速",
+      "reference": "newton_method",
+      "scorer": "routing@1",
+      "skill": "newton_method"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "引用规范化",
+      "reference": "normalize_citation",
+      "scorer": "routing@1",
+      "skill": "normalize_citation"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "归一化",
+      "reference": "normalize_column",
+      "scorer": "routing@1",
+      "skill": "normalize_column"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "OKR 生成",
+      "reference": "okr_gen",
+      "scorer": "routing@1",
+      "skill": "okr_gen"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "离群检测",
+      "reference": "outlier_detect",
+      "scorer": "routing@1",
+      "skill": "outlier_detect"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "生成结构大纲",
+      "reference": "outline_gen",
+      "scorer": "routing@1",
+      "skill": "outline_gen"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "惩罚函数约束优化",
+      "reference": "penalty_method",
+      "scorer": "routing@1",
+      "skill": "penalty_method"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "可读性指标",
+      "reference": "readability",
+      "scorer": "routing@1",
+      "skill": "readability"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "可复现性清单",
+      "reference": "reproduce_check",
+      "scorer": "routing@1",
+      "skill": "reproduce_check"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "收益率序列",
+      "reference": "returns",
+      "scorer": "routing@1",
+      "skill": "returns"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "风险登记",
+      "reference": "risk_register",
+      "scorer": "routing@1",
+      "skill": "risk_register"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "样本量估算",
+      "reference": "sample_size",
+      "scorer": "routing@1",
+      "skill": "sample_size"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "文献筛选",
+      "reference": "screen_papers",
+      "scorer": "routing@1",
+      "skill": "screen_papers"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "夏普比率",
+      "reference": "sharpe",
+      "scorer": "routing@1",
+      "skill": "sharpe"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "单纯形法线性规划",
+      "reference": "simplex_method",
+      "scorer": "routing@1",
+      "skill": "simplex_method"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "结构检查",
+      "reference": "structure_check",
+      "scorer": "routing@1",
+      "skill": "structure_check"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "SWOT 分析",
+      "reference": "swot_analysis",
+      "scorer": "routing@1",
+      "skill": "swot_analysis"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "任务拆解",
+      "reference": "task_breakdown",
+      "scorer": "routing@1",
+      "skill": "task_breakdown"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "标题候选",
+      "reference": "title_brainstorm",
+      "scorer": "routing@1",
+      "skill": "title_brainstorm"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "变量拆分",
+      "reference": "variables_split",
+      "scorer": "routing@1",
+      "skill": "variables_split"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "年化波动率",
+      "reference": "volatility",
+      "scorer": "routing@1",
+      "skill": "volatility"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "周复盘：把一周工作整理成周报与总结",
+      "reference": "weekly_review",
+      "scorer": "routing@1",
+      "skill": "weekly_review"
+    },
+    {
+      "evidence_class": "simulated",
+      "input": "字数/词数/句数统计",
+      "reference": "word_count",
+      "scorer": "routing@1",
+      "skill": "word_count"
+    }
+  ],
+  "count": 47,
+  "doc_version": "0.9.3",
+  "evidence_class": "simulated",
+  "scorer": "routing@1",
+  "skills": 47,
+  "suite": "eval_47"
+}
