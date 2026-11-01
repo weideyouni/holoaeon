@@ -1,0 +1,34 @@
+{
+  "dna_id": "SG-DNA-FIVE-SITE-SYNC-V1.0",
+  "effective": "2026-11-02T01:40+08:00",
+  "evidence_class": "simulated",
+  "seal": "潮起开门，潮落闭嘴",
+  "sites": {
+    "S1": {"id": "local", "role": "write_source", "path": "F:\\doubaowork\\holoaeon", "acceptance": "git rev-parse HEAD"},
+    "S2": {"id": "gitee", "role": "authority_mirror", "url": "https://gitee.com/weideyouni/holoaeon", "acceptance": "git ls-remote main"},
+    "S3": {"id": "github", "role": "public_align", "url": "https://github.com/weideyouni/holoaeon", "acceptance": "git ls-remote origin main"},
+    "S4": {"id": "vector_sea", "role": "archive_index", "path": "F:\\doubaowork\\vector-sea\\holoaeon-v4-cold-hot-plug", "acceptance": "manifest.json sha256 per file"},
+    "S5": {"id": "huggingface", "role": "external_mirror", "url": "https://huggingface.co/weideyouni/holoaeon", "acceptance": "hf commit sha"}
+  },
+  "rules": [
+    "R1 one-way: local is the only write source; gitee authoritative; github aligns; vector sea archives; hf mirrors",
+    "R2 same commit: S1/S2/S3 main must share one commit sha",
+    "R3 object hash acceptance: sha256 per file, sha16 per package",
+    "R4 read-only automation: scheduled tasks never push, never edit code",
+    "R5 conflict: stash -> rebase origin/main -> stash pop -> push; no force, no hard reset",
+    "R6 credential discipline: token read from local file, askpass temp deleted, never printed",
+    "R7 dimension gate before and after sync: A1 must stay 25/47/9",
+    "R8 silent-failure rule: push output is not proof, read back with ls-remote / hf commit sha",
+    "R9 one receipt per sync, never overwrite previous receipts",
+    "R10 degradation: one site down -> other four finish, receipt marks pending with reason"
+  ],
+  "acceptance": {
+    "commit_equal": ["S1", "S2", "S3"],
+    "object_hash": "sha256 per file",
+    "package": "sha16 + sha256",
+    "readback": ["git ls-remote", "hf repo_info sha"]
+  },
+  "forbidden": ["push --force", "reset --hard", "git add -A", "token in receipt", "claim success without readback"],
+  "gates": {"pre": "v3_gate --json", "post": "v3_gate --json", "lock": {"agents": 25, "skills": 47, "packs": 9}},
+  "verifier": "scripts/five_site_dna.py build|verify"
+}

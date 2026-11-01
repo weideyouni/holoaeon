@@ -193,3 +193,21 @@ Golden values unchanged: `diff0=2fc892cf9af6e755`, `tamper=f42c8229ee5acd73`, `s
 - Batch progress: `data/B0_批次进度.csv` (B0 done, B1a next)
 
 Next batch **B1a contract field draft** stays blocked until this ticket is re-run green.
+## Five-site sync DNA (刚性)
+
+`data/FIVE_SITE_SYNC_DNA.md` + `data/five_site_dna.json` — `SG-DNA-FIVE-SITE-SYNC-V1.0`
+
+| site | role | acceptance |
+|---|---|---|
+| S1 local | write source | `git rev-parse HEAD` |
+| S2 Gitee | authority mirror | `git ls-remote main` |
+| S3 GitHub | public align | `git ls-remote origin main` |
+| S4 vector sea | archive index | `manifest.json` sha256 |
+| S5 Hugging Face (`weideyouni/holoaeon`) | external mirror | hf commit sha |
+
+Rules R1–R10 (one-way, same commit, object hash, read-only automation, stash→rebase→pop, credential discipline, dimension gate, readback-not-trust, one receipt, degrade per site) are in the DNA doc. Mechanical check:
+
+```bash
+python scripts/five_site_dna.py build    # write reports/five_site_manifest.json
+python scripts/five_site_dna.py verify   # recompute + drift list (offline, no git)
+```

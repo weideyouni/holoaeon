@@ -1,0 +1,123 @@
+{
+  "dna_id": "SG-DNA-FIVE-SITE-SYNC-V1.0",
+  "built_at": "2026-11-02T01:42+08:00",
+  "evidence_class": "simulated",
+  "seal": "潮起开门，潮落闭嘴",
+  "package_root": "F:\\doubaowork\\HoloAeon_V4冷热插拔赋能升级_20261102",
+  "repo_root": "F:\\doubaowork\\holoaeon",
+  "counts": {
+    "package": 16,
+    "repo": 10,
+    "missing": 0
+  },
+  "package": {
+    "01_V4赋能升级总策划.md": {
+      "bytes": 20777,
+      "sha256": "671357d2378b4d7a3943d27e0fe6c15e2f46148dde3bdeeeda4144c82027f69a"
+    },
+    "02_一键复制投喂包_面向智能体.md": {
+      "bytes": 11211,
+      "sha256": "b607879ea387c7e66975032ec921c46324b31cfe80f5a0220f9d7b57921c3605"
+    },
+    "03_内外融合协议与冷热插拔SOP.md": {
+      "bytes": 8444,
+      "sha256": "5adc15bd2450aaf77fdc9ace4ccaf52d0375ca3227f004006557b56fd10f1962"
+    },
+    "04_项目快照.json": {
+      "bytes": 3459,
+      "sha256": "7fddaac5626d6144300e8fdda44f0829c59b8082f2346d1a024a8d8064cc046c"
+    },
+    "05_README_V4_赋能升级.md": {
+      "bytes": 7796,
+      "sha256": "d949b0586d8debd6ec0956fe6381867d39932e8fb3fbbb6b1c54b5fd84490622"
+    },
+    "06_验收票据.md": {
+      "bytes": 8826,
+      "sha256": "1f58a56d718c548d1861ab7fc42ff680111806a6a29d98568feb91448ff2ead8"
+    },
+    "data/B0_基线票据_v4fusion.md": {
+      "bytes": 6662,
+      "sha256": "b98f27923178bfd982e0b9329fade05b6c1590b628650b130635e7568804370f"
+    },
+    "data/B0_批次进度.csv": {
+      "bytes": 878,
+      "sha256": "9fba2baba3e624c200624418fd856598bc80abedfc12e40e2a4b027cc6bdbb34"
+    },
+    "data/B0_自动匹配技能.csv": {
+      "bytes": 83726,
+      "sha256": "9bad2e79be10d7aa774de1a4d03a265df4ee8e3556065c356add5e15cda06cd8"
+    },
+    "data/全域技能匹配清单.csv": {
+      "bytes": 44223,
+      "sha256": "c1f45c97ca512949e9842711d0c07f476c592e02a115df2222562eef00e463ef"
+    },
+    "data/六机制对照与通道映射.csv": {
+      "bytes": 3694,
+      "sha256": "d0262a6330ac231af05922c4dac523b7d1e50ec1b4ca0c6b60cc18a980538474"
+    },
+    "data/冷热插拔清单.csv": {
+      "bytes": 2563,
+      "sha256": "ac183dd7e56560dffc4bb25f2b01b07a6458c97aff8bc6e7ffeb0a50e2fa6147"
+    },
+    "data/十二批台账.csv": {
+      "bytes": 4140,
+      "sha256": "1fca5f7be9390d868665fadcf42a18d57205ce9ad22d152f615312fbb8fe0281"
+    },
+    "holoaeon_v4_fusion_upgrade_20261102.zip": {
+      "bytes": 80753,
+      "sha256": "20dbeff84b8fd37335e186e3904c4566f4173ff1d1fee037a61c4c8fdb662676",
+      "sha16": "20dbeff84b8fd373"
+    },
+    "reports/b0_lock_v4fusion.json": {
+      "bytes": 988,
+      "sha256": "43b06c5537b8e1c4b3807873793dc25136c9f0de2bd4bf4965c1d65acd6f7a41"
+    },
+    "reports/fusion_selftest.json": {
+      "bytes": 2582,
+      "sha256": "bf0be6d01de5ea652dd4e808b6bf1f0077c27601f36406a36b505a55debc7457"
+    }
+  },
+  "repo": {
+    "README_FUSION_V4_20261102.md": {
+      "bytes": 9149,
+      "sha256": "7e4da6137803a4840d8c0449928e5f6bd5f89f303661c58b4d00f3a2c6aa7f8b"
+    },
+    "data/B0_基线票据_v4fusion.md": {
+      "bytes": 6662,
+      "sha256": "b98f27923178bfd982e0b9329fade05b6c1590b628650b130635e7568804370f"
+    },
+    "data/B0_批次进度.csv": {
+      "bytes": 878,
+      "sha256": "9fba2baba3e624c200624418fd856598bc80abedfc12e40e2a4b027cc6bdbb34"
+    },
+    "data/B0_自动匹配技能.csv": {
+      "bytes": 83726,
+      "sha256": "9bad2e79be10d7aa774de1a4d03a265df4ee8e3556065c356add5e15cda06cd8"
+    },
+    "data/FIVE_SITE_SYNC_DNA.md": {
+      "bytes": 5217,
+      "sha256": "b0b38235873723ed2611978efca02cf29dd2d6141e20a3ae156533d640fa8a10"
+    },
+    "data/five_site_dna.json": {
+      "bytes": 2232,
+      "sha256": "2fa990dd425b0b8154a7aa8d346ee4fc829a8d31d8e50744c40a70f569b46673"
+    },
+    "reports/b0_lock_v4fusion.json": {
+      "bytes": 988,
+      "sha256": "43b06c5537b8e1c4b3807873793dc25136c9f0de2bd4bf4965c1d65acd6f7a41"
+    },
+    "reports/gate_b0_v4.json": {
+      "bytes": 6815,
+      "sha256": "fc02b0f7ea892c3d9ca36aaeab47b5edad917737605b3737829cad0d7a84107b"
+    },
+    "scripts/b0_match.py": {
+      "bytes": 6178,
+      "sha256": "bbbe9b9b475da8098c5733a3569956c2cd7bcf10eb2cb286a7d82c3bbef06681"
+    },
+    "scripts/five_site_dna.py": {
+      "bytes": 5155,
+      "sha256": "c2adebca2d31100316cff928ec08f3361006ceeadf34cd844bcb37a0f37d14fb"
+    }
+  },
+  "missing": []
+}
