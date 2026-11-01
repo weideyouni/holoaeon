@@ -20,11 +20,12 @@ tags:
 > - 7 gates green: `v3_gate 32/32` · `unittest 34 OK` · `selftest 25/25` · `skill_matrix 17/17` · `redline 0 violations` · `fusion 17/17` · `ivsa 21/21`
 > - 14-dimension lock, golden `diff0=2fc892cf9af6e755` / `tamper=f42c8229ee5acd73`, `spec.VERSION=0.9.1` unchanged
 > - skill auto-match `1229 -> 365` candidates (index digest `9a565741e1f72ab7`); **`agents/skills/packs = 25/47/9` unchanged**
-> - Five-site sync DNA `SG-DNA-FIVE-SITE-SYNC-V1.0`: local · Gitee · GitHub · vector-sea · Hugging Face (Feishu docx as reading entry)
+> - Five-site sync DNA `SG-DNA-FIVE-SITE-SYNC-V1.1`: local · Gitee · GitHub · vector-sea · Hugging Face (Feishu docx as reading entry)
 >
 > Canonical V4 entry: [`README_FUSION_V4_20261102.md`](README_FUSION_V4_20261102.md) ·
-> sync rules: [`data/FIVE_SITE_SYNC_DNA.md`](data/FIVE_SITE_SYNC_DNA.md) ·
-> offline check: `python scripts/five_site_dna.py verify` (drift must be `[]`)
+> sync rules + engineering discipline: [`data/FIVE_SITE_SYNC_DNA.md`](data/FIVE_SITE_SYNC_DNA.md) ·
+> offline check: `python scripts/five_site_dna.py verify` (drift must be `[]`) ·
+> pre-batch gate: `python scripts/five_site_dna.py preflight` (P1–P6 must PASS before any batch starts)
 >
 > Seal: 潮起开门，潮落闭嘴 · `evidence_class=simulated` (simulation is not proof; carbon-based final say)
 

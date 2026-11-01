@@ -1,82 +1,154 @@
-# 五地同步 · 刚性工程 DNA（HoloAeon V4）
+# 五地同步刚性工程 DNA · V1.1（链路固化 + 工程纪律）
 
-- DNA ID：`SG-DNA-FIVE-SITE-SYNC-V1.0`
-- 生效：2026-11-02（+08:00）
-- 适用：HoloAeon / ivsa 双仓及其全部升级批次（B0–B9）
-- 证据等级：`evidence_class=simulated`（记录来源为现场命令回读，非声明）
+- DNA ID：`SG-DNA-FIVE-SITE-SYNC-V1.1`（继承 `V1.0` 的 R1–R10，新增 L 链路 / G 纪律 / P 前置检测）
+- 生成：2026-11-02 · 版本变更：V1.0（五地定义 + 十条规则）→ V1.1（加上"怎么走完一批"和"开工前怎么验"）
 - 密令：潮起开门，潮落闭嘴
+- 证据等级：`evidence_class=simulated`（仿真 ≠ 证明，碳基终裁）
+- 适用：HoloAeon × ivsa 融合工程的每一批（B0–B9 十二批，以及后续 V2.1/V2.2）
 
----
+## 〇 这份 DNA 解决三个问题
 
-## 一、五地是什么（各自只干一件事）
+1. **链路怎么走**（L1–L9）：一个批次从设计到五地落地，每一步有命令、有判据、有失败动作。
+2. **开工前怎么验**（P1–P6）：先证明"上一次同步真的完成了"，再动下一批，杜绝带病推进。
+3. **批次怎么排队**（G1–G8）：一批一范围、不许并行、维度三硬断言、红线优先于进度。
 
-| # | 地 | 角色 | 方向 | 判据 |
+三者串起来是一句话：**同步是工程的前置条件，不是工程的收尾动作。**
+
+## 一 工程链路的思路（回顾，为什么这么设计）
+
+现在的工程链路本质是三层：
+
+| 层 | 角色 | 只信什么 |
+|---|---|---|
+| 写入层 | S1 本地仓库（唯一写源） | 文件字节 + 提交号 |
+| 分发层 | S2 Gitee（权威镜像）· S3 GitHub（公开对齐） | 同一个 commit sha |
+| 归档层 | S4 向量海（归档索引）· S5 Hugging Face（外部镜像） | 逐文件 sha256 / 平台 commit |
+| 阅读层 | 飞书 docx（入口，不参与哈希验收） | 可读性，不参与验收 |
+
+三条途径上的判断：
+
+- **不靠回显**：`git push` 说成功不算成功，必须 `git ls-remote` / HF `repo_info().sha` 回读。实测遇到过两次"回显成功远端未变"。
+- **不靠记忆**：每批产物登记进清单（`reports/five_site_manifest.json`），清单本身可被第三方复算。
+- **不靠形容词**：每批判据必须能跑出可复算输出；"更完美""更融合"这类词不进判据（`plan.py` 已硬禁）。
+
+为什么加"开工前置检测"：前几轮出现的返工，几乎都源于"以为同步完了就开工"，结果带着旧清单、旧提交推进，产物落地时又要回头修。把验收前移到开工之前，返工就从"事后修"变成"事前拦"。
+
+## 二 一次批次的完整链路 L1–L9
+
+| 步 | 动作 | 命令 / 产物 | 判据 | 失败动作 |
 |---|---|---|---|---|
-| S1 | 本地 `F:\doubaowork\holoaeon` | **源**（唯一写入点） | 所有改动先落本地 | `git rev-parse HEAD` |
-| S2 | Gitee `weideyouni/holoaeon` | **权威镜像**（三地 DNA 的权威端） | S1 → S2 快进 | `git ls-remote … main` |
-| S3 | GitHub `weideyouni/holoaeon` | **公开对齐端** | S1 → S3 快进；若远端领先则先对齐再推 | `git ls-remote origin main` |
-| S4 | 向量海 `F:\doubaowork\vector-sea\holoaeon-v4-cold-hot-plug\` | **归档 / 检索端**（技能入口 + 逐文件哈希） | S1 → S4 复制 + 重建 `manifest.json` | `manifest.json` 逐文件 sha256 |
-| S5 | Hugging Face `weideyouni/holoaeon`（model 仓） | **外部镜像端**（跨平台可访问） | S1 → S5 整树上传 | HF `commit sha` |
+| L1 | **开工前置检测** | `python scripts/five_site_dna.py preflight` | `verdict=PASS`，六项 P1–P6 全绿 | 停，先补同步，不许动代码 |
+| L2 | 本批设计 | `data/B0_批次进度.csv` 写入本批主题 + 完美判据 | 判据可跑、无形容词、范围边界清楚 | 回炉设计，不写代码 |
+| L3 | 实现（只动本批范围） | 本批文件 + 单测 | 改动文件清单与 L2 声明一致 | 越界的改动拆到下一批 |
+| L4 | 批内自检 | `v3_gate --json` / `unittest` / `selftest` / 专项校验 | 七闸全绿 + 维度锁未变 | 修到绿，不许跳过 |
+| L5 | 清单重建 | `python scripts/five_site_dna.py build` | `verify` → `drift=[]` | 查明漂移来源再决定是否改清单 |
+| L6 | 提交 | `git commit -m "<批次号>: <主题>"` | 一个批次一个 commit，含全部本批产物 | 拆提交，不混批 |
+| L7 | 三地推送 + 回读 | Gitee（token + askpass）/ GitHub | `ls-remote` 三地同 sha | 重推 + 复核，不认回显 |
+| L8 | 归档 | 向量海目录 + `manifest.json` / HF `hf upload` / 飞书 docx 入口 | 逐文件哈希匹配 + 平台 sha 回读 | 补传缺件，记录被忽略项 |
+| L9 | 回执 | `reports/` 或向量海 `_<批次>_receipt_<日期>.json` | 五地状态 + 哈希 + 闸结果 + 已知差异 | 新回执新文件，不覆盖旧回执 |
 
-飞书 docx 为**阅读入口**，不参与哈希验收（在线协作内容可变），只在回执里记录 URL 与 `job_status`。
+两个闸门的位置：**L1 是开工闸**（同步没验完不进 L2），**L9 是收口闸**（回执没落不进下一批 L1）。
 
----
+## 三 五地角色与判据
 
-## 二、十条刚性规则（违反任一条即同步失败）
+| 地 | 角色 | 判据命令 |
+|---|---|---|
+| S1 本地 `F:\doubaowork\holoaeon` | 唯一写入源 | `git rev-parse HEAD` |
+| S2 Gitee `weideyouni/holoaeon` | 权威镜像 | `git ls-remote main` |
+| S3 GitHub `weideyouni/holoaeon` | 公开对齐 | `git ls-remote origin main` |
+| S4 向量海 `vector-sea\holoaeon-v4-cold-hot-plug` | 归档索引 | `manifest.json` 逐文件 sha256 |
+| S5 Hugging Face `weideyouni/holoaeon` | 外部镜像 | `repo_info().sha` + 文件差集 |
+| 飞书 docx | 阅读入口 | 能打开、内容为最新口径（不参与哈希验收） |
 
-- **R1 单向**：本地是唯一写入点；Gitee 是权威镜像；GitHub 只做对齐；向量海只做归档；HF 只做外部镜像。禁止反向把远端改动直接覆盖本地。
-- **R2 同提交**：一次同步结束时，S1/S2/S3 三处 `main` 必须是**同一个 commit sha**，不接受"内容差不多"。
-- **R3 对象哈希验收**：每份归档文件记 `sha256`，整包记 `sha16`；回执里逐条列出，任何人可复算。
-- **R4 只读铁律**：定时任务（日检/周检/月报）**只跑只读闸 + 出票据**，不 `push`、不改代码、不签字。
-- **R5 冲突处置固定动作**：远端领先 → `git stash push`（只 stash 漂移文件）→ `git -c core.autocrlf=false rebase origin/main` → `git stash pop` → 再推。禁止 `push --force`、禁止 `reset --hard`。
-- **R6 凭证纪律**：令牌只从 `C:\Users\Administrator\.gitee_token` 读取；`GIT_ASKPASS` 临时脚本用完即删；任何回执、日志、票据里不得出现令牌明文。
-- **R7 维度闸**：同步前后各跑一次 `python scripts/v3_gate.py --json <path>`，A1 必须仍是 `{agents:25, skills:47, packs:9}`；变了就是同步带来污染，必须先回退。
-- **R8 静默失败判据**：`git push` 回显成功不算成功，必须 `git ls-remote` **回读远端 ref**；HF 上传必须回读 `commit sha`。
-- **R9 回执唯一**：一次同步一份 `*_receipt.json`，含五地状态 + 哈希 + 时间 + 密令；旧回执不覆盖，按日期并存。
-- **R10 降级阶梯**：某地不可达时，其余四地照常完成，回执写明"某地 pending + 原因 + 重试入口"，禁止因一地失败而宣称整体完成。
+## 四 刚性规则 R1–R10（V1.0 原文保留，不放宽）
 
----
+| 编号 | 规则 |
+|---|---|
+| R1 | 单向：S1 → S2 → S3 → S4 → S5；禁止从镜像反向写回 S1 |
+| R2 | 三地同提交：S1/S2/S3 必须同一 commit sha |
+| R3 | 对象哈希：逐文件 sha256 + 整包 sha16；清单可被第三方复算 |
+| R4 | 定时任务只读：不 push、不改代码、不签字 |
+| R5 | 冲突固定动作：`stash → rebase origin/main → stash pop`；禁 force、禁 hard reset |
+| R6 | 令牌纪律：Gitee token 从 `.gitee_token` 读，askpass 用完即删，不进回执 |
+| R7 | 同步前后各跑 `v3_gate`，A1 必须仍 `25/47/9` |
+| R8 | 回显不算成功：`ls-remote` / HF `sha` 回读才算 |
+| R9 | 一次同步一份回执，不覆盖 |
+| R10 | 一地不可达，其余四地照做，回执标 `pending` + 原因 |
 
-## 三、一次标准同步的九步（可照抄）
+## 五 工程纪律 G1–G8（V1.1 新增，刚性）
 
-1. **闸**：`python scripts/v3_gate.py --json reports/gate_sync_pre.json`（记 A1）。
-2. **清单**：`python scripts/five_site_dna.py build` → `reports/five_site_manifest.json`（逐文件 sha256 + zip sha16）。
-3. **提交**：`git add <显式路径>`（禁 `git add -A`）→ `git commit -m "<批次>: <一句话>"`。
-4. **推 Gitee**：`GIT_ASKPASS=<临时bat> git push https://weideyouni@gitee.com/weideyouni/holoaeon.git main`。
-5. **推 GitHub**：`git push origin main`；若被拒按 R5 处理。
-6. **回读**：`git ls-remote` 两处，确认 sha 相同（R2/R8）。
-7. **归档向量海**：复制产物 → 重建 `manifest.json` → 写回执。
-8. **HF 镜像**：剔除 `.git`/`__pycache__` 后整树上传 → 回读 `commit sha`。
-9. **收口**：`python scripts/five_site_dna.py verify`（比对清单与回执）→ 再跑一次 `v3_gate`（R7）→ 出票据。
+| 编号 | 纪律 | 违反判定 |
+|---|---|---|
+| G1 | **开工前置**：每批开工前先跑 `preflight`，`verdict=PASS` 才能动代码/文档/推送 | preflight FAIL 仍开工 → 本批作废重来 |
+| G2 | **一批一范围**：本批主题与完美判据先写进批次台账，未声明的工作不做 | 产物越界 → 拆批，不塞进本批 |
+| G3 | **不许并行**：上一批 post 闸未全绿，不许开下一批（B7 持续准入例外，但须有每批 0.5 天证据） | 两批同时改 → 立即停，回退到上一批收口点 |
+| G4 | **一提交一批次**：commit 前缀写批次号，混杂改动拆开 | 混批提交 → 补拆分提交并说明 |
+| G5 | **维度三硬断言**：`agents=25` / `skills=47` / `packs=9`；`spec.VERSION=0.9.1`；`diff0=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73` 不得漂移 | 任一破 → 停止本批、回滚、出事故票 |
+| G6 | **证据就地留**：每个判据都要有可跑脚本 + 可复算输出文件，不许只写在说明里 | 只有文字没有脚本/文件 → 判据不成立 |
+| G7 | **不覆盖回执**：新批次新回执文件；旧回执只读 | 覆盖旧回执 → 视为伪证 |
+| G8 | **红线优先于进度**：零剂量 / C0 不写成疗效 / L4 不外推人体 / 急症转 120 / 电场 gap 不以 rTMS 顶替 / 回执标 `simulated` | 与进度冲突时一律停，红线不让步 |
 
----
+## 六 前置同步检测 P1–P6（`preflight` 判据）
 
-## 四、机读规范
+`python scripts/five_site_dna.py preflight`（离线、只读、确定性；不联网、不调 git、不写文件）
 
-```json
-{
-  "dna_id": "SG-DNA-FIVE-SITE-SYNC-V1.0",
-  "sites": {"S1":"local","S2":"gitee","S3":"github","S4":"vector_sea","S5":"huggingface"},
-  "authority": "S2",
-  "write_source": "S1",
-  "acceptance": {"commit_equal": ["S1","S2","S3"], "object_hash": "sha256 per file", "package": "sha16"},
-  "forbidden": ["push --force", "reset --hard", "add -A", "token in receipt"],
-  "gates": {"pre": "v3_gate", "post": "v3_gate", "lock": "A1=25/47/9"},
-  "failure_mode": "one site down -> others finish, receipt marks pending with reason"
-}
+| 编号 | 检查 | 通过条件 |
+|---|---|---|
+| P1 | 清单存在且可复算 | `reports/five_site_manifest.json` 存在，`verify` 得 `drift=[]` |
+| P2 | 文件齐 + 整包在位 | `counts.missing=0`，`package` 含 `holoaeon_v4_fusion_upgrade_20261102.zip` |
+| P3 | 开工前闸证据 | `reports/gate_b0_v4.json` 可读且 `passed==total==32`、`failed=[]` |
+| P4 | 五地回执在位且 PASS | 回执 JSON 存在，`gates.verdict` 含 `PASS`，`readme_status.all_five_updated=true`（有则校验） |
+| P5 | 批次节奏 | `data/B0_批次进度.csv` 中"进行中"的批次 ≤1 |
+| P6 | DNA 版本一致 | 清单 `dna_id` 与本文 `SG-DNA-FIVE-SITE-SYNC-V1.1` 相同 |
+
+输出：稳定排序 JSON（`verdict` + `checks[]`），退出码 0（PASS）/ 1（FAIL）。任一 FAIL 即"不许开工"。
+
+## 七 批次节奏（十二批，B0 已完成）
+
+| 批次 | 主题 | 状态 |
+|---|---|---|
+| B0 | 基线冻结（7 闸 + 14 维锁 + 五地同步） | 已完成 |
+| B1a | 契约字段草案（6 必填 + 4 可选） | 待启动（下一批） |
+| B1b | 同参指纹互认实验（契约单测 ≥6） | 待启动 |
+| B2a | 六机制 1:1 映射表 | 待启动 |
+| B2b | 12→17 通道映射 + 词表分域 | 待启动 |
+| B3 | 用途二次分类（1229 行） | 待启动 |
+| B4 | 康复域试点 20 例 | 待启动 |
+| B5 | 语义技能族 19→≥60 | 待启动 |
+| B6 | 记忆落盘 + 通道配额 | 待启动 |
+| B7 | 分批准入（每批 ≤5，持续） | 待启动 |
+| B8 | 双仓开源同步 | 待启动 |
+| B9 | V2 策划收口（五份交付） | 待启动 |
+
+节奏：每周一批，前十一批约 11 周；B7 与其余批次交叠但单独记证据。
+
+## 八 机读规范
+
+`data/five_site_dna.json` 追加字段：
+
+```
+chain:  [L1..L9]       每步 {id, name, cmd, gate}
+discipline: [G1..G8]   每条 {id, rule, violation}
+preflight: [P1..P6]    每条 {id, check, pass}
 ```
 
-对应文件：`data/five_site_dna.json`（同内容机读版）。
-校验器：`scripts/five_site_dna.py build|verify`（纯标准库、离线、不联网、不调用 git）。
+## 九 失败处置对照表
 
----
+| 现象 | 原因 | 处置 |
+|---|---|---|
+| `push` 回显成功但 `ls-remote` 未变 | 远端拒绝/网络静默失败 | 重推 + `ls-remote` 复核，两次不变则报障 |
+| `verify` 报 `package:changed:06_验收票据.md` | 先打包后改票据 | 改完再 `build` 一次收口 |
+| HF 少文件 | 上传发生在文件生成之前 | 差集比对 → 单文件补传 → 回读 sha |
+| 差集出现整目录"独有" | 排除规则把 `.github` 当成 `.git` | 按目录名精确排除重算 |
+| 清单记录 zip 哈希、zip 内含清单 | 自指循环 | 整包不含清单文件 |
+| `hf upload --include a b` 报 extra arguments | `--include` 只吃一个值 | 逐文件上传 |
 
-## 五、与既有 DNA 的关系
+## 十 边界（不做什么）
 
-- 三地版本（本地→Gitee→GitHub）为 V1 基础，本 DNA 升为**五地**：新增 S4 向量海（归档）、S5 Hugging Face（外部镜像）。
-- 与"维度不变"约束一致：同步只搬字节，不改 `spec.VERSION`、不改 `PACK_ORDER`、不动 ivsa 红线。
-- 与定时任务边界一致：自动化只读，人签字才准入。
-
----
+- 不把 1229 个技能全量注册进内核（A1 锁不可动），候选池 ≠ 准入库。
+- 不为"看起来融合更彻底"去动维度锁、动 spec.VERSION、动 ivsa 21 组自检。
+- 不搬两仓引擎代码（MIT vs 许可分层），只经 JSON 契约交换。
+- 不接设备、不出剂量、不做诊断、不做真实模型桥接（留 V2.2）。
+- 不把飞书 docx 当验收证据，它只是阅读入口。
 
 潮起开门，潮落闭嘴。

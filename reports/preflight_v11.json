@@ -1,0 +1,42 @@
+{
+  "dna_id": "SG-DNA-FIVE-SITE-SYNC-V1.1",
+  "verdict": "PASS",
+  "failed": [],
+  "checks": [
+    {
+      "id": "P1",
+      "ok": true,
+      "detail": "drift=0"
+    },
+    {
+      "id": "P2",
+      "ok": true,
+      "detail": "missing=0 zip=True"
+    },
+    {
+      "id": "P3",
+      "ok": true,
+      "detail": "32/32 failed=0"
+    },
+    {
+      "id": "P4",
+      "ok": true,
+      "detail": "gates='32/32 PASS' all_five_updated=True"
+    },
+    {
+      "id": "P5",
+      "ok": true,
+      "detail": "in_progress=0 b0_done=True rows=12"
+    },
+    {
+      "id": "P6",
+      "ok": true,
+      "detail": "manifest dna_id=SG-DNA-FIVE-SITE-SYNC-V1.1"
+    }
+  ],
+  "lock": {
+    "agents": 25,
+    "skills": 47,
+    "packs": 9
+  }
+}

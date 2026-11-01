@@ -197,7 +197,7 @@ Golden values unchanged: `diff0=2fc892cf9af6e755`, `tamper=f42c8229ee5acd73`, `s
 Next batch **B1a contract field draft** stays blocked until this ticket is re-run green.
 ## Five-site sync DNA (刚性)
 
-`data/FIVE_SITE_SYNC_DNA.md` + `data/five_site_dna.json` — `SG-DNA-FIVE-SITE-SYNC-V1.0`
+`data/FIVE_SITE_SYNC_DNA.md` + `data/five_site_dna.json` — `SG-DNA-FIVE-SITE-SYNC-V1.1`
 
 | site | role | acceptance |
 |---|---|---|
@@ -207,9 +207,10 @@ Next batch **B1a contract field draft** stays blocked until this ticket is re-ru
 | S4 vector sea | archive index | `manifest.json` sha256 |
 | S5 Hugging Face (`weideyouni/holoaeon`) | external mirror | hf commit sha |
 
-Rules R1–R10 (one-way, same commit, object hash, read-only automation, stash→rebase→pop, credential discipline, dimension gate, readback-not-trust, one receipt, degrade per site) are in the DNA doc. Mechanical check:
+Rules R1–R10 (one-way, same commit, object hash, read-only automation, stash→rebase→pop, credential discipline, dimension gate, readback-not-trust, one receipt, degrade per site) are in the DNA doc. V1.1 adds the batch chain **L1–L9**, the engineering discipline **G1–G8** (preflight before every batch, one batch one scope, no parallel batches, one commit per batch, 3 hard dimension assertions, evidence must be re-runnable, never overwrite receipts, red lines outrank schedule) and the pre-batch gate **P1–P6**. Mechanical checks:
 
 ```bash
-python scripts/five_site_dna.py build    # write reports/five_site_manifest.json
-python scripts/five_site_dna.py verify   # recompute + drift list (offline, no git)
+python scripts/five_site_dna.py build      # write reports/five_site_manifest.json
+python scripts/five_site_dna.py verify     # recompute + drift list (offline, no git)
+python scripts/five_site_dna.py preflight  # P1-P6 gate: no batch may start unless PASS
 ```

@@ -1,13 +1,14 @@
-"""五地同步 DNA 校验器（纯标准库 / 离线 / 不调用 git / 不联网）。
+"""五地同步 DNA 校验器 · V1.1（纯标准库 / 离线 / 不调用 git / 不联网 / 不写文件）。
 
 用法：
-  python scripts/five_site_dna.py build    # 生成 reports/five_site_manifest.json
-  python scripts/five_site_dna.py verify   # 复算并与清单比对，输出漂移清单
+  python scripts/five_site_dna.py build       # 生成 reports/five_site_manifest.json
+  python scripts/five_site_dna.py verify      # 复算并与清单比对，输出漂移清单
+  python scripts/five_site_dna.py preflight   # 开工前置检测（P1–P6），PASS 才允许开批
 
-设计原则（对应 data/FIVE_SITE_SYNC_DNA.md 的 R3 / R8）：
-  1. 只读文件字节算 sha256，不做任何写操作（verify 模式）
+设计原则（对应 data/FIVE_SITE_SYNC_DNA.md 的 R3 / R8 / G1 / P1–P6）：
+  1. 只读文件字节算 sha256，不做任何写操作（verify / preflight 模式）
   2. 路径全部来自显式参数或环境变量，不猜
-  3. 输出稳定排序，两次跑逐字一致
+  3. 输出稳定排序，两次跑逐字一致；不写时间戳
 """
 
 import hashlib
@@ -17,7 +18,12 @@ import sys
 
 REPO = os.environ.get("HOLOAEON_REPO", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 PKG = os.environ.get("HOLOAEON_PKG", r"F:\doubaowork\HoloAeon_V4冷热插拔赋能升级_20261102")
+RECEIPT = os.environ.get("HOLOAEON_RECEIPT",
+                         r"F:\doubaowork\vector-sea\_holoaeon_v4_five_site_receipt_20261102.json")
 MANIFEST = os.path.join(REPO, "reports", "five_site_manifest.json")
+
+DNA_ID = "SG-DNA-FIVE-SITE-SYNC-V1.1"
+LOCK = {"agents": 25, "skills": 47, "packs": 9}
 
 PKG_FILES = [
     "01_V4赋能升级总策划.md",
@@ -51,6 +57,8 @@ REPO_FILES = [
 ]
 
 ZIP_NAME = "holoaeon_v4_fusion_upgrade_20261102.zip"
+GATE_PRE = os.path.join(REPO, "reports", "gate_b0_v4.json")
+PROGRESS_CSV = os.path.join(REPO, "data", "B0_批次进度.csv")
 
 
 def sha256_file(path):
@@ -87,11 +95,32 @@ def collect():
     return out
 
 
+def drift_now():
+    """返回 (drift 列表, 当前采集结果, 旧清单)。清单不存在时 drift 视为未验证。"""
+    if not os.path.isfile(MANIFEST):
+        return None, None, None
+    with open(MANIFEST, encoding="utf-8") as f:
+        old = json.load(f)
+    now = collect()
+    drift = []
+    for scope in ("package", "repo"):
+        for rel, meta in old.get(scope, {}).items():
+            cur = now[scope].get(rel)
+            if cur is None:
+                drift.append(scope + ":missing:" + rel)
+            elif cur["sha256"] != meta["sha256"] or cur["bytes"] != meta["bytes"]:
+                drift.append(scope + ":changed:" + rel)
+        for rel in now[scope]:
+            if rel not in old.get(scope, {}):
+                drift.append(scope + ":new:" + rel)
+    return sorted(drift), now, old
+
+
 def build():
     data = collect()
     doc = {
-        "dna_id": "SG-DNA-FIVE-SITE-SYNC-V1.0",
-        "built_at": "2026-11-02T01:42+08:00",
+        "dna_id": DNA_ID,
+        "built_at": "2026-11-02T02:40+08:00",
         "evidence_class": "simulated",
         "seal": "潮起开门，潮落闭嘴",
         "package_root": PKG,
@@ -109,30 +138,99 @@ def build():
 
 
 def verify():
-    if not os.path.isfile(MANIFEST):
+    drift, now, old = drift_now()
+    if drift is None:
         print("manifest 不存在，先跑 build")
         return 1
-    with open(MANIFEST, encoding="utf-8") as f:
-        old = json.load(f)
-    now = collect()
-    drift = []
-    for scope in ("package", "repo"):
-        for rel, meta in old.get(scope, {}).items():
-            cur = now[scope].get(rel)
-            if cur is None:
-                drift.append(scope + ":missing:" + rel)
-            elif cur["sha256"] != meta["sha256"] or cur["bytes"] != meta["bytes"]:
-                drift.append(scope + ":changed:" + rel)
-        for rel in now[scope]:
-            if rel not in old.get(scope, {}):
-                drift.append(scope + ":new:" + rel)
     payload = {
         "verdict": "PASS" if not drift else "FAIL",
         "checked": {"package": len(now["package"]), "repo": len(now["repo"])},
-        "drift": sorted(drift),
+        "drift": drift,
     }
     print(json.dumps(payload, ensure_ascii=False, indent=2))
     return 0 if not drift else 1
+
+
+def preflight():
+    """开工前置检测 P1–P6。任一 FAIL → 退出码 1，禁止开批。"""
+    checks = []
+
+    def add(pid, ok, detail):
+        checks.append({"id": pid, "ok": bool(ok), "detail": detail})
+
+    drift, now, old = drift_now()
+
+    # P1 清单存在且可复算
+    add("P1", drift is not None and not drift,
+        "drift={}".format(len(drift)) if drift is not None else "manifest missing")
+
+    # P2 文件齐 + 整包在位
+    missing = (now or {}).get("missing", [])
+    has_zip = ZIP_NAME in (now or {}).get("package", {})
+    add("P2", not missing and has_zip, "missing={} zip={}".format(len(missing), has_zip))
+
+    # P3 开工前闸证据
+    ok3, det3 = False, "gate file missing"
+    if os.path.isfile(GATE_PRE):
+        try:
+            g = json.load(open(GATE_PRE, encoding="utf-8"))
+            ok3 = int(g.get("passed", -1)) == int(g.get("total", -2)) == 32 and not g.get("failed")
+            det3 = "{}/{} failed={}".format(g.get("passed"), g.get("total"), len(g.get("failed") or []))
+        except Exception as exc:  # 不是静默吞错，写进 detail
+            det3 = "unreadable: " + type(exc).__name__
+    add("P3", ok3, det3)
+
+    # P4 五地回执在位且 PASS
+    ok4, det4 = False, "receipt missing"
+    if os.path.isfile(RECEIPT):
+        try:
+            r = json.load(open(RECEIPT, encoding="utf-8"))
+            verdict = str((r.get("gates") or {}).get("verdict", ""))
+            readme_ok = bool((r.get("readme_status") or {}).get("all_five_updated", False))
+            ok4 = "PASS" in verdict and readme_ok
+            det4 = "gates='{}' all_five_updated={}".format(verdict, readme_ok)
+        except Exception as exc:
+            det4 = "unreadable: " + type(exc).__name__
+    add("P4", ok4, det4)
+
+    # P5 批次节奏：进行中 ≤1，且 B0 已完成
+    ok5, det5 = False, "progress csv missing"
+    if os.path.isfile(PROGRESS_CSV):
+        rows = []
+        with open(PROGRESS_CSV, encoding="utf-8") as f:
+            head = f.readline().strip().split(",")
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                rows.append(line)
+        inprog = 0
+        b0_done = False
+        for line in rows:
+            parts = line.split(",")
+            if len(parts) >= 3:
+                if parts[2].strip() == "进行中":
+                    inprog += 1
+                if parts[0].strip() == "B0" and parts[2].strip() == "已完成":
+                    b0_done = True
+        ok5 = inprog <= 1 and b0_done
+        det5 = "in_progress={} b0_done={} rows={}".format(inprog, b0_done, len(rows))
+    add("P5", ok5, det5)
+
+    # P6 DNA 版本一致
+    ok6 = bool(old) and old.get("dna_id") == DNA_ID
+    add("P6", ok6, "manifest dna_id={}".format((old or {}).get("dna_id")))
+
+    verdict = "PASS" if all(c["ok"] for c in checks) else "FAIL"
+    payload = {
+        "dna_id": DNA_ID,
+        "verdict": verdict,
+        "failed": [c["id"] for c in checks if not c["ok"]],
+        "checks": checks,
+        "lock": LOCK,
+    }
+    print(json.dumps(payload, ensure_ascii=False, indent=2))
+    return 0 if verdict == "PASS" else 1
 
 
 def main(argv):
@@ -142,7 +240,9 @@ def main(argv):
         return 0
     if mode == "verify":
         return verify()
-    print("用法: python scripts/five_site_dna.py build|verify")
+    if mode == "preflight":
+        return preflight()
+    print("用法: python scripts/five_site_dna.py build|verify|preflight")
     return 2
 
 
