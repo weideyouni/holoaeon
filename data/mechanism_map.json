@@ -1,0 +1,164 @@
+{
+  "batch": "B2a",
+  "cardinality": "1:1",
+  "direction": "one-way: holoaeon→ivsa（只映射归属，不互推编号/主体/号段）",
+  "evidence_class": "simulated",
+  "frozen_at": "2026-11-02",
+  "map_digest": "641acbb2db554ad3",
+  "map_id": "SG-MECHANISM-MAP-HOLOAEON-IVSA-V1",
+  "mechanisms": [
+    "holographic_heartbeat",
+    "cytoskeleton",
+    "skin_v6",
+    "semantic_bus",
+    "hebbian_field",
+    "meridian"
+  ],
+  "non_goals": [
+    "不合并编号空间（70 ≢ 1229、17 ≢ 12）",
+    "不做通道映射（12→17 属 B2b）",
+    "不搬运 meridian_mechanism.py / mech.py 代码"
+  ],
+  "row_count": 6,
+  "rows": [
+    {
+      "cardinality": "1:1",
+      "cn": "全息心跳",
+      "diff": [
+        "主体数 70 vs 1229",
+        "号段 vs 技能名"
+      ],
+      "direction": "one-way: holoaeon→ivsa（只映射归属，不互推编号/主体/号段）",
+      "evidence_class": "simulated",
+      "holo_side": "SHAKE-256 展开 768 维双极向量 + 逐位叠加取符号；相位=位次%12；1229 技能侧 241 条",
+      "id": "MM-01",
+      "ivsa_side": "70 体注册表 / 号段 8700–8769 / 768 维 / α=0.18",
+      "mapping_rule": "只做映射表：技能→机制归属；编号不许互推",
+      "mechanism": "holographic_heartbeat",
+      "same": [
+        "dim=768"
+      ],
+      "status": "mapped"
+    },
+    {
+      "cardinality": "1:1",
+      "cn": "细胞骨架",
+      "diff": [
+        "度量对象 vs 业务流程"
+      ],
+      "direction": "one-way: holoaeon→ivsa（只映射归属，不互推编号/主体/号段）",
+      "evidence_class": "simulated",
+      "holo_side": "度/载荷/主干排序 + 逐节点抽除算连通分量增量；209 条",
+      "id": "MM-02",
+      "ivsa_side": "3 层 × 4 链（采/洗/检/注）+ 12 跨链",
+      "mapping_rule": "度量口径映射到 12 跨链的健康检查，不替换流程",
+      "mechanism": "cytoskeleton",
+      "same": [
+        "分层结构"
+      ],
+      "status": "mapped"
+    },
+    {
+      "cardinality": "1:1",
+      "cn": "皮肤八层",
+      "diff": [
+        "词表 10 token vs 36 条医学规则"
+      ],
+      "direction": "one-way: holoaeon→ivsa（只映射归属，不互推编号/主体/号段）",
+      "evidence_class": "simulated",
+      "holo_side": "SG-SKIN-V6.0 八层 fail-closed，通用闸固定 10 个红线 token；368 条",
+      "id": "MM-03",
+      "ivsa_side": "L1–L8，L5 双轨仲裁：24 E14（越权/急症）+ 12 E13（失真/毒烈）",
+      "mapping_rule": "通用闸不放医学词表；医学词表按域注入，避免误熔断",
+      "mechanism": "skin_v6",
+      "same": [
+        "八层同名同序",
+        "L5 仲裁位"
+      ],
+      "status": "mapped"
+    },
+    {
+      "cardinality": "1:1",
+      "cn": "语义通信底座",
+      "diff": [
+        "19 vs 十模块",
+        "最薄一侧是 HoloAeon"
+      ],
+      "direction": "one-way: holoaeon→ivsa（只映射归属，不互推编号/主体/号段）",
+      "evidence_class": "simulated",
+      "holo_side": "2/3/4 阶 shingle + 空白切词混合打分；信封 encode/decode 往返指纹；仅 19 条技能",
+      "id": "MM-04",
+      "ivsa_side": "语义总线十模块",
+      "mapping_rule": "用十模块反向补齐 19，不引入第十一模块",
+      "mechanism": "semantic_bus",
+      "same": [
+        "信封/指纹机制"
+      ],
+      "status": "mapped"
+    },
+    {
+      "cardinality": "1:1",
+      "cn": "赫布协作场",
+      "diff": [
+        "状态主体：技能共现 vs 器官协同"
+      ],
+      "direction": "one-way: holoaeon→ivsa（只映射归属，不互推编号/主体/号段）",
+      "evidence_class": "simulated",
+      "holo_side": "w += δ(0.99−w) 收敛 0.99 / 按比例衰减 / Dijkstra；315 条",
+      "id": "MM-05",
+      "ivsa_side": "生命之花 19 圆 / 17 通道节点 / lr 0.12 / decay 0.99",
+      "mapping_rule": "同一公式两套权重表；落盘格式分开，不共享存储",
+      "mechanism": "hebbian_field",
+      "same": [
+        "decay=0.99",
+        "共激活强化形式"
+      ],
+      "status": "mapped"
+    },
+    {
+      "cardinality": "1:1",
+      "cn": "经络机制",
+      "diff": [
+        "12 vs 17",
+        "技能侧几乎空"
+      ],
+      "direction": "one-way: holoaeon→ivsa（只映射归属，不互推编号/主体/号段）",
+      "evidence_class": "simulated",
+      "holo_side": "12 通道 LC01–LC12 + 预算 + 淤堵 + 再平衡；仅 4 条技能",
+      "id": "MM-06",
+      "ivsa_side": "17 通道（气5/血4/神4/淋巴4）/ 11 器官 / 三级 / 四探针 / 四级治疗",
+      "mapping_rule": "12→17 只写显式分组映射表，4/12 未映射目标登记为待办",
+      "mechanism": "meridian",
+      "same": [
+        "预算-淤堵-再平衡语义"
+      ],
+      "status": "mapped"
+    }
+  ],
+  "rules": [
+    {
+      "id": "M1",
+      "text": "六机制恰好六行，机制名与 contract.MECHANISMS 同序"
+    },
+    {
+      "id": "M2",
+      "text": "每行 mapping_rule 非空且 >= 6 字，否则视为未映射"
+    },
+    {
+      "id": "M3",
+      "text": "direction 全局单向，禁止双向/回写"
+    },
+    {
+      "id": "M4",
+      "text": "map_digest 可复算，改一个字符即变"
+    },
+    {
+      "id": "M5",
+      "text": "每行 same / diff 至少各一条，差异必须写出来"
+    },
+    {
+      "id": "M6",
+      "text": "行内容与 contract.PAIRS 逐字段一致，禁止文档与代码各写一套"
+    }
+  ]
+}
