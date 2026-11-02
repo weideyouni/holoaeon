@@ -53,6 +53,9 @@ REPO_FILES = [
     "data/contract_v1_draft.md",
     "data/contract_v1.json",
     "data/mechanism_map.json",
+    "data/channel_map.csv",
+    "data/channel_map.json",
+    "data/skin_lexicon_rehab.json",
     "data/five_site_dna.json",
     "data/FIVE_SITE_SYNC_DNA.md",
     "holoaeon/fusion_upgrade/contract.py",
@@ -65,12 +68,16 @@ REPO_FILES = [
     "scripts/check_contract_draft.py",
     "scripts/check_contract_v1.py",
     "scripts/check_mechanism_map.py",
+    "scripts/check_channel_map.py",
+    "scripts/gen_channel_map.py",
+    "scripts/gen_skin_lexicon.py",
     "scripts/contract_interop.py",
     "scripts/contract_interop_final.py",
     "scripts/five_site_dna.py",
     "scripts/freeze_contract_v1.py",
     "tests_contract/test_contract_v1.py",
     "tests_contract/test_mechanism_map.py",
+    "tests_contract/test_channel_map.py",
 ]
 
 ZIP_NAME = "holoaeon_v4_fusion_upgrade_20261102.zip"

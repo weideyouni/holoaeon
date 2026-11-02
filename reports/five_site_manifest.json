@@ -7,7 +7,7 @@
   "repo_root": "F:\\doubaowork\\holoaeon",
   "counts": {
     "package": 18,
-    "repo": 25,
+    "repo": 32,
     "missing": 0
   },
   "package": {
@@ -95,8 +95,8 @@
       "sha256": "b98f27923178bfd982e0b9329fade05b6c1590b628650b130635e7568804370f"
     },
     "data/B0_批次进度.csv": {
-      "bytes": 910,
-      "sha256": "c3fbb52f1ee31301fa320a732d1307b34d28ebaea62557bafc301ccbd26d7ca5"
+      "bytes": 925,
+      "sha256": "cd7a7b1ac96ff23cf39fb4463456f9af94de8878aff4b4791c59383756490b96"
     },
     "data/B0_自动匹配技能.csv": {
       "bytes": 83726,
@@ -105,6 +105,14 @@
     "data/FIVE_SITE_SYNC_DNA.md": {
       "bytes": 10105,
       "sha256": "953f4239eaecaedf3082c59a82f4efc3e3b4d5edc5131ec5b3464e8e45e2dbf1"
+    },
+    "data/channel_map.csv": {
+      "bytes": 766,
+      "sha256": "3ca55a1b531cbd72e68a5da45976de432a93f2a9bd75986f7337ecb73c5d35fd"
+    },
+    "data/channel_map.json": {
+      "bytes": 2613,
+      "sha256": "35164fb28d7be3dad21d6e34a60fbe449e434d492303657da5ab218b8acb439a"
     },
     "data/contract_v1.json": {
       "bytes": 2762,
@@ -121,6 +129,10 @@
     "data/mechanism_map.json": {
       "bytes": 5524,
       "sha256": "7650bd8f4a32f444c486684c36971c48e411fa7d5f1ffe4028238fd09ba972f1"
+    },
+    "data/skin_lexicon_rehab.json": {
+      "bytes": 2865,
+      "sha256": "ce6088baea2ad16b106ab5b1b46fcaadaa82ec4936f0e372fa7b056d43990800"
     },
     "holoaeon/fusion_upgrade/contract.py": {
       "bytes": 12137,
@@ -150,6 +162,10 @@
       "bytes": 3919,
       "sha256": "21015b0dc1bb2725ce4fc7ae8537829e4ba52ec75064f1e276abfb32a2223e4f"
     },
+    "scripts/check_channel_map.py": {
+      "bytes": 5822,
+      "sha256": "d36b5467fe81ac325e47a7feaaf7e5f772dafa8b4102ed140f6217f058f573fa"
+    },
     "scripts/check_contract_draft.py": {
       "bytes": 5140,
       "sha256": "ab6091780109a0d0d632add3b378c1df70246831c3eccea2da8cbd40076184ef"
@@ -171,12 +187,24 @@
       "sha256": "e5866a88409e1715bc645797be17af2058ce45e1a74cb799912e76ea2f538cea"
     },
     "scripts/five_site_dna.py": {
-      "bytes": 9787,
-      "sha256": "2bd6ae236ca8066d8ec57b5bfb1f1d646be1c3c7f6758f50718616abeab3559e"
+      "bytes": 10027,
+      "sha256": "d566fba49d9990d8bb9c92131738bd2e0a8f6a2ea139323289f722ef855b4570"
     },
     "scripts/freeze_contract_v1.py": {
       "bytes": 3616,
       "sha256": "813288ea7a35591af2b39336b699c888ba80c4090a3f0730f466d8ea58778010"
+    },
+    "scripts/gen_channel_map.py": {
+      "bytes": 3167,
+      "sha256": "925cd83ee231cb9e65abf675dc680f33fb1b45ac1d4ff63d1d576195e9b88d84"
+    },
+    "scripts/gen_skin_lexicon.py": {
+      "bytes": 4783,
+      "sha256": "fa5fb21ef5f5184f131d16e42d4d6a32db2e62eaacfa2760b6ad207b8d9fc6a5"
+    },
+    "tests_contract/test_channel_map.py": {
+      "bytes": 3589,
+      "sha256": "dac693aa1334e1446a1fbbf6302eb82c2bb2926ecfa7b0ce831d7110831ab64b"
     },
     "tests_contract/test_contract_v1.py": {
       "bytes": 6260,

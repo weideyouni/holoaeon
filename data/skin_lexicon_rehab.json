@@ -1,0 +1,121 @@
+{
+  "batch": "B2b",
+  "domain_scope": "rehab",
+  "evidence_class": "simulated",
+  "frozen_at": "2026-11-02",
+  "injection": {
+    "general_gate": {
+      "load": [
+        "general"
+      ],
+      "must_not_load": [
+        "medical"
+      ],
+      "when": "domain==general 或未声明"
+    },
+    "medical_gate": {
+      "extra_requirement": "payload.redlines 三布尔必须齐且为 true",
+      "load": [
+        "general",
+        "medical"
+      ],
+      "when": "domain==medical"
+    },
+    "rule": "按 payload.domain 分域注入；general 只走 10 token 通用闸"
+  },
+  "invariants": [
+    {
+      "id": "X1",
+      "text": "通用闸恒为 10 个 token，不得增删"
+    },
+    {
+      "id": "X2",
+      "text": "通用闸内不得出现任何 E13/E14 词条"
+    },
+    {
+      "id": "X3",
+      "text": "医学侧 24 E14 + 12 E13 计数恒定"
+    },
+    {
+      "id": "X4",
+      "text": "两套词表不共享存储、不做并集合并"
+    },
+    {
+      "id": "X5",
+      "text": "词条内容不跨仓复制，只登记槽位与注入条件"
+    }
+  ],
+  "lexicon_id": "SG-SKIN-LEXICON-SPLIT-HOLOAEON-IVSA-V1",
+  "spec_digest": "0c767ee7c86de2a5",
+  "tracks": {
+    "general": {
+      "content": "本仓持有槽位与判定位，词条内容按 SG-SKIN-V6.0 版本执行",
+      "count": 10,
+      "e13_e14_present": false,
+      "includes_medical": false,
+      "owner": "SG-SKIN-V6.0 通用闸（HoloAeon 侧）",
+      "slots": [
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "G05",
+        "G06",
+        "G07",
+        "G08",
+        "G09",
+        "G10"
+      ]
+    },
+    "medical": {
+      "copied_into_holoaeon": false,
+      "e13_count": 12,
+      "e13_semantics": "无证明断言（把仿真等同于硬件/临床结论类）",
+      "e13_slots": [
+        "M-E13-01",
+        "M-E13-02",
+        "M-E13-03",
+        "M-E13-04",
+        "M-E13-05",
+        "M-E13-06",
+        "M-E13-07",
+        "M-E13-08",
+        "M-E13-09",
+        "M-E13-10",
+        "M-E13-11",
+        "M-E13-12"
+      ],
+      "e14_count": 24,
+      "e14_semantics": "越权动作（真实综合/越权执行类）",
+      "e14_slots": [
+        "M-E14-01",
+        "M-E14-02",
+        "M-E14-03",
+        "M-E14-04",
+        "M-E14-05",
+        "M-E14-06",
+        "M-E14-07",
+        "M-E14-08",
+        "M-E14-09",
+        "M-E14-10",
+        "M-E14-11",
+        "M-E14-12",
+        "M-E14-13",
+        "M-E14-14",
+        "M-E14-15",
+        "M-E14-16",
+        "M-E14-17",
+        "M-E14-18",
+        "M-E14-19",
+        "M-E14-20",
+        "M-E14-21",
+        "M-E14-22",
+        "M-E14-23",
+        "M-E14-24"
+      ],
+      "license": "代码 MPL-2.0 / 内容 CC-BY-NC-SA-4.0（只登记不复制）",
+      "owner": "ivsa L5 双轨仲裁层",
+      "source_path": "ivsa/skin_layers/L5_dual_track_arbiter.py"
+    }
+  }
+}

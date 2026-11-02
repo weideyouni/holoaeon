@@ -1,0 +1,104 @@
+{
+  "arithmetic_policy": "禁止按行序号取模推导通道；12 行写死，未映射目标登记待办（写法见坑表 V4-5）",
+  "batch": "B2b",
+  "csv_sha256": "3ca55a1b531cbd72e68a5da45976de432a93f2a9bd75986f7337ecb73c5d35fd",
+  "evidence_class": "simulated",
+  "frozen_at": "2026-11-02",
+  "map_id": "SG-CHANNEL-MAP-HOLOAEON-IVSA-V1",
+  "mapped": 12,
+  "no_arithmetic": true,
+  "pending": 5,
+  "pending_detail": {
+    "淋巴": 4,
+    "神": 1
+  },
+  "row_count": 12,
+  "rows": [
+    {
+      "group": "气",
+      "lc": "LC01",
+      "rule": "显式分组映射；同一 LC 不跨组",
+      "status": "mapped",
+      "target_group": "气"
+    },
+    {
+      "group": "气",
+      "lc": "LC02",
+      "rule": "显式分组映射；同一 LC 不跨组",
+      "status": "mapped",
+      "target_group": "气"
+    },
+    {
+      "group": "气",
+      "lc": "LC03",
+      "rule": "显式分组映射；同一 LC 不跨组",
+      "status": "mapped",
+      "target_group": "气"
+    },
+    {
+      "group": "气",
+      "lc": "LC04",
+      "rule": "显式分组映射；同一 LC 不跨组",
+      "status": "mapped",
+      "target_group": "气"
+    },
+    {
+      "group": "气",
+      "lc": "LC05",
+      "rule": "显式分组映射；同一 LC 不跨组",
+      "status": "mapped",
+      "target_group": "气"
+    },
+    {
+      "group": "血",
+      "lc": "LC06",
+      "rule": "显式分组映射；同一 LC 不跨组",
+      "status": "mapped",
+      "target_group": "血"
+    },
+    {
+      "group": "血",
+      "lc": "LC07",
+      "rule": "显式分组映射；同一 LC 不跨组",
+      "status": "mapped",
+      "target_group": "血"
+    },
+    {
+      "group": "血",
+      "lc": "LC08",
+      "rule": "显式分组映射；同一 LC 不跨组",
+      "status": "mapped",
+      "target_group": "血"
+    },
+    {
+      "group": "血",
+      "lc": "LC09",
+      "rule": "显式分组映射；同一 LC 不跨组",
+      "status": "mapped",
+      "target_group": "血"
+    },
+    {
+      "group": "神",
+      "lc": "LC10",
+      "rule": "显式分组映射；同一 LC 不跨组",
+      "status": "mapped",
+      "target_group": "神"
+    },
+    {
+      "group": "神",
+      "lc": "LC11",
+      "rule": "显式分组映射；同一 LC 不跨组",
+      "status": "mapped",
+      "target_group": "神"
+    },
+    {
+      "group": "神",
+      "lc": "LC12",
+      "rule": "显式分组映射；同一 LC 不跨组",
+      "status": "mapped",
+      "target_group": "神"
+    }
+  ],
+  "rule_note": "12 行写死；未映射目标登记为待办，不许用补位/取模补齐",
+  "targets": 17
+}

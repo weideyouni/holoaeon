@@ -1,0 +1,13 @@
+lc,group,target_group,status,rule
+LC01,气,气,mapped,显式分组映射；同一 LC 不跨组
+LC02,气,气,mapped,显式分组映射；同一 LC 不跨组
+LC03,气,气,mapped,显式分组映射；同一 LC 不跨组
+LC04,气,气,mapped,显式分组映射；同一 LC 不跨组
+LC05,气,气,mapped,显式分组映射；同一 LC 不跨组
+LC06,血,血,mapped,显式分组映射；同一 LC 不跨组
+LC07,血,血,mapped,显式分组映射；同一 LC 不跨组
+LC08,血,血,mapped,显式分组映射；同一 LC 不跨组
+LC09,血,血,mapped,显式分组映射；同一 LC 不跨组
+LC10,神,神,mapped,显式分组映射；同一 LC 不跨组
+LC11,神,神,mapped,显式分组映射；同一 LC 不跨组
+LC12,神,神,mapped,显式分组映射；同一 LC 不跨组
