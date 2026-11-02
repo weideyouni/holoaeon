@@ -1,0 +1,70 @@
+{
+  "id": "SG-V5-REHAB-KB-CHECK-V1",
+  "passed": 11,
+  "total": 11,
+  "failed": [],
+  "verdict": "PASS",
+  "totals": {
+    "entries": 14,
+    "ivsa_rows": 300,
+    "ivsa_knowledge_files": 11,
+    "holoaeon_entries": 4
+  },
+  "checks": [
+    {
+      "id": "D1",
+      "ok": true,
+      "detail": "id=SG-V5-REHAB-KB-V1 entries=14"
+    },
+    {
+      "id": "D2",
+      "ok": true,
+      "detail": "recomputed=13 bad=[]"
+    },
+    {
+      "id": "D3",
+      "ok": true,
+      "detail": "kb lock=25/47/9"
+    },
+    {
+      "id": "D3b",
+      "ok": true,
+      "detail": "dimensions=12 agents/skills/packs=25/47/9"
+    },
+    {
+      "id": "D4",
+      "ok": true,
+      "detail": "shadow=SG-V5-DIM-SHADOW-REHAB-V1 lock=False diff0=False"
+    },
+    {
+      "id": "D5",
+      "ok": true,
+      "detail": "cards=4 tier_none=4"
+    },
+    {
+      "id": "D6",
+      "ok": true,
+      "detail": "dose_hits=0"
+    },
+    {
+      "id": "D7",
+      "ok": true,
+      "detail": "copied=[] long=[]"
+    },
+    {
+      "id": "D8",
+      "ok": true,
+      "detail": "url=False"
+    },
+    {
+      "id": "D9",
+      "ok": true,
+      "detail": "DIM-02=occupied EVIDENCE-01=occupied ev=none"
+    },
+    {
+      "id": "D10",
+      "ok": true,
+      "detail": "repo_files=152 missing=[]"
+    }
+  ]
+}

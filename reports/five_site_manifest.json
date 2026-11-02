@@ -7,7 +7,7 @@
   "repo_root": "F:\\doubaowork\\holoaeon",
   "counts": {
     "package": 28,
-    "repo": 145,
+    "repo": 152,
     "missing": 0
   },
   "package": {
@@ -108,9 +108,9 @@
       "sha256": "33af29f94ecfd5c790253f5216e477b410fcd0d3838d029027d37ca3c29f4861"
     },
     "holoaeon_v4_fusion_upgrade_20261102.zip": {
-      "bytes": 127042,
-      "sha256": "184f31b66e7a5205a8bb824eb6f03e31b908c792887eb60a3f9a2bdf9bf1e282",
-      "sha16": "184f31b66e7a5205"
+      "bytes": 129181,
+      "sha256": "fc1c27e66a1090c6812944f8154d9302854aa4d8835e3a08ff0ad5c0d1a71111",
+      "sha16": "fc1c27e66a1090c6"
     },
     "reports/b0_lock_v4fusion.json": {
       "bytes": 988,
@@ -127,12 +127,12 @@
   },
   "repo": {
     "README_FUSION_V4_20261102.md": {
-      "bytes": 24694,
-      "sha256": "6479598c9af5ccc7d3dd9f49c0cc7b7f3d1adc25dc78c5889da979fe4966ccdc"
+      "bytes": 27343,
+      "sha256": "d27e83163a86a4fb8b2feb0cbe01fef286d7281ed45c72166fd5b245bc780fce"
     },
     "SHA256SUMS": {
-      "bytes": 21719,
-      "sha256": "f89ff49603d1c3160c778267811f1d5763e59e247cbf2587cac49da08b3b9e2b"
+      "bytes": 22288,
+      "sha256": "6d60a22b7f1b85442f823aa6f39dab831e6a157fed659fa1eeff745dcc419e79"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
@@ -238,6 +238,10 @@
       "bytes": 4129,
       "sha256": "a2bcdc56f8ae2fd9e70daf7e9d661454e2fbe079cb70ebf8ab42436665e4ea96"
     },
+    "data/V5.0_康复域知识库入库票据.md": {
+      "bytes": 4205,
+      "sha256": "a02cfe5aa04a787bea12584e7ce5c4b0260ba8dcadaea3b7cf3b31a1cb538d90"
+    },
     "data/admission_ledger.csv": {
       "bytes": 3034,
       "sha256": "d5117b2396f7c15002012ef7eaafda1d0bbc56961b0deb60812dcd47b3e3a380"
@@ -276,11 +280,11 @@
     },
     "data/dual_repo_sums.json": {
       "bytes": 2127,
-      "sha256": "c4ab3b8dcd6acbe5e311f9911cea29d99b7b1b5b3f6f9dd8e4d25531b0a5b8c8"
+      "sha256": "6c2f21fe5f2cce666a57624372bc830fd30e8884725fcbd2d740f88e3ca655c8"
     },
     "data/extension_slots.json": {
-      "bytes": 6263,
-      "sha256": "599250722595388d983f35ca64f1bbccdb72fa93f657763bb9f93f8e06f2605d"
+      "bytes": 6540,
+      "sha256": "8dea97c612ac97695af99ed71ab0b6983dd98f0156df55ffec1a79fcccef646e"
     },
     "data/five_site_dna.json": {
       "bytes": 8665,
@@ -342,9 +346,17 @@
       "bytes": 6385,
       "sha256": "ee8645eba8f3b83f0a84d6d0db4682313f39cda0d673d2a4db554d4db913bfcf"
     },
+    "data/v5_rehab_kb.json": {
+      "bytes": 8604,
+      "sha256": "fcee7fe1ccbd4da7b66ae54d99a57f05cccfc765da950edd2e572b7da6b6a105"
+    },
     "data/许可分层清单.csv": {
       "bytes": 491,
       "sha256": "33af29f94ecfd5c790253f5216e477b410fcd0d3838d029027d37ca3c29f4861"
+    },
+    "docs/V5.0_康复域知识库与影子维度指南.md": {
+      "bytes": 6124,
+      "sha256": "b26341e80faf395df58e1f4fe472566a814be7c155ac829b9ee3f920fd483604"
     },
     "docs/扩展卡槽与协作开发指南.md": {
       "bytes": 6826,
@@ -420,7 +432,7 @@
     },
     "reports/b8_dual_sync.json": {
       "bytes": 612,
-      "sha256": "e06473ee805073606dbf7c57c1f9de8e39795488f19c90f1adee5729d5f77d60"
+      "sha256": "fa821f5ebf659efbf1d6b2fbc994df901ec7e35e694a0034e3e9277656a9706b"
     },
     "reports/b8_dual_sync_check.json": {
       "bytes": 1773,
@@ -455,8 +467,8 @@
       "sha256": "327c6f1fb269f1c054c552ab6f223e8ec3adae70157c7c5f6096852961206db7"
     },
     "reports/v44_model_gateway_check.json": {
-      "bytes": 3447,
-      "sha256": "723af6f375c01a71833df297ad2e401a76af94f03687200c9e3a95b964bf3882"
+      "bytes": 3380,
+      "sha256": "cae701478de2331d58b42b61fced1ae3202d912a5f2e2ec52ee3a9acad36f22f"
     },
     "reports/v45_live_probe.json": {
       "bytes": 1253,
@@ -468,7 +480,11 @@
     },
     "reports/v46_slot_check.json": {
       "bytes": 1857,
-      "sha256": "a80cd13d083a6a5a77f03669ea7fd1084dfee0e6e40a01edfafbef9e1d23aaa7"
+      "sha256": "9a10ea4abbbca83728693455ebcf78ca3b2edc76b60bdbeecfa8dd0dc129f38a"
+    },
+    "reports/v5_rehab_kb_check.json": {
+      "bytes": 1279,
+      "sha256": "e9c4e15e6ab867a2c5a4caa57f35a458e764110dfd3b615a5ffc1c3861423585"
     },
     "scripts/admit_batch.py": {
       "bytes": 15869,
@@ -493,6 +509,10 @@
     "scripts/build_mechanism_map.py": {
       "bytes": 3919,
       "sha256": "21015b0dc1bb2725ce4fc7ae8537829e4ba52ec75064f1e276abfb32a2223e4f"
+    },
+    "scripts/build_v5_rehab_kb.py": {
+      "bytes": 6657,
+      "sha256": "4c55582eda2057b1cd3c8f2bf1a2fc28bf89d25358978f63a876c021db6005e8"
     },
     "scripts/build_vector_sea_manifest.py": {
       "bytes": 4592,
@@ -555,8 +575,8 @@
       "sha256": "53ca6e59d40f77ff29b0dedeb27a8ae06d4f6c947c17d83c5426975f2f8fb6a5"
     },
     "scripts/five_site_dna.py": {
-      "bytes": 15914,
-      "sha256": "255ed36afaf4de18e47701036ed3bc75bb61a943ec47b02198ddebc465b0687e"
+      "bytes": 16189,
+      "sha256": "e7096fdc4b627b97040f01c432bbbe44e27ab1243d1377c15f3b8f6ce0aadbe1"
     },
     "scripts/freeze_contract_v1.py": {
       "bytes": 3616,
@@ -634,6 +654,10 @@
       "bytes": 6331,
       "sha256": "229c47294d9a4789d19f6e80636b543a262df718df3af91071bc73e4041eb8ed"
     },
+    "scripts/verify_v5.py": {
+      "bytes": 5744,
+      "sha256": "0fd1d309a17d712e383f7771fe89671a0d53146542bbbc1dabd8c0dea9381b58"
+    },
     "tests_contract/test_admission_gate.py": {
       "bytes": 4561,
       "sha256": "a928905c98ae8597fb9f73145b62d88d2be671245c117922e556314be0d46706"
@@ -705,6 +729,10 @@
     "tests_contract/test_v46.py": {
       "bytes": 2538,
       "sha256": "2074200a13e60826fe2e3a68a49d579805b29389d38187a4d46bb3f862b8f0a9"
+    },
+    "tests_contract/test_v5.py": {
+      "bytes": 2767,
+      "sha256": "890ca08eb994ad692c5749c6f0de5a97f0e45b9d6160c2921bba336e0d956282"
     }
   },
   "missing": []

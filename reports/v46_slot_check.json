@@ -8,9 +8,9 @@
     "total": 12,
     "by_status": {
       "open": 1,
-      "reserved": 5,
-      "occupied": 4,
-      "blocked": 2
+      "reserved": 4,
+      "occupied": 6,
+      "blocked": 1
     },
     "by_kind": {
       "provider": 2,
@@ -50,7 +50,7 @@
       "passed": true,
       "detail": {
         "missing": [],
-        "owners_unclaimed": 7
+        "owners_unclaimed": 5
       }
     },
     {
@@ -101,7 +101,7 @@
       "passed": true,
       "detail": {
         "missing_in_manifest": [],
-        "repo_files": 145
+        "repo_files": 152
       }
     }
   ]

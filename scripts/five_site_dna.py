@@ -206,6 +206,13 @@ REPO_FILES = [
     "scripts/verify_v46.py",
     "tests_contract/test_v46.py",
     "reports/v46_slot_check.json",
+    "data/v5_rehab_kb.json",
+    "scripts/build_v5_rehab_kb.py",
+    "scripts/verify_v5.py",
+    "tests_contract/test_v5.py",
+    "reports/v5_rehab_kb_check.json",
+    "data/V5.0_康复域知识库入库票据.md",
+    "docs/V5.0_康复域知识库与影子维度指南.md",
 ]
 
 ZIP_NAME = "holoaeon_v4_fusion_upgrade_20261102.zip"

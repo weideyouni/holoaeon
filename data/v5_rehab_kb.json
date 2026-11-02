@@ -1,0 +1,263 @@
+{
+  "id": "SG-V5-REHAB-KB-V1",
+  "batch": "V5.0-B1",
+  "created_at": "2026-11-02",
+  "version": "1.0",
+  "principle": "全量入库 = 全量登记（行数/字节/哈希/红线），不是全量复制；正文留在客仓，本仓只做索引与门禁。",
+  "scope": "康复域：ivsa 9 张数据表 + knowledge 目录 + 本仓 4 件康复域既有件",
+  "lock": {
+    "agents": 25,
+    "skills": 47,
+    "packs": 9,
+    "note": "入库不改锁数；新增内容以索引形式旁挂。"
+  },
+  "shadow_dimension": {
+    "id": "SG-V5-DIM-SHADOW-REHAB-V1",
+    "slot": "EXT-DIM-02",
+    "name": "D_REHAB 康复域影子维度",
+    "participates_in_dimension_lock": false,
+    "affects_diff0_hash": false,
+    "usage": "仅用于康复域检索排序与命中解释；不进 D01–D14，不改指纹。",
+    "weight_policy": "只做排序权重 0.1–0.3，禁止用它改写既有 12 维度结论。"
+  },
+  "evidence_register": {
+    "id": "SG-V5-EVIDENCE-REGISTER-V1",
+    "slot": "EXT-EVIDENCE-01",
+    "tier_unchanged": true,
+    "cards": [
+      {
+        "card_id": "TF-M-05",
+        "field": "magnetic",
+        "tier_before": "none",
+        "tier_after": "none",
+        "status": "awaiting_manual_review",
+        "review_requires": [
+          "原文可获取",
+          "人群/分期明确",
+          "参数完整",
+          "结局定义清晰"
+        ]
+      },
+      {
+        "card_id": "TF-E-01",
+        "field": "electric",
+        "tier_before": "none",
+        "tier_after": "none",
+        "status": "awaiting_manual_review",
+        "review_requires": [
+          "原文可获取",
+          "人群/分期明确",
+          "参数完整",
+          "结局定义清晰"
+        ]
+      },
+      {
+        "card_id": "TF-E-02",
+        "field": "electric",
+        "tier_before": "none",
+        "tier_after": "none",
+        "status": "awaiting_manual_review",
+        "review_requires": [
+          "原文可获取",
+          "人群/分期明确",
+          "参数完整",
+          "结局定义清晰"
+        ]
+      },
+      {
+        "card_id": "TF-E-03",
+        "field": "electric",
+        "tier_before": "none",
+        "tier_after": "none",
+        "status": "awaiting_manual_review",
+        "review_requires": [
+          "原文可获取",
+          "人群/分期明确",
+          "参数完整",
+          "结局定义清晰"
+        ]
+      }
+    ],
+    "note": "解封 = 允许人工逐篇核对流程；未核对前 tier 一律 none，禁止批量上调。"
+  },
+  "redlines": {
+    "zero_dose": "不写剂量、不给参数",
+    "no_diagnosis": "不做诊断、不出结论",
+    "no_device": "不接设备、不启动网关",
+    "emergency_120": "急症转 120",
+    "no_original_text": "只存索引与哈希，不复制客仓正文",
+    "no_efficacy_claim": "仿真 ≠ 证明，不外推疗效"
+  },
+  "totals": {
+    "entries": 14,
+    "ivsa_rows": 300,
+    "ivsa_knowledge_files": 11,
+    "holoaeon_entries": 4
+  },
+  "entries": [
+    {
+      "entry_id": "KB-IVSA-DATA-CAPABILITY",
+      "layer": "ivsa_data",
+      "source": "ivsa/data/capability_dimensions_147.csv",
+      "access": "read_only",
+      "rows": 147,
+      "bytes": 10492,
+      "sha256": "9afc555e9bc921c865d696fcd683759516b1f0d8fd29ee1b58464237a52bd4b5",
+      "header_columns": 3,
+      "copied": false,
+      "note": "只登记行数与哈希；正文留在客仓，本仓不含其文字。"
+    },
+    {
+      "entry_id": "KB-IVSA-DATA-CHRONIC",
+      "layer": "ivsa_data",
+      "source": "ivsa/data/chronic_diseases_7.csv",
+      "access": "read_only",
+      "rows": 7,
+      "bytes": 1189,
+      "sha256": "0d1b5127ebbab3b0afa3104375895f77d62f128046b20e33b4d44282af711011",
+      "header_columns": 4,
+      "copied": false,
+      "note": "只登记行数与哈希；正文留在客仓，本仓不含其文字。"
+    },
+    {
+      "entry_id": "KB-IVSA-DATA-HEARTBEAT",
+      "layer": "ivsa_data",
+      "source": "ivsa/data/heartbeat_70_registry.csv",
+      "access": "read_only",
+      "rows": 70,
+      "bytes": 6911,
+      "sha256": "273045073608b7fd343e558511c4bec4e33ece5e1bc8c6e4d929eecdf54ace16",
+      "header_columns": 4,
+      "copied": false,
+      "note": "只登记行数与哈希；正文留在客仓，本仓不含其文字。"
+    },
+    {
+      "entry_id": "KB-IVSA-DATA-MERIDIAN",
+      "layer": "ivsa_data",
+      "source": "ivsa/data/meridian_channels_17.csv",
+      "access": "read_only",
+      "rows": 17,
+      "bytes": 1025,
+      "sha256": "346ab298246f82d836b2abae69477ebf8737d8a2e4dbcd1e9fc767562adf8f12",
+      "header_columns": 5,
+      "copied": false,
+      "note": "只登记行数与哈希；正文留在客仓，本仓不含其文字。"
+    },
+    {
+      "entry_id": "KB-IVSA-DATA-REHAB",
+      "layer": "ivsa_data",
+      "source": "ivsa/data/rehab_cases_20.csv",
+      "access": "read_only",
+      "rows": 20,
+      "bytes": 2553,
+      "sha256": "173e64dbf11e0a567b50ccedd359af436420a7dfcd8c2869ca321e989830efda",
+      "header_columns": 4,
+      "copied": false,
+      "note": "只登记行数与哈希；正文留在客仓，本仓不含其文字。"
+    },
+    {
+      "entry_id": "KB-IVSA-DATA-REHAB",
+      "layer": "ivsa_data",
+      "source": "ivsa/data/rehab_legions_7.csv",
+      "access": "read_only",
+      "rows": 7,
+      "bytes": 917,
+      "sha256": "16d32e86520390e6264b53cef11a8e5d25d27a7ca1cf99226a5143fcf5ae6c23",
+      "header_columns": 4,
+      "copied": false,
+      "note": "只登记行数与哈希；正文留在客仓，本仓不含其文字。"
+    },
+    {
+      "entry_id": "KB-IVSA-DATA-REHAB",
+      "layer": "ivsa_data",
+      "source": "ivsa/data/rehab_organs_11.csv",
+      "access": "read_only",
+      "rows": 11,
+      "bytes": 819,
+      "sha256": "40aef518ee230ef9831e81030e919e448fd3f6a971fc4cf6d7b89f6f291f0938",
+      "header_columns": 8,
+      "copied": false,
+      "note": "只登记行数与哈希；正文留在客仓，本仓不含其文字。"
+    },
+    {
+      "entry_id": "KB-IVSA-DATA-SANCHANG",
+      "layer": "ivsa_data",
+      "source": "ivsa/data/sanchang_field_evidence.csv",
+      "access": "read_only",
+      "rows": 13,
+      "bytes": 5094,
+      "sha256": "9b394423a20233c9d4b91f80151a78ef834a9192bfd525b30a4a15d092567697",
+      "header_columns": 13,
+      "copied": false,
+      "note": "只登记行数与哈希；正文留在客仓，本仓不含其文字。"
+    },
+    {
+      "entry_id": "KB-IVSA-DATA-WM",
+      "layer": "ivsa_data",
+      "source": "ivsa/data/wm_ontology_6tuple.csv",
+      "access": "read_only",
+      "rows": 8,
+      "bytes": 3151,
+      "sha256": "aaf0f5fe221cd2ba90ef20f68ed5e304646f1fc2e364ad0ce4bfee9b4639e827",
+      "header_columns": 15,
+      "copied": false,
+      "note": "只登记行数与哈希；正文留在客仓，本仓不含其文字。"
+    },
+    {
+      "entry_id": "KB-IVSA-KNOWLEDGE",
+      "layer": "ivsa_knowledge",
+      "source": "ivsa/knowledge/",
+      "access": "read_only",
+      "files": 11,
+      "bytes": 645707,
+      "subdirs": [
+        "atlas",
+        "doctors",
+        "herbology",
+        "wm"
+      ],
+      "copied": false,
+      "note": "目录级清单；正文不外借，避免医学文字被二次误用。"
+    },
+    {
+      "entry_id": "KB-HOLO-REHAB-PILOT",
+      "layer": "holoaeon",
+      "source": "data/rehab_pilot_20.json",
+      "access": "read_only",
+      "bytes": 22793,
+      "sha256": "e8168ca98ae761dc026de8dd5ebbc44ab54003fd950ed2168da641de193216fa",
+      "copied": true,
+      "note": "康复域试点 20 例（只映射不调用）"
+    },
+    {
+      "entry_id": "KB-HOLO-THREE-FIELD",
+      "layer": "holoaeon",
+      "source": "data/three_field_cards.json",
+      "access": "read_only",
+      "bytes": 12510,
+      "sha256": "eebacd3f4fce1f4f92dd969106197aa86b6727cc48465d67722eb0bdf718de36",
+      "copied": true,
+      "note": "三场卡 13 张（含 4 张 gap）"
+    },
+    {
+      "entry_id": "KB-HOLO-SKIN-REHAB",
+      "layer": "holoaeon",
+      "source": "data/skin_lexicon_rehab.json",
+      "access": "read_only",
+      "bytes": 2865,
+      "sha256": "ce6088baea2ad16b106ab5b1b46fcaadaa82ec4936f0e372fa7b056d43990800",
+      "copied": true,
+      "note": "皮肤词表康复域分域"
+    },
+    {
+      "entry_id": "KB-HOLO-SEMANTIC",
+      "layer": "holoaeon",
+      "source": "data/semantic_family.json",
+      "access": "read_only",
+      "bytes": 27570,
+      "sha256": "2e78ab575b798d3136df6c693a1bd6a822aab84cfdd775347f25435f016f9011",
+      "copied": true,
+      "note": "语义族（康复域候选未准入者不并入）"
+    }
+  ]
+}

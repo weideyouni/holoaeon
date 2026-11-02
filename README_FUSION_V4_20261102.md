@@ -349,6 +349,44 @@ V4.4 拼请求、V4.5 真发请求之后，补的是**接续结构**：后来者
 边界（不冒充）：卡槽**没有**任何运行时接线，`model_gateway` 不读卡槽、`enabled` 仍为 `[]`；
 `EXT-DIM-01` / `EXT-EVIDENCE-01` 保持 `blocked`，等你拍板；Ollama / vLLM 未装未测。
 
+
+## V5.0-B1 · 康复域知识库全量入库（影子维度 + 证据登记解封）
+
+用户点名：「V5.0 康复域知识库全量入库，走 `EXT-DIM-02` 影子槽 + `EXT-EVIDENCE-01` 解封」。本批只做这一件事。
+
+**「全量入库」= 全量登记，不是全量复制。** 康复域正文留在客仓，本仓只存行数、字节、sha256 与只读指针。
+
+入库实数（`scripts/build_v5_rehab_kb.py` 生成、`verify_v5.py` 复算）：
+
+- ivsa `data/*.csv` **9 张表 / 300 行**（147+7+70+17+20+7+11+13+8）
+- ivsa `knowledge/` **11 文件 / 645,707 B**（目录级登记，不逐篇搬字）
+- 本仓康复域 **4 件**（`rehab_pilot_20.json` 20 例、`three_field_cards.json` 13 卡、`skin_lexicon_rehab.json`、`semantic_family.json`）
+- 索引合计 **14 条** → `data/v5_rehab_kb.json`（`SG-V5-REHAB-KB-V1`）
+
+卡槽变化（12 槽总数不变）：
+
+| 槽 | 之前 | 现在 | 说明 |
+|---|---|---|---|
+| `EXT-DIM-02` | reserved | **occupied** | 认领为 `SG-V5-DIM-SHADOW-REHAB-V1`，只做检索排序（权重 0.1–0.3） |
+| `EXT-EVIDENCE-01` | blocked | **occupied** | 解封＝开放人工核对流程；4 张 gap 卡 tier 仍 `none` |
+
+**影子维度不是第 13 维**：`participates_in_dimension_lock=false`、`affects_diff0_hash=false`，
+`reports/dimension_lock.json` 仍是 12 维度 + 7 闸，指纹 `2fc892cf9af6e755` 不变。
+
+**解封 ≠ 上调**：`TF-M-05` / `TF-E-01/02/03` 四张 gap 卡 `tier_before = tier_after = none`，
+`tier_unchanged = true`；上调必须人工逐篇拿到原文并满足「原文可获取 / 人群分期明确 / 参数完整 / 结局定义清晰」四条，
+票据留具体引用，禁止批量上调。
+
+**门禁（命令回读）**：`verify_v5` **D1–D10 11/11 PASS**；`test_v5` **9 OK**；`tests_contract` 160 OK；
+`v3_gate` 32/32；`redline_scan` 76 文件零违规；`check_dimension_lock` 0 violation；`five_site verify` `drift=[]`。
+
+新增：`scripts/build_v5_rehab_kb.py`、`scripts/verify_v5.py`、`tests_contract/test_v5.py`、
+`data/v5_rehab_kb.json`、`docs/V5.0_康复域知识库与影子维度指南.md`、票据 `data/V5.0_康复域知识库入库票据.md`。
+`REPO_FILES` 145 → **152**。
+
+边界（不冒充）：未调用真实模型做康复域推理；未复制 ivsa 任何正文；未动 ivsa 21 组自检与医学红线；
+`EXT-DIM-01` 仍 `blocked`，`EXT-PLUGIN-01` / `EXT-RUNTIME-01` 仍 `reserved`。
+
 ## 附录 · Git 版本升级说明（V3 收口 → V4.6，按提交回溯）
 
 > 口径：sha 与提交主题取自 `git log --oneline` 实测；数字类指标（条目数、字节数、sha16）
@@ -378,7 +416,8 @@ V4.4 拼请求、V4.5 真发请求之后，补的是**接续结构**：后来者
 | V4.4 | `b85b293` | 19 家 provider 目录 + 5 协议拼装 + 默认全关 + 配置指南；A1–A13 13/13 |
 | V4.5-B1 | `fb5cdef` | 真实回环调用：`/v1/embeddings` 200 / 768 维；B1–B7 7/7、8 OK |
 | V4.5-B2 | 本批 | chat 补做：`/v1/chat/completions` 200 / 41+29 tokens；卡槽放到 C 盘模型目录后 `lms import` 成功 |
-| V4.6-B1 | 本批 | 12 卡槽 + 协作指南；C1–C9 9/9、9 OK；**25/47/9 不变** |
+| V4.6-B1 | `f0f1bb5` / `978dc10` / `6646315` | 12 卡槽 + 协作指南；C1–C9 9/9；卡槽实数勘误 14→12 后补收口 |
+| V5.0-B1 | 本批 | 康复域知识库全量入库（14 条登记 / ivsa 300 行）；影子维度 D_REHAB 不入锁；`EXT-EVIDENCE-01` 解封而 tier 不变；D1–D10 11/11 |
 
 **升级主线一句话**：每一批只做一件事，且**只加旁挂、不改锁数**；每批必带 `verify_*` 判据、
 必带票据、必过五地同步（`drift=[]` 方可提交）。

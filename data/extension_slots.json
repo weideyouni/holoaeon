@@ -104,23 +104,23 @@
       "slot_id": "EXT-DIM-02",
       "kind": "dimension_shadow",
       "name": "康复域知识库 V5 影子槽",
-      "status": "reserved",
-      "owner": "未认领",
+      "status": "occupied",
+      "owner": "V5.0-B1",
       "contract": "只读外挂，不改 ivsa 21 组自检与医学红线，不改 25/47/9",
-      "next_action": "V5.0 开票时认领",
-      "evidence": "none",
-      "notes": "医学红线优先于任何扩容。"
+      "next_action": "已落 SG-V5-DIM-SHADOW-REHAB-V1：只做康复域检索排序（权重 0.1–0.3），不进 D01–D14、不改 diff0_hash",
+      "evidence": "simulated",
+      "notes": "索引件 data/v5_rehab_kb.json；正文仍留客仓，本仓只存行数/字节/哈希。"
     },
     {
       "slot_id": "EXT-EVIDENCE-01",
       "kind": "evidence",
       "name": "gap 卡证据等级上调",
-      "status": "blocked",
-      "owner": "未认领",
+      "status": "occupied",
+      "owner": "V5.0-B1",
       "contract": "必须人工逐篇核对原文后升 tier，ticket 留引用，不得批量伪造",
-      "next_action": "等用户拍板是否允许上调",
+      "next_action": "解封后仅开放人工核对流程：4 张 gap 卡逐张填 review 记录，未核对前 tier 恒为 none",
       "evidence": "none",
-      "notes": "4 张 gap 卡仍 evidence_class=none。"
+      "notes": "解封不等于上调；tier_unchanged=true 已写入 SG-V5-EVIDENCE-REGISTER-V1。"
     },
     {
       "slot_id": "EXT-PLUGIN-01",
