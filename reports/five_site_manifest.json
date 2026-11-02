@@ -7,7 +7,7 @@
   "repo_root": "F:\\doubaowork\\holoaeon",
   "counts": {
     "package": 18,
-    "repo": 38,
+    "repo": 39,
     "missing": 0
   },
   "package": {
@@ -194,6 +194,10 @@
       "bytes": 4923,
       "sha256": "413b0ad0a1cf737b10fb74c1f361a46dac5eda9d4956a7cbc259a8e75fd01932"
     },
+    "scripts/check_vector_sea_manifest.py": {
+      "bytes": 2280,
+      "sha256": "7728029022598c50e256b408d76883fc4854e6c99a3d96b5b1a621ae5285f2aa"
+    },
     "scripts/classify_skill_usage.py": {
       "bytes": 8154,
       "sha256": "22a55238e215b2c7097370a1025b91199a0363f6b6643da9af1a0faa21a995bb"
@@ -207,8 +211,8 @@
       "sha256": "e5866a88409e1715bc645797be17af2058ce45e1a74cb799912e76ea2f538cea"
     },
     "scripts/five_site_dna.py": {
-      "bytes": 10267,
-      "sha256": "db9684424485a58b5aa36ba634f7ef30573a9d1c8f0a30898f8881259bad25b1"
+      "bytes": 10311,
+      "sha256": "7a0267416df72383324f7c9faa4b299319fc52dcb4fc449866a013b9ce3a0ff2"
     },
     "scripts/freeze_contract_v1.py": {
       "bytes": 3616,

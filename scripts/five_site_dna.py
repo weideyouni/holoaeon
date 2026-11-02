@@ -73,6 +73,7 @@ REPO_FILES = [
     "scripts/check_mechanism_map.py",
     "scripts/check_channel_map.py",
     "scripts/classify_skill_usage.py",
+    "scripts/check_vector_sea_manifest.py",
     "scripts/check_skill_usage_labels.py",
     "scripts/gen_channel_map.py",
     "scripts/gen_skin_lexicon.py",
