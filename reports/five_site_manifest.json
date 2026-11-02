@@ -7,7 +7,7 @@
   "repo_root": "F:\\doubaowork\\holoaeon",
   "counts": {
     "package": 28,
-    "repo": 154,
+    "repo": 165,
     "missing": 0
   },
   "package": {
@@ -108,9 +108,9 @@
       "sha256": "33af29f94ecfd5c790253f5216e477b410fcd0d3838d029027d37ca3c29f4861"
     },
     "holoaeon_v4_fusion_upgrade_20261102.zip": {
-      "bytes": 129514,
-      "sha256": "6ff26112c2853e3fad43e59f49ce17385f3f2ceb125f62ed48ba1bb7c6ce1457",
-      "sha16": "6ff26112c2853e3f"
+      "bytes": 132462,
+      "sha256": "341b627910e9fc192f509aea6cdd9716167130867b7d92509d30671950de2714",
+      "sha16": "341b627910e9fc19"
     },
     "reports/b0_lock_v4fusion.json": {
       "bytes": 988,
@@ -127,20 +127,20 @@
   },
   "repo": {
     "README.md": {
-      "bytes": 54095,
-      "sha256": "ad194212040a0aa6d390015de3294e232770eec4fdbc3f5922671bb6edef284c"
+      "bytes": 56270,
+      "sha256": "b49f2a138e3f3569e97eb7c67e987fc71f63943f9f6a3d59d4c958fac571a831"
     },
     "README.zh-CN.md": {
-      "bytes": 24347,
-      "sha256": "30693bc69c27842ab2452e464f26181e97d7f4e5500ba723f75641d066f72f01"
+      "bytes": 26303,
+      "sha256": "a121c149f253d41d4e0cc781c0261487176c32ea2a2d9421603602413b956d2d"
     },
     "README_FUSION_V4_20261102.md": {
-      "bytes": 27349,
-      "sha256": "e28edebd3147e3bd390d7d8634466fa7e01fbba06bcfa5787d60d93597e9a73f"
+      "bytes": 27394,
+      "sha256": "90317835249973e04926c74f5fb0a798c709fc95d293517a2fc7b1777aed1843"
     },
     "SHA256SUMS": {
-      "bytes": 21410,
-      "sha256": "1ec93f673b36036b13d0be072d6cb043e2b5b2baca5fd4fa55e19e731a6c5106"
+      "bytes": 21805,
+      "sha256": "435917612a4d4604c7aaa79bd62228297f84bdefce317565eb3a963ffc66343d"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
@@ -286,9 +286,13 @@
       "bytes": 8089,
       "sha256": "604111dc8a1f251ad7eadc2d79b454de2a4798b558b09d1abe1e1bfffc4473c8"
     },
+    "data/design_vocab_registry.json": {
+      "bytes": 1923,
+      "sha256": "e156699ed4bc7384aacda951b33eb8e746b5e80fc9399c913c00e2aa2c9f0c54"
+    },
     "data/dual_repo_sums.json": {
       "bytes": 2127,
-      "sha256": "d0f7932a579cc88a2476d11960f5d88ac2cbc7ab1e549f345fc78865d5584b37"
+      "sha256": "4a6265cc3544a79579e51657dd7e40df74a242abb5049576204d3072d8315c59"
     },
     "data/extension_slots.json": {
       "bytes": 6540,
@@ -374,6 +378,34 @@
       "bytes": 7265,
       "sha256": "48949b8d98fe3e055bec98602e6f823e60aaccb258294307ff0524c84370448f"
     },
+    "docs/设计语汇与协作开发指南.md": {
+      "bytes": 11938,
+      "sha256": "d07b1ef15be821fb795f89667bec1b5454a3e617c2213feeeb3738b4ebab302d"
+    },
+    "holoaeon/design_vocab/__init__.py": {
+      "bytes": 1235,
+      "sha256": "e38b4aec98d914a736ff873181f388152d86a4e052b542f7077fb57c4623db01"
+    },
+    "holoaeon/design_vocab/compile_modes.py": {
+      "bytes": 3285,
+      "sha256": "6ebb7fd0014e3e5593431cda70b347fa75fefec9675277cfed54bcd6e0cdd631"
+    },
+    "holoaeon/design_vocab/detectors.py": {
+      "bytes": 6905,
+      "sha256": "3a80c074040f187d9297af81a56540a0a49f5b17bbd61b1a74bc372f805716f6"
+    },
+    "holoaeon/design_vocab/hebbian.py": {
+      "bytes": 3063,
+      "sha256": "448ff07557c90889950c6e5e9e6a16a0f3d787ef796e34947c24c7a73e948c8d"
+    },
+    "holoaeon/design_vocab/meridian.py": {
+      "bytes": 2306,
+      "sha256": "83c5b026eda4b9093c7614085b8f8c4834c186f168e92b171f72fd1306deea4a"
+    },
+    "holoaeon/design_vocab/vocabulary.py": {
+      "bytes": 3417,
+      "sha256": "da6f0a269033108d1ce07fac4ec68d20a203c7f04c860fd1f8b2865284ed55bc"
+    },
     "holoaeon/fusion_upgrade/admission.py": {
       "bytes": 8043,
       "sha256": "fa44665272716a7931aafa95b3f02043d0d3dabe29481e526b6da2efc9221f9b"
@@ -440,7 +472,7 @@
     },
     "reports/b8_dual_sync.json": {
       "bytes": 612,
-      "sha256": "8270a75b2e400cb9e5b45b375a045265e562eec9efe3f7d7809da0cc42a35811"
+      "sha256": "ff9edc1f69ca587dd1e38bf7a2f3554d6e76ebe9d7c157cc74d5d9873d1a56ac"
     },
     "reports/b8_dual_sync_check.json": {
       "bytes": 1773,
@@ -453,6 +485,10 @@
     "reports/contract_v1_interop.json": {
       "bytes": 983,
       "sha256": "ebfe5b59d349d1b778145751510bcd61eed368e1ac4bb23b71af9dfdd175e548"
+    },
+    "reports/design_vocab_check.json": {
+      "bytes": 1448,
+      "sha256": "12ceed33e3acb7d008a55f3d94069791cf2ac6bcf64f07356e59d66c1b8184cc"
     },
     "reports/gate_b0_v4.json": {
       "bytes": 6815,
@@ -471,12 +507,12 @@
       "sha256": "f2a5fa0c12737e510d6afce3f99a15f66b438b8eefb6fb65ae6841c24186fed6"
     },
     "reports/v43_hardening_check.json": {
-      "bytes": 2159,
-      "sha256": "327c6f1fb269f1c054c552ab6f223e8ec3adae70157c7c5f6096852961206db7"
+      "bytes": 2146,
+      "sha256": "a66008e8b489bf842d87ed76bc278eac3e1691eabf55a14cf2f4ba20b8ce555f"
     },
     "reports/v44_model_gateway_check.json": {
-      "bytes": 3380,
-      "sha256": "b6cacb3482abc6ca479d8dd48349133d9612d2625d47ecdd06eeedd06015ea8c"
+      "bytes": 3447,
+      "sha256": "b73d07c5467469d79df02207ff1533e83e9781556e5c4023680b94310d7809c6"
     },
     "reports/v45_live_probe.json": {
       "bytes": 1253,
@@ -583,8 +619,8 @@
       "sha256": "53ca6e59d40f77ff29b0dedeb27a8ae06d4f6c947c17d83c5426975f2f8fb6a5"
     },
     "scripts/five_site_dna.py": {
-      "bytes": 16229,
-      "sha256": "60135a5dc30bcbdc112f9c082bbd458421ef3e379b46da3729932d86b1f8d106"
+      "bytes": 16761,
+      "sha256": "4cc36b748792d59b0335ceb6822927b52417ed22b2638644d5a12f65f8eb2439"
     },
     "scripts/freeze_contract_v1.py": {
       "bytes": 3616,
@@ -629,6 +665,10 @@
     "scripts/verify_b9_closeout.py": {
       "bytes": 7666,
       "sha256": "777df737365a9f6efdcb03c43df9accf235dd417f51b2e26e1b4073f30b0911c"
+    },
+    "scripts/verify_design_vocab.py": {
+      "bytes": 6628,
+      "sha256": "749e93be918f2f78171383a768559f24c4229415479f96b0a6de694e9998fda3"
     },
     "scripts/verify_ivsa_recon.py": {
       "bytes": 8724,
@@ -681,6 +721,10 @@
     "tests_contract/test_contract_v1.py": {
       "bytes": 6260,
       "sha256": "1c72a943a0f5e01d54f1a17ca656398bc3186d70c6a165eeddb38c21ed5be29e"
+    },
+    "tests_contract/test_design_vocab.py": {
+      "bytes": 5256,
+      "sha256": "402fe7f2659f312d13ee2ebd381a4b057302a1cbfbc9cb619f7a85cce1f6d030"
     },
     "tests_contract/test_dual_sync.py": {
       "bytes": 5697,
