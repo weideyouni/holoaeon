@@ -846,10 +846,10 @@ organs, physiological structures, or supernatural entities. All simulated receip
 
 收尾提交（README 排版、`06` 交付表重算、`README.md` / `README.zh-CN.md` 纳入 `REPO_FILES`）之后：
 
-- 向量海 133 → **134**（新增 `127_README.md`，`126` 为主文档快照）；回执 28,704 → **29,150 B**，history 23 → **24**。
+- 向量海 133 → **134** 条（新增 `127_README.md`，`126` 为主文档快照）。
 - 交付 zip 因 `06` 重算重打为 46 条目 / **129,514 B** / **`6ff26112c2853e3f`**。
-- HF 实推 11 件后 sha 变为 **`fbb10c7b12aa…`**，仍 449 文件 / `mismatch=[]`。
-- 以上均为当次命令回读值；换批后请以命令为准，不要引用本页数字。
+- **HEAD sha、HF sha、回执字节与 history 条数每提交一次就会变**，本页故意不写死；
+  读取方式：`git rev-parse --short HEAD`、`mirror_hf.py` 输出的 `sha`、`five_site_dna.py preflight` 的回执路径。
 
 同步纪律（写序不能颠倒）：
 
