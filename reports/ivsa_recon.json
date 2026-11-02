@@ -1,0 +1,101 @@
+{
+  "checks": [
+    {
+      "detail": "checked=91 missing=0 bad_sha=0 bad_bytes=0",
+      "id": "R1",
+      "name": "ivsa 清单 91/91 复算",
+      "passed": true
+    },
+    {
+      "detail": "total_holo=17 total_ivsa=17 equal=True",
+      "id": "R2",
+      "name": "17 通道分组互认",
+      "passed": true
+    },
+    {
+      "detail": "apache=True mpl=True mixed=[]",
+      "id": "R3",
+      "name": "许可分层无混用",
+      "passed": true
+    },
+    {
+      "detail": "off=disabled on=6 contract={'agents': 25, 'skills': 47, 'packs': 9}",
+      "id": "R4",
+      "name": "插件默认关闭且维度不变",
+      "passed": true
+    },
+    {
+      "detail": "hits=[]",
+      "id": "R5",
+      "name": "ivsa 源码未入宿主",
+      "passed": true
+    },
+    {
+      "detail": "host=178/178 ivsa=91/91",
+      "id": "R6",
+      "name": "双仓摘要口径一致",
+      "passed": true
+    },
+    {
+      "detail": "spec=0.9.1 lock={'agents': 25, 'skills': 47, 'packs': 9}",
+      "id": "R7",
+      "name": "spec 0.9.1 + 维度锁",
+      "passed": true
+    }
+  ],
+  "facts": {
+    "batch": "V2.1",
+    "channels": {
+      "alias": {
+        "气": "qi",
+        "淋巴": "lymph",
+        "神": "shen",
+        "血": "blood"
+      },
+      "equal": true,
+      "groups_holo_mapped": {
+        "blood": 4,
+        "lymph": 4,
+        "qi": 5,
+        "shen": 4
+      },
+      "groups_ivsa": {
+        "blood": 4,
+        "lymph": 4,
+        "qi": 5,
+        "shen": 4
+      },
+      "total_expected": 17,
+      "total_holo": 17,
+      "total_ivsa": 17
+    },
+    "dimension_contract": {
+      "agents": 25,
+      "packs": 9,
+      "skills": 47
+    },
+    "evidence_class": "simulated",
+    "host_sums": {
+      "bytes": 16958,
+      "lines": 178,
+      "sha256": "48acdda9780229c405c784f6526fa9084bd2ad135370cf44c1da980100c7c042"
+    },
+    "ivsa_root": "F:\\doubaowork\\开源发布_中西医融合康复工程_20261026\\integrative-rehab-vsa",
+    "ivsa_sums": {
+      "bytes": 8305,
+      "lines": 91,
+      "sha256": "9400b4811ab3b4870dc1b29b74dd14f9d74b491759324aa7af53451c58fc73bf"
+    },
+    "license": {
+      "guest": "MPL-2.0",
+      "host": "Apache-2.0",
+      "mixed": []
+    },
+    "readonly": true
+  },
+  "failed": [],
+  "passed": 7,
+  "seal": "152f0312ad17e8fc1a30e6a75825cb67063fb9f36483168064abc36c019434be",
+  "total": 7,
+  "verdict": "PASS"
+}

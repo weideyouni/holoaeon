@@ -53,7 +53,7 @@ class TestB9Closeout(unittest.TestCase):
 
     def test_08_sums_excludes_b9_manifest_like(self):
         excluded = set(DS.SUMS_EXCLUDES)
-        self.assertEqual(len(excluded), 9)
+        self.assertEqual(len(excluded), 10)
         for rel in ("data/B9_收口票据.md", "reports/b9_closeout.json",
                     "reports/b9_closeout_check.json", "reports/five_site_manifest.json"):
             self.assertIn(rel, excluded)

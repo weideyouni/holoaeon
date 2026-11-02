@@ -10,6 +10,7 @@
 > - **B7 分批准入闸上线**：B5 的 4 条桥接候选上同一张票，四硬闸全绿（v3_gate/unittest/skill_matrix/redline），每批 ≤5 / 累计 ≤15 由代码硬判；**未签字即 `WAITING_SIGNATURE`**，一条都不进执行层（`python scripts/admit_batch.py --check`）
 > - **B8 双仓开源同步**：ivsa v1.2 插件**默认关闭**（未显式启用即 0 能力，宿主维度不受影响）；宿主 `SHA256SUMS` 166 件，ivsa 自有清单 91 件复算 91/91；17 通道分组 `5/4/4/4 = 17` 两侧相等；许可分层 Apache-2.0 / MPL-2.0 / data-only，混用 0（`python scripts/verify_b8_dual_sync.py` → 11/11，旁挂 82 → 92）
 > - **B9 收口**：`data/B9_融合总策划_v2.md` · `data/B9_批次台账_v2.csv`（12/12 已完成、15.0 人天）· `data/B9_完美融合判据.md`（30 条可跑判据）· `data/B9_风险与回滚登记.md`（RB1–RB5 / RK1–RK7）· `data/B9_四透镜评审意见.md` · `data/B9_收口票据.md`；`python scripts/verify_b9_closeout.py` → V1–V12 PASS；zip 由 `scripts/build_b9_zip.py` 确定性重建
+- **V2.1 已启动**：`data/V2.1_ivsa只读对账票据.md`（`SG-V2.1-IVSA-RECON-20261102`）；只读对账 `python scripts/verify_ivsa_recon.py` → R1–R7 7/7 PASS（ivsa 清单 91/91、17 通道分组相等、许可分层无混用、插件默认关闭）；每批开工前须 P1–P7 全绿。
 > - 五地同步刚性 DNA `SG-DNA-FIVE-SITE-SYNC-V1.2`（新增 G9 清单写序闭环、G10 密令等同签字、P7 五地实体回读）：本地 · Gitee · GitHub · 向量海 · Hugging Face（飞书 docx 作阅读入口）
 >
 > V4 唯一入口：[`README_FUSION_V4_20261102.md`](README_FUSION_V4_20261102.md) ·

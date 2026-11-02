@@ -149,6 +149,9 @@ REPO_FILES = [
     "scripts/build_b9_closeout.py",
     "scripts/verify_b9_closeout.py",
     "tests_contract/test_b9_closeout.py",
+    "data/V2.1_ivsa只读对账票据.md",
+    "scripts/verify_ivsa_recon.py",
+    "tests_contract/test_ivsa_recon.py",
 ]
 
 ZIP_NAME = "holoaeon_v4_fusion_upgrade_20261102.zip"

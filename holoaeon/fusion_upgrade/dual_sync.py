@@ -56,6 +56,7 @@ SUMS_EXCLUDES = (
     "data/B9_收口票据.md",
     "reports/b9_closeout.json",
     "reports/b9_closeout_check.json",
+    "reports/ivsa_recon.json",
 )
 
 
