@@ -68,7 +68,7 @@ self-organizing search** layer (see [ALGORITHM.md](ALGORITHM.md)).
 | 最新批次 | **V5.0-B1 康复域知识库全量入库**（全量登记、零复制）· 内容提交 `aa88c37`；其后的台账 / 排版收尾提交只动文档与清单，不动包、不动维度，见 `git log -3 --oneline` |
 | 扩展卡槽 | **12 个**：occupied 6 / open 1 / reserved 4 / blocked 1（只声明不接线） |
 | 门禁 | `v3_gate 32/32` · `unittest 34 OK` · `sidecar 160 OK` · `v44 13/13` · `v45 7/7` · `v46 9/9` · `v5 11/11` · `redline 0 违规` · `drift []` |
-| 五地同步 | 本地 · Gitee · GitHub · Hugging Face · 向量海 —— 见文末 [附录 A](#附录-a--五地同步v50-b1-实测) |
+| 五地同步 | 本地 · Gitee · GitHub · Hugging Face · 向量海 —— 见文末 [附录 A](#附录-a--五地同步v50-b1) |
 | 版本脉络 | V4.0 → V4.6 → V5.0 逐提交回溯 —— 见文末 [附录 B](#附录-b--版本升级说明v3--v50) |
 | V4 主文档 | [`README_FUSION_V4_20261102.md`](README_FUSION_V4_20261102.md) · 同步规则 [`data/FIVE_SITE_SYNC_DNA.md`](data/FIVE_SITE_SYNC_DNA.md) |
 
