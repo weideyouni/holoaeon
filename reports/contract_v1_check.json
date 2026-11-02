@@ -1,0 +1,33 @@
+{
+  "batch": "B1a",
+  "draft": "F:\\doubaowork\\holoaeon\\data\\contract_v1_draft.md",
+  "verdict": "PASS",
+  "failed": [],
+  "checks": [
+    {
+      "id": "C1",
+      "ok": true,
+      "detail": "rows=10 missing=[] bad=[]"
+    },
+    {
+      "id": "C2",
+      "ok": true,
+      "detail": "keys=6 missing=[] bad=[]"
+    },
+    {
+      "id": "C3",
+      "ok": true,
+      "detail": "decisions=['D1', 'D2', 'D3']"
+    },
+    {
+      "id": "C4",
+      "ok": true,
+      "detail": "parsed=2 errors=[]"
+    },
+    {
+      "id": "C5",
+      "ok": true,
+      "detail": "recomputed=2 mismatch=[]"
+    }
+  ]
+}

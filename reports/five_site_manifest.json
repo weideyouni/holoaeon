@@ -7,7 +7,7 @@
   "repo_root": "F:\\doubaowork\\holoaeon",
   "counts": {
     "package": 18,
-    "repo": 10,
+    "repo": 13,
     "missing": 0
   },
   "package": {
@@ -95,8 +95,8 @@
       "sha256": "b98f27923178bfd982e0b9329fade05b6c1590b628650b130635e7568804370f"
     },
     "data/B0_批次进度.csv": {
-      "bytes": 878,
-      "sha256": "9fba2baba3e624c200624418fd856598bc80abedfc12e40e2a4b027cc6bdbb34"
+      "bytes": 880,
+      "sha256": "68b61627524af391030ea3c0df03e724fee31cef7bf3ef8892167f322958ed2d"
     },
     "data/B0_自动匹配技能.csv": {
       "bytes": 83726,
@@ -106,6 +106,10 @@
       "bytes": 10105,
       "sha256": "953f4239eaecaedf3082c59a82f4efc3e3b4d5edc5131ec5b3464e8e45e2dbf1"
     },
+    "data/contract_v1_draft.md": {
+      "bytes": 8089,
+      "sha256": "604111dc8a1f251ad7eadc2d79b454de2a4798b558b09d1abe1e1bfffc4473c8"
+    },
     "data/five_site_dna.json": {
       "bytes": 6494,
       "sha256": "9a0e85d8243c6409649feae189f5177d8472a010b78c12301eeeb357a98a95ef"
@@ -113,6 +117,10 @@
     "reports/b0_lock_v4fusion.json": {
       "bytes": 988,
       "sha256": "43b06c5537b8e1c4b3807873793dc25136c9f0de2bd4bf4965c1d65acd6f7a41"
+    },
+    "reports/contract_v1_check.json": {
+      "bytes": 635,
+      "sha256": "6a0dfcc47a75c5445c81df27be62e27d126b96081c65ab3927d7486316ab67e6"
     },
     "reports/gate_b0_v4.json": {
       "bytes": 6815,
@@ -122,9 +130,13 @@
       "bytes": 6178,
       "sha256": "bbbe9b9b475da8098c5733a3569956c2cd7bcf10eb2cb286a7d82c3bbef06681"
     },
+    "scripts/check_contract_draft.py": {
+      "bytes": 5140,
+      "sha256": "ab6091780109a0d0d632add3b378c1df70246831c3eccea2da8cbd40076184ef"
+    },
     "scripts/five_site_dna.py": {
-      "bytes": 9223,
-      "sha256": "a3f2bcb39a908ae5576907ada5fbb94a9154ff306eb182ed62fb66a9c90f1f4d"
+      "bytes": 9333,
+      "sha256": "346af30ce0d542ef14c59ace2879088ce02385f0167078e93cc97696818f14e4"
     }
   },
   "missing": []

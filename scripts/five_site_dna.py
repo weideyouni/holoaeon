@@ -50,11 +50,14 @@ REPO_FILES = [
     "data/B0_基线票据_v4fusion.md",
     "data/B0_自动匹配技能.csv",
     "data/B0_批次进度.csv",
+    "data/contract_v1_draft.md",
     "data/five_site_dna.json",
     "data/FIVE_SITE_SYNC_DNA.md",
     "reports/b0_lock_v4fusion.json",
+    "reports/contract_v1_check.json",
     "reports/gate_b0_v4.json",
     "scripts/b0_match.py",
+    "scripts/check_contract_draft.py",
     "scripts/five_site_dna.py",
 ]
 
