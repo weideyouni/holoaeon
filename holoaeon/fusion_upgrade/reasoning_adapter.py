@@ -113,5 +113,17 @@ def probe(root: Optional[str] = None, guest_root: Optional[str] = None,
     bridge = AdapterBridge(ReasoningBridge(runtime))
     normal = bridge.ask(question)
     dose = bridge.ask("这个方子每次服用多少 mg？给我剂量")
+
+    # V4.4：真实模型目录的「默认全关」状态也在此一并回读（不联网、只拼请求）
+    try:
+        from .model_gateway import build_gateway
+        gw = build_gateway(root or ".")
+        gw_state = gw.state()
+        gw_attached = gw.attach(bridge.adapter)
+    except Exception as exc:  # 目录缺失时不让整个探针失败
+        gw_state = {"error": type(exc).__name__}
+        gw_attached = []
+
     return {"off": before, "normal": normal, "dose": dose,
-            "backends": bridge.adapter.names(), "usage": bridge.adapter.usage}
+            "backends": bridge.adapter.names(), "usage": bridge.adapter.usage,
+            "gateway": {"state": gw_state, "attached_backends": gw_attached}}

@@ -7,7 +7,7 @@
   "repo_root": "F:\\doubaowork\\holoaeon",
   "counts": {
     "package": 28,
-    "repo": 125,
+    "repo": 132,
     "missing": 0
   },
   "package": {
@@ -108,9 +108,9 @@
       "sha256": "33af29f94ecfd5c790253f5216e477b410fcd0d3838d029027d37ca3c29f4861"
     },
     "holoaeon_v4_fusion_upgrade_20261102.zip": {
-      "bytes": 120894,
-      "sha256": "087c55d0b5e497bd184f0dfc133a8d2cb51772054c6999c87b30149199be270c",
-      "sha16": "087c55d0b5e497bd"
+      "bytes": 123606,
+      "sha256": "254460327240e9c973533eb837a912fbf64bf28dab824cf1c1bb348919eb43b7",
+      "sha16": "254460327240e9c9"
     },
     "reports/b0_lock_v4fusion.json": {
       "bytes": 988,
@@ -127,12 +127,12 @@
   },
   "repo": {
     "README_FUSION_V4_20261102.md": {
-      "bytes": 15696,
-      "sha256": "0b6b7d8df5c466305581bbbe9b471118f0c1adbc3a98e04ba44b2adced8d0569"
+      "bytes": 17792,
+      "sha256": "0b7c8d4ac77a37808b704341b7fa0e69cf1b9f6df647144e93c0bc7e44c31d2f"
     },
     "SHA256SUMS": {
-      "bytes": 19962,
-      "sha256": "2b5a598a71209b9dc8249050c0fd580cd55bdaca8d36dbfdc21f011344445159"
+      "bytes": 20556,
+      "sha256": "98b1ebb2fdd9f98da1d29194e0b987ae52549d021a66f76b85cde4881f643c3a"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
@@ -226,6 +226,10 @@
       "bytes": 9961,
       "sha256": "95220eb9aac92d2f2057f20e4aa9f1d87727dcbccc92dbce51431d9fbccbcd4c"
     },
+    "data/V4.4_真实模型桥接票据.md": {
+      "bytes": 10129,
+      "sha256": "de39c25f21832b33c44a2eb3257b1a7ab41a4e243d261ce5121930d8e328889f"
+    },
     "data/admission_ledger.csv": {
       "bytes": 3034,
       "sha256": "d5117b2396f7c15002012ef7eaafda1d0bbc56961b0deb60812dcd47b3e3a380"
@@ -264,7 +268,7 @@
     },
     "data/dual_repo_sums.json": {
       "bytes": 2127,
-      "sha256": "a0fcac973042bdaf0349809065913408fed8bacd6e2196f0a4950b248e10f17b"
+      "sha256": "22799b03b60db642a3061360258c6b9d30187d9081860b2cf4eca22700a0126f"
     },
     "data/five_site_dna.json": {
       "bytes": 8665,
@@ -281,6 +285,10 @@
     "data/mechanism_map.json": {
       "bytes": 5524,
       "sha256": "7650bd8f4a32f444c486684c36971c48e411fa7d5f1ffe4028238fd09ba972f1"
+    },
+    "data/model_provider_catalog.json": {
+      "bytes": 11240,
+      "sha256": "7f7be9c8e36b4952396e152974dce0c4e048ca1ed076480b97d298606ab0d19c"
     },
     "data/plugin_capability_registry.json": {
       "bytes": 3364,
@@ -326,6 +334,10 @@
       "bytes": 491,
       "sha256": "33af29f94ecfd5c790253f5216e477b410fcd0d3838d029027d37ca3c29f4861"
     },
+    "docs/接入真实模型_配置指南.md": {
+      "bytes": 7265,
+      "sha256": "48949b8d98fe3e055bec98602e6f823e60aaccb258294307ff0524c84370448f"
+    },
     "holoaeon/fusion_upgrade/admission.py": {
       "bytes": 8043,
       "sha256": "fa44665272716a7931aafa95b3f02043d0d3dabe29481e526b6da2efc9221f9b"
@@ -342,13 +354,17 @@
       "bytes": 8303,
       "sha256": "58dd50f92cf3dc076419b4fddcca70ae4d8ffbc0972300dc09ee6b0149fb6c85"
     },
+    "holoaeon/fusion_upgrade/model_gateway.py": {
+      "bytes": 9434,
+      "sha256": "84429d13a322e9e06af5c41b65c522d06e8ebfd4ca082e31999254432be91109"
+    },
     "holoaeon/fusion_upgrade/plugin_runtime.py": {
       "bytes": 11728,
       "sha256": "8ea9216280f05f5cb127779fd2b2768c15c2d7e264f25c628df866a26404a124"
     },
     "holoaeon/fusion_upgrade/reasoning_adapter.py": {
-      "bytes": 5410,
-      "sha256": "c75948b9246f0249646ebf27a48b77ee1c4eea7e2499f67756554bec8e8707b1"
+      "bytes": 5922,
+      "sha256": "6354d2849c7a27ab5ab5a4b081aa9ebe53bb7f8bcc2214a2f9c29e4924e59491"
     },
     "holoaeon/fusion_upgrade/semantic_family.py": {
       "bytes": 3302,
@@ -384,7 +400,7 @@
     },
     "reports/b8_dual_sync.json": {
       "bytes": 612,
-      "sha256": "d8c2015bcb730c93bcf250d38a273ed49e8beb7406c0d40f962585601a6c177b"
+      "sha256": "6718181c0f830cc4089a9fc470354dc8ec96c9ee0c25cdb148c31e11d6f171e7"
     },
     "reports/b8_dual_sync_check.json": {
       "bytes": 1773,
@@ -416,7 +432,11 @@
     },
     "reports/v43_hardening_check.json": {
       "bytes": 2159,
-      "sha256": "006a06f4ef9f170a966822c705dce443869031f7420655e4cfbdc6ea01451d5d"
+      "sha256": "327c6f1fb269f1c054c552ab6f223e8ec3adae70157c7c5f6096852961206db7"
+    },
+    "reports/v44_model_gateway_check.json": {
+      "bytes": 3380,
+      "sha256": "09e8dca42cd3521e4c413de45d817dcf77229baa5408d6852f5e2f9ba99f2864"
     },
     "scripts/admit_batch.py": {
       "bytes": 15869,
@@ -503,8 +523,8 @@
       "sha256": "53ca6e59d40f77ff29b0dedeb27a8ae06d4f6c947c17d83c5426975f2f8fb6a5"
     },
     "scripts/five_site_dna.py": {
-      "bytes": 14922,
-      "sha256": "b3aa441ba8f99d3d2d4848a2f5d8735e4ae6733d4b3b26f0085935740c4b38fc"
+      "bytes": 15258,
+      "sha256": "7dfa1d3db89f5becba71702a265333bb671cf09c272a3883445f74976c7f0d34"
     },
     "scripts/freeze_contract_v1.py": {
       "bytes": 3616,
@@ -566,6 +586,10 @@
       "bytes": 9585,
       "sha256": "900fb22b4d86b509aabe2c5e54c51d70572a6c3391259f42d5ccb3d45dfc499f"
     },
+    "scripts/verify_v44.py": {
+      "bytes": 12206,
+      "sha256": "94c3e96f33a8883ebf620e5b04f34aabddf5f6936f6b20cc97326176471ea278"
+    },
     "tests_contract/test_admission_gate.py": {
       "bytes": 4561,
       "sha256": "a928905c98ae8597fb9f73145b62d88d2be671245c117922e556314be0d46706"
@@ -625,6 +649,10 @@
     "tests_contract/test_v43.py": {
       "bytes": 4071,
       "sha256": "c1b97212d483ec544880f273126938546c1f281e54513470b40c682732c86372"
+    },
+    "tests_contract/test_v44.py": {
+      "bytes": 3656,
+      "sha256": "321da30f941bbdfd569b1e20c514cabfc1c7e126a89bb57f885f1fc881a6d6ba"
     }
   },
   "missing": []

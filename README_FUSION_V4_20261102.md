@@ -259,3 +259,35 @@ python scripts/verify_v43.py                                      # 11 条判据
 ```
 
 实测更正：`build_b9_closeout.py` 只**读** zip，真正打包的是 `build_b9_zip.py`，它按交付目录**全目录**压入（新增补记件会进 zip、sha 必然变化）。上一轮「zip 不含 01」的判断有误，本批已重打并核对 zip 内 01 与交付件同字节。票据见 `data/V4.3_工程硬化与遗留收尾票据.md`。
+
+## V4.4-B1 · 真实模型桥接（2026-11-02）
+
+接真模型这件事改成「目录化 + 开关化 + 可自设定」：不写死一家，也不偷偷联网。
+
+| 维度 | 内容 |
+|---|---|
+| provider | **19 家**（8 全球 + 9 国内 + 1 聚合 + 1 自定义兜底 + 4 本地运行时） |
+| 协议族 | **5 种**：`openai_chat` / `anthropic_messages` / `google_gemini` / `bedrock_converse` / `azure_openai` |
+| 本地运行时 | Ollama `:11434/v1`、vLLM `:8000/v1`、llama.cpp `:8080/v1`、LM Studio `:1234/v1`（均 OpenAI 兼容，免 key） |
+| 默认态 | **全关**：`enabled=[]`，适配层只剩 `fact-pack-local`，事实包封缄 `6704fb78e5cb` 不变 |
+| 开启 | `HOLOAEON_REAL_MODELS=1` + 该家 `*_API_KEY` 有值（本地免 key） |
+| 判据 | `python scripts\verify_v44.py` → **A1–A13，13/13 PASS** |
+| 单测 | `python -m unittest tests_contract.test_v44` → **9 OK** |
+
+新增件：`data/model_provider_catalog.json`（`SG-V44-MODEL-PROVIDER-CATALOG-V1`）、
+`holoaeon/fusion_upgrade/model_gateway.py`、`docs/接入真实模型_配置指南.md`、
+`scripts/verify_v44.py`、`tests_contract/test_v44.py`、票据 `data/V4.4_真实模型桥接票据.md`。
+`REPO_FILES` 125 → **132**。
+
+常用命令：
+
+```bash
+python scripts/verify_v44.py                       # A1–A13 逐条实测
+python -c "from holoaeon.fusion_upgrade.model_gateway import build_gateway; print(build_gateway('.').state())"
+python -c "from holoaeon.fusion_upgrade.model_gateway import build_gateway; print(build_gateway('.').sample_plans())"
+```
+
+边界（不冒充）：本仓**只拼请求、不发请求**，不内置价目表（`input_cost/output_cost=0.0` 是占位不是免费），
+型号串为代表性示例、随官方版本增删，运行时以用户传入的 `model` 为准。真发请求需用户按指南注入凭证，
+在**自己的运行环境**完成；医学红线（不接设备 / 不出剂量 / 不做诊断）在任何 provider 下都不变。
+票据见 `data/V4.4_真实模型桥接票据.md`，用户配置入口见 `docs/接入真实模型_配置指南.md`。

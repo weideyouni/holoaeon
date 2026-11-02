@@ -182,6 +182,14 @@ REPO_FILES = [
     "data/v43_gap_literature_probe.json",
     "reports/v43_hardening_check.json",
     "data/V4.3_工程硬化与遗留收尾票据.md",
+    # ---- V4.4-B1 真实模型桥接（7 件）
+    "data/model_provider_catalog.json",
+    "data/V4.4_真实模型桥接票据.md",
+    "docs/接入真实模型_配置指南.md",
+    "holoaeon/fusion_upgrade/model_gateway.py",
+    "scripts/verify_v44.py",
+    "tests_contract/test_v44.py",
+    "reports/v44_model_gateway_check.json",
 ]
 
 ZIP_NAME = "holoaeon_v4_fusion_upgrade_20261102.zip"

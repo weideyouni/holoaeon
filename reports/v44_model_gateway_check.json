@@ -1,0 +1,179 @@
+{
+  "id": "SG-V44-MODEL-GATEWAY-CHECK-V1",
+  "batch": "V4.4-B1",
+  "created_at": "2026-11-02",
+  "evidence_class": "simulated",
+  "passed": 13,
+  "total": 13,
+  "failed": [],
+  "gateway_state": {
+    "catalog_id": "SG-V44-MODEL-PROVIDER-CATALOG-V1",
+    "switch": "HOLOAEON_REAL_MODELS",
+    "switch_on": false,
+    "providers": 22,
+    "protocols": 5,
+    "configured": [
+      "ollama",
+      "vllm",
+      "llama_cpp",
+      "lmstudio"
+    ],
+    "enabled": [],
+    "local_runtimes": [
+      "ollama",
+      "vllm",
+      "llama_cpp",
+      "lmstudio"
+    ],
+    "default_off": true
+  },
+  "coverage": {
+    "providers": 19,
+    "protocols": 5,
+    "local_runtimes": [
+      "ollama",
+      "vllm",
+      "llama_cpp",
+      "lmstudio"
+    ],
+    "cn_cloud": [
+      "deepseek",
+      "qwen",
+      "doubao",
+      "moonshot",
+      "zhipu",
+      "minimax",
+      "baidu_qianfan",
+      "tencent_hunyuan",
+      "stepfun"
+    ],
+    "global_cloud": [
+      "openai",
+      "azure_openai",
+      "anthropic",
+      "google_gemini",
+      "aws_bedrock",
+      "xai",
+      "mistral",
+      "openrouter"
+    ],
+    "aggregators": [
+      "openrouter"
+    ],
+    "universal_escape": "custom"
+  },
+  "checks": [
+    {
+      "id": "A1",
+      "passed": true,
+      "a1_detail": {
+        "agents": 25,
+        "packs": 9,
+        "skills": 47
+      },
+      "gate": "32/32"
+    },
+    {
+      "id": "A2",
+      "passed": true,
+      "providers": 22,
+      "protocols": 5,
+      "local": [
+        "ollama",
+        "vllm",
+        "llama_cpp",
+        "lmstudio"
+      ],
+      "cn": 9,
+      "global": 8
+    },
+    {
+      "id": "A3",
+      "passed": true,
+      "bad": []
+    },
+    {
+      "id": "A4",
+      "passed": true,
+      "enabled": [],
+      "added_backends": []
+    },
+    {
+      "id": "A5",
+      "passed": true,
+      "hits": []
+    },
+    {
+      "id": "A6",
+      "passed": true,
+      "hits": []
+    },
+    {
+      "id": "A7",
+      "passed": true,
+      "shapes": 5,
+      "fields_ok": {
+        "openai_chat": true,
+        "azure_openai": true,
+        "anthropic_messages": true,
+        "google_gemini": true,
+        "bedrock_converse": true
+      }
+    },
+    {
+      "id": "A8",
+      "passed": true,
+      "configured": false,
+      "auth_head": "Bearer <HOLOAEON_OPENAI_API_KEY>"
+    },
+    {
+      "id": "A9",
+      "passed": true,
+      "bytes": 7265,
+      "keys": {
+        "BASE_URL": true,
+        "API_KEY": true,
+        "HOLOAEON_REAL_MODELS": true,
+        "model": true
+      }
+    },
+    {
+      "id": "A10",
+      "passed": true,
+      "drift": [],
+      "drift_count": 0,
+      "self_excluded": [],
+      "checked": {
+        "package": 28,
+        "repo": 132
+      }
+    },
+    {
+      "id": "A11",
+      "passed": true,
+      "ticket_bytes": 10129,
+      "prev_run": "11/13",
+      "closing_rule": "ticket + all_other_checks_pass"
+    },
+    {
+      "id": "A12",
+      "passed": true,
+      "sha256": "9400b4811ab3b4870dc1b29b74dd14f9d74b491759324aa7af53451c58fc73bf"
+    },
+    {
+      "id": "A13",
+      "passed": true,
+      "strategies": 8,
+      "routed": {
+        "cheapest": "cheap",
+        "largest_context": "fat",
+        "fastest": "cheap",
+        "capability_match": "fat",
+        "round_robin": "cheap",
+        "load_balance": "cheap",
+        "modality_match": "cheap",
+        "fallback": "cheap"
+      }
+    }
+  ]
+}
