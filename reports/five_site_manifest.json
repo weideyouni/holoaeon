@@ -77,7 +77,7 @@
     },
     "data/十二批台账.csv": {
       "bytes": 4274,
-      "sha256": "e8cb5d7ffcb4f293e65a8b1b3059b9e8970e283eea3a81b0c7c038ef80ba43a6"
+      "sha256": "85d26d01707c9b27ad12828b01eead25fab4a6c46d52a0f20d551e39ce321956"
     },
     "data/许可分层清单.csv": {
       "bytes": 491,
@@ -104,11 +104,11 @@
   "repo": {
     "README_FUSION_V4_20261102.md": {
       "bytes": 12366,
-      "sha256": "707bab899531116d3c16351ce7729e95bd8d44e413bcb8aca7ff80389d988ef6"
+      "sha256": "f939878218d331cae2c549654641e306ad5145c230a214402f4c61b8fec96005"
     },
     "SHA256SUMS": {
-      "bytes": 15893,
-      "sha256": "b35f50f52ff2813898daa445ca70f6410547ef0e78426680966eb062bd25c85f"
+      "bytes": 15795,
+      "sha256": "9bb48c2b5cd4192004a2072ae2adca5e54593a3242879e69d6ff03ec35a1402b"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
@@ -139,8 +139,8 @@
       "sha256": "63408d243193319bcfd68e6a101f362e6e6552234089a5f00cfa7f1ecd28790c"
     },
     "data/B8_双仓开源同步票据.md": {
-      "bytes": 5667,
-      "sha256": "38062c428e0e2ab65f6199d01f7bd238077be5b1e1767e6923cd17521d38522a"
+      "bytes": 5703,
+      "sha256": "2245aaf480a56627231a6ca595fc79e7bbe3b756a31ac73ac5cdf1e41ed1503c"
     },
     "data/FIVE_SITE_SYNC_DNA.md": {
       "bytes": 10105,
@@ -183,8 +183,8 @@
       "sha256": "604111dc8a1f251ad7eadc2d79b454de2a4798b558b09d1abe1e1bfffc4473c8"
     },
     "data/dual_repo_sums.json": {
-      "bytes": 1946,
-      "sha256": "544e213e6b33c9de62a5b1ddbae2456da7aca70c6864dcb9b4d44e00b35e9048"
+      "bytes": 1987,
+      "sha256": "0a239b4b7bba43e773a126307c467454c9e44139dfeb480777f2dd23a727712a"
     },
     "data/five_site_dna.json": {
       "bytes": 6494,
@@ -235,8 +235,8 @@
       "sha256": "565ba9e7b69b4a04685ab381621c37eb5fe86af4753337b0f0bba12f739123fe"
     },
     "holoaeon/fusion_upgrade/dual_sync.py": {
-      "bytes": 9735,
-      "sha256": "6ba8f24cf19322e5f0f832d215c4739f704fe009e6a44eb7a6167ebfe695e90e"
+      "bytes": 9774,
+      "sha256": "9c7be4624fc7ec2a8a7d97fe2f5f629606b797f1cd3d07ade87d7da6793d838d"
     },
     "holoaeon/fusion_upgrade/hebbian_store.py": {
       "bytes": 8303,
@@ -272,11 +272,11 @@
     },
     "reports/b8_dual_sync.json": {
       "bytes": 612,
-      "sha256": "877556530630282d51755553e25fc7b027d807664df8ab7c039af00c8192108c"
+      "sha256": "85729bf12878bf5ecf0322313a2209ab6edd41a09aed243a38dcb4aa5c7cdaf2"
     },
     "reports/b8_dual_sync_check.json": {
       "bytes": 1773,
-      "sha256": "08de469fa2e51ebdef75917e7c2d349728c6dc852c1099a148e65ffa50b2a258"
+      "sha256": "a8298889f9493ac9790e8703cf6602f4f8a3175a49267bf6fe0c1b15b8cd2d4e"
     },
     "reports/contract_v1_check.json": {
       "bytes": 635,
