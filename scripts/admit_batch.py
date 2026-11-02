@@ -116,6 +116,8 @@ def build(batch, out_path, skills_arg=None):
         return 2
 
     cand = {c["skill"]: c for c in fam.get("bridge_candidates", [])}
+    for m in fam.get("members", []):
+        cand.setdefault(m.get("skill"), m)
     gates = run_gates()
     write_json(GATES_JSON, {"gates_id": "SG-B7-HARD-GATES-V1", "batch": batch,
                             "evidence_class": ADM.EVIDENCE_CLASS, "gates": gates})
@@ -184,9 +186,10 @@ def write_ticket(path, batch, rows, gates, res, signature=None):
         lines.append("| %d | `%s` | %s | %s | %s | candidate_bridge |"
                      % (i, r["skill"], r["target_mechanism"], r["module"], r["usage_class"]))
     lines.append("")
-    lines.append("本批 **%d 条**（≤%d，未按 5 补齐）。全部为 B5 登记的康复桥接候选，"
-                 "B3 标签均为 K（知识源），无 M 类可执行方法 —— 这正是需要人工复核的原因。"
-                 % (len(rows), ADM.MAX_PER_BATCH))
+    k_count = sum(1 for r in rows if r["usage_class"] == "K")
+    lines.append("本批 **%d 条**（≤%d，未按 5 补齐）。全部取自 B5 登记池（bridge_candidates + 族成员），"
+                 "其中 B3 标签 K（知识源）%d 条、非 K %d 条 —— 非 K 条目须人工复核后才可进执行层。"
+                 % (len(rows), ADM.MAX_PER_BATCH, k_count, len(rows) - k_count))
     lines.append("")
     lines.append("## 三、四道硬闸实测")
     lines.append("")
@@ -204,7 +207,7 @@ def write_ticket(path, batch, rows, gates, res, signature=None):
     lines.append("- 判定：`%s`" % (signature["decision"] if signature else res["verdict"]))
     lines.append("- 已准入累计：**%d / %d**（剩余 %d）"
                  % (res["counts"]["admitted"], ADM.MAX_CUMULATIVE, res["counts"]["remaining"]))
-    lines.append("- 未签字前，本批 4 条技能**不进执行层**，`kernel.skills` 恒 47。")
+    lines.append("- 未签字前，本批 %d 条技能**不进执行层**，`kernel.skills` 恒 47。" % len(rows))
     lines.append("")
     lines.append("## 五、人工签字")
     lines.append("")
@@ -225,7 +228,7 @@ def write_ticket(path, batch, rows, gates, res, signature=None):
     lines.append("python scripts/admit_batch.py --batch %s --out %s        # 出票" % (batch, path))
     lines.append("python scripts/admit_batch.py --check --json reports/b7_admission_check.json")
     lines.append("python scripts/admit_batch.py --sign --sign-by \"姓名\" --signed-at 2026-11-02")
-    lines.append("python -m unittest discover -s tests_contract              # 旁挂 71 项")
+    lines.append("python -m unittest discover -s tests_contract              # 旁挂全部单测")
     lines.append("```")
     lines.append("")
     lines.append("## 七、维度不变自证")
@@ -315,7 +318,8 @@ def sign(batch, signer, signed_at):
         if os.path.isfile(p):
             tickets[b] = open(p, encoding="utf-8").read()
     res = ADM.validate(rows, pool=pool, ticket_texts=tickets, gate_results=gates)
-    write_ticket(ticket, batch, rows, gates or {}, res,
+    batch_only = [r for r in rows if r["batch"] == batch]
+    write_ticket(ticket, batch, batch_only, gates or {}, res,
                  signature={"signer": signer, "signed_at": signed_at, "decision": "ADMITTED"})
     print(json.dumps({"batch": batch, "signed_by": signer, "signed_at": signed_at,
                       "admitted": res["counts"]["admitted"],

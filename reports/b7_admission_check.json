@@ -2,7 +2,7 @@
   "check_id": "SG-B7-ADMISSION-CHECK-V1",
   "rules_id": "SG-B7-ADMISSION-RULES-V1",
   "evidence_class": "simulated",
-  "verdict": "WAITING_SIGNATURE",
+  "verdict": "PASS",
   "failed": [],
   "checks": [
     {
@@ -13,7 +13,7 @@
     {
       "id": "A2",
       "ok": true,
-      "detail": "admitted=0<=15"
+      "detail": "admitted=9<=15"
     },
     {
       "id": "A3",
@@ -52,12 +52,13 @@
     }
   ],
   "counts": {
-    "rows": 4,
-    "batches": 1,
-    "admitted": 0,
-    "remaining": 15,
+    "rows": 9,
+    "batches": 2,
+    "admitted": 9,
+    "remaining": 6,
     "per_batch": {
-      "B7-1": 4
+      "B7-1": 4,
+      "B7-2": 5
     }
   },
   "rules_sha256_match": true,
@@ -78,8 +79,8 @@
       "ok": true
     },
     "redline": {
-      "passed": 70,
-      "total": 70,
+      "passed": 71,
+      "total": 71,
       "ok": true
     }
   }

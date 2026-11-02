@@ -1,6 +1,6 @@
 {
   "gates_id": "SG-B7-HARD-GATES-V1",
-  "batch": "B7-1",
+  "batch": "B7-2",
   "evidence_class": "simulated",
   "gates": {
     "v3_gate": {
@@ -25,8 +25,8 @@
       "raw_tail": "}"
     },
     "redline": {
-      "passed": 70,
-      "total": 70,
+      "passed": 71,
+      "total": 71,
       "ok": true,
       "cmd": "python scripts/redline_scan.py",
       "raw_tail": "结果： 干净（零违规）"

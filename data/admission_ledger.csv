@@ -3,3 +3,8 @@ B7-1,data/B7_准入票据_B7-1.md,breast-surgery-150,semantic_bus,检索,K,32/32
 B7-1,data/B7_准入票据_B7-1.md,kangfu-knowledge-suite,semantic_bus,溯源,K,32/32,34/34,17/17,70/70,SIGNED,潘荟丞,2026-11-02,ADMITTED,B5 candidate_bridge；未签字不进执行层
 B7-1,data/B7_准入票据_B7-1.md,mdt-rehab-engineering,meridian,采集,K,32/32,34/34,17/17,70/70,SIGNED,潘荟丞,2026-11-02,ADMITTED,B5 candidate_bridge；未签字不进执行层
 B7-1,data/B7_准入票据_B7-1.md,medical-textbook-skill-refinery,semantic_bus,检索,K,32/32,34/34,17/17,70/70,SIGNED,潘荟丞,2026-11-02,ADMITTED,B5 candidate_bridge；未签字不进执行层
+B7-2,data/B7_准入票据_B7-2.md,shengui-shenma-huayang-rehab-fusion-1331,semantic_bus,注入,K,32/32,34/34,17/17,71/71,SIGNED,潘荟丞,2026-11-02,ADMITTED,B5 candidate_bridge；未签字不进执行层
+B7-2,data/B7_准入票据_B7-2.md,longjiang-school-holo-avatar,semantic_bus,溯源,K,32/32,34/34,17/17,71/71,SIGNED,潘荟丞,2026-11-02,ADMITTED,B5 candidate_bridge；未签字不进执行层
+B7-2,data/B7_准入票据_B7-2.md,shanghan-six-schools-avatar-matrix,semantic_bus,检索,K,32/32,34/34,17/17,71/71,SIGNED,潘荟丞,2026-11-02,ADMITTED,B5 candidate_bridge；未签字不进执行层
+B7-2,data/B7_准入票据_B7-2.md,rag-vector-memory-engine,semantic_bus,检索,K,32/32,34/34,17/17,71/71,SIGNED,潘荟丞,2026-11-02,ADMITTED,B5 candidate_bridge；未签字不进执行层
+B7-2,data/B7_准入票据_B7-2.md,local-nutrient-ingestion-pipeline,semantic_bus,采集,K,32/32,34/34,17/17,71/71,SIGNED,潘荟丞,2026-11-02,ADMITTED,B5 candidate_bridge；未签字不进执行层

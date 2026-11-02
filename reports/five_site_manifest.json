@@ -7,7 +7,7 @@
   "repo_root": "F:\\doubaowork\\holoaeon",
   "counts": {
     "package": 28,
-    "repo": 95,
+    "repo": 96,
     "missing": 0
   },
   "package": {
@@ -131,16 +131,16 @@
       "sha256": "bd5ab5ac758806f9aa2c56787ed7ece5249bb8d58f45784358d5ffc9b763b5aa"
     },
     "SHA256SUMS": {
-      "bytes": 16958,
-      "sha256": "48acdda9780229c405c784f6526fa9084bd2ad135370cf44c1da980100c7c042"
+      "bytes": 17053,
+      "sha256": "278a623a2dd1fd49714473fb496497304c87bde8b55c63ebe66c680e5e04a455"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
       "sha256": "b98f27923178bfd982e0b9329fade05b6c1590b628650b130635e7568804370f"
     },
     "data/B0_批次进度.csv": {
-      "bytes": 1379,
-      "sha256": "2bdcda652ca0f59a42a3390f42314d8feb298f6240f6fe34958fda80ac856c47"
+      "bytes": 1416,
+      "sha256": "ab27464cd265deb90f250b455f117fbd7bf2bb856dd183827bd2c48df20b59ac"
     },
     "data/B0_自动匹配技能.csv": {
       "bytes": 83726,
@@ -161,6 +161,10 @@
     "data/B7_准入票据_B7-1.md": {
       "bytes": 2722,
       "sha256": "63408d243193319bcfd68e6a101f362e6e6552234089a5f00cfa7f1ecd28790c"
+    },
+    "data/B7_准入票据_B7-2.md": {
+      "bytes": 2880,
+      "sha256": "db19f47ebdc77baae6104ed63d94b2cd76576ff6a805fcbc5f95e413fe39996c"
     },
     "data/B8_双仓开源同步票据.md": {
       "bytes": 5703,
@@ -199,8 +203,8 @@
       "sha256": "9844a50107f2e52aac0a5d9c012cbc55de661ade7ca1a630af699b5413d7a51d"
     },
     "data/admission_ledger.csv": {
-      "bytes": 909,
-      "sha256": "bf7a7bf8597e89fb820f924dda6d0e26650102f68034e85ce0f3db60c0451b1b"
+      "bytes": 1893,
+      "sha256": "91dcd17a96f2bf17783e128dfd6aa7903b5bf43590bf907dde2febecec93108d"
     },
     "data/admission_rules.json": {
       "bytes": 1107,
@@ -236,7 +240,7 @@
     },
     "data/dual_repo_sums.json": {
       "bytes": 2127,
-      "sha256": "fc4a9fa04a1c672ea9c73701e3d04bdb5e79a117a42a0b21f4ef1bac6e3de5ef"
+      "sha256": "f76036a3ff05f316f5c83226fbd141e5b27eedb60d19b49617e6f8931a48bbfe"
     },
     "data/five_site_dna.json": {
       "bytes": 8665,
@@ -315,20 +319,20 @@
       "sha256": "49d981ecdac9eefa06f67037c445de7695df318dd66feaf9145f814805ab635e"
     },
     "reports/b7_admission_check.json": {
-      "bytes": 1461,
-      "sha256": "8a426d03520df53f713d1b2811ec2f574e3d95f37ad5181cf647aaac880b4fcf"
+      "bytes": 1464,
+      "sha256": "4816086496ce9bce511a068d779e1aed9549ccb0557d1e2b59f4a6f597f296a4"
     },
     "reports/b7_gates.json": {
       "bytes": 858,
-      "sha256": "ea7f22c9263f33b5f4d58dcc699e5be0e4e8f8bec894f64178a3bcb4db57c46d"
+      "sha256": "d51cff71caa5797df65ae50f7b7a116957b60fb9cf1f69e07051b8236d1e83df"
     },
     "reports/b8_dual_sync.json": {
       "bytes": 612,
-      "sha256": "5944d379e6557684c76b5b9a54a31bf03b16599e14ad1d94d11cb3ea748bd3c8"
+      "sha256": "6b0cb1860a9829b69033515c6cb524a68bd30336c3a62a9aef1f62d7b7399959"
     },
     "reports/b8_dual_sync_check.json": {
       "bytes": 1773,
-      "sha256": "a2a380f77a617148e21c01067e071f43d5352ebe797334e236d42932bc234410"
+      "sha256": "6c36b6c736d6c23cf29606c4624a9bbc17a99c11bb5a547c22e09b36e9672bc0"
     },
     "reports/contract_v1_check.json": {
       "bytes": 635,
@@ -343,8 +347,8 @@
       "sha256": "fc02b0f7ea892c3d9ca36aaeab47b5edad917737605b3737829cad0d7a84107b"
     },
     "scripts/admit_batch.py": {
-      "bytes": 15588,
-      "sha256": "291a2dfb8bd90b743e59ced3bff1402519721d846a89413ee82a61376b0f4733"
+      "bytes": 15869,
+      "sha256": "8f87487372fdfe19aa59e1a9d0dccb2698f6e74625c5127b5edb53f9cd3b8ef7"
     },
     "scripts/b0_match.py": {
       "bytes": 6178,
@@ -419,8 +423,8 @@
       "sha256": "1b39f26b4d08a16734b3e7341603dafbbee45803052af726cf5044014e216f2d"
     },
     "scripts/five_site_dna.py": {
-      "bytes": 13688,
-      "sha256": "9cb2ac2c45289afb8d00fb925f395dd05871a553437a0c3b72a75569752d9946"
+      "bytes": 13724,
+      "sha256": "11a16c5122e18d69ac25403713fb58a3aa367045d44eb46f1aea30641c28a006"
     },
     "scripts/freeze_contract_v1.py": {
       "bytes": 3616,
