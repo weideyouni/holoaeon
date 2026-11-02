@@ -1,11 +1,11 @@
-"""五地同步 DNA 校验器 · V1.1（纯标准库 / 离线 / 不调用 git / 不联网 / 不写文件）。
+"""五地同步 DNA 校验器 · V1.2（纯标准库 / 离线 / 不调用 git / 不联网 / 不写文件）。
 
 用法：
   python scripts/five_site_dna.py build       # 生成 reports/five_site_manifest.json
   python scripts/five_site_dna.py verify      # 复算并与清单比对，输出漂移清单
-  python scripts/five_site_dna.py preflight   # 开工前置检测（P1–P6），PASS 才允许开批
+  python scripts/five_site_dna.py preflight   # 开工前置检测（P1–P7），PASS 才允许开批
 
-设计原则（对应 data/FIVE_SITE_SYNC_DNA.md 的 R3 / R8 / G1 / P1–P6）：
+设计原则（对应 data/FIVE_SITE_SYNC_DNA.md 的 R3 / R8 / G1 / P1–P7）：
   1. 只读文件字节算 sha256，不做任何写操作（verify / preflight 模式）
   2. 路径全部来自显式参数或环境变量，不猜
   3. 输出稳定排序，两次跑逐字一致；不写时间戳
@@ -14,6 +14,7 @@
 import hashlib
 import json
 import os
+import re
 import sys
 
 REPO = os.environ.get("HOLOAEON_REPO", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -22,7 +23,7 @@ RECEIPT = os.environ.get("HOLOAEON_RECEIPT",
                          r"F:\doubaowork\vector-sea\_holoaeon_v4_five_site_receipt_20261102.json")
 MANIFEST = os.path.join(REPO, "reports", "five_site_manifest.json")
 
-DNA_ID = "SG-DNA-FIVE-SITE-SYNC-V1.1"
+DNA_ID = "SG-DNA-FIVE-SITE-SYNC-V1.2"
 LOCK = {"agents": 25, "skills": 47, "packs": 9}
 
 PKG_FILES = [
@@ -44,6 +45,12 @@ PKG_FILES = [
     "data/dual_repo_sums.json",
     "data/许可分层清单.csv",
     "data/B8_双仓开源同步票据.md",
+    "data/B9_融合总策划_v2.md",
+    "data/B9_批次台账_v2.csv",
+    "data/B9_完美融合判据.md",
+    "data/B9_风险与回滚登记.md",
+    "data/B9_四透镜评审意见.md",
+    "data/B9_收口票据.md",
     "reports/b0_lock_v4fusion.json",
     "reports/fusion_selftest.json",
     "reports/preflight_v11.json",
@@ -132,6 +139,16 @@ REPO_FILES = [
     "tests_contract/test_hebbian_store.py",
     "tests_contract/test_admission_gate.py",
     "tests_contract/test_dual_sync.py",
+    "data/B9_融合总策划_v2.md",
+    "data/B9_批次台账_v2.csv",
+    "data/B9_完美融合判据.md",
+    "data/B9_风险与回滚登记.md",
+    "data/B9_四透镜评审意见.md",
+    "data/B9_收口票据.md",
+    "scripts/build_b9_zip.py",
+    "scripts/build_b9_closeout.py",
+    "scripts/verify_b9_closeout.py",
+    "tests_contract/test_b9_closeout.py",
 ]
 
 ZIP_NAME = "holoaeon_v4_fusion_upgrade_20261102.zip"
@@ -230,7 +247,7 @@ def verify():
 
 
 def preflight():
-    """开工前置检测 P1–P6。任一 FAIL → 退出码 1，禁止开批。"""
+    """开工前置检测 P1–P7。任一 FAIL → 退出码 1，禁止开批。"""
     checks = []
 
     def add(pid, ok, detail):
@@ -298,6 +315,27 @@ def preflight():
     # P6 DNA 版本一致
     ok6 = bool(old) and old.get("dna_id") == DNA_ID
     add("P6", ok6, "manifest dna_id={}".format((old or {}).get("dna_id")))
+
+    # P7 五地实体回读（只读回执，不联网）
+    ok7 = False
+    det7 = "receipt missing"
+    try:
+        with open(RECEIPT, encoding="utf-8") as f:
+            receipt = json.load(f)
+        sites = receipt.get("sites", {})
+        s1 = str(sites.get("S1_local", "")).split("（")[0].strip()
+        s2 = str(sites.get("S2_gitee", "")).strip()
+        s3 = str(sites.get("S3_github", "")).strip()
+        hf = str(sites.get("S5_hf", "")).strip()
+        same = bool(s1) and s1[:7] == s2[:7] == s3[:7]
+        hf_ok = bool(re.match(r"[0-9a-f]{40}", hf))
+        vec = int(receipt.get("files_count") or 0)
+        vec_ok = vec > 0 and vec == len(receipt.get("files") or {})
+        ok7 = same and hf_ok and vec_ok
+        det7 = "sha_same={} hf40={} vector_files={}".format(same, hf_ok, vec)
+    except Exception as exc:
+        det7 = "receipt unreadable: {}".format(type(exc).__name__)
+    add("P7", ok7, det7)
 
     verdict = "PASS" if all(c["ok"] for c in checks) else "FAIL"
     payload = {

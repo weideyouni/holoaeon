@@ -1,0 +1,13 @@
+批次,主题,状态,完成日期,提交,工时(人天),票据,判据,回滚,证据类
+B0,基线冻结（7闸+14维锁+五地同步）,已完成,2026-11-02,基线提交（见 reports/b0_lock_v4fusion.json）,0.5,data/B0_基线票据_v4fusion.md,7闸32/32+维度锁一致+五地同点,回滚到基线提交并复跑七闸,simulated
+B1a,契约字段草案（6必填+4可选）,已完成,2026-11-02,63af1bb,0.5,data/contract_v1_draft.md,check_contract_draft PASS,删草案文件重跑,simulated
+B1b,同参指纹互认实验（契约单测≥6）,已完成,2026-11-02,2c35c35,1.0,data/contract_v1.json,contract_interop PASS+旁挂单测,回退 interop 与单测,simulated
+B2a,六机制1:1映射表,已完成,2026-11-02,ec74e08,0.5,data/mechanism_map.json,check_mechanism_map PASS,删映射表重算,simulated
+B2b,12→17通道映射+词表分域,已完成,2026-11-02,76cd834,1.0,data/channel_map.csv,check_channel_map PASS(17行),回退csv与词表,simulated
+B3,用途二次分类（1229行）,已完成,2026-11-02,91fc8b3/7091a86,2.0,data/usage_labels.csv,实算 M729/K311/T123/X35/U1,保留期望值待复核不改CSV,simulated
+B4,康复域试点20例,已完成,2026-11-02,310981e/dfbeee9,2.0,data/rehab_pilot_20.json,check_rehab_pilot PASS(20例/4负探),删试点重跑,simulated
+B5,语义技能族19→60,已完成,2026-11-02,4c5a4a8,2.0,data/semantic_family.json,check_semantic_family PASS(60条/10模块),回退族表,simulated
+B6,记忆落盘+通道配额,已完成,2026-11-02,6dd5128,2.0,data/hebbian_store.json,23边/28节点/quota1200/load24/重启一致,回退store与quota,simulated
+B7,分批准入（每批≤5 累计≤15）,已完成,2026-11-02,c39e75f,0.5,data/B7_准入票据_B7-1.md,admit --check PASS(admitted4/remaining11),撤销签字重出票,simulated
+B8,双仓开源同步（插件默认关闭+摘要互认）,已完成,2026-11-02,06f11ad/0353613/1235805,2.0,data/B8_双仓开源同步票据.md,b8校验11/11+宿主166+ivsa91+17通道相等,回滚dual_sync与清单重算,simulated
+B9,V2策划收口（五份交付+zip重打包）,已完成,2026-11-02,B9提交（sha见 git log 与收口票据）,1.0,data/B9_收口票据.md,verify_b9_closeout PASS+五件在位+台账12行,回滚B9提交并重跑七闸,simulated

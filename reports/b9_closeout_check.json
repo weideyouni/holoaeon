@@ -1,0 +1,80 @@
+{
+  "verdict": "PASS",
+  "passed": 12,
+  "total": 12,
+  "checks": [
+    {
+      "id": "V1",
+      "name": "收口件在位",
+      "passed": true,
+      "detail": "missing=[]"
+    },
+    {
+      "id": "V2",
+      "name": "台账 12 行全完成无空",
+      "passed": true,
+      "detail": "rows=12 completed=12 empty=[]"
+    },
+    {
+      "id": "V3",
+      "name": "工时合计 15.0",
+      "passed": true,
+      "detail": "hours=15.0"
+    },
+    {
+      "id": "V4",
+      "name": "判据 ≥12 且带命令",
+      "passed": true,
+      "detail": "rows=30 with_cmd=30"
+    },
+    {
+      "id": "V5",
+      "name": "风险 ≥6 且带回滚",
+      "passed": true,
+      "detail": "rows=12 with_action=12"
+    },
+    {
+      "id": "V6",
+      "name": "判据无形容词",
+      "passed": true,
+      "detail": "hit=[]"
+    },
+    {
+      "id": "V7",
+      "name": "zip sha16 与出票一致",
+      "passed": true,
+      "detail": "sha16=090c6d8b918abe90 expected=090c6d8b918abe90"
+    },
+    {
+      "id": "V8",
+      "name": "清单含 zip 且 missing=0",
+      "passed": true,
+      "detail": "missing=0 has_zip=True"
+    },
+    {
+      "id": "V9",
+      "name": "v3_gate 32/32",
+      "passed": true,
+      "detail": "passed=32 total=32 a1={'agents': 25, 'packs': 9, 'skills': 47}"
+    },
+    {
+      "id": "V10",
+      "name": "B8 双仓 11/11",
+      "passed": true,
+      "detail": "passed=11 total=11"
+    },
+    {
+      "id": "V11",
+      "name": "DNA V1.2 一致",
+      "passed": true,
+      "detail": "manifest=SG-DNA-FIVE-SITE-SYNC-V1.2 dna=SG-DNA-FIVE-SITE-SYNC-V1.2"
+    },
+    {
+      "id": "V12",
+      "name": "spec 0.9.1",
+      "passed": true,
+      "detail": "spec_version=0.9.1"
+    }
+  ],
+  "failed": []
+}

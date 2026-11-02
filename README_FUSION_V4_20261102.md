@@ -192,7 +192,7 @@ Golden values unchanged: `diff0=2fc892cf9af6e755`, `tamper=f42c8229ee5acd73`, `s
 - 14-dimension lock: `reports/b0_lock_v4fusion.json`
 - Ticket: `data/B0_基线票据_v4fusion.md`
 - Skill auto-match (1229 → 365 candidates, deterministic, offline, zero external skills executed): `python scripts/b0_match.py` → `data/B0_自动匹配技能.csv`
-- Batch progress: `data/B0_批次进度.csv` (B0–B8 complete: B7-1 signed by 潘荟丞 on 2026-11-02 with cumulative 4/15, B8 dual-repo sync green; **B9 next**)
+- Batch progress: `data/B0_批次进度.csv` (B0–B9 complete: B7-1 signed by 潘荟丞 on 2026-11-02 with cumulative 4/15; B8 dual-repo sync green; **B9 closed out** (five-file delivery + deterministic zip))
 - B4 rehab pilot: `data/rehab_pilot_20.json` + `data/B4_康复域试点票据.md` — 20 contracts (12 general / 8 medical), 4 negative probes rejected, `python scripts/check_rehab_pilot.py` (R1–R9)
 - B5 semantic family: `data/semantic_family.json` + `data/semantic_modules.json` + `data/B5_语义技能族票据.md` — 60 members on the ivsa ten modules (no uncovered module, no 11th module), base 19 index entries → 16 unique + 44 expanded, 4 rehab bridge candidates registered not admitted, `python scripts/check_semantic_family.py` (S1–S9)
 
@@ -202,10 +202,10 @@ Golden values unchanged: `diff0=2fc892cf9af6e755`, `tamper=f42c8229ee5acd73`, `s
 
 - B8 dual-repo sync: `data/ivsa_plugin_v1.2.json` (plugin `SG-B8-IVSA-V1.2-PLUGIN`, disabled by default, 6 capabilities read-only) + `SHA256SUMS` (166 files, digest `9bb48c2b5cd41920…`) + `data/dual_repo_sums.json` (ivsa 91 entries recomputed 91/91, 17-channel groups 5/4/4/4) + `data/许可分层清单.csv` (5 rows, 0 mixed) + `data/B8_双仓开源同步票据.md`; `python scripts/verify_b8_dual_sync.py` → 11/11, sidecar 71 → 82
 
-Next batch **B9 close-out** (five-file delivery + nine-field freeze) is the only batch left; nothing else may open before it.
+B9 close-out is done: five files + ledger v2 + deterministic zip; `python scripts/verify_b9_closeout.py` must be V1–V12 PASS before any V2.1 work starts.
 ## Five-site sync DNA (刚性)
 
-`data/FIVE_SITE_SYNC_DNA.md` + `data/five_site_dna.json` — `SG-DNA-FIVE-SITE-SYNC-V1.1`
+`data/FIVE_SITE_SYNC_DNA.md` + `data/five_site_dna.json` — `SG-DNA-FIVE-SITE-SYNC-V1.2`
 
 | site | role | acceptance |
 |---|---|---|

@@ -1,0 +1,52 @@
+{
+  "batch": "B9",
+  "criteria_rows": 30,
+  "docs": {
+    "data/B9_四透镜评审意见.md": 4087,
+    "data/B9_完美融合判据.md": 4502,
+    "data/B9_批次台账_v2.csv": 2235,
+    "data/B9_收口票据.md": 4465,
+    "data/B9_融合总策划_v2.md": 4934,
+    "data/B9_风险与回滚登记.md": 3801
+  },
+  "docs_missing": [],
+  "evidence_class": "simulated",
+  "gates": {
+    "b8_dual_sync": "11/11 PASS",
+    "v3_gate": "32/32"
+  },
+  "ledger": {
+    "batches": [
+      "B0",
+      "B1a",
+      "B1b",
+      "B2a",
+      "B2b",
+      "B3",
+      "B4",
+      "B5",
+      "B6",
+      "B7",
+      "B8",
+      "B9"
+    ],
+    "completed": 12,
+    "empty_cells": [],
+    "hours": 15.0,
+    "rows": 12
+  },
+  "manifest": {
+    "dna_id": "SG-DNA-FIVE-SITE-SYNC-V1.2",
+    "missing": 0,
+    "package": 28,
+    "repo": 92
+  },
+  "risk_rows": 12,
+  "zip": {
+    "bytes": 113456,
+    "entries": 40,
+    "present": true,
+    "sha16": "090c6d8b918abe90",
+    "sha256": "090c6d8b918abe903f8a684dc86663de0e8b09a7b71bf8844202d7cc5e6e82c6"
+  }
+}

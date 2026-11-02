@@ -15,7 +15,7 @@ tags:
   - llm
 ---
 
-> #### V4 · Cold-hot-plug empowerment upgrade (2026-11-02) — batches B0–B8 complete (B7-1 signed by 潘荟丞 on 2026-11-02, cumulative 4/15), B9 next
+> #### V4 · Cold-hot-plug empowerment upgrade (2026-11-02) — batches B0–B9 complete — V2.0 closed out (B7-1 signed by 潘荟丞 on 2026-11-02, cumulative 4/15; B9 five-file delivery + deterministic zip rebuild)
 >
 > - 7 gates green: `v3_gate 32/32` · `unittest 34 OK` · `sidecar 82 OK` · `selftest 25/25` · `skill_matrix 17/17` · `redline 0 violations` · `fusion 17/17` · `ivsa 21/21`
 > - 14-dimension lock, golden `diff0=2fc892cf9af6e755` / `tamper=f42c8229ee5acd73`, `spec.VERSION=0.9.1` unchanged
@@ -24,13 +24,14 @@ tags:
 > - **B5 semantic skill family: 60 members** across the ivsa ten modules (溯源/采集/去重/蒸馏/嵌入/检索/时序/聚类/注入/运维; uncovered none, no 11th module), base 16 unique from index + 44 expanded, 4 rehab bridge candidates registered but not admitted (`python scripts/check_semantic_family.py`, S1–S9)
 > - **B6 hebbian persistence: weights on disk** — 23 edges / 28 nodes / 9 seeds, store sha256 `399505b0e695…de282`; a real second interpreter reloads from disk and the top-k view is **byte-identical** (3 equalities true, `python scripts/check_hebbian_store.py` H1–H9); **17-channel quota table** 12 mapped + 5 pending, quota 1200, load 24
 > - **B7 admission gate live**: 4 B5 bridge candidates on one ticket, four hard gates green (v3_gate/unittest/skill_matrix/redline), per-batch ≤5 / cumulative ≤15 enforced by code; **unsigned → `WAITING_SIGNATURE`**, nothing enters the execution layer (`python scripts/admit_batch.py --check`)
-> - **B8 dual-repo sync**: ivsa v1.2 plugin **off by default** (0 capabilities until explicitly enabled, host dimensions untouched), host `SHA256SUMS` 166 files, ivsa's own 91 entries recomputed 91/91, 17-channel groups `5/4/4/4 = 17` equal on both sides; licence layers Apache-2.0 / MPL-2.0 / data-only, 0 mixed (`python scripts/verify_b8_dual_sync.py` → 11/11)
-> - Five-site sync DNA `SG-DNA-FIVE-SITE-SYNC-V1.1`: local · Gitee · GitHub · vector-sea · Hugging Face (Feishu docx as reading entry)
+> - **B8 dual-repo sync**: ivsa v1.2 plugin **off by default** (0 capabilities until explicitly enabled, host dimensions untouched), host `SHA256SUMS` 166 files, ivsa's own 91 entries recomputed 91/91, 17-channel groups `5/4/4/4 = 17` equal on both sides; licence layers Apache-2.0 / MPL-2.0 / data-only, 0 mixed (`python scripts/verify_b8_dual_sync.py` → 11/11, sidecar 82 → 92)
+> - **B9 close-out**: `data/B9_融合总策划_v2.md` · `data/B9_批次台账_v2.csv` (12/12 completed, 15.0 person-days) · `data/B9_完美融合判据.md` (30 runnable criteria) · `data/B9_风险与回滚登记.md` (RB1–RB5 / RK1–RK7) · `data/B9_四透镜评审意见.md` · `data/B9_收口票据.md`; `python scripts/verify_b9_closeout.py` → V1–V12 PASS; zip rebuilt deterministically (`scripts/build_b9_zip.py --check`)
+> - Five-site sync DNA `SG-DNA-FIVE-SITE-SYNC-V1.2` (adds G9 manifest write order, G10 seals-equal-signature, P7 five-site readback): local · Gitee · GitHub · vector-sea · Hugging Face (Feishu docx as reading entry)
 >
 > Canonical V4 entry: [`README_FUSION_V4_20261102.md`](README_FUSION_V4_20261102.md) ·
 > sync rules + engineering discipline: [`data/FIVE_SITE_SYNC_DNA.md`](data/FIVE_SITE_SYNC_DNA.md) ·
 > offline check: `python scripts/five_site_dna.py verify` (drift must be `[]`) ·
-> pre-batch gate: `python scripts/five_site_dna.py preflight` (P1–P6 must PASS before any batch starts)
+> pre-batch gate: `python scripts/five_site_dna.py preflight` (P1–P7 must PASS before any batch starts)
 >
 > Seal: 潮起开门，潮落闭嘴 · `evidence_class=simulated` (simulation is not proof; carbon-based final say)
 

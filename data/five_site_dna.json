@@ -1,28 +1,112 @@
 {
-  "dna_id": "SG-DNA-FIVE-SITE-SYNC-V1.1",
-  "supersedes": "SG-DNA-FIVE-SITE-SYNC-V1.0",
+  "dna_id": "SG-DNA-FIVE-SITE-SYNC-V1.2",
+  "supersedes": "SG-DNA-FIVE-SITE-SYNC-V1.1",
   "effective": "2026-11-02T02:40+08:00",
   "evidence_class": "simulated",
   "seal": "潮起开门，潮落闭嘴",
   "principle": "同步是工程的前置条件，不是工程的收尾动作",
   "sites": {
-    "S1": {"id": "local", "role": "write_source", "path": "F:\\doubaowork\\holoaeon", "acceptance": "git rev-parse HEAD"},
-    "S2": {"id": "gitee", "role": "authority_mirror", "url": "https://gitee.com/weideyouni/holoaeon", "acceptance": "git ls-remote main"},
-    "S3": {"id": "github", "role": "public_align", "url": "https://github.com/weideyouni/holoaeon", "acceptance": "git ls-remote origin main"},
-    "S4": {"id": "vector_sea", "role": "archive_index", "path": "F:\\doubaowork\\vector-sea\\holoaeon-v4-cold-hot-plug", "acceptance": "manifest.json sha256 per file"},
-    "S5": {"id": "huggingface", "role": "external_mirror", "url": "https://huggingface.co/weideyouni/holoaeon", "acceptance": "hf repo_info sha + file diff"},
-    "READ": {"id": "feishu", "role": "reading_entry", "url": "https://my.feishu.cn/docx/EoNbd3gdmo4xt3xro43cq73kn4c", "acceptance": "readable, not part of hash acceptance"}
+    "S1": {
+      "id": "local",
+      "role": "write_source",
+      "path": "F:\\doubaowork\\holoaeon",
+      "acceptance": "git rev-parse HEAD"
+    },
+    "S2": {
+      "id": "gitee",
+      "role": "authority_mirror",
+      "url": "https://gitee.com/weideyouni/holoaeon",
+      "acceptance": "git ls-remote main"
+    },
+    "S3": {
+      "id": "github",
+      "role": "public_align",
+      "url": "https://github.com/weideyouni/holoaeon",
+      "acceptance": "git ls-remote origin main"
+    },
+    "S4": {
+      "id": "vector_sea",
+      "role": "archive_index",
+      "path": "F:\\doubaowork\\vector-sea\\holoaeon-v4-cold-hot-plug",
+      "acceptance": "manifest.json sha256 per file"
+    },
+    "S5": {
+      "id": "huggingface",
+      "role": "external_mirror",
+      "url": "https://huggingface.co/weideyouni/holoaeon",
+      "acceptance": "hf repo_info sha + file diff"
+    },
+    "READ": {
+      "id": "feishu",
+      "role": "reading_entry",
+      "url": "https://my.feishu.cn/docx/EoNbd3gdmo4xt3xro43cq73kn4c",
+      "acceptance": "readable, not part of hash acceptance"
+    }
   },
   "chain": [
-    {"id": "L1", "name": "preflight", "cmd": "python scripts/five_site_dna.py preflight", "gate": "verdict=PASS (P1-P6)", "on_fail": "stop: finish sync before any code change"},
-    {"id": "L2", "name": "batch design", "cmd": "write theme + perfect criteria into data/B0_批次进度.csv", "gate": "criteria runnable, no adjectives, scope bounded", "on_fail": "redesign, no code"},
-    {"id": "L3", "name": "implement in scope", "cmd": "batch files + unit tests", "gate": "changed file list equals declared scope", "on_fail": "split out-of-scope work to next batch"},
-    {"id": "L4", "name": "in-batch self check", "cmd": "v3_gate --json / unittest / selftest / dedicated verifier", "gate": "7 gates green + dimension lock unchanged", "on_fail": "fix until green, no skipping"},
-    {"id": "L5", "name": "manifest rebuild", "cmd": "python scripts/five_site_dna.py build && verify", "gate": "drift=[]", "on_fail": "trace drift source first"},
-    {"id": "L6", "name": "commit", "cmd": "git commit -m \"<batch>: <theme>\"", "gate": "one batch one commit, contains all batch artifacts", "on_fail": "split commits"},
-    {"id": "L7", "name": "push 3 sites + readback", "cmd": "gitee(token+askpass) / github / ls-remote", "gate": "same commit sha on S1/S2/S3", "on_fail": "repush + readback, output is not proof"},
-    {"id": "L8", "name": "archive", "cmd": "vector-sea + manifest / hf upload / feishu entry", "gate": "per-file hash match + platform sha readback", "on_fail": "upload missing files, record ignored ones"},
-    {"id": "L9", "name": "receipt", "cmd": "reports/ or vector-sea _<batch>_receipt_<date>.json", "gate": "5-site state + hashes + gates + known diffs", "on_fail": "new receipt file, never overwrite"}
+    {
+      "id": "L1",
+      "name": "preflight",
+      "cmd": "python scripts/five_site_dna.py preflight",
+      "gate": "verdict=PASS (P1-P6)",
+      "on_fail": "stop: finish sync before any code change"
+    },
+    {
+      "id": "L2",
+      "name": "batch design",
+      "cmd": "write theme + perfect criteria into data/B0_批次进度.csv",
+      "gate": "criteria runnable, no adjectives, scope bounded",
+      "on_fail": "redesign, no code"
+    },
+    {
+      "id": "L3",
+      "name": "implement in scope",
+      "cmd": "batch files + unit tests",
+      "gate": "changed file list equals declared scope",
+      "on_fail": "split out-of-scope work to next batch"
+    },
+    {
+      "id": "L4",
+      "name": "in-batch self check",
+      "cmd": "v3_gate --json / unittest / selftest / dedicated verifier",
+      "gate": "7 gates green + dimension lock unchanged",
+      "on_fail": "fix until green, no skipping"
+    },
+    {
+      "id": "L5",
+      "name": "manifest rebuild",
+      "cmd": "python scripts/five_site_dna.py build && verify",
+      "gate": "drift=[]",
+      "on_fail": "trace drift source first"
+    },
+    {
+      "id": "L6",
+      "name": "commit",
+      "cmd": "git commit -m \"<batch>: <theme>\"",
+      "gate": "one batch one commit, contains all batch artifacts",
+      "on_fail": "split commits"
+    },
+    {
+      "id": "L7",
+      "name": "push 3 sites + readback",
+      "cmd": "gitee(token+askpass) / github / ls-remote",
+      "gate": "same commit sha on S1/S2/S3",
+      "on_fail": "repush + readback, output is not proof"
+    },
+    {
+      "id": "L8",
+      "name": "archive",
+      "cmd": "vector-sea + manifest / hf upload / feishu entry",
+      "gate": "per-file hash match + platform sha readback",
+      "on_fail": "upload missing files, record ignored ones"
+    },
+    {
+      "id": "L9",
+      "name": "receipt",
+      "cmd": "reports/ or vector-sea _<batch>_receipt_<date>.json",
+      "gate": "5-site state + hashes + gates + known diffs",
+      "on_fail": "new receipt file, never overwrite"
+    }
   ],
   "rules": [
     "R1 one-way: local is the only write source; gitee authoritative; github aligns; vector sea archives; hf mirrors",
@@ -37,28 +121,106 @@
     "R10 degradation: one site down -> other four finish, receipt marks pending with reason"
   ],
   "discipline": [
-    {"id": "G1", "rule": "preflight before every batch; verdict must be PASS", "violation": "batch void, restart after sync fixed"},
-    {"id": "G2", "rule": "one batch one scope; declare theme and criteria in batch ledger first", "violation": "out-of-scope output split to next batch"},
-    {"id": "G3", "rule": "no parallel batches; previous post-gate must be green (B7 continuous admission excepted with evidence)", "violation": "stop and roll back to last closed batch"},
-    {"id": "G4", "rule": "one commit per batch, batch id in message prefix", "violation": "add split commit with note"},
-    {"id": "G5", "rule": "3 hard assertions: agents=25, skills=47, packs=9; spec.VERSION=0.9.1; diff0/tamper hashes unchanged", "violation": "stop, roll back, file incident"},
-    {"id": "G6", "rule": "evidence must be re-runnable script + recomputable output file, not prose", "violation": "criterion not accepted"},
-    {"id": "G7", "rule": "never overwrite receipts; new batch new receipt", "violation": "treated as false evidence"},
-    {"id": "G8", "rule": "red lines outrank schedule: zero dose, C0 not efficacy, no L4 extrapolation, emergency -> 120, electric-field gap stays gap, receipts mark simulated", "violation": "stop; red lines never yield"}
+    {
+      "id": "G1",
+      "rule": "preflight before every batch; verdict must be PASS",
+      "violation": "batch void, restart after sync fixed"
+    },
+    {
+      "id": "G2",
+      "rule": "one batch one scope; declare theme and criteria in batch ledger first",
+      "violation": "out-of-scope output split to next batch"
+    },
+    {
+      "id": "G3",
+      "rule": "no parallel batches; previous post-gate must be green (B7 continuous admission excepted with evidence)",
+      "violation": "stop and roll back to last closed batch"
+    },
+    {
+      "id": "G4",
+      "rule": "one commit per batch, batch id in message prefix",
+      "violation": "add split commit with note"
+    },
+    {
+      "id": "G5",
+      "rule": "3 hard assertions: agents=25, skills=47, packs=9; spec.VERSION=0.9.1; diff0/tamper hashes unchanged",
+      "violation": "stop, roll back, file incident"
+    },
+    {
+      "id": "G6",
+      "rule": "evidence must be re-runnable script + recomputable output file, not prose",
+      "violation": "criterion not accepted"
+    },
+    {
+      "id": "G7",
+      "rule": "never overwrite receipts; new batch new receipt",
+      "violation": "treated as false evidence"
+    },
+    {
+      "id": "G8",
+      "rule": "red lines outrank schedule: zero dose, C0 not efficacy, no L4 extrapolation, emergency -> 120, electric-field gap stays gap, receipts mark simulated",
+      "violation": "stop; red lines never yield"
+    },
+    {
+      "id": "G9",
+      "rule": "manifest write order: edit scanned files -> SHA256SUMS -> five-site manifest -> both verify; manifest-like artifacts excluded",
+      "violation": "compute manifest before writing files -> false red; batch void and recompute"
+    },
+    {
+      "id": "G10",
+      "rule": "seals equal signature: 潮起开门，潮落闭嘴 / 好嘞玉安 / weideyouni / 潘荟丞 share one grade and one function; seal opens execution and admission only",
+      "violation": "self-admit without seal or signature -> treated as false evidence, roll back"
+    }
   ],
   "preflight": [
-    {"id": "P1", "check": "manifest exists and recomputes", "pass": "verify gives drift=[]"},
-    {"id": "P2", "check": "files complete and package present", "pass": "counts.missing=0 and zip in package"},
-    {"id": "P3", "check": "pre-gate evidence", "pass": "reports/gate_b0_v4.json passed==total==32, failed=[]"},
-    {"id": "P4", "check": "five-site receipt present and PASS", "pass": "gates.verdict contains PASS; readme_status.all_five_updated=true when present"},
-    {"id": "P5", "check": "batch cadence", "pass": "at most one batch in progress in data/B0_批次进度.csv"},
-    {"id": "P6", "check": "DNA version consistency", "pass": "manifest dna_id equals SG-DNA-FIVE-SITE-SYNC-V1.1"}
+    {
+      "id": "P1",
+      "check": "manifest exists and recomputes",
+      "pass": "verify gives drift=[]"
+    },
+    {
+      "id": "P2",
+      "check": "files complete and package present",
+      "pass": "counts.missing=0 and zip in package"
+    },
+    {
+      "id": "P3",
+      "check": "pre-gate evidence",
+      "pass": "reports/gate_b0_v4.json passed==total==32, failed=[]"
+    },
+    {
+      "id": "P4",
+      "check": "five-site receipt present and PASS",
+      "pass": "gates.verdict contains PASS; readme_status.all_five_updated=true when present"
+    },
+    {
+      "id": "P5",
+      "check": "batch cadence",
+      "pass": "at most one batch in progress in data/B0_批次进度.csv"
+    },
+    {
+      "id": "P6",
+      "check": "DNA version consistency",
+      "pass": "manifest dna_id equals SG-DNA-FIVE-SITE-SYNC-V1.2"
+    },
+    {
+      "id": "P7",
+      "check": "five-site readback recorded",
+      "pass": "receipt sites S1/S2/S3 same sha, S5 hf 40-hex sha, S4 matches manifest count"
+    }
   ],
   "acceptance": {
-    "commit_equal": ["S1", "S2", "S3"],
+    "commit_equal": [
+      "S1",
+      "S2",
+      "S3"
+    ],
     "object_hash": "sha256 per file",
     "package": "sha16 + sha256",
-    "readback": ["git ls-remote", "hf repo_info sha"],
+    "readback": [
+      "git ls-remote",
+      "hf repo_info sha"
+    ],
     "preflight": "scripts/five_site_dna.py preflight exit code 0"
   },
   "forbidden": [
@@ -71,6 +233,37 @@
     "two batches in parallel",
     "overwrite an existing receipt"
   ],
-  "gates": {"pre": "v3_gate --json", "post": "v3_gate --json", "lock": {"agents": 25, "skills": 47, "packs": 9}},
-  "verifier": "scripts/five_site_dna.py build|verify|preflight"
+  "gates": {
+    "pre": "v3_gate --json",
+    "post": "v3_gate --json",
+    "lock": {
+      "agents": 25,
+      "skills": 47,
+      "packs": 9
+    }
+  },
+  "verifier": "scripts/five_site_dna.py build|verify|preflight",
+  "signature_equivalence": {
+    "grade": "equal",
+    "seals": [
+      "潮起开门，潮落闭嘴",
+      "好嘞玉安"
+    ],
+    "principals": [
+      "weideyouni",
+      "潘荟丞"
+    ],
+    "scope": [
+      "batch admission",
+      "batch start",
+      "receipt confirmation"
+    ],
+    "not_scope": [
+      "red lines",
+      "dimension lock",
+      "ivsa self-check",
+      "medical dose/safety"
+    ],
+    "rule": "any seal or principal counts as signed; still bound by G5/G8"
+  }
 }

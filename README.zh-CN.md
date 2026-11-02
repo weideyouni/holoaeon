@@ -1,5 +1,5 @@
 
-> ## V4 · 冷热插拔赋能升级（2026-11-02）· B0–B8 已完成（B7-1 签字 潘荟丞 / 2026-11-02、累计 4/15；B8 双仓同步绿），下一批 B9
+> ## V4 · 冷热插拔赋能升级（2026-11-02）· B0–B9 已完成（V2.0 收口封板；B7-1 签字 潘荟丞 / 2026-11-02、累计 4/15；B8 双仓同步绿；B9 五份交付 + zip 确定性重打包）
 >
 > - 七闸全绿：`v3_gate 32/32` · `unittest 34 OK` · `旁挂 82 OK` · `selftest 25/25` · `skill_matrix 17/17` · `redline 零违规` · `fusion 17/17` · `ivsa 21/21`
 > - 14 维锁 + 黄金值未漂：`diff0=2fc892cf9af6e755` / `tamper=f42c8229ee5acd73`，`spec.VERSION=0.9.1` 未动
@@ -8,13 +8,14 @@
 > - **B5 语义技能族 60 条**：落 ivsa 十模块（溯源/采集/去重/蒸馏/嵌入/检索/时序/聚类/注入/运维），无空模块、无第十一模块；基座 16 个唯一技能 + 扩容 44 条；4 条康复桥接候选已登记、未准入（`python scripts/check_semantic_family.py`，S1–S9）
 > - **B6 赫布落盘**：23 边 / 28 节点 / 9 种子，落盘摘要 `399505b0e695…de282`；独立解释器从盘上复原后 top-k **逐字相等**（三条相等全 true，`python scripts/check_hebbian_store.py` H1–H9）；**17 通道配额表** 12 mapped + 5 pending，配额 1200、负载 24
 > - **B7 分批准入闸上线**：B5 的 4 条桥接候选上同一张票，四硬闸全绿（v3_gate/unittest/skill_matrix/redline），每批 ≤5 / 累计 ≤15 由代码硬判；**未签字即 `WAITING_SIGNATURE`**，一条都不进执行层（`python scripts/admit_batch.py --check`）
-> - **B8 双仓开源同步**：ivsa v1.2 插件**默认关闭**（未显式启用即 0 能力，宿主维度不受影响）；宿主 `SHA256SUMS` 166 件，ivsa 自有清单 91 件复算 91/91；17 通道分组 `5/4/4/4 = 17` 两侧相等；许可分层 Apache-2.0 / MPL-2.0 / data-only，混用 0（`python scripts/verify_b8_dual_sync.py` → 11/11）
-> - 五地同步刚性 DNA `SG-DNA-FIVE-SITE-SYNC-V1.1`：本地 · Gitee · GitHub · 向量海 · Hugging Face（飞书 docx 作阅读入口）
+> - **B8 双仓开源同步**：ivsa v1.2 插件**默认关闭**（未显式启用即 0 能力，宿主维度不受影响）；宿主 `SHA256SUMS` 166 件，ivsa 自有清单 91 件复算 91/91；17 通道分组 `5/4/4/4 = 17` 两侧相等；许可分层 Apache-2.0 / MPL-2.0 / data-only，混用 0（`python scripts/verify_b8_dual_sync.py` → 11/11，旁挂 82 → 92）
+> - **B9 收口**：`data/B9_融合总策划_v2.md` · `data/B9_批次台账_v2.csv`（12/12 已完成、15.0 人天）· `data/B9_完美融合判据.md`（30 条可跑判据）· `data/B9_风险与回滚登记.md`（RB1–RB5 / RK1–RK7）· `data/B9_四透镜评审意见.md` · `data/B9_收口票据.md`；`python scripts/verify_b9_closeout.py` → V1–V12 PASS；zip 由 `scripts/build_b9_zip.py` 确定性重建
+> - 五地同步刚性 DNA `SG-DNA-FIVE-SITE-SYNC-V1.2`（新增 G9 清单写序闭环、G10 密令等同签字、P7 五地实体回读）：本地 · Gitee · GitHub · 向量海 · Hugging Face（飞书 docx 作阅读入口）
 >
 > V4 唯一入口：[`README_FUSION_V4_20261102.md`](README_FUSION_V4_20261102.md) ·
 > 同步规则 + 工程纪律：[`data/FIVE_SITE_SYNC_DNA.md`](data/FIVE_SITE_SYNC_DNA.md) ·
 > 离线校验：`python scripts/five_site_dna.py verify`（漂移必须为空）·
-> 开工前置：`python scripts/five_site_dna.py preflight`（P1–P6 全绿才允许开批）
+> 开工前置：`python scripts/five_site_dna.py preflight`（P1–P7 全绿才允许开批）
 >
 > 密令：潮起开门，潮落闭嘴 · `evidence_class=simulated`（仿真 ≠ 证明，碳基终裁）
 

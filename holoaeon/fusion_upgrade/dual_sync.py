@@ -53,6 +53,9 @@ SUMS_EXCLUDES = (
     "reports/b8_dual_sync.json",
     "reports/b8_dual_sync_check.json",
     "reports/five_site_manifest.json",
+    "data/B9_收口票据.md",
+    "reports/b9_closeout.json",
+    "reports/b9_closeout_check.json",
 )
 
 
