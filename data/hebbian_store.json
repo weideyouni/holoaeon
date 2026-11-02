@@ -1,0 +1,296 @@
+{
+  "store_id": "SG-B6-HEBBIAN-STORE-V1",
+  "replay_id": "SG-B6-REPLAY-SET-V1",
+  "batch": "B6",
+  "evidence_class": "simulated",
+  "policy": {
+    "decay": 0.02,
+    "cap": 0.99,
+    "prune_below": 0.01,
+    "round": 5,
+    "key_order": "lexicographic_min_first",
+    "top_k": 3
+  },
+  "meta": {
+    "index_digest": "9a565741e1f72ab7",
+    "index_rows": 1229,
+    "engine": "holoaeon.skill_matrix.runtime.MatrixRuntime",
+    "decay": 0.02,
+    "capacity": 100
+  },
+  "edge_count": 23,
+  "node_count": 28,
+  "nodes": [
+    "ai-os-core-design",
+    "asset-threefield-v11",
+    "bayes-action-decoder",
+    "bayes-mas-1331agent",
+    "boot-auto-sync",
+    "breast-surgery-150",
+    "cgm42000-matrix-runtime",
+    "cold-hot-plug-deployment",
+    "compliance-safety-core",
+    "cytoskeleton",
+    "cytoskeleton-robustness-superstructure",
+    "hebbian_field",
+    "hilbert-space-master",
+    "holographic_heartbeat",
+    "jingluo-knowledge-suite",
+    "kangfu-knowledge-suite",
+    "lotus-hcf-architect",
+    "medicine-skill-matrix",
+    "mozai-multimodal-interaction",
+    "rag-vector-memory-engine",
+    "semantic-mas-bus",
+    "semantic_bus",
+    "shengui-shenma-changbai-rehab-fusion-1331",
+    "skin_v6",
+    "task-lifecycle-state-machine",
+    "tcm-clinical-case-tensor",
+    "threefield-confidence",
+    "tool-schema-standard"
+  ],
+  "edges": [
+    {
+      "a": "ai-os-core-design",
+      "b": "cytoskeleton",
+      "w": 0.9702
+    },
+    {
+      "a": "asset-threefield-v11",
+      "b": "holographic_heartbeat",
+      "w": 0.87698
+    },
+    {
+      "a": "bayes-action-decoder",
+      "b": "holographic_heartbeat",
+      "w": 0.68819
+    },
+    {
+      "a": "bayes-mas-1331agent",
+      "b": "holographic_heartbeat",
+      "w": 0.89488
+    },
+    {
+      "a": "boot-auto-sync",
+      "b": "holographic_heartbeat",
+      "w": 0.77687
+    },
+    {
+      "a": "breast-surgery-150",
+      "b": "cytoskeleton",
+      "w": 0.60963
+    },
+    {
+      "a": "cgm42000-matrix-runtime",
+      "b": "holographic_heartbeat",
+      "w": 0.93178
+    },
+    {
+      "a": "cold-hot-plug-deployment",
+      "b": "skin_v6",
+      "w": 0.84225
+    },
+    {
+      "a": "compliance-safety-core",
+      "b": "holographic_heartbeat",
+      "w": 0.91314
+    },
+    {
+      "a": "cytoskeleton",
+      "b": "cytoskeleton-robustness-superstructure",
+      "w": 0.9508
+    },
+    {
+      "a": "cytoskeleton",
+      "b": "jingluo-knowledge-suite",
+      "w": 0.63477
+    },
+    {
+      "a": "cytoskeleton",
+      "b": "kangfu-knowledge-suite",
+      "w": 0.71656
+    },
+    {
+      "a": "cytoskeleton",
+      "b": "lotus-hcf-architect",
+      "w": 0.64772
+    },
+    {
+      "a": "cytoskeleton",
+      "b": "tcm-clinical-case-tensor",
+      "w": 0.79272
+    },
+    {
+      "a": "hebbian_field",
+      "b": "semantic-mas-bus",
+      "w": 0.66094
+    },
+    {
+      "a": "hilbert-space-master",
+      "b": "skin_v6",
+      "w": 0.7461
+    },
+    {
+      "a": "holographic_heartbeat",
+      "b": "mozai-multimodal-interaction",
+      "w": 0.8089
+    },
+    {
+      "a": "holographic_heartbeat",
+      "b": "shengui-shenma-changbai-rehab-fusion-1331",
+      "w": 0.62207
+    },
+    {
+      "a": "holographic_heartbeat",
+      "b": "task-lifecycle-state-machine",
+      "w": 0.82541
+    },
+    {
+      "a": "medicine-skill-matrix",
+      "b": "skin_v6",
+      "w": 0.67443
+    },
+    {
+      "a": "rag-vector-memory-engine",
+      "b": "semantic_bus",
+      "w": 0.76133
+    },
+    {
+      "a": "skin_v6",
+      "b": "threefield-confidence",
+      "w": 0.73118
+    },
+    {
+      "a": "skin_v6",
+      "b": "tool-schema-standard",
+      "w": 0.85944
+    }
+  ],
+  "topk": {
+    "seeds": [
+      "cytoskeleton",
+      "hebbian_field",
+      "holographic_heartbeat",
+      "meridian",
+      "semantic_bus",
+      "skin_v6",
+      "ai-os-core-design",
+      "asset-threefield-v11",
+      "bayes-action-decoder"
+    ],
+    "k": 3,
+    "rows": [
+      {
+        "seed": "cytoskeleton",
+        "k": 3,
+        "neighbors": [
+          {
+            "name": "ai-os-core-design",
+            "w": 0.9702
+          },
+          {
+            "name": "cytoskeleton-robustness-superstructure",
+            "w": 0.9508
+          },
+          {
+            "name": "tcm-clinical-case-tensor",
+            "w": 0.79272
+          }
+        ]
+      },
+      {
+        "seed": "hebbian_field",
+        "k": 3,
+        "neighbors": [
+          {
+            "name": "semantic-mas-bus",
+            "w": 0.66094
+          }
+        ]
+      },
+      {
+        "seed": "holographic_heartbeat",
+        "k": 3,
+        "neighbors": [
+          {
+            "name": "cgm42000-matrix-runtime",
+            "w": 0.93178
+          },
+          {
+            "name": "compliance-safety-core",
+            "w": 0.91314
+          },
+          {
+            "name": "bayes-mas-1331agent",
+            "w": 0.89488
+          }
+        ]
+      },
+      {
+        "seed": "meridian",
+        "k": 3,
+        "neighbors": []
+      },
+      {
+        "seed": "semantic_bus",
+        "k": 3,
+        "neighbors": [
+          {
+            "name": "rag-vector-memory-engine",
+            "w": 0.76133
+          }
+        ]
+      },
+      {
+        "seed": "skin_v6",
+        "k": 3,
+        "neighbors": [
+          {
+            "name": "tool-schema-standard",
+            "w": 0.85944
+          },
+          {
+            "name": "cold-hot-plug-deployment",
+            "w": 0.84225
+          },
+          {
+            "name": "hilbert-space-master",
+            "w": 0.7461
+          }
+        ]
+      },
+      {
+        "seed": "ai-os-core-design",
+        "k": 3,
+        "neighbors": [
+          {
+            "name": "cytoskeleton",
+            "w": 0.9702
+          }
+        ]
+      },
+      {
+        "seed": "asset-threefield-v11",
+        "k": 3,
+        "neighbors": [
+          {
+            "name": "holographic_heartbeat",
+            "w": 0.87698
+          }
+        ]
+      },
+      {
+        "seed": "bayes-action-decoder",
+        "k": 3,
+        "neighbors": [
+          {
+            "name": "holographic_heartbeat",
+            "w": 0.68819
+          }
+        ]
+      }
+    ]
+  },
+  "sha256": "399505b0e695eb83f9bd98c73f46a846704d1952ea81140ee96cf1cb9a8de282"
+}

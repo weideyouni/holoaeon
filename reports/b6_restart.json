@@ -1,0 +1,22 @@
+{
+  "test_id": "SG-B6-RESTART-CONSISTENCY-V1",
+  "batch": "B6",
+  "evidence_class": "simulated",
+  "store": "data/hebbian_store.json",
+  "store_sha256": "399505b0e695eb83f9bd98c73f46a846704d1952ea81140ee96cf1cb9a8de282",
+  "replay_steps": 24,
+  "parent_pid": 68872,
+  "child_pid": 3716,
+  "child_verify_ok": true,
+  "live_topk_sha256": "666c5fc02dbf296cd07a21e7775d6375b19d2ca14ce8801a61d4f22cb5caead3",
+  "frozen_topk_sha256": "666c5fc02dbf296cd07a21e7775d6375b19d2ca14ce8801a61d4f22cb5caead3",
+  "child_topk_sha256": "666c5fc02dbf296cd07a21e7775d6375b19d2ca14ce8801a61d4f22cb5caead3",
+  "child_edges_sha256": "9d5d573a899d67658917bee00d89afb9583ca178daca5cd0c462cf187e1f9c34",
+  "edges_restored": 23,
+  "edge_count": 23,
+  "equal_live_vs_child": true,
+  "equal_frozen_vs_child": true,
+  "equal_live_vs_frozen": true,
+  "topk_lines": 15,
+  "verdict": "PASS"
+}

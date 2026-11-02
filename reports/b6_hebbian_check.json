@@ -1,0 +1,114 @@
+{
+  "check_id": "SG-B6-HEBBIAN-CHECK-V1",
+  "batch": "B6",
+  "evidence_class": "simulated",
+  "verdict": "PASS",
+  "failed": [],
+  "checks": [
+    {
+      "id": "H1",
+      "name": "落盘文件存在且可解析",
+      "ok": true,
+      "detail": {
+        "path": "data/hebbian_store.json",
+        "store_id": "SG-B6-HEBBIAN-STORE-V1",
+        "bytes": 6218
+      }
+    },
+    {
+      "id": "H2",
+      "name": "自指 sha256 复算一致 + 边表结构",
+      "ok": true,
+      "detail": {
+        "sha256": "399505b0e695eb83f9bd98c73f46a846704d1952ea81140ee96cf1cb9a8de282",
+        "recomputed": "399505b0e695eb83f9bd98c73f46a846704d1952ea81140ee96cf1cb9a8de282",
+        "edge_count": 23,
+        "edges_len": 23,
+        "key_order_ok": true,
+        "weights_ok": true
+      }
+    },
+    {
+      "id": "H3",
+      "name": "边/节点规模自洽",
+      "ok": true,
+      "detail": {
+        "nodes": 28,
+        "edges": 23,
+        "max_degree": 9,
+        "density": 0.060847
+      }
+    },
+    {
+      "id": "H4",
+      "name": "重跑即同摘要（确定性）",
+      "ok": true,
+      "detail": {
+        "disk": "399505b0e695eb83f9bd98c73f46a846704d1952ea81140ee96cf1cb9a8de282",
+        "rebuilt": "399505b0e695eb83f9bd98c73f46a846704d1952ea81140ee96cf1cb9a8de282"
+      }
+    },
+    {
+      "id": "H5",
+      "name": "load→restore→top-k 与冻结基线逐字相等",
+      "ok": true,
+      "detail": {
+        "lines": 15,
+        "edges_restored": 23
+      }
+    },
+    {
+      "id": "H6",
+      "name": "独立进程重启后 top-k 逐字相等",
+      "ok": true,
+      "detail": {
+        "parent_pid": 68872,
+        "child_pid": 3716,
+        "equal_live_vs_child": true,
+        "equal_frozen_vs_child": true
+      }
+    },
+    {
+      "id": "H7",
+      "name": "17 通道配额表形状与配额总量",
+      "ok": true,
+      "detail": {
+        "rows": 17,
+        "mapped": 12,
+        "pending": 5,
+        "quota_total": 1200,
+        "groups": [
+          "气",
+          "淋巴",
+          "神",
+          "血"
+        ]
+      }
+    },
+    {
+      "id": "H8",
+      "name": "配额表可重算（字节一致）",
+      "ok": true,
+      "detail": {
+        "regenerated_rows": 17
+      }
+    },
+    {
+      "id": "H9",
+      "name": "维度 25/47/9 与 spec 0.9.1 未动",
+      "ok": true,
+      "detail": {
+        "lock": {
+          "agents": 25,
+          "skills": 47,
+          "packs": 9
+        },
+        "PACK_ORDER": 9,
+        "EXTRA_PACK_ORDER": 10,
+        "spec_version": "0.9.1"
+      }
+    }
+  ],
+  "store_sha256": "399505b0e695eb83f9bd98c73f46a846704d1952ea81140ee96cf1cb9a8de282",
+  "edge_count": 23
+}

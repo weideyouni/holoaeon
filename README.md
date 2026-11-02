@@ -15,13 +15,14 @@ tags:
   - llm
 ---
 
-> #### V4 · Cold-hot-plug empowerment upgrade (2026-11-02) — batches B0–B5 done, B6 next
+> #### V4 · Cold-hot-plug empowerment upgrade (2026-11-02) — batches B0–B6 done, B7 next
 >
-> - 7 gates green: `v3_gate 32/32` · `unittest 34 OK` · `sidecar 51 OK` · `selftest 25/25` · `skill_matrix 17/17` · `redline 0 violations` · `fusion 17/17` · `ivsa 21/21`
+> - 7 gates green: `v3_gate 32/32` · `unittest 34 OK` · `sidecar 61 OK` · `selftest 25/25` · `skill_matrix 17/17` · `redline 0 violations` · `fusion 17/17` · `ivsa 21/21`
 > - 14-dimension lock, golden `diff0=2fc892cf9af6e755` / `tamper=f42c8229ee5acd73`, `spec.VERSION=0.9.1` unchanged
 > - skill auto-match `1229 -> 365` candidates (index digest `9a565741e1f72ab7`); **`agents/skills/packs = 25/47/9` unchanged**
 > - **B4 rehab pilot: 20 contracts** (12 general / 8 medical; mechanisms hebbian 11 · skin_v6 4 · heartbeat 3 · cytoskeleton 2), 4 negative probes all rejected (`python scripts/check_rehab_pilot.py`, R1–R9)
 > - **B5 semantic skill family: 60 members** across the ivsa ten modules (溯源/采集/去重/蒸馏/嵌入/检索/时序/聚类/注入/运维; uncovered none, no 11th module), base 16 unique from index + 44 expanded, 4 rehab bridge candidates registered but not admitted (`python scripts/check_semantic_family.py`, S1–S9)
+> - **B6 hebbian persistence: weights on disk** — 23 edges / 28 nodes / 9 seeds, store sha256 `399505b0e695…de282`; a real second interpreter reloads from disk and the top-k view is **byte-identical** (3 equalities true, `python scripts/check_hebbian_store.py` H1–H9); **17-channel quota table** 12 mapped + 5 pending, quota 1200, load 24
 > - Five-site sync DNA `SG-DNA-FIVE-SITE-SYNC-V1.1`: local · Gitee · GitHub · vector-sea · Hugging Face (Feishu docx as reading entry)
 >
 > Canonical V4 entry: [`README_FUSION_V4_20261102.md`](README_FUSION_V4_20261102.md) ·

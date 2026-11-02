@@ -7,7 +7,7 @@
   "repo_root": "F:\\doubaowork\\holoaeon",
   "counts": {
     "package": 18,
-    "repo": 52,
+    "repo": 63,
     "missing": 0
   },
   "package": {
@@ -28,8 +28,8 @@
       "sha256": "7fddaac5626d6144300e8fdda44f0829c59b8082f2346d1a024a8d8064cc046c"
     },
     "05_README_V4_赋能升级.md": {
-      "bytes": 8299,
-      "sha256": "b025003b92413726806d0be778254567844600c21f75adedd20167fd042ee655"
+      "bytes": 8477,
+      "sha256": "964e8bfe44be10aa8245bf51100cbfdaf58bba9c1049ab96cfb8b492219f8a9c"
     },
     "06_验收票据.md": {
       "bytes": 9562,
@@ -87,16 +87,16 @@
   },
   "repo": {
     "README_FUSION_V4_20261102.md": {
-      "bytes": 11100,
-      "sha256": "3512c68e551d44f60f3ebbe36263d754416a3f293e0260d0edaf5a16f8b81d7a"
+      "bytes": 11452,
+      "sha256": "3b9c7c59172486d8885adb153ad35d1f19ace0f448da9b11c502ab855e232ec0"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
       "sha256": "b98f27923178bfd982e0b9329fade05b6c1590b628650b130635e7568804370f"
     },
     "data/B0_批次进度.csv": {
-      "bytes": 993,
-      "sha256": "b9625e78a7bf94313bc8b3adb554c8a71205c9c0938bc96349581dab1b61a96e"
+      "bytes": 1074,
+      "sha256": "aebc9ad62a5617960f38cb8a4afa68f04d0ceef214b615c590847ebc46ff9105"
     },
     "data/B0_自动匹配技能.csv": {
       "bytes": 83726,
@@ -109,6 +109,10 @@
     "data/B5_语义技能族票据.md": {
       "bytes": 5244,
       "sha256": "14c442e6f94ecd85b5297a9440c056e7eb2fc7d3f55c109483d36eff144b812d"
+    },
+    "data/B6_赫布落盘票据.md": {
+      "bytes": 6675,
+      "sha256": "acb6c020498d41dd81a95ee1238bc4cd367f4739b05d741b7a2eb332930ef44e"
     },
     "data/FIVE_SITE_SYNC_DNA.md": {
       "bytes": 10105,
@@ -130,6 +134,10 @@
       "bytes": 2613,
       "sha256": "35164fb28d7be3dad21d6e34a60fbe449e434d492303657da5ab218b8acb439a"
     },
+    "data/channel_quota.csv": {
+      "bytes": 1545,
+      "sha256": "6a77065c533198ba5c3cfb287393c8ba64d2caf094841ad7dfdc4e46d1ffb3d3"
+    },
     "data/contract_v1.json": {
       "bytes": 2762,
       "sha256": "9b14fdc062aa4c463501f8d24c8a2e8f6145a3c2dcc8ef4556793a24f27548c5"
@@ -141,6 +149,10 @@
     "data/five_site_dna.json": {
       "bytes": 6494,
       "sha256": "9a0e85d8243c6409649feae189f5177d8472a010b78c12301eeeb357a98a95ef"
+    },
+    "data/hebbian_store.json": {
+      "bytes": 6218,
+      "sha256": "5238d4730543c847e708a39d8408e9028687f149cc93b450ef2c4fbd61254a95"
     },
     "data/mechanism_map.json": {
       "bytes": 5524,
@@ -170,6 +182,10 @@
       "bytes": 12137,
       "sha256": "565ba9e7b69b4a04685ab381621c37eb5fe86af4753337b0f0bba12f739123fe"
     },
+    "holoaeon/fusion_upgrade/hebbian_store.py": {
+      "bytes": 8303,
+      "sha256": "58dd50f92cf3dc076419b4fddcca70ae4d8ffbc0972300dc09ee6b0149fb6c85"
+    },
     "holoaeon/fusion_upgrade/semantic_family.py": {
       "bytes": 3302,
       "sha256": "fc62eaf0d37a134d95e551c68049df5ab9904fa69115594bbd2f5aeff48ffd27"
@@ -181,6 +197,14 @@
     "reports/b5_semantic_check.json": {
       "bytes": 1455,
       "sha256": "e031ee2e8e7c3f22ed963179349b205d735c717ce59e0d4dbaaf98b658ef511a"
+    },
+    "reports/b6_hebbian_check.json": {
+      "bytes": 2670,
+      "sha256": "89279402836845fa57826ad9b7fcce9e15cbae52c8a34e1cf9c7480f28d13f1b"
+    },
+    "reports/b6_restart.json": {
+      "bytes": 861,
+      "sha256": "49d981ecdac9eefa06f67037c445de7695df318dd66feaf9145f814805ab635e"
     },
     "reports/contract_v1_check.json": {
       "bytes": 635,
@@ -213,6 +237,10 @@
     "scripts/check_contract_v1.py": {
       "bytes": 2782,
       "sha256": "f189da73a8a52347775830f9afdab4cdcbcb1bc21f1b92cab1fc5fc88111dd64"
+    },
+    "scripts/check_hebbian_store.py": {
+      "bytes": 7715,
+      "sha256": "969206417cc75ecf907be8c22411dbf19578d0af2a76eb4faf1f2dbb1dad9efb"
     },
     "scripts/check_mechanism_map.py": {
       "bytes": 3424,
@@ -251,8 +279,8 @@
       "sha256": "1b39f26b4d08a16734b3e7341603dafbbee45803052af726cf5044014e216f2d"
     },
     "scripts/five_site_dna.py": {
-      "bytes": 10810,
-      "sha256": "0e4f1ce91a2c058957dd91a146e5f0f30892245a95cd44ec0915579839b402e4"
+      "bytes": 11219,
+      "sha256": "61ec5dc93bb80576016423ffda2e7d08d63a6f63e3f4dde11b8d2907df15d166"
     },
     "scripts/freeze_contract_v1.py": {
       "bytes": 3616,
@@ -262,6 +290,10 @@
       "bytes": 3167,
       "sha256": "925cd83ee231cb9e65abf675dc680f33fb1b45ac1d4ff63d1d576195e9b88d84"
     },
+    "scripts/gen_channel_quota.py": {
+      "bytes": 4319,
+      "sha256": "d588964b9c106f56b952bc2b896d4cb2e6d88656c202b6e0f69813a985050021"
+    },
     "scripts/gen_rehab_pilot.py": {
       "bytes": 12521,
       "sha256": "5c0c9e4d3709021210708235172d4ea0d37c24c538907bf3449e4724107553ed"
@@ -270,6 +302,14 @@
       "bytes": 4783,
       "sha256": "fa5fb21ef5f5184f131d16e42d4d6a32db2e62eaacfa2760b6ad207b8d9fc6a5"
     },
+    "scripts/hebbian_persist.py": {
+      "bytes": 2731,
+      "sha256": "f17ba23ebbc32d11fab8db64548283884c95c7f4d472ae2925f9beff5ffa5cb0"
+    },
+    "scripts/test_restart_consistency.py": {
+      "bytes": 5726,
+      "sha256": "434f779fd4d962268f63e9ae671635c3cfa22d91d9e2f5f7a9ceb92b96224a41"
+    },
     "tests_contract/test_channel_map.py": {
       "bytes": 3589,
       "sha256": "dac693aa1334e1446a1fbbf6302eb82c2bb2926ecfa7b0ce831d7110831ab64b"
@@ -277,6 +317,10 @@
     "tests_contract/test_contract_v1.py": {
       "bytes": 6260,
       "sha256": "1c72a943a0f5e01d54f1a17ca656398bc3186d70c6a165eeddb38c21ed5be29e"
+    },
+    "tests_contract/test_hebbian_store.py": {
+      "bytes": 4314,
+      "sha256": "7693f3f20c3f85c657182647388cde1a44616413fe04c8488dd9356b6ced2e5b"
     },
     "tests_contract/test_mechanism_map.py": {
       "bytes": 2609,
