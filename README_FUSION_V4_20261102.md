@@ -232,3 +232,30 @@ python scripts/five_site_dna.py preflight  # P1-P6 gate: no batch may start unle
 | V4.2-B1 | 三场卡电场补齐（13 卡 = 磁 5 / 电 3 / 液 5；电场 3 张结构化补参数维度 + 检索计划） | 9/9 | `reports/v42_three_field_check.json` |
 
 维度不变量 `agents 25 / skills 47 / packs 9` 未动；三张批次票据见 `data/V4.1_插件接推理票据.md`、`data/V4.1_语义扩容至100票据.md`、`data/V4.2_三场卡电场补齐票据.md`；`evidence_class=simulated` 全程贯穿，远端 sha 与回执字节以命令回读为准。
+
+## V4.3-B1 工程硬化与遗留收尾（2026-11-02）
+
+把上一轮踩到的四个坑从复盘文字改成「脚本 + 可实测判据」，并把三项未做各自推到可交代的位置。
+
+| 批次 | 内容 | 判据 | 回执 |
+|---|---|---|---|
+| V4.3-B1a | **HF 镜像器** `scripts/mirror_hf.py`：只认 model 仓、`git -c core.quotepath=false` 取中文路径、git blob sha1 判等、`--check` 干跑 | H1/H4 | `reports/v43_hardening_check.json` |
+| V4.3-B1b | **向量海清单器** `scripts/build_vector_sea_manifest.py`：固定「先 74、后 manifest」，带自指检测与 `--check` | H2 | 同上 |
+| V4.3-B1c | **交付目录诊断器** `scripts/check_delivery_pkg.py`：PKG 漂移一条命令诊断，`--fix` 按写序重建 | H3 | 同上 |
+| V4.3-B1d | **B8 接适配层** `holoaeon/fusion_upgrade/reasoning_adapter.py`：事实包进 `ModelAdapter` 路由 + simulated 用量；红线命中不进适配层、不联网 | M1–M4 | 同上 |
+| V4.3-B1e | **gap 卡检索执行** `data/v43_gap_literature_probe.json`：`TF-E-01/02/03` 三卡实测检索 9 条指南/共识来源；证据等级仍 `none` | L1 | 同上 |
+| V4.3-B1f | **族身份 V2** `data/semantic_family_identity_v2.json`：对外 `SG-V41-SEMANTIC-FAMILY-V2`，与族数据 `sha256=253044a0…`、100 成员硬绑定；族数据本体不动 | I1/I2 | 同上 |
+
+合计 `verify_v43.py` **11/11 PASS**，旁挂单测 `tests_contract/test_v43.py` **9 OK**，`REPO_FILES` 115 → 125。维度不变量未动、判据未放宽、证据口径未升。
+
+常用命令：
+
+```bash
+python scripts/mirror_hf.py --base <旧sha> --head HEAD --check   # 只看要推哪些件
+python scripts/build_vector_sea_manifest.py --check               # 74 与 manifest 是否自洽
+python scripts/check_delivery_pkg.py                              # 交付目录是否漂
+python scripts/check_delivery_pkg.py --fix                        # 漂了就按写序重建
+python scripts/verify_v43.py                                      # 11 条判据逐项实测
+```
+
+实测更正：`build_b9_closeout.py` 只**读** zip，真正打包的是 `build_b9_zip.py`，它按交付目录**全目录**压入（新增补记件会进 zip、sha 必然变化）。上一轮「zip 不含 01」的判断有误，本批已重打并核对 zip 内 01 与交付件同字节。票据见 `data/V4.3_工程硬化与遗留收尾票据.md`。

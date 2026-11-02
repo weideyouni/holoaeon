@@ -1,0 +1,105 @@
+{
+  "id": "SG-V43-HARDENING-CHECK-V1",
+  "batch": "V4.3-B1",
+  "created_at": "2026-11-02",
+  "evidence_class": "simulated",
+  "guest_root_present": true,
+  "passed": 10,
+  "total": 11,
+  "failed": [
+    "H2"
+  ],
+  "checks": [
+    {
+      "id": "H1",
+      "passed": true,
+      "repo_type": "model",
+      "changed": 29,
+      "chinese_paths": 3,
+      "escaped": []
+    },
+    {
+      "id": "H2",
+      "passed": false,
+      "entries": 100,
+      "dir_files": 100,
+      "sums_74_in_sync": false,
+      "self_reference": [],
+      "steps": [
+        "copy_74_SHA256SUMS",
+        "build_manifest"
+      ]
+    },
+    {
+      "id": "H3",
+      "passed": true,
+      "checked": 27,
+      "drift": [],
+      "extra": []
+    },
+    {
+      "id": "H4",
+      "passed": true,
+      "plan": [
+        "README_FUSION_V4_20261102.md"
+      ]
+    },
+    {
+      "id": "M1",
+      "passed": true,
+      "backend": "fact-pack-local",
+      "usage": {
+        "prompt_tokens": 22,
+        "completion_tokens": 15,
+        "total_tokens": 37
+      },
+      "pack_seal": "6704fb78e5cb",
+      "facts": 1
+    },
+    {
+      "id": "M2",
+      "passed": true,
+      "blocked": true,
+      "adapter_reason": "guard_blocked",
+      "facts": 0
+    },
+    {
+      "id": "M3",
+      "passed": true,
+      "capabilities_loaded": 0,
+      "enabled": false
+    },
+    {
+      "id": "M4",
+      "passed": true,
+      "hits": []
+    },
+    {
+      "id": "I1",
+      "passed": true,
+      "canonical_sha256": "253044a0b88bda8b262a13e1b611b83e2490c5bbf0825d0134820d46c36d6ad4",
+      "file_sha256": "2e78ab575b798d3136df6c693a1bd6a822aab84cfdd775347f25435f016f9011",
+      "bound": "253044a0b88bda8b262a13e1b611b83e2490c5bbf0825d0134820d46c36d6ad4",
+      "members": 100
+    },
+    {
+      "id": "I2",
+      "passed": true,
+      "v1": "SG-B5-SEMANTIC-FAMILY-V1",
+      "v2": "SG-V41-SEMANTIC-FAMILY-V2",
+      "spec_id": "SG-B5-SEMANTIC-MODULES-V2"
+    },
+    {
+      "id": "L1",
+      "passed": true,
+      "probes": 3,
+      "hits": 9,
+      "tier_after": {
+        "TF-E-01": "none",
+        "TF-E-02": "none",
+        "TF-E-03": "none"
+      },
+      "decision": "none"
+    }
+  ]
+}

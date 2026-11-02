@@ -172,6 +172,16 @@ REPO_FILES = [
     "scripts/verify_three_field.py",
     "tests_contract/test_three_field.py",
     "reports/v42_three_field_check.json",
+    "scripts/mirror_hf.py",
+    "scripts/build_vector_sea_manifest.py",
+    "scripts/check_delivery_pkg.py",
+    "holoaeon/fusion_upgrade/reasoning_adapter.py",
+    "scripts/verify_v43.py",
+    "tests_contract/test_v43.py",
+    "data/semantic_family_identity_v2.json",
+    "data/v43_gap_literature_probe.json",
+    "reports/v43_hardening_check.json",
+    "data/V4.3_工程硬化与遗留收尾票据.md",
 ]
 
 ZIP_NAME = "holoaeon_v4_fusion_upgrade_20261102.zip"

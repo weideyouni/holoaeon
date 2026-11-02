@@ -31,7 +31,7 @@
       "passed": true
     },
     {
-      "detail": "host=181/181 ivsa=91/91",
+      "detail": "host=198/198 ivsa=91/91",
       "id": "R6",
       "name": "双仓摘要口径一致",
       "passed": true
@@ -76,9 +76,9 @@
     },
     "evidence_class": "simulated",
     "host_sums": {
-      "bytes": 17243,
-      "lines": 181,
-      "sha256": "f5b84d2ddec253bb9d49ffd25df293bcfd4e1a99cbbdc571bd1af96314241b8e"
+      "bytes": 18967,
+      "lines": 198,
+      "sha256": "c05ff35c5ab550f4153f9e1b4df52ff01232b91956c924c9ff6438fa78ed95e6"
     },
     "ivsa_root": "F:\\doubaowork\\开源发布_中西医融合康复工程_20261026\\integrative-rehab-vsa",
     "ivsa_sums": {
@@ -95,7 +95,7 @@
   },
   "failed": [],
   "passed": 7,
-  "seal": "f97660aafb7aa6bdd9aa40b33a4413ea89ebb23001271708b46c01603e4d8a01",
+  "seal": "03b7f19c1d7e88c2ac025c4cf1b46c77a1a96ae52a3556f52aad5edf96e1afb1",
   "total": 7,
   "verdict": "PASS"
 }

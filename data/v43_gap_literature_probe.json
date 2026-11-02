@@ -1,0 +1,124 @@
+{
+  "id": "SG-V43-GAP-LITERATURE-PROBE-V1",
+  "batch": "V4.3-B1",
+  "date": "2026-11-02",
+  "evidence_class": "simulated",
+  "scope": "三场卡电场 3 张 gap 卡的检索计划首次执行留痕（TF-E-01/02/03）",
+  "redline": {
+    "params_withheld": true,
+    "no_dose": true,
+    "no_diagnosis": true,
+    "no_efficacy_claim": true,
+    "tier_unchanged": "none"
+  },
+  "decision": "none",
+  "why_decision_none": "检索到的是指南/共识层面的方向性结论，未逐篇核对原文的人群、分期、参数与结局定义；本仓不出参数、不改证据等级，故不升 tier，只把「检索计划已执行」这一事实落盘。",
+  "probes": [
+    {
+      "card": "TF-E-01",
+      "field": "electric",
+      "modality": "tDCS",
+      "topic": "脑卒中运动/上肢功能康复",
+      "queries": [
+        "transcranial direct current stimulation stroke upper limb motor rehabilitation randomized controlled trial guideline"
+      ],
+      "hits": [
+        {
+          "title": "经颅直流电刺激技术应用于脑卒中患者康复治疗的专家共识",
+          "host": "中华医学期刊全文数据库",
+          "url": "https://aka.doubaocdn.com/l/F6Vo95XzQL",
+          "finding_gist": "共识按 GRADE 对 tDCS 在卒中运动、认知、疼痛、抑郁、失语、吞咽、痉挛等障碍的适应证做了分级，纳入标准限定为 RCT。",
+          "kind": "consensus"
+        },
+        {
+          "title": "经颅直流电刺激治疗常见神经精神疾病的临床应用专家共识",
+          "host": "中华医学期刊全文数据库",
+          "url": "https://aka.doubaocdn.com/l/CN2gWnR0CD",
+          "finding_gist": "系统评价/Meta 分析层面认为 tDCS 可改善卒中患者运动功能、日常生活能力、肌力、认知与吞咽（A 级证据），并给出电极位置与刺激时长的推荐档位。",
+          "kind": "consensus"
+        },
+        {
+          "title": "中国脑血管病临床管理指南（节选版）· 卒中康复管理",
+          "host": "万方数据",
+          "url": "https://aka.doubaocdn.com/l/fZ0hgrtsgc",
+          "finding_gist": "康复管理指南把神经肌肉电刺激等列为推荐手段，并把 tDCS 列入涉及技术清单；对肢体瘫痪的离床与训练时机给出推荐等级。",
+          "kind": "guideline"
+        }
+      ],
+      "notes": "三份来源均为中文指南/共识；未逐篇核对原始 RCT 的效应量与人群边界。"
+    },
+    {
+      "card": "TF-E-02",
+      "field": "electric",
+      "modality": "TENS",
+      "topic": "膝骨关节炎疼痛与步行能力",
+      "queries": [
+        "transcutaneous electrical nerve stimulation knee osteoarthritis pain randomized controlled trial"
+      ],
+      "hits": [
+        {
+          "title": "国际骨关节炎研究学会与膝骨关节炎治疗指南（第二部分）",
+          "host": "万方数据",
+          "url": "https://aka.doubaocdn.com/l/4CtTdgPwaR",
+          "finding_gist": "指南层面认为 TENS 对髋/膝 OA 短期疼痛控制有一定帮助，并引用 Cochrane 回顾与 7 项 RCT 的系统性回顾作为依据；同时指出未见严重不良反应报道。",
+          "kind": "guideline"
+        },
+        {
+          "title": "中国膝骨关节炎康复治疗指南（2023 版）",
+          "host": "丹东市中心医院",
+          "url": "https://aka.doubaocdn.com/l/ClccvaEA0z",
+          "finding_gist": "建议把经皮电刺激作为运动治疗后的辅助干预（2B），认可其缓解疼痛的短效作用与步行能力改善，但明确指出原始证据整体质量偏低、样本量小、参数不统一。",
+          "kind": "guideline"
+        },
+        {
+          "title": "中国膝骨关节炎非手术治疗专家共识（2023 年版）",
+          "host": "中华医学会",
+          "url": "https://aka.doubaocdn.com/l/bHKWlXKxGW",
+          "finding_gist": "推荐经皮电刺激作为 KOA 常用理疗方式，同时提示频率、脉宽、单次时长等参数会影响止痛效果，且植入心脏起搏器等人群不适用。",
+          "kind": "consensus"
+        }
+      ],
+      "notes": "指南口径本身强调「参数不统一、证据质量偏低」，与本卡 gap_structured 的参数维度缺口互相印证。"
+    },
+    {
+      "card": "TF-E-03",
+      "field": "electric",
+      "modality": "电针",
+      "topic": "脑卒中后痉挛与运动功能",
+      "queries": [
+        "electroacupuncture post-stroke spasticity rehabilitation systematic review"
+      ],
+      "hits": [
+        {
+          "title": "中医适宜技术治疗脑卒中后偏瘫的循证临床实践指南",
+          "host": "新医事",
+          "url": "https://aka.doubaocdn.com/l/jRmCJsrMbq",
+          "finding_gist": "引用 2021 年 11 篇 RCT（879 例）的系统评价：电针联合康复训练较单纯康复在功能恢复与痉挛减轻上有优势，并给出效应量与置信区间。",
+          "kind": "guideline"
+        },
+        {
+          "title": "脑卒中后痉挛性瘫痪中西医结合临床诊疗专家共识",
+          "host": "万方数据",
+          "url": "https://aka.doubaocdn.com/l/sLUtyUSYAb",
+          "finding_gist": "共识给出电针取穴思路（拮抗肌侧）、波形选择与禁忌（电流回路避开心脏、起搏器/支架患者禁用），并区分神经功能、痉挛、运动功能与日常生活能力的推荐强度。",
+          "kind": "consensus"
+        },
+        {
+          "title": "脑卒中痉挛性瘫痪中西医康复策略及临床应用专家共识",
+          "host": "期刊原文",
+          "url": "https://aka.doubaocdn.com/l/E7kYzMnwH5",
+          "finding_gist": "对夹脊穴电针与特色电针取穴给出推荐级别与证据级别，强调输出强度以患者耐受为界。",
+          "kind": "consensus"
+        }
+      ],
+      "notes": "电针的穴位/波形/疗程描述属操作口径，本卡只登记「存在推荐与禁忌」，不写具体参数值。"
+    }
+  ],
+  "summary": {
+    "probes": 3,
+    "hits": 9,
+    "cards": ["TF-E-01", "TF-E-02", "TF-E-03"],
+    "tier_after": {"TF-E-01": "none", "TF-E-02": "none", "TF-E-03": "none"},
+    "next_action": "人工按原文逐篇核对人群/分期/参数/结局后，方可讨论 tier 升级；本轮只完成检索执行与来源登记。"
+  }
+}

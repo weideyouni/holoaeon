@@ -7,13 +7,13 @@
   "repo_root": "F:\\doubaowork\\holoaeon",
   "counts": {
     "package": 28,
-    "repo": 115,
+    "repo": 125,
     "missing": 0
   },
   "package": {
     "01_V4赋能升级总策划.md": {
-      "bytes": 29500,
-      "sha256": "1ff450c9d2b1d3227d4188b62a5925ac85d3f5bbd98335000f0183ef926dc0b4"
+      "bytes": 29866,
+      "sha256": "b9a1e13ca82bfb7b31e06cd624207ca72780af4af01ac11d91e5f87bd720000c"
     },
     "02_一键复制投喂包_面向智能体.md": {
       "bytes": 11211,
@@ -108,9 +108,9 @@
       "sha256": "33af29f94ecfd5c790253f5216e477b410fcd0d3838d029027d37ca3c29f4861"
     },
     "holoaeon_v4_fusion_upgrade_20261102.zip": {
-      "bytes": 113456,
-      "sha256": "090c6d8b918abe903f8a684dc86663de0e8b09a7b71bf8844202d7cc5e6e82c6",
-      "sha16": "090c6d8b918abe90"
+      "bytes": 120894,
+      "sha256": "087c55d0b5e497bd184f0dfc133a8d2cb51772054c6999c87b30149199be270c",
+      "sha16": "087c55d0b5e497bd"
     },
     "reports/b0_lock_v4fusion.json": {
       "bytes": 988,
@@ -127,12 +127,12 @@
   },
   "repo": {
     "README_FUSION_V4_20261102.md": {
-      "bytes": 13319,
-      "sha256": "2596610949c8dbd484a146e162d23818de5806ad5bf8a9640e191baeeaa95ed7"
+      "bytes": 15696,
+      "sha256": "0b6b7d8df5c466305581bbbe9b471118f0c1adbc3a98e04ba44b2adced8d0569"
     },
     "SHA256SUMS": {
-      "bytes": 18967,
-      "sha256": "c05ff35c5ab550f4153f9e1b4df52ff01232b91956c924c9ff6438fa78ed95e6"
+      "bytes": 19962,
+      "sha256": "7d3858275fe04508a3b2b54afbf7a32a9d9015bbbd3d1732c26f4c10c7d61dfe"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
@@ -222,6 +222,10 @@
       "bytes": 6005,
       "sha256": "16beb134319d07af0a6d40fc54ac609f8ad515a26f6638573be34ff9aabd76c5"
     },
+    "data/V4.3_工程硬化与遗留收尾票据.md": {
+      "bytes": 9969,
+      "sha256": "51c4757795cadc15e31c3d29131d1d4fa22ae623f149cb4bbb0709ce1c585029"
+    },
     "data/admission_ledger.csv": {
       "bytes": 3034,
       "sha256": "d5117b2396f7c15002012ef7eaafda1d0bbc56961b0deb60812dcd47b3e3a380"
@@ -260,7 +264,7 @@
     },
     "data/dual_repo_sums.json": {
       "bytes": 2127,
-      "sha256": "05d68fdb4c2f67adb2e917720280c8c2188a24eb1c03c7763ea7715bec39a6cf"
+      "sha256": "835906023b3951d51d941c38ec193e3d32e95d22f61eba1559089334c9172ef3"
     },
     "data/five_site_dna.json": {
       "bytes": 8665,
@@ -290,6 +294,10 @@
       "bytes": 27570,
       "sha256": "2e78ab575b798d3136df6c693a1bd6a822aab84cfdd775347f25435f016f9011"
     },
+    "data/semantic_family_identity_v2.json": {
+      "bytes": 1779,
+      "sha256": "c4f6bbafe7ce922d5358d43a8f56a60d6fd3dca5a5e40e4c382cfb2e4f890d03"
+    },
     "data/semantic_modules.json": {
       "bytes": 2244,
       "sha256": "631ff1e717bdae5f57b895ad024726cc68adc374420360539cab03176dc333e9"
@@ -309,6 +317,10 @@
     "data/three_field_cards.json": {
       "bytes": 12510,
       "sha256": "eebacd3f4fce1f4f92dd969106197aa86b6727cc48465d67722eb0bdf718de36"
+    },
+    "data/v43_gap_literature_probe.json": {
+      "bytes": 6385,
+      "sha256": "ee8645eba8f3b83f0a84d6d0db4682313f39cda0d673d2a4db554d4db913bfcf"
     },
     "data/许可分层清单.csv": {
       "bytes": 491,
@@ -333,6 +345,10 @@
     "holoaeon/fusion_upgrade/plugin_runtime.py": {
       "bytes": 11728,
       "sha256": "8ea9216280f05f5cb127779fd2b2768c15c2d7e264f25c628df866a26404a124"
+    },
+    "holoaeon/fusion_upgrade/reasoning_adapter.py": {
+      "bytes": 5410,
+      "sha256": "c75948b9246f0249646ebf27a48b77ee1c4eea7e2499f67756554bec8e8707b1"
     },
     "holoaeon/fusion_upgrade/semantic_family.py": {
       "bytes": 3302,
@@ -368,11 +384,11 @@
     },
     "reports/b8_dual_sync.json": {
       "bytes": 612,
-      "sha256": "7bd6b69528098b49b63eb088165fb69167bd483ab6e43c6eb6a528154a649139"
+      "sha256": "31b4ecad97957c34adee3fbac9575a66f9081e26132dde724cd93780466f1a80"
     },
     "reports/b8_dual_sync_check.json": {
       "bytes": 1773,
-      "sha256": "ea2c1337f674dd56c31b7aa5a24ac59ef95787be9b1bf5bb0701fbe3f5b22c2c"
+      "sha256": "e798b039effda02466379db76cd151537181b8af0f8673805651a526dfa7deb3"
     },
     "reports/contract_v1_check.json": {
       "bytes": 635,
@@ -398,6 +414,10 @@
       "bytes": 2369,
       "sha256": "f2a5fa0c12737e510d6afce3f99a15f66b438b8eefb6fb65ae6841c24186fed6"
     },
+    "reports/v43_hardening_check.json": {
+      "bytes": 2159,
+      "sha256": "006a06f4ef9f170a966822c705dce443869031f7420655e4cfbdc6ea01451d5d"
+    },
     "scripts/admit_batch.py": {
       "bytes": 15869,
       "sha256": "8f87487372fdfe19aa59e1a9d0dccb2698f6e74625c5127b5edb53f9cd3b8ef7"
@@ -422,6 +442,10 @@
       "bytes": 3919,
       "sha256": "21015b0dc1bb2725ce4fc7ae8537829e4ba52ec75064f1e276abfb32a2223e4f"
     },
+    "scripts/build_vector_sea_manifest.py": {
+      "bytes": 4592,
+      "sha256": "d618e75f0f0e0c69ceb1ecc79cafe0ed5a64e2653df7320f6742bac06df8b0ee"
+    },
     "scripts/check_channel_map.py": {
       "bytes": 5822,
       "sha256": "d36b5467fe81ac325e47a7feaaf7e5f772dafa8b4102ed140f6217f058f573fa"
@@ -433,6 +457,10 @@
     "scripts/check_contract_v1.py": {
       "bytes": 2782,
       "sha256": "f189da73a8a52347775830f9afdab4cdcbcb1bc21f1b92cab1fc5fc88111dd64"
+    },
+    "scripts/check_delivery_pkg.py": {
+      "bytes": 4257,
+      "sha256": "9632705c0d1402909828c8348c60440942be7aa66c9579b609dacdafb4f0321b"
     },
     "scripts/check_hebbian_store.py": {
       "bytes": 7715,
@@ -475,8 +503,8 @@
       "sha256": "53ca6e59d40f77ff29b0dedeb27a8ae06d4f6c947c17d83c5426975f2f8fb6a5"
     },
     "scripts/five_site_dna.py": {
-      "bytes": 14517,
-      "sha256": "6d021cac9da85a3fdb80f7abfe7f4f39dbe253bf9b6748c78b54f4013c12f2dd"
+      "bytes": 14922,
+      "sha256": "b3aa441ba8f99d3d2d4848a2f5d8735e4ae6733d4b3b26f0085935740c4b38fc"
     },
     "scripts/freeze_contract_v1.py": {
       "bytes": 3616,
@@ -501,6 +529,10 @@
     "scripts/hebbian_persist.py": {
       "bytes": 2731,
       "sha256": "f17ba23ebbc32d11fab8db64548283884c95c7f4d472ae2925f9beff5ffa5cb0"
+    },
+    "scripts/mirror_hf.py": {
+      "bytes": 5237,
+      "sha256": "32f8684e98dc94cde71bbe202741f066170b74065eb4fc41f822a6f46fe70630"
     },
     "scripts/test_restart_consistency.py": {
       "bytes": 5726,
@@ -529,6 +561,10 @@
     "scripts/verify_three_field.py": {
       "bytes": 6328,
       "sha256": "df1ddd91c3079f65005376a1833e1a501f3a96614cdc88341c689ecccfcaa4db"
+    },
+    "scripts/verify_v43.py": {
+      "bytes": 9585,
+      "sha256": "900fb22b4d86b509aabe2c5e54c51d70572a6c3391259f42d5ccb3d45dfc499f"
     },
     "tests_contract/test_admission_gate.py": {
       "bytes": 4561,
@@ -585,6 +621,10 @@
     "tests_contract/test_three_field.py": {
       "bytes": 1932,
       "sha256": "03fa7097b459eea2e3d6f482837eb00e96eafdf7c432eb16f341715472341f12"
+    },
+    "tests_contract/test_v43.py": {
+      "bytes": 4071,
+      "sha256": "c1b97212d483ec544880f273126938546c1f281e54513470b40c682732c86372"
     }
   },
   "missing": []
