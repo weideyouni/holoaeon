@@ -36,7 +36,7 @@ HoloAeon 是**纯标准库、全离线、确定性**的多智能体认知框架�
 | 最新批次 | **V5.1-B1 设计语汇旁挂引擎**（Impeccable 范式本地化：只沿用范式，不 vendor、不复制引擎与正文）· 24 命令 / 12 规则 / 3 编译模式 / 4 经络通道，落 `holoaeon/design_vocab/` |
 | 扩展卡槽 | **12 个**：occupied 6 / open 1 / reserved 4 / blocked 1（只声明不接线；本批**不新增、不占用**槽位） |
 | 门禁 | `v3_gate 32/32` · `unittest 34 OK` · `旁挂 168 OK` · `v44 13/13` · `v45 7/7` · `v46 9/9` · `v5 11/11` · `dv 8/8` · `redline 0 违规` · `drift []` |
-| 五地同步 | 本地 · Gitee · GitHub · Hugging Face · 向量海 —— 见文末 [附录 A](#附录-a--五地同步v50-b1) |
+| 五地同步 | 本地 · Gitee · GitHub · Hugging Face · 向量海 —— 见文末 [附录 A](#附录-a--五地同步v51-b1) |
 | 版本脉络 | V4.0 → V4.6 → V5.0 → V5.1 逐提交回溯 —— 见文末 [附录 B](#附录-b--版本升级说明v3--v51) |
 | V4 主文档 | [`README_FUSION_V4_20261102.md`](README_FUSION_V4_20261102.md) · 同步规则 [`data/FIVE_SITE_SYNC_DNA.md`](data/FIVE_SITE_SYNC_DNA.md) |
 
@@ -334,28 +334,23 @@ Apache License 2.0。
 
 ---
 
-## 附录 A · 五地同步（V5.0-B1）
+## 附录 A · 五地同步（V5.1-B1）
 
 **口径（重要）**：本页不硬编码"当前 HEAD"，因为任何文档收尾提交都会让 HEAD 变化，写死即自指失效。
-下表数字锚定 **V5.0-B1 内容提交 `aa88c37`**（17 files / +1041 −50）时点的实测；当前值一律用右侧命令回读。
+下表数字锚定 **V5.1-B1**（设计语汇旁挂：内容 `339d0c4` + 清单 `9b2d5d1`）时点的实测；当前值一律用右侧命令回读。
 
-| 站点 | 检查命令 | V5.0-B1 内容提交时点实测 |
+| 站点 | 检查命令 | V5.1-B1 时点实测 |
 |---|---|---|
-| S1 本地 | `git log -1 --stat` | `aa88c37`（17 files / +1041 −50） |
-| S2 Gitee | `git ls-remote <gitee> refs/heads/main` | `aa88c37afdf55d6afc7b1c1681cb8469c60dd061` |
+| S1 本地 | `git log -1 --stat` | `9b2d5d1`（内容 15 files / +1166 −12；清单 7 files / +93 −45） |
+| S2 Gitee | `git ls-remote <gitee> refs/heads/main` | `9b2d5d10b8a0b8a7cfeae4c0be691388515a425f` |
 | S3 GitHub | `git ls-remote origin refs/heads/main`（推送后延时 12 s 回读） | 同上；与本地 HEAD 三值一致 |
-| S4 向量海 | `manifest.json` 逐条复算 | 133 个文件 · 号段 118–126 |
-| S5 Hugging Face | `mirror_hf.py --check` 后实推回读 | `24ed2349bf99…` · 449 文件 · `mismatch=[]` |
-| 回执 | `python scripts/five_site_dna.py preflight` | 28,704 B · files 133 · history 23 |
-| 交付 zip | `scripts/build_b9_zip.py` | 46 条目 / 129,181 B / `fc1c27e66a1090c6` |
+| S4 向量海 | `manifest.json` 逐条复算 | 155 个文件 · 号段 134–147 · 154 条 |
+| S5 Hugging Face | `mirror_hf.py --check` 后实推回读 | `dafe21dad224…` · 460 文件 · 22 件上传 · `mismatch=[]` |
+| 回执 | `python scripts/five_site_dna.py preflight` | files 154 · history 31（字节数 / 时间以回读为准） |
+| 交付 zip | `scripts/build_b9_zip.py` | 47 条目 / 132,462 B / `341b627910e9fc19` |
 
-首页覆盖补齐（本轮）：`README.md` 与 `README.zh-CN.md` 原本**不在** `five_site_dna.REPO_FILES` 里，
-意味着此前所有批次从未校验过首页一致性；补入后清单 152 → 154。此后：
-
-- 向量海 133 → **134** 条（新增 `127_README.md`，`126` 为主文档快照）。
-- 交付 zip 因 `06` 重算重打为 46 条目 / **129,514 B** / **`6ff26112c2853e3f`**。
-- **HEAD sha、HF sha、回执字节与 history 条数每提交一次就会变**，本页故意不写死；
-  读取方式：`git rev-parse --short HEAD`、`mirror_hf.py` 输出的 `sha`、`five_site_dna.py preflight` 的回执路径。
+**HEAD sha、HF sha、回执字节与 history 条数每提交一次就会变**，本页故意不写死；
+读取方式：`git rev-parse --short HEAD`、`mirror_hf.py` 输出的 `sha`、`five_site_dna.py preflight` 的回执路径。
 
 同步纪律（写序不能颠倒）：
 
