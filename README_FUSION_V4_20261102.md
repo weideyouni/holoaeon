@@ -331,7 +331,7 @@ V4.4 拼请求、V4.5 真发请求之后，补的是**接续结构**：后来者
 
 | 项 | 值 |
 |---|---|
-| 卡槽文件 | `data/extension_slots.json`（`SG-V46-EXTENSION-SLOTS-V1`，14 槽 / 8 类 / 4 态） |
+| 卡槽文件 | `data/extension_slots.json`（`SG-V46-EXTENSION-SLOTS-V1`，12 槽 / 8 类 / 4 态） |
 | 只读加载器 | `holoaeon/fusion_upgrade/slot_registry.py`（无网络、无写盘、无 eval） |
 | 指南 | `docs/扩展卡槽与协作开发指南.md`（五步认领法 + 三条使用路径 + 升级口子 + 故障处置） |
 | 判据 | `python scripts\\verify_v46.py` → **C1–C9，9/9 PASS** |
@@ -378,7 +378,7 @@ V4.4 拼请求、V4.5 真发请求之后，补的是**接续结构**：后来者
 | V4.4 | `b85b293` | 19 家 provider 目录 + 5 协议拼装 + 默认全关 + 配置指南；A1–A13 13/13 |
 | V4.5-B1 | `fb5cdef` | 真实回环调用：`/v1/embeddings` 200 / 768 维；B1–B7 7/7、8 OK |
 | V4.5-B2 | 本批 | chat 补做：`/v1/chat/completions` 200 / 41+29 tokens；卡槽放到 C 盘模型目录后 `lms import` 成功 |
-| V4.6-B1 | 本批 | 14 卡槽 + 协作指南；C1–C9 9/9、9 OK；**25/47/9 不变** |
+| V4.6-B1 | 本批 | 12 卡槽 + 协作指南；C1–C9 9/9、9 OK；**25/47/9 不变** |
 
 **升级主线一句话**：每一批只做一件事，且**只加旁挂、不改锁数**；每批必带 `verify_*` 判据、
 必带票据、必过五地同步（`drift=[]` 方可提交）。
