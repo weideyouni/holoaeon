@@ -11,6 +11,7 @@
   3. 输出稳定排序，两次跑逐字一致；不写时间戳
 """
 
+from pathlib import Path
 import hashlib
 import json
 import os
@@ -18,9 +19,12 @@ import re
 import sys
 
 REPO = os.environ.get("HOLOAEON_REPO", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-PKG = os.environ.get("HOLOAEON_PKG", r"F:\doubaowork\HoloAeon_V4冷热插拔赋能升级_20261102")
-RECEIPT = os.environ.get("HOLOAEON_RECEIPT",
-                         r"F:\doubaowork\vector-sea\_holoaeon_v4_five_site_receipt_20261102.json")
+PKG = os.environ.get("HOLOAEON_PKG", os.path.join(
+    os.path.dirname(REPO), "HoloAeon_V4冷热插拔赋能升级_20261102"))
+RECEIPT = os.environ.get(
+    "HOLOAEON_RECEIPT",
+    os.path.join(os.path.dirname(REPO), "vector-sea",
+                 "_holoaeon_v4_five_site_receipt_20261102.json"))
 MANIFEST = os.path.join(REPO, "reports", "five_site_manifest.json")
 
 DNA_ID = "SG-DNA-FIVE-SITE-SYNC-V1.2"
@@ -227,6 +231,9 @@ REPO_FILES = [
     "tests_contract/test_design_vocab.py",
     "docs/设计语汇与协作开发指南.md",
     "reports/design_vocab_check.json",
+    # ---- V5.2-B1 技能基座化声明与六机制接线（2 件，不改维度）
+    "data/v5_skill_base_registry.json",
+    "docs/技能基座化与六机制接线指南.md",
 ]
 
 ZIP_NAME = "holoaeon_v4_fusion_upgrade_20261102.zip"
@@ -346,7 +353,7 @@ def preflight():
     ok3, det3 = False, "gate file missing"
     if os.path.isfile(GATE_PRE):
         try:
-            g = json.load(open(GATE_PRE, encoding="utf-8"))
+            g = json.loads(Path(GATE_PRE).read_text(encoding="utf-8"))
             ok3 = int(g.get("passed", -1)) == int(g.get("total", -2)) == 32 and not g.get("failed")
             det3 = "{}/{} failed={}".format(g.get("passed"), g.get("total"), len(g.get("failed") or []))
         except Exception as exc:  # 不是静默吞错，写进 detail
@@ -357,7 +364,7 @@ def preflight():
     ok4, det4 = False, "receipt missing"
     if os.path.isfile(RECEIPT):
         try:
-            r = json.load(open(RECEIPT, encoding="utf-8"))
+            r = json.loads(Path(RECEIPT).read_text(encoding="utf-8"))
             verdict = str((r.get("gates") or {}).get("verdict", ""))
             readme_ok = bool((r.get("readme_status") or {}).get("all_five_updated", False))
             ok4 = "PASS" in verdict and readme_ok

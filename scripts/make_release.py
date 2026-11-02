@@ -8,6 +8,7 @@
 注意：飞书入库入口文档（HoloAeon_入库入口_全文.md）是独立产物，不打入代码包，
 这样入口文档里记录的 zip SHA256 才能稳定（避免自引用）。
 """
+from pathlib import Path
 import hashlib
 import os
 import sys
@@ -51,7 +52,7 @@ def main():
     with zipfile.ZipFile(out_zip, "w", zipfile.ZIP_DEFLATED) as zf:
         for abs_p, rel_p in files:
             zf.write(abs_p, rel_p)
-    data = open(out_zip, "rb").read()
+    data = Path(out_zip).read_bytes()
     sha = hashlib.sha256(data).hexdigest()
     print("zip:", out_zip)
     print("files:", len(files))

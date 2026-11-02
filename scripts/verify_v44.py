@@ -35,10 +35,40 @@ from holoaeon.fusion_upgrade import model_gateway as mg  # noqa: E402
 from holoaeon.fusion_upgrade import reasoning_adapter as ra  # noqa: E402
 from holoaeon.model_adapter import ModelAdapter, ModelBackend  # noqa: E402
 
-IVSA_ROOT = r"F:\doubaowork\开源发布_中西医融合康复工程_20261026\integrative-rehab-vsa"
+from pathlib import Path
+
+IVSA_ROOT = os.environ.get(
+    "HOLOAEON_IVSA_ROOT",
+    r"F:\doubaowork\开源发布_中西医融合康复工程_20261026\integrative-rehab-vsa")
 REPORT = os.path.join(ROOT, "reports", "v44_model_gateway_check.json")
 TICKET = os.path.join(ROOT, "data", "V4.4_真实模型桥接票据.md")
 GUIDE = os.path.join(ROOT, "docs", "接入真实模型_配置指南.md")
+
+# 兄弟校验器的回执：它们与本脚本同属「跑一次就改写回执」的一类，
+# 若只排除自己，任何一次同批复跑都会把别人的回执算成漂移（P0-1）。
+SELF_REPORTS = (
+    "reports/v43_hardening_check.json",
+    "reports/v44_model_gateway_check.json",
+    "reports/v45_live_probe.json",
+    "reports/v45_live_probe_emb.json",
+    "reports/v46_slot_check.json",
+    "reports/v5_rehab_kb_check.json",
+    "reports/design_vocab_check.json",
+    "reports/five_site_manifest.json",
+)
+# 自己的回执要连「漂移计数」一起排除，否则每跑一次都会把自己算进 self_excluded，
+# 报告字节在第一跑（1 条）与第二跑（0 条）之间来回跳，回执永不幂等。
+OWN_REPORT = "reports/v44_model_gateway_check.json"
+
+
+def _is_verifier_report(token: str) -> bool:
+    """drift 条目形如 repo:<rel> / repo:changed:<rel> / repo:new:<rel>，统一按 rel 判。"""
+    return any(token.endswith(rel) for rel in SELF_REPORTS)
+
+
+def _is_sibling_report(token: str) -> bool:
+    """兄弟校验器（不含自己）：它们只用于「如实报数」，不参与 passed 判定结果以外的回环。"""
+    return _is_verifier_report(token) and not token.endswith(OWN_REPORT)
 
 BANNED_MODS = {"subprocess", "urllib", "requests", "socket", "http", "aiohttp", "httpx"}
 BANNED_CALL = {"eval", "exec", "compile", "__import__", "input", "system", "popen", "run"}
@@ -169,18 +199,19 @@ def check_a9() -> Dict[str, Any]:
 def check_a10() -> Dict[str, Any]:
     """五地零漂移。
 
-    自指排除：本脚本自己写 `reports/v44_model_gateway_check.json`，该文件一旦登记进清单，
-    「跑校验 → 清单立刻过期」就是必然循环。故 A10 只对**除本回执之外**的条目判漂移，
-    本回执自身的纳入由写序（先跑校验器再建清单）保证，不在此处重复要求。
+    自指排除（V5.2 完备化）：本脚本与兄弟校验器（v43/v45/v46/v5/dv）都会在「跑一次」
+    时改写各自的 Reports，故凡属 `SELF_REPORTS` 的条目一律不计漂移；其余条目仍逐条判。
+    异机（无 manifest）时记 skipped 第三态，而不是伪装成 FAIL（P0-3）。
     """
-    SELF = "repo:reports/v44_model_gateway_check.json"
     drift, now, old = fsd.drift_now()
     if drift is None:
-        return {"id": "A10", "passed": False, "reason": "manifest_missing"}
-    effective = [d for d in drift if d not in (SELF, "repo:changed:reports/v44_model_gateway_check.json", "repo:new:reports/v44_model_gateway_check.json")]
-    return {"id": "A10", "passed": effective == [],
+        return {"id": "A10", "passed": True, "status": "skipped",
+                "reason": "manifest_missing", "pending_human_measure": True}
+    effective = [d for d in drift if not _is_verifier_report(d)]
+    excluded = [d for d in drift if _is_sibling_report(d)]
+    return {"id": "A10", "passed": effective == [], "status": "measured",
             "drift": effective[:6], "drift_count": len(effective),
-            "self_excluded": [d for d in drift if d not in effective][:2],
+            "self_excluded_count": len(excluded), "self_excluded": excluded[:3],
             "checked": {"package": len(old.get("package", {})),
                         "repo": len(old.get("repo", {}))}}
 
@@ -189,25 +220,32 @@ def check_a11(root: str, others_passed: bool) -> Dict[str, Any]:
     """回执齐备。
 
     自指说明：回执由本脚本在末尾写入，因此「回执里 passed==total」不可能在本轮被自己读到。
-    A11 因此判的是**收口条件**：票据存在 + 除 A11 外的判据全部 PASS（回执随后必然 13/13）。
-    若存在上一轮回执，同时回读其真实值仅作留痕，不作通过依据。
+    A11 因此判的是**收口条件**：票据存在 + 除 A10/A11 外的判据全部 PASS。
+
+    传染切断（P0-2）：调用方传入的 `others_passed` 不再包含 A10。A10 依赖本机 manifest 与
+    兄弟回执，属环境项；它单独红时 A11 必须仍能 PASS，否则环境红会伪装成内容红。
     """
     if not os.path.isfile(TICKET):
-        return {"id": "A11", "passed": False, "reason": "ticket_missing"}
+        return {"id": "A11", "passed": False, "status": "measured",
+                "reason": "ticket_missing"}
     prev = load_json("reports/v44_model_gateway_check.json") if os.path.isfile(REPORT) else {}
     ok = others_passed
-    return {"id": "A11", "passed": ok, "ticket_bytes": os.path.getsize(TICKET),
-            "prev_run": "%s/%s" % (prev.get("passed"), prev.get("total")) if prev else "none",
-            "closing_rule": "ticket + all_other_checks_pass"}
+    return {"id": "A11", "passed": ok, "status": "measured",
+            "ticket_bytes": os.path.getsize(TICKET),
+            "prev_run": ("%s/%s" % (prev.get("passed"), prev.get("total"))
+                         if prev else "none"),
+            "closing_rule": "ticket + all_other_checks_pass(excluding A10/A11)"}
 
 
 def check_a12() -> Dict[str, Any]:
     p = os.path.join(IVSA_ROOT, "SHA256SUMS")
     if not os.path.isfile(p):
-        return {"id": "A12", "passed": False, "reason": "ivsa_missing"}
-    h = hashlib.sha256(open(p, "rb").read()).hexdigest()
+        return {"id": "A12", "passed": True, "status": "skipped",
+                "reason": "ivsa_root_absent", "root": IVSA_ROOT,
+                "pending_human_measure": True}
+    h = hashlib.sha256(Path(p).read_bytes()).hexdigest()
     ok = h == "9400b4811ab3b4870dc1b29b74dd14f9d74b491759324aa7af53451c58fc73bf"
-    return {"id": "A12", "passed": ok, "sha256": h}
+    return {"id": "A12", "passed": ok, "status": "measured", "sha256": h}
 
 
 def check_a13() -> Dict[str, Any]:
@@ -229,23 +267,31 @@ def main() -> int:
     pre = [check_a1(), check_a2(gw), check_a3(gw), check_a4(ROOT), check_a5(ROOT),
            check_a6(), check_a7(gw), check_a8(ROOT), check_a9(), check_a10(),
            check_a12(), check_a13()]
-    others_passed = all(c["passed"] for c in pre)
+    # 环境项不参与「内容项是否全绿」的判定：A10 依赖本机 manifest / 兄弟回执。
+    others_passed = all(c["passed"] for c in pre if c["id"] != "A10")
     checks = pre[:10] + [check_a11(ROOT, others_passed)] + pre[10:]
-    passed = sum(1 for c in checks if c["passed"])
+    skipped = [c["id"] for c in checks if c.get("status") == "skipped"]
+    measured = [c for c in checks if c.get("status") != "skipped"]
+    passed = sum(1 for c in measured if c["passed"])
     out = {"id": "SG-V44-MODEL-GATEWAY-CHECK-V1", "batch": "V4.4-B1",
            "created_at": "2026-11-02", "evidence_class": "simulated",
-           "passed": passed, "total": len(checks),
-           "failed": [c["id"] for c in checks if not c["passed"]],
+           "passed": passed, "total": len(measured),
+           "failed": [c["id"] for c in measured if not c["passed"]],
+           "skipped": skipped,
+           "skipped_note": "skipped=pending_human_measure，不计入 passed/total，不当作 PASS",
            "gateway_state": gw.state(), "coverage": gw.catalog["coverage"],
            "checks": checks}
     with open(REPORT, "w", encoding="utf-8", newline="\n") as f:
         json.dump(out, f, ensure_ascii=False, indent=2)
         f.write("\n")
-    print(json.dumps({"passed": passed, "total": len(checks),
-                      "failed": out["failed"]}, ensure_ascii=False))
+    print(json.dumps({"passed": passed, "total": len(measured),
+                      "failed": out["failed"], "skipped": skipped},
+                     ensure_ascii=False))
     for c in checks:
-        print("%-3s %s" % (c["id"], "PASS" if c["passed"] else "FAIL"))
-    return 0 if passed == len(checks) else 1
+        mark = "SKIP" if c.get("status") == "skipped" else (
+            "PASS" if c["passed"] else "FAIL")
+        print("%-3s %s" % (c["id"], mark))
+    return 0 if passed == len(measured) else 1
 
 
 if __name__ == "__main__":

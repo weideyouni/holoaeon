@@ -1,0 +1,77 @@
+{
+  "id": "SG-V52-SKILL-BASE-MAP-V1",
+  "batch": "V5.2-B1",
+  "created_at": "2026-11-02",
+  "evidence_class": "simulated",
+  "note": "登记即声明：本表只记录「哪个机制落在哪个模块、用什么入口调用」，不代表已把外部技能复制进仓。",
+  "dimension_lock": {
+    "agents": 25,
+    "skills": 47,
+    "packs": 9,
+    "extra_packs": 10,
+    "tail": "锁值来源 data/extension_slots.json 与 reports/dimension_lock.json，本表不另立口径"
+  },
+  "mechanisms": [
+    {
+      "name": "全息心跳",
+      "module": "holoaeon/scheduler.py",
+      "entry": ["Scheduler", "HeartbeatBody", "tick"],
+      "role": "节拍与同步：确定性步进，不依赖真实墙钟",
+      "call": "kernel.scheduler.tick() / Kernel.start()"
+    },
+    {
+      "name": "细胞骨架",
+      "module": "holoaeon/kernel.py",
+      "entry": ["Kernel", "Kernel.submit", "Kernel.collab"],
+      "role": "结构支撑与门面：装配 Bus/Skill/Memory/Scheduler/Guard",
+      "call": "Kernel(config).submit(task, to=None)"
+    },
+    {
+      "name": "皮肤机制",
+      "module": "holoaeon/guard.py",
+      "entry": ["Guard", "l1_structure", "l2_size", "l3_danger", "normalize_for_match"],
+      "role": "语义级边界：L1–L8 串联，任一 BLOCK 即拦截",
+      "call": "Kernel.guard.check(env)（由 submit 自动调用）"
+    },
+    {
+      "name": "语义通信底座",
+      "module": "holoaeon/semvec.py + holoaeon/fusion_upgrade/semantic_family.py",
+      "entry": ["encode", "similarity", "semantic_family"],
+      "role": "向量表示与族身份：sin 置换替代随机源，同义同封缄",
+      "call": "holoaeon.semvec.encode(text) → Vector"
+    },
+    {
+      "name": "赫布协作场",
+      "module": "holoaeon/graph.py",
+      "entry": ["AdaptiveGraph", "hebbian", "route"],
+      "role": "共激活增强 + 全局衰减；几何/权重/拥塞/反馈环",
+      "call": "Kernel.graph.observe(...) / Kernel.graph.route(...)"
+    },
+    {
+      "name": "经络机制",
+      "module": "holoaeon/design_vocab/meridian.py + holoaeon/fusion_upgrade/three_field.py",
+      "entry": ["CHANNELS", "RULE_CHANNEL", "route", "channel_rules"],
+      "role": "四通道分流（blood/lymph/qi/shen），通道数固定为 4",
+      "call": "holoaeon.design_vocab.meridian.route(rule_id)"
+    }
+  ],
+  "skill_sources": {
+    "doubao_work_runtime_skills": 1199,
+    "holoaeon_runtime_skills": 47,
+    "policy": "登记不复制 / 映射不合并 / 编号空间不互通（70 ≢ 1229，17 ≢ 12）",
+    "copied_into_repo": false,
+    "why": "外部技能是别人的正文与许可；本仓只吸收机制与接口形状，正文一律不复制"
+  },
+  "layers": [
+    {"layer": "L0 机制层", "in_repo": true, "content": "六机制的模块与函数（上表）"},
+    {"layer": "L1 技能层", "in_repo": true, "content": "47 条 kernel.skills（锁死不增）"},
+    {"layer": "L2 声明层", "in_repo": true, "content": "本表 + docs/技能基座化与六机制接线指南.md"},
+    {"layer": "L3 外部技能层", "in_repo": false, "content": "1199 条豆包 Work 技能：只登记数量与族名，不入场"}
+  ],
+  "upgrade_directions": [
+    "V6 候选：把 L3 的族级接口（输入/输出/错误码）做成 EXT-PROTOCOL-04 的适配器声明，仍不复制正文",
+    "V6 候选：赫布协作场增加「边权回放」只读快照，供审计复核而不改 diff0",
+    "V6 候选：L3 归一化再补「零宽 + 双向覆盖字符」全集，并把紧凑阈值做成可配置常量",
+    "不做：把 1199 条技能全量注册进 kernel.skills（会直接破 47 锁）"
+  ]
+}

@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import ast
 import hashlib
+from pathlib import Path
 import json
 import os
 import sys
@@ -114,7 +115,7 @@ def check_m3(p: Dict[str, Any]) -> Dict[str, Any]:
 
 def check_m4() -> Dict[str, Any]:
     path = os.path.join(ROOT, "holoaeon", "fusion_upgrade", "reasoning_adapter.py")
-    tree = ast.parse(open(path, encoding="utf-8").read())
+    tree = ast.parse(Path(path).read_text(encoding="utf-8"))
     banned_mods = {"subprocess", "urllib", "requests", "socket", "http"}
     banned_call = {"eval", "exec", "compile", "__import__", "input", "system", "popen", "run"}
     hits: List[str] = []

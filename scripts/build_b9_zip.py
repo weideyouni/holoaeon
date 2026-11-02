@@ -9,6 +9,7 @@
   4. 不打印绝对路径（便于日志留档）
 """
 
+from pathlib import Path
 import hashlib
 import json
 import os
@@ -40,9 +41,9 @@ def build(root=None, out=None):
             info = zipfile.ZipInfo(rel, date_time=FIXED_DATE)
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o644 << 16
-            zf.writestr(info, open(abs_path, "rb").read())
+            zf.writestr(info, Path(abs_path).read_bytes())
             entries.append(rel)
-    h = hashlib.sha256(open(out, "rb").read()).hexdigest()
+    h = hashlib.sha256(Path(out).read_bytes()).hexdigest()
     return {"zip": ZIP_NAME, "entries": len(entries), "bytes": os.path.getsize(out),
             "sha256": h, "sha16": h[:16], "names": entries}
 

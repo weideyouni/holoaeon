@@ -51,6 +51,46 @@ jobs:
           fi
           exit $rc
 
+      - name: Contract tests (tests_contract, 168 cases)
+        # P1-5：契约测试此前从未进 CI，导致「本机 168 OK、远端零验证」。
+        run: |
+          set +e
+          log=/tmp/contract.log
+          python -m unittest discover -s tests_contract -v > "$log" 2>&1
+          rc=$?
+          tail -n 40 "$log"
+          if [ $rc -ne 0 ]; then
+            detail=$(grep -E "FAIL:|ERROR:|Traceback|AssertionError|Ran |FAILED" "$log" | head -n 6 | tr '\n' ' ')
+            echo "::error title=contract-tests rc=$rc py=${{ matrix.python }}::${detail:-no-detail}"
+          fi
+          exit $rc
+
+      - name: Dimension lock (25 / 47 / 9 must not drift)
+        run: |
+          set +e
+          log=/tmp/dimlock.log
+          python scripts/check_dimension_lock.py > "$log" 2>&1
+          rc=$?
+          cat "$log"
+          if [ $rc -ne 0 ]; then
+            detail=$(grep -E "FAIL|violation|diff0|Traceback" "$log" | head -n 4 | tr '\n' ' ')
+            echo "::error title=dimension-lock rc=$rc py=${{ matrix.python }}::${detail:-no-detail}"
+          fi
+          exit $rc
+
+      - name: Design vocabulary gate (D1-D8)
+        run: |
+          set +e
+          log=/tmp/dv.log
+          python scripts/verify_design_vocab.py > "$log" 2>&1
+          rc=$?
+          tail -n 20 "$log"
+          if [ $rc -ne 0 ]; then
+            detail=$(grep -E "FAIL|verdict|Traceback" "$log" | head -n 6 | tr '\n' ' ')
+            echo "::error title=design-vocab rc=$rc py=${{ matrix.python }}::${detail:-no-detail}"
+          fi
+          exit $rc
+
       - name: Self-test (all groups)
         # 同上：断言红要把「哪一组失败」直接抛到 annotation。
         run: |

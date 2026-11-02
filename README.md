@@ -65,7 +65,7 @@ self-organizing search** layer (see [ALGORITHM.md](ALGORITHM.md)).
 | 项 | 实测值 |
 |---|---|
 | 产出维度（锁死） | **25 智能体 / 47 技能 / 9 域包**；`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73` 未变 |
-| 最新批次 | **V5.1-B1 设计语汇旁挂引擎**（Impeccable 范式本地化：只沿用范式，不 vendor、不复制引擎与正文）· 24 命令 / 12 规则 / 3 编译模式 / 4 经络通道，落 `holoaeon/design_vocab/` |
+| 最新批次 | **V5.2-B1 代码修正与门禁自指修复**（A10 兄弟回执排除 · A11 断传染 · skipped 第三态 · 句柄回读 0 · L3 归一化 · 兜底开关保守版，`diff0` 未漂移）· 承接 V5.1 设计语汇旁挂（24 命令 / 12 规则 / 3 编译模式 / 4 通道，落 `holoaeon/design_vocab/`） |
 | 扩展卡槽 | **12 个**：occupied 6 / open 1 / reserved 4 / blocked 1（只声明不接线；本批**不新增、不占用**槽位） |
 | 门禁 | `v3_gate 32/32` · `unittest 34 OK` · `sidecar 168 OK` · `v44 13/13` · `v45 7/7` · `v46 9/9` · `v5 11/11` · `dv 8/8` · `redline 0 违规` · `drift []` |
 | 五地同步 | 本地 · Gitee · GitHub · Hugging Face · 向量海 —— 见文末 [附录 A](#附录-a--五地同步v51-b1) |
@@ -87,6 +87,29 @@ python scripts\verify_design_vocab.py   # 8 项判据，写 reports/design_vocab
 ```
 
 **维度不变**：25 智能体 / 47 技能 / 9 域包不动，`data/extension_slots.json` 仍 12 条；本能力**不认领、不占用**任何 `EXT-` 槽。合作开发、扩展规则、未来槽位的走法见 [`docs/设计语汇与协作开发指南.md`](docs/设计语汇与协作开发指南.md)。
+
+### V5.2 · 门禁自指修复与代码卫生（不改维度）
+
+自查版 12 条意见逐条核实后落地（`evidence_class=simulated`）。核心问题只有一类：**自指处理不彻底**——只给单个校验器打补丁，没做成通用机制；同时把依赖本机路径的判据写进门禁，导致“13/13”只在作者本机成立。
+
+- **A10 自指排除完备化**：不再只排除自己，改为排除全部兄弟校验器回执（v43/v44/v45/v46/v5/dv + 五地 manifest），并如实返回 `self_excluded_count`。
+- **A11 切断传染**：`others_passed` 不再包含 A10。A10 属环境项，它单独红时 A11 仍 PASS——环境红不再伪装成内容红。
+- **skipped 第三态**：manifest / ivsa 不在本机时记 `skipped` + `pending_human_measure`，不计入 `passed/total`，**不当作 PASS**。
+- **路径去硬编码**：`five_site_dna` 的交付目录与回执路径由仓库位置推导（仍可用 `HOLOAEON_PKG` / `HOLOAEON_RECEIPT` 覆盖）；`verify_v44` 的 ivsa 根改走 `HOLOAEON_IVSA_ROOT`。
+- **句柄泄漏清零**：`json.load(open(...))` 与 `open(...).read()` 在 `scripts/` 全部改为 `pathlib` 一次性读取，回读计数 0。
+- **CI 补三道闸**：`tests_contract`（168 例）、`check_dimension_lock`、`verify_design_vocab` 进 workflow——此前契约测试从未在 CI 跑过。
+- **L3 归一化（[golden]）**：Guard 危险模式判据补 NFKC + 零宽剥离 + 同形字折叠 + 分隔符拼接折叠；原本命中即拦截的文本 reason 与旧版逐字一致，`diff0` 仍 `2fc892cf9af6e755`、篡改值仍 `f42c8229ee5acd73`。
+- **兜底开关（保守版）**：`BROADCAST_ON_NO_MATCH` 与 `ALLOW_SINGLE_SKILL_FALLBACK` 默认仍为 `True`，**行为不变**；改 `False` 才会 fail-loud。
+- **技能基座化**：六机制（全息心跳 / 细胞骨架 / 皮肤 / 语义通信 / 赫布场 / 经络）的模块入口与外部技能“登记不复制”口径，见 [`docs/技能基座化与六机制接线指南.md`](docs/技能基座化与六机制接线指南.md) 与 `data/v5_skill_base_registry.json`。
+
+```powershell
+python scripts\verify_v43.py          # 11/11
+python scripts\verify_v44.py          # 13/13（首跑 12/13 属天然自指，第二次收敛）
+python -m unittest discover -s tests_contract   # 168 OK
+python scripts\check_dimension_lock.py          # 0 violation · diff0 未漂移
+```
+
+**维度不变**：25 / 47 / 9 与 12 个 EXT 槽一位未动；`spec.VERSION` 仍 0.9.1。
 
 ## V2 · Evidence Hardening (0.9.2, docs)
 
@@ -758,7 +781,8 @@ python scripts/redline_scan.py
 ```
 
 Current status: **25/25 self-test groups pass**, **34 unit tests pass**, and the red-line
-scan reports **zero violations** across 42 source files. The same four checks run in
+scan reports **zero violations**; the file count is read back from 
+edline_scan itself (currently 82). The same four checks run in
 `.github/workflows/ci.yml` on Python 3.8 / 3.10 / 3.12, and **that workflow has now run on GitHub**:
 [run #25](https://github.com/weideyouni/holoaeon/actions/runs/41202167792) is green on all three
 interpreters (0 errors, 0 warnings), so the corresponding cells are `measured` in
@@ -874,7 +898,7 @@ organs, physiological structures, or supernatural entities. All simulated receip
 
 ---
 
-## 附录 B · 版本升级说明（V3 → V5.1）
+## 附录 B · 版本升级说明（V3 → V5.2）
 
 > 口径：sha 取自 `git log` 实测；条目数 / 字节 / `sha16` 以对应批次命令回读为准，不硬编码猜测值。
 
@@ -892,7 +916,8 @@ organs, physiological structures, or supernatural entities. All simulated receip
 | V5.0 | `aa88c37` | 康复域知识库全量入库（14 条登记 / ivsa 300 行）；影子维度 D_REHAB 不入锁；`EXT-EVIDENCE-01` 解封而 tier 不变；D1–D10 11/11 |
 | V5.0 收尾 | `f214bd5` | GitHub 首页去陈旧大段引用：改「当前工程状态」表 + 文末两附录；`README.md` / `README.zh-CN.md` 纳入 `REPO_FILES`（152 → 154）；`06` 第五节交付表按实测重算 |
 | V5.0 整理 | `c939027` / `16522d7` | 未跟踪件分流：4 件被引用件入库、11 件生成物移到归档（只移不删）；随即重建 `SHA256SUMS` / `manifests` / `reports`，`holo_entries 232 → 223` |
-| V5.1 设计语汇 | 本批提交（用 `git log -1 --format=%h` 回读，避免自指） | Impeccable 范式本地化：`holoaeon/design_vocab/`（24 命令 / 12 规则 / 3 编译模式 / 4 通道）+ `data/design_vocab_registry.json` + 门禁 `dv 8/8` + 契约测试 8 条（`sidecar 160 → 168`）；**25/47/9 与 12 卡槽均未变** |
+| V5.1 设计语汇 | `339d0c4` / `9b2d5d1` | Impeccable 范式本地化：`holoaeon/design_vocab/`（24 命令 / 12 规则 / 3 编译模式 / 4 通道）+ `data/design_vocab_registry.json` + 门禁 `dv 8/8` + 契约测试 8 条（`sidecar 160 → 168`）；**25/47/9 与 12 卡槽均未变** |
+| V5.2 代码修正 | 本批提交（用 `git log -1 --format=%h` 回读，避免自指） | 门禁自指修复（A10 兄弟回执排除 + A11 断传染 + skipped 第三态 + 路径去硬编码）、句柄泄漏清零（scripts 回读 0）、CI 补契约/维度锁/设计语汇三道闸、Guard L3 归一化与兜底开关保守版；`diff0` 仍 `2fc892cf9af6e755`，**25/47/9 未变** |
 
 **一句话主线**：每批只做一件事，只加旁挂、不改锁数；每批必带判据、票据与五地同步，`drift=[]` 才允许提交。
 

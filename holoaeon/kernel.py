@@ -30,6 +30,10 @@ from .spec import (
     HoloAeonConfig,
 )
 
+# 兜底开关（V5.2 保守版）：选不出 agent 时，默认仍向全部 agent 广播以保持既有行为；
+# 置 False 则返回空目标（不广播），把「选不出就全员轰炸」变成一个可显式关闭的策略。
+BROADCAST_ON_NO_MATCH = True
+
 
 class Kernel:
     """HoloAeon 内核：装配各组件，管理 agent 与任务。"""
@@ -124,7 +128,9 @@ class Kernel:
                          to: Optional[Union[str, Sequence[str]]]) -> List[str]:
         if to is None:
             chosen = self.choose_agent(task)
-            return [chosen] if chosen else list(self.agents.keys())
+            if chosen:
+                return [chosen]
+            return list(self.agents.keys()) if BROADCAST_ON_NO_MATCH else []
         if isinstance(to, str):
             return [to]
         return list(to)

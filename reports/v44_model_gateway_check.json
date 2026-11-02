@@ -6,6 +6,8 @@
   "passed": 13,
   "total": 13,
   "failed": [],
+  "skipped": [],
+  "skipped_note": "skipped=pending_human_measure，不计入 passed/total，不当作 PASS",
   "gateway_state": {
     "catalog_id": "SG-V44-MODEL-PROVIDER-CATALOG-V1",
     "switch": "HOLOAEON_REAL_MODELS",
@@ -140,26 +142,28 @@
     {
       "id": "A10",
       "passed": true,
+      "status": "measured",
       "drift": [],
       "drift_count": 0,
-      "self_excluded": [
-        "repo:changed:reports/v44_model_gateway_check.json"
-      ],
+      "self_excluded_count": 0,
+      "self_excluded": [],
       "checked": {
         "package": 28,
-        "repo": 165
+        "repo": 167
       }
     },
     {
       "id": "A11",
       "passed": true,
+      "status": "measured",
       "ticket_bytes": 10129,
       "prev_run": "13/13",
-      "closing_rule": "ticket + all_other_checks_pass"
+      "closing_rule": "ticket + all_other_checks_pass(excluding A10/A11)"
     },
     {
       "id": "A12",
       "passed": true,
+      "status": "measured",
       "sha256": "9400b4811ab3b4870dc1b29b74dd14f9d74b491759324aa7af53451c58fc73bf"
     },
     {

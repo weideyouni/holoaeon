@@ -12,15 +12,15 @@
       "id": "H1",
       "passed": true,
       "repo_type": "model",
-      "changed": 73,
-      "chinese_paths": 11,
+      "changed": 84,
+      "chinese_paths": 12,
       "escaped": []
     },
     {
       "id": "H2",
       "passed": true,
-      "entries": 140,
-      "dir_files": 140,
+      "entries": 172,
+      "dir_files": 172,
       "sums_74_in_sync": true,
       "self_reference": [],
       "steps": [

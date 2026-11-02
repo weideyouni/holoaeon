@@ -21,10 +21,14 @@ from .skill import SkillRegistry
 
 DecideFn = Callable[["Agent", Envelope], Optional[str]]
 
+# 兜底开关（V5.2 保守版）：默认 True 保持既有行为；改为 False 时「无命中」不再强行
+# 借用唯一技能，而是显式返回 None（fail-loud），由上层决定怎么处置。
+ALLOW_SINGLE_SKILL_FALLBACK = True
+
 
 def _default_decide(agent: "Agent", env: Envelope) -> Optional[str]:
     """默认决策：payload 显式指定 skill 优先；否则按任务描述自动匹配（限定自身技能）；
-    都不命中且 agent 仅有一个可用技能时，回退到该技能（单技能 agent 处理任意任务）。"""
+    都不命中且 agent 仅有一个可用技能时，按开关决定是否回退到该技能。"""
     explicit = env.payload.get("skill") or env.metadata.get("skill")
     if explicit and agent.skills.has(explicit):
         return explicit
@@ -33,7 +37,7 @@ def _default_decide(agent: "Agent", env: Envelope) -> Optional[str]:
     if candidates:
         return candidates[0][0]
     avail = agent.available_skills()
-    if len(avail) == 1:
+    if ALLOW_SINGLE_SKILL_FALLBACK and len(avail) == 1:
         return avail[0]
     return None
 

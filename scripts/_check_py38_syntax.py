@@ -3,6 +3,7 @@
 只查语法（ast.parse 的 feature_version），不查运行时 API：3.8 上被移除/新增的标准库
 行为差异（如 dict 顺序、zoneinfo）无法靠语法发现，那一层仍要靠真机 CI。
 """
+from pathlib import Path
 import ast
 import os
 import sys
@@ -23,7 +24,7 @@ def main():
             path = os.path.join(base, name)
             total += 1
             try:
-                src = open(path, encoding="utf-8").read()
+                src = Path(path).read_text(encoding="utf-8")
                 ast.parse(src, filename=path, feature_version=TARGET)
             except SyntaxError as exc:
                 bad.append((os.path.relpath(path, ROOT), exc.lineno, exc.msg))

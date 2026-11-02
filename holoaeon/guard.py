@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import json
 import time
+import unicodedata
 from dataclasses import dataclass, field
 from typing import Any, Callable, Dict, List, Optional, Tuple
 
@@ -40,6 +41,33 @@ DANGER_PATTERNS = (
 )
 
 MAX_PAYLOAD_BYTES = 1_000_000
+
+# L3 归一化（V5.2 [golden]）：子串黑名单只能挡「原样复制」的攻击串。
+# 这里补三层确定性归一，只做「等价折叠」，不新增语义判断：
+#   NFKC           全角/兼容字符 → 半角（ｅｖａｌ → eval）
+#   零宽字符剥离    \u200b-\u200d / \ufeff / \u00ad
+#   同形字折叠     Cyrillic / Greek 里长得像拉丁字母的那几个
+# 以及一层「拼接折叠」：把非字母数字全部删掉后再比一次，挡 "os . system"、"ev al(" 这类。
+# 已知边界：拼接折叠只对紧凑长度 ≥5 的模式生效（eval/exec 这类 4 字符短词仅靠前三层），
+# 这是刻意取舍——否则 "env"、"exec" 会在正常文本里大面积误杀。
+ZERO_WIDTH = {ord(c): None for c in "\u200b\u200c\u200d\u2060\ufeff\u00ad"}
+HOMOGLYPHS = str.maketrans({
+    "а": "a", "е": "e", "о": "o", "р": "p", "с": "c", "у": "y", "х": "x",
+    "і": "i", "ј": "j", "ѕ": "s",
+    "ο": "o", "α": "a", "ρ": "p", "ν": "v", "κ": "k", "τ": "t", "υ": "u",
+})
+MIN_COMPACT_PATTERN = 5
+
+
+def normalize_for_match(text: str) -> str:
+    """NFKC + 零宽剥离 + 同形字折叠 + 小写。"""
+    t = unicodedata.normalize("NFKC", text).translate(ZERO_WIDTH).lower()
+    return t.translate(HOMOGLYPHS)
+
+
+def compact_for_match(text: str) -> str:
+    """在归一化基础上只留字母数字（含中日韩），用于挡分隔符拼接。"""
+    return "".join(ch for ch in normalize_for_match(text) if ch.isalnum())
 
 
 @dataclass
@@ -73,9 +101,20 @@ def l2_size(env: Envelope) -> Optional[Verdict]:
 
 
 def l3_danger(env: Envelope) -> Optional[Verdict]:
-    text = json.dumps(env.payload, ensure_ascii=False).lower()
+    """危险模式（V5.2 归一化版）。
+
+    判据顺序：原始串 → 归一化串（NFKC/零宽/同形字）→ 紧凑串（去分隔符）。
+    原始串命中时 reason 与旧版逐字一致，保证既有审计文本与黄金值不漂移。
+    """
+    raw = json.dumps(env.payload, ensure_ascii=False).lower()
+    text = normalize_for_match(raw)
+    compact = compact_for_match(raw)
     for pat in DANGER_PATTERNS:
-        if pat in text:
+        hit = "raw" if pat in raw else ("norm" if pat in text else "")
+        pat_compact = "".join(ch for ch in pat if ch.isalnum())
+        if not hit and len(pat_compact) >= MIN_COMPACT_PATTERN and pat_compact in compact:
+            hit = "compact"
+        if hit:
             return Verdict(BLOCK, "L3", f"命中危险模式：{pat}")
     return None
 

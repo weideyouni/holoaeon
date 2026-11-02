@@ -14,6 +14,7 @@
   python scripts/expand_semantic.py --target 60            # 写 data/semantic_family.json
   python scripts/expand_semantic.py --target 60 --check    # 只校验字节可复现
 """
+from pathlib import Path
 import argparse
 import csv
 import hashlib
@@ -244,7 +245,7 @@ def main(argv):
         if not os.path.isfile(args.out):
             print(json.dumps({"verdict": "FAIL", "reason": "missing output"}, ensure_ascii=False))
             return 1
-        old = open(args.out, "r", encoding="utf-8").read()
+        old = Path(args.out).read_text(encoding="utf-8")
         same = old == text
         print(json.dumps({"byte_consistent": same, "sha256": sha,
                           "members": doc["member_count"],

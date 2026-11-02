@@ -17,6 +17,7 @@
   V12 规格版本仍为 0.9.1
 """
 
+from pathlib import Path
 import csv
 import io
 import json
@@ -105,7 +106,7 @@ def check_zip():
     if not closeout or not closeout.get("zip", {}).get("present"):
         return False, "closeout missing zip facts"
     import hashlib
-    digest = hashlib.sha256(open(path, "rb").read()).hexdigest()
+    digest = hashlib.sha256(Path(path).read_bytes()).hexdigest()
     return digest[:16] == closeout["zip"]["sha16"], "sha16=%s expected=%s" % (digest[:16], closeout["zip"]["sha16"])
 
 

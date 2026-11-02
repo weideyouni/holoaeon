@@ -11,6 +11,7 @@
   排序：score 降序，同分按 name 升序（保证两次跑完全一致）
 """
 
+from pathlib import Path
 import csv
 import json
 import os
@@ -113,7 +114,7 @@ def main():
         json.dump(summary, f, ensure_ascii=False, indent=2)
 
     # 12 维基线锁 + V4 融合扩展 2 项
-    gate = json.load(open(os.path.join(REPORTS, "gate_b0_v4.json"), encoding="utf-8"))
+    gate = json.loads(Path(os.path.join(REPORTS, "gate_b0_v4.json")).read_text(encoding="utf-8"))
     a1 = [c for c in gate["checks"] if c["id"] == "A1"][0]["detail"]
     lock = {
         "lock_id": "B0-LOCK-V4-FUSION-20261102",

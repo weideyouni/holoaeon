@@ -4,6 +4,7 @@
 版本号、发布包大小与 SHA256 均在运行时动态读取（不硬编码），避免"源码里记录的
 zip SHA 反过来改变 zip"的自引用问题。流程：先 make_release.py 打包，再运行本脚本。
 """
+from pathlib import Path
 import hashlib
 import os
 import sys
@@ -35,7 +36,7 @@ def main():
     zip_name = "holoaeon_v%s_%s.zip" % (ver, DATE.replace("-", ""))
     zip_path = os.path.join(PARENT, zip_name)
     if os.path.exists(zip_path):
-        data = open(zip_path, "rb").read()
+        data = Path(zip_path).read_bytes()
         size_str = "{:,}".format(len(data))
         sha_str = "`%s`" % hashlib.sha256(data).hexdigest().upper()
     else:

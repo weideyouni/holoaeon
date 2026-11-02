@@ -18,6 +18,7 @@
 3. 四硬闸：v3_gate / unittest / verify_skill_matrix / redline_scan。
 4. 签字是人工动作：脚本只记录「谁、何时」，不自称签字。
 """
+from pathlib import Path
 import argparse
 import json
 import os
@@ -143,7 +144,7 @@ def build(batch, out_path, skills_arg=None):
     # 幂等：同批行整段替换，其它批保留
     old = []
     if os.path.isfile(LEDGER):
-        old = ADM.parse_ledger(open(LEDGER, encoding="utf-8").read())
+        old = ADM.parse_ledger(Path(LEDGER).read_text(encoding="utf-8"))
     kept = [r for r in old if r.get("batch") != batch]
     allrows = kept + rows
     os.makedirs(os.path.dirname(LEDGER), exist_ok=True)
@@ -251,14 +252,14 @@ def check(json_out=None):
     if not os.path.isfile(LEDGER):
         print(json.dumps({"verdict": "FAIL", "reason": "ledger_missing"}, ensure_ascii=False))
         return 1
-    rows = ADM.parse_ledger(open(LEDGER, encoding="utf-8").read())
+    rows = ADM.parse_ledger(Path(LEDGER).read_text(encoding="utf-8"))
     fam, pool = load_pool()
     gates = read_json(GATES_JSON)["gates"] if os.path.isfile(GATES_JSON) else None
     tickets = {}
     for b in sorted({r["batch"] for r in rows}):
         p = next(r["ticket"] for r in rows if r["batch"] == b)
         if os.path.isfile(p):
-            tickets[b] = open(p, encoding="utf-8").read()
+            tickets[b] = Path(p).read_text(encoding="utf-8")
     res = ADM.validate(rows, pool=pool, ticket_texts=tickets, gate_results=gates)
     extra = []
     if not rules_sha_ok:
@@ -290,7 +291,7 @@ def sign(batch, signer, signed_at):
     if not os.path.isfile(LEDGER):
         print(json.dumps({"verdict": "REFUSED", "reason": "ledger_missing"}, ensure_ascii=False))
         return 2
-    rows = ADM.parse_ledger(open(LEDGER, encoding="utf-8").read())
+    rows = ADM.parse_ledger(Path(LEDGER).read_text(encoding="utf-8"))
     hit = [r for r in rows if r["batch"] == batch]
     if not hit:
         print(json.dumps({"verdict": "REFUSED", "reason": "batch_not_found"}, ensure_ascii=False))
@@ -316,7 +317,7 @@ def sign(batch, signer, signed_at):
     for b in sorted({r["batch"] for r in rows}):
         p = next(r["ticket"] for r in rows if r["batch"] == b)
         if os.path.isfile(p):
-            tickets[b] = open(p, encoding="utf-8").read()
+            tickets[b] = Path(p).read_text(encoding="utf-8")
     res = ADM.validate(rows, pool=pool, ticket_texts=tickets, gate_results=gates)
     batch_only = [r for r in rows if r["batch"] == batch]
     write_ticket(ticket, batch, batch_only, gates or {}, res,

@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import ast
 import hashlib
+from pathlib import Path
 import json
 import os
 import sys
@@ -59,7 +60,7 @@ GUEST_FILES = {
 def _sha16(path: str) -> str:
     if not os.path.isfile(path):
         return ""
-    return hashlib.sha256(open(path, "rb").read()).hexdigest()[:16]
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()[:16]
 
 
 def main(argv) -> int:
@@ -121,7 +122,7 @@ def main(argv) -> int:
 
     # V6
     target = os.path.join(ROOT, "holoaeon", "fusion_upgrade", "plugin_runtime.py")
-    src = open(target, "r", encoding="utf-8").read()
+    src = Path(target).read_text(encoding="utf-8")
     tree = ast.parse(src)
     banned_mods = {"subprocess", "urllib", "requests", "urllib3", "socket"}
     banned_calls = {"eval", "exec", "compile", "__import__", "input", "system", "run"}
