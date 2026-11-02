@@ -1,0 +1,76 @@
+{
+  "anchor_member_count": 51,
+  "bridge_candidates": 4,
+  "checks": [
+    {
+      "detail": "members=60 target=60",
+      "id": "S1",
+      "ok": true
+    },
+    {
+      "detail": "modules=10 names_match=True",
+      "id": "S2",
+      "ok": true
+    },
+    {
+      "detail": "uncovered=[] min=3",
+      "id": "S3",
+      "ok": true
+    },
+    {
+      "detail": "unknown_module=[]",
+      "id": "S4",
+      "ok": true
+    },
+    {
+      "detail": "dups=0",
+      "id": "S5",
+      "ok": true
+    },
+    {
+      "detail": "index=16 family=16 missing=[] extra=[]",
+      "id": "S6",
+      "ok": true
+    },
+    {
+      "detail": "expanded_bad_label=[]",
+      "id": "S7",
+      "ok": true
+    },
+    {
+      "detail": "sha_now=ab26e8cbfdb5 sha_doc=ab26e8cbfdb5",
+      "id": "S8",
+      "ok": true
+    },
+    {
+      "detail": "bridge=4 bad_target=[] overlap_with_members=[]",
+      "id": "S9",
+      "ok": true
+    }
+  ],
+  "default_route_count": 9,
+  "failed": [],
+  "family_id": "SG-B5-SEMANTIC-FAMILY-V1",
+  "gate_id": "SG-B5-SEMANTIC-CHECK-V1",
+  "label_split": {
+    "K": 17,
+    "M": 36,
+    "other": 7
+  },
+  "member_count": 60,
+  "module_count": 10,
+  "module_counts": {
+    "去重": 3,
+    "嵌入": 7,
+    "时序": 4,
+    "检索": 16,
+    "注入": 5,
+    "溯源": 5,
+    "聚类": 5,
+    "蒸馏": 5,
+    "运维": 4,
+    "采集": 6
+  },
+  "sha256": "ab26e8cbfdb5e5958cfc0e4a67cf5e89a47a09f7890699b007f1a94764e78623",
+  "verdict": "PASS"
+}

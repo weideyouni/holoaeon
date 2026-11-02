@@ -148,7 +148,7 @@ holoaeon/
 ## 已知限制（如实写，不藏）
 
 - 热卸载后调度器 `watchers_left` 非 0：调度器 watch 列表无公开移除接口，残留的是对象引用，不参与技能路由。
-- 语义技能仅 19 个（六机制里最薄），B5 扩到 ≥60 尚未执行。
+- 语义技能原 19 个（六机制里最薄）；B5 已扩到 60 条并落满 ivsa 十模块（检索 16 条偏重，成因与 `module_basis` 已逐条登记在 B5 票据）。
 - ivsa 侧 v1.2 插件（默认关闭）尚未落地；本轮只改 HoloAeon 一个仓。
 - 快照内 `gates_last_known` 是上次已知值，接收方必须按 `recheck` 现场复跑。
 
@@ -192,10 +192,11 @@ Golden values unchanged: `diff0=2fc892cf9af6e755`, `tamper=f42c8229ee5acd73`, `s
 - 14-dimension lock: `reports/b0_lock_v4fusion.json`
 - Ticket: `data/B0_基线票据_v4fusion.md`
 - Skill auto-match (1229 → 365 candidates, deterministic, offline, zero external skills executed): `python scripts/b0_match.py` → `data/B0_自动匹配技能.csv`
-- Batch progress: `data/B0_批次进度.csv` (B0–B4 done, **B5 next**)
+- Batch progress: `data/B0_批次进度.csv` (B0–B5 done, **B6 next**)
 - B4 rehab pilot: `data/rehab_pilot_20.json` + `data/B4_康复域试点票据.md` — 20 contracts (12 general / 8 medical), 4 negative probes rejected, `python scripts/check_rehab_pilot.py` (R1–R9)
+- B5 semantic family: `data/semantic_family.json` + `data/semantic_modules.json` + `data/B5_语义技能族票据.md` — 60 members on the ivsa ten modules (no uncovered module, no 11th module), base 19 index entries → 16 unique + 44 expanded, 4 rehab bridge candidates registered not admitted, `python scripts/check_semantic_family.py` (S1–S9)
 
-Next batch **B5 semantic skill family expansion (19 → ≥60)** stays blocked until this ticket is re-run green.
+Next batch **B6 hebbian persistence + channel quota** stays blocked until this ticket is re-run green.
 ## Five-site sync DNA (刚性)
 
 `data/FIVE_SITE_SYNC_DNA.md` + `data/five_site_dna.json` — `SG-DNA-FIVE-SITE-SYNC-V1.1`

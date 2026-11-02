@@ -1,0 +1,37 @@
+{
+  "spec_id": "SG-B5-SEMANTIC-MODULES-V1",
+  "domain_scope": "semantic_bus",
+  "source": {
+    "ivsa_module": "ivsa/semantic_bus.py",
+    "ivsa_class": "SemanticBus",
+    "module_count": 10,
+    "rule": "模块名与顺序取自 ivsa SemanticBus.module_names（溯源/采集/去重/蒸馏/嵌入/检索/时序/聚类/注入/运维）；锚点词取自其 route() 别名表，收紧为区分性词，避免泛词把所有条目吸进单一模块",
+    "no_import": "本仓不 import ivsa，只登记契约级事实"
+  },
+  "invariants": [
+    "X1 模块数恒为 10，禁止造第十一模块",
+    "X2 模块名只允许本文件列出的 10 个",
+    "X3 每条族成员的 module 必须落在这 10 个之一",
+    "X4 锚点匹配为确定性（同输入同输出，无时间戳无随机）",
+    "X5 族成员资格只来自索引与 B3 标签，不手写"
+  ],
+  "modules": [
+    {"id": "M01", "name": "溯源", "anchors": ["溯源", "出处", "上游", "版本链", "许可声明", "license", "commit"]},
+    {"id": "M02", "name": "采集", "anchors": ["采集", "抓取", "爬取", "摄入", "盘点", "登记", "catalog", "扫描"]},
+    {"id": "M03", "name": "去重", "anchors": ["去重", "dedup", "重复条目", "同源合并"]},
+    {"id": "M04", "name": "蒸馏", "anchors": ["蒸馏", "摘要", "压缩", "提炼", "张量化", "超维压缩", "消化"]},
+    {"id": "M05", "name": "嵌入", "anchors": ["嵌入", "向量", "embedding", "hdc", "hrr", "binding", "768"]},
+    {"id": "M06", "name": "检索", "anchors": ["检索", "召回", "混合检索", "查询", "搜索"]},
+    {"id": "M07", "name": "时序", "anchors": ["时序", "时间线", "timeline", "节拍", "演进", "脉络"]},
+    {"id": "M08", "name": "聚类", "anchors": ["聚类", "归并", "归类", "图谱", "族化", "分组"]},
+    {"id": "M09", "name": "注入", "anchors": ["注入", "热插", "挂载", "赋能", "回填", "inject"]},
+    {"id": "M10", "name": "运维", "anchors": ["运维", "巡检", "备份", "镜像", "回滚", "熔断", "只读巡检"]}
+  ],
+  "default_module": "检索",
+  "targets": {
+    "family_min_members": 60,
+    "per_module_cap": 6,
+    "bridge_candidates": 4,
+    "bridge_targets": ["semantic_bus", "meridian"]
+  }
+}

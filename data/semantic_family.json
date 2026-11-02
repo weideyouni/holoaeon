@@ -1,0 +1,660 @@
+{
+  "anchor_member_count": 51,
+  "base_count": 16,
+  "base_dup_names": 3,
+  "base_entry_count": 19,
+  "bridge_candidates": [
+    {
+      "label": "K",
+      "module": "检索",
+      "module_basis": "default_route",
+      "note": "康复域缺 M 类语义/经络技能，登记为候选，B7 准入前不进执行层",
+      "skill": "breast-surgery-150",
+      "status": "candidate_bridge",
+      "target_mechanism": "semantic_bus"
+    },
+    {
+      "label": "K",
+      "module": "溯源",
+      "module_basis": "anchor",
+      "note": "康复域缺 M 类语义/经络技能，登记为候选，B7 准入前不进执行层",
+      "skill": "kangfu-knowledge-suite",
+      "status": "candidate_bridge",
+      "target_mechanism": "semantic_bus"
+    },
+    {
+      "label": "K",
+      "module": "采集",
+      "module_basis": "anchor",
+      "note": "康复域缺 M 类语义/经络技能，登记为候选，B7 准入前不进执行层",
+      "skill": "mdt-rehab-engineering",
+      "status": "candidate_bridge",
+      "target_mechanism": "meridian"
+    },
+    {
+      "label": "K",
+      "module": "检索",
+      "module_basis": "default_route",
+      "note": "康复域缺 M 类语义/经络技能，登记为候选，B7 准入前不进执行层",
+      "skill": "medical-textbook-skill-refinery",
+      "status": "candidate_bridge",
+      "target_mechanism": "semantic_bus"
+    }
+  ],
+  "default_route_count": 9,
+  "domain_scope": "semantic_bus",
+  "expanded_count": 44,
+  "family_id": "SG-B5-SEMANTIC-FAMILY-V1",
+  "inputs": {
+    "index_count": 1229,
+    "index_digest": "9a565741e1f72ab7",
+    "module_spec": "SG-B5-SEMANTIC-MODULES-V1",
+    "usage_labels": "SG-B3-SKILL-USAGE-LABELS-V1"
+  },
+  "label_split": {
+    "K": 17,
+    "M": 36,
+    "other": 7
+  },
+  "member_count": 60,
+  "members": [
+    {
+      "label": "K",
+      "mechanism": "hebbian_field",
+      "module": "去重",
+      "module_basis": "anchor",
+      "skill": "memory-self-evolution-triune",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "skin_v6",
+      "module": "去重",
+      "module_basis": "anchor",
+      "skill": "wdrama-bus-handshake-v3",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "skin_v6",
+      "module": "去重",
+      "module_basis": "anchor",
+      "skill": "wdrama-ops-similarity-v3",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "K",
+      "mechanism": "cytoskeleton",
+      "module": "嵌入",
+      "module_basis": "anchor",
+      "skill": "hilbert-embedding-layer",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "skin_v6",
+      "module": "嵌入",
+      "module_basis": "anchor",
+      "skill": "hilbert-master-543205-harvest",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "hebbian_field",
+      "module": "嵌入",
+      "module_basis": "anchor",
+      "skill": "life-meridian-1331",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "holographic_heartbeat",
+      "module": "嵌入",
+      "module_basis": "anchor",
+      "skill": "shengui-shenma-dual-system-base-v3",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "semantic_bus",
+      "module": "嵌入",
+      "module_basis": "anchor",
+      "skill": "shengui-shenma-machine-tool-super-matrix",
+      "source": "index:mechanism=semantic_bus",
+      "status": "base_index"
+    },
+    {
+      "label": "K",
+      "mechanism": "hebbian_field",
+      "module": "嵌入",
+      "module_basis": "anchor",
+      "skill": "softconn-vector-encode",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "T",
+      "mechanism": "semantic_bus",
+      "module": "嵌入",
+      "module_basis": "anchor",
+      "skill": "vector-lib-bootstrap-system",
+      "source": "index:mechanism=semantic_bus",
+      "status": "base_index"
+    },
+    {
+      "label": "K",
+      "mechanism": "skin_v6",
+      "module": "时序",
+      "module_basis": "anchor",
+      "skill": "clearview-pragmatism",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "skin_v6",
+      "module": "时序",
+      "module_basis": "anchor",
+      "skill": "inflection-mode-adaptive-window-denoise",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "skin_v6",
+      "module": "时序",
+      "module_basis": "anchor",
+      "skill": "inflection-mode-bayes-adaptive-threshold",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "hebbian_field",
+      "module": "时序",
+      "module_basis": "anchor",
+      "skill": "self-narration-inflection-timeline",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "hebbian_field",
+      "module": "检索",
+      "module_basis": "anchor",
+      "skill": "bashu-holo-avatar-master",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "K",
+      "mechanism": "skin_v6",
+      "module": "检索",
+      "module_basis": "anchor",
+      "skill": "bashu-tangshenwei-zhenlei-bencao",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "semantic_bus",
+      "module": "检索",
+      "module_basis": "default_route",
+      "skill": "four-paradigms-transformation",
+      "source": "index:mechanism=semantic_bus",
+      "status": "base_index"
+    },
+    {
+      "label": "M",
+      "mechanism": "semantic_bus",
+      "module": "检索",
+      "module_basis": "default_route",
+      "skill": "frontend-three-layer-intent",
+      "source": "index:mechanism=semantic_bus",
+      "status": "base_index"
+    },
+    {
+      "label": "K",
+      "mechanism": "semantic_bus",
+      "module": "检索",
+      "module_basis": "default_route",
+      "skill": "holoaeon-verax-attest-20261031",
+      "source": "index:mechanism=semantic_bus",
+      "status": "base_index"
+    },
+    {
+      "label": "K",
+      "mechanism": "unmapped",
+      "module": "检索",
+      "module_basis": "anchor",
+      "skill": "lark-approval",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "K",
+      "mechanism": "holographic_heartbeat",
+      "module": "检索",
+      "module_basis": "anchor",
+      "skill": "lark-calendar",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "T",
+      "mechanism": "semantic_bus",
+      "module": "检索",
+      "module_basis": "default_route",
+      "skill": "lark-doc",
+      "source": "index:mechanism=semantic_bus",
+      "status": "base_index"
+    },
+    {
+      "label": "T",
+      "mechanism": "semantic_bus",
+      "module": "检索",
+      "module_basis": "anchor",
+      "skill": "lark-im",
+      "source": "index:mechanism=semantic_bus",
+      "status": "base_index"
+    },
+    {
+      "label": "T",
+      "mechanism": "semantic_bus",
+      "module": "检索",
+      "module_basis": "default_route",
+      "skill": "lark-slides",
+      "source": "index:mechanism=semantic_bus",
+      "status": "base_index"
+    },
+    {
+      "label": "T",
+      "mechanism": "semantic_bus",
+      "module": "检索",
+      "module_basis": "default_route",
+      "skill": "matrix-1331-scheduler",
+      "source": "index:mechanism=semantic_bus",
+      "status": "base_index"
+    },
+    {
+      "label": "K",
+      "mechanism": "semantic_bus",
+      "module": "检索",
+      "module_basis": "anchor",
+      "skill": "rag-vector-memory-engine",
+      "source": "index:mechanism=semantic_bus",
+      "status": "base_index"
+    },
+    {
+      "label": "M",
+      "mechanism": "hebbian_field",
+      "module": "检索",
+      "module_basis": "anchor",
+      "skill": "salvage-king-600-agent",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "semantic_bus",
+      "module": "检索",
+      "module_basis": "default_route",
+      "skill": "sce-01-silicon-flow-protocol",
+      "source": "index:mechanism=semantic_bus",
+      "status": "base_index"
+    },
+    {
+      "label": "K",
+      "mechanism": "semantic_bus",
+      "module": "检索",
+      "module_basis": "default_route",
+      "skill": "shanghan-six-schools-avatar-matrix",
+      "source": "index:mechanism=semantic_bus",
+      "status": "base_index"
+    },
+    {
+      "label": "M",
+      "mechanism": "semantic_bus",
+      "module": "检索",
+      "module_basis": "default_route",
+      "skill": "shengui-shenma-dual-machine-super-avatar-matrix",
+      "source": "index:mechanism=semantic_bus",
+      "status": "base_index"
+    },
+    {
+      "label": "M",
+      "mechanism": "holographic_heartbeat",
+      "module": "注入",
+      "module_basis": "anchor",
+      "skill": "cold-hot-plug-upgrade",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "holographic_heartbeat",
+      "module": "注入",
+      "module_basis": "anchor",
+      "skill": "holoaeon-v2-empower-upgrade",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "hebbian_field",
+      "module": "注入",
+      "module_basis": "anchor",
+      "skill": "root-ultimate-upgrade-package",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "hebbian_field",
+      "module": "注入",
+      "module_basis": "anchor",
+      "skill": "shengui-shenma-dual-system-base-super-matrix",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "K",
+      "mechanism": "semantic_bus",
+      "module": "注入",
+      "module_basis": "anchor",
+      "skill": "shengui-shenma-huayang-rehab-fusion-1331",
+      "source": "index:mechanism=semantic_bus",
+      "status": "base_index"
+    },
+    {
+      "label": "M",
+      "mechanism": "hebbian_field",
+      "module": "溯源",
+      "module_basis": "anchor",
+      "skill": "arena-sandbox-1331",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "cytoskeleton",
+      "module": "溯源",
+      "module_basis": "anchor",
+      "skill": "dream-axiom-seven-step-flow",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "K",
+      "mechanism": "holographic_heartbeat",
+      "module": "溯源",
+      "module_basis": "anchor",
+      "skill": "harvest-s7-validate",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "K",
+      "mechanism": "skin_v6",
+      "module": "溯源",
+      "module_basis": "anchor",
+      "skill": "longjiang-school-holo-avatar",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "hebbian_field",
+      "module": "溯源",
+      "module_basis": "anchor",
+      "skill": "openmontage-video-skills-1331",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "skin_v6",
+      "module": "聚类",
+      "module_basis": "anchor",
+      "skill": "aicmd-engine-dynamic-schedule",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "hebbian_field",
+      "module": "聚类",
+      "module_basis": "anchor",
+      "skill": "character-relation-cluster",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "holographic_heartbeat",
+      "module": "聚类",
+      "module_basis": "anchor",
+      "skill": "disease-atlas-fusion",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "skin_v6",
+      "module": "聚类",
+      "module_basis": "anchor",
+      "skill": "ds-self-organizing-660",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "T",
+      "mechanism": "semantic_bus",
+      "module": "聚类",
+      "module_basis": "anchor",
+      "skill": "prompt-tool-ecosystem",
+      "source": "index:mechanism=semantic_bus",
+      "status": "base_index"
+    },
+    {
+      "label": "M",
+      "mechanism": "holographic_heartbeat",
+      "module": "蒸馏",
+      "module_basis": "anchor",
+      "skill": "capability-holographic-derivation",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "K",
+      "mechanism": "cytoskeleton",
+      "module": "蒸馏",
+      "module_basis": "anchor",
+      "skill": "refine-adjoint-functor",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "cytoskeleton",
+      "module": "蒸馏",
+      "module_basis": "anchor",
+      "skill": "refine-compression-bottleneck",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "cytoskeleton",
+      "module": "蒸馏",
+      "module_basis": "anchor",
+      "skill": "refine-dim-duality",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "skin_v6",
+      "module": "蒸馏",
+      "module_basis": "anchor",
+      "skill": "refine-task-directed-essence",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "hebbian_field",
+      "module": "运维",
+      "module_basis": "anchor",
+      "skill": "cgm42000-matrix-runtime",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "hebbian_field",
+      "module": "运维",
+      "module_basis": "anchor",
+      "skill": "ip-ops-maintenance-cluster",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "holographic_heartbeat",
+      "module": "运维",
+      "module_basis": "anchor",
+      "skill": "obd-full-link-monitoring",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "holographic_heartbeat",
+      "module": "运维",
+      "module_basis": "anchor",
+      "skill": "snapshot-backup-pivot",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "cytoskeleton",
+      "module": "采集",
+      "module_basis": "anchor",
+      "skill": "g-course-manuscript-video-structurer",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "K",
+      "mechanism": "skin_v6",
+      "module": "采集",
+      "module_basis": "anchor",
+      "skill": "harvest-s1-inventory",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "unmapped",
+      "module": "采集",
+      "module_basis": "anchor",
+      "skill": "knowledge-salvage-king-600",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "K",
+      "mechanism": "cytoskeleton",
+      "module": "采集",
+      "module_basis": "anchor",
+      "skill": "local-nutrient-ingestion-pipeline",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "T",
+      "mechanism": "semantic_bus",
+      "module": "采集",
+      "module_basis": "anchor",
+      "skill": "memory-multimodal-engine",
+      "source": "index:mechanism=semantic_bus",
+      "status": "base_index"
+    },
+    {
+      "label": "K",
+      "mechanism": "holographic_heartbeat",
+      "module": "采集",
+      "module_basis": "anchor",
+      "skill": "skill-harvest-workflow-meta",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    }
+  ],
+  "module_count": 10,
+  "module_counts": {
+    "去重": 3,
+    "嵌入": 7,
+    "时序": 4,
+    "检索": 16,
+    "注入": 5,
+    "溯源": 5,
+    "聚类": 5,
+    "蒸馏": 5,
+    "运维": 4,
+    "采集": 6
+  },
+  "modules": [
+    {
+      "id": "M01",
+      "name": "溯源"
+    },
+    {
+      "id": "M02",
+      "name": "采集"
+    },
+    {
+      "id": "M03",
+      "name": "去重"
+    },
+    {
+      "id": "M04",
+      "name": "蒸馏"
+    },
+    {
+      "id": "M05",
+      "name": "嵌入"
+    },
+    {
+      "id": "M06",
+      "name": "检索"
+    },
+    {
+      "id": "M07",
+      "name": "时序"
+    },
+    {
+      "id": "M08",
+      "name": "聚类"
+    },
+    {
+      "id": "M09",
+      "name": "注入"
+    },
+    {
+      "id": "M10",
+      "name": "运维"
+    }
+  ],
+  "sha256": "ab26e8cbfdb5e5958cfc0e4a67cf5e89a47a09f7890699b007f1a94764e78623",
+  "target": 60,
+  "uncovered_modules": []
+}

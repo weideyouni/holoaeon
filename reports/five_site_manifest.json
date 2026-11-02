@@ -7,7 +7,7 @@
   "repo_root": "F:\\doubaowork\\holoaeon",
   "counts": {
     "package": 18,
-    "repo": 44,
+    "repo": 52,
     "missing": 0
   },
   "package": {
@@ -28,8 +28,8 @@
       "sha256": "7fddaac5626d6144300e8fdda44f0829c59b8082f2346d1a024a8d8064cc046c"
     },
     "05_README_V4_赋能升级.md": {
-      "bytes": 8044,
-      "sha256": "2a2b3d1485200ed0c757c8f180974163c2158e295325aec4fc171f70e59da63e"
+      "bytes": 8299,
+      "sha256": "b025003b92413726806d0be778254567844600c21f75adedd20167fd042ee655"
     },
     "06_验收票据.md": {
       "bytes": 9562,
@@ -87,16 +87,16 @@
   },
   "repo": {
     "README_FUSION_V4_20261102.md": {
-      "bytes": 10665,
-      "sha256": "56b40bd349c7000bddf7befa4fc9e2d3629b3bce5570a063b4d48389955d9630"
+      "bytes": 11100,
+      "sha256": "3512c68e551d44f60f3ebbe36263d754416a3f293e0260d0edaf5a16f8b81d7a"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
       "sha256": "b98f27923178bfd982e0b9329fade05b6c1590b628650b130635e7568804370f"
     },
     "data/B0_批次进度.csv": {
-      "bytes": 956,
-      "sha256": "6aecab38b9a4cf20ab125df226de9fa5ae142b8611d76b5a5995e1f6f97879b4"
+      "bytes": 993,
+      "sha256": "b9625e78a7bf94313bc8b3adb554c8a71205c9c0938bc96349581dab1b61a96e"
     },
     "data/B0_自动匹配技能.csv": {
       "bytes": 83726,
@@ -105,6 +105,10 @@
     "data/B4_康复域试点票据.md": {
       "bytes": 3754,
       "sha256": "42aa94d4c8f37258a30fe6a948e1a15ba6a0e11058b7bcf826963251ba47b8ea"
+    },
+    "data/B5_语义技能族票据.md": {
+      "bytes": 5244,
+      "sha256": "14c442e6f94ecd85b5297a9440c056e7eb2fc7d3f55c109483d36eff144b812d"
     },
     "data/FIVE_SITE_SYNC_DNA.md": {
       "bytes": 10105,
@@ -146,6 +150,14 @@
       "bytes": 22793,
       "sha256": "e8168ca98ae761dc026de8dd5ebbc44ab54003fd950ed2168da641de193216fa"
     },
+    "data/semantic_family.json": {
+      "bytes": 17654,
+      "sha256": "093dc48b77e85dd06e3e550810fa7878197ae14448ceb881d41ab507262032b2"
+    },
+    "data/semantic_modules.json": {
+      "bytes": 2244,
+      "sha256": "631ff1e717bdae5f57b895ad024726cc68adc374420360539cab03176dc333e9"
+    },
     "data/skill_usage_labels.csv": {
       "bytes": 130001,
       "sha256": "3ec513e8f903062e84c0f8af6920bdf888147b9563790181a903f59c31a059ce"
@@ -158,9 +170,17 @@
       "bytes": 12137,
       "sha256": "565ba9e7b69b4a04685ab381621c37eb5fe86af4753337b0f0bba12f739123fe"
     },
+    "holoaeon/fusion_upgrade/semantic_family.py": {
+      "bytes": 3302,
+      "sha256": "fc62eaf0d37a134d95e551c68049df5ab9904fa69115594bbd2f5aeff48ffd27"
+    },
     "reports/b0_lock_v4fusion.json": {
       "bytes": 988,
       "sha256": "43b06c5537b8e1c4b3807873793dc25136c9f0de2bd4bf4965c1d65acd6f7a41"
+    },
+    "reports/b5_semantic_check.json": {
+      "bytes": 1455,
+      "sha256": "e031ee2e8e7c3f22ed963179349b205d735c717ce59e0d4dbaaf98b658ef511a"
     },
     "reports/contract_v1_check.json": {
       "bytes": 635,
@@ -202,6 +222,10 @@
       "bytes": 7383,
       "sha256": "0aa91946322c8933d8191c1a954693cf4120edf471bc59203811b2920d4af16e"
     },
+    "scripts/check_semantic_family.py": {
+      "bytes": 5494,
+      "sha256": "ef312fc362a189807f7e1c4c485ee59b81063a93155d663eef82e236bea26a2a"
+    },
     "scripts/check_skill_usage_labels.py": {
       "bytes": 4923,
       "sha256": "413b0ad0a1cf737b10fb74c1f361a46dac5eda9d4956a7cbc259a8e75fd01932"
@@ -222,9 +246,13 @@
       "bytes": 2555,
       "sha256": "e5866a88409e1715bc645797be17af2058ce45e1a74cb799912e76ea2f538cea"
     },
+    "scripts/expand_semantic.py": {
+      "bytes": 9468,
+      "sha256": "1b39f26b4d08a16734b3e7341603dafbbee45803052af726cf5044014e216f2d"
+    },
     "scripts/five_site_dna.py": {
-      "bytes": 10495,
-      "sha256": "62f4183e59ed714ad3a108125ce3adc721ba7feab51781ff7c34990b79485e5e"
+      "bytes": 10810,
+      "sha256": "0e4f1ce91a2c058957dd91a146e5f0f30892245a95cd44ec0915579839b402e4"
     },
     "scripts/freeze_contract_v1.py": {
       "bytes": 3616,
@@ -257,6 +285,10 @@
     "tests_contract/test_rehab_pilot.py": {
       "bytes": 2541,
       "sha256": "bdc0bbaad47de289af04650691a499bfe6eebcece508d64cd78337f68b69e4e2"
+    },
+    "tests_contract/test_semantic_family.py": {
+      "bytes": 3296,
+      "sha256": "d34225868445f1a68c64fe76cd22d94ecf84c0e39f2099c0fae4a7fa66c4f061"
     },
     "tests_contract/test_skill_usage_labels.py": {
       "bytes": 2642,
