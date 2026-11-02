@@ -192,9 +192,10 @@ Golden values unchanged: `diff0=2fc892cf9af6e755`, `tamper=f42c8229ee5acd73`, `s
 - 14-dimension lock: `reports/b0_lock_v4fusion.json`
 - Ticket: `data/B0_基线票据_v4fusion.md`
 - Skill auto-match (1229 → 365 candidates, deterministic, offline, zero external skills executed): `python scripts/b0_match.py` → `data/B0_自动匹配技能.csv`
-- Batch progress: `data/B0_批次进度.csv` (B0 done, B1a next)
+- Batch progress: `data/B0_批次进度.csv` (B0–B4 done, **B5 next**)
+- B4 rehab pilot: `data/rehab_pilot_20.json` + `data/B4_康复域试点票据.md` — 20 contracts (12 general / 8 medical), 4 negative probes rejected, `python scripts/check_rehab_pilot.py` (R1–R9)
 
-Next batch **B1a contract field draft** stays blocked until this ticket is re-run green.
+Next batch **B5 semantic skill family expansion (19 → ≥60)** stays blocked until this ticket is re-run green.
 ## Five-site sync DNA (刚性)
 
 `data/FIVE_SITE_SYNC_DNA.md` + `data/five_site_dna.json` — `SG-DNA-FIVE-SITE-SYNC-V1.1`

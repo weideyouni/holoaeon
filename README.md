@@ -15,11 +15,12 @@ tags:
   - llm
 ---
 
-> #### V4 · Cold-hot-plug empowerment upgrade (2026-11-02) — batch B0 frozen
+> #### V4 · Cold-hot-plug empowerment upgrade (2026-11-02) — batches B0–B4 done, B5 next
 >
-> - 7 gates green: `v3_gate 32/32` · `unittest 34 OK` · `selftest 25/25` · `skill_matrix 17/17` · `redline 0 violations` · `fusion 17/17` · `ivsa 21/21`
+> - 7 gates green: `v3_gate 32/32` · `unittest 34 OK` · `sidecar 41 OK` · `selftest 25/25` · `skill_matrix 17/17` · `redline 0 violations` · `fusion 17/17` · `ivsa 21/21`
 > - 14-dimension lock, golden `diff0=2fc892cf9af6e755` / `tamper=f42c8229ee5acd73`, `spec.VERSION=0.9.1` unchanged
 > - skill auto-match `1229 -> 365` candidates (index digest `9a565741e1f72ab7`); **`agents/skills/packs = 25/47/9` unchanged**
+> - **B4 rehab pilot: 20 contracts** (12 general / 8 medical; mechanisms hebbian 11 · skin_v6 4 · heartbeat 3 · cytoskeleton 2), 4 negative probes all rejected (`python scripts/check_rehab_pilot.py`, R1–R9)
 > - Five-site sync DNA `SG-DNA-FIVE-SITE-SYNC-V1.1`: local · Gitee · GitHub · vector-sea · Hugging Face (Feishu docx as reading entry)
 >
 > Canonical V4 entry: [`README_FUSION_V4_20261102.md`](README_FUSION_V4_20261102.md) ·
