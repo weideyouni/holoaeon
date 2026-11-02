@@ -127,12 +127,12 @@
   },
   "repo": {
     "README.md": {
-      "bytes": 64275,
-      "sha256": "0e1281fc1a70f1d6052de62ec62937b6ad12b1ea805c3b12a1a204977c823eb6"
+      "bytes": 65128,
+      "sha256": "22c728f19c648d58b3bc1a36bad7d63cdd77e62b444bb280e2d28aff6d9402b0"
     },
     "README.zh-CN.md": {
-      "bytes": 34258,
-      "sha256": "16a0b66274c703e3c6d308ab89d14a6bb6c900ffb7d2408009971e294c552c02"
+      "bytes": 34948,
+      "sha256": "3e375befe56d6e57655b03a641b90c3fc5af8e7e05795cb39f2386929e7092d9"
     },
     "README_FUSION_V4_20261102.md": {
       "bytes": 27394,
@@ -140,7 +140,7 @@
     },
     "SHA256SUMS": {
       "bytes": 22214,
-      "sha256": "757caee846aba5bfcd05dadd507a348b6b8f96693c72f7f7487eaaf6af827641"
+      "sha256": "fe8b1edd6c3589ce6407be31ecf0ac6750e19e16b1846979558442691cf06f5a"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
@@ -292,7 +292,7 @@
     },
     "data/dual_repo_sums.json": {
       "bytes": 2127,
-      "sha256": "db665f6d5ab32c0d68608cefcdf09170293e964095e5a372589e0b3ae428b9b4"
+      "sha256": "c3625acc3640501cbbf0e640c07c2ff6a8b6ebaf0496eea0f2d0254bc05022d5"
     },
     "data/extension_slots.json": {
       "bytes": 6540,
@@ -379,8 +379,8 @@
       "sha256": "b26341e80faf395df58e1f4fe472566a814be7c155ac829b9ee3f920fd483604"
     },
     "docs/工程纪律_批次升级与五地同步.md": {
-      "bytes": 6750,
-      "sha256": "bb786ec000d05749d3d38564690707692e0b2da25f81345e1ae8a9b09e663b89"
+      "bytes": 7472,
+      "sha256": "da240c3a128d322ebc9b6cea5c11d47ab6d03ccd9a66be7b073a3b38ce036bb5"
     },
     "docs/扩展卡槽与协作开发指南.md": {
       "bytes": 6826,
@@ -492,7 +492,7 @@
     },
     "reports/b8_dual_sync.json": {
       "bytes": 612,
-      "sha256": "4985e826d5b6ea051f3edd10ce0aa0a6bd1085a9978c2f170acd0baab241f492"
+      "sha256": "7b1f9a57632f048f6b6d915756063dbbd4e3626ce5c854571494b46042333306"
     },
     "reports/b8_dual_sync_check.json": {
       "bytes": 1773,
@@ -531,8 +531,8 @@
       "sha256": "7611aeb0f77b87df9a02274c14c88b2a3ef5cffa145e006ca6b449a88622fed3"
     },
     "reports/v44_model_gateway_check.json": {
-      "bytes": 3947,
-      "sha256": "79e3112e17308f355647dbefc6240830bdb00708f440ca387d02561aaaf47672"
+      "bytes": 3718,
+      "sha256": "2f5248723f081e420a14cfd1ff6bf4777037949b5197fe36cf02f829af39d59c"
     },
     "reports/v45_live_probe.json": {
       "bytes": 1253,
