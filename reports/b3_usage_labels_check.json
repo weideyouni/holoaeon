@@ -1,0 +1,57 @@
+{
+  "batch": "B3",
+  "index_digest": "9a565741e1f72ab7",
+  "labels_digest": "572636af4158453e",
+  "csv_sha256": "3ec513e8f903062e84c0f8af6920bdf888147b9563790181a903f59c31a059ce",
+  "counts": {
+    "K": 318,
+    "M": 731,
+    "T": 144,
+    "X": 35,
+    "U": 1
+  },
+  "sample": {
+    "agree": 37,
+    "disagree": 3,
+    "threshold": 36
+  },
+  "verdict": "PASS",
+  "failed": [],
+  "checks": [
+    {
+      "id": "U1",
+      "ok": true,
+      "detail": "rows=1229 index_count=1229 order_identical=True"
+    },
+    {
+      "id": "U2",
+      "ok": true,
+      "detail": "invalid_or_empty=[]"
+    },
+    {
+      "id": "U3",
+      "ok": true,
+      "detail": "sum=1229 counts={'K': 318, 'M': 731, 'T': 144, 'X': 35, 'U': 1} undecided=1"
+    },
+    {
+      "id": "U4",
+      "ok": true,
+      "detail": "bad_stage_or_reason=[]"
+    },
+    {
+      "id": "U5",
+      "ok": true,
+      "detail": "sample=40 agree=37/40 disagree=3 notes_complete=True"
+    },
+    {
+      "id": "U6",
+      "ok": true,
+      "detail": "byte_consistent=True digest=572636af4158453e"
+    },
+    {
+      "id": "U7",
+      "ok": true,
+      "detail": "csv_sha256=3ec513e8f903062e84c0f8af6920bdf888147b9563790181a903f59c31a059ce"
+    }
+  ]
+}

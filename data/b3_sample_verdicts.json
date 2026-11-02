@@ -1,0 +1,411 @@
+{
+  "sample_id": "SG-B3-SAMPLE40-V1",
+  "rule": "rows 按 name 升序，取 idx=i*n//40（i=0..39），n=1229",
+  "total": 40,
+  "agree": 37,
+  "disagree": 3,
+  "threshold": 36,
+  "items": [
+    {
+      "i": 1,
+      "name": "agent-manager-5000-matrix",
+      "csv_label": "M",
+      "review_label": "M",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "2.7056"
+    },
+    {
+      "i": 2,
+      "name": "asset-sunwu-war",
+      "csv_label": "M",
+      "review_label": "K",
+      "verdict": "disagree",
+      "note": "教学/知识资产，非方法学；词面命中『矩阵/模型』导致 M",
+      "stage": "stage1",
+      "score": "1.9018"
+    },
+    {
+      "i": 3,
+      "name": "bayes-mas-diffraction-1331",
+      "csv_label": "M",
+      "review_label": "M",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "4.2061"
+    },
+    {
+      "i": 4,
+      "name": "chen-qiu-liji-school",
+      "csv_label": "K",
+      "review_label": "K",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "2.2117"
+    },
+    {
+      "i": 5,
+      "name": "conflict-arbitration-selfheal",
+      "csv_label": "M",
+      "review_label": "M",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "1.9076"
+    },
+    {
+      "i": 6,
+      "name": "dream-app-dream-log-analysis",
+      "csv_label": "M",
+      "review_label": "M",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "1.3206"
+    },
+    {
+      "i": 7,
+      "name": "dream-dim-source-knowing",
+      "csv_label": "M",
+      "review_label": "M",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage2",
+      "score": "0.7046"
+    },
+    {
+      "i": 8,
+      "name": "farm-multi-output-matrix",
+      "csv_label": "X",
+      "review_label": "X",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "1.6000"
+    },
+    {
+      "i": 9,
+      "name": "fusion-holographic-derivation",
+      "csv_label": "M",
+      "review_label": "M",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "4.1070"
+    },
+    {
+      "i": 10,
+      "name": "harvest-meta-workflow",
+      "csv_label": "M",
+      "review_label": "M",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "1.6031"
+    },
+    {
+      "i": 11,
+      "name": "hilbert-transformer-longctx",
+      "csv_label": "M",
+      "review_label": "M",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "1.0018"
+    },
+    {
+      "i": 12,
+      "name": "inflection-mode-frequency-domain-filter",
+      "csv_label": "M",
+      "review_label": "M",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "3.1059"
+    },
+    {
+      "i": 13,
+      "name": "kalman-turbulence-1331x13-harvest",
+      "csv_label": "M",
+      "review_label": "M",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "1.0041"
+    },
+    {
+      "i": 14,
+      "name": "lark-doc",
+      "csv_label": "T",
+      "review_label": "T",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "4.2139"
+    },
+    {
+      "i": 15,
+      "name": "lark-vc",
+      "csv_label": "T",
+      "review_label": "T",
+      "verdict": "agree",
+      "note": "转发型桩技能，归 T（工具链入口）",
+      "stage": "stage1",
+      "score": "0.8082"
+    },
+    {
+      "i": 16,
+      "name": "linguistic-emotion-module",
+      "csv_label": "M",
+      "review_label": "M",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "4.0079"
+    },
+    {
+      "i": 17,
+      "name": "magic-universe-agent-matrix",
+      "csv_label": "K",
+      "review_label": "K",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "2.2132"
+    },
+    {
+      "i": 18,
+      "name": "medicine-compliance-boundary",
+      "csv_label": "K",
+      "review_label": "K",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "1.7103"
+    },
+    {
+      "i": 19,
+      "name": "mobius-klein-medical-convergence",
+      "csv_label": "M",
+      "review_label": "M",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "1.8102"
+    },
+    {
+      "i": 20,
+      "name": "office-20000-harvest-docwriting",
+      "csv_label": "K",
+      "review_label": "K",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "2.2128"
+    },
+    {
+      "i": 21,
+      "name": "pkm-three-fuse-breakers",
+      "csv_label": "M",
+      "review_label": "M",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "5.0070"
+    },
+    {
+      "i": 22,
+      "name": "qtr-llm-v1-resonance",
+      "csv_label": "M",
+      "review_label": "M",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "2.7082"
+    },
+    {
+      "i": 23,
+      "name": "quattro-storm-iteration",
+      "csv_label": "M",
+      "review_label": "M",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "5.1068"
+    },
+    {
+      "i": 24,
+      "name": "refinery-truth-workshop",
+      "csv_label": "K",
+      "review_label": "M",
+      "verdict": "disagree",
+      "note": "语义真值车间=信息瓶颈保真压缩方法；词面命中『知识』导致 K",
+      "stage": "stage1",
+      "score": "1.2045"
+    },
+    {
+      "i": 25,
+      "name": "sanxue-liuwei-chaijie",
+      "csv_label": "M",
+      "review_label": "M",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "4.0090"
+    },
+    {
+      "i": 26,
+      "name": "shanghan-cuojian-fangyouzhi",
+      "csv_label": "K",
+      "review_label": "K",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "2.8046"
+    },
+    {
+      "i": 27,
+      "name": "shengui-shenma-fangyao-freq-fusion-1331",
+      "csv_label": "M",
+      "review_label": "M",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "1.8044"
+    },
+    {
+      "i": 28,
+      "name": "shengui-shenma-pengcheng-rehab-fusion-1331",
+      "csv_label": "M",
+      "review_label": "M",
+      "verdict": "agree",
+      "note": "医派分身偏 K，但其载体是矩阵调度，采 M 并记录边界",
+      "stage": "stage1",
+      "score": "0.9027"
+    },
+    {
+      "i": 29,
+      "name": "shengui-shenma-shishu-yidao-sanchang-pharma-1331x1331",
+      "csv_label": "M",
+      "review_label": "M",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "1.9032"
+    },
+    {
+      "i": 30,
+      "name": "shengui-shenma-shuxue-1331x131-super-matrix",
+      "csv_label": "K",
+      "review_label": "K",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "1.2008"
+    },
+    {
+      "i": 31,
+      "name": "shengwu-jinghua-fuzheng",
+      "csv_label": "M",
+      "review_label": "M",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "2.0038"
+    },
+    {
+      "i": 32,
+      "name": "smm-v3-deterministic-ci-benchmark",
+      "csv_label": "T",
+      "review_label": "T",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "1.2087"
+    },
+    {
+      "i": 33,
+      "name": "subagent-matrix-hierarchy",
+      "csv_label": "M",
+      "review_label": "M",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "0.9010"
+    },
+    {
+      "i": 34,
+      "name": "tcm-clinical-decision-support",
+      "csv_label": "T",
+      "review_label": "T",
+      "verdict": "agree",
+      "note": "『辅助教学工具』跨 K/T，采 T（可执行入口优先）",
+      "stage": "stage1",
+      "score": "2.4084"
+    },
+    {
+      "i": 35,
+      "name": "tcm-university-beijing-harvest",
+      "csv_label": "K",
+      "review_label": "K",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "3.8132"
+    },
+    {
+      "i": 36,
+      "name": "three-field-clinical-positioning",
+      "csv_label": "M",
+      "review_label": "M",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "2.3078"
+    },
+    {
+      "i": 37,
+      "name": "threefield-single-drug",
+      "csv_label": "M",
+      "review_label": "M",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "2.3055"
+    },
+    {
+      "i": 38,
+      "name": "vector-lib-bootstrap-system",
+      "csv_label": "T",
+      "review_label": "T",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "4.0158"
+    },
+    {
+      "i": 39,
+      "name": "wdrama-qc-tech-v3",
+      "csv_label": "M",
+      "review_label": "T",
+      "verdict": "disagree",
+      "note": "技术质检=可执行检测工具；命中『流程/定位/匹配』导致 M",
+      "stage": "stage1",
+      "score": "2.3062"
+    },
+    {
+      "i": 40,
+      "name": "wuxia-gu-long-framework",
+      "csv_label": "M",
+      "review_label": "M",
+      "verdict": "agree",
+      "note": "",
+      "stage": "stage1",
+      "score": "3.4056"
+    }
+  ],
+  "csv_sha256": "3ec513e8f903062e84c0f8af6920bdf888147b9563790181a903f59c31a059ce"
+}

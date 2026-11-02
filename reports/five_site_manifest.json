@@ -7,7 +7,7 @@
   "repo_root": "F:\\doubaowork\\holoaeon",
   "counts": {
     "package": 18,
-    "repo": 32,
+    "repo": 38,
     "missing": 0
   },
   "package": {
@@ -95,8 +95,8 @@
       "sha256": "b98f27923178bfd982e0b9329fade05b6c1590b628650b130635e7568804370f"
     },
     "data/B0_批次进度.csv": {
-      "bytes": 925,
-      "sha256": "cd7a7b1ac96ff23cf39fb4463456f9af94de8878aff4b4791c59383756490b96"
+      "bytes": 943,
+      "sha256": "369a1d43e1277049b4656877070df98ecf4478564eed4a9aba7ce207c0ad9cd8"
     },
     "data/B0_自动匹配技能.csv": {
       "bytes": 83726,
@@ -105,6 +105,14 @@
     "data/FIVE_SITE_SYNC_DNA.md": {
       "bytes": 10105,
       "sha256": "953f4239eaecaedf3082c59a82f4efc3e3b4d5edc5131ec5b3464e8e45e2dbf1"
+    },
+    "data/b3_sample_verdicts.json": {
+      "bytes": 9783,
+      "sha256": "6efb2f4a58df2222b3c749f60a024a89ffb09b826474c8db07da657bf5d30b4e"
+    },
+    "data/b3_usage_labels_README.md": {
+      "bytes": 3876,
+      "sha256": "53bd1d01d037525a495518e662d7e65318b09c51f26f9e6d23664c56412283a9"
     },
     "data/channel_map.csv": {
       "bytes": 766,
@@ -129,6 +137,10 @@
     "data/mechanism_map.json": {
       "bytes": 5524,
       "sha256": "7650bd8f4a32f444c486684c36971c48e411fa7d5f1ffe4028238fd09ba972f1"
+    },
+    "data/skill_usage_labels.csv": {
+      "bytes": 130001,
+      "sha256": "3ec513e8f903062e84c0f8af6920bdf888147b9563790181a903f59c31a059ce"
     },
     "data/skin_lexicon_rehab.json": {
       "bytes": 2865,
@@ -178,6 +190,14 @@
       "bytes": 3424,
       "sha256": "1dc0066e847c37b24dafb3afe1e20953e41a8103fc1fa93c140fd7e03ce10917"
     },
+    "scripts/check_skill_usage_labels.py": {
+      "bytes": 4923,
+      "sha256": "413b0ad0a1cf737b10fb74c1f361a46dac5eda9d4956a7cbc259a8e75fd01932"
+    },
+    "scripts/classify_skill_usage.py": {
+      "bytes": 8154,
+      "sha256": "22a55238e215b2c7097370a1025b91199a0363f6b6643da9af1a0faa21a995bb"
+    },
     "scripts/contract_interop.py": {
       "bytes": 3880,
       "sha256": "89e0e1c09e5af9e047de4351cfc3162bad29ca01447cf7bdc6731fc1fe815eb5"
@@ -187,8 +207,8 @@
       "sha256": "e5866a88409e1715bc645797be17af2058ce45e1a74cb799912e76ea2f538cea"
     },
     "scripts/five_site_dna.py": {
-      "bytes": 10027,
-      "sha256": "d566fba49d9990d8bb9c92131738bd2e0a8f6a2ea139323289f722ef855b4570"
+      "bytes": 10267,
+      "sha256": "db9684424485a58b5aa36ba634f7ef30573a9d1c8f0a30898f8881259bad25b1"
     },
     "scripts/freeze_contract_v1.py": {
       "bytes": 3616,
@@ -213,6 +233,10 @@
     "tests_contract/test_mechanism_map.py": {
       "bytes": 2609,
       "sha256": "42d7f93e7fc14a6e4ac2a14821f8f15ae5b039135f426ece516ec67312a10706"
+    },
+    "tests_contract/test_skill_usage_labels.py": {
+      "bytes": 2642,
+      "sha256": "54157ff7b03b1f38c051a83c10fd09ef637d314f473ac02f6fd17193f25ac909"
     }
   },
   "missing": []
