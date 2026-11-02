@@ -142,10 +142,12 @@
       "passed": true,
       "drift": [],
       "drift_count": 0,
-      "self_excluded": [],
+      "self_excluded": [
+        "repo:changed:reports/v44_model_gateway_check.json"
+      ],
       "checked": {
         "package": 28,
-        "repo": 152
+        "repo": 154
       }
     },
     {

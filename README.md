@@ -15,28 +15,6 @@ tags:
   - llm
 ---
 
-> #### V4 · Cold-hot-plug empowerment upgrade (2026-11-02) — batches B0–B9 complete — V2.0 closed out (B7-1 signed by 潘荟丞 on 2026-11-02, cumulative 4/15; B9 five-file delivery + deterministic zip rebuild)
->
-> - 7 gates green: `v3_gate 32/32` · `unittest 34 OK` · `sidecar 82 OK` · `selftest 25/25` · `skill_matrix 17/17` · `redline 0 violations` · `fusion 17/17` · `ivsa 21/21`
-> - 14-dimension lock, golden `diff0=2fc892cf9af6e755` / `tamper=f42c8229ee5acd73`, `spec.VERSION=0.9.1` unchanged
-> - skill auto-match `1229 -> 365` candidates (index digest `9a565741e1f72ab7`); **`agents/skills/packs = 25/47/9` unchanged**
-> - **B4 rehab pilot: 20 contracts** (12 general / 8 medical; mechanisms hebbian 11 · skin_v6 4 · heartbeat 3 · cytoskeleton 2), 4 negative probes all rejected (`python scripts/check_rehab_pilot.py`, R1–R9)
-> - **B5 semantic skill family: 60 members** across the ivsa ten modules (溯源/采集/去重/蒸馏/嵌入/检索/时序/聚类/注入/运维; uncovered none, no 11th module), base 16 unique from index + 44 expanded, 4 rehab bridge candidates registered but not admitted (`python scripts/check_semantic_family.py`, S1–S9)
-> - **B6 hebbian persistence: weights on disk** — 23 edges / 28 nodes / 9 seeds, store sha256 `399505b0e695…de282`; a real second interpreter reloads from disk and the top-k view is **byte-identical** (3 equalities true, `python scripts/check_hebbian_store.py` H1–H9); **17-channel quota table** 12 mapped + 5 pending, quota 1200, load 24
-> - **B7 admission gate live**: 4 B5 bridge candidates on one ticket, four hard gates green (v3_gate/unittest/skill_matrix/redline), per-batch ≤5 / cumulative ≤15 enforced by code; **unsigned → `WAITING_SIGNATURE`**, nothing enters the execution layer (`python scripts/admit_batch.py --check`)
-> - **B8 dual-repo sync**: ivsa v1.2 plugin **off by default** (0 capabilities until explicitly enabled, host dimensions untouched), host `SHA256SUMS` 166 files, ivsa's own 91 entries recomputed 91/91, 17-channel groups `5/4/4/4 = 17` equal on both sides; licence layers Apache-2.0 / MPL-2.0 / data-only, 0 mixed (`python scripts/verify_b8_dual_sync.py` → 11/11, sidecar 82 → 92)
-> - **B9 close-out**: `data/B9_融合总策划_v2.md` · `data/B9_批次台账_v2.csv` (12/12 completed, 15.0 person-days) · `data/B9_完美融合判据.md` (30 runnable criteria) · `data/B9_风险与回滚登记.md` (RB1–RB5 / RK1–RK7) · `data/B9_四透镜评审意见.md` · `data/B9_收口票据.md`; `python scripts/verify_b9_closeout.py` → V1–V12 PASS; zip rebuilt deterministically (`scripts/build_b9_zip.py --check`)
-- **V2.1 opened**: `data/V2.1_ivsa只读对账票据.md` (`SG-V2.1-IVSA-RECON-20261102`); read-only reconciliation `python scripts/verify_ivsa_recon.py` -> R1-R7 7/7 PASS (ivsa SHA256SUMS 91/91, 17 channel groups equal, license layers clean, plugin default disabled). Preflight P1-P7 must be green before every batch. Admission B7-1..B7-4 signed (15 skills, cumulative 15/15 cap reached; `data/B7_准入票据_B7-2.md`..`B7-4.md`).
-> - Five-site sync DNA `SG-DNA-FIVE-SITE-SYNC-V1.2` (adds G9 manifest write order, G10 seals-equal-signature, P7 five-site readback): local · Gitee · GitHub · vector-sea · Hugging Face (Feishu docx as reading entry)
->
-> Canonical V4 entry: [`README_FUSION_V4_20261102.md`](README_FUSION_V4_20261102.md) ·
-> sync rules + engineering discipline: [`data/FIVE_SITE_SYNC_DNA.md`](data/FIVE_SITE_SYNC_DNA.md) ·
-> offline check: `python scripts/five_site_dna.py verify` (drift must be `[]`) ·
-> pre-batch gate: `python scripts/five_site_dna.py preflight` (P1–P7 must PASS before any batch starts)
->
-> Seal: 潮起开门，潮落闭嘴 · `evidence_class=simulated` (simulation is not proof; carbon-based final say)
-
-
 <div align="center">
 
 # HoloAeon
@@ -81,6 +59,18 @@ self-organizing search** layer (see [ALGORITHM.md](ALGORITHM.md)).
 > [metaphor → engineering-concept map](#-metaphor--engineering-concept-map) is included below.
 
 ---
+
+## 当前工程状态（2026-11-02）
+
+| 项 | 实测值 |
+|---|---|
+| 产出维度（锁死） | **25 智能体 / 47 技能 / 9 域包**；`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73` 未变 |
+| 最新批次 | **V5.0-B1 康复域知识库全量入库**（全量登记、零复制）· 提交 `aa88c37` |
+| 扩展卡槽 | **12 个**：occupied 6 / open 1 / reserved 4 / blocked 1（只声明不接线） |
+| 门禁 | `v3_gate 32/32` · `unittest 34 OK` · `sidecar 160 OK` · `v44 13/13` · `v45 7/7` · `v46 9/9` · `v5 11/11` · `redline 0 违规` · `drift []` |
+| 五地同步 | 本地 · Gitee · GitHub · Hugging Face · 向量海 —— 见文末 [附录 A](#附录-a--五地同步v50-b1-实测) |
+| 版本脉络 | V4.0 → V4.6 → V5.0 逐提交回溯 —— 见文末 [附录 B](#附录-b--版本升级说明v3--v50) |
+| V4 主文档 | [`README_FUSION_V4_20261102.md`](README_FUSION_V4_20261102.md) · 同步规则 [`data/FIVE_SITE_SYNC_DNA.md`](data/FIVE_SITE_SYNC_DNA.md) |
 
 ## V2 · Evidence Hardening (0.9.2, docs)
 
@@ -836,3 +826,48 @@ describe the synchronization, boundary, routing, support, and self-organization 
 software. It is not medical, biological, or clinical advice, and it does not claim to model real
 organs, physiological structures, or supernatural entities. All simulated receipts are tagged
 `simulated`; **simulation is not proof**, and human judgment remains the final authority.
+
+---
+
+## 附录 A · 五地同步（V5.0-B1 实测）
+
+| 站点 | 实测值 | 校验动作 |
+|---|---|---|
+| S1 本地 | `aa88c37`（17 files / +1041 −50） | `git log -1 --stat` |
+| S2 Gitee | `refs/heads/main = aa88c37afdf55d6afc7b1c1681cb8469c60dd061` | `git ls-remote` 回读 |
+| S3 GitHub | 同上，与本地 HEAD 三值一致（推送后延时 12 s 回读） | `git ls-remote origin refs/heads/main` |
+| S4 向量海 | 133 个文件 · 号段 118–126 · `manifest.json` 133 条 | `manifest` 逐条复算 |
+| S5 Hugging Face | `24ed2349bf99…` · 449 文件 · `mismatch=[]` | `mirror_hf.py` 实推后回读 |
+| 回执 | 28,704 B · files 133 · history 23 · zip 46 条目 / 129,181 B / `fc1c27e66a1090c6` | `five_site_dna.py preflight` P1–P7 |
+
+同步纪律（写序不能颠倒）：
+
+1. 先跑会写回执的校验器（`verify_v44/v45/v46/v5`）→ 2) 再建 `SHA256SUMS` / `dual_repo_sums` →
+3) 再打确定性 zip → 4) 再建 `five_site_manifest` → 5) 迭代到 zip `sha16` 两次一致（不动点）→
+6) 最后只跑只读校验（`five_site verify` / `preflight` / `unittest` / `v3_gate` / `redline` / `dimension_lock`）。
+
+向量海归档顺序为「先 copy 新件 → 再替换 `74_SHA256SUMS` → 最后 `listdir` 建 `manifest`」；
+顺序颠倒会让 `74` 进清单并自指，首次实测即红。回执 `files` 与 `files_count` 必须同源取自 manifest。
+
+---
+
+## 附录 B · 版本升级说明（V3 → V5.0）
+
+> 口径：sha 取自 `git log` 实测；条目数 / 字节 / `sha16` 以对应批次命令回读为准，不硬编码猜测值。
+
+| 阶段 | 提交 | 主题与产出 |
+|---|---|---|
+| V3 收口 | `3d359bd` / `32b2667` | LangChain 工程形态旁挂（W12–W19），32/32 门禁，维度不变 |
+| 同步基建 | `92fd8b5` / `dfad361` | 五地同步 DNA V1.0→V1.1（G1–G8 + P1–P6），离线哈希校验器 |
+| V4.0 开场 | `80089b6` | 冷热插拔升级：第 10 个附加包，**25/47/9 不变** |
+| B0–B9 | `055d202` … `c03b19d` | 基线冻结 → 契约 v1 → 六机制映射 → 1229 技能四标签 → 20 例试点 → 语义族 60 → 赫布落盘 → 准入闸 15/15 → 双仓同步 → 五件交付 + 确定性 zip |
+| V2.1 | `3b0b32b` | ivsa 只读对账 R1–R7，旁挂 92 → 101 |
+| V4.3 | `4f06bc8` / `3d6f956` | 四坑固化（HF model 仓 / 中文路径 / 74→manifest 顺序 / 交付漂移）+ 11/11 |
+| V4.4 | `b85b293` | 19 家 provider 目录 + 5 协议拼装、默认全关；A1–A13 13/13 |
+| V4.5 | `fb5cdef` / `f0f1bb5` | 真实回环调用：embeddings 200 / 768 维；chat 200 / 41+29 tokens（C 盘 `lms import` 修复） |
+| V4.6 | `f0f1bb5` / `978dc10` / `6646315` | 12 卡槽 + 协作指南；C1–C9 9/9；卡槽实数勘误 14→12 |
+| V5.0 | `aa88c37` | 康复域知识库全量入库（14 条登记 / ivsa 300 行）；影子维度 D_REHAB 不入锁；`EXT-EVIDENCE-01` 解封而 tier 不变；D1–D10 11/11 |
+
+**一句话主线**：每批只做一件事，只加旁挂、不改锁数；每批必带判据、票据与五地同步，`drift=[]` 才允许提交。
+
+Seal: 潮起开门，潮落闭嘴 · `evidence_class=simulated`（仿真 ≠ 证明，碳基终裁）

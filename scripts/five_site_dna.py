@@ -58,6 +58,8 @@ PKG_FILES = [
 
 REPO_FILES = [
     "README_FUSION_V4_20261102.md",
+    "README.md",
+    "README.zh-CN.md",
     "data/B0_基线票据_v4fusion.md",
     "data/B0_自动匹配技能.csv",
     "data/B0_批次进度.csv",

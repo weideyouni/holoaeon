@@ -7,7 +7,7 @@
   "repo_root": "F:\\doubaowork\\holoaeon",
   "counts": {
     "package": 28,
-    "repo": 152,
+    "repo": 154,
     "missing": 0
   },
   "package": {
@@ -32,8 +32,8 @@
       "sha256": "907a17fb51a1b26ec658deb4b545002039991ac8e6524ac12f80c53c7d7f7fd3"
     },
     "06_验收票据.md": {
-      "bytes": 10962,
-      "sha256": "b151bcf756c4b5394309136aed9613a9b86aa35ef297b4b52c4120bda2498225"
+      "bytes": 11582,
+      "sha256": "f3f501166b6511cc05a99d82513c246a8f53337697a8ae8fd6092b48a435f220"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
@@ -108,9 +108,9 @@
       "sha256": "33af29f94ecfd5c790253f5216e477b410fcd0d3838d029027d37ca3c29f4861"
     },
     "holoaeon_v4_fusion_upgrade_20261102.zip": {
-      "bytes": 129181,
-      "sha256": "fc1c27e66a1090c6812944f8154d9302854aa4d8835e3a08ff0ad5c0d1a71111",
-      "sha16": "fc1c27e66a1090c6"
+      "bytes": 129514,
+      "sha256": "6ff26112c2853e3fad43e59f49ce17385f3f2ceb125f62ed48ba1bb7c6ce1457",
+      "sha16": "6ff26112c2853e3f"
     },
     "reports/b0_lock_v4fusion.json": {
       "bytes": 988,
@@ -126,13 +126,21 @@
     }
   },
   "repo": {
+    "README.md": {
+      "bytes": 52874,
+      "sha256": "8ea12810144126da1de41836b0cbda6760ed71bed7ba33e5707273f493d8140b"
+    },
+    "README.zh-CN.md": {
+      "bytes": 22479,
+      "sha256": "6cdd4b780655f37cff800f206e782d209bc8e9274dbdfcc69bf901ef171bc9ab"
+    },
     "README_FUSION_V4_20261102.md": {
-      "bytes": 27343,
-      "sha256": "d27e83163a86a4fb8b2feb0cbe01fef286d7281ed45c72166fd5b245bc780fce"
+      "bytes": 27349,
+      "sha256": "e28edebd3147e3bd390d7d8634466fa7e01fbba06bcfa5787d60d93597e9a73f"
     },
     "SHA256SUMS": {
       "bytes": 22288,
-      "sha256": "6d60a22b7f1b85442f823aa6f39dab831e6a157fed659fa1eeff745dcc419e79"
+      "sha256": "96c86630feff6734c5258234c2b15e5238aab1dc9dfec9465a1af108d414f492"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
@@ -280,7 +288,7 @@
     },
     "data/dual_repo_sums.json": {
       "bytes": 2127,
-      "sha256": "6c2f21fe5f2cce666a57624372bc830fd30e8884725fcbd2d740f88e3ca655c8"
+      "sha256": "2e22caaf30d11022cace4902e1e10dca67009eeb2eaaa3b761612ef5151f1ee9"
     },
     "data/extension_slots.json": {
       "bytes": 6540,
@@ -432,7 +440,7 @@
     },
     "reports/b8_dual_sync.json": {
       "bytes": 612,
-      "sha256": "fa821f5ebf659efbf1d6b2fbc994df901ec7e35e694a0034e3e9277656a9706b"
+      "sha256": "2ab65fac7e7ebd7b61a458f5d418dfdae436be408bc593a26149e1257c8aa2d7"
     },
     "reports/b8_dual_sync_check.json": {
       "bytes": 1773,
@@ -467,8 +475,8 @@
       "sha256": "327c6f1fb269f1c054c552ab6f223e8ec3adae70157c7c5f6096852961206db7"
     },
     "reports/v44_model_gateway_check.json": {
-      "bytes": 3380,
-      "sha256": "cae701478de2331d58b42b61fced1ae3202d912a5f2e2ec52ee3a9acad36f22f"
+      "bytes": 3447,
+      "sha256": "4112b895b38142d5c834308135ffa8d7ff67690385b369b7d1047addf073aabd"
     },
     "reports/v45_live_probe.json": {
       "bytes": 1253,
@@ -480,11 +488,11 @@
     },
     "reports/v46_slot_check.json": {
       "bytes": 1857,
-      "sha256": "9a10ea4abbbca83728693455ebcf78ca3b2edc76b60bdbeecfa8dd0dc129f38a"
+      "sha256": "a8d266f50ca95675c04ea5c33c28c230ec0fe429f467099fb8a9e79b77f3e4ea"
     },
     "reports/v5_rehab_kb_check.json": {
       "bytes": 1279,
-      "sha256": "e9c4e15e6ab867a2c5a4caa57f35a458e764110dfd3b615a5ffc1c3861423585"
+      "sha256": "5407252d6b2bcd61cec6a2ffff36b8e8b7bd0920834a6216d9430058feb07a8d"
     },
     "scripts/admit_batch.py": {
       "bytes": 15869,
@@ -575,8 +583,8 @@
       "sha256": "53ca6e59d40f77ff29b0dedeb27a8ae06d4f6c947c17d83c5426975f2f8fb6a5"
     },
     "scripts/five_site_dna.py": {
-      "bytes": 16189,
-      "sha256": "e7096fdc4b627b97040f01c432bbbe44e27ab1243d1377c15f3b8f6ce0aadbe1"
+      "bytes": 16229,
+      "sha256": "60135a5dc30bcbdc112f9c082bbd458421ef3e379b46da3729932d86b1f8d106"
     },
     "scripts/freeze_contract_v1.py": {
       "bytes": 3616,
