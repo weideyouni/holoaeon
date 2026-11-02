@@ -291,3 +291,36 @@ python -c "from holoaeon.fusion_upgrade.model_gateway import build_gateway; prin
 型号串为代表性示例、随官方版本增删，运行时以用户传入的 `model` 为准。真发请求需用户按指南注入凭证，
 在**自己的运行环境**完成；医学红线（不接设备 / 不出剂量 / 不做诊断）在任何 provider 下都不变。
 票据见 `data/V4.4_真实模型桥接票据.md`，用户配置入口见 `docs/接入真实模型_配置指南.md`。
+
+## V4.5-B1 本地运行时联调（真实回环调用，零成本）
+
+V4.4 把「请求怎么拼」做完了但一条都没真发。V4.5 在本机起真实推理服务，用真实 HTTP 调用验证
+`model_gateway.plan("lmstudio")` 的同形请求能被真实服务接受——**只打回环、只打 OpenAI 形状、不落凭证**。
+
+| 项 | 实测值（2026-11-02） |
+|---|---|
+| 服务 | LM Studio 本地 OpenAI 兼容服务，`lms server start` → port **1234** running |
+| 端点 | `POST http://localhost:1234/v1/embeddings`，body `{"model","input"}` |
+| 响应 | **200** · 4,882 ms · raw 23,316 B · **768 维向量** |
+| 证据等级 | `live_local`（真实调用，不是 simulated） |
+| 判据 | `python scripts\verify_v45.py` → **B1–B7，7/7 PASS** |
+| 单测 | `python -m unittest tests_contract.test_v45` → **8 OK** |
+| 回执 | `reports/v45_live_probe.json`（`SG-V45-LIVE-PROBE-V1`，1,080 B / sha16 `3767d37c22d6d3dd`） |
+
+新增件：`scripts/live_gateway_probe.py`（`--mode chat|embeddings`、`LOOPBACK` 白名单硬拒公网 host、
+只记 `key_present` 布尔）、`scripts/verify_v45.py`、`tests_contract/test_v45.py`、
+票据 `data/V4.5_本地运行时联调票据.md`、回执 `reports/v45_live_probe.json`。`REPO_FILES` 132 → **137**。
+
+常用命令：
+
+```bash
+python scripts/live_gateway_probe.py --model text-embedding-nomic-embed-text-v1.5 --mode embeddings
+python scripts/live_gateway_probe.py --model qwen2.5-0.5b-instruct --mode chat
+python scripts/verify_v45.py
+```
+
+边界（不冒充）：本批**chat 端点未真发**——本机唯一可用模型是 embedding 类，对话模型因 LM Studio
+`downloadsFolder` 指向 `D:\` 盘根、`lms import` 报 `EPERM mkdir 'D:\'` 而未入索引；该修法属用户应用配置，
+本仓不擅自改。云端 provider 仍未真发（无凭证与计费账户）。医学红线（不接设备 / 不出剂量 / 不做诊断）不变。
+票据见 `data/V4.5_本地运行时联调票据.md`。
+

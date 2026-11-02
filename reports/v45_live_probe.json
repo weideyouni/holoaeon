@@ -1,0 +1,40 @@
+{
+  "id": "SG-V45-LIVE-PROBE-V1",
+  "batch": "V4.5-B1",
+  "created_at": "2026-11-02",
+  "evidence_class": "live_local",
+  "network": true,
+  "mode": "embeddings",
+  "host_scope": "loopback_only",
+  "provider": "lmstudio",
+  "api_style": "openai_chat",
+  "protocol": "messages[] + model",
+  "request": {
+    "method": "POST",
+    "url": "http://localhost:1234/v1/embeddings",
+    "body_keys": [
+      "input",
+      "model"
+    ],
+    "body_sha256": "e784cbc9966d07361a40812f032cd19280eeb4930947dd2318bdbaa4c396441a",
+    "key_present": false,
+    "model": "text-embedding-nomic-embed-text-v1.5"
+  },
+  "response": {
+    "status": 200,
+    "latency_ms": 4882,
+    "raw_bytes": 23316,
+    "raw_sha256": "b0dc8ac45be661891aa60278dea09c31c8a0f7c4fe93c167f79be4aec1ea8697",
+    "error": "",
+    "choices": 0,
+    "embedding_dim": 768,
+    "text": "",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": null,
+      "total_tokens": 0
+    }
+  },
+  "verdict": "PASS",
+  "note": "真实本地回环调用：零成本、不出网；形状与 model_gateway.plan 同源。"
+}

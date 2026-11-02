@@ -7,7 +7,7 @@
   "repo_root": "F:\\doubaowork\\holoaeon",
   "counts": {
     "package": 28,
-    "repo": 132,
+    "repo": 137,
     "missing": 0
   },
   "package": {
@@ -108,9 +108,9 @@
       "sha256": "33af29f94ecfd5c790253f5216e477b410fcd0d3838d029027d37ca3c29f4861"
     },
     "holoaeon_v4_fusion_upgrade_20261102.zip": {
-      "bytes": 123606,
-      "sha256": "254460327240e9c973533eb837a912fbf64bf28dab824cf1c1bb348919eb43b7",
-      "sha16": "254460327240e9c9"
+      "bytes": 125116,
+      "sha256": "39c3281f2df1740400d9da1fd62d6581395b52f7d24208de5e8175f3a0b8fd09",
+      "sha16": "39c3281f2df17404"
     },
     "reports/b0_lock_v4fusion.json": {
       "bytes": 988,
@@ -127,12 +127,12 @@
   },
   "repo": {
     "README_FUSION_V4_20261102.md": {
-      "bytes": 17792,
-      "sha256": "0b7c8d4ac77a37808b704341b7fa0e69cf1b9f6df647144e93c0bc7e44c31d2f"
+      "bytes": 19779,
+      "sha256": "5890ba1cdd62bd15be40742bbc63d8153b332264c5e6d841a34901c6d20f8af5"
     },
     "SHA256SUMS": {
-      "bytes": 20556,
-      "sha256": "98b1ebb2fdd9f98da1d29194e0b987ae52549d021a66f76b85cde4881f643c3a"
+      "bytes": 21034,
+      "sha256": "31b7482dbfd1b961846b82040919a31f3d4247c56eb2a6477913b460abd2e30b"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
@@ -230,6 +230,10 @@
       "bytes": 10129,
       "sha256": "de39c25f21832b33c44a2eb3257b1a7ab41a4e243d261ce5121930d8e328889f"
     },
+    "data/V4.5_本地运行时联调票据.md": {
+      "bytes": 5401,
+      "sha256": "e50f96936cdc9dc8a9c101e0f2f21c14967a9f71869ae1f7cc879fe515d660a3"
+    },
     "data/admission_ledger.csv": {
       "bytes": 3034,
       "sha256": "d5117b2396f7c15002012ef7eaafda1d0bbc56961b0deb60812dcd47b3e3a380"
@@ -268,7 +272,7 @@
     },
     "data/dual_repo_sums.json": {
       "bytes": 2127,
-      "sha256": "22799b03b60db642a3061360258c6b9d30187d9081860b2cf4eca22700a0126f"
+      "sha256": "5ae734d2b852afabc515d8449021e314cda5438b0b27fb93338ef11f4530b93b"
     },
     "data/five_site_dna.json": {
       "bytes": 8665,
@@ -400,7 +404,7 @@
     },
     "reports/b8_dual_sync.json": {
       "bytes": 612,
-      "sha256": "6718181c0f830cc4089a9fc470354dc8ec96c9ee0c25cdb148c31e11d6f171e7"
+      "sha256": "0c88d253fbd303a94be0486c2e0e349769746136f12668047a882e7d1a07cf3e"
     },
     "reports/b8_dual_sync_check.json": {
       "bytes": 1773,
@@ -437,6 +441,10 @@
     "reports/v44_model_gateway_check.json": {
       "bytes": 3380,
       "sha256": "09e8dca42cd3521e4c413de45d817dcf77229baa5408d6852f5e2f9ba99f2864"
+    },
+    "reports/v45_live_probe.json": {
+      "bytes": 1080,
+      "sha256": "3767d37c22d6d3dda9207d306dddc65f44ffa6481e85d0b39c91e6dd3327dabf"
     },
     "scripts/admit_batch.py": {
       "bytes": 15869,
@@ -523,8 +531,8 @@
       "sha256": "53ca6e59d40f77ff29b0dedeb27a8ae06d4f6c947c17d83c5426975f2f8fb6a5"
     },
     "scripts/five_site_dna.py": {
-      "bytes": 15258,
-      "sha256": "7dfa1d3db89f5becba71702a265333bb671cf09c272a3883445f74976c7f0d34"
+      "bytes": 15493,
+      "sha256": "5885466a10cb010a79e0645a2be9ba17785eee6f6877423942ce29486c27f17d"
     },
     "scripts/freeze_contract_v1.py": {
       "bytes": 3616,
@@ -549,6 +557,10 @@
     "scripts/hebbian_persist.py": {
       "bytes": 2731,
       "sha256": "f17ba23ebbc32d11fab8db64548283884c95c7f4d472ae2925f9beff5ffa5cb0"
+    },
+    "scripts/live_gateway_probe.py": {
+      "bytes": 6342,
+      "sha256": "9c8f9eb42c86050770af683202bd572afe37596a9bc13fc6b0b2c5def63505cd"
     },
     "scripts/mirror_hf.py": {
       "bytes": 5237,
@@ -589,6 +601,10 @@
     "scripts/verify_v44.py": {
       "bytes": 12206,
       "sha256": "94c3e96f33a8883ebf620e5b04f34aabddf5f6936f6b20cc97326176471ea278"
+    },
+    "scripts/verify_v45.py": {
+      "bytes": 4223,
+      "sha256": "6e12617634af4901f6a8ff23bd722cf3a40c3b4ee5f9c19096e15dbdc1f5b7a8"
     },
     "tests_contract/test_admission_gate.py": {
       "bytes": 4561,
@@ -653,6 +669,10 @@
     "tests_contract/test_v44.py": {
       "bytes": 3656,
       "sha256": "321da30f941bbdfd569b1e20c514cabfc1c7e126a89bb57f885f1fc881a6d6ba"
+    },
+    "tests_contract/test_v45.py": {
+      "bytes": 2624,
+      "sha256": "3633b03b3ab5c538b2b85f6943493d0f1a7354bc22682b13312370093f75d2e3"
     }
   },
   "missing": []

@@ -43,10 +43,10 @@
   },
   "risk_rows": 12,
   "zip": {
-    "bytes": 123606,
-    "entries": 43,
+    "bytes": 125116,
+    "entries": 44,
     "present": true,
-    "sha16": "254460327240e9c9",
-    "sha256": "254460327240e9c973533eb837a912fbf64bf28dab824cf1c1bb348919eb43b7"
+    "sha16": "39c3281f2df17404",
+    "sha256": "39c3281f2df1740400d9da1fd62d6581395b52f7d24208de5e8175f3a0b8fd09"
   }
 }

@@ -190,6 +190,12 @@ REPO_FILES = [
     "scripts/verify_v44.py",
     "tests_contract/test_v44.py",
     "reports/v44_model_gateway_check.json",
+    # ---- V4.5-B1 本地运行时联调（5 件）
+    "data/V4.5_本地运行时联调票据.md",
+    "scripts/live_gateway_probe.py",
+    "scripts/verify_v45.py",
+    "tests_contract/test_v45.py",
+    "reports/v45_live_probe.json",
 ]
 
 ZIP_NAME = "holoaeon_v4_fusion_upgrade_20261102.zip"
