@@ -140,7 +140,7 @@
     },
     "SHA256SUMS": {
       "bytes": 22214,
-      "sha256": "1a474603185010063dc9d4fc56ef8b27a634d5f4227b538219fcd7f223f7e6e2"
+      "sha256": "8d36a6b73cfae852d3a8f6eb58f3cd062dc4894eb1874a65a323d84a6f315f5a"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
@@ -292,7 +292,7 @@
     },
     "data/dual_repo_sums.json": {
       "bytes": 2127,
-      "sha256": "e650d08695fd79db4c9256b45b1245ea5e088c0d4e82eaec0d5efe45c2fe8259"
+      "sha256": "82184bf1dcecfa80e05d9984e358f6461f93707b279fcf5552c3810312e84909"
     },
     "data/extension_slots.json": {
       "bytes": 6540,
@@ -488,7 +488,7 @@
     },
     "reports/b8_dual_sync.json": {
       "bytes": 612,
-      "sha256": "92d1a0a3a4bc1d66905b90bfc8fed14e28f2523ae4957b833a304c6c19298c18"
+      "sha256": "2253e63b44e0542d575f60ae6c09658243cf36dd59a05c115ced33bc6de0dfd3"
     },
     "reports/b8_dual_sync_check.json": {
       "bytes": 1773,
@@ -527,8 +527,8 @@
       "sha256": "da700aa9c2a7eb375e93a844f759986224720f94c154bcfbcb02c0caaea85c43"
     },
     "reports/v44_model_gateway_check.json": {
-      "bytes": 3994,
-      "sha256": "11d8c92c7e29d6b96b29af683f76cd77a55f3ff9b05498d4c81695707b221108"
+      "bytes": 3625,
+      "sha256": "b8d33a59ca9f5a5f0a8f9b22d5ed1ddddabb8141a34dcd789a5fe13ec1029edf"
     },
     "reports/v45_live_probe.json": {
       "bytes": 1253,
