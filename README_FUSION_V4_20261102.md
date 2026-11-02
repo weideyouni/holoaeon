@@ -59,7 +59,7 @@ python scripts/fusion_local.py snapshot out.json          # 项目快照
 
 ```mermaid
 flowchart TB
-  subgraph L1["L1 发现层 · HoloAeon (MIT)"]
+  subgraph L1["L1 发现层 · HoloAeon (Apache-2.0)"]
     A["47 skills / 25 agents<br/>九领域包（冷插）"]
     M["六机制：心跳 · 骨架 · 皮肤 · 语义 · 赫布 · 经络"]
   end
@@ -88,7 +88,7 @@ flowchart TB
 | 单元测试 | `python -m unittest discover -s tests` | 34 OK | ✅ 34 |
 | 启动自检 | `python scripts/launch_local.py selftest` | 25/25 | ✅ 25/25 |
 | 技能矩阵 | `python scripts/verify_skill_matrix.py` | 17/17 | ✅ 17 |
-| 红线扫描 | `python scripts/redline_scan.py` | 零违规 | ✅ 67 文件 0 违规 |
+| 红线扫描 | `python scripts/redline_scan.py` | 零违规 | ✅ 71 文件 0 违规 |
 | 融合包 | `python scripts/verify_fusion_upgrade.py` | 17/17 | ✅ 17 |
 | 确定性黄金 | `python scripts/repro_core_emit.py` | `2fc892cf9af6e755` / `f42c8229ee5acd73` | ✅ `fails=[]` |
 
@@ -156,7 +156,7 @@ holoaeon/
 
 ## 许可
 
-HoloAeon 本体 **MIT**。与 ivsa（代码 MPL-2.0 / 内容 CC-BY-NC-SA-4.0）**只经契约交换，不互相拷贝代码**，因此不存在许可混用。
+HoloAeon 本体 **Apache-2.0**。与 ivsa（代码 MPL-2.0 / 内容 CC-BY-NC-SA-4.0）**只经契约交换，不互相拷贝代码**，因此不存在许可混用。
 
 ---
 
@@ -183,7 +183,7 @@ python scripts/fusion_local.py status        # 25 agents / 47 skills / 9 packs �
 | unittest | `python -m unittest discover -s tests` | **Ran 34 OK** |
 | launch selftest | `python scripts/launch_local.py selftest` | **25/25** |
 | skill matrix | `python scripts/verify_skill_matrix.py` | **17/17**, digest `9a565741e1f72ab7` |
-| redline | `python scripts/redline_scan.py` | 67 files, **0 violations** |
+| redline | `python scripts/redline_scan.py` | 71 files, **0 violations** |
 | fusion | `python scripts/verify_fusion_upgrade.py` | **17/17** |
 | ivsa | `cd integrative-rehab-vsa && python main.py` | **21/21** |
 
@@ -192,15 +192,17 @@ Golden values unchanged: `diff0=2fc892cf9af6e755`, `tamper=f42c8229ee5acd73`, `s
 - 14-dimension lock: `reports/b0_lock_v4fusion.json`
 - Ticket: `data/B0_基线票据_v4fusion.md`
 - Skill auto-match (1229 → 365 candidates, deterministic, offline, zero external skills executed): `python scripts/b0_match.py` → `data/B0_自动匹配技能.csv`
-- Batch progress: `data/B0_批次进度.csv` (B0–B7 in progress: B7-1 ticket awaiting signature, **B8 next**)
+- Batch progress: `data/B0_批次进度.csv` (B0–B8 complete: B7-1 signed by 潘荟丞 on 2026-11-02 with cumulative 4/15, B8 dual-repo sync green; **B9 next**)
 - B4 rehab pilot: `data/rehab_pilot_20.json` + `data/B4_康复域试点票据.md` — 20 contracts (12 general / 8 medical), 4 negative probes rejected, `python scripts/check_rehab_pilot.py` (R1–R9)
 - B5 semantic family: `data/semantic_family.json` + `data/semantic_modules.json` + `data/B5_语义技能族票据.md` — 60 members on the ivsa ten modules (no uncovered module, no 11th module), base 19 index entries → 16 unique + 44 expanded, 4 rehab bridge candidates registered not admitted, `python scripts/check_semantic_family.py` (S1–S9)
 
 - B6 hebbian persistence: `data/hebbian_store.json` (6218 B, 23 edges / 28 nodes / 9 seeds, sha256 `399505b0e695…de282`) + `data/channel_quota.csv` (17 rows: 12 mapped / 5 pending, quota 1200, load 24) + `data/B6_赫布落盘票据.md`; restart proof = real child interpreter, top-k byte-identical; `python scripts/check_hebbian_store.py` (H1–H9), sidecar 51 → 61
 
-- B7 admission: `data/admission_rules.json` (≤5/批, ≤15 累计, 4 gates, signature) + `data/admission_ledger.csv` (4 rows, decision `WAITING_SIGNATURE`) + `data/B7_准入票据_B7-1.md`; `python scripts/admit_batch.py --check` → `WAITING_SIGNATURE, failed=[]`, sidecar 61 → 71
+- B7 admission: `data/admission_rules.json` (≤5/批, ≤15 累计, 4 gates, signature) + `data/admission_ledger.csv` (4 rows, decision `ADMITTED`, signer 潘荟丞 / 2026-11-02, cumulative 4/15) + `data/B7_准入票据_B7-1.md`; `python scripts/admit_batch.py --check` → `PASS, admitted=4, remaining=11`, sidecar 61 → 71
 
-Next batch **B8 dual-repo open-source sync** stays blocked until this ticket is re-run green.
+- B8 dual-repo sync: `data/ivsa_plugin_v1.2.json` (plugin `SG-B8-IVSA-V1.2-PLUGIN`, disabled by default, 6 capabilities read-only) + `SHA256SUMS` (167 files, digest `b35f50f52ff28138…`) + `data/dual_repo_sums.json` (ivsa 91 entries recomputed 91/91, 17-channel groups 5/4/4/4) + `data/许可分层清单.csv` (5 rows, 0 mixed) + `data/B8_双仓开源同步票据.md`; `python scripts/verify_b8_dual_sync.py` → 11/11, sidecar 71 → 82
+
+Next batch **B9 close-out** (five-file delivery + nine-field freeze) is the only batch left; nothing else may open before it.
 ## Five-site sync DNA (刚性)
 
 `data/FIVE_SITE_SYNC_DNA.md` + `data/five_site_dna.json` — `SG-DNA-FIVE-SITE-SYNC-V1.1`

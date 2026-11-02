@@ -1,13 +1,14 @@
 
-> ## V4 · 冷热插拔赋能升级（2026-11-02）· B0–B7 进行中（B7-1 票据已出、待签字），下一批 B8
+> ## V4 · 冷热插拔赋能升级（2026-11-02）· B0–B8 已完成（B7-1 签字 潘荟丞 / 2026-11-02、累计 4/15；B8 双仓同步绿），下一批 B9
 >
-> - 七闸全绿：`v3_gate 32/32` · `unittest 34 OK` · `旁挂 71 OK` · `selftest 25/25` · `skill_matrix 17/17` · `redline 零违规` · `fusion 17/17` · `ivsa 21/21`
+> - 七闸全绿：`v3_gate 32/32` · `unittest 34 OK` · `旁挂 82 OK` · `selftest 25/25` · `skill_matrix 17/17` · `redline 零违规` · `fusion 17/17` · `ivsa 21/21`
 > - 14 维锁 + 黄金值未漂：`diff0=2fc892cf9af6e755` / `tamper=f42c8229ee5acd73`，`spec.VERSION=0.9.1` 未动
 > - 技能自动匹配 `1229 → 365` 条候选（索引 digest `9a565741e1f72ab7`）；**`智能体/技能/领域包 = 25/47/9` 不变**
 > - **B4 康复域试点 20 例**：general 12 ／ medical 8；机制 hebbian 11 · skin_v6 4 · 心跳 3 · 骨架 2；4 条负例探针全部被拒（`python scripts/check_rehab_pilot.py`，R1–R9）
 > - **B5 语义技能族 60 条**：落 ivsa 十模块（溯源/采集/去重/蒸馏/嵌入/检索/时序/聚类/注入/运维），无空模块、无第十一模块；基座 16 个唯一技能 + 扩容 44 条；4 条康复桥接候选已登记、未准入（`python scripts/check_semantic_family.py`，S1–S9）
 > - **B6 赫布落盘**：23 边 / 28 节点 / 9 种子，落盘摘要 `399505b0e695…de282`；独立解释器从盘上复原后 top-k **逐字相等**（三条相等全 true，`python scripts/check_hebbian_store.py` H1–H9）；**17 通道配额表** 12 mapped + 5 pending，配额 1200、负载 24
 > - **B7 分批准入闸上线**：B5 的 4 条桥接候选上同一张票，四硬闸全绿（v3_gate/unittest/skill_matrix/redline），每批 ≤5 / 累计 ≤15 由代码硬判；**未签字即 `WAITING_SIGNATURE`**，一条都不进执行层（`python scripts/admit_batch.py --check`）
+> - **B8 双仓开源同步**：ivsa v1.2 插件**默认关闭**（未显式启用即 0 能力，宿主维度不受影响）；宿主 `SHA256SUMS` 167 件，ivsa 自有清单 91 件复算 91/91；17 通道分组 `5/4/4/4 = 17` 两侧相等；许可分层 Apache-2.0 / MPL-2.0 / data-only，混用 0（`python scripts/verify_b8_dual_sync.py` → 11/11）
 > - 五地同步刚性 DNA `SG-DNA-FIVE-SITE-SYNC-V1.1`：本地 · Gitee · GitHub · 向量海 · Hugging Face（飞书 docx 作阅读入口）
 >
 > V4 唯一入口：[`README_FUSION_V4_20261102.md`](README_FUSION_V4_20261102.md) ·

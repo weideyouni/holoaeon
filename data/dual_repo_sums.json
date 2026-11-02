@@ -1,0 +1,75 @@
+{
+  "batch": "B8",
+  "evidence_class": "simulated",
+  "generated_at": "2026-11-02",
+  "holoaeon": {
+    "entries": 167,
+    "exclude_reason": "清单自身与派生件不入清单，避免自指循环",
+    "excludes": [
+      "SHA256SUMS",
+      "data/dual_repo_sums.json",
+      "data/B8_双仓开源同步票据.md",
+      "reports/b8_dual_sync.json",
+      "reports/b8_dual_sync_check.json"
+    ],
+    "manifest": "SHA256SUMS",
+    "root": "F:/doubaowork/holoaeon",
+    "sums_sha256": "b35f50f52ff2813898daa445ca70f6410547ef0e78426680966eb062bd25c85f"
+  },
+  "interface": {
+    "expected_total": 17,
+    "holo_file": "data/channel_quota.csv",
+    "ivsa_file": "data/meridian_channels_17.csv",
+    "result": {
+      "alias": {
+        "气": "qi",
+        "淋巴": "lymph",
+        "神": "shen",
+        "血": "blood"
+      },
+      "equal": true,
+      "groups_holo_mapped": {
+        "blood": 4,
+        "lymph": 4,
+        "qi": 5,
+        "shen": 4
+      },
+      "groups_ivsa": {
+        "blood": 4,
+        "lymph": 4,
+        "qi": 5,
+        "shen": 4
+      },
+      "total_expected": 17,
+      "total_holo": 17,
+      "total_ivsa": 17
+    }
+  },
+  "ivsa": {
+    "entries": 91,
+    "manifest": "SHA256SUMS",
+    "recompute": {
+      "bad_bytes": [],
+      "bad_sha256": [],
+      "checked": 91,
+      "extra": [],
+      "missing": [],
+      "ok": true
+    },
+    "root": "F:/doubaowork/开源发布_中西医融合康复工程_20261026/integrative-rehab-vsa",
+    "sums_sha256": "9400b4811ab3b4870dc1b29b74dd14f9d74b491759324aa7af53451c58fc73bf"
+  },
+  "license_layering": {
+    "file": "data/许可分层清单.csv",
+    "mixed": [],
+    "rows": 5
+  },
+  "plugin": {
+    "enabled_by_default": false,
+    "file": "data/ivsa_plugin_v1.2.json",
+    "plugin_id": "SG-B8-IVSA-V1.2-PLUGIN",
+    "seal": "aa60dd93f8b7b4e72b17dbeb183505a85df5a394fcccd67947ec741762a428dd"
+  },
+  "sums_id": "SG-B8-DUAL-REPO-SUMS-V1",
+  "verdict": "PASS"
+}

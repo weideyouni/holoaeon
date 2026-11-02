@@ -6,8 +6,8 @@
   "package_root": "F:\\doubaowork\\HoloAeon_V4冷热插拔赋能升级_20261102",
   "repo_root": "F:\\doubaowork\\holoaeon",
   "counts": {
-    "package": 18,
-    "repo": 71,
+    "package": 22,
+    "repo": 82,
     "missing": 0
   },
   "package": {
@@ -28,8 +28,8 @@
       "sha256": "7fddaac5626d6144300e8fdda44f0829c59b8082f2346d1a024a8d8064cc046c"
     },
     "05_README_V4_赋能升级.md": {
-      "bytes": 8669,
-      "sha256": "da7598e3daf14108d25aecd3c37f9fb9d85a4189a85490eb14b8ab2022a6ec66"
+      "bytes": 8904,
+      "sha256": "c9d0650c7c4197d5b94a0b6dd95b527888eb64fabb36209a7c0981c0ade1e79c"
     },
     "06_验收票据.md": {
       "bytes": 9562,
@@ -47,9 +47,21 @@
       "bytes": 83726,
       "sha256": "9bad2e79be10d7aa774de1a4d03a265df4ee8e3556065c356add5e15cda06cd8"
     },
+    "data/B8_双仓开源同步票据.md": {
+      "bytes": 5667,
+      "sha256": "38062c428e0e2ab65f6199d01f7bd238077be5b1e1767e6923cd17521d38522a"
+    },
     "data/FIVE_SITE_SYNC_DNA.md": {
       "bytes": 10105,
       "sha256": "953f4239eaecaedf3082c59a82f4efc3e3b4d5edc5131ec5b3464e8e45e2dbf1"
+    },
+    "data/dual_repo_sums.json": {
+      "bytes": 1946,
+      "sha256": "544e213e6b33c9de62a5b1ddbae2456da7aca70c6864dcb9b4d44e00b35e9048"
+    },
+    "data/ivsa_plugin_v1.2.json": {
+      "bytes": 1089,
+      "sha256": "2cd49306df44ff04b5b0522019dd38949d8aaa3d64f23971a0be33c9697754db"
     },
     "data/全域技能匹配清单.csv": {
       "bytes": 44223,
@@ -64,8 +76,12 @@
       "sha256": "ac183dd7e56560dffc4bb25f2b01b07a6458c97aff8bc6e7ffeb0a50e2fa6147"
     },
     "data/十二批台账.csv": {
-      "bytes": 4140,
-      "sha256": "1fca5f7be9390d868665fadcf42a18d57205ce9ad22d152f615312fbb8fe0281"
+      "bytes": 4274,
+      "sha256": "e8cb5d7ffcb4f293e65a8b1b3059b9e8970e283eea3a81b0c7c038ef80ba43a6"
+    },
+    "data/许可分层清单.csv": {
+      "bytes": 491,
+      "sha256": "33af29f94ecfd5c790253f5216e477b410fcd0d3838d029027d37ca3c29f4861"
     },
     "holoaeon_v4_fusion_upgrade_20261102.zip": {
       "bytes": 83863,
@@ -87,16 +103,20 @@
   },
   "repo": {
     "README_FUSION_V4_20261102.md": {
-      "bytes": 11788,
-      "sha256": "e8307dc65e337a70ce07490f2e3f10e93481f27281d5c56f707ed5171b16394f"
+      "bytes": 12366,
+      "sha256": "707bab899531116d3c16351ce7729e95bd8d44e413bcb8aca7ff80389d988ef6"
+    },
+    "SHA256SUMS": {
+      "bytes": 15893,
+      "sha256": "b35f50f52ff2813898daa445ca70f6410547ef0e78426680966eb062bd25c85f"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
       "sha256": "b98f27923178bfd982e0b9329fade05b6c1590b628650b130635e7568804370f"
     },
     "data/B0_批次进度.csv": {
-      "bytes": 1127,
-      "sha256": "cde273090c3bd4934d3a44a1f22e4f0b2a8e149f9590f99f31b9715cf019e7c9"
+      "bytes": 1236,
+      "sha256": "e6f92ec24546dc2f837552184e0d965163f86013c0e2ddffe2fc89b3648f84f4"
     },
     "data/B0_自动匹配技能.csv": {
       "bytes": 83726,
@@ -115,16 +135,20 @@
       "sha256": "acb6c020498d41dd81a95ee1238bc4cd367f4739b05d741b7a2eb332930ef44e"
     },
     "data/B7_准入票据_B7-1.md": {
-      "bytes": 2758,
-      "sha256": "3c5bf42a6eb5ebaee0fef55263870cc7c727266341eb22df90544147dbb863c7"
+      "bytes": 2722,
+      "sha256": "63408d243193319bcfd68e6a101f362e6e6552234089a5f00cfa7f1ecd28790c"
+    },
+    "data/B8_双仓开源同步票据.md": {
+      "bytes": 5667,
+      "sha256": "38062c428e0e2ab65f6199d01f7bd238077be5b1e1767e6923cd17521d38522a"
     },
     "data/FIVE_SITE_SYNC_DNA.md": {
       "bytes": 10105,
       "sha256": "953f4239eaecaedf3082c59a82f4efc3e3b4d5edc5131ec5b3464e8e45e2dbf1"
     },
     "data/admission_ledger.csv": {
-      "bytes": 873,
-      "sha256": "f461397d3832ce63ad6fb1ef1a60d7bb566551e4958fec4dbb7d039399110b7a"
+      "bytes": 909,
+      "sha256": "bf7a7bf8597e89fb820f924dda6d0e26650102f68034e85ce0f3db60c0451b1b"
     },
     "data/admission_rules.json": {
       "bytes": 1107,
@@ -158,6 +182,10 @@
       "bytes": 8089,
       "sha256": "604111dc8a1f251ad7eadc2d79b454de2a4798b558b09d1abe1e1bfffc4473c8"
     },
+    "data/dual_repo_sums.json": {
+      "bytes": 1946,
+      "sha256": "544e213e6b33c9de62a5b1ddbae2456da7aca70c6864dcb9b4d44e00b35e9048"
+    },
     "data/five_site_dna.json": {
       "bytes": 6494,
       "sha256": "9a0e85d8243c6409649feae189f5177d8472a010b78c12301eeeb357a98a95ef"
@@ -165,6 +193,10 @@
     "data/hebbian_store.json": {
       "bytes": 6218,
       "sha256": "5238d4730543c847e708a39d8408e9028687f149cc93b450ef2c4fbd61254a95"
+    },
+    "data/ivsa_plugin_v1.2.json": {
+      "bytes": 1089,
+      "sha256": "2cd49306df44ff04b5b0522019dd38949d8aaa3d64f23971a0be33c9697754db"
     },
     "data/mechanism_map.json": {
       "bytes": 5524,
@@ -190,6 +222,10 @@
       "bytes": 2865,
       "sha256": "ce6088baea2ad16b106ab5b1b46fcaadaa82ec4936f0e372fa7b056d43990800"
     },
+    "data/许可分层清单.csv": {
+      "bytes": 491,
+      "sha256": "33af29f94ecfd5c790253f5216e477b410fcd0d3838d029027d37ca3c29f4861"
+    },
     "holoaeon/fusion_upgrade/admission.py": {
       "bytes": 8043,
       "sha256": "fa44665272716a7931aafa95b3f02043d0d3dabe29481e526b6da2efc9221f9b"
@@ -197,6 +233,10 @@
     "holoaeon/fusion_upgrade/contract.py": {
       "bytes": 12137,
       "sha256": "565ba9e7b69b4a04685ab381621c37eb5fe86af4753337b0f0bba12f739123fe"
+    },
+    "holoaeon/fusion_upgrade/dual_sync.py": {
+      "bytes": 9735,
+      "sha256": "6ba8f24cf19322e5f0f832d215c4739f704fe009e6a44eb7a6167ebfe695e90e"
     },
     "holoaeon/fusion_upgrade/hebbian_store.py": {
       "bytes": 8303,
@@ -230,6 +270,14 @@
       "bytes": 858,
       "sha256": "ea7f22c9263f33b5f4d58dcc699e5be0e4e8f8bec894f64178a3bcb4db57c46d"
     },
+    "reports/b8_dual_sync.json": {
+      "bytes": 612,
+      "sha256": "877556530630282d51755553e25fc7b027d807664df8ab7c039af00c8192108c"
+    },
+    "reports/b8_dual_sync_check.json": {
+      "bytes": 1773,
+      "sha256": "08de469fa2e51ebdef75917e7c2d349728c6dc852c1099a148e65ffa50b2a258"
+    },
     "reports/contract_v1_check.json": {
       "bytes": 635,
       "sha256": "6a0dfcc47a75c5445c81df27be62e27d126b96081c65ab3927d7486316ab67e6"
@@ -249,6 +297,10 @@
     "scripts/b0_match.py": {
       "bytes": 6178,
       "sha256": "bbbe9b9b475da8098c5733a3569956c2cd7bcf10eb2cb286a7d82c3bbef06681"
+    },
+    "scripts/build_b8_dual_sync.py": {
+      "bytes": 6418,
+      "sha256": "8513ffc9390e4ea6e0cb13f6044c02861a02456b00623a50757bd16af13bdae5"
     },
     "scripts/build_mechanism_map.py": {
       "bytes": 3919,
@@ -307,8 +359,8 @@
       "sha256": "1b39f26b4d08a16734b3e7341603dafbbee45803052af726cf5044014e216f2d"
     },
     "scripts/five_site_dna.py": {
-      "bytes": 11508,
-      "sha256": "e833821a35bb3229800646a8640305b67e2ba24200751cb3399c1ed45159bacb"
+      "bytes": 12045,
+      "sha256": "26c6972e0ab5614ebc3b837b197034f48efb383ac9838dec52c48410da0e1995"
     },
     "scripts/freeze_contract_v1.py": {
       "bytes": 3616,
@@ -338,6 +390,10 @@
       "bytes": 5726,
       "sha256": "434f779fd4d962268f63e9ae671635c3cfa22d91d9e2f5f7a9ceb92b96224a41"
     },
+    "scripts/verify_b8_dual_sync.py": {
+      "bytes": 5907,
+      "sha256": "7c4d19da8c0faa993e9d51b4b3413aa63c5294d9d9ff5e8d0b069e6a8067f20f"
+    },
     "tests_contract/test_admission_gate.py": {
       "bytes": 4561,
       "sha256": "a928905c98ae8597fb9f73145b62d88d2be671245c117922e556314be0d46706"
@@ -349,6 +405,10 @@
     "tests_contract/test_contract_v1.py": {
       "bytes": 6260,
       "sha256": "1c72a943a0f5e01d54f1a17ca656398bc3186d70c6a165eeddb38c21ed5be29e"
+    },
+    "tests_contract/test_dual_sync.py": {
+      "bytes": 5697,
+      "sha256": "5afb5cb34718849bf552354faa84579409167727eceb599daeb8ec6e282361f0"
     },
     "tests_contract/test_hebbian_store.py": {
       "bytes": 4314,

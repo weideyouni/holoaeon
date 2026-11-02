@@ -1,0 +1,104 @@
+{
+  "batch": "B8",
+  "check_id": "SG-B8-DUAL-SYNC-CHECK-V1",
+  "checks": [
+    {
+      "detail": {
+        "enabled_by_default": false,
+        "plugin_id": "SG-B8-IVSA-V1.2-PLUGIN"
+      },
+      "id": "V1",
+      "ok": true
+    },
+    {
+      "detail": {
+        "off": "disabled",
+        "on_loaded": 6
+      },
+      "id": "V2",
+      "ok": true
+    },
+    {
+      "detail": {
+        "agents": 25,
+        "packs": 9,
+        "skills": 47
+      },
+      "id": "V3",
+      "ok": true
+    },
+    {
+      "detail": {
+        "bad": 0,
+        "checked": 167,
+        "missing": 0
+      },
+      "id": "V4",
+      "ok": true
+    },
+    {
+      "detail": {
+        "bad": 0,
+        "checked": 91,
+        "missing": 0
+      },
+      "id": "V5",
+      "ok": true
+    },
+    {
+      "detail": {
+        "groups": {
+          "blood": 4,
+          "lymph": 4,
+          "qi": 5,
+          "shen": 4
+        },
+        "total": 17
+      },
+      "id": "V6",
+      "ok": true
+    },
+    {
+      "detail": {
+        "mixed": [],
+        "rows": 5
+      },
+      "id": "V7",
+      "ok": true
+    },
+    {
+      "detail": {
+        "ivsa_imports": []
+      },
+      "id": "V8",
+      "ok": true
+    },
+    {
+      "detail": {
+        "recomputed": "b35f50f52ff2813898daa445ca70f6410547ef0e78426680966eb062bd25c85f",
+        "recorded": "b35f50f52ff2813898daa445ca70f6410547ef0e78426680966eb062bd25c85f"
+      },
+      "id": "V9",
+      "ok": true
+    },
+    {
+      "detail": {
+        "self_ref": []
+      },
+      "id": "V10",
+      "ok": true
+    },
+    {
+      "detail": {
+        "unknown_capability_rejected": true
+      },
+      "id": "V11",
+      "ok": true
+    }
+  ],
+  "evidence_class": "simulated",
+  "failed": [],
+  "passed": 11,
+  "total": 11,
+  "verdict": "PASS"
+}

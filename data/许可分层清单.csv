@@ -1,0 +1,6 @@
+repo,layer,license,allowed_in_host,allowed_in_guest,note
+holoaeon,host_code,Apache-2.0,,no,宿主源码不得整包搬进 MPL 仓
+holoaeon,host_data,Apache-2.0,,read_only,数据件只读引用，不落库
+integrative-rehab-vsa,guest_code,MPL-2.0,no,,MPL 文件级 copyleft，禁止拷入 Apache 仓
+integrative-rehab-vsa,guest_data,MPL-2.0,digest_only,,只取摘要与分组计数，不复制内容
+exchange,interface,data-only,yes,yes,17 通道分组口径，双方各自本地复算

@@ -1,0 +1,42 @@
+{
+  "batch": "B8",
+  "capabilities": [
+    "channel_groups_17",
+    "heartbeat_70_registry",
+    "rehab_organs_11",
+    "chronic_diseases_7",
+    "rehab_cases_20",
+    "capability_dimensions_147"
+  ],
+  "default_state": "disabled",
+  "dimension_contract": {
+    "agents": 25,
+    "packs": 9,
+    "skills": 47
+  },
+  "enabled_by_default": false,
+  "evidence_class": "simulated",
+  "exchange_mode": "contract_and_data_only",
+  "guest": {
+    "license": "MPL-2.0",
+    "name": "integrative-rehab-vsa",
+    "role": "guest"
+  },
+  "host": {
+    "license": "Apache-2.0",
+    "name": "holoaeon",
+    "role": "host"
+  },
+  "interface": {
+    "holo": "data/channel_quota.csv",
+    "ivsa": "data/meridian_channels_17.csv",
+    "key": "group",
+    "total": 17
+  },
+  "license_rule": "MPL-2.0 文件不进 Apache 仓；只读数据件，不拷源码",
+  "note": "未 enable 时宿主 25/47/9 与 ivsa 21/21 均不受影响",
+  "plugin_id": "SG-B8-IVSA-V1.2-PLUGIN",
+  "requires_explicit_enable": true,
+  "seal": "aa60dd93f8b7b4e72b17dbeb183505a85df5a394fcccd67947ec741762a428dd",
+  "version": "1.2"
+}
