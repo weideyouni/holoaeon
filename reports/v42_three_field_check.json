@@ -1,0 +1,144 @@
+{
+  "batch": "V4.2-B1",
+  "cards": 13,
+  "checks": [
+    {
+      "detail": {
+        "fields": [
+          "magnetic",
+          "electric",
+          "liquid"
+        ],
+        "name_cn": [
+          "磁场",
+          "电场",
+          "液态场"
+        ]
+      },
+      "id": "V1",
+      "ok": true
+    },
+    {
+      "detail": {
+        "cards": 13,
+        "expected": {
+          "electric": 3,
+          "liquid": 5,
+          "magnetic": 5
+        },
+        "split": {
+          "electric": 3,
+          "liquid": 5,
+          "magnetic": 5
+        }
+      },
+      "id": "V2",
+      "ok": true
+    },
+    {
+      "detail": {
+        "bad": [],
+        "electric_cards": [
+          "TF-E-01",
+          "TF-E-02",
+          "TF-E-03"
+        ]
+      },
+      "id": "V3",
+      "ok": true
+    },
+    {
+      "detail": {
+        "bad": [],
+        "doc_evidence_class": "simulated",
+        "tier_split": {
+          "L1": 1,
+          "L2": 2,
+          "L3": 1,
+          "L4": 4,
+          "L5": 1,
+          "none": 4
+        }
+      },
+      "id": "V4",
+      "ok": true
+    },
+    {
+      "detail": {
+        "dose_hits": []
+      },
+      "id": "V5",
+      "ok": true
+    },
+    {
+      "detail": {
+        "efficacy_hits": []
+      },
+      "id": "V6",
+      "ok": true
+    },
+    {
+      "detail": {
+        "gap_no_plan": [],
+        "no_guard": [],
+        "weak_guard": []
+      },
+      "id": "V7",
+      "ok": true
+    },
+    {
+      "detail": {
+        "changed": false,
+        "guest_rows": 13,
+        "sha16": "9b394423a20233c9"
+      },
+      "id": "V8",
+      "ok": true
+    },
+    {
+      "detail": {
+        "agents": 25,
+        "packs": 9,
+        "skills": 47
+      },
+      "id": "V9",
+      "ok": true
+    }
+  ],
+  "evidence_class": "simulated",
+  "failed": [],
+  "field_split": {
+    "electric": 3,
+    "liquid": 5,
+    "magnetic": 5
+  },
+  "gap_cards": [
+    "TF-M-05",
+    "TF-E-01",
+    "TF-E-02",
+    "TF-E-03"
+  ],
+  "gap_structured": [
+    "TF-M-05",
+    "TF-E-01",
+    "TF-E-02",
+    "TF-E-03"
+  ],
+  "gate_id": "SG-V42-THREE-FIELD-CHECK-V1",
+  "guest_sanchang": {
+    "rows": 13,
+    "sha16": "9b394423a20233c9"
+  },
+  "passed": 9,
+  "registry_id": "SG-V42-THREE-FIELD-CARDS-V1",
+  "tier_split": {
+    "L1": 1,
+    "L2": 2,
+    "L3": 1,
+    "L4": 4,
+    "L5": 1,
+    "none": 4
+  },
+  "total": 9,
+  "verdict": "PASS"
+}

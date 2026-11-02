@@ -1,0 +1,74 @@
+{
+  "registry_id": "SG-V41-PLUGIN-CAPABILITY-REGISTRY-V1",
+  "batch": "V4.1-B1",
+  "version": "v1",
+  "plugin_ref": "data/ivsa_plugin_v1.2.json",
+  "evidence_class": "simulated",
+  "guest_root_env": "HOLOAEON_GUEST_ROOT",
+  "license_rule": "MPL-2.0 客仓数据件只读引用：只取列名、行数与名字计数，不复制内容、不 import、不写回",
+  "enable_secrets": ["潮起开门", "好嘞玉安"],
+  "reasoning_rule": "六项能力只做事实检索与口径对齐；不产出诊断、不产出剂量、不产出疗效结论",
+  "capabilities": [
+    {
+      "id": "channel_groups_17",
+      "name_cn": "17 通道分组",
+      "guest_file": "data/meridian_channels_17.csv",
+      "host_mirror": "data/channel_quota.csv",
+      "expected_rows": 17,
+      "key_columns": ["code", "group", "name_cn", "metric"],
+      "anchors": ["通道", "经络", "分组", "气血神淋巴", "channel"],
+      "reasoning_role": "把问题里的通道名/分组解析到 17 个 LC 通道，给出分组计数与预算-负载口径",
+      "redline": "不做 12→17 算术推导；未映射通道只登记待办"
+    },
+    {
+      "id": "heartbeat_70_registry",
+      "name_cn": "70 心跳登记",
+      "guest_file": "data/heartbeat_70_registry.csv",
+      "expected_rows": 70,
+      "key_columns": ["code", "name", "group", "role"],
+      "anchors": ["心跳", "heartbeat", "节拍", "体"],
+      "reasoning_role": "把问题归属到 70 个心跳体之一，返回其分组与角色，不做数值外推",
+      "redline": "70 与 1229 两套编号不互推"
+    },
+    {
+      "id": "rehab_organs_11",
+      "name_cn": "11 器官挂载",
+      "guest_file": "data/rehab_organs_11.csv",
+      "expected_rows": 11,
+      "key_columns": ["code", "name", "domain", "organ", "primary_channel"],
+      "anchors": ["器官", "organ", "挂载", "主导通道"],
+      "reasoning_role": "给出器官与其主导通道、所属包的挂载关系，用于跨机理定位",
+      "redline": "不做器官功能诊断"
+    },
+    {
+      "id": "chronic_diseases_7",
+      "name_cn": "7 慢病康复焦点",
+      "guest_file": "data/chronic_diseases_7.csv",
+      "expected_rows": 7,
+      "key_columns": ["code", "name", "rehab_focus"],
+      "anchors": ["慢病", "康复焦点", "chronic"],
+      "reasoning_role": "把问题映射到 7 个慢病康复焦点标签，只给焦点名，不给治疗建议",
+      "redline": "不做分期判断、不写治疗方案"
+    },
+    {
+      "id": "rehab_cases_20",
+      "name_cn": "20 康复例",
+      "guest_file": "data/rehab_cases_20.csv",
+      "expected_rows": 20,
+      "key_columns": ["code", "title", "category"],
+      "anchors": ["康复例", "病例", "case", "试点"],
+      "reasoning_role": "返回可引用的康复例编号与类别，作为流程编排的样例锚点",
+      "redline": "样例不等于临床证据，禁止写成疗效"
+    },
+    {
+      "id": "capability_dimensions_147",
+      "name_cn": "147 能力维度",
+      "guest_file": "data/capability_dimensions_147.csv",
+      "expected_rows": 147,
+      "key_columns": ["code", "group", "label"],
+      "anchors": ["能力维度", "147", "维度", "dimension"],
+      "reasoning_role": "给出能力维度分组与标签，用于技能-维度对齐检索",
+      "redline": "147 与 17 不互推，两套编号各自独立"
+    }
+  ]
+}

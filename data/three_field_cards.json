@@ -1,0 +1,370 @@
+{
+  "registry_id": "SG-V42-THREE-FIELD-CARDS-V1",
+  "batch": "V4.2-B1",
+  "version": "v1",
+  "frozen_at": "2026-11-02",
+  "evidence_class": "simulated",
+  "scope_rule": "三场 = 磁场 / 电场 / 液态场（1331 三场药理口径）。本件只做卡片登记与缺口补齐，不做疗效判定、不写剂量、不接设备。",
+  "license_rule": "客仓 sanchang_field_evidence.csv 只读互认：只对齐卡片数与场分布，不复制其正文；本件文字为宿主自写。",
+  "guest_cross_check": {
+    "guest_file": "data/sanchang_field_evidence.csv",
+    "expected_rows": 13,
+    "expected_split": {
+      "magnetic": 5,
+      "electric": 3,
+      "liquid": 5
+    },
+    "rule": "只比行数与场分布；命名、人群、来源一律不抄"
+  },
+  "fields": [
+    {
+      "id": "magnetic",
+      "name_cn": "磁场",
+      "anchors": [
+        "磁场",
+        "磁",
+        "rTMS",
+        "PEMF",
+        "magnetic"
+      ],
+      "card_total": 5
+    },
+    {
+      "id": "electric",
+      "name_cn": "电场",
+      "anchors": [
+        "电场",
+        "电",
+        "tDCS",
+        "TENS",
+        "电针",
+        "electric"
+      ],
+      "card_total": 3
+    },
+    {
+      "id": "liquid",
+      "name_cn": "液态场",
+      "anchors": [
+        "液态场",
+        "液态",
+        "递送",
+        "囊泡",
+        "脂质体",
+        "liquid"
+      ],
+      "card_total": 5
+    }
+  ],
+  "gap_policy": {
+    "gap_means": "该卡片无人体证据或证据不足，只登记参数框架与检索计划，不给结论",
+    "补齐定义": "补齐 = 把空白卡补成结构化可执行卡（参数维度、证据等级 none、检索关键词、禁止顶替），不等于补出证据",
+    "no_substitute": "禁止用同场其他模态证据顶替；禁止跨场顶替（磁证据不得顶电，电证据不得顶磁）",
+    "no_human_extrapolate": "体外/动物/离体结果不得写成人体结论"
+  },
+  "cards": [
+    {
+      "card_id": "TF-M-01",
+      "field": "magnetic",
+      "modality": "rTMS 低频方案",
+      "target_domain": "卒中后运动康复方向（登记口径：方案学，不是疗效承诺）",
+      "parameter_frame": [
+        "频率段",
+        "刺激部位",
+        "强度口径（运动阈值百分比）",
+        "脉冲数与疗程"
+      ],
+      "evidence_tier": "L2",
+      "evidence_note": "方向性登记：不同指南结论不一致；只登记方案差异，不写成推荐",
+      "status": "registered",
+      "guard": "方案参数只在原始方案内成立，禁止外推到其他人群或部位",
+      "evidence_class": "simulated"
+    },
+    {
+      "card_id": "TF-M-02",
+      "field": "magnetic",
+      "modality": "rTMS 高频方案",
+      "target_domain": "卒中后运动康复方向（患侧方案登记）",
+      "parameter_frame": [
+        "频率段",
+        "刺激部位",
+        "强度口径（运动阈值百分比）",
+        "脉冲数与疗程"
+      ],
+      "evidence_tier": "L3",
+      "evidence_note": "与低频方案方向不一致、异质性高；高频与低频不可互相替代",
+      "status": "registered",
+      "guard": "不得用低频方案证据顶替高频方案",
+      "evidence_class": "simulated"
+    },
+    {
+      "card_id": "TF-M-03",
+      "field": "magnetic",
+      "modality": "PEMF 脉冲电磁场",
+      "target_domain": "骨不连 / 骨折延迟愈合方向（监管适应证登记）",
+      "parameter_frame": [
+        "频率",
+        "强度",
+        "每日暴露时长",
+        "疗程"
+      ],
+      "evidence_tier": "L1",
+      "evidence_note": "监管批准针对特定设备与特定参数，不泛化到任意设备",
+      "status": "registered",
+      "guard": "设备与参数绑定；禁止把单设备批准写成通用适应证",
+      "evidence_class": "simulated"
+    },
+    {
+      "card_id": "TF-M-04",
+      "field": "magnetic",
+      "modality": "PEMF 脉冲电磁场",
+      "target_domain": "膝骨关节炎方向（登记口径：证据有争议）",
+      "parameter_frame": [
+        "频率",
+        "强度",
+        "暴露时长",
+        "疗程"
+      ],
+      "evidence_tier": "L2",
+      "evidence_note": "证据质量中等且有争议，效应不稳定",
+      "status": "registered",
+      "guard": "禁止外推到其他关节或其他疾病",
+      "evidence_class": "simulated"
+    },
+    {
+      "card_id": "TF-M-05",
+      "field": "magnetic",
+      "modality": "rTMS 慢性期 / 痉挛 / 认知方向",
+      "target_domain": "卒中慢性期、痉挛、认知康复方向",
+      "parameter_frame": [
+        "频率段",
+        "部位",
+        "强度口径",
+        "脉冲数"
+      ],
+      "evidence_tier": "none",
+      "evidence_note": "证据不足，暂不支持任何结论",
+      "status": "gap_structured",
+      "gap_was": "空白卡（只有缺口标注）",
+      "filled_by": "补参数维度 + 检索计划 + 顶替禁令，证据等级仍为 none",
+      "guard": "不得用急性期运动功能证据顶替慢性期 / 痉挛 / 认知",
+      "retrieval_plan": {
+        "databases": [
+          "PubMed",
+          "Cochrane Library",
+          "CNKI"
+        ],
+        "keywords": [
+          "rTMS chronic stroke spasticity",
+          "rTMS cognition post-stroke",
+          "rTMS chronic phase motor function RCT"
+        ],
+        "decision": "none",
+        "next_action": "系统检索后按原始文献回填 tier 与方向"
+      },
+      "evidence_class": "simulated"
+    },
+    {
+      "card_id": "TF-E-01",
+      "field": "electric",
+      "modality": "tDCS 经颅直流电刺激",
+      "target_domain": "卒中后运动 / 认知康复方向（本轮未检索）",
+      "parameter_frame": [
+        "电流强度口径",
+        "极性（阳/阴）",
+        "刺激部位",
+        "单次时长",
+        "疗程"
+      ],
+      "evidence_tier": "none",
+      "evidence_note": "本轮未检索到证据；参数与等级均待原始文献",
+      "status": "gap_structured",
+      "gap_was": "空白卡（只有缺口标注）",
+      "filled_by": "补参数维度 + 检索计划 + 顶替禁令，证据等级仍为 none",
+      "guard": "禁止用 rTMS 证据顶替 tDCS",
+      "retrieval_plan": {
+        "databases": [
+          "PubMed",
+          "Cochrane Library",
+          "CNKI"
+        ],
+        "keywords": [
+          "tDCS stroke motor recovery",
+          "tDCS post-stroke cognition",
+          "transcranial direct current stimulation rehabilitation"
+        ],
+        "include": "人体 RCT / 系统综述；参数完整可复现",
+        "exclude": "纯动物 / 纯建模 / 参数缺失",
+        "decision": "none",
+        "next_action": "系统检索后按原始文献回填 tier 与方向，回填前保持 none"
+      },
+      "evidence_class": "simulated"
+    },
+    {
+      "card_id": "TF-E-02",
+      "field": "electric",
+      "modality": "TENS 经皮电神经刺激",
+      "target_domain": "慢性疼痛 / 姑息康复方向（本轮未检索）",
+      "parameter_frame": [
+        "频率",
+        "脉宽",
+        "电流强度口径",
+        "电极位置",
+        "疗程"
+      ],
+      "evidence_tier": "none",
+      "evidence_note": "本轮未检索到证据；只登记参数维度",
+      "status": "gap_structured",
+      "gap_was": "空白卡（只有缺口标注）",
+      "filled_by": "补参数维度 + 检索计划 + 顶替禁令，证据等级仍为 none",
+      "guard": "禁止用其他电/磁刺激证据顶替 TENS",
+      "retrieval_plan": {
+        "databases": [
+          "PubMed",
+          "Cochrane Library",
+          "CNKI"
+        ],
+        "keywords": [
+          "TENS chronic pain rehabilitation",
+          "transcutaneous electrical nerve stimulation palliative",
+          "TENS parameters dose response"
+        ],
+        "include": "人体 RCT / 系统综述；刺激参数完整",
+        "exclude": "仅动物 / 仅机制推测",
+        "decision": "none",
+        "next_action": "系统检索后按原始文献回填，回填前保持 none"
+      },
+      "evidence_class": "simulated"
+    },
+    {
+      "card_id": "TF-E-03",
+      "field": "electric",
+      "modality": "电针（电针仪）",
+      "target_domain": "卒中后 / 疼痛康复方向（本轮未检索）",
+      "parameter_frame": [
+        "频率",
+        "波形",
+        "电流强度口径",
+        "留针时长",
+        "穴位方案"
+      ],
+      "evidence_tier": "none",
+      "evidence_note": "本轮未检索到证据；电针与普通针刺、rTMS 分属不同干预",
+      "status": "gap_structured",
+      "gap_was": "空白卡（只有缺口标注）",
+      "filled_by": "补参数维度 + 检索计划 + 顶替禁令，证据等级仍为 none",
+      "guard": "禁止用普通针刺或 rTMS 证据顶替电针",
+      "retrieval_plan": {
+        "databases": [
+          "PubMed",
+          "Cochrane Library",
+          "CNKI"
+        ],
+        "keywords": [
+          "electroacupuncture stroke rehabilitation",
+          "electroacupuncture pain RCT",
+          "electroacupuncture frequency waveform parameters"
+        ],
+        "include": "人体 RCT / 系统综述；穴位与电参数完整",
+        "exclude": "仅手针 / 仅动物",
+        "decision": "none",
+        "next_action": "系统检索后按原始文献回填，回填前保持 none"
+      },
+      "evidence_class": "simulated"
+    },
+    {
+      "card_id": "TF-L-01",
+      "field": "liquid",
+      "modality": "脂质体递送",
+      "target_domain": "成分递送制剂研究方向",
+      "parameter_frame": [
+        "粒径",
+        "表面电位",
+        "包封率",
+        "载药量",
+        "给药途径"
+      ],
+      "evidence_tier": "L4",
+      "evidence_note": "体外 / 动物层面改善溶解与靶向，未证明人体疗效",
+      "status": "registered",
+      "guard": "体外 / 动物结果禁止外推人体；不构成疗效",
+      "evidence_class": "simulated"
+    },
+    {
+      "card_id": "TF-L-02",
+      "field": "liquid",
+      "modality": "柔性囊泡（透皮外用）",
+      "target_domain": "外用透皮递送研究方向",
+      "parameter_frame": [
+        "粒径",
+        "变形性",
+        "包封率",
+        "透皮通量",
+        "给药途径"
+      ],
+      "evidence_tier": "L4",
+      "evidence_note": "体外 / 离体皮肤提高透皮，未证明人体疗效",
+      "status": "registered",
+      "guard": "禁止把离体透皮写成人体疗效",
+      "evidence_class": "simulated"
+    },
+    {
+      "card_id": "TF-L-03",
+      "field": "liquid",
+      "modality": "甘油体（外用）",
+      "target_domain": "外用递送研究方向",
+      "parameter_frame": [
+        "粒径",
+        "甘油比例",
+        "包封率",
+        "透皮通量"
+      ],
+      "evidence_tier": "L4",
+      "evidence_note": "体外 / 动物改善透皮与滞留",
+      "status": "registered",
+      "guard": "体外 / 动物禁止外推人体",
+      "evidence_class": "simulated"
+    },
+    {
+      "card_id": "TF-L-04",
+      "field": "liquid",
+      "modality": "磷脂复合物（内服）",
+      "target_domain": "内服生物利用度研究方向",
+      "parameter_frame": [
+        "粒径",
+        "复合比",
+        "包封率",
+        "给药途径"
+      ],
+      "evidence_tier": "L4",
+      "evidence_note": "制剂层面改善吸收；部分人体药代数据，临床疗效以原文为准",
+      "status": "registered",
+      "guard": "药代改善不等于临床疗效；禁止写剂量、禁止承诺获益",
+      "evidence_class": "simulated"
+    },
+    {
+      "card_id": "TF-L-05",
+      "field": "liquid",
+      "modality": "植物来源纳米囊泡 / 外泌体样囊泡",
+      "target_domain": "天然产物递送前沿方向",
+      "parameter_frame": [
+        "粒径",
+        "标志物",
+        "载药量",
+        "给药途径"
+      ],
+      "evidence_tier": "L5",
+      "evidence_note": "机制假说与早期研究；质控标准未建立",
+      "status": "registered",
+      "guard": "早期研究禁止外推；质控未建立",
+      "evidence_class": "simulated"
+    }
+  ],
+  "redlines": {
+    "zero_dose": "全卡无剂量数值；参数只登记维度名",
+    "c0_not_efficacy": "证据等级与方向只做登记，不写成疗效结论",
+    "no_device": "不接设备、不下参数处方",
+    "no_diagnosis": "不做诊断与分期",
+    "emergency_120": "急症一律转 120"
+  }
+}

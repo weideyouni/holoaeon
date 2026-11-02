@@ -7,7 +7,7 @@
   "repo_root": "F:\\doubaowork\\holoaeon",
   "counts": {
     "package": 28,
-    "repo": 98,
+    "repo": 115,
     "missing": 0
   },
   "package": {
@@ -131,8 +131,8 @@
       "sha256": "bd5ab5ac758806f9aa2c56787ed7ece5249bb8d58f45784358d5ffc9b763b5aa"
     },
     "SHA256SUMS": {
-      "bytes": 17243,
-      "sha256": "f5b84d2ddec253bb9d49ffd25df293bcfd4e1a99cbbdc571bd1af96314241b8e"
+      "bytes": 18967,
+      "sha256": "c05ff35c5ab550f4153f9e1b4df52ff01232b91956c924c9ff6438fa78ed95e6"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
@@ -210,6 +210,18 @@
       "bytes": 4254,
       "sha256": "9844a50107f2e52aac0a5d9c012cbc55de661ade7ca1a630af699b5413d7a51d"
     },
+    "data/V4.1_插件接推理票据.md": {
+      "bytes": 6755,
+      "sha256": "434e29a54481fca28e13b27b35e0febab5943ccac631148b1ced4631f96463ba"
+    },
+    "data/V4.1_语义扩容至100票据.md": {
+      "bytes": 5483,
+      "sha256": "99affc434e0436e32f4b796a0188de742789079cb2c844eeb106a159cfee9255"
+    },
+    "data/V4.2_三场卡电场补齐票据.md": {
+      "bytes": 6005,
+      "sha256": "16beb134319d07af0a6d40fc54ac609f8ad515a26f6638573be34ff9aabd76c5"
+    },
     "data/admission_ledger.csv": {
       "bytes": 3034,
       "sha256": "d5117b2396f7c15002012ef7eaafda1d0bbc56961b0deb60812dcd47b3e3a380"
@@ -248,7 +260,7 @@
     },
     "data/dual_repo_sums.json": {
       "bytes": 2127,
-      "sha256": "f42e6f635eccfd207f0ef74568482309ee5dee554f1150f8e6955fe815c0138a"
+      "sha256": "05d68fdb4c2f67adb2e917720280c8c2188a24eb1c03c7763ea7715bec39a6cf"
     },
     "data/five_site_dna.json": {
       "bytes": 8665,
@@ -266,17 +278,25 @@
       "bytes": 5524,
       "sha256": "7650bd8f4a32f444c486684c36971c48e411fa7d5f1ffe4028238fd09ba972f1"
     },
+    "data/plugin_capability_registry.json": {
+      "bytes": 3364,
+      "sha256": "8c6e5fd2740dd4cb98ac73a473810a29cf136c6f169c7b6084959afa5c917ecf"
+    },
     "data/rehab_pilot_20.json": {
       "bytes": 22793,
       "sha256": "e8168ca98ae761dc026de8dd5ebbc44ab54003fd950ed2168da641de193216fa"
     },
     "data/semantic_family.json": {
-      "bytes": 17654,
-      "sha256": "093dc48b77e85dd06e3e550810fa7878197ae14448ceb881d41ab507262032b2"
+      "bytes": 27570,
+      "sha256": "2e78ab575b798d3136df6c693a1bd6a822aab84cfdd775347f25435f016f9011"
     },
     "data/semantic_modules.json": {
       "bytes": 2244,
       "sha256": "631ff1e717bdae5f57b895ad024726cc68adc374420360539cab03176dc333e9"
+    },
+    "data/semantic_modules_v4.json": {
+      "bytes": 2404,
+      "sha256": "6b6690ceb9c943bf9377103b3cad82d8acea0074d9fb2567653592240be5d09e"
     },
     "data/skill_usage_labels.csv": {
       "bytes": 130001,
@@ -285,6 +305,10 @@
     "data/skin_lexicon_rehab.json": {
       "bytes": 2865,
       "sha256": "ce6088baea2ad16b106ab5b1b46fcaadaa82ec4936f0e372fa7b056d43990800"
+    },
+    "data/three_field_cards.json": {
+      "bytes": 12510,
+      "sha256": "eebacd3f4fce1f4f92dd969106197aa86b6727cc48465d67722eb0bdf718de36"
     },
     "data/许可分层清单.csv": {
       "bytes": 491,
@@ -306,17 +330,25 @@
       "bytes": 8303,
       "sha256": "58dd50f92cf3dc076419b4fddcca70ae4d8ffbc0972300dc09ee6b0149fb6c85"
     },
+    "holoaeon/fusion_upgrade/plugin_runtime.py": {
+      "bytes": 11728,
+      "sha256": "8ea9216280f05f5cb127779fd2b2768c15c2d7e264f25c628df866a26404a124"
+    },
     "holoaeon/fusion_upgrade/semantic_family.py": {
       "bytes": 3302,
       "sha256": "fc62eaf0d37a134d95e551c68049df5ab9904fa69115594bbd2f5aeff48ffd27"
+    },
+    "holoaeon/fusion_upgrade/three_field.py": {
+      "bytes": 6607,
+      "sha256": "271993ce99a1abb19f6e326328db8b26402c6c7d1a134e9d88b7f52424d9d096"
     },
     "reports/b0_lock_v4fusion.json": {
       "bytes": 988,
       "sha256": "43b06c5537b8e1c4b3807873793dc25136c9f0de2bd4bf4965c1d65acd6f7a41"
     },
     "reports/b5_semantic_check.json": {
-      "bytes": 1455,
-      "sha256": "e031ee2e8e7c3f22ed963179349b205d735c717ce59e0d4dbaaf98b658ef511a"
+      "bytes": 1461,
+      "sha256": "4cf742ad69df63243874497b5b5d31cc2cf8ea25020dca0f3adc6ee5a2fabc1d"
     },
     "reports/b6_hebbian_check.json": {
       "bytes": 2670,
@@ -336,11 +368,11 @@
     },
     "reports/b8_dual_sync.json": {
       "bytes": 612,
-      "sha256": "1c5b5a492cf65fae63875d0d0944ed9c6bf44ae007afadacc48af141482c0796"
+      "sha256": "7bd6b69528098b49b63eb088165fb69167bd483ab6e43c6eb6a528154a649139"
     },
     "reports/b8_dual_sync_check.json": {
       "bytes": 1773,
-      "sha256": "5e124b3d4cfed48ba9dd2c2d287e51ef6ef2fc4719a08627f368eaf935a14694"
+      "sha256": "ea2c1337f674dd56c31b7aa5a24ac59ef95787be9b1bf5bb0701fbe3f5b22c2c"
     },
     "reports/contract_v1_check.json": {
       "bytes": 635,
@@ -353,6 +385,18 @@
     "reports/gate_b0_v4.json": {
       "bytes": 6815,
       "sha256": "fc02b0f7ea892c3d9ca36aaeab47b5edad917737605b3737829cad0d7a84107b"
+    },
+    "reports/v41_plugin_runtime_check.json": {
+      "bytes": 3114,
+      "sha256": "4c075d7175468cf4a6db1efe7a48773fdddabed60ed1361e1389cdadb270654d"
+    },
+    "reports/v41_semantic_100_check.json": {
+      "bytes": 1597,
+      "sha256": "521b482378fe931d6d95f1c2336455b26e23e7116ab8a9af8b02d9dfcc940cd5"
+    },
+    "reports/v42_three_field_check.json": {
+      "bytes": 2369,
+      "sha256": "f2a5fa0c12737e510d6afce3f99a15f66b438b8eefb6fb65ae6841c24186fed6"
     },
     "scripts/admit_batch.py": {
       "bytes": 15869,
@@ -427,12 +471,12 @@
       "sha256": "e5866a88409e1715bc645797be17af2058ce45e1a74cb799912e76ea2f538cea"
     },
     "scripts/expand_semantic.py": {
-      "bytes": 9468,
-      "sha256": "1b39f26b4d08a16734b3e7341603dafbbee45803052af726cf5044014e216f2d"
+      "bytes": 9653,
+      "sha256": "53ca6e59d40f77ff29b0dedeb27a8ae06d4f6c947c17d83c5426975f2f8fb6a5"
     },
     "scripts/five_site_dna.py": {
-      "bytes": 13796,
-      "sha256": "28c71e36ec8f0952e12d7fc365590cb2861c3b84469ef52a2eaf46107ba500f7"
+      "bytes": 14517,
+      "sha256": "6d021cac9da85a3fdb80f7abfe7f4f39dbe253bf9b6748c78b54f4013c12f2dd"
     },
     "scripts/freeze_contract_v1.py": {
       "bytes": 3616,
@@ -474,6 +518,18 @@
       "bytes": 8724,
       "sha256": "06a27965a9e60ed5059bae12e92bc7bb3c7e735eae94c86f330cd407f1f2c241"
     },
+    "scripts/verify_plugin_runtime.py": {
+      "bytes": 8598,
+      "sha256": "95ad6051cd999ca8ac7ae05d998a000bf3e58bac339e4378e7863dd7cd5bfc79"
+    },
+    "scripts/verify_semantic_100.py": {
+      "bytes": 6137,
+      "sha256": "537b3b37fb281bce722281ad324111812f06d3cf0a6ee11c3c32ab9ac707d977"
+    },
+    "scripts/verify_three_field.py": {
+      "bytes": 6328,
+      "sha256": "df1ddd91c3079f65005376a1833e1a501f3a96614cdc88341c689ecccfcaa4db"
+    },
     "tests_contract/test_admission_gate.py": {
       "bytes": 4561,
       "sha256": "a928905c98ae8597fb9f73145b62d88d2be671245c117922e556314be0d46706"
@@ -506,9 +562,17 @@
       "bytes": 2609,
       "sha256": "42d7f93e7fc14a6e4ac2a14821f8f15ae5b039135f426ece516ec67312a10706"
     },
+    "tests_contract/test_plugin_runtime.py": {
+      "bytes": 2903,
+      "sha256": "2599b4143a3b8ab135d73a75ee4156aa2b48b1d87196a30225a3f2f69d2265b7"
+    },
     "tests_contract/test_rehab_pilot.py": {
       "bytes": 2541,
       "sha256": "bdc0bbaad47de289af04650691a499bfe6eebcece508d64cd78337f68b69e4e2"
+    },
+    "tests_contract/test_semantic_100.py": {
+      "bytes": 1500,
+      "sha256": "8f85783fe018036c32e97f7bb579e5e11d95afdac7ea948e970b60f73b07f283"
     },
     "tests_contract/test_semantic_family.py": {
       "bytes": 3296,
@@ -517,6 +581,10 @@
     "tests_contract/test_skill_usage_labels.py": {
       "bytes": 2642,
       "sha256": "54157ff7b03b1f38c051a83c10fd09ef637d314f473ac02f6fd17193f25ac909"
+    },
+    "tests_contract/test_three_field.py": {
+      "bytes": 1932,
+      "sha256": "03fa7097b459eea2e3d6f482837eb00e96eafdf7c432eb16f341715472341f12"
     }
   },
   "missing": []

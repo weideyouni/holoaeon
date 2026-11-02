@@ -1,0 +1,150 @@
+{
+  "batch": "V4.1-B1",
+  "checks": [
+    {
+      "detail": {
+        "enabled_by_default": false,
+        "loaded": 0,
+        "requires_explicit_enable": true
+      },
+      "id": "V1",
+      "ok": true
+    },
+    {
+      "detail": {
+        "empty": "secret_mismatch",
+        "near": "secret_mismatch",
+        "seal": true
+      },
+      "id": "V2",
+      "ok": true
+    },
+    {
+      "detail": {
+        "declared": 6,
+        "ids": [
+          "channel_groups_17",
+          "heartbeat_70_registry",
+          "rehab_organs_11",
+          "chronic_diseases_7",
+          "rehab_cases_20",
+          "capability_dimensions_147"
+        ],
+        "loaded": 6
+      },
+      "id": "V3",
+      "ok": true
+    },
+    {
+      "detail": {
+        "expected": {
+          "capability_dimensions_147": 147,
+          "channel_groups_17": 17,
+          "chronic_diseases_7": 7,
+          "heartbeat_70_registry": 70,
+          "rehab_cases_20": 20,
+          "rehab_organs_11": 11
+        },
+        "matched": true,
+        "rows": {
+          "capability_dimensions_147": 147,
+          "channel_groups_17": 17,
+          "chronic_diseases_7": 7,
+          "heartbeat_70_registry": 70,
+          "rehab_cases_20": 20,
+          "rehab_organs_11": 11
+        }
+      },
+      "id": "V4",
+      "ok": true
+    },
+    {
+      "detail": {
+        "changed": [],
+        "files": 6
+      },
+      "id": "V5",
+      "ok": true
+    },
+    {
+      "detail": {
+        "bad_calls": [],
+        "bad_modules": []
+      },
+      "id": "V6",
+      "ok": true
+    },
+    {
+      "detail": {
+        "kernel_locks": {
+          "agents": 25,
+          "packs": 9,
+          "skills": 47
+        },
+        "plugin_contract": {
+          "agents": 25,
+          "packs": 9,
+          "skills": 47
+        }
+      },
+      "id": "V7",
+      "ok": true
+    },
+    {
+      "detail": {
+        "channel_rows": [
+          17
+        ],
+        "routed": [
+          "channel_groups_17"
+        ],
+        "seal": "6704fb78e5cb"
+      },
+      "id": "V8",
+      "ok": true
+    },
+    {
+      "detail": {
+        "facts": [],
+        "guard": {
+          "action": "拒绝推理，转人工/120；不降级口径",
+          "blocked": true,
+          "matched_clinical": [],
+          "matched_dose": [
+            "mg",
+            "剂量",
+            "服用"
+          ],
+          "reasons": [
+            "dose_request"
+          ]
+        }
+      },
+      "id": "V9",
+      "ok": true
+    },
+    {
+      "detail": {
+        "bad_words": [],
+        "off": "simulated"
+      },
+      "id": "V10",
+      "ok": true
+    }
+  ],
+  "evidence_class": "simulated",
+  "failed": [],
+  "gate_id": "SG-V41-PLUGIN-RUNTIME-CHECK-V1",
+  "guest_readonly_sha16": {
+    "capability_dimensions_147": "9afc555e9bc921c8",
+    "channel_groups_17": "346ab298246f82d8",
+    "chronic_diseases_7": "0d1b5127ebbab3b0",
+    "heartbeat_70_registry": "273045073608b7fd",
+    "rehab_cases_20": "173e64dbf11e0a56",
+    "rehab_organs_11": "40aef518ee230ef9"
+  },
+  "passed": 10,
+  "plugin_id": "SG-B8-IVSA-V1.2-PLUGIN",
+  "total": 10,
+  "verdict": "PASS"
+}

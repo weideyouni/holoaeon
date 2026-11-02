@@ -68,10 +68,10 @@ def canonical(members, digests_in):
     return dict(digests_in, sha256=sha)
 
 
-def build(target):
+def build(target, spec_path=MODULES):
     idx = load_json(INDEX)["skills"]
     labels = load_labels(LABELS)
-    spec = load_json(MODULES)
+    spec = load_json(spec_path)
     modules = spec["modules"]
     default_name = spec["default_module"]
     cap = spec["targets"]["per_module_cap"]
@@ -231,10 +231,12 @@ def main(argv):
     ap = argparse.ArgumentParser()
     ap.add_argument("--target", type=int, default=60)
     ap.add_argument("--out", default=OUT)
+    ap.add_argument("--spec", default=MODULES,
+                    help="模块规格件；V4.1 用 data/semantic_modules_v4.json（cap=10, min=100）")
     ap.add_argument("--check", action="store_true")
     args = ap.parse_args(argv)
 
-    doc = build(args.target)
+    doc = build(args.target, args.spec)
     text = dump(doc, args.out)
     sha = hashlib.sha256(text.encode("utf-8")).hexdigest()
 

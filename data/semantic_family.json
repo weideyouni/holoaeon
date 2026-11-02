@@ -1,5 +1,5 @@
 {
-  "anchor_member_count": 51,
+  "anchor_member_count": 91,
   "base_count": 16,
   "base_dup_names": 3,
   "base_entry_count": 19,
@@ -43,20 +43,20 @@
   ],
   "default_route_count": 9,
   "domain_scope": "semantic_bus",
-  "expanded_count": 44,
+  "expanded_count": 84,
   "family_id": "SG-B5-SEMANTIC-FAMILY-V1",
   "inputs": {
     "index_count": 1229,
     "index_digest": "9a565741e1f72ab7",
-    "module_spec": "SG-B5-SEMANTIC-MODULES-V1",
+    "module_spec": "SG-B5-SEMANTIC-MODULES-V2",
     "usage_labels": "SG-B3-SKILL-USAGE-LABELS-V1"
   },
   "label_split": {
-    "K": 17,
-    "M": 36,
+    "K": 31,
+    "M": 62,
     "other": 7
   },
-  "member_count": 60,
+  "member_count": 100,
   "members": [
     {
       "label": "K",
@@ -82,6 +82,42 @@
       "module": "去重",
       "module_basis": "anchor",
       "skill": "wdrama-ops-similarity-v3",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "hebbian_field",
+      "module": "嵌入",
+      "module_basis": "anchor",
+      "skill": "class-brain-autoevolution",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "K",
+      "mechanism": "holographic_heartbeat",
+      "module": "嵌入",
+      "module_basis": "anchor",
+      "skill": "daxue-thread-consolidator",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "K",
+      "mechanism": "holographic_heartbeat",
+      "module": "嵌入",
+      "module_basis": "anchor",
+      "skill": "feishu-vectorsea-publish-dna",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "holographic_heartbeat",
+      "module": "嵌入",
+      "module_basis": "anchor",
+      "skill": "global-task-ledger-memory",
       "source": "B3 label M/K + module anchors",
       "status": "expanded"
     },
@@ -177,6 +213,51 @@
     },
     {
       "label": "M",
+      "mechanism": "skin_v6",
+      "module": "时序",
+      "module_basis": "anchor",
+      "skill": "inflection-mode-frequency-domain-filter",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "holographic_heartbeat",
+      "module": "时序",
+      "module_basis": "anchor",
+      "skill": "inflection-mode-local-extrema-dual-check",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "skin_v6",
+      "module": "时序",
+      "module_basis": "anchor",
+      "skill": "inflection-mode-ml-feature-enhanced",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "skin_v6",
+      "module": "时序",
+      "module_basis": "anchor",
+      "skill": "inflection-mode-multidim-joint-detection",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "holographic_heartbeat",
+      "module": "时序",
+      "module_basis": "anchor",
+      "skill": "inflection-mode-multiscale-hierarchical-fusion",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
       "mechanism": "hebbian_field",
       "module": "时序",
       "module_basis": "anchor",
@@ -199,6 +280,24 @@
       "module": "检索",
       "module_basis": "anchor",
       "skill": "bashu-tangshenwei-zhenlei-bencao",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "K",
+      "mechanism": "cytoskeleton",
+      "module": "检索",
+      "module_basis": "anchor",
+      "skill": "chr-podcast-pipeline",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "skin_v6",
+      "module": "检索",
+      "module_basis": "anchor",
+      "skill": "cross-ip-protocol-engine",
       "source": "B3 label M/K + module anchors",
       "status": "expanded"
     },
@@ -240,6 +339,15 @@
     },
     {
       "label": "K",
+      "mechanism": "unmapped",
+      "module": "检索",
+      "module_basis": "anchor",
+      "skill": "lark-attendance",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "K",
       "mechanism": "holographic_heartbeat",
       "module": "检索",
       "module_basis": "anchor",
@@ -264,6 +372,15 @@
       "skill": "lark-im",
       "source": "index:mechanism=semantic_bus",
       "status": "base_index"
+    },
+    {
+      "label": "K",
+      "mechanism": "holographic_heartbeat",
+      "module": "检索",
+      "module_basis": "anchor",
+      "skill": "lark-mail",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
     },
     {
       "label": "T",
@@ -330,10 +447,55 @@
     },
     {
       "label": "M",
+      "mechanism": "hebbian_field",
+      "module": "注入",
+      "module_basis": "anchor",
+      "skill": "buddha-science-1331x1331",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
       "mechanism": "holographic_heartbeat",
       "module": "注入",
       "module_basis": "anchor",
       "skill": "cold-hot-plug-upgrade",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "cytoskeleton",
+      "module": "注入",
+      "module_basis": "anchor",
+      "skill": "cross-matrix-coord-protocol",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "K",
+      "mechanism": "hebbian_field",
+      "module": "注入",
+      "module_basis": "anchor",
+      "skill": "harvest-s2-extract",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "cytoskeleton",
+      "module": "注入",
+      "module_basis": "anchor",
+      "skill": "hilbert-functional-activation",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "K",
+      "mechanism": "hebbian_field",
+      "module": "注入",
+      "module_basis": "anchor",
+      "skill": "holo-self-narration-490",
       "source": "B3 label M/K + module anchors",
       "status": "expanded"
     },
@@ -420,6 +582,42 @@
     },
     {
       "label": "M",
+      "mechanism": "cytoskeleton",
+      "module": "溯源",
+      "module_basis": "anchor",
+      "skill": "pkm-six-card-slots",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "hebbian_field",
+      "module": "溯源",
+      "module_basis": "anchor",
+      "skill": "qilu-super-matrix-1331x1331",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "hebbian_field",
+      "module": "溯源",
+      "module_basis": "anchor",
+      "skill": "self-narration-seven-layer",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "skin_v6",
+      "module": "溯源",
+      "module_basis": "anchor",
+      "skill": "threefield-iteration-log",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
       "mechanism": "skin_v6",
       "module": "聚类",
       "module_basis": "anchor",
@@ -451,6 +649,51 @@
       "module": "聚类",
       "module_basis": "anchor",
       "skill": "ds-self-organizing-660",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "K",
+      "mechanism": "cytoskeleton",
+      "module": "聚类",
+      "module_basis": "anchor",
+      "skill": "formula-knowledge-suite",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "K",
+      "mechanism": "cytoskeleton",
+      "module": "聚类",
+      "module_basis": "anchor",
+      "skill": "harvest-s5-classify",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "K",
+      "mechanism": "cytoskeleton",
+      "module": "聚类",
+      "module_basis": "anchor",
+      "skill": "ip-structured-decomposition-engine",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "cytoskeleton",
+      "module": "聚类",
+      "module_basis": "anchor",
+      "skill": "jingluo-knowledge-suite",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "K",
+      "mechanism": "skin_v6",
+      "module": "聚类",
+      "module_basis": "anchor",
+      "skill": "lingnan-nan-herbal",
       "source": "B3 label M/K + module anchors",
       "status": "expanded"
     },
@@ -491,6 +734,15 @@
       "status": "expanded"
     },
     {
+      "label": "K",
+      "mechanism": "cytoskeleton",
+      "module": "蒸馏",
+      "module_basis": "anchor",
+      "skill": "refine-contract",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
       "label": "M",
       "mechanism": "cytoskeleton",
       "module": "蒸馏",
@@ -501,10 +753,55 @@
     },
     {
       "label": "M",
+      "mechanism": "cytoskeleton",
+      "module": "蒸馏",
+      "module_basis": "anchor",
+      "skill": "refine-l0l3-pipeline",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
       "mechanism": "skin_v6",
       "module": "蒸馏",
       "module_basis": "anchor",
       "skill": "refine-task-directed-essence",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "cytoskeleton",
+      "module": "蒸馏",
+      "module_basis": "anchor",
+      "skill": "refine-three-stage-flow",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "cytoskeleton",
+      "module": "蒸馏",
+      "module_basis": "anchor",
+      "skill": "self-narration-knowledge-card",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "hebbian_field",
+      "module": "运维",
+      "module_basis": "anchor",
+      "skill": "agent-manager-5000-matrix",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "skin_v6",
+      "module": "运维",
+      "module_basis": "anchor",
+      "skill": "algae-pond-monthly-sop",
       "source": "B3 label M/K + module anchors",
       "status": "expanded"
     },
@@ -531,6 +828,15 @@
       "mechanism": "holographic_heartbeat",
       "module": "运维",
       "module_basis": "anchor",
+      "skill": "layered-memory-engine",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "holographic_heartbeat",
+      "module": "运维",
+      "module_basis": "anchor",
       "skill": "obd-full-link-monitoring",
       "source": "B3 label M/K + module anchors",
       "status": "expanded"
@@ -541,6 +847,24 @@
       "module": "运维",
       "module_basis": "anchor",
       "skill": "snapshot-backup-pivot",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "K",
+      "mechanism": "holographic_heartbeat",
+      "module": "运维",
+      "module_basis": "anchor",
+      "skill": "task-lifecycle-state-machine",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "K",
+      "mechanism": "holographic_heartbeat",
+      "module": "运维",
+      "module_basis": "anchor",
+      "skill": "triple-persistence-spec",
       "source": "B3 label M/K + module anchors",
       "status": "expanded"
     },
@@ -564,6 +888,15 @@
     },
     {
       "label": "M",
+      "mechanism": "cytoskeleton",
+      "module": "采集",
+      "module_basis": "anchor",
+      "skill": "knowledge-metabolism-loop",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
       "mechanism": "unmapped",
       "module": "采集",
       "module_basis": "anchor",
@@ -577,6 +910,15 @@
       "module": "采集",
       "module_basis": "anchor",
       "skill": "local-nutrient-ingestion-pipeline",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "hebbian_field",
+      "module": "采集",
+      "module_basis": "anchor",
+      "skill": "magpie-modeladapter-1331",
       "source": "B3 label M/K + module anchors",
       "status": "expanded"
     },
@@ -597,20 +939,38 @@
       "skill": "skill-harvest-workflow-meta",
       "source": "B3 label M/K + module anchors",
       "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "holographic_heartbeat",
+      "module": "采集",
+      "module_basis": "anchor",
+      "skill": "skill-harvest-workflow-v1",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
+    },
+    {
+      "label": "M",
+      "mechanism": "hebbian_field",
+      "module": "采集",
+      "module_basis": "anchor",
+      "skill": "vector-matrix-autoevol-hub",
+      "source": "B3 label M/K + module anchors",
+      "status": "expanded"
     }
   ],
   "module_count": 10,
   "module_counts": {
     "去重": 3,
-    "嵌入": 7,
-    "时序": 4,
-    "检索": 16,
-    "注入": 5,
-    "溯源": 5,
-    "聚类": 5,
-    "蒸馏": 5,
-    "运维": 4,
-    "采集": 6
+    "嵌入": 11,
+    "时序": 9,
+    "检索": 20,
+    "注入": 10,
+    "溯源": 9,
+    "聚类": 10,
+    "蒸馏": 9,
+    "运维": 9,
+    "采集": 10
   },
   "modules": [
     {
@@ -654,7 +1014,7 @@
       "name": "运维"
     }
   ],
-  "sha256": "ab26e8cbfdb5e5958cfc0e4a67cf5e89a47a09f7890699b007f1a94764e78623",
-  "target": 60,
+  "sha256": "253044a0b88bda8b262a13e1b611b83e2490c5bbf0825d0134820d46c36d6ad4",
+  "target": 100,
   "uncovered_modules": []
 }

@@ -155,6 +155,23 @@ REPO_FILES = [
     "data/V2.1_ivsa只读对账票据.md",
     "scripts/verify_ivsa_recon.py",
     "tests_contract/test_ivsa_recon.py",
+    "data/plugin_capability_registry.json",
+    "data/V4.1_插件接推理票据.md",
+    "holoaeon/fusion_upgrade/plugin_runtime.py",
+    "scripts/verify_plugin_runtime.py",
+    "tests_contract/test_plugin_runtime.py",
+    "reports/v41_plugin_runtime_check.json",
+    "data/semantic_modules_v4.json",
+    "data/V4.1_语义扩容至100票据.md",
+    "scripts/verify_semantic_100.py",
+    "tests_contract/test_semantic_100.py",
+    "reports/v41_semantic_100_check.json",
+    "data/three_field_cards.json",
+    "data/V4.2_三场卡电场补齐票据.md",
+    "holoaeon/fusion_upgrade/three_field.py",
+    "scripts/verify_three_field.py",
+    "tests_contract/test_three_field.py",
+    "reports/v42_three_field_check.json",
 ]
 
 ZIP_NAME = "holoaeon_v4_fusion_upgrade_20261102.zip"
