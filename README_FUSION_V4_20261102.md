@@ -377,8 +377,8 @@ V4.4 拼请求、V4.5 真发请求之后，补的是**接续结构**：后来者
 `tier_unchanged = true`；上调必须人工逐篇拿到原文并满足「原文可获取 / 人群分期明确 / 参数完整 / 结局定义清晰」四条，
 票据留具体引用，禁止批量上调。
 
-**门禁（命令回读）**：`verify_v5` **D1–D10 11/11 PASS**；`test_v5` **9 OK**；`tests_contract` 160 OK；
-`v3_gate` 32/32；`redline_scan` 76 文件零违规；`check_dimension_lock` 0 violation；`five_site verify` `drift=[]`。
+**门禁（命令回读）**：`verify_v5` **D1–D10 11/11 PASS**；`verify_design_vocab` **D1–D8 8/8 PASS**；`test_v5` **9 OK**；`tests_contract` 168 OK；
+`v3_gate` 32/32；`redline_scan` 82 文件零违规；`check_dimension_lock` 0 violation；`five_site verify` `drift=[]`。
 
 新增：`scripts/build_v5_rehab_kb.py`、`scripts/verify_v5.py`、`tests_contract/test_v5.py`、
 `data/v5_rehab_kb.json`、`docs/V5.0_康复域知识库与影子维度指南.md`、票据 `data/V5.0_康复域知识库入库票据.md`。

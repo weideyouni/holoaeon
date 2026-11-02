@@ -215,6 +215,18 @@ REPO_FILES = [
     "reports/v5_rehab_kb_check.json",
     "data/V5.0_康复域知识库入库票据.md",
     "docs/V5.0_康复域知识库与影子维度指南.md",
+    # ---- V5.1-B1 设计语汇旁挂引擎（11 件，不改维度）
+    "data/design_vocab_registry.json",
+    "holoaeon/design_vocab/__init__.py",
+    "holoaeon/design_vocab/vocabulary.py",
+    "holoaeon/design_vocab/detectors.py",
+    "holoaeon/design_vocab/compile_modes.py",
+    "holoaeon/design_vocab/hebbian.py",
+    "holoaeon/design_vocab/meridian.py",
+    "scripts/verify_design_vocab.py",
+    "tests_contract/test_design_vocab.py",
+    "docs/设计语汇与协作开发指南.md",
+    "reports/design_vocab_check.json",
 ]
 
 ZIP_NAME = "holoaeon_v4_fusion_upgrade_20261102.zip"

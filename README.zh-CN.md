@@ -33,12 +33,28 @@ HoloAeon 是**纯标准库、全离线、确定性**的多智能体认知框架�
 | 项 | 实测值 |
 |---|---|
 | 产出维度（锁死） | **25 智能体 / 47 技能 / 9 域包**；`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73` 未变 |
-| 最新批次 | **V5.0-B1 康复域知识库全量入库**（全量登记、零复制）· 内容提交 `aa88c37`；其后的台账 / 排版收尾提交只动文档与清单，不动包、不动维度，见 `git log -3 --oneline` |
-| 扩展卡槽 | **12 个**：occupied 6 / open 1 / reserved 4 / blocked 1（只声明不接线） |
-| 门禁 | `v3_gate 32/32` · `unittest 34 OK` · `旁挂 160 OK` · `v44 13/13` · `v45 7/7` · `v46 9/9` · `v5 11/11` · `redline 0 违规` · `drift []` |
+| 最新批次 | **V5.1-B1 设计语汇旁挂引擎**（Impeccable 范式本地化：只沿用范式，不 vendor、不复制引擎与正文）· 24 命令 / 12 规则 / 3 编译模式 / 4 经络通道，落 `holoaeon/design_vocab/` |
+| 扩展卡槽 | **12 个**：occupied 6 / open 1 / reserved 4 / blocked 1（只声明不接线；本批**不新增、不占用**槽位） |
+| 门禁 | `v3_gate 32/32` · `unittest 34 OK` · `旁挂 168 OK` · `v44 13/13` · `v45 7/7` · `v46 9/9` · `v5 11/11` · `dv 8/8` · `redline 0 违规` · `drift []` |
 | 五地同步 | 本地 · Gitee · GitHub · Hugging Face · 向量海 —— 见文末 [附录 A](#附录-a--五地同步v50-b1) |
-| 版本脉络 | V4.0 → V4.6 → V5.0 逐提交回溯 —— 见文末 [附录 B](#附录-b--版本升级说明v3--v50) |
+| 版本脉络 | V4.0 → V4.6 → V5.0 → V5.1 逐提交回溯 —— 见文末 [附录 B](#附录-b--版本升级说明v3--v51) |
 | V4 主文档 | [`README_FUSION_V4_20261102.md`](README_FUSION_V4_20261102.md) · 同步规则 [`data/FIVE_SITE_SYNC_DNA.md`](data/FIVE_SITE_SYNC_DNA.md) |
+
+### V5.1 · 设计语汇（旁挂，不改维度）
+
+把 Impeccable（[`pbakaus/impeccable`](https://github.com/pbakaus/impeccable)，Apache-2.0，作者 Paul Bakaus）的**范式**本地化——不是分支、不是移植：本仓没有它的引擎二进制，也没有它的规则原文与模板，只用「命令即词汇 + 确定性规则 + P0–P3 分级」这一套做法，规则与释义全部自写。
+
+- **24 个命令**：steer 9 / review 2 / finish 6 / iterate 2 / plan 4 + 1 个上游弃用别名，`vocabulary.command_ids()` 可回读。
+- **12 条确定性规则**：`DV-01`–`DV-12`，各带分级（P0 最该先修）与经络通道，命中给行号与证据；**不宣称与上游 62 条等量**。
+- **3 种编译模式**：`elaborate`（源码→元件/端口）· `simulate`（跑规则→分级命中）· `netlist`（命中→规则/通道网表），对应 EDA 的分析 / 仿真 / 综合。
+- **4 条经络通道**：`blood` / `lymph` / `qi` / `shen`，沿用仓内既有分组，不新增第五通道。
+- **零 LLM、零 API key、零出网**；只出建议与先修顺序，**不写回你的源码**。
+
+```powershell
+python scripts\verify_design_vocab.py   # 8 项判据，写 reports/design_vocab_check.json
+```
+
+**维度不变**：25 智能体 / 47 技能 / 9 域包不动，`data/extension_slots.json` 仍 12 条；本能力**不认领、不占用**任何 `EXT-` 槽。合作开发、扩展规则、未来槽位的走法见 [`docs/设计语汇与协作开发指南.md`](docs/设计语汇与协作开发指南.md)。
 
 ### V3 · 借鉴 LangChain 的工程形态（文档版本 0.9.3）
 
@@ -352,7 +368,7 @@ Apache License 2.0。
 
 ---
 
-## 附录 B · 版本升级说明（V3 → V5.0）
+## 附录 B · 版本升级说明（V3 → V5.1）
 
 > 口径：sha 取自 `git log` 实测；条目数 / 字节 / `sha16` 以对应批次命令回读为准，不硬编码猜测值。
 
@@ -369,6 +385,7 @@ Apache License 2.0。
 | V4.6 | `f0f1bb5` / `978dc10` / `6646315` | 12 卡槽 + 协作指南；C1–C9 9/9；卡槽实数勘误 14→12 |
 | V5.0 | `aa88c37` | 康复域知识库全量入库（14 条登记 / ivsa 300 行）；影子维度 D_REHAB 不入锁；`EXT-EVIDENCE-01` 解封而 tier 不变；D1–D10 11/11 |
 | V5.0 收尾 | `f214bd5` | 中英文首页同构重排：去陈旧大段引用，改「当前工程状态」表 + 文末两附录；首页纳入 `REPO_FILES`（152 → 154）；`06` 第五节交付表按实测重算 |
+| V5.1 设计语汇 | 本批提交（用 `git log -1 --format=%h` 回读，避免自指） | Impeccable 范式本地化：`holoaeon/design_vocab/`（24 命令 / 12 规则 / 3 编译模式 / 4 通道）+ `data/design_vocab_registry.json` + 门禁 `dv 8/8` + 契约测试 8 条（`旁挂 160 → 168`）；**25/47/9 与 12 卡槽均未变** |
 
 **一句话主线**：每批只做一件事，只加旁挂、不改锁数；每批必带判据、票据与五地同步，`drift=[]` 才允许提交。
 

@@ -1,0 +1,66 @@
+{
+  "batch": "V5.1-B1",
+  "checks": [
+    {
+      "detail": "id/许可/未vendor声明",
+      "id": "D1",
+      "ok": true
+    },
+    {
+      "detail": "命令 24 个、分组 5 个均非空",
+      "id": "D2",
+      "ok": true
+    },
+    {
+      "detail": "规则 12、分级合法、四通道覆盖",
+      "id": "D3",
+      "ok": true
+    },
+    {
+      "detail": "脏样本命中 12/12、干净样本命中 0",
+      "id": "D4",
+      "ok": true
+    },
+    {
+      "detail": "components=10 findings=18 edges=12 verdict=FAIL",
+      "id": "D5",
+      "ok": true
+    },
+    {
+      "detail": "共现边 66 条、归一无量纲",
+      "id": "D6",
+      "ok": true
+    },
+    {
+      "detail": "分流 18、最堵通道 blood",
+      "id": "D7",
+      "ok": true
+    },
+    {
+      "detail": "维度锁 {'holoaeon_agents': 25, 'holoaeon_skills': 47, 'holoaeon_domain_packs': 9}",
+      "id": "D8",
+      "ok": true
+    }
+  ],
+  "facts": {
+    "channels": 4,
+    "clean_hits": 0,
+    "commands": 24,
+    "compile_modes": 3,
+    "hebbian_edges": 66,
+    "registry_sha16": "7631bf8ea7b6caed",
+    "rules": 12,
+    "slop_hits": 18,
+    "slop_rules": 12
+  },
+  "generated_at": "2026-11-02",
+  "id": "SG-V51-DESIGN-VOCAB-CHECK-V1",
+  "lock": {
+    "holoaeon_agents": 25,
+    "holoaeon_domain_packs": 9,
+    "holoaeon_skills": 47
+  },
+  "passed": 8,
+  "total": 8,
+  "verdict": "PASS"
+}

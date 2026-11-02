@@ -1,0 +1,63 @@
+{
+  "id": "SG-V51-DESIGN-VOCAB-V1",
+  "batch": "V5.1-B1",
+  "created_at": "2026-11-02",
+  "title": "设计语汇旁挂引擎（Impeccable 范式本地化）",
+  "source": {
+    "upstream_project": "Impeccable",
+    "upstream_author": "Paul Bakaus",
+    "upstream_repo": "github.com/pbakaus/impeccable",
+    "upstream_license": "Apache-2.0",
+    "upstream_commands": 24,
+    "upstream_rules": 62,
+    "vendored": false,
+    "engine_copied": false,
+    "text_copied": false,
+    "note": "只沿用「命令即词汇 + 确定性规则 + P0–P3 分级」的范式；规则与文案均为本仓自写，不复制上游引擎与正文。"
+  },
+  "local": {
+    "commands": 24,
+    "rules": 12,
+    "compile_modes": 3,
+    "channels": 4,
+    "modules": [
+      "holoaeon/design_vocab/vocabulary.py",
+      "holoaeon/design_vocab/detectors.py",
+      "holoaeon/design_vocab/compile_modes.py",
+      "holoaeon/design_vocab/hebbian.py",
+      "holoaeon/design_vocab/meridian.py"
+    ],
+    "rule_ids": [
+      "DV-01",
+      "DV-02",
+      "DV-03",
+      "DV-04",
+      "DV-05",
+      "DV-06",
+      "DV-07",
+      "DV-08",
+      "DV-09",
+      "DV-10",
+      "DV-11",
+      "DV-12"
+    ]
+  },
+  "slot": {
+    "mode": "passive_declaration",
+    "claims_existing_slot": "none",
+    "participates_in_dimension_lock": false,
+    "extension_slots_untouched": 12,
+    "lock": {
+      "agents": 25,
+      "skills": 47,
+      "packs": 9
+    },
+    "note": "本能力是旁挂模块，不认领也不占用 EXT- 卡槽；extension_slots.json 仍为 12 条。"
+  },
+  "boundaries": [
+    "零 LLM、零 API key、零出网：判定全部由确定性文本规则给出",
+    "不接设计工具、不渲染页面、不写回用户源码",
+    "只做建议与分级，最终取舍归人（碳基终裁）",
+    "上游 62 条规则本仓不宣称等量，本地只落 12 条可复核规则，扩展需走同一张规则表并补自检"
+  ]
+}
