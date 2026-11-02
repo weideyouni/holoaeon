@@ -65,7 +65,7 @@ self-organizing search** layer (see [ALGORITHM.md](ALGORITHM.md)).
 | 项 | 实测值 |
 |---|---|
 | 产出维度（锁死） | **25 智能体 / 47 技能 / 9 域包**；`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73` 未变 |
-| 最新批次 | **V5.0-B1 康复域知识库全量入库**（全量登记、零复制）· 提交 `aa88c37` |
+| 最新批次 | **V5.0-B1 康复域知识库全量入库**（全量登记、零复制）· 内容提交 `aa88c37`；其后的台账 / 排版收尾提交只动文档与清单，不动包、不动维度，见 `git log -3 --oneline` |
 | 扩展卡槽 | **12 个**：occupied 6 / open 1 / reserved 4 / blocked 1（只声明不接线） |
 | 门禁 | `v3_gate 32/32` · `unittest 34 OK` · `sidecar 160 OK` · `v44 13/13` · `v45 7/7` · `v46 9/9` · `v5 11/11` · `redline 0 违规` · `drift []` |
 | 五地同步 | 本地 · Gitee · GitHub · Hugging Face · 向量海 —— 见文末 [附录 A](#附录-a--五地同步v50-b1-实测) |
@@ -829,16 +829,27 @@ organs, physiological structures, or supernatural entities. All simulated receip
 
 ---
 
-## 附录 A · 五地同步（V5.0-B1 实测）
+## 附录 A · 五地同步（V5.0-B1）
 
-| 站点 | 实测值 | 校验动作 |
+**口径（重要）**：本页不硬编码“当前 HEAD”，因为任何文档收尾提交都会让 HEAD 变化，写死即自指失效。
+下表数字锚定 **V5.0-B1 内容提交 `aa88c37`**（17 files / +1041 −50）时点的实测；当前值一律用右侧命令回读。
+
+| 站点 | 检查命令 | V5.0-B1 内容提交时点实测 |
 |---|---|---|
-| S1 本地 | `aa88c37`（17 files / +1041 −50） | `git log -1 --stat` |
-| S2 Gitee | `refs/heads/main = aa88c37afdf55d6afc7b1c1681cb8469c60dd061` | `git ls-remote` 回读 |
-| S3 GitHub | 同上，与本地 HEAD 三值一致（推送后延时 12 s 回读） | `git ls-remote origin refs/heads/main` |
-| S4 向量海 | 133 个文件 · 号段 118–126 · `manifest.json` 133 条 | `manifest` 逐条复算 |
-| S5 Hugging Face | `24ed2349bf99…` · 449 文件 · `mismatch=[]` | `mirror_hf.py` 实推后回读 |
-| 回执 | 28,704 B · files 133 · history 23 · zip 46 条目 / 129,181 B / `fc1c27e66a1090c6` | `five_site_dna.py preflight` P1–P7 |
+| S1 本地 | `git log -1 --stat` | `aa88c37`（17 files / +1041 −50） |
+| S2 Gitee | `git ls-remote <gitee> refs/heads/main` | `aa88c37afdf55d6afc7b1c1681cb8469c60dd061` |
+| S3 GitHub | `git ls-remote origin refs/heads/main`（推送后延时 12 s 回读） | 同上；与本地 HEAD 三值一致 |
+| S4 向量海 | `manifest.json` 逐条复算 | 133 个文件 · 号段 118–126 · 133 条 |
+| S5 Hugging Face | `mirror_hf.py --check` 后实推回读 | `24ed2349bf99…` · 449 文件 · `mismatch=[]` |
+| 回执 | `python scripts/five_site_dna.py preflight` | 28,704 B · files 133 · history 23 |
+| 交付 zip | `scripts/build_b9_zip.py` | 46 条目 / 129,181 B / `fc1c27e66a1090c6` |
+
+收尾提交（README 排版、`06` 交付表重算、`README.md` / `README.zh-CN.md` 纳入 `REPO_FILES`）之后：
+
+- 向量海 133 → **134**（新增 `127_README.md`，`126` 为主文档快照）；回执 28,704 → **29,150 B**，history 23 → **24**。
+- 交付 zip 因 `06` 重算重打为 46 条目 / **129,514 B** / **`6ff26112c2853e3f`**。
+- HF 实推 11 件后 sha 变为 **`fbb10c7b12aa…`**，仍 449 文件 / `mismatch=[]`。
+- 以上均为当次命令回读值；换批后请以命令为准，不要引用本页数字。
 
 同步纪律（写序不能颠倒）：
 
@@ -867,6 +878,7 @@ organs, physiological structures, or supernatural entities. All simulated receip
 | V4.5 | `fb5cdef` / `f0f1bb5` | 真实回环调用：embeddings 200 / 768 维；chat 200 / 41+29 tokens（C 盘 `lms import` 修复） |
 | V4.6 | `f0f1bb5` / `978dc10` / `6646315` | 12 卡槽 + 协作指南；C1–C9 9/9；卡槽实数勘误 14→12 |
 | V5.0 | `aa88c37` | 康复域知识库全量入库（14 条登记 / ivsa 300 行）；影子维度 D_REHAB 不入锁；`EXT-EVIDENCE-01` 解封而 tier 不变；D1–D10 11/11 |
+| V5.0 收尾 | `f214bd5` | GitHub 首页去陈旧大段引用：改「当前工程状态」表 + 文末两附录；`README.md` / `README.zh-CN.md` 纳入 `REPO_FILES`（152 → 154）；`06` 第五节交付表按实测重算 |
 
 **一句话主线**：每批只做一件事，只加旁挂、不改锁数；每批必带判据、票据与五地同步，`drift=[]` 才允许提交。
 
