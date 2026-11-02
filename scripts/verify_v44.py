@@ -10,7 +10,7 @@ A6  AST 红线：model_gateway.py 无网络库、无 eval/exec/compile/__import_
 A7  五种协议形状：openai/anthropic/gemini/bedrock/azure 各拼出正确字段
 A8  未配置降级：plan 返回 configured=false 且 headers 里无真值（只有占位）
 A9  用户自设定入口：配置指南存在且含 BASE_URL / API_KEY / model 三件套说明
-A10 五地零漂移：five_site_dna.verify() 的 drift 为空
+A10 五地零漂移：five_site_dna.verify() 的 drift 为空（自写回执由 REPO_FILES 派生排除，missing 不豁免）
 A11 回执齐备：票据 + 校验回执存在，且回执 passed==total
 A12 客仓只读未动：ivsa SHA256SUMS 的 sha256 仍为 9400b481…
 A13 适配层不变：ModelAdapter 8 种路由策略仍可用（冒烟登记两个后端）
@@ -44,9 +44,13 @@ REPORT = os.path.join(ROOT, "reports", "v44_model_gateway_check.json")
 TICKET = os.path.join(ROOT, "data", "V4.4_真实模型桥接票据.md")
 GUIDE = os.path.join(ROOT, "docs", "接入真实模型_配置指南.md")
 
-# 兄弟校验器的回执：它们与本脚本同属「跑一次就改写回执」的一类，
-# 若只排除自己，任何一次同批复跑都会把别人的回执算成漂移（P0-1）。
-SELF_REPORTS = (
+# 自写回执：V6.1-B2 起由「硬编码名单」改为「派生 + 产生者回填」。
+# 候选 = fsd.REPO_FILES 中的 reports/*.json；产生者 = scripts/{verify_,build_,check_,gen_}*.py
+# 正文里出现该文件名者。这样新增写型校验器不必再手改这里（A10 不再因漏登而红）。
+# 派生为空（源码缺失/目录改名）时退回 LEGACY_SELF_REPORTS 并标 self_derive="legacy"（fail-loud）。
+# 已知代价：派生只回答「谁写它」，不回答「内容是否被意外改写」；后者由各回执 owner
+# 自身的判据负责，A10 仅以差分证据（prev_sha16/curr_sha16）留痕。
+LEGACY_SELF_REPORTS = (
     "reports/v43_hardening_check.json",
     "reports/v44_model_gateway_check.json",
     "reports/v45_live_probe.json",
@@ -56,19 +60,94 @@ SELF_REPORTS = (
     "reports/design_vocab_check.json",
     "reports/five_site_manifest.json",
 )
-# 自己的回执要连「漂移计数」一起排除，否则每跑一次都会把自己算进 self_excluded，
-# 报告字节在第一跑（1 条）与第二跑（0 条）之间来回跳，回执永不幂等。
 OWN_REPORT = "reports/v44_model_gateway_check.json"
+WRITER_PREFIXES = ("verify_", "build_", "check_", "gen_")
+# 五地清单由 five_site_dna.py 自己写自己（无 verify_/build_ 前缀），单列登记；
+# 其余 reports/*.json（如 gate_b0_v4.json / b7_gates.json）是数据闸，不属自写回执，
+# 仍逐条判漂移——否则 A10 会连「闸数据被改」一起放过。
+EXTRA_SELF_REPORTS = {"reports/five_site_manifest.json": "scripts/five_site_dna.py"}
+_SELF_REPORTS_CACHE: Dict[str, str] = {}
+
+
+WRITE_MARKERS = ("json.dump", "open(", ".write", "REPORT", "PROBE",
+                "MANIFEST", "OUT =", "DEST", "PATH =")
+
+
+def _has_write_context(body: str, base: str) -> bool:
+    """只认「写上下文」里的文件名：同一行含写标记，才算该脚本写这份回执。
+
+    仅被读取（如 `load_json("reports/gate_b0_v4.json")`）或仅在 REPO_FILES 名单中
+    出现的回执，一律不算自写——否则数据闸被改会被 A10 一起放过。
+    """
+    for line in body.split("\n"):
+        if base in line and any(m in line for m in WRITE_MARKERS):
+            return True
+    return False
+
+
+def _owner_score(rel: str, fn: str) -> int:
+    """属主择优：回执名 token 与脚本名 token 的重合数（重合计 2，子串计 1）。"""
+    stem = os.path.basename(rel)[:-5] if rel.endswith(".json") else os.path.basename(rel)
+    rtok = set(x for x in stem.split("_") if len(x) > 1)
+    ftok = set(x for x in fn[:-3].split("_") if len(x) > 1)
+    score = 0
+    for r in rtok:
+        if r in ftok:
+            score += 2
+        elif len(r) >= 3 and any(r in f for f in ftok):
+            score += 1
+    return score
+
+
+def self_reports() -> Dict[str, str]:
+    """派生自写回执映射 {rel: 产生者脚本}，结果缓存（同一进程只扫一次）。
+
+    产生者候选 = scripts/ 下 verify_/build_/check_/gen_/five_site_ 开头的脚本；
+    多个脚本都提到同一回执时，按 `_owner_score` 择优（避免「谁先出现谁当属主」）。
+    """
+    if _SELF_REPORTS_CACHE:
+        return _SELF_REPORTS_CACHE
+    hits: Dict[str, List[str]] = {}
+    scripts = os.path.join(ROOT, "scripts")
+    candidates = [rel for rel in getattr(fsd, "REPO_FILES", [])
+                  if rel.startswith("reports/") and rel.endswith(".json")]
+    if os.path.isdir(scripts) and candidates:
+        for fn in sorted(os.listdir(scripts)):
+            if not fn.endswith(".py") or not fn.startswith(WRITER_PREFIXES):
+                continue
+            try:
+                body = read_text(os.path.join(scripts, fn))
+            except OSError:
+                continue
+            for rel in candidates:
+                base = os.path.basename(rel)
+                if base in body and _has_write_context(body, base):
+                    hits.setdefault(rel, []).append(fn)
+    owners = {rel: "scripts/" + max(fns, key=lambda fn: (_owner_score(rel, fn), -len(fn)))
+              for rel, fns in hits.items()}
+    owners.update(EXTRA_SELF_REPORTS)
+    if not owners:
+        owners = {rel: "legacy" for rel in LEGACY_SELF_REPORTS}
+    _SELF_REPORTS_CACHE.update(owners)
+    return _SELF_REPORTS_CACHE
+
+
+def _split_drift(token: str) -> tuple:
+    """drift 形如 <scope>:<kind>:<rel>；不合法返回 ("", "")。"""
+    parts = token.split(":", 2)
+    return (parts[1], parts[2]) if len(parts) == 3 else ("", "")
 
 
 def _is_verifier_report(token: str) -> bool:
-    """drift 条目形如 repo:<rel> / repo:changed:<rel> / repo:new:<rel>，统一按 rel 判。"""
-    return any(token.endswith(rel) for rel in SELF_REPORTS)
+    """自指判定：只认 changed/new；missing 不豁免——删回执是真实退化。"""
+    kind, rel = _split_drift(token)
+    return kind in ("changed", "new") and rel in self_reports()
 
 
 def _is_sibling_report(token: str) -> bool:
-    """兄弟校验器（不含自己）：它们只用于「如实报数」，不参与 passed 判定结果以外的回环。"""
-    return _is_verifier_report(token) and not token.endswith(OWN_REPORT)
+    """兄弟自写回执（不含自己）：仅用于如实报数。"""
+    kind, rel = _split_drift(token)
+    return kind in ("changed", "new") and bool(rel) and rel != OWN_REPORT and rel in self_reports()
 
 BANNED_MODS = {"subprocess", "urllib", "requests", "socket", "http", "aiohttp", "httpx"}
 BANNED_CALL = {"eval", "exec", "compile", "__import__", "input", "system", "popen", "run"}
@@ -197,21 +276,39 @@ def check_a9() -> Dict[str, Any]:
 
 
 def check_a10() -> Dict[str, Any]:
-    """五地零漂移。
+    """五地零漂移（V6.1-B2：自写回执派生 + missing 不豁免 + 差分证据）。
 
-    自指排除（V5.2 完备化）：本脚本与兄弟校验器（v43/v45/v46/v5/dv）都会在「跑一次」
-    时改写各自的 Reports，故凡属 `SELF_REPORTS` 的条目一律不计漂移；其余条目仍逐条判。
-    异机（无 manifest）时记 skipped 第三态，而不是伪装成 FAIL（P0-3）。
+    自指排除：凡由写型校验器自己写出的 reports/*.json，跑一次必然 changed，
+    属「跑校验 → 清单过期」的结构性循环。名单不再硬编码，从 fsd.REPO_FILES 派生。
+    排除范围只含 changed / new；missing（回执被删）不排除——那是真实退化。
+    差分证据：每条被排除项记录 owner + prev_sha16 + curr_sha16，内容被意外改写仍留痕。
+    异机（无 manifest）记 skipped 第三态，不伪装成 FAIL；也不默认算 PASS。
     """
+    owners = self_reports()
     drift, now, old = fsd.drift_now()
     if drift is None:
         return {"id": "A10", "passed": True, "status": "skipped",
-                "reason": "manifest_missing", "pending_human_measure": True}
-    effective = [d for d in drift if not _is_verifier_report(d)]
-    excluded = [d for d in drift if _is_sibling_report(d)]
+                "reason": "manifest_missing", "pending_human_measure": True,
+                "self_owners_count": len(owners)}
+    evidence, effective = [], []
+    for d in drift:
+        scope = d.split(":", 1)[0]
+        kind, rel = _split_drift(d)
+        if kind in ("changed", "new") and rel in owners:
+            prev = (old.get(scope) or {}).get(rel, {}) or {}
+            curr = (now.get(scope) or {}).get(rel, {}) or {}
+            evidence.append({"item": d, "owner": owners[rel],
+                             "prev_sha16": str(prev.get("sha256", ""))[:16],
+                             "curr_sha16": str(curr.get("sha256", ""))[:16]})
+        else:
+            effective.append(d)
+    derive_mode = "legacy" if owners and all(v == "legacy" for v in owners.values()) else "derived"
     return {"id": "A10", "passed": effective == [], "status": "measured",
             "drift": effective[:6], "drift_count": len(effective),
-            "self_excluded_count": len(excluded), "self_excluded": excluded[:3],
+            "missing_receipts": [d for d in effective
+                                 if d.startswith(("repo:missing:", "package:missing:"))][:6],
+            "self_excluded_count": len(evidence), "self_excluded": evidence[:3],
+            "self_owners_count": len(owners), "self_derive": derive_mode,
             "checked": {"package": len(old.get("package", {})),
                         "repo": len(old.get("repo", {}))}}
 

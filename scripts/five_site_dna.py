@@ -238,6 +238,8 @@ REPO_FILES = [
     "data/v6_skill_family_registry.json",
     "holoaeon/fusion_upgrade/external_skill_registry.py",
     "tests_contract/test_v6.py",
+    # ---- V6.1-B2 工程纪律入库（1 件，不改维度）
+    "docs/工程纪律_批次升级与五地同步.md",
 ]
 
 ZIP_NAME = "holoaeon_v4_fusion_upgrade_20261102.zip"

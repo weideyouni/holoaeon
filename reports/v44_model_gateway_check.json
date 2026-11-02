@@ -145,11 +145,21 @@
       "status": "measured",
       "drift": [],
       "drift_count": 0,
-      "self_excluded_count": 0,
-      "self_excluded": [],
+      "missing_receipts": [],
+      "self_excluded_count": 1,
+      "self_excluded": [
+        {
+          "item": "repo:changed:reports/v44_model_gateway_check.json",
+          "owner": "scripts/verify_v44.py",
+          "prev_sha16": "6579ace2b006ab35",
+          "curr_sha16": "1500bc1b5e8ebbe8"
+        }
+      ],
+      "self_owners_count": 10,
+      "self_derive": "derived",
       "checked": {
         "package": 28,
-        "repo": 170
+        "repo": 171
       }
     },
     {
@@ -157,7 +167,7 @@
       "passed": true,
       "status": "measured",
       "ticket_bytes": 10129,
-      "prev_run": "12/13",
+      "prev_run": "13/13",
       "closing_rule": "ticket + all_other_checks_pass(excluding A10/A11)"
     },
     {

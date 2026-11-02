@@ -39,14 +39,14 @@
     "dna_id": "SG-DNA-FIVE-SITE-SYNC-V1.2",
     "missing": 0,
     "package": 28,
-    "repo": 170
+    "repo": 171
   },
   "risk_rows": 12,
   "zip": {
-    "bytes": 132462,
+    "bytes": 133315,
     "entries": 47,
     "present": true,
-    "sha16": "341b627910e9fc19",
-    "sha256": "341b627910e9fc192f509aea6cdd9716167130867b7d92509d30671950de2714"
+    "sha16": "a87fa921bf963fa1",
+    "sha256": "a87fa921bf963fa1d8137af62053c8776076808d41ed7fbaf45896cb0c30a48a"
   }
 }

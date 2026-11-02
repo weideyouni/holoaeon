@@ -93,5 +93,38 @@ class TestV44Shapes(unittest.TestCase):
             gw().plan("no-such-provider", prompt="ping")
 
 
+sys.path.insert(0, os.path.join(ROOT, "scripts"))
+import verify_v44 as V44  # noqa: E402
+
+
+class TestV44SelfReports(unittest.TestCase):
+    """V6.1-B2：A10 自写回执派生 + missing 不豁免 + 差分证据。"""
+
+    def test_10_derived_not_empty(self):
+        owners = V44.self_reports()
+        self.assertGreaterEqual(len(owners), 5)
+        for rel in owners:
+            self.assertTrue(rel.startswith("reports/") and rel.endswith(".json"), rel)
+
+    def test_11_own_report_has_writer(self):
+        owners = V44.self_reports()
+        self.assertIn(V44.OWN_REPORT, owners)
+        self.assertTrue(owners[V44.OWN_REPORT].startswith("scripts/"), owners[V44.OWN_REPORT])
+
+    def test_12_missing_receipt_not_exempt(self):
+        self.assertFalse(V44._is_verifier_report("repo:missing:reports/v43_hardening_check.json"))
+        self.assertTrue(V44._is_verifier_report("repo:changed:reports/v43_hardening_check.json"))
+        self.assertFalse(V44._is_verifier_report("repo:changed:README.md"))
+
+    def test_13_a10_carries_evidence_fields(self):
+        r = V44.check_a10()
+        if r.get("status") == "skipped":
+            self.assertIn("self_owners_count", r)
+            return
+        for k in ("self_derive", "self_owners_count", "self_excluded_count", "missing_receipts"):
+            self.assertIn(k, r)
+        self.assertIn(r["self_derive"], ("derived", "legacy"))
+
+
 if __name__ == "__main__":
     unittest.main()
