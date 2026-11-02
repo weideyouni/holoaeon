@@ -1,0 +1,791 @@
+{
+  "batch": "B4",
+  "case_count": 20,
+  "cases": [
+    {
+      "case_id": "RP-01",
+      "contract": {
+        "budget": 8,
+        "contract_id": "593dfd1ba748",
+        "lane": "read",
+        "mechanism": "hebbian_field",
+        "note": "训练流程编排，不做处置输出",
+        "payload": {
+          "domain": "medical",
+          "evidence": "流程图与阶段表",
+          "inputs": [
+            "训练阶段标签",
+            "动作分解序列"
+          ],
+          "outputs": [
+            "阶段顺序",
+            "阻断点"
+          ],
+          "redlines": {
+            "c0_not_efficacy": true,
+            "emergency_120": true,
+            "zero_dose": true
+          }
+        },
+        "skill": "shengui-shenma-pengcheng-rehab-fusion-1331",
+        "source": "holoaeon.kernel",
+        "target": "ivsa.hebbian_field"
+      },
+      "evidence_class": "simulated",
+      "lane": "read",
+      "mechanism": "hebbian_field",
+      "payload_domain": "medical",
+      "scene": "偏瘫上肢任务导向训练的流程编排",
+      "skill": "shengui-shenma-pengcheng-rehab-fusion-1331",
+      "skill_domain": "literature",
+      "skill_label": "M",
+      "target": "ivsa.hebbian_field"
+    },
+    {
+      "case_id": "RP-02",
+      "contract": {
+        "budget": 6,
+        "contract_id": "f3584c27c9ae",
+        "lane": "read",
+        "mechanism": "hebbian_field",
+        "note": "只编排记录与比对",
+        "payload": {
+          "domain": "medical",
+          "evidence": "测量台账",
+          "inputs": [
+            "活动度测量序列",
+            "时间点"
+          ],
+          "outputs": [
+            "趋势表",
+            "缺测标记"
+          ],
+          "redlines": {
+            "c0_not_efficacy": true,
+            "emergency_120": true,
+            "zero_dose": true
+          }
+        },
+        "skill": "shengui-shenma-yangzhou-rehab-fusion-1331",
+        "source": "holoaeon.kernel",
+        "target": "ivsa.hebbian_field"
+      },
+      "evidence_class": "simulated",
+      "lane": "read",
+      "mechanism": "hebbian_field",
+      "payload_domain": "medical",
+      "scene": "膝关节置换术后活动度记录的调度",
+      "skill": "shengui-shenma-yangzhou-rehab-fusion-1331",
+      "skill_domain": "literature",
+      "skill_label": "M",
+      "target": "ivsa.hebbian_field"
+    },
+    {
+      "case_id": "RP-03",
+      "contract": {
+        "budget": 7,
+        "contract_id": "da61b11179a9",
+        "lane": "read",
+        "mechanism": "hebbian_field",
+        "note": "只做取样与指标口径",
+        "payload": {
+          "domain": "medical",
+          "evidence": "步态切分表",
+          "inputs": [
+            "步态周期切分",
+            "左右侧标记"
+          ],
+          "outputs": [
+            "对称性指标序列"
+          ],
+          "redlines": {
+            "c0_not_efficacy": true,
+            "emergency_120": true,
+            "zero_dose": true
+          }
+        },
+        "skill": "shengui-shenma-jingchu-rehab-fusion-1331",
+        "source": "holoaeon.kernel",
+        "target": "ivsa.hebbian_field"
+      },
+      "evidence_class": "simulated",
+      "lane": "read",
+      "mechanism": "hebbian_field",
+      "payload_domain": "medical",
+      "scene": "卒中后步态对称性评估的取样编排",
+      "skill": "shengui-shenma-jingchu-rehab-fusion-1331",
+      "skill_domain": "literature",
+      "skill_label": "M",
+      "target": "ivsa.hebbian_field"
+    },
+    {
+      "case_id": "RP-04",
+      "contract": {
+        "budget": 5,
+        "contract_id": "04dd1ddc4f73",
+        "lane": "write",
+        "mechanism": "hebbian_field",
+        "note": "仅日程提醒编排",
+        "payload": {
+          "domain": "medical",
+          "evidence": "计划表",
+          "inputs": [
+            "姿势节点",
+            "提醒时段"
+          ],
+          "outputs": [
+            "提醒计划",
+            "依从记录"
+          ],
+          "redlines": {
+            "c0_not_efficacy": true,
+            "emergency_120": true,
+            "zero_dose": true
+          }
+        },
+        "skill": "shengui-shenma-taizhou-rehab-fusion-1331",
+        "source": "holoaeon.kernel",
+        "target": "ivsa.hebbian_field"
+      },
+      "evidence_class": "simulated",
+      "lane": "write",
+      "mechanism": "hebbian_field",
+      "payload_domain": "medical",
+      "scene": "颈椎姿势管理的提醒计划",
+      "skill": "shengui-shenma-taizhou-rehab-fusion-1331",
+      "skill_domain": "unmapped",
+      "skill_label": "M",
+      "target": "ivsa.hebbian_field"
+    },
+    {
+      "case_id": "RP-05",
+      "contract": {
+        "budget": 9,
+        "contract_id": "2f23b32488cb",
+        "lane": "read",
+        "mechanism": "hebbian_field",
+        "note": "只编排节律与轮次",
+        "payload": {
+          "domain": "medical",
+          "evidence": "节律清单",
+          "inputs": [
+            "呼吸节律参数",
+            "训练轮次"
+          ],
+          "outputs": [
+            "节律序列",
+            "中断标记"
+          ],
+          "redlines": {
+            "c0_not_efficacy": true,
+            "emergency_120": true,
+            "zero_dose": true
+          }
+        },
+        "skill": "shengui-shenma-chaoxian-rehab-fusion-1331",
+        "source": "holoaeon.kernel",
+        "target": "ivsa.hebbian_field"
+      },
+      "evidence_class": "simulated",
+      "lane": "read",
+      "mechanism": "hebbian_field",
+      "payload_domain": "medical",
+      "scene": "慢阻肺呼吸训练的节律编排",
+      "skill": "shengui-shenma-chaoxian-rehab-fusion-1331",
+      "skill_domain": "literature",
+      "skill_label": "M",
+      "target": "ivsa.hebbian_field"
+    },
+    {
+      "case_id": "RP-06",
+      "contract": {
+        "budget": 10,
+        "contract_id": "7845fd213853",
+        "lane": "read",
+        "mechanism": "hebbian_field",
+        "note": "只给分层与回退条件",
+        "payload": {
+          "domain": "medical",
+          "evidence": "进阶路径表",
+          "inputs": [
+            "动作难度分层",
+            "进阶条件"
+          ],
+          "outputs": [
+            "分层路径",
+            "回退点"
+          ],
+          "redlines": {
+            "c0_not_efficacy": true,
+            "emergency_120": true,
+            "zero_dose": true
+          }
+        },
+        "skill": "shengui-shenma-yaoyi-hospital-pm-rehab-1331",
+        "source": "holoaeon.kernel",
+        "target": "ivsa.hebbian_field"
+      },
+      "evidence_class": "simulated",
+      "lane": "read",
+      "mechanism": "hebbian_field",
+      "payload_domain": "medical",
+      "scene": "腰椎术后核心稳定的进阶路径",
+      "skill": "shengui-shenma-yaoyi-hospital-pm-rehab-1331",
+      "skill_domain": "literature",
+      "skill_label": "M",
+      "target": "ivsa.hebbian_field"
+    },
+    {
+      "case_id": "RP-07",
+      "contract": {
+        "budget": 8,
+        "contract_id": "ac324ac9cfcb",
+        "lane": "read",
+        "mechanism": "hebbian_field",
+        "note": "只做动作分解编排",
+        "payload": {
+          "domain": "medical",
+          "evidence": "分解表",
+          "inputs": [
+            "坐位支撑面",
+            "分解动作"
+          ],
+          "outputs": [
+            "分解步骤",
+            "支撑提示"
+          ],
+          "redlines": {
+            "c0_not_efficacy": true,
+            "emergency_120": true,
+            "zero_dose": true
+          }
+        },
+        "skill": "shengui-shenma-changbai-rehab-fusion-1331",
+        "source": "holoaeon.kernel",
+        "target": "ivsa.hebbian_field"
+      },
+      "evidence_class": "simulated",
+      "lane": "read",
+      "mechanism": "hebbian_field",
+      "payload_domain": "medical",
+      "scene": "脑瘫儿童坐位控制的训练分解",
+      "skill": "shengui-shenma-changbai-rehab-fusion-1331",
+      "skill_domain": "literature",
+      "skill_label": "M",
+      "target": "ivsa.hebbian_field"
+    },
+    {
+      "case_id": "RP-08",
+      "contract": {
+        "budget": 5,
+        "contract_id": "dfdcc2942b89",
+        "lane": "read",
+        "mechanism": "hebbian_field",
+        "note": "仅统计与提示",
+        "payload": {
+          "domain": "general",
+          "evidence": "打卡台账",
+          "inputs": [
+            "打卡记录",
+            "缺席标记"
+          ],
+          "outputs": [
+            "依从曲线",
+            "缺失清单"
+          ]
+        },
+        "skill": "shengui-shenma-qiantang-rehab-fusion-1331",
+        "source": "holoaeon.kernel",
+        "target": "ivsa.hebbian_field"
+      },
+      "evidence_class": "simulated",
+      "lane": "read",
+      "mechanism": "hebbian_field",
+      "payload_domain": "general",
+      "scene": "家庭训练依从性的监测编排",
+      "skill": "shengui-shenma-qiantang-rehab-fusion-1331",
+      "skill_domain": "literature",
+      "skill_label": "M",
+      "target": "ivsa.hebbian_field"
+    },
+    {
+      "case_id": "RP-09",
+      "contract": {
+        "budget": 4,
+        "contract_id": "0d8ce5bcd478",
+        "lane": "write",
+        "mechanism": "hebbian_field",
+        "note": "仅分发与回收",
+        "payload": {
+          "domain": "general",
+          "evidence": "调度表",
+          "inputs": [
+            "量表清单",
+            "评估对象"
+          ],
+          "outputs": [
+            "分发计划",
+            "回收状态"
+          ]
+        },
+        "skill": "tcm-western-rehab-fusion",
+        "source": "holoaeon.kernel",
+        "target": "ivsa.hebbian_field"
+      },
+      "evidence_class": "simulated",
+      "lane": "write",
+      "mechanism": "hebbian_field",
+      "payload_domain": "general",
+      "scene": "康复评定量表的分发调度",
+      "skill": "tcm-western-rehab-fusion",
+      "skill_domain": "gaoyi",
+      "skill_label": "M",
+      "target": "ivsa.hebbian_field"
+    },
+    {
+      "case_id": "RP-10",
+      "contract": {
+        "budget": 12,
+        "contract_id": "9faec9418ef5",
+        "lane": "write",
+        "mechanism": "hebbian_field",
+        "note": "参数编排，无医学处置",
+        "payload": {
+          "domain": "general",
+          "evidence": "参数表",
+          "inputs": [
+            "基线强度",
+            "反馈阈值"
+          ],
+          "outputs": [
+            "强度序列",
+            "停止条件"
+          ]
+        },
+        "skill": "rehab-line1-1331",
+        "source": "holoaeon.kernel",
+        "target": "ivsa.hebbian_field"
+      },
+      "evidence_class": "simulated",
+      "lane": "write",
+      "mechanism": "hebbian_field",
+      "payload_domain": "general",
+      "scene": "训练强度自适应的参数编排",
+      "skill": "rehab-line1-1331",
+      "skill_domain": "literature",
+      "skill_label": "M",
+      "target": "ivsa.hebbian_field"
+    },
+    {
+      "case_id": "RP-11",
+      "contract": {
+        "budget": 7,
+        "contract_id": "d505e10f22b3",
+        "lane": "write",
+        "mechanism": "hebbian_field",
+        "note": "只做资源排期",
+        "payload": {
+          "domain": "general",
+          "evidence": "排期台账",
+          "inputs": [
+            "器械清单",
+            "时段需求"
+          ],
+          "outputs": [
+            "排期表",
+            "冲突标记"
+          ]
+        },
+        "skill": "shengui-shenma-guangfu-rehab-fusion-1331",
+        "source": "holoaeon.kernel",
+        "target": "ivsa.hebbian_field"
+      },
+      "evidence_class": "simulated",
+      "lane": "write",
+      "mechanism": "hebbian_field",
+      "payload_domain": "general",
+      "scene": "器械排期的冲突消解",
+      "skill": "shengui-shenma-guangfu-rehab-fusion-1331",
+      "skill_domain": "literature",
+      "skill_label": "M",
+      "target": "ivsa.hebbian_field"
+    },
+    {
+      "case_id": "RP-12",
+      "contract": {
+        "budget": 6,
+        "contract_id": "07782c7a027a",
+        "lane": "read",
+        "mechanism": "skin_v6",
+        "note": "只做映射，不下诊断",
+        "payload": {
+          "domain": "general",
+          "evidence": "映射台账",
+          "inputs": [
+            "评估结果标签",
+            "训练模块清单"
+          ],
+          "outputs": [
+            "映射表",
+            "未映射项"
+          ]
+        },
+        "skill": "threefield-app-clinic-map",
+        "source": "holoaeon.kernel",
+        "target": "ivsa.skin_layers.L5_dual_track_arbiter"
+      },
+      "evidence_class": "simulated",
+      "lane": "read",
+      "mechanism": "skin_v6",
+      "payload_domain": "general",
+      "scene": "评估到训练的临床映射编排",
+      "skill": "threefield-app-clinic-map",
+      "skill_domain": "literature",
+      "skill_label": "M",
+      "target": "ivsa.skin_layers.L5_dual_track_arbiter"
+    },
+    {
+      "case_id": "RP-13",
+      "contract": {
+        "budget": 4,
+        "contract_id": "fe0024c6c81d",
+        "lane": "write",
+        "mechanism": "skin_v6",
+        "note": "仅登记槽位与版本",
+        "payload": {
+          "domain": "general",
+          "evidence": "槽位台账",
+          "inputs": [
+            "分层槽位",
+            "版本号"
+          ],
+          "outputs": [
+            "槽位表",
+            "版本链"
+          ]
+        },
+        "skill": "tcm-internal-medicine-1331x1331",
+        "source": "holoaeon.kernel",
+        "target": "ivsa.skin_layers.L5_dual_track_arbiter"
+      },
+      "evidence_class": "simulated",
+      "lane": "write",
+      "mechanism": "skin_v6",
+      "payload_domain": "general",
+      "scene": "证型分层槽位的登记",
+      "skill": "tcm-internal-medicine-1331x1331",
+      "skill_domain": "literature",
+      "skill_label": "M",
+      "target": "ivsa.skin_layers.L5_dual_track_arbiter"
+    },
+    {
+      "case_id": "RP-14",
+      "contract": {
+        "budget": 5,
+        "contract_id": "38316ab4bc0a",
+        "lane": "write",
+        "mechanism": "skin_v6",
+        "note": "只登记槽位，不代决策",
+        "payload": {
+          "domain": "general",
+          "evidence": "槽位清单",
+          "inputs": [
+            "方案槽位",
+            "对象标识"
+          ],
+          "outputs": [
+            "槽位表",
+            "缺省标记"
+          ]
+        },
+        "skill": "threefield-app-personal",
+        "source": "holoaeon.kernel",
+        "target": "ivsa.skin_layers.L5_dual_track_arbiter"
+      },
+      "evidence_class": "simulated",
+      "lane": "write",
+      "mechanism": "skin_v6",
+      "payload_domain": "general",
+      "scene": "个体化训练方案的槽位登记",
+      "skill": "threefield-app-personal",
+      "skill_domain": "literature",
+      "skill_label": "M",
+      "target": "ivsa.skin_layers.L5_dual_track_arbiter"
+    },
+    {
+      "case_id": "RP-15",
+      "contract": {
+        "budget": 6,
+        "contract_id": "c9ad01e24b7c",
+        "lane": "write",
+        "mechanism": "skin_v6",
+        "note": "只记录拦截与放行",
+        "payload": {
+          "domain": "general",
+          "evidence": "拦截台账",
+          "inputs": [
+            "请求类型",
+            "命中规则"
+          ],
+          "outputs": [
+            "拦截记录",
+            "放行记录"
+          ]
+        },
+        "skill": "shengui-shenma-singlecell-microneedle-tutor",
+        "source": "holoaeon.kernel",
+        "target": "ivsa.skin_layers.L5_dual_track_arbiter"
+      },
+      "evidence_class": "simulated",
+      "lane": "write",
+      "mechanism": "skin_v6",
+      "payload_domain": "general",
+      "scene": "教学槽位与越权请求拦截",
+      "skill": "shengui-shenma-singlecell-microneedle-tutor",
+      "skill_domain": "research",
+      "skill_label": "M",
+      "target": "ivsa.skin_layers.L5_dual_track_arbiter"
+    },
+    {
+      "case_id": "RP-16",
+      "contract": {
+        "budget": 8,
+        "contract_id": "e9391d21c14c",
+        "lane": "read",
+        "mechanism": "holographic_heartbeat",
+        "note": "只给占位与维度声明",
+        "payload": {
+          "domain": "general",
+          "evidence": "字段表",
+          "inputs": [
+            "画像字段",
+            "维度声明"
+          ],
+          "outputs": [
+            "向量占位",
+            "缺字段标记"
+          ]
+        },
+        "skill": "shengui-shenma-zhuang-rehab-fusion-1331",
+        "source": "holoaeon.kernel",
+        "target": "ivsa.heartbeat_engine"
+      },
+      "evidence_class": "simulated",
+      "lane": "read",
+      "mechanism": "holographic_heartbeat",
+      "payload_domain": "general",
+      "scene": "患者画像向量化的槽位编排",
+      "skill": "shengui-shenma-zhuang-rehab-fusion-1331",
+      "skill_domain": "unmapped",
+      "skill_label": "M",
+      "target": "ivsa.heartbeat_engine"
+    },
+    {
+      "case_id": "RP-17",
+      "contract": {
+        "budget": 5,
+        "contract_id": "20857c0b6857",
+        "lane": "write",
+        "mechanism": "holographic_heartbeat",
+        "note": "仅编排切片与回退",
+        "payload": {
+          "domain": "general",
+          "evidence": "切片台账",
+          "inputs": [
+            "版本号",
+            "影响范围"
+          ],
+          "outputs": [
+            "切片计划",
+            "回退点"
+          ]
+        },
+        "skill": "threefield-update-mgr",
+        "source": "holoaeon.kernel",
+        "target": "ivsa.heartbeat_engine"
+      },
+      "evidence_class": "simulated",
+      "lane": "write",
+      "mechanism": "holographic_heartbeat",
+      "payload_domain": "general",
+      "scene": "版本更新切片的编排",
+      "skill": "threefield-update-mgr",
+      "skill_domain": "research",
+      "skill_label": "M",
+      "target": "ivsa.heartbeat_engine"
+    },
+    {
+      "case_id": "RP-18",
+      "contract": {
+        "budget": 8,
+        "contract_id": "e7f3595d7984",
+        "lane": "read",
+        "mechanism": "holographic_heartbeat",
+        "note": "场必须参数化，不给结论",
+        "payload": {
+          "domain": "general",
+          "evidence": "参数清单",
+          "inputs": [
+            "场域类型",
+            "参数名"
+          ],
+          "outputs": [
+            "参数表",
+            "缺省标记"
+          ]
+        },
+        "skill": "asset-threefield-v11",
+        "source": "holoaeon.kernel",
+        "target": "ivsa.heartbeat_engine"
+      },
+      "evidence_class": "simulated",
+      "lane": "read",
+      "mechanism": "holographic_heartbeat",
+      "payload_domain": "general",
+      "scene": "场域参数的显式化登记",
+      "skill": "asset-threefield-v11",
+      "skill_domain": "data",
+      "skill_label": "M",
+      "target": "ivsa.heartbeat_engine"
+    },
+    {
+      "case_id": "RP-19",
+      "contract": {
+        "budget": 9,
+        "contract_id": "2e12c12e8938",
+        "lane": "read",
+        "mechanism": "cytoskeleton",
+        "note": "只映射度量口径",
+        "payload": {
+          "domain": "general",
+          "evidence": "度量表",
+          "inputs": [
+            "流程节点",
+            "连通分量"
+          ],
+          "outputs": [
+            "健康度序列",
+            "断点清单"
+          ]
+        },
+        "skill": "singlecell-meridian-rehab",
+        "source": "holoaeon.kernel",
+        "target": "ivsa.cytoskeleton"
+      },
+      "evidence_class": "simulated",
+      "lane": "read",
+      "mechanism": "cytoskeleton",
+      "payload_domain": "general",
+      "scene": "流程健康检查的度量口径",
+      "skill": "singlecell-meridian-rehab",
+      "skill_domain": "research",
+      "skill_label": "M",
+      "target": "ivsa.cytoskeleton"
+    },
+    {
+      "case_id": "RP-20",
+      "contract": {
+        "budget": 7,
+        "contract_id": "c53f04ce4d5d",
+        "lane": "read",
+        "mechanism": "cytoskeleton",
+        "note": "只检查流程完整度，不出结论",
+        "payload": {
+          "domain": "medical",
+          "evidence": "复核流程图",
+          "inputs": [
+            "复核节点",
+            "证据等级标签"
+          ],
+          "outputs": [
+            "节点健康度",
+            "缺口清单"
+          ],
+          "redlines": {
+            "c0_not_efficacy": true,
+            "emergency_120": true,
+            "zero_dose": true
+          }
+        },
+        "skill": "three-field-pharmacology-review-1331",
+        "source": "holoaeon.kernel",
+        "target": "ivsa.cytoskeleton"
+      },
+      "evidence_class": "simulated",
+      "lane": "read",
+      "mechanism": "cytoskeleton",
+      "payload_domain": "medical",
+      "scene": "药理复核流程的健康检查",
+      "skill": "three-field-pharmacology-review-1331",
+      "skill_domain": "literature",
+      "skill_label": "M",
+      "target": "ivsa.cytoskeleton"
+    }
+  ],
+  "domain_split": {
+    "general": 12,
+    "medical": 8
+  },
+  "evidence_class": "simulated",
+  "mechanism_split": {
+    "cytoskeleton": 2,
+    "hebbian_field": 11,
+    "holographic_heartbeat": 3,
+    "meridian": 0,
+    "semantic_bus": 0,
+    "skin_v6": 4
+  },
+  "negative_probes": [
+    {
+      "errors": [
+        "V4 涉医域缺 redlines"
+      ],
+      "expected_rule": "V4",
+      "probe_id": "NP-01",
+      "rejected": true,
+      "what": "medical 域缺三红线 → 应被 V4 拒"
+    },
+    {
+      "errors": [
+        "V7 note 出现剂量/用药词：mg"
+      ],
+      "expected_rule": "V7",
+      "probe_id": "NP-02",
+      "rejected": true,
+      "what": "note 含剂量词 → 应被 V7 拒"
+    },
+    {
+      "errors": [
+        "V6 budget 必须是 0–100 的整数：3.5"
+      ],
+      "expected_rule": "V6",
+      "probe_id": "NP-03",
+      "rejected": true,
+      "what": "budget 传小数 → 应被 V6 拒"
+    },
+    {
+      "errors": [
+        "V2 mechanism 不在六机制枚举内：skin_v7"
+      ],
+      "expected_rule": "V2",
+      "probe_id": "NP-04",
+      "rejected": true,
+      "what": "mechanism 拼错 → 应被 V2 拒"
+    }
+  ],
+  "non_goals": [
+    "不执行 ivsa 代码",
+    "不产出诊疗结论",
+    "不给剂量",
+    "不合并编号空间",
+    "不把 K/T 类技能当可执行方法"
+  ],
+  "pilot_id": "SG-B4-REHAB-PILOT-20-V1",
+  "scope": "康复域试点 20 例（只映射不调用；target 仅命中 ivsa 真实模块名）",
+  "source_index_digest": "9a565741e1f72ab7",
+  "uncovered_mechanisms": [
+    "semantic_bus",
+    "meridian"
+  ],
+  "uncovered_reason": "semantic_bus / meridian 在康复域无 M 类技能（M 类仅 5 条与 1 条，且均非康复域），交 B5 语义技能族扩容，不在此硬凑"
+}

@@ -1,0 +1,69 @@
+{
+  "batch": "B4",
+  "verdict": "PASS",
+  "failed": [],
+  "checks": [
+    {
+      "id": "R1",
+      "ok": true,
+      "detail": "count=20 ids_ok=True"
+    },
+    {
+      "id": "R2",
+      "ok": true,
+      "detail": "invalid=[]"
+    },
+    {
+      "id": "R3",
+      "ok": true,
+      "detail": "not_executable_M=[]"
+    },
+    {
+      "id": "R4",
+      "ok": true,
+      "detail": "mechanism_drift=[]"
+    },
+    {
+      "id": "R5",
+      "ok": true,
+      "detail": "unknown_target=[]"
+    },
+    {
+      "id": "R6",
+      "ok": true,
+      "detail": "split={'general': 12, 'medical': 8} medical_missing_redlines=[]"
+    },
+    {
+      "id": "R7",
+      "ok": true,
+      "detail": "dose=[] note=[] budget=[] lane=[]"
+    },
+    {
+      "id": "R8",
+      "ok": true,
+      "detail": "probes=4 rejected=['NP-01', 'NP-02', 'NP-03', 'NP-04'] rule_matched=['NP-01', 'NP-02', 'NP-03', 'NP-04']"
+    },
+    {
+      "id": "R9",
+      "ok": true,
+      "detail": "byte_consistent=True sha256=e8168ca98ae761dc026de8dd5ebbc44ab54003fd950ed2168da641de193216fa"
+    }
+  ],
+  "case_count": 20,
+  "domain_split": {
+    "general": 12,
+    "medical": 8
+  },
+  "mechanism_split": {
+    "cytoskeleton": 2,
+    "hebbian_field": 11,
+    "holographic_heartbeat": 3,
+    "meridian": 0,
+    "semantic_bus": 0,
+    "skin_v6": 4
+  },
+  "uncovered_mechanisms": [
+    "semantic_bus",
+    "meridian"
+  ]
+}
