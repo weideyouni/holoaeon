@@ -1,25 +1,3 @@
-
-> ## V4 · 冷热插拔赋能升级（2026-11-02）· B0–B9 已完成（V2.0 收口封板；B7-1 签字 潘荟丞 / 2026-11-02、累计 4/15；B8 双仓同步绿；B9 五份交付 + zip 确定性重打包）
->
-> - 七闸全绿：`v3_gate 32/32` · `unittest 34 OK` · `旁挂 82 OK` · `selftest 25/25` · `skill_matrix 17/17` · `redline 零违规` · `fusion 17/17` · `ivsa 21/21`
-> - 14 维锁 + 黄金值未漂：`diff0=2fc892cf9af6e755` / `tamper=f42c8229ee5acd73`，`spec.VERSION=0.9.1` 未动
-> - 技能自动匹配 `1229 → 365` 条候选（索引 digest `9a565741e1f72ab7`）；**`智能体/技能/领域包 = 25/47/9` 不变**
-> - **B4 康复域试点 20 例**：general 12 ／ medical 8；机制 hebbian 11 · skin_v6 4 · 心跳 3 · 骨架 2；4 条负例探针全部被拒（`python scripts/check_rehab_pilot.py`，R1–R9）
-> - **B5 语义技能族 60 条**：落 ivsa 十模块（溯源/采集/去重/蒸馏/嵌入/检索/时序/聚类/注入/运维），无空模块、无第十一模块；基座 16 个唯一技能 + 扩容 44 条；4 条康复桥接候选已登记、未准入（`python scripts/check_semantic_family.py`，S1–S9）
-> - **B6 赫布落盘**：23 边 / 28 节点 / 9 种子，落盘摘要 `399505b0e695…de282`；独立解释器从盘上复原后 top-k **逐字相等**（三条相等全 true，`python scripts/check_hebbian_store.py` H1–H9）；**17 通道配额表** 12 mapped + 5 pending，配额 1200、负载 24
-> - **B7 分批准入闸上线**：B5 的 4 条桥接候选上同一张票，四硬闸全绿（v3_gate/unittest/skill_matrix/redline），每批 ≤5 / 累计 ≤15 由代码硬判；**未签字即 `WAITING_SIGNATURE`**，一条都不进执行层（`python scripts/admit_batch.py --check`）
-> - **B8 双仓开源同步**：ivsa v1.2 插件**默认关闭**（未显式启用即 0 能力，宿主维度不受影响）；宿主 `SHA256SUMS` 166 件，ivsa 自有清单 91 件复算 91/91；17 通道分组 `5/4/4/4 = 17` 两侧相等；许可分层 Apache-2.0 / MPL-2.0 / data-only，混用 0（`python scripts/verify_b8_dual_sync.py` → 11/11，旁挂 82 → 92）
-> - **B9 收口**：`data/B9_融合总策划_v2.md` · `data/B9_批次台账_v2.csv`（12/12 已完成、15.0 人天）· `data/B9_完美融合判据.md`（30 条可跑判据）· `data/B9_风险与回滚登记.md`（RB1–RB5 / RK1–RK7）· `data/B9_四透镜评审意见.md` · `data/B9_收口票据.md`；`python scripts/verify_b9_closeout.py` → V1–V12 PASS；zip 由 `scripts/build_b9_zip.py` 确定性重建
-- **V2.1 已启动**：`data/V2.1_ivsa只读对账票据.md`（`SG-V2.1-IVSA-RECON-20261102`）；只读对账 `python scripts/verify_ivsa_recon.py` → R1–R7 7/7 PASS（ivsa 清单 91/91、17 通道分组相等、许可分层无混用、插件默认关闭）；每批开工前须 P1–P7 全绿。准入 B7-1…B7-4 已签字（15 条、累计 15/15 封顶；`data/B7_准入票据_B7-2.md`…`B7-4.md`）。
-> - 五地同步刚性 DNA `SG-DNA-FIVE-SITE-SYNC-V1.2`（新增 G9 清单写序闭环、G10 密令等同签字、P7 五地实体回读）：本地 · Gitee · GitHub · 向量海 · Hugging Face（飞书 docx 作阅读入口）
->
-> V4 唯一入口：[`README_FUSION_V4_20261102.md`](README_FUSION_V4_20261102.md) ·
-> 同步规则 + 工程纪律：[`data/FIVE_SITE_SYNC_DNA.md`](data/FIVE_SITE_SYNC_DNA.md) ·
-> 离线校验：`python scripts/five_site_dna.py verify`（漂移必须为空）·
-> 开工前置：`python scripts/five_site_dna.py preflight`（P1–P7 全绿才允许开批）
->
-> 密令：潮起开门，潮落闭嘴 · `evidence_class=simulated`（仿真 ≠ 证明，碳基终裁）
-
 <div align="center">
 
 # HoloAeon
@@ -49,6 +27,18 @@ HoloAeon 是**纯标准库、全离线、确定性**的多智能体认知框架�
 
 **它的定位：给大模型当管家。**&#x5927;模型负责语言与生成，HoloAeon 负责安检、记账、路由、
 复现——让 AI 的每一次回答旁边，站着一个可审计的记忆体。
+
+## 当前工程状态（2026-11-02）
+
+| 项 | 实测值 |
+|---|---|
+| 产出维度（锁死） | **25 智能体 / 47 技能 / 9 域包**；`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73` 未变 |
+| 最新批次 | **V5.0-B1 康复域知识库全量入库**（全量登记、零复制）· 内容提交 `aa88c37`；其后的台账 / 排版收尾提交只动文档与清单，不动包、不动维度，见 `git log -3 --oneline` |
+| 扩展卡槽 | **12 个**：occupied 6 / open 1 / reserved 4 / blocked 1（只声明不接线） |
+| 门禁 | `v3_gate 32/32` · `unittest 34 OK` · `旁挂 160 OK` · `v44 13/13` · `v45 7/7` · `v46 9/9` · `v5 11/11` · `redline 0 违规` · `drift []` |
+| 五地同步 | 本地 · Gitee · GitHub · Hugging Face · 向量海 —— 见文末 [附录 A](#附录-a--五地同步v50-b1) |
+| 版本脉络 | V4.0 → V4.6 → V5.0 逐提交回溯 —— 见文末 [附录 B](#附录-b--版本升级说明v3--v50) |
+| V4 主文档 | [`README_FUSION_V4_20261102.md`](README_FUSION_V4_20261102.md) · 同步规则 [`data/FIVE_SITE_SYNC_DNA.md`](data/FIVE_SITE_SYNC_DNA.md) |
 
 ### V3 · 借鉴 LangChain 的工程形态（文档版本 0.9.3）
 
@@ -325,3 +315,61 @@ Apache License 2.0。
 
 本项目中的生物与宇宙词汇均为隐喻，仅描述软件机制，不构成医学、生物学或临床建议。
 所有仿真回执均标记 `simulated`；**仿真不等于证明，人类判断始终是最终权威。**
+
+---
+
+## 附录 A · 五地同步（V5.0-B1）
+
+**口径（重要）**：本页不硬编码"当前 HEAD"，因为任何文档收尾提交都会让 HEAD 变化，写死即自指失效。
+下表数字锚定 **V5.0-B1 内容提交 `aa88c37`**（17 files / +1041 −50）时点的实测；当前值一律用右侧命令回读。
+
+| 站点 | 检查命令 | V5.0-B1 内容提交时点实测 |
+|---|---|---|
+| S1 本地 | `git log -1 --stat` | `aa88c37`（17 files / +1041 −50） |
+| S2 Gitee | `git ls-remote <gitee> refs/heads/main` | `aa88c37afdf55d6afc7b1c1681cb8469c60dd061` |
+| S3 GitHub | `git ls-remote origin refs/heads/main`（推送后延时 12 s 回读） | 同上；与本地 HEAD 三值一致 |
+| S4 向量海 | `manifest.json` 逐条复算 | 133 个文件 · 号段 118–126 |
+| S5 Hugging Face | `mirror_hf.py --check` 后实推回读 | `24ed2349bf99…` · 449 文件 · `mismatch=[]` |
+| 回执 | `python scripts/five_site_dna.py preflight` | 28,704 B · files 133 · history 23 |
+| 交付 zip | `scripts/build_b9_zip.py` | 46 条目 / 129,181 B / `fc1c27e66a1090c6` |
+
+首页覆盖补齐（本轮）：`README.md` 与 `README.zh-CN.md` 原本**不在** `five_site_dna.REPO_FILES` 里，
+意味着此前所有批次从未校验过首页一致性；补入后清单 152 → 154。此后：
+
+- 向量海 133 → **134** 条（新增 `127_README.md`，`126` 为主文档快照）。
+- 交付 zip 因 `06` 重算重打为 46 条目 / **129,514 B** / **`6ff26112c2853e3f`**。
+- **HEAD sha、HF sha、回执字节与 history 条数每提交一次就会变**，本页故意不写死；
+  读取方式：`git rev-parse --short HEAD`、`mirror_hf.py` 输出的 `sha`、`five_site_dna.py preflight` 的回执路径。
+
+同步纪律（写序不能颠倒）：
+
+1. 先跑会写回执的校验器（`verify_v44/v45/v46/v5`；`verify_v44` 首跑必 11/13，第二次 13/13）→
+2. 再建 `SHA256SUMS` / `dual_repo_sums` → 3) 再打确定性 zip → 4) 再建 `five_site_manifest` →
+5) 迭代到 zip `sha16` 两次一致（不动点）→ 6) 最后只跑只读校验（`five_site verify` / `preflight` / `unittest` / `v3_gate` / `redline` / `dimension_lock`）。
+
+向量海归档顺序为「先 copy 新件 → 再替换 `74_SHA256SUMS` → 最后 `listdir` 建 `manifest`」；
+顺序颠倒会让 `74` 进清单并自指，首次实测即红。回执 `files` 与 `files_count` 必须同源取自 manifest。
+
+---
+
+## 附录 B · 版本升级说明（V3 → V5.0）
+
+> 口径：sha 取自 `git log` 实测；条目数 / 字节 / `sha16` 以对应批次命令回读为准，不硬编码猜测值。
+
+| 阶段 | 提交 | 主题与产出 |
+|---|---|---|
+| V3 收口 | `3d359bd` / `32b2667` | LangChain 工程形态旁挂（W12–W19），32/32 门禁，维度不变 |
+| 同步基建 | `92fd8b5` / `dfad361` | 五地同步 DNA V1.0→V1.1（G1–G8 + P1–P6），离线哈希校验器 |
+| V4.0 开场 | `80089b6` | 冷热插拔升级：第 10 个附加包，**25/47/9 不变** |
+| B0–B9 | `055d202` … `c03b19d` | 基线冻结 → 契约 v1 → 六机制映射 → 1229 技能四标签 → 20 例试点 → 语义族 60 → 赫布落盘 → 准入闸 15/15 → 双仓同步 → 五件交付 + 确定性 zip |
+| V2.1 | `3b0b32b` | ivsa 只读对账 R1–R7，旁挂 92 → 101 |
+| V4.3 | `4f06bc8` / `3d6f956` | 四坑固化（HF model 仓 / 中文路径 / 74→manifest 顺序 / 交付漂移）+ 11/11 |
+| V4.4 | `b85b293` | 19 家 provider 目录 + 5 协议拼装、默认全关；A1–A13 13/13 |
+| V4.5 | `fb5cdef` / `f0f1bb5` | 真实回环调用：embeddings 200 / 768 维；chat 200 / 41+29 tokens（C 盘 `lms import` 修复） |
+| V4.6 | `f0f1bb5` / `978dc10` / `6646315` | 12 卡槽 + 协作指南；C1–C9 9/9；卡槽实数勘误 14→12 |
+| V5.0 | `aa88c37` | 康复域知识库全量入库（14 条登记 / ivsa 300 行）；影子维度 D_REHAB 不入锁；`EXT-EVIDENCE-01` 解封而 tier 不变；D1–D10 11/11 |
+| V5.0 收尾 | `f214bd5` | 中英文首页同构重排：去陈旧大段引用，改「当前工程状态」表 + 文末两附录；首页纳入 `REPO_FILES`（152 → 154）；`06` 第五节交付表按实测重算 |
+
+**一句话主线**：每批只做一件事，只加旁挂、不改锁数；每批必带判据、票据与五地同步，`drift=[]` 才允许提交。
+
+Seal: 潮起开门，潮落闭嘴 · `evidence_class=simulated`（仿真 ≠ 证明，碳基终裁）
