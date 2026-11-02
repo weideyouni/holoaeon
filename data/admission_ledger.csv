@@ -1,0 +1,5 @@
+batch,ticket,skill,target_mechanism,module,usage_class,gate_v3_gate,gate_unittest,gate_skill_matrix,gate_redline,signature_status,signer,signed_at,decision,note
+B7-1,data/B7_准入票据_B7-1.md,breast-surgery-150,semantic_bus,检索,K,32/32,34/34,17/17,70/70,PENDING,,,WAITING_SIGNATURE,B5 candidate_bridge；未签字不进执行层
+B7-1,data/B7_准入票据_B7-1.md,kangfu-knowledge-suite,semantic_bus,溯源,K,32/32,34/34,17/17,70/70,PENDING,,,WAITING_SIGNATURE,B5 candidate_bridge；未签字不进执行层
+B7-1,data/B7_准入票据_B7-1.md,mdt-rehab-engineering,meridian,采集,K,32/32,34/34,17/17,70/70,PENDING,,,WAITING_SIGNATURE,B5 candidate_bridge；未签字不进执行层
+B7-1,data/B7_准入票据_B7-1.md,medical-textbook-skill-refinery,semantic_bus,检索,K,32/32,34/34,17/17,70/70,PENDING,,,WAITING_SIGNATURE,B5 candidate_bridge；未签字不进执行层

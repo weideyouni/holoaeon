@@ -1,0 +1,35 @@
+{
+  "gates_id": "SG-B7-HARD-GATES-V1",
+  "batch": "B7-1",
+  "evidence_class": "simulated",
+  "gates": {
+    "v3_gate": {
+      "passed": 32,
+      "total": 32,
+      "ok": true,
+      "cmd": "python scripts/v3_gate.py --json reports/gate_fusion_v4.json",
+      "raw_tail": "{\"passed\": 32, \"total\": 32, \"failed\": [], \"verdict\": \"PASS\"}"
+    },
+    "unittest": {
+      "passed": 34,
+      "total": 34,
+      "ok": true,
+      "cmd": "python -m unittest discover -s tests",
+      "raw_tail": "OK"
+    },
+    "skill_matrix": {
+      "passed": 17,
+      "total": 17,
+      "ok": true,
+      "cmd": "python scripts/verify_skill_matrix.py",
+      "raw_tail": "}"
+    },
+    "redline": {
+      "passed": 70,
+      "total": 70,
+      "ok": true,
+      "cmd": "python scripts/redline_scan.py",
+      "raw_tail": "结果： 干净（零违规）"
+    }
+  }
+}

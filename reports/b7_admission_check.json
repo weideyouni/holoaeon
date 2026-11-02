@@ -1,0 +1,86 @@
+{
+  "check_id": "SG-B7-ADMISSION-CHECK-V1",
+  "rules_id": "SG-B7-ADMISSION-RULES-V1",
+  "evidence_class": "simulated",
+  "verdict": "WAITING_SIGNATURE",
+  "failed": [],
+  "checks": [
+    {
+      "id": "A1",
+      "ok": true,
+      "detail": "per_batch<=5 over=[]"
+    },
+    {
+      "id": "A2",
+      "ok": true,
+      "detail": "admitted=0<=15"
+    },
+    {
+      "id": "A3",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "id": "A4",
+      "ok": true,
+      "detail": "failed_gates=[]"
+    },
+    {
+      "id": "A5",
+      "ok": true,
+      "detail": "outside_pool=[]"
+    },
+    {
+      "id": "A6",
+      "ok": true,
+      "detail": "unsigned_admitted=[]"
+    },
+    {
+      "id": "A7",
+      "ok": true,
+      "detail": "admitted_without_signature=[]"
+    },
+    {
+      "id": "A8",
+      "ok": true,
+      "detail": "bad_decision=[]"
+    },
+    {
+      "id": "A9",
+      "ok": true,
+      "detail": "batch_size_bad=[]"
+    }
+  ],
+  "counts": {
+    "rows": 4,
+    "batches": 1,
+    "admitted": 0,
+    "remaining": 15,
+    "per_batch": {
+      "B7-1": 4
+    }
+  },
+  "rules_sha256_match": true,
+  "gates": {
+    "v3_gate": {
+      "passed": 32,
+      "total": 32,
+      "ok": true
+    },
+    "unittest": {
+      "passed": 34,
+      "total": 34,
+      "ok": true
+    },
+    "skill_matrix": {
+      "passed": 17,
+      "total": 17,
+      "ok": true
+    },
+    "redline": {
+      "passed": 70,
+      "total": 70,
+      "ok": true
+    }
+  }
+}

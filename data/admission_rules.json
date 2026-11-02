@@ -1,0 +1,43 @@
+{
+  "rules_id": "SG-B7-ADMISSION-RULES-V1",
+  "batch": "B7",
+  "evidence_class": "simulated",
+  "max_per_batch": 5,
+  "max_cumulative": 15,
+  "hard_gates": [
+    {
+      "id": "v3_gate",
+      "cmd": "python scripts/v3_gate.py --json reports/gate_fusion_v4.json"
+    },
+    {
+      "id": "unittest",
+      "cmd": "python -m unittest discover -s tests"
+    },
+    {
+      "id": "skill_matrix",
+      "cmd": "python scripts/verify_skill_matrix.py"
+    },
+    {
+      "id": "redline",
+      "cmd": "python scripts/redline_scan.py"
+    }
+  ],
+  "signature": {
+    "required": true,
+    "fields": [
+      "signer",
+      "signed_at"
+    ],
+    "void_without_signature": false,
+    "unsigned_decision": "WAITING_SIGNATURE",
+    "note": "缺签字不作废票据，但不得进执行层；签字后方可 ADMITTED"
+  },
+  "fill_policy": "no_arithmetic_fill",
+  "candidate_pool": "B5 bridge_candidates（4 条）+ B5 族成员；本批只收池内条目",
+  "dimension_lock": {
+    "agents": 25,
+    "skills": 47,
+    "packs": 9
+  },
+  "sha256": "33de0041239c0a84dc418a17a4ef906ce2f14c9a057760adad72775e57e36d9a"
+}
