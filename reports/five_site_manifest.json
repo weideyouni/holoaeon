@@ -132,7 +132,7 @@
     },
     "SHA256SUMS": {
       "bytes": 16661,
-      "sha256": "79605d841d4606688a3307668a6e8c3b46d43898497a3ca885ec4cae0a3d8962"
+      "sha256": "e1a240ec688e0cace3c4c2e268979dd411731ac8f4f5162b775d180bc2216963"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
@@ -191,8 +191,8 @@
       "sha256": "5fc8ae872b8d6f09b3d945fec54a9ed8734edd2d583b66f0f4f7fa690c27bbc8"
     },
     "data/FIVE_SITE_SYNC_DNA.md": {
-      "bytes": 11175,
-      "sha256": "2b93908558f15dfecf1240be79aecfcbed7414e84451c0823c517e42f07e7459"
+      "bytes": 11329,
+      "sha256": "776b09853cf8aea4b48550170f078ed6fe74b5998cb765dd4efc5480ec07e5f1"
     },
     "data/admission_ledger.csv": {
       "bytes": 909,
@@ -232,7 +232,7 @@
     },
     "data/dual_repo_sums.json": {
       "bytes": 2094,
-      "sha256": "8602eab0f1f2ead95b24e3359ac6ff05dccb11945d0cf46e895c4dc0e8901d69"
+      "sha256": "6062f01aa1cc1a17991c9d4e6746fdba7ccd09821e450ea8e270654338a11ba0"
     },
     "data/five_site_dna.json": {
       "bytes": 8665,
@@ -320,11 +320,11 @@
     },
     "reports/b8_dual_sync.json": {
       "bytes": 612,
-      "sha256": "57b66535e054213128d1f10c07dc04b8f20cbf2b836e7882337e8d0f8f0f4b3e"
+      "sha256": "c5a77c078341a76d9721b8fc32f7ba929314ba52ea7e15a92484e174d215ab69"
     },
     "reports/b8_dual_sync_check.json": {
       "bytes": 1773,
-      "sha256": "62a54d3e2e2f804c2b333eb9c4179d77272e6e02349054b42877ddde7b1c4908"
+      "sha256": "94c5495b7606b2155276cb0ec2fae416ddcaca0b22997d0ce303b760b374bc0e"
     },
     "reports/contract_v1_check.json": {
       "bytes": 635,
