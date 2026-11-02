@@ -1,0 +1,8 @@
+# 统一检出为 LF：SHA256SUMS 记录的是 LF 字节，Windows 上若被转成 CRLF 会导致复算不符
+* text=auto eol=lf
+*.zip binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
