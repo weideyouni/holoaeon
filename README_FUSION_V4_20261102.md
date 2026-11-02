@@ -222,3 +222,13 @@ python scripts/five_site_dna.py build      # write reports/five_site_manifest.js
 python scripts/five_site_dna.py verify     # recompute + drift list (offline, no git)
 python scripts/five_site_dna.py preflight  # P1-P6 gate: no batch may start unless PASS
 ```
+
+## V4.1 / V4.2 三项遗留闭环（2026-11-02）
+
+| 批次 | 内容 | 判据 | 回执 |
+|---|---|---|---|
+| V4.1-B1 | B8 六项插件接实际推理（能力注册表 + `ReasoningBridge`，密令启用，红线四条） | 10/10 | `reports/v41_plugin_runtime_check.json` |
+| V4.1-B2 | 语义技能族 60 → 100（另立 V2 规格件，旧判据不动） | 6/6 | `reports/v41_semantic_100_check.json` |
+| V4.2-B1 | 三场卡电场补齐（13 卡 = 磁 5 / 电 3 / 液 5；电场 3 张结构化补参数维度 + 检索计划） | 9/9 | `reports/v42_three_field_check.json` |
+
+维度不变量 `agents 25 / skills 47 / packs 9` 未动；三张批次票据见 `data/V4.1_插件接推理票据.md`、`data/V4.1_语义扩容至100票据.md`、`data/V4.2_三场卡电场补齐票据.md`；`evidence_class=simulated` 全程贯穿，远端 sha 与回执字节以命令回读为准。
