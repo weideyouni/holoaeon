@@ -12,8 +12,8 @@
   },
   "package": {
     "01_V4赋能升级总策划.md": {
-      "bytes": 28072,
-      "sha256": "15ae1198b4f857096bba32ffac830a41126817836b646ab76d244a37996f0869"
+      "bytes": 28135,
+      "sha256": "766c0c42a6fc3f192df2a44e4587c162b697d17158911442bbe3cc017e80283e"
     },
     "02_一键复制投喂包_面向智能体.md": {
       "bytes": 11211,
@@ -32,8 +32,8 @@
       "sha256": "907a17fb51a1b26ec658deb4b545002039991ac8e6524ac12f80c53c7d7f7fd3"
     },
     "06_验收票据.md": {
-      "bytes": 10866,
-      "sha256": "7736fa03741c7f947feaf4a6e6c521ecb196c13ded6e5951baddd8d933792419"
+      "bytes": 10907,
+      "sha256": "d2a784db18f89ba99637ad058b04250ddbb95d125cf298d21e2a11b5155bea7e"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
