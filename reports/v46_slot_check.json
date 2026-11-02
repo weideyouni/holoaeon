@@ -1,0 +1,108 @@
+{
+  "id": "SG-V46-SLOT-CHECK-V1",
+  "passed": 9,
+  "total": 9,
+  "failed": [],
+  "verdict": "PASS",
+  "summary": {
+    "total": 12,
+    "by_status": {
+      "open": 1,
+      "reserved": 5,
+      "occupied": 4,
+      "blocked": 2
+    },
+    "by_kind": {
+      "provider": 2,
+      "protocol": 3,
+      "dimension_shadow": 2,
+      "evidence": 1,
+      "plugin_hook": 1,
+      "runtime": 1,
+      "gate": 1,
+      "doc_channel": 1
+    },
+    "lock": {
+      "agents": 25,
+      "skills": 47,
+      "packs": 9
+    }
+  },
+  "checks": [
+    {
+      "id": "C1",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "path": "data\\extension_slots.json"
+      }
+    },
+    {
+      "id": "C2",
+      "passed": true,
+      "detail": {
+        "count": 12,
+        "unique": 12
+      }
+    },
+    {
+      "id": "C3",
+      "passed": true,
+      "detail": {
+        "missing": [],
+        "owners_unclaimed": 7
+      }
+    },
+    {
+      "id": "C4",
+      "passed": true,
+      "detail": {
+        "lock": {
+          "agents": 25,
+          "skills": 47,
+          "packs": 9
+        }
+      }
+    },
+    {
+      "id": "C5",
+      "passed": true,
+      "detail": {
+        "enabled_clean": []
+      }
+    },
+    {
+      "id": "C6",
+      "passed": true,
+      "detail": {
+        "doc": "docs\\扩展卡槽与协作开发指南.md",
+        "chars": 4169,
+        "uncovered_slots": []
+      }
+    },
+    {
+      "id": "C7",
+      "passed": true,
+      "detail": {
+        "public_url_fields": []
+      }
+    },
+    {
+      "id": "C8",
+      "passed": true,
+      "detail": {
+        "bad_imports": [],
+        "bad_calls": [],
+        "module": "holoaeon\\fusion_upgrade\\slot_registry.py"
+      }
+    },
+    {
+      "id": "C9",
+      "passed": true,
+      "detail": {
+        "missing_in_manifest": [],
+        "repo_files": 145
+      }
+    }
+  ]
+}

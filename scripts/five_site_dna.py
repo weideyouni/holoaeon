@@ -196,6 +196,16 @@ REPO_FILES = [
     "scripts/verify_v45.py",
     "tests_contract/test_v45.py",
     "reports/v45_live_probe.json",
+    # ---- V4.5-B2 chat 补做（1 件）
+    "reports/v45_live_probe_emb.json",
+    # ---- V4.6-B1 扩展卡槽与协作指南（8 件）
+    "data/extension_slots.json",
+    "holoaeon/fusion_upgrade/slot_registry.py",
+    "docs/扩展卡槽与协作开发指南.md",
+    "data/V4.6_扩展卡槽与协作指南票据.md",
+    "scripts/verify_v46.py",
+    "tests_contract/test_v46.py",
+    "reports/v46_slot_check.json",
 ]
 
 ZIP_NAME = "holoaeon_v4_fusion_upgrade_20261102.zip"

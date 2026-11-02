@@ -1,0 +1,170 @@
+{
+  "id": "SG-V46-EXTENSION-SLOTS-V1",
+  "batch": "V4.6-B1",
+  "created_at": "2026-11-02",
+  "version": "1.0",
+  "principle": "卡槽只声明、不接线；任何 slot 真启用都必须先出票据、过门禁、拿签字（密令等同签字）。",
+  "lock": {
+    "agents": 25,
+    "skills": 47,
+    "packs": 9,
+    "note": "卡槽是旁挂声明，不得改变 25/47/9；新增能力走 slot 认领，不改锁数。"
+  },
+  "slot_kinds": [
+    "provider",
+    "protocol",
+    "dimension_shadow",
+    "evidence",
+    "plugin_hook",
+    "runtime",
+    "gate",
+    "doc_channel"
+  ],
+  "status_enum": [
+    "open",
+    "reserved",
+    "occupied",
+    "blocked"
+  ],
+  "claim_flow": [
+    "1. 认领：在票据里写明 slot_id 与契约",
+    "2. 实现：只加旁挂文件，不改锁数、不动他人模块",
+    "3. 门禁：v3_gate 32/32 + unittest + tests_contract + redline 全绿",
+    "4. 签字：weideyouni / 潘荟丞 / 密令（潮起开门潮落闭嘴、好嘞玉安）任一等同签字",
+    "5. 出票：data/<批次>票据.md + reports/<批次>_check.json + 五地同步"
+  ],
+  "slots": [
+    {
+      "slot_id": "EXT-PROVIDER-01",
+      "kind": "provider",
+      "name": "ollama 本地运行时",
+      "status": "open",
+      "owner": "用户",
+      "contract": "OpenAI 兼容 /api/chat + /api/embeddings；默认关闭，需 HOLOAEON_REAL_MODELS=1 且 base_url 指向回环",
+      "next_action": "本机装 Ollama 后复跑 live_gateway_probe --provider ollama，判据沿用 B1–B7",
+      "evidence": "none",
+      "notes": "本机实测 Get-Command ollama 为空，未装。"
+    },
+    {
+      "slot_id": "EXT-PROVIDER-02",
+      "kind": "provider",
+      "name": "vLLM / TGI 自建推理",
+      "status": "reserved",
+      "owner": "未认领",
+      "contract": "OpenAI 兼容；要求显式 base_url + 回环或内网，不得默认出网",
+      "next_action": "待有 GPU 常驻服务时再开票",
+      "evidence": "none",
+      "notes": "保留给后续自建集群；不预置价目表。"
+    },
+    {
+      "slot_id": "EXT-PROTOCOL-01",
+      "kind": "protocol",
+      "name": "embeddings 形状（已实测）",
+      "status": "occupied",
+      "owner": "V4.5-B1",
+      "contract": "POST /v1/embeddings，body {model,input}；判 dim>0",
+      "next_action": "已闭环，回执 reports/v45_live_probe_emb.json",
+      "evidence": "live_local",
+      "notes": "768 维真实返回。"
+    },
+    {
+      "slot_id": "EXT-PROTOCOL-02",
+      "kind": "protocol",
+      "name": "chat 形状（已实测）",
+      "status": "occupied",
+      "owner": "V4.5-B2",
+      "contract": "POST /v1/chat/completions，body {model,messages[],stream:false}；判 choices>=1 且 text 非空",
+      "next_action": "已闭环，回执 reports/v45_live_probe.json",
+      "evidence": "live_local",
+      "notes": "qwen2.5-0.5b-instruct 经 lms import 入索引后真发成功。"
+    },
+    {
+      "slot_id": "EXT-PROTOCOL-03",
+      "kind": "protocol",
+      "name": "OpenAI Responses / Anthropic Messages",
+      "status": "reserved",
+      "owner": "未认领",
+      "contract": "新增 PROTOCOL_SHAPES 条目 + 探针分支 + 判据分支；不覆盖已有形状",
+      "next_action": "待用户确认是否接云端（涉凭证与计费）",
+      "evidence": "none",
+      "notes": "接入必须携带计费口径，input_cost/output_cost 不得留占位当免费。"
+    },
+    {
+      "slot_id": "EXT-DIM-01",
+      "kind": "dimension_shadow",
+      "name": "语义族 V2 影子槽",
+      "status": "blocked",
+      "owner": "未认领",
+      "contract": "以 SG-V41-SEMANTIC-FAMILY-V2 身份声明 + 绑定 canonical sha，不改编族文件本体，不改 47",
+      "next_action": "等用户拍板 family_id 口径",
+      "evidence": "none",
+      "notes": "属需签字项，未拍板前保持 blocked。"
+    },
+    {
+      "slot_id": "EXT-DIM-02",
+      "kind": "dimension_shadow",
+      "name": "康复域知识库 V5 影子槽",
+      "status": "reserved",
+      "owner": "未认领",
+      "contract": "只读外挂，不改 ivsa 21 组自检与医学红线，不改 25/47/9",
+      "next_action": "V5.0 开票时认领",
+      "evidence": "none",
+      "notes": "医学红线优先于任何扩容。"
+    },
+    {
+      "slot_id": "EXT-EVIDENCE-01",
+      "kind": "evidence",
+      "name": "gap 卡证据等级上调",
+      "status": "blocked",
+      "owner": "未认领",
+      "contract": "必须人工逐篇核对原文后升 tier，ticket 留引用，不得批量伪造",
+      "next_action": "等用户拍板是否允许上调",
+      "evidence": "none",
+      "notes": "4 张 gap 卡仍 evidence_class=none。"
+    },
+    {
+      "slot_id": "EXT-PLUGIN-01",
+      "kind": "plugin_hook",
+      "name": "冷热插拔钩子",
+      "status": "reserved",
+      "owner": "未认领",
+      "contract": "默认关闭；插件必须声明 lifecycle + 回滚点，失败可回退",
+      "next_action": "待有第二个可插拔能力时开票",
+      "evidence": "none",
+      "notes": "ivsa 侧插件默认关闭已固化。"
+    },
+    {
+      "slot_id": "EXT-RUNTIME-01",
+      "kind": "runtime",
+      "name": "端侧小模型（MiniCPM 级）",
+      "status": "reserved",
+      "owner": "未认领",
+      "contract": "只做只读推理，不接设备、不出剂量、不做诊断",
+      "next_action": "待用户指定机型与授权",
+      "evidence": "none",
+      "notes": "医学红线不因端侧而放宽。"
+    },
+    {
+      "slot_id": "EXT-GATE-01",
+      "kind": "gate",
+      "name": "五地同步门禁",
+      "status": "occupied",
+      "owner": "V1.2 DNA",
+      "contract": "G9 写序（校验器→清单→zip→回执）+ P1–P7 preflight",
+      "next_action": "每批复用，不改判据",
+      "evidence": "simulated",
+      "notes": "判据优先于 SOP 字面路径。"
+    },
+    {
+      "slot_id": "EXT-DOC-01",
+      "kind": "doc_channel",
+      "name": "飞书阅读入口",
+      "status": "occupied",
+      "owner": "lark-drive 导入",
+      "contract": "只作阅读入口，不作验收证据；.md → docx，同位置串行",
+      "next_action": "每批导入票据",
+      "evidence": "simulated",
+      "notes": "累计 21 次成功导入。"
+    }
+  ]
+}
