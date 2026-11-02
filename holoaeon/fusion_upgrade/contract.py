@@ -9,6 +9,8 @@
 """
 from __future__ import annotations
 
+import hashlib
+import json
 from typing import Any, Dict, List
 
 from .manifest import digest_of
@@ -119,3 +121,124 @@ def receipt(doc: Dict[str, Any], verdict: str = "pass") -> Dict[str, Any]:
     rec["seal"] = digest_of({"c": rec["contract_id"], "v": verdict,
                              "ok": check["ok"], "m": doc.get("mechanism")})
     return rec
+
+
+# ---------------------------------------------------------------------------
+# 契约 v1 冻结口径（B1b）
+#   见 data/contract_v1_draft.md §一 §二 §四 §五。以下为**加法**：
+#   make/validate/receipt 的历史行为保持不变，新口径另走 fingerprint/build/validate_v1。
+# ---------------------------------------------------------------------------
+PAYLOAD_KEYS = ("domain", "inputs", "outputs", "evidence", "redlines", "notes")
+DOMAINS = ("general", "medical")
+REDLINE_KEYS = ("zero_dose", "c0_not_efficacy", "emergency_120")
+FINGERPRINT_KEYS = ("source", "target", "skill", "mechanism", "lane", "payload")
+BUDGET_RANGE = (0, 100)
+NOTE_MAX = 200
+DOSE_MARKERS = ("mg", "ml", "毫克", "克/日", "剂量", "用药")
+
+
+def canonical(doc: Dict[str, Any]) -> str:
+    """指纹输入体的规范化 JSON：仅取 FINGERPRINT_KEYS，键排序、分隔符固定、不转义中文。"""
+    body = {k: doc[k] for k in FINGERPRINT_KEYS if k in doc}
+    return json.dumps(body, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+
+
+def fingerprint(doc: Dict[str, Any]) -> str:
+    """契约指纹：规范化体 sha256 前 12 位小写十六进制（同参同指纹、异参异指纹）。"""
+    return hashlib.sha256(canonical(doc).encode("utf-8")).hexdigest()[:12]
+
+
+def build(source: str, target: str, skill: str, mechanism: str,
+          lane: str = "read", **extra: Any) -> Dict[str, Any]:
+    """按 v1 口径构造契约：contract_id = fingerprint(体)；payload 缺省为空对象。"""
+    doc: Dict[str, Any] = {"source": source, "target": target, "skill": skill,
+                           "mechanism": mechanism, "lane": lane}
+    for key in OPTIONAL:
+        if key in extra:
+            doc[key] = extra[key]
+    doc.setdefault("payload", {})
+    doc["contract_id"] = fingerprint(doc)
+    return doc
+
+
+def _nonempty_text(v: Any) -> bool:
+    return bool(str(v if v is not None else "").strip())
+
+
+def validate_v1(doc: Dict[str, Any]) -> Dict[str, Any]:
+    """契约 v1 校验（V1–V8）。返回结构化结论，不抛异常。"""
+    if not isinstance(doc, dict):
+        return {"ok": False, "errors": ["document 不是对象"], "missing": [], "unknown": []}
+
+    errors: List[str] = []
+    missing = [k for k in REQUIRED if not _nonempty_text(doc.get(k))]
+    unknown = [k for k in doc.keys() if k not in REQUIRED + OPTIONAL]
+
+    mech = doc.get("mechanism")
+    if mech and mech not in MECHANISMS:
+        errors.append("V2 mechanism 不在六机制枚举内：%s" % mech)
+    lane = doc.get("lane")
+    if lane and lane not in LANES:
+        errors.append("V2 lane 只能是 read/write：%s" % lane)
+
+    payload = doc.get("payload", {})
+    payload_unknown: List[str] = []
+    if not isinstance(payload, dict):
+        errors.append("V3 payload 必须是对象")
+        payload = {}
+    else:
+        payload_unknown = [k for k in payload.keys() if k not in PAYLOAD_KEYS]
+        if payload_unknown:
+            errors.append("V3 payload 白名单外键：%s" % ", ".join(sorted(payload_unknown)))
+        domain = payload.get("domain", "general")
+        if domain not in DOMAINS:
+            errors.append("V3 payload.domain 只能是 general/medical：%s" % domain)
+        if domain == "medical":
+            red = payload.get("redlines")
+            if not isinstance(red, dict):
+                errors.append("V4 涉医域缺 redlines")
+            else:
+                miss_r = [k for k in REDLINE_KEYS if red.get(k) is not True]
+                if miss_r:
+                    errors.append("V4 涉医域红线未齐或非 true：%s" % ", ".join(miss_r))
+
+    cid = doc.get("contract_id")
+    id_ok = True
+    if cid:
+        want = fingerprint(doc)
+        id_ok = cid == want
+        if not id_ok:
+            errors.append("V5 指纹不符：声明 %s != 复算 %s" % (cid, want))
+
+    if "budget" in doc:
+        b = doc["budget"]
+        if isinstance(b, bool) or not isinstance(b, int) or not (BUDGET_RANGE[0] <= b <= BUDGET_RANGE[1]):
+            errors.append("V6 budget 必须是 %d–%d 的整数：%r" % (BUDGET_RANGE[0], BUDGET_RANGE[1], b))
+
+    for field in ("note",):
+        text = doc.get(field)
+        if isinstance(text, str):
+            if len(text) > NOTE_MAX:
+                errors.append("V7 %s 超过 %d 字" % (field, NOTE_MAX))
+    for field in ("note", "payload"):
+        texts = []
+        if field == "note" and isinstance(doc.get("note"), str):
+            texts = [doc["note"]]
+        if field == "payload" and isinstance(payload.get("notes"), str):
+            texts = [payload["notes"]]
+        for text in texts:
+            low = text.lower()
+            hit = [m for m in DOSE_MARKERS if m in low]
+            if hit:
+                errors.append("V7 %s 出现剂量/用药词：%s" % (field, ", ".join(hit)))
+
+    if unknown:
+        errors.append("V8 顶层出现 10 字段外的键：%s" % ", ".join(sorted(unknown)))
+
+    return {"ok": not missing and not errors,
+            "missing": missing, "unknown": unknown,
+            "payload_unknown": payload_unknown, "id_ok": id_ok,
+            "errors": errors,
+            "contract_id": cid, "fingerprint": fingerprint(doc),
+            "required": list(REQUIRED), "optional": list(OPTIONAL),
+            "payload_keys": list(PAYLOAD_KEYS)}

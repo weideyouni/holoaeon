@@ -1,0 +1,39 @@
+{
+  "all_valid": true,
+  "byte_equal": true,
+  "experiment": "B1b-cross-process-fingerprint",
+  "fingerprint_rule": "sha256(canonical(source,target,skill,mechanism,lane,payload))[:12]",
+  "nonce_not_in_fingerprint": true,
+  "payload_changed_differs": true,
+  "process_runs": 2,
+  "run_a_sha256": "ea9f8e65240233e05c8cf3bcbb4eb44435cb0dc749b3a78fa6f42f4b0d8241ac",
+  "run_b_sha256": "ea9f8e65240233e05c8cf3bcbb4eb44435cb0dc749b3a78fa6f42f4b0d8241ac",
+  "same_params_equal": true,
+  "samples": [
+    {
+      "contract_id": "eb6cb517cd4c",
+      "errors": [],
+      "name": "general",
+      "valid": true
+    },
+    {
+      "contract_id": "5960b848b691",
+      "errors": [],
+      "name": "medical",
+      "valid": true
+    },
+    {
+      "contract_id": "8aec3719ecda",
+      "errors": [],
+      "name": "changed",
+      "valid": true
+    },
+    {
+      "contract_id": "eb6cb517cd4c",
+      "errors": [],
+      "name": "with_nonce",
+      "valid": true
+    }
+  ],
+  "verdict": "PASS"
+}

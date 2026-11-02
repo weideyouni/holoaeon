@@ -1,0 +1,35 @@
+{
+  "all_valid": true,
+  "dna_id": "SG-DNA-FIVE-SITE-SYNC-V1.1",
+  "experiment": "B1b-cross-process-fingerprint",
+  "fingerprint_rule": "sha256(canonical(source,target,skill,mechanism,lane,payload))[:12]",
+  "nonce_not_in_fingerprint": true,
+  "payload_changed_differs": true,
+  "same_params_equal": true,
+  "samples": [
+    {
+      "contract_id": "eb6cb517cd4c",
+      "errors": [],
+      "name": "general",
+      "valid": true
+    },
+    {
+      "contract_id": "5960b848b691",
+      "errors": [],
+      "name": "medical",
+      "valid": true
+    },
+    {
+      "contract_id": "8aec3719ecda",
+      "errors": [],
+      "name": "changed",
+      "valid": true
+    },
+    {
+      "contract_id": "eb6cb517cd4c",
+      "errors": [],
+      "name": "with_nonce",
+      "valid": true
+    }
+  ]
+}

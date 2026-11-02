@@ -1,0 +1,135 @@
+{
+  "batch": "B1b",
+  "budget_range": [
+    0,
+    100
+  ],
+  "domains": [
+    "general",
+    "medical"
+  ],
+  "evidence_class": "simulated",
+  "examples": {
+    "general": {
+      "budget": 1,
+      "contract_id": "eb6cb517cd4c",
+      "lane": "read",
+      "mechanism": "semantic_bus",
+      "payload": {
+        "domain": "general",
+        "notes": "B1b 最小样本"
+      },
+      "skill": "fusion_contract",
+      "source": "local",
+      "target": "gitee"
+    },
+    "medical": {
+      "budget": 2,
+      "contract_id": "5960b848b691",
+      "lane": "read",
+      "mechanism": "meridian",
+      "nonce": "n-20261102-01",
+      "payload": {
+        "domain": "medical",
+        "evidence": {
+          "sha256": "98940b774566543b"
+        },
+        "inputs": {
+          "case_id": "R-001"
+        },
+        "notes": "只交换契约，不搬代码",
+        "redlines": {
+          "c0_not_efficacy": true,
+          "emergency_120": true,
+          "zero_dose": true
+        }
+      },
+      "skill": "fusion_plan",
+      "source": "local",
+      "target": "ivsa"
+    }
+  },
+  "fingerprint_rule": "sha256(canonical(source,target,skill,mechanism,lane,payload))[:12]",
+  "frozen_at": "2026-11-02",
+  "lanes": [
+    "read",
+    "write"
+  ],
+  "mechanisms": [
+    "holographic_heartbeat",
+    "cytoskeleton",
+    "skin_v6",
+    "semantic_bus",
+    "hebbian_field",
+    "meridian"
+  ],
+  "note_max": 200,
+  "optional": [
+    "payload",
+    "nonce",
+    "budget",
+    "note"
+  ],
+  "payload_keys": [
+    "domain",
+    "inputs",
+    "outputs",
+    "evidence",
+    "redlines",
+    "notes"
+  ],
+  "redline_keys": [
+    "zero_dose",
+    "c0_not_efficacy",
+    "emergency_120"
+  ],
+  "required": [
+    "contract_id",
+    "source",
+    "target",
+    "skill",
+    "mechanism",
+    "lane"
+  ],
+  "rules": [
+    {
+      "id": "V1",
+      "text": "6 必填任一缺失即 invalid"
+    },
+    {
+      "id": "V2",
+      "text": "mechanism 不在六值 / lane 不在 read|write 即 invalid"
+    },
+    {
+      "id": "V3",
+      "text": "payload 出现白名单外键 / domain 越界即 invalid"
+    },
+    {
+      "id": "V4",
+      "text": "domain=medical 时 redlines 三布尔必须齐且为 true"
+    },
+    {
+      "id": "V5",
+      "text": "重算指纹与声明 contract_id 不等即 invalid"
+    },
+    {
+      "id": "V6",
+      "text": "budget 必须是 0–100 整数"
+    },
+    {
+      "id": "V7",
+      "text": "note / payload.notes 超 200 字或出现剂量·用药词即 invalid"
+    },
+    {
+      "id": "V8",
+      "text": "顶层出现 10 字段外的键即 invalid"
+    }
+  ],
+  "spec_digest": "7afde0d54ad5bfd0",
+  "verify": {
+    "checker": "scripts/check_contract_v1.py",
+    "examples_bad": [],
+    "examples_valid": true
+  },
+  "version": "v1"
+}

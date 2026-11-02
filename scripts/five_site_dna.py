@@ -51,14 +51,22 @@ REPO_FILES = [
     "data/B0_自动匹配技能.csv",
     "data/B0_批次进度.csv",
     "data/contract_v1_draft.md",
+    "data/contract_v1.json",
     "data/five_site_dna.json",
     "data/FIVE_SITE_SYNC_DNA.md",
+    "holoaeon/fusion_upgrade/contract.py",
     "reports/b0_lock_v4fusion.json",
     "reports/contract_v1_check.json",
+    "reports/contract_v1_interop.json",
     "reports/gate_b0_v4.json",
     "scripts/b0_match.py",
     "scripts/check_contract_draft.py",
+    "scripts/check_contract_v1.py",
+    "scripts/contract_interop.py",
+    "scripts/contract_interop_final.py",
     "scripts/five_site_dna.py",
+    "scripts/freeze_contract_v1.py",
+    "tests_contract/test_contract_v1.py",
 ]
 
 ZIP_NAME = "holoaeon_v4_fusion_upgrade_20261102.zip"
