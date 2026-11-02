@@ -146,19 +146,13 @@
       "drift": [],
       "drift_count": 0,
       "missing_receipts": [],
-      "self_excluded_count": 2,
+      "self_excluded_count": 1,
       "self_excluded": [
-        {
-          "item": "repo:changed:reports/v43_hardening_check.json",
-          "owner": "scripts/verify_v43.py",
-          "prev_sha16": "bd5ffd5db6d5738f",
-          "curr_sha16": "7611aeb0f77b87df"
-        },
         {
           "item": "repo:changed:reports/v44_model_gateway_check.json",
           "owner": "scripts/verify_v44.py",
-          "prev_sha16": "ed322aa2049d6c42",
-          "curr_sha16": "55b5b5c1cd838db8"
+          "prev_sha16": "017f958f87ed9b8a",
+          "curr_sha16": "2f5248723f081e42"
         }
       ],
       "self_owners_count": 10,

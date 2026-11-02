@@ -124,7 +124,7 @@ python scripts\check_dimension_lock.py          # 0 violation · diff0 未漂移
 - **1199 条外部技能族级登记 + 桥接**：`data/v6_skill_family_registry.json` 把 1229 条索引收成 **58 个「域×机制」族**（1,229 成员，`members_sha256` 可回读），`holoaeon/fusion_upgrade/external_skill_registry.py` 提供 `load/stats/family_of/match/route` 与 `Kernel.resolve_external()`。**登记不复制、不改 47 条内置技能**：桥接是「族的候选出口」，执行仍走 25 个 agent。
 
 ```powershell
-python -m unittest discover -s tests_contract   # 180 OK（含 test_v6 12 例）
+python -m unittest discover -s tests_contract   # 184 OK（含 V6 12 例 + V6.1 4 例）
 python scripts\redline_scan.py                  # 扫描 83 文件，零违规
 python scripts\check_dimension_lock.py          # 12 维度 + 7 闸 + 0 violation，diff0 未漂移
 python -c "from holoaeon.fusion_upgrade import external_skill_registry as e; print(e.stats())"
