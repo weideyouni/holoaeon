@@ -75,6 +75,8 @@ REPO_FILES = [
     "data/admission_ledger.csv",
     "data/B7_准入票据_B7-1.md",
     "data/B7_准入票据_B7-2.md",
+    "data/B7_准入票据_B7-3.md",
+    "data/B7_准入票据_B7-4.md",
     "data/ivsa_plugin_v1.2.json",
     "data/dual_repo_sums.json",
     "data/许可分层清单.csv",

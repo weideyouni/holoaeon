@@ -1,6 +1,6 @@
 {
   "gates_id": "SG-B7-HARD-GATES-V1",
-  "batch": "B7-2",
+  "batch": "B7-4",
   "evidence_class": "simulated",
   "gates": {
     "v3_gate": {

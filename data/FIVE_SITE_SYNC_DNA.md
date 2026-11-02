@@ -86,7 +86,7 @@
 | G5 | **维度三硬断言**：`agents=25` / `skills=47` / `packs=9`；`spec.VERSION=0.9.1`；`diff0=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73` 不得漂移 | 任一破 → 停止本批、回滚、出事故票 |
 | G6 | **证据就地留**：每个判据都要有可跑脚本 + 可复算输出文件，不许只写在说明里 | 只有文字没有脚本/文件 → 判据不成立 |
 | G7 | **不覆盖回执**：新批次新回执文件；旧回执只读 | 覆盖旧回执 → 视为伪证 |
-| G9 | **清单写序闭环**：改完所有被扫描文件 → 算 `SHA256SUMS` → 算五地 `manifest` → 双 `verify`；清单类产物一律排除（现 9 项：`SHA256SUMS`、`data/dual_repo_sums.json`、B8 票据、`reports/b8_dual_sync.json`、`reports/b8_dual_sync_check.json`、`reports/five_site_manifest.json`、B9 票据、`reports/b9_closeout.json`、`reports/b9_closeout_check.json`（校验器输出件不得登记为被扫描文件，否则必生漂移环）） | 先算清单后写文件 → 校验必假红，本批作废重算 |
+| G9 | **清单写序闭环**：改完所有被扫描文件 → 算 `SHA256SUMS` → 算五地 `manifest` → 双 `verify`；清单类产物一律排除（现 10 项：`SHA256SUMS`、`data/dual_repo_sums.json`、B8 票据、`reports/b8_dual_sync.json`、`reports/b8_dual_sync_check.json`、`reports/five_site_manifest.json`、B9 票据、`reports/b9_closeout.json`、`reports/b9_closeout_check.json`、`reports/ivsa_recon.json`（校验器输出件不得登记为被扫描文件，否则必生漂移环）） | 先算清单后写文件 → 校验必假红，本批作废重算 |
 | G10 | **密令等同签字**：`潮起开门，潮落闭嘴`、`好嘞玉安` 与 `weideyouni`、`潘荟丞` 在密令编码上同等级同功用，任一出现即视为签字生效；但密令只开「执行与准入」，不改红线、不改维度锁、不改 ivsa 自身检 | 无密令/无签字却自行准入 → 视为伪证，回退 |
 | G8 | **红线优先于进度**：零剂量 / C0 不写成疗效 / L4 不外推人体 / 急症转 120 / 电场 gap 不以 rTMS 顶替 / 回执标 `simulated` | 与进度冲突时一律停，红线不让步 |
 
