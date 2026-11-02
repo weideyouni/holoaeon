@@ -68,6 +68,9 @@ class Kernel:
             agent.skills = self.skills
         if agent.memory is None:
             agent.memory = self.memory
+        # 路由开关下沉到 agent（cfg 为准，缺省沿用模块级常量）
+        agent._cfg_allow_single_fallback = getattr(
+            self.cfg, "allow_single_skill_fallback", True)
         self.agents[agent.agent_id] = agent
         self.scheduler.watch_add(agent)
         if connect_bus:
@@ -86,6 +89,20 @@ class Kernel:
                 best, best_score = aid, cand[0][1]
         return best
 
+    # ------------------------------------------------------------ 外部技能桥
+    def resolve_external(self, task: str, k: int = 3) -> dict:
+        """外部技能族桥接（V6.0-B1）：查登记表给候选族，不改 kernel.skills。
+
+        只有 25 个 agent 与 47 条内置技能是内核维度；1199 条外部技能只以「族」
+        的形式被登记与查询，命中后仍走内置 agent 执行（登记不复制）。
+        """
+        try:
+            from .fusion_upgrade import external_skill_registry as esr
+        except Exception as exc:  # noqa: BLE001
+            return {"status": "bridge_unavailable", "err": str(exc),
+                    "candidates": []}
+        return esr.route(task, k=k)
+
     # ------------------------------------------------------------ 任务提交
     def submit(
         self,
@@ -100,6 +117,15 @@ class Kernel:
         args 为额外技能参数（如 text/csv_text），与 task 一并进入 payload。"""
         self.submitted += 1
         targets = self._resolve_targets(task, to)
+        if not targets:
+            ext = self.resolve_external(task, k=3)
+            return {"runtime_id": RUNTIME_ID, "task": task, "targets": [],
+                    "results": [], "all_ok": False,
+                    "status": "no_agent_matched",
+                    "external_candidates": ext.get("candidates", []),
+                    "external_status": ext.get("status"),
+                    "hint": "无内置技能命中；可显式传 to=<agent_id> 或 to='*' 广播，"
+                            "或按 external_candidates 选族"}
         results: List[dict] = []
         for aid in targets:
             env = Envelope.create(
@@ -126,11 +152,16 @@ class Kernel:
 
     def _resolve_targets(self, task: str,
                          to: Optional[Union[str, Sequence[str]]]) -> List[str]:
+        flag = getattr(getattr(self, "cfg", None), "broadcast_on_no_match",
+                       BROADCAST_ON_NO_MATCH)
         if to is None:
             chosen = self.choose_agent(task)
             if chosen:
                 return [chosen]
-            return list(self.agents.keys()) if BROADCAST_ON_NO_MATCH else []
+            # 显式广播语义用 to="*"；此处只在开关为 True 时兜底广播。
+            return list(self.agents.keys()) if flag else []
+        if to == "*":
+            return list(self.agents.keys())
         if isinstance(to, str):
             return [to]
         return list(to)

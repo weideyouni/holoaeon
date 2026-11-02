@@ -34,7 +34,8 @@ def main():
     ap.add_argument("--html", required=True)
     args = ap.parse_args()
     try:
-        html = open(args.html, encoding="utf-8").read()
+        with open(args.html, encoding="utf-8") as f:
+            html = f.read()
     except Exception as e:  # noqa: BLE001
         print("读取失败：%s" % e)
         return 2

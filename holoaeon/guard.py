@@ -37,7 +37,7 @@ BLOCK = "block"
 DANGER_PATTERNS = (
     "__import__", "os.system", "subprocess", "eval(", "exec(",
     "open('/etc", "open(\"/etc", "rm -rf", "shutil.rmtree",
-    ".env", "id_rsa", "access_token", "private_key",
+    "open('.env", 'open(".env', "dotenv", "id_rsa", "access_token", "private_key",
 )
 
 MAX_PAYLOAD_BYTES = 1_000_000

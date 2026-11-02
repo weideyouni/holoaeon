@@ -59,14 +59,16 @@ def main():
     args = ap.parse_args()
 
     if args.axes_json:
-        concepts = json.load(open(args.axes_json, encoding="utf-8"))["concepts"]
+        with open(args.axes_json, encoding="utf-8") as f:
+            concepts = json.load(f)["concepts"]
     elif args.axes:
         concepts = [c.strip() for c in args.axes.split(",") if c.strip()]
     else:
         concepts = list(PROFILE_SPACE)
 
     os.makedirs(args.out, exist_ok=True)
-    raw = open(args.transcript, "r", encoding="utf-8").read()
+    with open(args.transcript, "r", encoding="utf-8") as f:
+        raw = f.read()
     blocks, n_marks = split_blocks(raw)
 
     for b in blocks:

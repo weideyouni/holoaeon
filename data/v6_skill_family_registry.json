@@ -1,0 +1,2672 @@
+{
+ "id": "SG-V6-SKILL-FAMILY-MAP-V1",
+ "batch": "V6.0-B1",
+ "created_at": "2026-11-02",
+ "evidence_class": "measured",
+ "source": "data/skill_matrix_index.json",
+ "source_digest": "9a565741e1f72ab7",
+ "source_count": 1229,
+ "runtime_skills": 1199,
+ "dimension_lock": {
+  "agents": 25,
+  "skills": 47,
+  "packs": 9,
+  "extra_packs": 10
+ },
+ "policy": "族级登记，不复制文件、不改名、不并入 kernel.skills 的 47 条内置技能；桥接由 fusion_upgrade/external_skill_registry.py 提供查询与候选路由",
+ "family_count": 58,
+ "member_total": 1229,
+ "members_sha256": "e51c549161a1bd9af886936efbd72f02916e3343c576b655d1fb627d1cb238d3",
+ "families": [
+  {
+   "id": "F01",
+   "domain": "business",
+   "mechanism": "cytoskeleton",
+   "label": "商业·细胞骨架",
+   "keywords": [
+    "商业",
+    "细胞骨架",
+    "business",
+    "cytoskeleton"
+   ],
+   "count": 1,
+   "lanes": {
+    "read": 1,
+    "write": 0
+   },
+   "members_digest": "c0d710d82204c9b872cf51925645dce55fc4a520f22d42d459ee468e7997360a",
+   "sample": [
+    "shengui-shenma-avatar-global-loader"
+   ],
+   "members": [
+    "shengui-shenma-avatar-global-loader"
+   ]
+  },
+  {
+   "id": "F02",
+   "domain": "business",
+   "mechanism": "holographic_heartbeat",
+   "label": "商业·全息心跳",
+   "keywords": [
+    "商业",
+    "全息心跳",
+    "business",
+    "holographic_heartbeat"
+   ],
+   "count": 1,
+   "lanes": {
+    "read": 1,
+    "write": 0
+   },
+   "members_digest": "ccf6caea3d92120cbded4abab3b4006ff7df5b98b70be175df2df6a115a8d945",
+   "sample": [
+    "goose-introduction-pricing"
+   ],
+   "members": [
+    "goose-introduction-pricing"
+   ]
+  },
+  {
+   "id": "F03",
+   "domain": "business",
+   "mechanism": "skin_v6",
+   "label": "商业·皮肤",
+   "keywords": [
+    "商业",
+    "皮肤",
+    "business",
+    "skin_v6"
+   ],
+   "count": 1,
+   "lanes": {
+    "read": 1,
+    "write": 0
+   },
+   "members_digest": "8f4e4476cec69744477d6c46a1e643af32a2b69010975fb3655906071b6ebf3d",
+   "sample": [
+    "barrel-algae-cost-estimate"
+   ],
+   "members": [
+    "barrel-algae-cost-estimate"
+   ]
+  },
+  {
+   "id": "F04",
+   "domain": "business",
+   "mechanism": "unmapped",
+   "label": "商业·未映射",
+   "keywords": [
+    "商业",
+    "未映射",
+    "business",
+    "unmapped"
+   ],
+   "count": 1,
+   "lanes": {
+    "read": 1,
+    "write": 0
+   },
+   "members_digest": "4225373893eb09c101600a1f887e8297056211823d6f4b199c277533ed884073",
+   "sample": [
+    "memory-cross-thread-fusion"
+   ],
+   "members": [
+    "memory-cross-thread-fusion"
+   ]
+  },
+  {
+   "id": "F05",
+   "domain": "data",
+   "mechanism": "cytoskeleton",
+   "label": "数据·细胞骨架",
+   "keywords": [
+    "数据",
+    "细胞骨架",
+    "data",
+    "cytoskeleton"
+   ],
+   "count": 16,
+   "lanes": {
+    "read": 13,
+    "write": 3
+   },
+   "members_digest": "bac69a2d245e00e3e57880c5ea083053936b84397e1443a77f9d46f507f50214",
+   "sample": [
+    "cognition-20000-harvest",
+    "compliance-safety-core",
+    "formula-knowledge-suite"
+   ],
+   "members": [
+    "cognition-20000-harvest",
+    "compliance-safety-core",
+    "formula-knowledge-suite",
+    "g-course-manuscript-video-structurer",
+    "jingluo-knowledge-suite",
+    "lark-sheets",
+    "lark-sheets",
+    "local-nutrient-ingestion-pipeline",
+    "mandala-octo-expansion",
+    "mobius-expansion-engine-harvest",
+    "multimodal-unified-parse",
+    "neike-knowledge-suite",
+    "pipeline-end2end-verifier",
+    "smm-v3-domain-profile-kit",
+    "smm-v3-opensource-repack",
+    "tcm-integrated-training-model"
+   ]
+  },
+  {
+   "id": "F06",
+   "domain": "data",
+   "mechanism": "hebbian_field",
+   "label": "数据·赫布协作场",
+   "keywords": [
+    "数据",
+    "赫布协作场",
+    "data",
+    "hebbian_field"
+   ],
+   "count": 19,
+   "lanes": {
+    "read": 15,
+    "write": 4
+   },
+   "members_digest": "16cfa631d5380c74f6d7bc89c6c8a2ccb21758d6626e58b778ccefbf3d98e7f1",
+   "sample": [
+    "book-cover-driven-enhancer",
+    "data-tool-interop-standard",
+    "diagram-design-skills-1331"
+   ],
+   "members": [
+    "book-cover-driven-enhancer",
+    "data-tool-interop-standard",
+    "diagram-design-skills-1331",
+    "hassabis-evolution-vector-sea",
+    "holoaeon-diff0-20261031",
+    "knowledge-update-600",
+    "lark-task",
+    "lark-task",
+    "magic-universe-agent-matrix",
+    "medicine-agent-csv-standard",
+    "office-superking-20000",
+    "openmontage-video-skills-1331",
+    "portrait-full-link-selfrepair-overview",
+    "rea-reverse-engineer-1331",
+    "realeng-skills-1331",
+    "semantic-intent-extractor",
+    "shengui-shenma-shishu-yidao-tianhelu-super-matrix",
+    "shengui-shenma-shishu-yidao-xuelizhai-super-matrix",
+    "vector-matrix-autoevol-hub"
+   ]
+  },
+  {
+   "id": "F07",
+   "domain": "data",
+   "mechanism": "holographic_heartbeat",
+   "label": "数据·全息心跳",
+   "keywords": [
+    "数据",
+    "全息心跳",
+    "data",
+    "holographic_heartbeat"
+   ],
+   "count": 35,
+   "lanes": {
+    "read": 26,
+    "write": 9
+   },
+   "members_digest": "8dd6d1f1b5c893a12e4872dcb39dc9e4e60de80e82c03f995b12bb150fd576e8",
+   "sample": [
+    "aicmd-engine-selfheal-evolve",
+    "aicmd-fault-heal-replay",
+    "alaya-snapshot-v12"
+   ],
+   "members": [
+    "aicmd-engine-selfheal-evolve",
+    "aicmd-fault-heal-replay",
+    "alaya-snapshot-v12",
+    "asset-philipkdick",
+    "asset-threefield-v11",
+    "bayes-pomdp-inference",
+    "dream-app-sleep-optimization",
+    "dream-axiom-epigenetics",
+    "dream-axiom-molecular-cell",
+    "dream-axiom-semiotics",
+    "five-elements-balance",
+    "fpv-cinematics-365-overview",
+    "fpv-cinematics-generalization",
+    "harness-fuel-commonrail-token",
+    "holoaeon-release-sync-dna",
+    "inflection-131-detection",
+    "kalman-turbulence-extended-model",
+    "klein-convergence-engine-harvest",
+    "lark-apps",
+    "lark-apps",
+    "longjiang-coldland-dialectics",
+    "meso-asset-inventory",
+    "sanjiao-message-bus",
+    "shengui-shenma-math-master-1331x1331",
+    "silicon-kernel-108641-harvest",
+    "smm-v3-observability-dashboard",
+    "snapshot-backup-pivot",
+    "stabilizer-anti-hallucination",
+    "t84-cytoskeleton-soft-hard",
+    "three-site-sync-architecture",
+    "threefield-stress-resonance",
+    "triple-persistence-spec",
+    "vector-sea-cloud-replica",
+    "vector-sea-local-rebuild-dual-sync",
+    "wdrama-analytics-v3"
+   ]
+  },
+  {
+   "id": "F08",
+   "domain": "data",
+   "mechanism": "meridian",
+   "label": "数据·经络",
+   "keywords": [
+    "数据",
+    "经络",
+    "data",
+    "meridian"
+   ],
+   "count": 1,
+   "lanes": {
+    "read": 1,
+    "write": 0
+   },
+   "members_digest": "0b66f7c813d274d486e624ce0ecfa9e546053e15e0773367229d9693096bd639",
+   "sample": [
+    "tensor-dim-dynamic-tuning"
+   ],
+   "members": [
+    "tensor-dim-dynamic-tuning"
+   ]
+  },
+  {
+   "id": "F09",
+   "domain": "data",
+   "mechanism": "semantic_bus",
+   "label": "数据·语义通信",
+   "keywords": [
+    "数据",
+    "语义通信",
+    "data",
+    "semantic_bus"
+   ],
+   "count": 1,
+   "lanes": {
+    "read": 0,
+    "write": 1
+   },
+   "members_digest": "2c3d8253c4d9415ced86e7e3da6a8eb3025b073593df40ff33904958015c32f5",
+   "sample": [
+    "sce-01-silicon-flow-protocol"
+   ],
+   "members": [
+    "sce-01-silicon-flow-protocol"
+   ]
+  },
+  {
+   "id": "F10",
+   "domain": "data",
+   "mechanism": "skin_v6",
+   "label": "数据·皮肤",
+   "keywords": [
+    "数据",
+    "皮肤",
+    "data",
+    "skin_v6"
+   ],
+   "count": 35,
+   "lanes": {
+    "read": 33,
+    "write": 2
+   },
+   "members_digest": "fbd443dcec9db96d8eea9808a7da211946643203b6cd3bd8b7e33dc5d014811d",
+   "sample": [
+    "asset-yaoyi-hospital",
+    "book-avatar-machine-harvest",
+    "book-human-not-earth-avatar"
+   ],
+   "members": [
+    "asset-yaoyi-hospital",
+    "book-avatar-machine-harvest",
+    "book-human-not-earth-avatar",
+    "chungking-express-film-analysis",
+    "clearview-pragmatism",
+    "four-paradigm-transformation",
+    "g-rare-manuscript-recovery-indexer",
+    "harvest-s10-trigger",
+    "inflection-mode-ml-feature-enhanced",
+    "inflection-mode-weighted-sliding-smoothing",
+    "lark-drive",
+    "lark-drive",
+    "loop-iteration-optimization-cluster",
+    "medicine-teaching-cluster",
+    "mozai-motion-control-cluster",
+    "mozai-multimodal-perception-cluster",
+    "mozai-self-evolution-cluster",
+    "office-20000-harvest-finlegal",
+    "quattro-racing-harvest",
+    "refine-traceability",
+    "santian-100t-prod-model",
+    "self-heal-evolution-engine",
+    "smm-v3-ops-safety-profile",
+    "tcm-molbio-pharmacogenomics-1331",
+    "tensor-king-1331",
+    "tensor-split-fusion-supervisor-2662",
+    "threefield-compliance-gate",
+    "threefield-confidence",
+    "threefield-network-graph",
+    "threefield-resonance-matrix",
+    "threefield-reverse-inference",
+    "triple-persistence-delivery",
+    "triple-persistence-workflow",
+    "wdrama-convergence-judge-v3",
+    "wdrama-qc-tech-v3"
+   ]
+  },
+  {
+   "id": "F11",
+   "domain": "data",
+   "mechanism": "unmapped",
+   "label": "数据·未映射",
+   "keywords": [
+    "数据",
+    "未映射",
+    "data",
+    "unmapped"
+   ],
+   "count": 3,
+   "lanes": {
+    "read": 1,
+    "write": 2
+   },
+   "members_digest": "facb9c3c61ab1d07354c9b2c24ad1f7db94b179afde8c88bbda4c5044711a5d2",
+   "sample": [
+    "lark-okr",
+    "lark-okr",
+    "longjiang-fangji-frequency"
+   ],
+   "members": [
+    "lark-okr",
+    "lark-okr",
+    "longjiang-fangji-frequency"
+   ]
+  },
+  {
+   "id": "F12",
+   "domain": "gaoyi",
+   "mechanism": "cytoskeleton",
+   "label": "高维·细胞骨架",
+   "keywords": [
+    "高维",
+    "细胞骨架",
+    "gaoyi",
+    "cytoskeleton"
+   ],
+   "count": 23,
+   "lanes": {
+    "read": 21,
+    "write": 2
+   },
+   "members_digest": "51f90ed0e81f8bcc9abee49adf4d75b8093bc06049994e2c4c6c1b65c827a0f3",
+   "sample": [
+    "asset-salvage-6m",
+    "chr-podcast-pipeline",
+    "cytoskeleton-robustness-superstructure"
+   ],
+   "members": [
+    "asset-salvage-6m",
+    "chr-podcast-pipeline",
+    "cytoskeleton-robustness-superstructure",
+    "cytoskeleton-robustness-superstructure",
+    "dream-dim-synapse-homeostasis",
+    "eco-farm-masterplan-nine-dim",
+    "guoyi-master-digital-avatar",
+    "harvest-s5-classify",
+    "hilbert-108641x5-harvest",
+    "hilbert-master-543205",
+    "lark-workflow-standup-report",
+    "lark-workflow-standup-report",
+    "lotus-hcf-architect",
+    "medical-podcast-transcript",
+    "refine-abstraction-lambda",
+    "scanned-classics-mineru-ingest",
+    "shengui-shenma-dual-base-harvest",
+    "shengui-shenma-liwenrui-super-matrix",
+    "split-selforg-operators",
+    "t84-runtime-skin-v6-guard",
+    "task-split-master-1331",
+    "tcm-organ-system-teaching",
+    "wenxuan-collapse-core"
+   ]
+  },
+  {
+   "id": "F13",
+   "domain": "gaoyi",
+   "mechanism": "hebbian_field",
+   "label": "高维·赫布协作场",
+   "keywords": [
+    "高维",
+    "赫布协作场",
+    "gaoyi",
+    "hebbian_field"
+   ],
+   "count": 74,
+   "lanes": {
+    "read": 71,
+    "write": 3
+   },
+   "members_digest": "46f837b5d391d69877fdef6dafab1c2380916308fcd1ac20807ca3d7344de963",
+   "sample": [
+    "asset-teddy-draco",
+    "bashu-holo-avatar-master",
+    "bayes-mas-1331-harvest"
+   ],
+   "members": [
+    "asset-teddy-draco",
+    "bashu-holo-avatar-master",
+    "bayes-mas-1331-harvest",
+    "book-robot-cluster-17x1131",
+    "breast-surgery-150",
+    "breast-surgery-150agent",
+    "cgm42000-matrix-runtime",
+    "chinese-medical-masters-legion",
+    "class-brain-autoevolution",
+    "cognitive-sovereignty-1331",
+    "dna-rule-engine",
+    "ds-task-split-avatar-1331",
+    "edu-master-ai-computer",
+    "fanfic-sim-cluster",
+    "holographic-whole-heartbeat",
+    "holographic-whole-heartbeat",
+    "magpie-modeladapter-1331",
+    "math-master-1331x1331-super-matrix",
+    "med-freq-master-1331",
+    "menghe-master-1331-harvest",
+    "menghuo-review-1331x1331-harvest",
+    "multi-agent-architecture-eval",
+    "multi-thread-migration-1500agent",
+    "office-20000-harvest-master",
+    "pkm-600-harvest",
+    "privacy-router-1331",
+    "protocol-fusion-gateway",
+    "quantum-deduction-1331x1331",
+    "quattro-crosscar-harvest",
+    "semantic-comm-base-1331x1331",
+    "semantic-entropy-estimator",
+    "semantic-mas-bus",
+    "semantic-synonym-mapper",
+    "semantic-task-encoder",
+    "shengui-shenma-dual-system-base-super-matrix",
+    "shengui-shenma-fangyao-freq-fusion-1331",
+    "shengui-shenma-japanese-master",
+    "shengui-shenma-lcpharm-clinical-pharmacotherapy-1331x1331",
+    "shengui-shenma-rushidao-1331x1331-super-matrix",
+    "shengui-shenma-shishu-yidao-bashu-super-matrix",
+    "shengui-shenma-shishu-yidao-caobingzhang-super-matrix",
+    "shengui-shenma-shishu-yidao-chenbotan-super-matrix",
+    "shengui-shenma-shishu-yidao-dingganren-super-matrix",
+    "shengui-shenma-shishu-yidao-feiboxiong-super-matrix",
+    "shengui-shenma-shishu-yidao-louying-super-matrix",
+    "shengui-shenma-shishu-yidao-lumaoxiu-super-matrix",
+    "shengui-shenma-shishu-yidao-mapeizhi-super-matrix",
+    "shengui-shenma-shishu-yidao-ouyue-super-matrix",
+    "shengui-shenma-shishu-yidao-tangzonghai-super-matrix",
+    "shengui-shenma-shishu-yidao-wangji-super-matrix",
+    "shengui-shenma-shishu-yidao-wumen-super-matrix",
+    "shengui-shenma-shishu-yidao-wuqijun-super-matrix",
+    "shengui-shenma-shishu-yidao-zhangjingyue-super-matrix",
+    "shengui-shenma-shishu-yidao-zhouxuehai-1331x131",
+    "shengui-shenma-tea-tutor-master",
+    "shengui-shenma-wan-rehab-fusion-1331",
+    "shengui-shenma-wenxuan-1331x1331-super-matrix",
+    "shengui-shenma-world-archaeology-master",
+    "shengui-shenma-xieji-bianfang",
+    "shengui-shenma-xingxue-dacheng",
+    "shengui-shenma-yaoyi-rehab-fusion-1331",
+    "shengui-shenma-zhouyi",
+    "shengui-shenma-zhuangyao-mineral-rehab-fusion-1331",
+    "shengui-shenma-ziwei-spacetime",
+    "slv2-matrix-base-1331x131",
+    "softconn-vector-encode",
+    "tcm-clinical-herb-v3-1331x1331-mas",
+    "tcm-ten-university-master-harvest",
+    "tcm-western-rehab-fusion",
+    "tensor-split-fusion-supervisor",
+    "three-field-pharmacology-master-1331",
+    "threefield-loading-hub",
+    "xujiang-1331x1331-super-system",
+    "yishui-1331x1331-super-system"
+   ]
+  },
+  {
+   "id": "F14",
+   "domain": "gaoyi",
+   "mechanism": "holographic_heartbeat",
+   "label": "高维·全息心跳",
+   "keywords": [
+    "高维",
+    "全息心跳",
+    "gaoyi",
+    "holographic_heartbeat"
+   ],
+   "count": 58,
+   "lanes": {
+    "read": 46,
+    "write": 12
+   },
+   "members_digest": "5b4e6cd373c66a6b737e777077a868a66aaab91e54e5542b0fec94955ed0d474",
+   "sample": [
+    "asset-hevs-iteration",
+    "asset-precursor-v2",
+    "cold-hot-plug-upgrade"
+   ],
+   "members": [
+    "asset-hevs-iteration",
+    "asset-precursor-v2",
+    "cold-hot-plug-upgrade",
+    "coldhot-upgrade-package-harvest",
+    "disease-atlas-fusion",
+    "dream-axiom-dual-essence",
+    "dual-system-shengui-guard-harvest",
+    "dual-system-shenma-evolve-harvest",
+    "film-director-history-master",
+    "guima-rematrix-base-1331",
+    "harvest-s11-feishu",
+    "harvest-s9-registry",
+    "heartbeat-storm-iteration",
+    "holo-self-narration-490-harvest",
+    "json-structured-comm-protocol",
+    "kalman-turbulence-1331x13-harvest",
+    "lark-calendar",
+    "lark-calendar",
+    "lark-event",
+    "lark-event",
+    "lark-shared",
+    "lark-shared",
+    "linguistic-hormone-regulation",
+    "linguistic-master-v2",
+    "linguistic-master-v2-harvest",
+    "linguistic-master-v2-overview",
+    "local-real-vector-endpoint",
+    "memory-history-backtrack",
+    "mineru",
+    "movie-master-quick-watch",
+    "neural-morphogenesis-tessellation-collapse",
+    "office-20000-harvest-education",
+    "office-20000-harvest-meeting",
+    "quattro-os-harvest",
+    "quick-validate-standard",
+    "shengui-shenma-ai-edu-1331x1331",
+    "shengui-shenma-dual-system-base-v3",
+    "shengui-shenma-eco60-arhats-1331x1331",
+    "shengui-shenma-fuke-fangji-jingang-1331",
+    "shengui-shenma-samalt-1331x1331-super-matrix",
+    "shengui-shenma-tianshan-1331x1331-super-matrix",
+    "silicon-life-precursor-v2-harness",
+    "skill-harvest-workflow",
+    "skill-harvest-workflow-meta",
+    "skill-harvest-workflow-v1",
+    "skills-harvest-workflow-1008",
+    "smm-v3-crossthread-audit-suite",
+    "smm-v3-deterministic-ci-benchmark",
+    "sunday-deepsweep-fallback",
+    "t84-1331-master-runtime",
+    "t84-semantic-bus-s1-s7",
+    "task-lifecycle-state-machine",
+    "tcm-master-academic-courses",
+    "tcm-quality-assurance-osce",
+    "timer-master-300",
+    "vector-sea-cloud-projection",
+    "vector-sea-cloud-sync",
+    "yaolixue-knowledge-suite"
+   ]
+  },
+  {
+   "id": "F15",
+   "domain": "gaoyi",
+   "mechanism": "meridian",
+   "label": "高维·经络",
+   "keywords": [
+    "高维",
+    "经络",
+    "gaoyi",
+    "meridian"
+   ],
+   "count": 2,
+   "lanes": {
+    "read": 2,
+    "write": 0
+   },
+   "members_digest": "bc22415b36175c6c260cb9fee6924ad806c7fa6376d37b26742860ce6069768a",
+   "sample": [
+    "prehistory-nutrition-ingestion",
+    "wdrama-deploy-unittest-v3"
+   ],
+   "members": [
+    "prehistory-nutrition-ingestion",
+    "wdrama-deploy-unittest-v3"
+   ]
+  },
+  {
+   "id": "F16",
+   "domain": "gaoyi",
+   "mechanism": "semantic_bus",
+   "label": "高维·语义通信",
+   "keywords": [
+    "高维",
+    "语义通信",
+    "gaoyi",
+    "semantic_bus"
+   ],
+   "count": 3,
+   "lanes": {
+    "read": 3,
+    "write": 0
+   },
+   "members_digest": "94e353259f11dd62090ee760f484b38b8f2b63a0c55d7e3dda38dbd261075e5d",
+   "sample": [
+    "holoaeon-verax-attest-20261031",
+    "prompt-tool-ecosystem",
+    "vector-lib-bootstrap-system"
+   ],
+   "members": [
+    "holoaeon-verax-attest-20261031",
+    "prompt-tool-ecosystem",
+    "vector-lib-bootstrap-system"
+   ]
+  },
+  {
+   "id": "F17",
+   "domain": "gaoyi",
+   "mechanism": "skin_v6",
+   "label": "高维·皮肤",
+   "keywords": [
+    "高维",
+    "皮肤",
+    "gaoyi",
+    "skin_v6"
+   ],
+   "count": 41,
+   "lanes": {
+    "read": 40,
+    "write": 1
+   },
+   "members_digest": "6f7cbaecadc8448626cfde5e7175f07fedacfaf4f78632cc3639502b83c09cc6",
+   "sample": [
+    "asset-migration-bootstrap",
+    "asset-sunwu-war",
+    "binhai-dampness-disease"
+   ],
+   "members": [
+    "asset-migration-bootstrap",
+    "asset-sunwu-war",
+    "binhai-dampness-disease",
+    "cold-hot-plug-deployment",
+    "cost-labor-calculation-spec",
+    "ds-split-master-1331-overview",
+    "guoyi-master-digital-avatar-42000",
+    "guoyi-master-inheritance",
+    "harvest-meta-workflow",
+    "harvest-s1-inventory",
+    "harvest-s3-dedup",
+    "harvest-s6-generate",
+    "harvest-s8-persist",
+    "hilbert-space-master",
+    "hilbert-space-master-543205",
+    "longjiang-four-masters",
+    "mozai-api-extension-slot",
+    "mozai-emotion-vector-system",
+    "mozai-language-emotion-cluster",
+    "mozai-ops-extension-cluster",
+    "mozai-qa-cluster",
+    "phase-one-investment-budget",
+    "pv-offgrid-pumping-system",
+    "pv-system-roi",
+    "qilu-master-thought-extract",
+    "santian-pond-cost-schedule",
+    "seven-dim-eco-farm-master",
+    "smm-v3-legal-safety-profile",
+    "smm-v3-mcp-tool-adapter",
+    "softconn-nlp-programming",
+    "tcm-ai-teaching-assistant",
+    "tcm-industry-academia-employment",
+    "tcm-master-avatar-42000",
+    "tcm-master-avatars",
+    "three-field-pharmaco-1331",
+    "tool-schema-standard",
+    "understory-herb-planting",
+    "understory-multilayer-forest",
+    "wanzi-podcast-script-guide",
+    "wdrama-breakdowner-v3",
+    "wdrama-casting-v3"
+   ]
+  },
+  {
+   "id": "F18",
+   "domain": "gaoyi",
+   "mechanism": "unmapped",
+   "label": "高维·未映射",
+   "keywords": [
+    "高维",
+    "未映射",
+    "gaoyi",
+    "unmapped"
+   ],
+   "count": 8,
+   "lanes": {
+    "read": 5,
+    "write": 3
+   },
+   "members_digest": "ab1e48883c46f04c2f02f19e3e0f20fc241e4ce6cb3863d57cd6736f5e85aa17",
+   "sample": [
+    "dual-system-balance-harvest",
+    "ghost-memory-king-1000",
+    "lark-approval"
+   ],
+   "members": [
+    "dual-system-balance-harvest",
+    "ghost-memory-king-1000",
+    "lark-approval",
+    "lark-approval",
+    "pdf-ingest-engineering-rules",
+    "pkm-knowledge-master-600",
+    "system-skin-v6",
+    "triple-persistence-harvest"
+   ]
+  },
+  {
+   "id": "F19",
+   "domain": "growth",
+   "mechanism": "cytoskeleton",
+   "label": "增长·细胞骨架",
+   "keywords": [
+    "增长",
+    "细胞骨架",
+    "growth",
+    "cytoskeleton"
+   ],
+   "count": 8,
+   "lanes": {
+    "read": 8,
+    "write": 0
+   },
+   "members_digest": "fc023df9c0d75bce5e186a56a38c95da6e120f79e344f5580c76ad628b285fca",
+   "sample": [
+    "auto-immune-security",
+    "holo-knowledge-card",
+    "holo-seven-base-140"
+   ],
+   "members": [
+    "auto-immune-security",
+    "holo-knowledge-card",
+    "holo-seven-base-140",
+    "holo-three-tier-guide",
+    "lark-workflow-meeting-summary",
+    "lark-workflow-meeting-summary",
+    "value-survival-core",
+    "xinxi-hao-san-jiegou"
+   ]
+  },
+  {
+   "id": "F20",
+   "domain": "growth",
+   "mechanism": "hebbian_field",
+   "label": "增长·赫布协作场",
+   "keywords": [
+    "增长",
+    "赫布协作场",
+    "growth",
+    "hebbian_field"
+   ],
+   "count": 5,
+   "lanes": {
+    "read": 5,
+    "write": 0
+   },
+   "members_digest": "b3b2c2e7fa046e1f96cdf6764a6910723244e836b0437c78f93f41e812397313",
+   "sample": [
+    "agent-manager-5000-matrix",
+    "dalanwang-600-jizhi",
+    "harvest-s2-extract"
+   ],
+   "members": [
+    "agent-manager-5000-matrix",
+    "dalanwang-600-jizhi",
+    "harvest-s2-extract",
+    "memory-self-evolution-triune",
+    "root-ultimate-upgrade-package"
+   ]
+  },
+  {
+   "id": "F21",
+   "domain": "growth",
+   "mechanism": "holographic_heartbeat",
+   "label": "增长·全息心跳",
+   "keywords": [
+    "增长",
+    "全息心跳",
+    "growth",
+    "holographic_heartbeat"
+   ],
+   "count": 15,
+   "lanes": {
+    "read": 12,
+    "write": 3
+   },
+   "members_digest": "41cc5ece5ce653bbc68faa3af3ddad097dd0f5a21755c293046412ebfa74d60d",
+   "sample": [
+    "dream-axiom-cognition-coupling",
+    "holographic-narration-490-overview",
+    "lark-meeting"
+   ],
+   "members": [
+    "dream-axiom-cognition-coupling",
+    "holographic-narration-490-overview",
+    "lark-meeting",
+    "lark-meeting",
+    "linguistic-brain-like-core",
+    "linguistic-emotional-regulation",
+    "linguistic-entropy-layering",
+    "linguistic-hormone-modulator",
+    "linguistic-knowledge-self-gen",
+    "linguistic-node-allocation",
+    "matrix-security-gate",
+    "predictive-ops-cost",
+    "rongge-jiti-wuyishi",
+    "shengjibao-fengzhuang-guifan",
+    "vectorsea-single-authority-governance"
+   ]
+  },
+  {
+   "id": "F22",
+   "domain": "growth",
+   "mechanism": "semantic_bus",
+   "label": "增长·语义通信",
+   "keywords": [
+    "增长",
+    "语义通信",
+    "growth",
+    "semantic_bus"
+   ],
+   "count": 2,
+   "lanes": {
+    "read": 0,
+    "write": 2
+   },
+   "members_digest": "870c65f4250f01cd0f6b90e3a2c37fe1efb7553c9fe59f0415bad457a35365f7",
+   "sample": [
+    "lark-slides",
+    "lark-slides"
+   ],
+   "members": [
+    "lark-slides",
+    "lark-slides"
+   ]
+  },
+  {
+   "id": "F23",
+   "domain": "growth",
+   "mechanism": "skin_v6",
+   "label": "增长·皮肤",
+   "keywords": [
+    "增长",
+    "皮肤",
+    "growth",
+    "skin_v6"
+   ],
+   "count": 12,
+   "lanes": {
+    "read": 11,
+    "write": 1
+   },
+   "members_digest": "4919bb3ad2a4eff2ce9759508ad0e2c9c90b91cfeaa7eca40953644a7dd8fd32",
+   "sample": [
+    "content-to-feishu-doc",
+    "dream-app-science-popularize",
+    "harvest-s4-granularity"
+   ],
+   "members": [
+    "content-to-feishu-doc",
+    "dream-app-science-popularize",
+    "harvest-s4-granularity",
+    "holo-131-inflection-point",
+    "holo-adaptive-crystallization",
+    "holo-seven-special-groups-350",
+    "quantum-deform-games",
+    "quantum-dual-arbiter",
+    "quantum-ecochain",
+    "quantum-guardian-alliance",
+    "quantum-rule-three",
+    "wdrama-compliance-v3"
+   ]
+  },
+  {
+   "id": "F24",
+   "domain": "growth",
+   "mechanism": "unmapped",
+   "label": "增长·未映射",
+   "keywords": [
+    "增长",
+    "未映射",
+    "growth",
+    "unmapped"
+   ],
+   "count": 3,
+   "lanes": {
+    "read": 3,
+    "write": 0
+   },
+   "members_digest": "654254f3cf25d831bcc7bfec6f1a5b17cef334af2b9cd9d73afb2d2b84d2d82b",
+   "sample": [
+    "liuwei-zhangliang-chaijie-moban",
+    "mobius-klein-convergence",
+    "xinlixue-san-da-liupai"
+   ],
+   "members": [
+    "liuwei-zhangliang-chaijie-moban",
+    "mobius-klein-convergence",
+    "xinlixue-san-da-liupai"
+   ]
+  },
+  {
+   "id": "F25",
+   "domain": "literature",
+   "mechanism": "cytoskeleton",
+   "label": "文献·细胞骨架",
+   "keywords": [
+    "文献",
+    "细胞骨架",
+    "literature",
+    "cytoskeleton"
+   ],
+   "count": 51,
+   "lanes": {
+    "read": 42,
+    "write": 9
+   },
+   "members_digest": "3088d5fee2f3648bedbcd3acf048fddecef97bb8b55007f7e49173d544d000fe",
+   "sample": [
+    "bashu-med-1331x1331-super-matrix",
+    "book-knowledge-graph-builder",
+    "dissipative-selforg-topology"
+   ],
+   "members": [
+    "bashu-med-1331x1331-super-matrix",
+    "book-knowledge-graph-builder",
+    "dissipative-selforg-topology",
+    "dream-axiom-seven-step-flow",
+    "ds-1331-six-layer-mapping",
+    "dual-core-drive-engine",
+    "fusion-seven-base-262",
+    "g-library-corpus-batch-indexer",
+    "hilbert-embedding-layer",
+    "hilbert-functional-activation",
+    "ip-extension-slot-engine",
+    "jiepou-knowledge-suite",
+    "kangfu-knowledge-suite",
+    "knowledge-metabolism-loop",
+    "lark-skill-maker",
+    "lark-skill-maker",
+    "lark-wiki",
+    "lark-wiki",
+    "medical-mdt-collab",
+    "medicine-zhicang-cluster",
+    "multimodal-thinking-loop",
+    "neijing-knowledge-suite",
+    "pathology-knowledge-suite",
+    "qilu-jingfang-decomposition",
+    "refine-adjoint-functor",
+    "root-universe-v2-package",
+    "sacred-geometry-qimen-mapping",
+    "salvage-king-600",
+    "shanghan-knowledge-suite",
+    "shanghan-six-channels-suite",
+    "skill-onboarding-validator-1331x1331",
+    "smm-v3-deployment-runbook",
+    "softconn-vector-db",
+    "tcm-clinical-case-tensor",
+    "tcm-discipline-architecture",
+    "tensor-king-seven-layer-topology",
+    "tensor-split-linkage-pipeline",
+    "three-field-multimodal-input",
+    "three-field-pharmacology-review-1331",
+    "three-tier-memory-system",
+    "threefield-multimodal",
+    "tuina-knowledge-suite",
+    "waike-knowledge-suite",
+    "weisheng-knowledge-suite",
+    "yiguwen-knowledge-suite",
+    "yishui-school-holo-avatar",
+    "yongyaozhiwuxue-knowledge-suite",
+    "zhenjiuxue-knowledge-suite",
+    "zhenjiuyiji-knowledge-suite",
+    "zhenjiuzhiliao-knowledge-suite",
+    "zhongyaoxue-knowledge-suite"
+   ]
+  },
+  {
+   "id": "F26",
+   "domain": "literature",
+   "mechanism": "hebbian_field",
+   "label": "文献·赫布协作场",
+   "keywords": [
+    "文献",
+    "赫布协作场",
+    "literature",
+    "hebbian_field"
+   ],
+   "count": 116,
+   "lanes": {
+    "read": 113,
+    "write": 3
+   },
+   "members_digest": "ecc77ef2c4aefcdc32e5a904e90d0ca844d31df633273bab5fd20f5bf27871d4",
+   "sample": [
+    "avatar-person-quartet-1331",
+    "bayes-marl-scenarios",
+    "bayes-nine-knowledge-domains"
+   ],
+   "members": [
+    "avatar-person-quartet-1331",
+    "bayes-marl-scenarios",
+    "bayes-nine-knowledge-domains",
+    "book-avatar-machine-tool",
+    "book-seaweed-avatar-1331",
+    "buddha-science-1331x1331",
+    "capability-registry-center",
+    "character-relation-cluster",
+    "chr-cardiac-rehab-avatar",
+    "cmos-embryo-roadmap",
+    "dissipative-selforg-medical",
+    "dynamic-plot-engine",
+    "fanfic-evolution-engine",
+    "harness-six-components",
+    "holoaeon-cognitive-1331",
+    "holographic-self-narration-490",
+    "holographic-self-narration-6layer-linkage",
+    "incremental-agent-sop",
+    "ip-agent-template-set",
+    "ip-content-gen-cluster",
+    "ip-top-control-template",
+    "ip-user-interaction-cluster",
+    "kwp-knowledge-work-1331",
+    "lark-contact",
+    "lark-contact",
+    "life-meridian-1331",
+    "lingnan-med-1331x1331-supersys",
+    "medicine-top-control-prompt",
+    "memsalvage-memory-salvage-1331",
+    "menghe-feiboxiong-avatar-harvest",
+    "meridian6-1331",
+    "mobius-klein-medical-convergence",
+    "qilu-holo-avatar-matrix",
+    "qilu-super-matrix-1331x1331",
+    "quattro-harness-racing-paradigm",
+    "rehab-line1-1331",
+    "salvage-king-600-agent",
+    "self-narration-adaptive-crystallization",
+    "self-narration-archive-gen",
+    "self-narration-seven-layer",
+    "semantic-knowledge-aligner",
+    "semantic-memory-manager",
+    "shengui-shenma-changbai-rehab-fusion-1331",
+    "shengui-shenma-chaoxian-rehab-fusion-1331",
+    "shengui-shenma-chaozhou-rehab-fusion-1331",
+    "shengui-shenma-clinical-pharmacotherapy-1331x1331",
+    "shengui-shenma-fuyang-rehab-fusion-1331",
+    "shengui-shenma-guandong-rehab-fusion-1331",
+    "shengui-shenma-guangfu-rehab-fusion-1331",
+    "shengui-shenma-hakka-rehab-fusion-1331",
+    "shengui-shenma-hejian-rehab-fusion-1331",
+    "shengui-shenma-heluo-rehab-fusion-1331",
+    "shengui-shenma-hui-rehab-fusion-1331",
+    "shengui-shenma-huipai-rehab-fusion-1331",
+    "shengui-shenma-jingchu-rehab-fusion-1331",
+    "shengui-shenma-jingu-edu-heroes",
+    "shengui-shenma-loudong-rehab-fusion-1331",
+    "shengui-shenma-maonan-rehab-fusion-1331",
+    "shengui-shenma-medkk-1331x1331-super-matrix",
+    "shengui-shenma-menggu-rehab-fusion-1331",
+    "shengui-shenma-minnan-rehab-fusion-1331",
+    "shengui-shenma-pengcheng-rehab-fusion-1331",
+    "shengui-shenma-qiantang-rehab-fusion-1331",
+    "shengui-shenma-qiong-rehab-fusion-1331",
+    "shengui-shenma-shishu-yidao-chenrenmei-super-matrix",
+    "shengui-shenma-shishu-yidao-guanyoubo-super-matrix",
+    "shengui-shenma-shishu-yidao-lushouyan-super-matrix",
+    "shengui-shenma-shishu-yidao-menghe-super-matrix",
+    "shengui-shenma-shishu-yidao-sanchang-pharma-1331x1331",
+    "shengui-shenma-shishu-yidao-wushangxian-super-matrix",
+    "shengui-shenma-shishu-yidao-xiaolongyou-super-matrix",
+    "shengui-shenma-shishu-yidao-xiayingtang-super-matrix",
+    "shengui-shenma-shishu-yidao-xinan-super-matrix",
+    "shengui-shenma-shishu-yidao-xueboshou-super-matrix",
+    "shengui-shenma-shishu-yidao-yandexin-super-matrix",
+    "shengui-shenma-shishu-yidao-zhangxichun-super-matrix",
+    "shengui-shenma-shishu-yidao-zhaoxianke-super-matrix",
+    "shengui-shenma-songjiang-rehab-fusion-1331",
+    "shengui-shenma-xishan-rehab-fusion-1331",
+    "shengui-shenma-yangzhou-rehab-fusion-1331",
+    "shengui-shenma-yaoyi-hospital-pm-rehab-1331",
+    "shengui-shenma-yizu-rehab-fusion-1331",
+    "shengui-shenma-yongjia-rehab-fusion-1331",
+    "shengui-shenma-yushan-rehab-fusion-1331",
+    "shenguishenma-book-avatar-matrix-library",
+    "shenma-ultimate-fusion-2026",
+    "six-agent-vector-pipeline",
+    "softconn-dissipative-order",
+    "softconn-thought-society",
+    "subagent-matrix-hierarchy",
+    "targeted-therapy-king-600agent",
+    "tcm-internal-medicine-king-1331x1331-mas",
+    "tcm-ten-univ-integrated",
+    "tcm-top10-univ-ronghe",
+    "tcm-university-beijing-harvest",
+    "tcm-university-chengdu-harvest",
+    "tcm-university-guangzhou-harvest",
+    "tcm-university-heilongjiang-harvest",
+    "tcm-university-hubei-harvest",
+    "tcm-university-hunan-harvest",
+    "tcm-university-nanjing-harvest",
+    "tcm-university-shanghai-harvest",
+    "tcm-university-tianjin-harvest",
+    "tcm-university-zhejiang-harvest",
+    "tensor-king-agent",
+    "threefield-main-scheduler",
+    "universe-1000-harvest",
+    "upgrade-slot-reservation",
+    "verification-hooks-4level",
+    "wenxuan-chutu-1331x1331-mas",
+    "western-internal-medicine-ddx",
+    "worldview-arch-cluster",
+    "wumen-1331x1331-supersystem",
+    "yao-ear-diagnosis",
+    "yao-eye-diagnosis",
+    "yao-tongue-diagnosis"
+   ]
+  },
+  {
+   "id": "F27",
+   "domain": "literature",
+   "mechanism": "holographic_heartbeat",
+   "label": "文献·全息心跳",
+   "keywords": [
+    "文献",
+    "全息心跳",
+    "literature",
+    "holographic_heartbeat"
+   ],
+   "count": 62,
+   "lanes": {
+    "read": 47,
+    "write": 15
+   },
+   "members_digest": "7079418daf08df7f2c847502dc8b52966d45ac24b7f2336a201ba38b3068f987",
+   "sample": [
+    "asset-wuxia-coding",
+    "conflict-arbitration-selfheal",
+    "daxue-thread-consolidator"
+   ],
+   "members": [
+    "asset-wuxia-coding",
+    "conflict-arbitration-selfheal",
+    "daxue-thread-consolidator",
+    "dream-app-academic-paper",
+    "dream-app-cognitive-decline",
+    "dream-app-meditation-nodream",
+    "dream-axiom-cognition-info",
+    "dream-axiom-neural-network",
+    "dream-axiom-nodream-duality",
+    "dream-dim-dendritic-spine",
+    "dream-dim-hippocampus-pfc",
+    "dream-dim-neural-oscillation",
+    "feishu-vectorsea-publish-dna",
+    "feishu-vectorsea-sync",
+    "fusion-holographic-derivation",
+    "global-task-ledger-memory",
+    "harvest-s7-validate",
+    "hilbert-tensor-medical",
+    "kalman-turbulence-medical",
+    "knowledge-memory-matrix",
+    "lark-mail",
+    "lark-mail",
+    "lark-minutes",
+    "lark-minutes",
+    "lark-note",
+    "lark-note",
+    "lark-vc",
+    "lark-vc",
+    "lark-vc-agent",
+    "lark-vc-agent",
+    "local-breakpoint-resume",
+    "martial-arts-coding-guide",
+    "medical-formula-decoction-guide",
+    "medical-knowledge-unified-catalog",
+    "medical-textbook-skill-refinery",
+    "medicine-frontier-ops-cluster",
+    "memory-tiered-ledger",
+    "message-bus-unified-codec",
+    "mozai-robotic-dog-architecture",
+    "multimodal-medical-perception",
+    "neural-embed-medical",
+    "office-20000-harvest-creative",
+    "office-20000-harvest-medical",
+    "pomdp-decision-framework",
+    "portrait-light-shadow-adaptive",
+    "protocol-fusion-unified",
+    "qilu-clinical-dialectic-paradigm",
+    "refine-fca-lattice",
+    "sce01-heartflow-dimension-bus",
+    "softconn-checkpoint-compress",
+    "t84-holo-heartbeat-r11",
+    "tcm-constituent-clinical-pharma-1331",
+    "tcm-internal-medicine-syndrome",
+    "three-field-clinical-positioning",
+    "threefield-archive-mgmt",
+    "universe-super-enable-1000",
+    "vector-sea-cloud-autoload",
+    "vector-store-bridge-minimal",
+    "wdrama-budgeter-v3",
+    "wdrama-orchestrator-v3",
+    "wdrama-scheduler-v3",
+    "yao-tongue-pattern-classification"
+   ]
+  },
+  {
+   "id": "F28",
+   "domain": "literature",
+   "mechanism": "meridian",
+   "label": "文献·经络",
+   "keywords": [
+    "文献",
+    "经络",
+    "literature",
+    "meridian"
+   ],
+   "count": 1,
+   "lanes": {
+    "read": 1,
+    "write": 0
+   },
+   "members_digest": "738b054142d27672178d4654a9c0f94921bdf5c49b128a0e534f2d5b8eecdcb3",
+   "sample": [
+    "mdt-rehab-engineering"
+   ],
+   "members": [
+    "mdt-rehab-engineering"
+   ]
+  },
+  {
+   "id": "F29",
+   "domain": "literature",
+   "mechanism": "semantic_bus",
+   "label": "文献·语义通信",
+   "keywords": [
+    "文献",
+    "语义通信",
+    "literature",
+    "semantic_bus"
+   ],
+   "count": 8,
+   "lanes": {
+    "read": 4,
+    "write": 4
+   },
+   "members_digest": "1bb9a0a156d8f6f839c08099990de4a35c834b35412de64b9fd4f1d585eb8a6f",
+   "sample": [
+    "lark-doc",
+    "lark-doc",
+    "lark-im"
+   ],
+   "members": [
+    "lark-doc",
+    "lark-doc",
+    "lark-im",
+    "lark-im",
+    "memory-multimodal-engine",
+    "rag-vector-memory-engine",
+    "shanghan-six-schools-avatar-matrix",
+    "shengui-shenma-huayang-rehab-fusion-1331"
+   ]
+  },
+  {
+   "id": "F30",
+   "domain": "literature",
+   "mechanism": "skin_v6",
+   "label": "文献·皮肤",
+   "keywords": [
+    "文献",
+    "皮肤",
+    "literature",
+    "skin_v6"
+   ],
+   "count": 104,
+   "lanes": {
+    "read": 100,
+    "write": 4
+   },
+   "members_digest": "b921b6c24ac2d7016b2b851c367ac24dace3d615d9fc1a4d5b887d7f65cf6b60",
+   "sample": [
+    "algae-feed-and-fertilizer",
+    "algae-powder-feed-economy",
+    "algae-three-function-division"
+   ],
+   "members": [
+    "algae-feed-and-fertilizer",
+    "algae-powder-feed-economy",
+    "algae-three-function-division",
+    "asset-dream-era",
+    "barrel-three-algae-unit",
+    "bashu-jindai-quanke-dajia",
+    "bashu-lushi-huoshen-chuancheng",
+    "bashu-school-holo-avatar",
+    "bashu-tangshenwei-zhenlei-bencao",
+    "bashu-tangzonghai-xuezheng-huitong",
+    "bashu-tianhui-fuweng-guoyu",
+    "bashu-zengyi-daoyi-yangsheng",
+    "book-avatar-shturl",
+    "character-emotion-engine",
+    "chen-wuze-sanyin",
+    "clearview-cross-link",
+    "cross-ip-protocol-engine",
+    "dream-app-consciousness-phil",
+    "dream-app-second-language",
+    "dream-dim-global-connectivity",
+    "ds-call-instructions",
+    "ds-darknet-minimal-persona",
+    "ds-self-organizing-660",
+    "earthworm-bed-feeding-sop",
+    "earthworm-soil-remediation",
+    "ethnomedicine-clinical-tools",
+    "ethnomedicine-completed-knowledge-base",
+    "ethnomedicine-mineral-drug",
+    "fangji-super-matrix-1331x1331",
+    "fangji-three-field-synergy",
+    "farm-multi-output-matrix",
+    "fermentation-workshop-four-zone",
+    "fusion-htn-scheduling",
+    "fusion-six-cluster-2400",
+    "fusion-supervisor-2662-overview",
+    "fusion-ten-industry-templates",
+    "goose-orchard-rotation-4zone",
+    "hilbert-transformer-longctx",
+    "ip-spacetime-core-engine",
+    "ip-vector-universe-engine",
+    "lark-base",
+    "lark-base",
+    "lark-markdown",
+    "lark-markdown",
+    "lingnan-med-school-holo-avatar",
+    "longjiang-bi-syndrome",
+    "longjiang-case-replica",
+    "longjiang-mentor-education",
+    "mahuang-three-field-template",
+    "medical-school-retrofit",
+    "medicine-clinical-ddx-cluster",
+    "medicine-compliance-boundary",
+    "medicine-skill-matrix",
+    "memory-lock-seal-order",
+    "mobius-burst-operator",
+    "ouyue-acupuncture",
+    "ouyue-medical-school",
+    "permaculture-farm-roadmap",
+    "quantum-repair-bubble",
+    "quantum-softmetal-module",
+    "quantum-solar-core",
+    "quantum-toy-guardian",
+    "reed-wetland-buffer",
+    "refinery-boundary-workshop",
+    "refinery-iterate-workshop",
+    "salvage-king-600-fusion",
+    "santian-annual-net-income",
+    "shanghan-six-schools",
+    "shenma-universal-ultimate-fusion",
+    "softconn-coldhot-tier",
+    "tcm-avatar-multi-school-conference",
+    "tcm-classic-knowledge-suite",
+    "tcm-clinical-decision-support",
+    "tcm-internal-medicine-1331x1331",
+    "tcm-medical-school-legion",
+    "tcm-medicinal-plant-botany-1331",
+    "tcm-mentor-education",
+    "tcm-pbl-teaching",
+    "tcm-ten-univ-ronghe",
+    "tcm-three-field-meridian",
+    "tcm-western-rehab-engineering",
+    "tensor-king-dual-engine",
+    "tensor-king-scene-templates",
+    "three-field-coupling-synergy",
+    "three-field-herbal-analysis",
+    "three-field-mineral-herbs",
+    "three-field-modern-validation",
+    "threefield-app-clinic-map",
+    "threefield-app-personal",
+    "threefield-app-research-plan",
+    "threefield-app-rnd",
+    "threefield-drug-category",
+    "threefield-immunophenotype",
+    "threefield-iteration-log",
+    "threefield-single-drug",
+    "threefield-sixmeridian",
+    "threshold-function-gamma",
+    "vectorsea-holoaeon-bridge",
+    "wang-zhizhong-acupuncture",
+    "wdrama-ops-similarity-v3",
+    "wenbing-school-600",
+    "western-tcm-mdt-clinical",
+    "yanzhao-medical-school",
+    "zhicang-holographic-6d"
+   ]
+  },
+  {
+   "id": "F31",
+   "domain": "literature",
+   "mechanism": "unmapped",
+   "label": "文献·未映射",
+   "keywords": [
+    "文献",
+    "未映射",
+    "literature",
+    "unmapped"
+   ],
+   "count": 17,
+   "lanes": {
+    "read": 17,
+    "write": 0
+   },
+   "members_digest": "d1555edda55f7fc6fdd904c5d07c3bb3596f7d1652b2af39127883a85b4c2e80",
+   "sample": [
+    "auto-archive-doubaowork",
+    "blavatsky-secret-doctrine",
+    "context-manager-4layer"
+   ],
+   "members": [
+    "auto-archive-doubaowork",
+    "blavatsky-secret-doctrine",
+    "context-manager-4layer",
+    "daozang-wenxianxue",
+    "germ-layer-classifier",
+    "lark-attendance",
+    "lark-attendance",
+    "lark-openapi-explorer",
+    "lark-openapi-explorer",
+    "lark-whiteboard",
+    "lark-whiteboard",
+    "markdown-converter",
+    "mecha-macho-member-archives",
+    "protocol-fusion-unified-gateway",
+    "xifang-mixue-yuanliu",
+    "yao-ear-twelve-zones",
+    "yao-eye-five-rounds-eight-palaces"
+   ]
+  },
+  {
+   "id": "F32",
+   "domain": "optimization",
+   "mechanism": "cytoskeleton",
+   "label": "优化·细胞骨架",
+   "keywords": [
+    "优化",
+    "细胞骨架",
+    "optimization",
+    "cytoskeleton"
+   ],
+   "count": 17,
+   "lanes": {
+    "read": 16,
+    "write": 1
+   },
+   "members_digest": "85c71bfa667b8b3c445e074f49a203fbb801b2ba39195897b729f30d1f68d8ba",
+   "sample": [
+    "ai-cmd-optimizer-v2",
+    "ai-command-automation-1333",
+    "aicmd-engine-flow-split"
+   ],
+   "members": [
+    "ai-cmd-optimizer-v2",
+    "ai-command-automation-1333",
+    "aicmd-engine-flow-split",
+    "cognition-king-20000",
+    "domain-group-leader",
+    "dual-mode-runtime",
+    "fusion-octo-task-expansion",
+    "lifecycle-generation-evolution",
+    "mobius-klein-converge",
+    "qtr-llm-v1-resonance",
+    "refinery-dimcurse-workshop",
+    "refinery-eight-workshops",
+    "refinery-l0l6-pipeline",
+    "self-organization-dissipative",
+    "shenguishenma-dual-system",
+    "silicon-kernel-108641-v2",
+    "wdrama-ops-topology-v3"
+   ]
+  },
+  {
+   "id": "F33",
+   "domain": "optimization",
+   "mechanism": "hebbian_field",
+   "label": "优化·赫布协作场",
+   "keywords": [
+    "优化",
+    "赫布协作场",
+    "optimization",
+    "hebbian_field"
+   ],
+   "count": 16,
+   "lanes": {
+    "read": 16,
+    "write": 0
+   },
+   "members_digest": "4aaa9c02b739ec2ecaec4019b2003f46905681b9a20d27635d86b69d758b8c00",
+   "sample": [
+    "asset-ip-matrix-800",
+    "collaboration-mode-four",
+    "dissipative-structure-selforg"
+   ],
+   "members": [
+    "asset-ip-matrix-800",
+    "collaboration-mode-four",
+    "dissipative-structure-selforg",
+    "four-paradigm-harness-racing-os-quattro",
+    "kernel-gray-deployment",
+    "king-constant-13x1331-framework",
+    "mandala-108641-node",
+    "semantic-compressor",
+    "semantic-quality-checker",
+    "semantic-router",
+    "shengui-shenma-multilink-1331x1331-v3",
+    "shengui-shenma-shishu-yidao-leifeng-super-matrix",
+    "shengui-shenma-shishu-yidao-wangxugao-super-matrix",
+    "shengui-shenma-shishu-yidao-xuxiaopu-super-matrix",
+    "shengui-shenma-shishu-yidao-yutinghong-super-matrix",
+    "shengui-shenma-super-machine-avatar-matrix"
+   ]
+  },
+  {
+   "id": "F34",
+   "domain": "optimization",
+   "mechanism": "holographic_heartbeat",
+   "label": "优化·全息心跳",
+   "keywords": [
+    "优化",
+    "全息心跳",
+    "optimization",
+    "holographic_heartbeat"
+   ],
+   "count": 8,
+   "lanes": {
+    "read": 7,
+    "write": 1
+   },
+   "members_digest": "8741ec40194e29e360d0221a23fa2bc8f4262b12a936fa9d54efb3fdf0ffe90c",
+   "sample": [
+    "ai-cmd-optimize-v2",
+    "aicmd-optimize-v2-harvest",
+    "four-heartbeat-autoevolution"
+   ],
+   "members": [
+    "ai-cmd-optimize-v2",
+    "aicmd-optimize-v2-harvest",
+    "four-heartbeat-autoevolution",
+    "kernel-obd-diagnosis",
+    "silicon-kernel-full-v2",
+    "state-machine-flow",
+    "three-tier-authority-lock",
+    "wdrama-ops-optimization-v3"
+   ]
+  },
+  {
+   "id": "F35",
+   "domain": "optimization",
+   "mechanism": "semantic_bus",
+   "label": "优化·语义通信",
+   "keywords": [
+    "优化",
+    "语义通信",
+    "optimization",
+    "semantic_bus"
+   ],
+   "count": 1,
+   "lanes": {
+    "read": 1,
+    "write": 0
+   },
+   "members_digest": "8b36036c6f9fec6a0e2fbac51a2c984fbb9225c6624dcf6137edc5427c301258",
+   "sample": [
+    "matrix-1331-scheduler"
+   ],
+   "members": [
+    "matrix-1331-scheduler"
+   ]
+  },
+  {
+   "id": "F36",
+   "domain": "optimization",
+   "mechanism": "skin_v6",
+   "label": "优化·皮肤",
+   "keywords": [
+    "优化",
+    "皮肤",
+    "optimization",
+    "skin_v6"
+   ],
+   "count": 10,
+   "lanes": {
+    "read": 10,
+    "write": 0
+   },
+   "members_digest": "f26923081e5ca5d0a0582e4bbb87f1faf371c26b3d794090921b97fd31f90665",
+   "sample": [
+    "four-paradigm-harness-racing",
+    "mobius-klein-dual-engine",
+    "mozai-vcu-cluster"
+   ],
+   "members": [
+    "four-paradigm-harness-racing",
+    "mobius-klein-dual-engine",
+    "mozai-vcu-cluster",
+    "portrait-selfcheck-selfheal",
+    "softconn-fractal-route",
+    "softconn-stigmergy-org",
+    "split-8dim-decompose-optimizer",
+    "user-discipline-no-cron",
+    "wdrama-script-doctor-v3",
+    "wdrama-system-envelope-v3"
+   ]
+  },
+  {
+   "id": "F37",
+   "domain": "quant",
+   "mechanism": "cytoskeleton",
+   "label": "量化·细胞骨架",
+   "keywords": [
+    "量化",
+    "细胞骨架",
+    "quant",
+    "cytoskeleton"
+   ],
+   "count": 3,
+   "lanes": {
+    "read": 3,
+    "write": 0
+   },
+   "members_digest": "6dbfbbbce34808d937dde7e1b74916f6223191c0d4fb41dfab38e503599edcbf",
+   "sample": [
+    "fusion-bidirectional-derivation",
+    "holoaeon-video-tensor-dna",
+    "refinery-tensor-workshop"
+   ],
+   "members": [
+    "fusion-bidirectional-derivation",
+    "holoaeon-video-tensor-dna",
+    "refinery-tensor-workshop"
+   ]
+  },
+  {
+   "id": "F38",
+   "domain": "quant",
+   "mechanism": "hebbian_field",
+   "label": "量化·赫布协作场",
+   "keywords": [
+    "量化",
+    "赫布协作场",
+    "quant",
+    "hebbian_field"
+   ],
+   "count": 4,
+   "lanes": {
+    "read": 4,
+    "write": 0
+   },
+   "members_digest": "eb7d3106ce8783bf3c91a6fd847193d33077bf054905599540e984d50fa3d179",
+   "sample": [
+    "arena-sandbox-1331",
+    "bayes-action-decoder",
+    "bayes-delegation-collab"
+   ],
+   "members": [
+    "arena-sandbox-1331",
+    "bayes-action-decoder",
+    "bayes-delegation-collab",
+    "bayes-mas-1331agent"
+   ]
+  },
+  {
+   "id": "F39",
+   "domain": "quant",
+   "mechanism": "holographic_heartbeat",
+   "label": "量化·全息心跳",
+   "keywords": [
+    "量化",
+    "全息心跳",
+    "quant",
+    "holographic_heartbeat"
+   ],
+   "count": 2,
+   "lanes": {
+    "read": 2,
+    "write": 0
+   },
+   "members_digest": "2fc1f460125ef4ab7ec696bd2956541a0754a34a98a30782ce41d37c6a1a9cc5",
+   "sample": [
+    "capability-holographic-derivation",
+    "frontend-interaction-control-2662"
+   ],
+   "members": [
+    "capability-holographic-derivation",
+    "frontend-interaction-control-2662"
+   ]
+  },
+  {
+   "id": "F40",
+   "domain": "quant",
+   "mechanism": "semantic_bus",
+   "label": "量化·语义通信",
+   "keywords": [
+    "量化",
+    "语义通信",
+    "quant",
+    "semantic_bus"
+   ],
+   "count": 1,
+   "lanes": {
+    "read": 1,
+    "write": 0
+   },
+   "members_digest": "ed94ee06808be64f0de8d4f7ad86117c0cc2c1b47092eb40241d8b7404a794a5",
+   "sample": [
+    "shengui-shenma-dual-machine-super-avatar-matrix"
+   ],
+   "members": [
+    "shengui-shenma-dual-machine-super-avatar-matrix"
+   ]
+  },
+  {
+   "id": "F41",
+   "domain": "quant",
+   "mechanism": "skin_v6",
+   "label": "量化·皮肤",
+   "keywords": [
+    "量化",
+    "皮肤",
+    "quant",
+    "skin_v6"
+   ],
+   "count": 4,
+   "lanes": {
+    "read": 4,
+    "write": 0
+   },
+   "members_digest": "fe2acce035f6c515b5df5bb44a3daf62cd2cad8ae537dcae6902f3f852152a44",
+   "sample": [
+    "ai-tool-adaptation",
+    "dream-axiom-core-function",
+    "smm-v3-finance-safety-profile"
+   ],
+   "members": [
+    "ai-tool-adaptation",
+    "dream-axiom-core-function",
+    "smm-v3-finance-safety-profile",
+    "theory-of-mind-intent"
+   ]
+  },
+  {
+   "id": "F42",
+   "domain": "quant",
+   "mechanism": "unmapped",
+   "label": "量化·未映射",
+   "keywords": [
+    "量化",
+    "未映射",
+    "quant",
+    "unmapped"
+   ],
+   "count": 1,
+   "lanes": {
+    "read": 1,
+    "write": 0
+   },
+   "members_digest": "88a083ec1330144eafd17f68daa0597c90f11451c08e7823e3b2d4edb91de591",
+   "sample": [
+    "tensor-10-scene-templates"
+   ],
+   "members": [
+    "tensor-10-scene-templates"
+   ]
+  },
+  {
+   "id": "F43",
+   "domain": "research",
+   "mechanism": "cytoskeleton",
+   "label": "科研·细胞骨架",
+   "keywords": [
+    "科研",
+    "细胞骨架",
+    "research",
+    "cytoskeleton"
+   ],
+   "count": 79,
+   "lanes": {
+    "read": 78,
+    "write": 1
+   },
+   "members_digest": "36942de67f71c2d8c7fd3763d38de825c95974f327a082c1c2c8436b663c12f5",
+   "sample": [
+    "ai-creative-industrialization-8d",
+    "ai-os-core-design",
+    "asset-cmos-qtr"
+   ],
+   "members": [
+    "ai-creative-industrialization-8d",
+    "ai-os-core-design",
+    "asset-cmos-qtr",
+    "bashu-zhicang-7ceng-jiaoxue",
+    "central-differential-cluster",
+    "chip-evolution-analysis",
+    "clearview-clear-thinking",
+    "clearview-expression-output",
+    "cross-matrix-coord-protocol",
+    "crossthread-safety",
+    "dream-axiom-cross-discipline",
+    "ds-task-split-darknet-avatar",
+    "fenbushi-yishi-jiagou",
+    "fojiao-weishi-yishi",
+    "front-axle-cluster",
+    "harness-navigation-highdef-map",
+    "hilbert-five-dim-extension",
+    "hilbert-operator-transform-layer",
+    "holographic-conscious-arch-v15",
+    "ip-structured-decomposition-engine",
+    "kongxing-jingtu-zhongdao",
+    "mandala-fractal-topology",
+    "mandala-one-to-eight-diffusion",
+    "mecha-macho-action-vectors",
+    "minicpm-edge-engine",
+    "nianfo-sichong-jingjie",
+    "pkm-600-overview",
+    "pkm-self-organizing-growth",
+    "pkm-seven-base-180",
+    "pkm-six-card-slots",
+    "quant-account-review-template",
+    "quant-daily-report-template",
+    "quant-ten-gate-risk",
+    "quattro-five-modes",
+    "quattro-hannisi-harvest",
+    "quattro-performance-benchmark",
+    "quattro-storm-iteration",
+    "rear-axle-cluster",
+    "refine-compression-bottleneck",
+    "refine-dim-duality",
+    "refine-l0l3-pipeline",
+    "refine-three-stage-flow",
+    "refinery-mobius-klein-topo",
+    "root-universe-product-account-review",
+    "salvage-multimodal-thinking-engine",
+    "self-narration-knowledge-card",
+    "seven-layer-constraint",
+    "shanghan-fangji-113",
+    "shuzi-fenshen-sidecar-deploy",
+    "silicon-bridge-code-framework",
+    "silicon-kernel-108641",
+    "silicon-life-v2-base",
+    "silicon-mandala-six-layer-fractal",
+    "silicon-seven-layer-architecture",
+    "singlecell-meridian-rehab",
+    "six-dim-holographic-analysis",
+    "skill-refinery-1331x1331",
+    "softconn-mandelbrot-fractal",
+    "softconn-paradigm-shift",
+    "split-master-1331-harvest",
+    "sys-9step-sop",
+    "sys-new-three-theories",
+    "sys-six-layer-analysis",
+    "systems-science-methodology",
+    "taohuaan-boke-zhuzigao",
+    "tcm-eight-disciplines",
+    "tcm-pdf-md-vector-pipeline",
+    "tcm-virtual-simulation",
+    "tensor-front-fusion-cluster",
+    "tensor-king-1331-harvest",
+    "torque-vector-principle",
+    "torque-vectoring-cluster",
+    "tortoise-convergence-54320",
+    "universe-super-1000",
+    "wumen-school-holo-avatar",
+    "xuejiepou-knowledge-suite",
+    "zhongxizhenduanxue-knowledge-suite",
+    "zhongyizhenduan-knowledge-suite",
+    "zhuan-shi-cheng-zhi"
+   ]
+  },
+  {
+   "id": "F44",
+   "domain": "research",
+   "mechanism": "hebbian_field",
+   "label": "科研·赫布协作场",
+   "keywords": [
+    "科研",
+    "赫布协作场",
+    "research",
+    "hebbian_field"
+   ],
+   "count": 40,
+   "lanes": {
+    "read": 38,
+    "write": 2
+   },
+   "members_digest": "3408e560f4868f629aba4835d1ca2973584ea90905032c820fcda73bf451f62f",
+   "sample": [
+    "bayes-mas-1331",
+    "bayes-mas-1331-harvest-1008",
+    "bayes-mas-diffraction-1331"
+   ],
+   "members": [
+    "bayes-mas-1331",
+    "bayes-mas-1331-harvest-1008",
+    "bayes-mas-diffraction-1331",
+    "bayes-six-layer-l0l5",
+    "bayesg-communication-graph",
+    "branch-quest-cluster",
+    "cross-ip-linkage-cluster",
+    "crossthread-agent-cluster",
+    "dual-rule-king-agent",
+    "dual-system-synergy",
+    "heartbeat-alarm-loop",
+    "holo-self-narration-490",
+    "ip-ops-maintenance-cluster",
+    "ip-sandbox-boundary",
+    "matrix-1000agent-seven-layer",
+    "mecha-macho-squad-overview",
+    "menghe-chaochongshan-avatar-harvest",
+    "menghe-dingganren-avatar-harvest",
+    "menghe-mapeizhi-avatar-harvest",
+    "menghe-review-1331x1331-harvest",
+    "pomdp-belief-iteration",
+    "self-narration-inflection-timeline",
+    "seven-layer-agent-monolith",
+    "shengui-shenma-shishu-yidao-1331-super-mas",
+    "shengui-shenma-shishu-yidao-caoyingfu-super-matrix",
+    "shengui-shenma-shishu-yidao-huangjiexi-super-matrix",
+    "shengui-shenma-shishu-yidao-pufuzhou-super-matrix",
+    "shengui-shenma-shishu-yidao-wangyusan-super-matrix",
+    "shengui-shenma-shishu-yidao-xingxibo-super-matrix",
+    "silicon-kernel-overview",
+    "silicon-self-organizing-scheduler",
+    "softconn-klein-convergence",
+    "softconn-mobius-expansion",
+    "split-king-agent",
+    "swarm-emergent-intelligence",
+    "tcm-unified-matrix",
+    "tensor-king-1331agent",
+    "theory-of-mind-modeling",
+    "thread-migration-1500",
+    "wenbing-1331x1331-super-matrix"
+   ]
+  },
+  {
+   "id": "F45",
+   "domain": "research",
+   "mechanism": "holographic_heartbeat",
+   "label": "科研·全息心跳",
+   "keywords": [
+    "科研",
+    "全息心跳",
+    "research",
+    "holographic_heartbeat"
+   ],
+   "count": 47,
+   "lanes": {
+    "read": 44,
+    "write": 3
+   },
+   "members_digest": "cb864a3553ad652d2f55a34167ca8990e92251e2af4c3933f45060076003f9ef",
+   "sample": [
+    "bayes-information-cascade",
+    "bayes-pomdp-belief-inference",
+    "bohm-yinjuanxu-physics"
+   ],
+   "members": [
+    "bayes-information-cascade",
+    "bayes-pomdp-belief-inference",
+    "bohm-yinjuanxu-physics",
+    "btw-sandpile-criticality",
+    "clearview-logic-reasoning",
+    "clearview-logic-structure",
+    "dream-dim-cognitive-blindspot",
+    "dream-dim-molecular-gene",
+    "fpv-cinematics-audio-emotion",
+    "fpv-cinematics-camera-optics",
+    "fpv-cinematics-environment-physics",
+    "fpv-cinematics-lighting-material",
+    "fpv-cinematics-motion-dynamics",
+    "frontend-3d-topic-guidance",
+    "frontend-control-2662-matrix",
+    "function-goal-classification",
+    "harness-obd-vehicle-diagnostics",
+    "hermes-tixi",
+    "inflection-mode-local-extrema-dual-check",
+    "inflection-mode-multiscale-hierarchical-fusion",
+    "kalman-five-equations",
+    "kalman-turbulence-filter-1331x13",
+    "layered-memory-engine",
+    "linguistic-bionic-brain-cortex",
+    "linguistic-bionic-emotion-module",
+    "linguistic-bionic-hormone-regulation",
+    "linguistic-brainlike-central",
+    "linguistic-emotion-module",
+    "mandala-quant-research-system",
+    "multi-factor-screening",
+    "object-type-classification",
+    "output-form-classification",
+    "pkm-static-dynamic-dual",
+    "portrait-storyboard-unified-bus",
+    "quattro-obd-dashboard",
+    "refine-expansion-readthick",
+    "refine-tucker-decomposition",
+    "root-universe-product-daily-report",
+    "scenario-domain-classification",
+    "task-classification-dimensions",
+    "tcm-avatar-gradient-inheritance",
+    "tcm-avatar-lifecycle-control",
+    "tech-path-classification",
+    "threefield-update-mgr",
+    "time-series-backtest",
+    "upgrade-thread-migration-protocol",
+    "yanye-chenfu-tixi"
+   ]
+  },
+  {
+   "id": "F46",
+   "domain": "research",
+   "mechanism": "semantic_bus",
+   "label": "科研·语义通信",
+   "keywords": [
+    "科研",
+    "语义通信",
+    "research",
+    "semantic_bus"
+   ],
+   "count": 2,
+   "lanes": {
+    "read": 2,
+    "write": 0
+   },
+   "members_digest": "186633f4e5e368a3518cbc331f15ba7051881e1209ecb304031cb758c799640a",
+   "sample": [
+    "four-paradigms-transformation",
+    "frontend-three-layer-intent"
+   ],
+   "members": [
+    "four-paradigms-transformation",
+    "frontend-three-layer-intent"
+   ]
+  },
+  {
+   "id": "F47",
+   "domain": "research",
+   "mechanism": "skin_v6",
+   "label": "科研·皮肤",
+   "keywords": [
+    "科研",
+    "皮肤",
+    "research",
+    "skin_v6"
+   ],
+   "count": 119,
+   "lanes": {
+    "read": 118,
+    "write": 1
+   },
+   "members_digest": "f170be4aa4aa6b4c00c19ebcaa2fe57cacd0922d990fcf5fa11bc47b55ab8bde",
+   "sample": [
+    "aicmd-engine-dynamic-schedule",
+    "bashu-zanyin-jingxiao-chanbao",
+    "bashu-zhengqinan-huoshen-fuyang"
+   ],
+   "members": [
+    "aicmd-engine-dynamic-schedule",
+    "bashu-zanyin-jingxiao-chanbao",
+    "bashu-zhengqinan-huoshen-fuyang",
+    "book-avatar-machine",
+    "chen-qiu-liji-school",
+    "clearview-concept-clarify",
+    "clearview-expression-optimize",
+    "clearview-fallacy-clarify",
+    "clearview-fallacy-diagnose",
+    "clearview-opinion-forming",
+    "clearview-opinion-generate",
+    "dream-app-ai-dream-sim",
+    "dream-app-culture-comparison",
+    "dream-app-psychotherapy-ref",
+    "dream-app-ptsd-nightmare",
+    "dream-dim-circadian-gene",
+    "dream-dim-cross-gen-epigen",
+    "dream-dim-dmn-ecn-sn",
+    "dream-dim-iit-integration",
+    "dream-dim-neurotransmitter",
+    "dream-dim-source-knowing",
+    "factor-crowding-screening",
+    "fusion-runtime-three-chain-harvest",
+    "g-classic-tcm-academic-extractor",
+    "harness-autopilot-l5-execution",
+    "harness-electrical-48v-hybrid",
+    "harness-powertrain-twin-turbo",
+    "hermes-evolution-engine",
+    "hilbert-master-543205-harvest",
+    "hilbert-space-computing-master",
+    "hilbert-transformer-attention",
+    "induce-long-pulse-detection",
+    "inflection-mode-adaptive-window-denoise",
+    "inflection-mode-bayes-adaptive-threshold",
+    "inflection-mode-business-causal-constraint",
+    "inflection-mode-frequency-domain-filter",
+    "inflection-mode-multidim-joint-detection",
+    "inflection-mode-piecewise-linear-residual",
+    "inflection-mode-robust-outlier-suppress",
+    "inflection-mode-streaming-incremental",
+    "inflection-mode-third-diff-curvature",
+    "ip-copyright-compliance",
+    "jinkui-knowledge-suite",
+    "klein-convergence-operator",
+    "knowledge-registry-workflow",
+    "knowledge-update-schedule",
+    "lingnan-dermatology-xuanguowei",
+    "lingnan-diet-therapy",
+    "lingnan-nan-herbal",
+    "lingnan-oncology-zhou",
+    "lingnan-shanghan-four-king",
+    "lingnan-wenbing-school",
+    "lobster-gateway-engine",
+    "local-model-failover",
+    "longjiang-heart-brain-chronic",
+    "longjiang-school-holo-avatar",
+    "longjiang-source-streams",
+    "ma-shi-gynecology",
+    "matrix-cluster-108641-overview",
+    "mecha-macho-cross-thread-mech",
+    "mecha-macho-visual-style",
+    "multi-model-cross-validation",
+    "nash-power-law-calculation",
+    "oncology-mdt-discussion",
+    "ouyue-literature-archive",
+    "overfit-detection",
+    "pegasus-creativity-54321",
+    "pkm-six-execution-420",
+    "pkm-three-fuse-breakers",
+    "plug-play-rollback-sop",
+    "prompt-advanced-techniques",
+    "prompt-composite-case-analysis",
+    "prompt-error-analysis",
+    "prompt-grammar-handbook",
+    "qilu-pulse-study-system",
+    "qtr-llm-quantum-resonance",
+    "qtr-llm-quantum-tensor",
+    "quantum-superposition-entanglement",
+    "quantum-tensor-harmony-qtr",
+    "quantum-tunneling-resonance",
+    "refine-task-directed-essence",
+    "refinery-lambda-workshop",
+    "refinery-robust-workshop",
+    "root-universe-product-course-system",
+    "safety-sandbox-engine",
+    "salvage-core-engine",
+    "salvage-multi-protocol-engine",
+    "salvage-skill-lifecycle-engine",
+    "sandbox-anti-hallucination",
+    "scenario-prompt-design",
+    "self-narration-3level-tutoring",
+    "seven-layer-rigid-constraints",
+    "shanghan-liujing-bianzheng",
+    "shengui-shenma-singlecell-microneedle-tutor",
+    "shi-fa-maixue",
+    "six-dimension-analysis",
+    "six-layer-universe-fullstack-sop",
+    "split-landing-supervision-cluster",
+    "split-master-avatar-1331",
+    "sys-classic-three-theories",
+    "sys-thinking-toolkit",
+    "tcm-avatar-multimodal-interaction",
+    "tcm-gynecology-bushen-tiaozhou",
+    "tcm-tensor-feature-modeling",
+    "tcm-three-stage-training",
+    "tensor-split-fusion-2662-harvest",
+    "threefield-app-drugability",
+    "threefield-component-mech",
+    "threefield-iteration-if",
+    "threefield-synergy-sim",
+    "upgrade-receipt-standardization",
+    "upgrade-review-fusion-protocol",
+    "variational-inference-engine",
+    "variational-inference-methods",
+    "wang-shuo-yijianfang",
+    "wavefunction-collapse-phase",
+    "wenbingxue-knowledge-suite",
+    "wumen-damp-heat",
+    "wumen-wenbing-yingqi"
+   ]
+  },
+  {
+   "id": "F48",
+   "domain": "research",
+   "mechanism": "unmapped",
+   "label": "科研·未映射",
+   "keywords": [
+    "科研",
+    "未映射",
+    "research",
+    "unmapped"
+   ],
+   "count": 38,
+   "lanes": {
+    "read": 38,
+    "write": 0
+   },
+   "members_digest": "e54c731e94558e602527332248c948777986eaad6e1967a7c247889132198839",
+   "sample": [
+    "alaya-zhongzi-xianxing",
+    "daojia-yinyang-taiji",
+    "dongxi-fang-zhenli-datongyi"
+   ],
+   "members": [
+    "alaya-zhongzi-xianxing",
+    "daojia-yinyang-taiji",
+    "dongxi-fang-zhenli-datongyi",
+    "dream-axiom-anthropology",
+    "erjinzhi-zhouyi-tonggou",
+    "frontend-balance-formula",
+    "frontend-four-scene-thresholds",
+    "gudian-zhenli-zhongji-kuangjia",
+    "hilbert-prob-readout-bayes",
+    "hou-ai-shidai-xinshen-wending",
+    "jingtu-hengchu-famen",
+    "jingtu-shi-san-jing",
+    "jingtu-shi-san-zu",
+    "juexing-fangxiang-shuxue",
+    "juexing-shuxue-jianmo",
+    "knowledge-salvage-king-600",
+    "lengyan-55-pusa-wei",
+    "liangzi-guance-tansuo",
+    "quanxi-yuzhou-lv",
+    "renlei-fan-jinhua-tezheng",
+    "rujia-hao-ran-zhengqi",
+    "rujia-zhengxin-chengyi",
+    "rushidao-lunli-guan",
+    "rushidao-xinxing-lun",
+    "rushidao-xiuyang-lun",
+    "rushidao-yuzhou-guan",
+    "sanxue-liuwei-chaijie",
+    "sanxue-xiuxing-cidi",
+    "shengwu-jinghua-fuzheng",
+    "virtual-universe-evidence",
+    "weiyi-zhenshen-lilun",
+    "wuliangshoujing-fazang-biqiou",
+    "wuxia-16to22-adapter",
+    "wuxia-gu-long-framework",
+    "wuxia-han-li-framework",
+    "wuxia-jin-yong-framework",
+    "yangpijuan-yiyuan-faze",
+    "yuandu-shixiang-juexing"
+   ]
+  },
+  {
+   "id": "F49",
+   "domain": "unmapped",
+   "mechanism": "cytoskeleton",
+   "label": "未映射·细胞骨架",
+   "keywords": [
+    "未映射",
+    "细胞骨架",
+    "unmapped",
+    "cytoskeleton"
+   ],
+   "count": 8,
+   "lanes": {
+    "read": 8,
+    "write": 0
+   },
+   "members_digest": "d57fdd54a448151fc3bda2f91106f1e373a4914f356b335511d2c663cee9f99a",
+   "sample": [
+    "entropy-life-layer-logic",
+    "mandala-octo-split",
+    "portrait-fighting-action-mapping"
+   ],
+   "members": [
+    "entropy-life-layer-logic",
+    "mandala-octo-split",
+    "portrait-fighting-action-mapping",
+    "refine-contract",
+    "refine-four-gates",
+    "refinery-six-gates",
+    "silicon-life-v2-hotplug",
+    "split-tensor-dual-king"
+   ]
+  },
+  {
+   "id": "F50",
+   "domain": "unmapped",
+   "mechanism": "hebbian_field",
+   "label": "未映射·赫布协作场",
+   "keywords": [
+    "未映射",
+    "赫布协作场",
+    "unmapped",
+    "hebbian_field"
+   ],
+   "count": 40,
+   "lanes": {
+    "read": 40,
+    "write": 0
+   },
+   "members_digest": "01eedd4009a8860de91760fe9ed923349eff87e1115bb4151b4c3a3083d92662",
+   "sample": [
+    "chico-xavier-psychographer-1331x1331",
+    "daozang-1331x1331",
+    "holoaeon-empower-20261031"
+   ],
+   "members": [
+    "chico-xavier-psychographer-1331x1331",
+    "daozang-1331x1331",
+    "holoaeon-empower-20261031",
+    "longjiang-1331x1331-supermatrix",
+    "refinery-ecoadapt-workshop",
+    "shengui-shenma-chengdan-super-matrix",
+    "shengui-shenma-dai-rehab-fusion-1331",
+    "shengui-shenma-dian-rehab-fusion-1331",
+    "shengui-shenma-dong-rehab-fusion-1331",
+    "shengui-shenma-gui-rehab-fusion-1331",
+    "shengui-shenma-jinpai-tcm-1331x1331",
+    "shengui-shenma-liao-rehab-fusion-1331",
+    "shengui-shenma-lingnan-rehab-fusion-1331",
+    "shengui-shenma-longpai-rehab-fusion-1331",
+    "shengui-shenma-ouyue-rehab-fusion-1331",
+    "shengui-shenma-peiwen-1331x1331-super-matrix",
+    "shengui-shenma-qian-rehab-fusion-1331",
+    "shengui-shenma-shishu-yidao-chenlianfang-super-matrix",
+    "shengui-shenma-shishu-yidao-daisigong-super-matrix",
+    "shengui-shenma-shishu-yidao-fuqingzhu-super-matrix",
+    "shengui-shenma-shishu-yidao-haipai-super-matrix",
+    "shengui-shenma-shishu-yidao-kongbohua-super-matrix",
+    "shengui-shenma-shishu-yidao-liuduzhou-super-matrix",
+    "shengui-shenma-shishu-yidao-qilu-super-matrix",
+    "shengui-shenma-shishu-yidao-shijinmo-super-matrix",
+    "shengui-shenma-shishu-yidao-wangfengchun-super-matrix",
+    "shengui-shenma-shishu-yidao-wangjingzhai-super-matrix",
+    "shengui-shenma-shishu-yidao-wanglv-super-matrix",
+    "shengui-shenma-shishu-yidao-wangpengfei-super-matrix",
+    "shengui-shenma-shishu-yidao-yanjing-super-matrix",
+    "shengui-shenma-shishu-yidao-yujiayan-super-matrix",
+    "shengui-shenma-shishu-yidao-yutuan-super-matrix",
+    "shengui-shenma-shishu-yidao-zhangyuqing-super-matrix",
+    "shengui-shenma-shuxue-1331x131-super-matrix",
+    "shengui-shenma-taizhou-rehab-fusion-1331",
+    "shengui-shenma-xujiang-rehab-fusion-1331",
+    "shengui-shenma-yuanhezhai-super-matrix",
+    "shengui-shenma-yuepai-rehab-fusion-1331",
+    "shengui-shenma-zangyi-rehab-fusion-1331",
+    "shengui-shenma-zhoudesheng-super-matrix"
+   ]
+  },
+  {
+   "id": "F51",
+   "domain": "unmapped",
+   "mechanism": "holographic_heartbeat",
+   "label": "未映射·全息心跳",
+   "keywords": [
+    "未映射",
+    "全息心跳",
+    "unmapped",
+    "holographic_heartbeat"
+   ],
+   "count": 9,
+   "lanes": {
+    "read": 5,
+    "write": 4
+   },
+   "members_digest": "5ddcb78ddda55f7f33ae48c76b16c3d635247148339968f780db3ac2bd02f4a0",
+   "sample": [
+    "boot-auto-sync",
+    "global-upgrade-bus-v1",
+    "holoaeon-v2-empower-upgrade"
+   ],
+   "members": [
+    "boot-auto-sync",
+    "global-upgrade-bus-v1",
+    "holoaeon-v2-empower-upgrade",
+    "holographic-info-conduction",
+    "obd-full-link-monitoring",
+    "shengui-shenma-chr-1331-matrix",
+    "shengui-shenma-zhuang-rehab-fusion-1331",
+    "tcm-digital-twin-clinical",
+    "wdrama-location-scout-v3"
+   ]
+  },
+  {
+   "id": "F52",
+   "domain": "unmapped",
+   "mechanism": "semantic_bus",
+   "label": "未映射·语义通信",
+   "keywords": [
+    "未映射",
+    "语义通信",
+    "unmapped",
+    "semantic_bus"
+   ],
+   "count": 1,
+   "lanes": {
+    "read": 1,
+    "write": 0
+   },
+   "members_digest": "3d103db65f1f8bd89f09b06d5046fa90b7c7b4a4af3384a97e424832636390c3",
+   "sample": [
+    "shengui-shenma-machine-tool-super-matrix"
+   ],
+   "members": [
+    "shengui-shenma-machine-tool-super-matrix"
+   ]
+  },
+  {
+   "id": "F53",
+   "domain": "unmapped",
+   "mechanism": "skin_v6",
+   "label": "未映射·皮肤",
+   "keywords": [
+    "未映射",
+    "皮肤",
+    "unmapped",
+    "skin_v6"
+   ],
+   "count": 23,
+   "lanes": {
+    "read": 22,
+    "write": 1
+   },
+   "members_digest": "f119ddff6f2fae930199ae428f31dccb32df97fbfd8e7575665c9f40cf556781",
+   "sample": [
+    "agri-engineering-sop-guide",
+    "algae-liquid-fertilizer-economy",
+    "algae-pond-monthly-sop"
+   ],
+   "members": [
+    "agri-engineering-sop-guide",
+    "algae-liquid-fertilizer-economy",
+    "algae-pond-monthly-sop",
+    "aqua-four-layer-ecology",
+    "batch-goose-introduction-plan",
+    "dream-app-dream-log-analysis",
+    "goose-leachate-load",
+    "hilbert-projection-denoise",
+    "longjiang-holographic-7layer",
+    "mobius-material-recycle",
+    "mozai-multimodal-interaction",
+    "permaculture-four-laws",
+    "permaculture-water-loop",
+    "portrait-vector-lock-engine",
+    "quantum-block-building",
+    "quantum-quantum-kids-lang",
+    "quantum-sci-ethic-kids",
+    "quantum-wormhole-cabin",
+    "refinery-truth-workshop",
+    "santian-algae-pond-sop",
+    "seven-zone-layout-ratio",
+    "wdrama-bus-handshake-v3",
+    "white-goose-ecology-herd"
+   ]
+  },
+  {
+   "id": "F54",
+   "domain": "writing",
+   "mechanism": "cytoskeleton",
+   "label": "写作·细胞骨架",
+   "keywords": [
+    "写作",
+    "细胞骨架",
+    "writing",
+    "cytoskeleton"
+   ],
+   "count": 3,
+   "lanes": {
+    "read": 3,
+    "write": 0
+   },
+   "members_digest": "0b31298d53ef340eff753beb4b9a3385d9ad4fd59ce42722307ac80a49c134c0",
+   "sample": [
+    "memory-holographic-l0l4",
+    "taohua-announcement-template",
+    "wenbing-branch-leifeng"
+   ],
+   "members": [
+    "memory-holographic-l0l4",
+    "taohua-announcement-template",
+    "wenbing-branch-leifeng"
+   ]
+  },
+  {
+   "id": "F55",
+   "domain": "writing",
+   "mechanism": "hebbian_field",
+   "label": "写作·赫布协作场",
+   "keywords": [
+    "写作",
+    "赫布协作场",
+    "writing",
+    "hebbian_field"
+   ],
+   "count": 1,
+   "lanes": {
+    "read": 1,
+    "write": 0
+   },
+   "members_digest": "4e895882c6ff2b646a1e726ba8accd09db25339ed4dc9eca12c03a578d54a2b1",
+   "sample": [
+    "wenbing-school-avatar-matrix"
+   ],
+   "members": [
+    "wenbing-school-avatar-matrix"
+   ]
+  },
+  {
+   "id": "F56",
+   "domain": "writing",
+   "mechanism": "holographic_heartbeat",
+   "label": "写作·全息心跳",
+   "keywords": [
+    "写作",
+    "全息心跳",
+    "writing",
+    "holographic_heartbeat"
+   ],
+   "count": 4,
+   "lanes": {
+    "read": 3,
+    "write": 1
+   },
+   "members_digest": "50be812d97fa243efeb7a7e64750b31e3af0291221089069e682bb098eadfd09",
+   "sample": [
+    "checkpoint-persistence-spec",
+    "office-20000-harvest-docwriting",
+    "paper-review-rewrite-engine"
+   ],
+   "members": [
+    "checkpoint-persistence-spec",
+    "office-20000-harvest-docwriting",
+    "paper-review-rewrite-engine",
+    "rwkv-writer-v2-architecture"
+   ]
+  },
+  {
+   "id": "F57",
+   "domain": "writing",
+   "mechanism": "skin_v6",
+   "label": "写作·皮肤",
+   "keywords": [
+    "写作",
+    "皮肤",
+    "writing",
+    "skin_v6"
+   ],
+   "count": 19,
+   "lanes": {
+    "read": 19,
+    "write": 0
+   },
+   "members_digest": "8e89823a687c1f5ea6b60a9e18572ff395705d60cc29b13967d6a3089780d670",
+   "sample": [
+    "dream-app-art-creation",
+    "longjiang-research-translation",
+    "shanghan-cuojian-fangyouzhi"
+   ],
+   "members": [
+    "dream-app-art-creation",
+    "longjiang-research-translation",
+    "shanghan-cuojian-fangyouzhi",
+    "shanghan-fangzheng-keqin",
+    "shanghan-jinglun-chengwuji",
+    "shanghan-qihua-huangyuanyu",
+    "shanghan-weihu-zhangzhicong",
+    "shanghan-zengbu-zhugu",
+    "shanghan-zhengqinfu-fuyang",
+    "taohua-poster-copy",
+    "wdrama-promo-v3",
+    "wenbing-branch-yishiyu",
+    "wenbing-liuwansu-hanjian",
+    "wenbing-wanglv-fenli",
+    "wenbing-wangmengying-wenrejingwei",
+    "wenbing-wujutong-sanjiao",
+    "wenbing-wuyouke-liqi",
+    "wenbing-xueshi-shire",
+    "wenbing-yetianshi-weiqiyingxue"
+   ]
+  },
+  {
+   "id": "F58",
+   "domain": "writing",
+   "mechanism": "unmapped",
+   "label": "写作·未映射",
+   "keywords": [
+    "写作",
+    "未映射",
+    "writing",
+    "unmapped"
+   ],
+   "count": 2,
+   "lanes": {
+    "read": 2,
+    "write": 0
+   },
+   "members_digest": "f102f68e490f0c3b0c724a8f2021576a674b723e5d1051419a88daf0714f24c7",
+   "sample": [
+    "dream-axiom-four-outputs",
+    "taohua-an-society"
+   ],
+   "members": [
+    "dream-axiom-four-outputs",
+    "taohua-an-society"
+   ]
+  }
+ ]
+}

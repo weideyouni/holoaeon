@@ -81,10 +81,12 @@ class AdapterBridge(unittest.TestCase):
 
 class FamilyIdentity(unittest.TestCase):
     def test_09_identity_binds_declared_family_hash(self):
-        ident = json.load(open(os.path.join(ROOT, "data", "semantic_family_identity_v2.json"),
-                               encoding="utf-8"))
-        fam = json.load(open(os.path.join(ROOT, "data", "semantic_family.json"),
-                            encoding="utf-8"))
+        with open(os.path.join(ROOT, "data", "semantic_family_identity_v2.json"),
+                  encoding="utf-8") as f:
+            ident = json.load(f)
+        with open(os.path.join(ROOT, "data", "semantic_family.json"),
+                  encoding="utf-8") as f:
+            fam = json.load(f)
         self.assertEqual(ident["binding"]["family_sha256"], fam["sha256"])
         self.assertEqual(ident["binding"]["member_count"], fam["member_count"])
         self.assertEqual(ident["binding"]["member_count"], 100)

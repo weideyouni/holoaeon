@@ -7,7 +7,7 @@
   "repo_root": "F:\\doubaowork\\holoaeon",
   "counts": {
     "package": 28,
-    "repo": 167,
+    "repo": 170,
     "missing": 0
   },
   "package": {
@@ -127,20 +127,20 @@
   },
   "repo": {
     "README.md": {
-      "bytes": 59020,
-      "sha256": "873e6713a6fb0b0c38ae38a3b7e10cabdfc1806bdfba791cff1fd6b92a579a07"
+      "bytes": 62219,
+      "sha256": "0402d0c9ce2bf6aff35bd1e871fed034280d8a9eafc55b89bae77ae0f1c90463"
     },
     "README.zh-CN.md": {
-      "bytes": 29004,
-      "sha256": "b2cad2a2dc45c48e7108b46935d4a82a1c65c9346c6068885d81725dab8b44db"
+      "bytes": 32202,
+      "sha256": "547dd75419511fc45674671cb273fea0ef8174520c70de4f73dfae1caddf1166"
     },
     "README_FUSION_V4_20261102.md": {
       "bytes": 27394,
       "sha256": "90317835249973e04926c74f5fb0a798c709fc95d293517a2fc7b1777aed1843"
     },
     "SHA256SUMS": {
-      "bytes": 21904,
-      "sha256": "483e5d419cc02e421ab1bad0358a265d579dcbdec5b9fa4fd2719f4a5364b138"
+      "bytes": 22214,
+      "sha256": "1a474603185010063dc9d4fc56ef8b27a634d5f4227b538219fcd7f223f7e6e2"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
@@ -292,7 +292,7 @@
     },
     "data/dual_repo_sums.json": {
       "bytes": 2127,
-      "sha256": "7713eb6d0cb12b7f6183bfb59a1b366592fe497aed50fde94769e7670bf2030a"
+      "sha256": "e650d08695fd79db4c9256b45b1245ea5e088c0d4e82eaec0d5efe45c2fe8259"
     },
     "data/extension_slots.json": {
       "bytes": 6540,
@@ -366,6 +366,10 @@
       "bytes": 3644,
       "sha256": "9ed3245363d32289fbd111a7961da1133617a929826f7447eca69beecac834b7"
     },
+    "data/v6_skill_family_registry.json": {
+      "bytes": 71032,
+      "sha256": "9a2bcb94a62a5dbdcf163360ee3e54da16cad58a8d926c0195de474d72efcfb5"
+    },
     "data/许可分层清单.csv": {
       "bytes": 491,
       "sha256": "33af29f94ecfd5c790253f5216e477b410fcd0d3838d029027d37ca3c29f4861"
@@ -426,6 +430,10 @@
       "bytes": 9906,
       "sha256": "1892dce441a506277dac68f2e1cb912508225d3ae952a3e12b9e88478cca30bd"
     },
+    "holoaeon/fusion_upgrade/external_skill_registry.py": {
+      "bytes": 5227,
+      "sha256": "158272693f7657fe2abe189ea13632a0ca99ee5716c38308b8a0323b87cd063b"
+    },
     "holoaeon/fusion_upgrade/hebbian_store.py": {
       "bytes": 8303,
       "sha256": "58dd50f92cf3dc076419b4fddcca70ae4d8ffbc0972300dc09ee6b0149fb6c85"
@@ -480,7 +488,7 @@
     },
     "reports/b8_dual_sync.json": {
       "bytes": 612,
-      "sha256": "0634eb791264c69d5c2ae4e3aa9981434a5e110e8529e1688499fe44a2a53256"
+      "sha256": "92d1a0a3a4bc1d66905b90bfc8fed14e28f2523ae4957b833a304c6c19298c18"
     },
     "reports/b8_dual_sync_check.json": {
       "bytes": 1773,
@@ -516,11 +524,11 @@
     },
     "reports/v43_hardening_check.json": {
       "bytes": 2146,
-      "sha256": "ea5659917a950c75db017542ea3cfa155d7def371ff3ce10885c6072a5f0d04e"
+      "sha256": "da700aa9c2a7eb375e93a844f759986224720f94c154bcfbcb02c0caaea85c43"
     },
     "reports/v44_model_gateway_check.json": {
-      "bytes": 3625,
-      "sha256": "3ca469992671cf136089cb4f430d834a9dfbf20ee60afe231c1d8d1e9f85ad43"
+      "bytes": 3994,
+      "sha256": "11d8c92c7e29d6b96b29af683f76cd77a55f3ff9b05498d4c81695707b221108"
     },
     "reports/v45_live_probe.json": {
       "bytes": 1253,
@@ -627,8 +635,8 @@
       "sha256": "ca575ddd50d7378e8ef317dd9c7e37d1038513a1c6680f337b5b850e3846eca1"
     },
     "scripts/five_site_dna.py": {
-      "bytes": 17041,
-      "sha256": "81459d995b09fc9eecff5e18bbf6854fc664ecd0a4c078a04f6da1d73f2f1732"
+      "bytes": 17244,
+      "sha256": "99045dac2e2023b0175c36932d1f013c1847b6aa7c8c3c1b1c62ff5b978cbad4"
     },
     "scripts/freeze_contract_v1.py": {
       "bytes": 3616,
@@ -735,8 +743,8 @@
       "sha256": "402fe7f2659f312d13ee2ebd381a4b057302a1cbfbc9cb619f7a85cce1f6d030"
     },
     "tests_contract/test_dual_sync.py": {
-      "bytes": 5697,
-      "sha256": "5afb5cb34718849bf552354faa84579409167727eceb599daeb8ec6e282361f0"
+      "bytes": 5762,
+      "sha256": "0e2105cc5bc69dd877cdd26e4c7eeddb28dc7f7040af15f307d7cfa4e98c0170"
     },
     "tests_contract/test_hebbian_store.py": {
       "bytes": 4314,
@@ -775,8 +783,8 @@
       "sha256": "03fa7097b459eea2e3d6f482837eb00e96eafdf7c432eb16f341715472341f12"
     },
     "tests_contract/test_v43.py": {
-      "bytes": 4071,
-      "sha256": "c1b97212d483ec544880f273126938546c1f281e54513470b40c682732c86372"
+      "bytes": 4098,
+      "sha256": "746e6176ee5e4a4357cb9c7a097935c544e530f15f11b0bd4cef09fc18b06d61"
     },
     "tests_contract/test_v44.py": {
       "bytes": 3656,
@@ -793,6 +801,10 @@
     "tests_contract/test_v5.py": {
       "bytes": 2767,
       "sha256": "890ca08eb994ad692c5749c6f0de5a97f0e45b9d6160c2921bba336e0d956282"
+    },
+    "tests_contract/test_v6.py": {
+      "bytes": 4755,
+      "sha256": "47bb448c3f5736f52785d9938c0a5a60ec9208f4e3681402f05473bd1c988894"
     }
   },
   "missing": []

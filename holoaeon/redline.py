@@ -29,6 +29,8 @@ FORBIDDEN_PREFIXES = ("urllib",)
 # 危险调用名（直接调用的函数名）
 FORBIDDEN_CALLS = {"eval", "exec", "compile", "__import__", "input",
                    "system", "popen", "Popen", "check_output", "call", "run"}
+# 资源卫生：json.load(open(...)) / open(...).read() 等「内联开句柄不关」形态
+FORBIDDEN_NESTED_OPEN = {"load", "loads", "read"}
 # 凭证文件名
 SECRET_FILES = {".env", "id_rsa", "credentials", ".netrc", "secret"}
 
@@ -129,6 +131,18 @@ class RedlineVisitor(ast.NodeVisitor):
                         "os", "subprocess", "sys"):
                     self._add("dangerous_call",
                               f"{value.id}.{func.attr}", node.lineno)
+            # 资源卫生：json.load(open(...)) 未关句柄
+            if func.attr in FORBIDDEN_NESTED_OPEN:
+                for arg in node.args:
+                    if isinstance(arg, ast.Call) and getattr(
+                            arg.func, "id", None) == "open":
+                        self._add("resource", f"{func.attr}(open(...))",
+                                  node.lineno)
+        # 资源卫生：open(...).read() 未关句柄
+        if isinstance(func, ast.Attribute) and func.attr == "read" \
+                and isinstance(func.value, ast.Call) \
+                and getattr(func.value.func, "id", None) == "open":
+            self._add("resource", "open(...).read()", node.lineno)
         self.generic_visit(node)
 
 

@@ -20,9 +20,11 @@ def main():
     args = ap.parse_args()
 
     try:
-        spec = json.load(open(os.path.join(args.dir, "tensor_spec.json"), encoding="utf-8"))
-        rows = list(csv.reader(open(os.path.join(args.dir, "concept_matrix.csv"),
-                                    encoding="utf-8-sig")))
+        with open(os.path.join(args.dir, "tensor_spec.json"), encoding="utf-8") as f:
+            spec = json.load(f)
+        with open(os.path.join(args.dir, "concept_matrix.csv"), encoding="utf-8-sig",
+                  newline="") as f:
+            rows = list(csv.reader(f))
     except Exception as e:  # noqa: BLE001
         print("读取失败：%s" % e)
         return 2

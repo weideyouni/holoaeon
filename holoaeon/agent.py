@@ -37,7 +37,9 @@ def _default_decide(agent: "Agent", env: Envelope) -> Optional[str]:
     if candidates:
         return candidates[0][0]
     avail = agent.available_skills()
-    if ALLOW_SINGLE_SKILL_FALLBACK and len(avail) == 1:
+    flag = getattr(agent, "_cfg_allow_single_fallback", ALLOW_SINGLE_SKILL_FALLBACK)
+    if flag and len(avail) == 1:
+        agent._last_fallback = True   # handle() 据此写 result["degraded"]
         return avail[0]
     return None
 
@@ -66,6 +68,10 @@ class Agent:
         self._created = time.time()
         self.calls = 0
         self.failures = 0
+        # 兜底痕迹：_default_decide 借用唯一技能时置位，handle() 落成 degraded 字段
+        self._last_fallback = False
+        # 由 kernel 按 cfg.allow_single_skill_fallback 注入（缺省沿用模块级常量）
+        self._cfg_allow_single_fallback = ALLOW_SINGLE_SKILL_FALLBACK
 
     # ------------------------------------------------------------ 可用技能
     def available_skills(self) -> List[str]:
@@ -100,7 +106,9 @@ class Agent:
                 return result
             skill = self.skills.get(skill_name)
             output = self._invoke_skill(skill, env.payload)
-            result.update(status="ok", matched=skill_name, output=output)
+            result.update(status="ok", matched=skill_name, output=output,
+                          degraded=bool(self._last_fallback))
+            self._last_fallback = False
             if self.memory is not None:
                 self.memory.put(f"{self.agent_id}:{self.calls}",
                                 {"skill": skill_name, "output": output},

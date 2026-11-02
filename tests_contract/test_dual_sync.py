@@ -24,13 +24,16 @@ SUMS_PATH = os.path.join(ROOT, "SHA256SUMS")
 class DualSyncTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.desc = json.load(open(os.path.join(DATA, "ivsa_plugin_v1.2.json"), encoding="utf-8"))
-        cls.doc = json.load(open(os.path.join(DATA, "dual_repo_sums.json"), encoding="utf-8"))
-        cls.check = json.load(open(os.path.join(REPORTS, "b8_dual_sync_check.json"),
-                                   encoding="utf-8"))
+        with open(os.path.join(DATA, "ivsa_plugin_v1.2.json"), encoding="utf-8") as f:
+            cls.desc = json.load(f)
+        with open(os.path.join(DATA, "dual_repo_sums.json"), encoding="utf-8") as f:
+            cls.doc = json.load(f)
+        with open(os.path.join(REPORTS, "b8_dual_sync_check.json"), encoding="utf-8") as f:
+            cls.check = json.load(f)
         with open(os.path.join(DATA, "许可分层清单.csv"), encoding="utf-8", newline="") as f:
             cls.layers = list(csv.DictReader(f))
-        cls.sums_text = open(SUMS_PATH, encoding="utf-8").read()
+        with open(SUMS_PATH, encoding="utf-8") as f:
+            cls.sums_text = f.read()
 
     def test_01_plugin_default_off(self):
         self.assertEqual(self.desc["plugin_id"], DS.PLUGIN_ID)

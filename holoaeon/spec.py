@@ -32,7 +32,7 @@ VERSION = "0.9.1"
 # VERSION / RUNTIME_ID 会写进每条回执并参与 ReproHash，改动即等于让 DIFF=0 黄金值
 # （2fc892cf9af6e755）漂移，与"V1 黄金值不许漂移"的硬口径冲突。
 # 因此 V2 的版本号单独记在 DOC_VERSION，供文档/快照/徽章使用。
-DOC_VERSION = "0.9.3"
+DOC_VERSION = "0.9.5"
 MATRIX_ID = "HOLOAEON-MATRIX-0.9.1"
 RUNTIME_ID = "HOLOAEON-RUNTIME-0.9.1"
 PROTOCOL_ID = "HOLOAEON-DATAPROTO v1.0"
@@ -168,6 +168,9 @@ class HoloAeonConfig:
     model_adapter: ModelAdapterConfig = field(default_factory=ModelAdapterConfig)
     domain: str = "generic"               # generic | writing | literature | ...
     deterministic: bool = True
+    # 路由兜底开关（保守版：默认 True 与 V5 行为一致；生产方可关闭以 fail-loud）
+    broadcast_on_no_match: bool = True    # True=无匹配时广播全部 agent；False=返回空
+    allow_single_skill_fallback: bool = True  # True=单技能 agent 兜底；False=不兜底
 
     def with_domain(self, domain: str) -> "HoloAeonConfig":
         self.domain = domain

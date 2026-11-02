@@ -33,11 +33,11 @@ HoloAeon 是**纯标准库、全离线、确定性**的多智能体认知框架�
 | 项 | 实测值 |
 |---|---|
 | 产出维度（锁死） | **25 智能体 / 47 技能 / 9 域包**；`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73` 未变 |
-| 最新批次 | **V5.2-B1 代码修正与门禁自指修复**（A10 兄弟回执排除 · A11 断传染 · skipped 第三态 · 句柄回读 0 · L3 归一化 · 兜底开关保守版，`diff0` 未漂移）· 承接 V5.1 设计语汇旁挂（24 命令 / 12 规则 / 3 编译模式 / 4 通道，落 `holoaeon/design_vocab/`） |
+| 最新批次 | **V6.0-B1 族级登记表与路由第三态**（句柄清零复扫 0 · `FORBIDDEN_NESTED_OPEN` 红线 · `no_agent_matched` 第三态 · `degraded` 标记 · 1229→58 族登记 + 桥接 `external_skill_registry`，`diff0` 未漂移）· 承接 V5.2 门禁自指修复（A10 兄弟回执排除 · A11 断传染 · skipped 第三态 · L3 归一化 · 兜底开关保守版） |
 | 扩展卡槽 | **12 个**：occupied 6 / open 1 / reserved 4 / blocked 1（只声明不接线；本批**不新增、不占用**槽位） |
-| 门禁 | `v3_gate 32/32` · `unittest 34 OK` · `旁挂 168 OK` · `v44 13/13` · `v45 7/7` · `v46 9/9` · `v5 11/11` · `dv 8/8` · `redline 0 违规` · `drift []` |
+| 门禁 | `v3_gate 32/32` · `unittest 34 OK` · `旁挂 180 OK`（含 V6 12 例）· `v44 13/13` · `v45 7/7` · `v46 9/9` · `v5 11/11` · `dv 8/8` · `redline 0 违规` · `drift []` |
 | 五地同步 | 本地 · Gitee · GitHub · Hugging Face · 向量海 —— 见文末 [附录 A](#附录-a--五地同步v51-b1) |
-| 版本脉络 | V4.0 → V4.6 → V5.0 → V5.1 逐提交回溯 —— 见文末 [附录 B](#附录-b--版本升级说明v3--v51) |
+| 版本脉络 | V4.0 → V6.0 逐提交回溯 —— 见文末 [附录 B](#附录-b--版本升级说明v3--v60) |
 | V4 主文档 | [`README_FUSION_V4_20261102.md`](README_FUSION_V4_20261102.md) · 同步规则 [`data/FIVE_SITE_SYNC_DNA.md`](data/FIVE_SITE_SYNC_DNA.md) |
 
 ### V5.1 · 设计语汇（旁挂，不改维度）
@@ -78,6 +78,27 @@ python scripts\check_dimension_lock.py          # 0 violation · diff0 未漂移
 ```
 
 **维度不变**：25 / 47 / 9 与 12 个 EXT 槽一位未动；`spec.VERSION` 仍 0.9.1。
+
+### V6.0 · 族级登记表 · 路由第三态 · 代码卫生收口（不改维度）
+
+`DOC_VERSION` 0.9.3 → **0.9.5**（`spec.VERSION` 仍 0.9.1，不回写运行态标识）。V6 投喂包 12 条 + 额外 3 条逐条实测后：V5.2 已修 8 条、本批补 7 条。
+
+- **句柄清零到底**：`json.load(open(...))` / `open(...).read()` 全仓复扫 **0 处**（V5.2 只清了 `scripts/`，本批补 `tests_contract/` 6 处与 `skills/holoaeon-video-tensor-dna/` 4 处）。
+- **红线防回归**：`holoaeon/redline.py` 新增 `FORBIDDEN_NESTED_OPEN = {"load","loads","read"}` 与 `visit_Call` 两段判定——以后谁再写内联开句柄，`redline_scan` 直接红。
+- **路由第三态**：无内置技能命中时 `submit()` 返回 `status="no_agent_matched"` + `hint` + `external_candidates`，不再把「没匹配上」伪装成「N 条结果」；显式 `to="*"` 才广播。
+- **兜底可观测**：`agent.handle()` 结果新增 `degraded` 字段，单技能兜底被借用时置 `True`，事后能看出这次成功是「真命中」还是「借来的」。
+- **开关进配置**：`HoloAeonConfig` 增 `broadcast_on_no_match` / `allow_single_skill_fallback`（默认 `True` 保持现状）；模块级常量降级为缺省值，`register_agent` 把配置下沉到每个 agent。
+- **守卫精度（[golden]）**：`DANGER_PATTERNS` 的宽匹配 `.env` 收紧为 `open('.env` / `open(".env` / `dotenv`——「文档里提到 .env」不再被误拦，真正读凭证仍拦。`diff0` 仍 `2fc892cf9af6e755`、篡改值仍 `f42c8229ee5acd73`。
+- **1199 条外部技能族级登记 + 桥接**：`data/v6_skill_family_registry.json` 把 1229 条索引收成 **58 个「域×机制」族**（1,229 成员，`members_sha256` 可回读），`holoaeon/fusion_upgrade/external_skill_registry.py` 提供 `load/stats/family_of/match/route` 与 `Kernel.resolve_external()`。**登记不复制、不改 47 条内置技能**：桥接是「族的候选出口」，执行仍走 25 个 agent。
+
+```powershell
+python -m unittest discover -s tests_contract   # 180 OK（含 test_v6 12 例）
+python scripts\redline_scan.py                  # 扫描 83 文件，零违规
+python scripts\check_dimension_lock.py          # 12 维度 + 7 闸 + 0 violation，diff0 未漂移
+python -c "from holoaeon.fusion_upgrade import external_skill_registry as e; print(e.stats())"
+```
+
+**维度不变**：25 智能体 / 47 技能 / 9 域包 / `EXTRA_PACK_ORDER=10`；`diff0_hash`、`tamper`、`spec.VERSION` 三个冻结值一位未动。
 
 ### V3 · 借鉴 LangChain 的工程形态（文档版本 0.9.3）
 
@@ -359,20 +380,20 @@ Apache License 2.0。
 
 ---
 
-## 附录 A · 五地同步（V5.1-B1）
+## 附录 A · 五地同步（V6.0-B1）
 
 **口径（重要）**：本页不硬编码"当前 HEAD"，因为任何文档收尾提交都会让 HEAD 变化，写死即自指失效。
-下表数字锚定 **V5.1-B1**（设计语汇旁挂：内容 `339d0c4` + 清单 `9b2d5d1`）时点的实测；当前值一律用右侧命令回读。
+下表锚定 **V6.0-B1**（族级登记表 + 路由第三态）时点的状态；sha / 字节 / 条数一律用右侧命令回读。
 
-| 站点 | 检查命令 | V5.1-B1 时点实测 |
+| 站点 | 检查命令 | V6.0-B1 时点 |
 |---|---|---|
-| S1 本地 | `git log -1 --stat` | `9b2d5d1`（内容 15 files / +1166 −12；清单 7 files / +93 −45） |
-| S2 Gitee | `git ls-remote <gitee> refs/heads/main` | `9b2d5d10b8a0b8a7cfeae4c0be691388515a425f` |
-| S3 GitHub | `git ls-remote origin refs/heads/main`（推送后延时 12 s 回读） | 同上；与本地 HEAD 三值一致 |
-| S4 向量海 | `manifest.json` 逐条复算 | 155 个文件 · 号段 134–147 · 154 条 |
-| S5 Hugging Face | `mirror_hf.py --check` 后实推回读 | `dafe21dad224…` · 460 文件 · 22 件上传 · `mismatch=[]` |
-| 回执 | `python scripts/five_site_dna.py preflight` | files 154 · history 31（字节数 / 时间以回读为准） |
-| 交付 zip | `scripts/build_b9_zip.py` | 47 条目 / 132,462 B / `341b627910e9fc19` |
+| S1 本地 | `git rev-parse --short HEAD` | 以回读为准（内容提交先落，清单随后重建） |
+| S2 Gitee | `git ls-remote <gitee> refs/heads/main` | 与本地 HEAD 同值（推送后回读） |
+| S3 GitHub | `git ls-remote origin refs/heads/main`（延时 12 s 回读） | 同上；三值一致 |
+| S4 向量海 | `python scripts/build_vector_sea_manifest.py` | 以 `check()` 的 `entries` / `sums_74_in_sync` 回读为准（V5.2 时点基数 172） |
+| S5 Hugging Face | `python scripts/mirror_hf.py --base <old> --head <new>` | 以输出 `sha` 与 `mismatch=[]` 回读为准（V5.2 时点 `e145185b…` / 462 文件） |
+| 回执 | `python scripts/five_site_dna.py preflight` | `files` / `history` / 字节数以回读为准 |
+| 交付 zip | `python scripts/build_b9_zip.py` | 47 条目 / 132,462 B / `341b627910e9fc19`（确定性，本批未改 PKG） |
 
 **HEAD sha、HF sha、回执字节与 history 条数每提交一次就会变**，本页故意不写死；
 读取方式：`git rev-parse --short HEAD`、`mirror_hf.py` 输出的 `sha`、`five_site_dna.py preflight` 的回执路径。
@@ -388,7 +409,7 @@ Apache License 2.0。
 
 ---
 
-## 附录 B · 版本升级说明（V3 → V5.2）
+## 附录 B · 版本升级说明（V3 → V6.0）
 
 > 口径：sha 取自 `git log` 实测；条目数 / 字节 / `sha16` 以对应批次命令回读为准，不硬编码猜测值。
 
@@ -407,6 +428,7 @@ Apache License 2.0。
 | V5.0 收尾 | `f214bd5` | 中英文首页同构重排：去陈旧大段引用，改「当前工程状态」表 + 文末两附录；首页纳入 `REPO_FILES`（152 → 154）；`06` 第五节交付表按实测重算 |
 | V5.1 设计语汇 | `339d0c4` / `9b2d5d1` | Impeccable 范式本地化：`holoaeon/design_vocab/`（24 命令 / 12 规则 / 3 编译模式 / 4 通道）+ `data/design_vocab_registry.json` + 门禁 `dv 8/8` + 契约测试 8 条（`旁挂 160 → 168`）；**25/47/9 与 12 卡槽均未变** |
 | V5.2 代码修正 | 本批提交（用 `git log -1 --format=%h` 回读，避免自指） | 门禁自指修复（A10 兄弟回执排除 + A11 断传染 + skipped 第三态 + 路径去硬编码）、句柄泄漏清零（scripts 回读 0）、CI 补契约/维度锁/设计语汇三道闸、Guard L3 归一化与兜底开关保守版；`diff0` 仍 `2fc892cf9af6e755`，**25/47/9 未变** |
+| V6.0 族级登记与路由第三态 | 本批提交（用 `git log -1 --format=%h` 回读，避免自指） | 句柄清零到底（全仓回读 0，补 `tests_contract/` 6 处 + `skills/` 4 处）、`FORBIDDEN_NESTED_OPEN` 资源红线、`no_agent_matched` 第三态 + `degraded` 标记、两开关进 `HoloAeonConfig`、`.env` 误伤收紧（[golden]，`diff0` 未漂移）、**1229 条 → 58 族登记 + 桥接 `external_skill_registry`**（`旁挂 168 → 180`）；`DOC_VERSION 0.9.3 → 0.9.5`，**25/47/9 未变** |
 
 **一句话主线**：每批只做一件事，只加旁挂、不改锁数；每批必带判据、票据与五地同步，`drift=[]` 才允许提交。
 

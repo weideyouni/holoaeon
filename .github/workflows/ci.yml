@@ -51,7 +51,7 @@ jobs:
           fi
           exit $rc
 
-      - name: Contract tests (tests_contract, 168 cases)
+      - name: Contract tests (tests_contract, 180 cases)
         # P1-5：契约测试此前从未进 CI，导致「本机 168 OK、远端零验证」。
         run: |
           set +e

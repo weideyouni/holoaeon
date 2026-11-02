@@ -234,6 +234,10 @@ REPO_FILES = [
     # ---- V5.2-B1 技能基座化声明与六机制接线（2 件，不改维度）
     "data/v5_skill_base_registry.json",
     "docs/技能基座化与六机制接线指南.md",
+    # ---- V6.0-B1 族级登记表与桥接（3 件，不改维度）
+    "data/v6_skill_family_registry.json",
+    "holoaeon/fusion_upgrade/external_skill_registry.py",
+    "tests_contract/test_v6.py",
 ]
 
 ZIP_NAME = "holoaeon_v4_fusion_upgrade_20261102.zip"
