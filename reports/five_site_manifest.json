@@ -127,20 +127,20 @@
   },
   "repo": {
     "README.md": {
-      "bytes": 79736,
-      "sha256": "e8a866996b1023129e2d46b7655f77fa5a584b29a4432e7306f6f04398be08c6"
+      "bytes": 81583,
+      "sha256": "3fa62a0417edb4cb7b3647636de59f12f696beb72aadd7d67df4796f50ce5bdc"
     },
     "README.zh-CN.md": {
-      "bytes": 42777,
-      "sha256": "3541d8e9a4901072636612ed60f9c0d8dd6f9c4e392b39bbb8e5721cadc5fc1a"
+      "bytes": 44492,
+      "sha256": "5421c0f707090c67069f823f8c98e4c77f592e4d6b68a820161facd470260aa6"
     },
     "README_FUSION_V4_20261102.md": {
-      "bytes": 34393,
-      "sha256": "d9c8ea5799bded26c8b3ae22004ee5bc25f18b671b82762d0b6d89ca572c054a"
+      "bytes": 34864,
+      "sha256": "9c74d2d32d96aee23c592d5ca05558a7ee23a5c5336402a209f634751b1cff14"
     },
     "SHA256SUMS": {
-      "bytes": 23287,
-      "sha256": "7e7325e222aa9a70d53ed541dc96bb9aa61a79a637c73e6bf7af368173d771b5"
+      "bytes": 23380,
+      "sha256": "fc0e03cd34f9b60d6f5fa7e8ad9b12ac5132e62e132bbf90ea3f7f5a296a195a"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
@@ -292,7 +292,7 @@
     },
     "data/dual_repo_sums.json": {
       "bytes": 2127,
-      "sha256": "a59daee23f4f49847c58d955bb31d84c95acd7ec62e9966d76cc61b242ebc2f9"
+      "sha256": "6be8d38742815e822e3d9267940bd0e7cc033a6588141b021b7b963e5db30207"
     },
     "data/extension_slots.json": {
       "bytes": 6540,
@@ -492,7 +492,7 @@
     },
     "reports/b8_dual_sync.json": {
       "bytes": 612,
-      "sha256": "5289cebedc343c2e670a96788e694a73a47640d79c441c76038a8a4cc4eec05d"
+      "sha256": "4630c84efcb27945bac969e0122e0937c6a08da0568cba9df084157f09738963"
     },
     "reports/b8_dual_sync_check.json": {
       "bytes": 1773,
@@ -751,8 +751,8 @@
       "sha256": "0e2105cc5bc69dd877cdd26e4c7eeddb28dc7f7040af15f307d7cfa4e98c0170"
     },
     "tests_contract/test_hebbian_store.py": {
-      "bytes": 4509,
-      "sha256": "a54bbedf539846b1539c7d795ce14d5d73b63649a3b9b17b9cfa6ad7ae44f98e"
+      "bytes": 4714,
+      "sha256": "e116dee4d255c18380b37275c6be243194bf42eac00be6bb2d8eca8aaa7cce1d"
     },
     "tests_contract/test_ivsa_recon.py": {
       "bytes": 2083,

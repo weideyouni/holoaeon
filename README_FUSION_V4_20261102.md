@@ -434,6 +434,7 @@ README 三份必须更新。判据优先于 SOP 字面路径。
 | V12-C | 注册第 13 扩展包 + 文档版本 | `packs/__init__.py`（import+registry+`EXTRA_PACK_ORDER` 12→13）+ `spec.py` DOC_VERSION 0.9.11 → **0.9.12** | `EXTRA_PACK_ORDER=13` · `VERSION=0.9.1` 冻结未动 |
 | V12-D | 命令注册 | `pyproject.toml` `[project.scripts]` 追加 `holoaeon-os` / `holoaeon-quartet` | 四命令齐备（demo/bridge/os/quartet） |
 | V12-E | 验证 + README + 回执 + 五地 | 全验证 + 三份 README V12 段 + `reports/v12_receipt.json` + 单批单提交 + 五地同步 | selftest 25/25 · unittest 68 OK · redline 90 文件 0 违规 · v3_gate 32/32 · 维度锁 0 violation · verify_v44 13/13 · contract 184（既有漂移：断言 11 实际 13） |
+| V12.1 | 未决项闭环（第一性原理裁决） | contract 契约测试同步 + 新建 `holoaeon/mcp_adapter.py`（MCP stdio 最小协议子集）+ `holoaeon-mcp` 命令 + 三份 README 披露 + 单提交 | `test_10_no_new_pack` 改下界断言（PACK_ORDER==9 锁不变，EXTRA>=11 防回退）→ **contract 184 全绿** · MCP 自测 13/13（initialize/tools/list/call + 4 错误分支）· selftest 25/25 · redline 91 文件 0 违规 · 维度锁 0 violation |
 
 红线（不改一字）：`BUILTIN_LAYERS` L1-L8 / `spec.VERSION=0.9.1` / `layers=8` / `PACK_ORDER` /
 `graph.py` / `scheduler.py` / `hypervector.py` / `kernel.py submit`；新包只进 `EXTRA_PACK_REGISTRY` /

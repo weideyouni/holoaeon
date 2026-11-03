@@ -1,0 +1,30 @@
+{
+  "batch": "V12.1-UNRESOLVED-CLOSURE",
+  "status": "DONE",
+  "steps_completed": ["V12.1-A adjudicate unresolved items", "V12.1-B contract test sync", "V12.1-C mcp_adapter build + self-test", "V12.1-D README x3 disclosure", "V12.1-E write-chain + commit + five-site sync"],
+  "adjudication": {
+    "principle": "first-principles: executable items run to completion with full engineering chain; blocked items suspended with unlock conditions",
+    "contract_test_sync": {"decision": "EXECUTED", "detail": "test_10_no_new_pack: hard-coded len(EXTRA_PACK_ORDER)==11 -> lower bound >=11; PACK_ORDER==9 dimension lock unchanged; tests_contract 184 all green"},
+    "mcp_bridge": {"decision": "EXECUTED", "detail": "holoaeon/mcp_adapter.py: MCP 2024-11-05 stdio minimal subset (initialize/ping/tools/list/tools/call), JSON-RPC 2.0; tools = holoaeon.task (reuses frontend_adapter.handle_request) / holoaeon.status / holoaeon.quartet; holoaeon-mcp command; self-test 13/13"},
+    "ivsa_guest_repo_open_leaks": {"decision": "SUSPENDED", "detail": "P1-4b eda_pipeline.py 3x open(); discipline forbids guest-repo writes (A12 expected hashes would go red); unlock = guest upgrade window or explicit authorization"},
+    "github_forced_rollback_source": {"decision": "SUSPENDED-OBSERVE", "detail": "two consecutive batches (V11 end/V12) push+fetch read-back show no rollback; 'trust command read-back' principle hardened; no external forensic channel"}
+  },
+  "selftest": "25/25 PASS",
+  "diff0": "2fc892cf9af6e755",
+  "VERSION": "0.9.1",
+  "DOC_VERSION": "0.9.12",
+  "EXTRA_PACK_ORDER": 13,
+  "new_files": ["holoaeon/mcp_adapter.py"],
+  "modified_files": ["tests_contract/test_hebbian_store.py", "pyproject.toml", "README.md", "README.zh-CN.md", "README_FUSION_V4_20261102.md"],
+  "verified": {
+    "selftest": "25/25",
+    "unittest": "68 OK",
+    "tests_contract": "184 all green (V12.1 synced test_10_no_new_pack to lower-bound assertion)",
+    "v3_gate": "32/32",
+    "redline": "91 files, 0 violations",
+    "dimension_lock": "12 dimensions + 7 gates + 0 violation",
+    "verify_v44": "13/13",
+    "mcp_selftest": "13/13 (initialize/ping/tools-list/tools-call + parse_error -32700 / invalid_request -32600 / unknown_tool -32602 / method_not_found -32601)"
+  },
+  "seal": "潮起开门，潮落闭嘴"
+}

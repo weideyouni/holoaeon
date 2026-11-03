@@ -232,14 +232,21 @@ python scripts\check_dimension_lock.py     # 12 维度 + 7 闸 + 0 violation · 
 python scripts\v3_gate.py                  # 32/32
 python scripts\redline_scan.py             # 90 文件 · 零违规
 python -m unittest discover -s tests       # 68 OK
-python -m unittest discover -s tests_contract   # 184（1 例既有契约漂移：test_10_no_new_pack 断言 EXTRA_PACK_ORDER==11，实际 13，V9 引入，只记录不修改）
+python -m unittest discover -s tests_contract   # 184 全绿（V12.1 已同步 test_10_no_new_pack 为下界断言，不再漂移）
 python scripts\verify_v44.py               # 13/13（A1-A13 全 PASS）
 python -m holoaeon.butler_os 4             # Butler OS 冒烟：四人组加载 → emergence=True order=0.5237
+python -m holoaeon.mcp_adapter             # MCP stdio 桥接（initialize/tools/list/tools/call 自测 13/13）
 python -m holoaeon.butler_os 7             # 状态快照：agents=46 skills=243 DOC_VERSION=0.9.12
 python -m holoaeon.butler_os               # 交互菜单（管道 0 退出）正常
 ```
 
 **维度不变**：25 / 47 / 9 与 `spec.VERSION=0.9.1`、`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73`
+
+### V12.1 · 未决项闭环（first-principles adjudication · single commit）
+
+- **Contract test sync (done)**：`tests_contract/test_hebbian_store.py::test_10_no_new_pack` switched from a hard-coded `len(EXTRA_PACK_ORDER)==11` to a lower bound `>=11` — extra packs grow per batch (V8=11 → V11=12 → V12=13); the contract's true intent is locking `PACK_ORDER==9` (25/47/9 dimension lock) and isolating extra registration. A hard-coded exact value expired every batch (drifting since V9). Lower bound prevents regression; `tests_contract` 184 all green.
+- **MCP bridge (done)**：new `holoaeon/mcp_adapter.py` — MCP (Model Context Protocol, 2024-11-05) stdio transport minimal subset (JSON-RPC 2.0: `initialize` / `ping` / `tools/list` / `tools/call`); exposes 3 tools: `holoaeon.task` (generic submit, reuses `frontend_adapter.handle_request` contract) / `holoaeon.status` (snapshot: runtime_id/VERSION/DOC_VERSION/agents/skills/guard_layers) / `holoaeon.quartet` (emergence via `check_emergence`). Zero deps, no network, no GPU; same contract as butler_os, different transport (local menu vs standard protocol); `holoaeon-mcp` console command registered; self-test 13/13 incl. error branches (parse_error -32700 / invalid_request -32600 / unknown_tool -32602 / method_not_found -32601).
+- **Suspended (recorded, not executed)**：① ivsa guest repo `eda_pipeline.py` 3× `open()` leaks (P1-4b) — discipline forbids writing into guest repos (A12 expected hashes would go red); unlock = guest upgrade window or explicit authorization. ② GitHub external forced-rollback source — two consecutive batches (V11 end/V12) push+fetch read-back show no rollback; the "trust command read-back" principle is already hardened; no external forensic channel, keep observing.
 三值仍未动；`EXTRA_PACK_ORDER` 12→**13**（第 13 扩展包仅旁挂，不进 `PACK_ORDER`，G15 断言不受影响）；
 Guard 默认 9 层、L10 默认关（附加层不计入 `guard_layers=8`）；装配后快照 agents **46**（含四人组 5 角色）、
 skills **243**（含四人组 14 技能），均为扩展包旁挂增量。
