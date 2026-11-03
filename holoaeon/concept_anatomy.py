@@ -488,11 +488,71 @@ class ConceptAnatomizer:
 </body></html>"""
 
 
+# ============================================================ 维度中文名（V20 落地场景：大白话展示）
+DIMENSION_CN = {
+    "mechanism": "机制类",
+    "runtime": "运行时类",
+    "core": "内核类",
+    "security": "安全类",
+    "learning": "学习类",
+    "protocol": "协议类",
+    "architecture": "架构类",
+    "thermodynamics": "热力学类",
+    "verification": "验证类",
+}
+
+
+def explain(concept: Optional[str] = None) -> str:
+    """大白话解释一个概念（V20 落地场景版），返回可读文字而非 JSON。
+
+    用法：
+        python -c "from holoaeon.concept_anatomy import explain; print(explain('经络'))"
+        python -m holoaeon.concept_anatomy 经络 --explain
+    """
+    if concept is None:
+        concept = "经络"  # 默认演示
+    entry = CONCEPT_MAP.get(concept)
+    if not entry:
+        lines = [f"「{concept}」不是内置概念。", "", "可用概念："]
+        for i, name in enumerate(CONCEPT_MAP.keys(), 1):
+            lines.append(f"  {i}. {name}")
+        return "\n".join(lines)
+
+    dim_cn = DIMENSION_CN.get(entry["dimension"], entry["dimension"])
+    lines = [
+        f"{concept}（{dim_cn}概念）",
+        "═" * 50,
+        "",
+        f"一句话：{entry['description']}",
+        "",
+        f"靠什么实现：{entry['mechanism']}",
+        "",
+        f"由{len(entry['components'])}个零件组成：",
+    ]
+    for i, comp in enumerate(entry["components"], 1):
+        lines.append(f"  {i}. {comp}")
+    lines.extend([
+        "",
+        f"怎么验证它在工作：{entry['verification']}",
+        "",
+        f"去哪看源码：{entry['source']}",
+    ])
+    return "\n".join(lines)
+
+
 # ---- CLI（模块级入口，V19 审视修正 R-02） ----
 
 def main(argv: Optional[List[str]] = None) -> int:
-    """CLI入口：无参数列出可用概念；带概念名输出解剖图 JSON。"""
+    """CLI入口：--explain 输出大白话；无参数列出可用概念；带概念名输出解剖图 JSON。"""
     args = list(argv) if argv is not None else list(sys.argv[1:])
+
+    # V20 落地场景：--explain 大白话解释模式（给人看）
+    if "--explain" in args:
+        args = [a for a in args if a != "--explain"]
+        concept = args[0] if args else None
+        print(explain(concept))
+        return 0
+
     if not args:
         print(json.dumps({"available_concepts": list(CONCEPT_MAP.keys())},
                          ensure_ascii=False, indent=2))
@@ -502,3 +562,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     result = ca.anatomize(concept)
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

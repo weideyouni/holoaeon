@@ -1,0 +1,75 @@
+{
+  "batch": "V20-CONCEPT-ANATOMY-REDESIGN-TEXT",
+  "status": "DONE",
+  "date": "2026-11-04",
+  "route": "先文字落地场景 → 后多模态（V21）",
+  "steps_completed": ["A", "B", "C"],
+  "redesign": {
+    "v19_gap": "V19 做了能力（能解剖概念），没做用途（解剖出来能干嘛）",
+    "one_liner": "概念解剖器 = HoloAeon 项目的汉字字典——看到经络/赫布场/城邦看不懂时，一条命令用大白话告诉你这是哪个模块、由哪些零件组成、怎么验证、去哪看源码",
+    "scenarios_3": {
+      "S1": "新人看代码：python -m holoaeon.concept_anatomy 经络 --explain → 一段可读文字解释",
+      "S2": "改代码前查影响：python -m holoaeon.concept_anatomy 皮肤机制 --explain → 看清 10 个零件",
+      "S3": "写文档贴材料：explain(\"去幻觉\") → 结构化文字直接贴进文档/汇报/培训"
+    },
+    "obsolete_feed": "AGENT_FEED_V20_PATCH_V19_CLOSURE_20261104_OBSOLETE.md（补丁包改名作废，非修 BUG 是补用途）"
+  },
+  "quartet_decision": {
+    "P1": 0.85,
+    "P2": 0.85,
+    "P3": 0.85,
+    "P4": 0.30,
+    "P2xP3": 0.7225,
+    "order": 0.5237,
+    "emergence": true,
+    "verdict": "四人组定调通过（P2×P3≥0.7、P1≥0.6、P4≤0.4、order>0.30 全过，与 V19 同体系口径）"
+  },
+  "steps": {
+    "A": "审视修正 + 修改 holoaeon/concept_anatomy.py：新增 DIMENSION_CN（9 维度中文名映射）+ 模块级 explain(concept)→str（从 CONCEPT_MAP 取真值格式化，未知概念返'不是内置概念+可用概念列表'，默认演示经络）",
+    "B": "main() 追加 --explain 分支（大白话文字模式）；文件末尾补 if __name__=='__main__': sys.exit(main()) —— 修复 V19 已知点（python -m 直跑无输出）",
+    "C": "新建 docs/V20_概念解剖器_使用手册.md（非技术手册：一段话定位+三落地场景+一条命令速查+10 概念大白话速查表）+ docs/V19_概念解剖器_小白导学手册.md 已知点段落同步更新 + 新建 tests/test_v20_concept_anatomy.py（12 tests）+ README×3 插 V20 章节/批次表行 + 重建 five_site_manifest + 全套验证"
+  },
+  "verification": {
+    "selftest": "25/25 PASS",
+    "unittest": "121 OK（V19 109 + V20 新 12 tests）",
+    "redline": "103 文件 0 违规",
+    "v3_gate": "32/32 PASS",
+    "verify_v44": "13/13 PASS（A1-A13，README 提交后 five_site_manifest 重建对齐）",
+    "dimension_lock": "12 维度 + 7 闸 0 violation（diff0=2fc892cf9af6e755 未漂移）",
+    "contract": "PASS",
+    "py38_syntax": "249 文件 0 失败",
+    "plugin_runtime": "10/10 全绿",
+    "explain_all_concepts": "10/10 全含'一句话'（经络/心跳机制/细胞骨架/皮肤机制/经络机制/赫布协作场/语义通信基座/城邦架构/自组织耗散/去幻觉）",
+    "module_guard_fixed": "python -m holoaeon.concept_anatomy 经络 --explain 实测输出非空（V19 已知点修复）",
+    "explain_determinism": "explain 从 CONCEPT_MAP 取真值格式化，不改任何现有输出路径"
+  },
+  "diff0": {
+    "expected": "2fc892cf9af6e755",
+    "actual": "2fc892cf9af6e755",
+    "drifted": false,
+    "note": "V20 仅新增 explain()/--explain/__main__ 守卫，不改输出路径与维度值；diff0 黄金值未漂移"
+  },
+  "VERSION": "0.9.1 (不变)",
+  "DOC_VERSION": "0.9.16 (不变)",
+  "EXTRA_PACK_ORDER": "17 (不变)",
+  "tamper": "f42c8229ee5acd73 (不变)",
+  "new_files": [
+    "F:/doubaowork/holoaeon/docs/V20_概念解剖器_使用手册.md",
+    "F:/doubaowork/holoaeon/tests/test_v20_concept_anatomy.py"
+  ],
+  "modified_files": [
+    "F:/doubaowork/holoaeon/holoaeon/concept_anatomy.py (DIMENSION_CN + explain() + --explain + __main__ 守卫)",
+    "F:/doubaowork/holoaeon/docs/V19_概念解剖器_小白导学手册.md (已知点段落标注 V20 已修复)",
+    "F:/doubaowork/holoaeon/README.md (插 V20 批次记录于 V19 前)",
+    "F:/doubaowork/holoaeon/README.zh-CN.md (插 V20 批次记录于 V19 前)",
+    "F:/doubaowork/holoaeon/README_FUSION_V4_20261102.md (批次表倒序插 V20 行)",
+    "F:/doubaowork/holoaeon/reports/five_site_manifest.json (重建)"
+  ],
+  "not_committed": [
+    "AGENT_FEED_V20_CONCEPT_ANATOMY_REDESIGN_TEXT_20261104.md (投喂包不提交)",
+    "AGENT_FEED_V20_PATCH_V19_CLOSURE_20261104_OBSOLETE.md (作废补丁包不提交)",
+    "reports/v44_model_gateway_check.json (中间态校验产物按批决定)"
+  ],
+  "next": "V21 = 多模态版（SVG 交互图 + 语音解说）",
+  "seal": "潮起开门，潮落闭嘴"
+}
