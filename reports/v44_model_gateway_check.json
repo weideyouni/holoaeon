@@ -146,21 +146,8 @@
       "drift": [],
       "drift_count": 0,
       "missing_receipts": [],
-      "self_excluded_count": 2,
-      "self_excluded": [
-        {
-          "item": "repo:changed:reports/v43_hardening_check.json",
-          "owner": "scripts/verify_v43.py",
-          "prev_sha16": "7611aeb0f77b87df",
-          "curr_sha16": "d537bb4a6b458e7d"
-        },
-        {
-          "item": "repo:changed:reports/v44_model_gateway_check.json",
-          "owner": "scripts/verify_v44.py",
-          "prev_sha16": "2f5248723f081e42",
-          "curr_sha16": "bb5383324ce54d4e"
-        }
-      ],
+      "self_excluded_count": 0,
+      "self_excluded": [],
       "self_owners_count": 10,
       "self_derive": "derived",
       "checked": {
@@ -173,7 +160,7 @@
       "passed": true,
       "status": "measured",
       "ticket_bytes": 10129,
-      "prev_run": "13/13",
+      "prev_run": "12/13",
       "closing_rule": "ticket + all_other_checks_pass(excluding A10/A11)"
     },
     {

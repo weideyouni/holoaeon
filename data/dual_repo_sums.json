@@ -19,7 +19,7 @@
     ],
     "manifest": "SHA256SUMS",
     "root": "F:/doubaowork/holoaeon",
-    "sums_sha256": "d1aa6c35ff1969af9cdd3a47a3ca098c4afa31117e541f5ced4b75783feaaca4"
+    "sums_sha256": "0e4f96c95a1cfdd551344c0d2d04f94e4efadad72a608e775cae20c279f75aad"
   },
   "interface": {
     "expected_total": 17,
