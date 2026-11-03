@@ -101,7 +101,9 @@ class HebbianStoreTest(unittest.TestCase):
         from holoaeon.packs import EXTRA_PACK_ORDER, PACK_ORDER
         from holoaeon import spec as SPEC
         self.assertEqual(len(PACK_ORDER), 9)
-        self.assertEqual(len(EXTRA_PACK_ORDER), 10)
+        # 批4 领域化解耦（AGENT_FEED_V8_BATCH2_4）：tcm_rehab 为投喂包预定的第 11 扩展包，
+        # 只进 EXTRA_PACK_ORDER、不进 PACK_ORDER（25/47/9 维度锁不变）
+        self.assertEqual(len(EXTRA_PACK_ORDER), 11)
         self.assertEqual(SPEC.VERSION, "0.9.1")
 
 

@@ -11,8 +11,8 @@
     "qi": 5,
     "shen": 4
   },
-  "holo_entries": 236,
-  "holo_sums_sha256": "f139390690f7033034a1413fd07822a924b54b4843b5a96372083328249fcd29",
+  "holo_entries": 239,
+  "holo_sums_sha256": "ba86fb6d343674ff76b5725479cfc608edd26ba5ff1cba0baea27529bd6244c0",
   "id": "SG-B8-DUAL-SYNC-RECEIPT-V1",
   "interface_equal": true,
   "ivsa_checked": 91,
@@ -21,6 +21,6 @@
   "license_mixed": [],
   "license_rows": 5,
   "plugin_disabled_by_default": true,
-  "seal": "3ccd6275d778c943b51a8a0fd09fab664d1340815653b81ca63b328d70619ee0",
+  "seal": "a2d312e710a04dc73f428426455749a03a4fe51826acc990771f8a689ef87117",
   "verdict": "PASS"
 }

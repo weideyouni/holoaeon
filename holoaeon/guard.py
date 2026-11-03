@@ -154,6 +154,36 @@ def l8_consistency(env: Envelope) -> Optional[Verdict]:
     return None
 
 
+def l9_path_gate(env: Envelope) -> Optional[Verdict]:
+    """L9 产品层路径闸门（附加层，走 extra_layers 通道，不计入 guard_layers=8）。
+
+    只对显式携带路径操作请求的信封生效：
+      metadata.path_requested   目标路径
+      metadata.allowed_paths   允许根目录（tuple/list；空=不校验前缀，仅校验写授权）
+      metadata.path_mode       read | write（默认 read）
+      metadata.path_write_authorized  写操作显式授权标记（默认 False）
+
+    无路径请求 → 直接放行（不干扰既有行为、不改变任何 L1-L8 判据）。
+    """
+    req = env.metadata.get("path_requested")
+    if not req:
+        return None
+    mode = env.metadata.get("path_mode", "read")
+    if mode == "write" and not env.metadata.get("path_write_authorized", False):
+        return Verdict(BLOCK, "L9", f"写路径未授权：{req}")
+    roots = env.metadata.get("allowed_paths") or ()
+    if roots:
+        ok = False
+        for r in roots:
+            base = str(r).rstrip("\\/")
+            if req == base or req.startswith(base + ("\\" if "\\" in str(r) else "/")):
+                ok = True
+                break
+        if not ok:
+            return Verdict(BLOCK, "L9", f"路径越界：{req} 不在允许根内")
+    return None
+
+
 BUILTIN_LAYERS: List[Tuple[str, LayerFn]] = [
     ("L1", l1_structure),
     ("L2", l2_size),
@@ -175,10 +205,17 @@ class Guard:
     def __post_init__(self) -> None:
         self.audit_log: List[dict] = []
         self.layers: List[Tuple[str, LayerFn]] = list(BUILTIN_LAYERS)
+        # L9 产品层路径闸门：条件挂载（开关=GuardConfig.product_layer_guard，默认 True）
+        if self.config.product_layer_guard:
+            self.layers.append(("L9", l9_path_gate))
         for fn in self.extra_layers:
             self.layers.append((f"LX", fn))
 
     def inspect(self, env: Envelope) -> Verdict:
+        # L9 挂载时向信封 metadata 注入产品层守卫配置（setdefault，不改既有键；
+        # 供审计/回执可见，不影响 L1-L8 判据）
+        if self.config.product_layer_guard:
+            env.metadata.setdefault("product_layer_guard", True)
         verdict = Verdict(ALLOW, "L0", "通过")
         for name, fn in self.layers:
             v = fn(env)

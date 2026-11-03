@@ -25,6 +25,7 @@ from .uplift_pack import UpliftPack
 from .persona_quartet_pack import PersonaQuartetPack
 from .skill_matrix_pack import SkillMatrixPack
 from .fusion_upgrade_pack import FusionUpgradePack
+from .tcm_rehab_pack import TCMRehabPack
 from .writing import WritingPack
 
 # 九大领域包（每次调用返回新实例，避免共享状态）
@@ -62,6 +63,8 @@ def all_packs() -> List[DomainPack]:
 # （第十七：四人全维度数字分身 persona_quartet，2026-10-31 增量旁挂。）
 # （第十八：全量技能矩阵 skill_matrix，2026-11-02 增量旁挂，六机制跨线程可调。）
 # （第十九：冷热插拔赋能升级 fusion_upgrade，2026-11-02 增量旁挂，内外融合协议可跑。）
+# （第二十：中西医系统康复工程旗舰领域包 tcm_rehab，2026-11-03 增量旁挂，
+#   领域化解耦：四技能纯标准库离线确定性，零剂量/不诊疗/碳基终裁。）
 # ------------------------------------------------------------------------------------
 EXTRA_PACK_REGISTRY: Dict[str, type] = {
     SovereigntyPack.key: SovereigntyPack,
@@ -74,11 +77,12 @@ EXTRA_PACK_REGISTRY: Dict[str, type] = {
     PersonaQuartetPack.key: PersonaQuartetPack,
     SkillMatrixPack.key: SkillMatrixPack,
     FusionUpgradePack.key: FusionUpgradePack,
+    TCMRehabPack.key: TCMRehabPack,
 }
 
 EXTRA_PACK_ORDER: List[str] = ["sovereignty", "subdistill", "omnilife", "omnicore",
                                 "metab", "nephron", "uplift", "persona_quartet",
-                                "skill_matrix", "fusion_upgrade"]
+                                "skill_matrix", "fusion_upgrade", "tcm_rehab"]
 
 
 def get_extra_pack(key: str) -> DomainPack:

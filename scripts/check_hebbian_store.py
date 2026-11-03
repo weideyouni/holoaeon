@@ -128,7 +128,7 @@ def check():
     out.append({"id": "H8", "name": "配额表可重算（字节一致）", "ok": disk == render(rs),
                 "detail": {"regenerated_rows": len(rs)}})
 
-    # H9 维度与规格未动
+    # H9 维度与规格未动（25/47/9 不变；EXTRA_PACK_ORDER=11 为批4 投喂包预定：tcm_rehab 第 11 扩展包）
     lock = {}
     if os.path.isfile(LOCK):
         with open(LOCK, "r", encoding="utf-8") as fh:
@@ -138,7 +138,7 @@ def check():
     obs = (((lock.get("observed") or {}).get("A1_detail")) or {})
     agents, skills, packs = obs.get("agents"), obs.get("skills"), obs.get("packs")
     ok = (agents == 25 and skills == 47 and packs == 9
-          and len(PACK_ORDER) == 9 and len(EXTRA_PACK_ORDER) == 10
+          and len(PACK_ORDER) == 9 and len(EXTRA_PACK_ORDER) == 11
           and getattr(SPEC, "VERSION", None) == "0.9.1")
     out.append({"id": "H9", "name": "维度 25/47/9 与 spec 0.9.1 未动", "ok": bool(ok),
                 "detail": {"lock": {"agents": agents, "skills": skills, "packs": packs},

@@ -139,8 +139,8 @@
       "sha256": "90317835249973e04926c74f5fb0a798c709fc95d293517a2fc7b1777aed1843"
     },
     "SHA256SUMS": {
-      "bytes": 22708,
-      "sha256": "f139390690f7033034a1413fd07822a924b54b4843b5a96372083328249fcd29"
+      "bytes": 22998,
+      "sha256": "ba86fb6d343674ff76b5725479cfc608edd26ba5ff1cba0baea27529bd6244c0"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
@@ -292,7 +292,7 @@
     },
     "data/dual_repo_sums.json": {
       "bytes": 2127,
-      "sha256": "9bd9c88bc6ff56c2e374c572a9297fec3785ac21ad1f184dd5eea82fe9d883e1"
+      "sha256": "1d9ff40ea763b841bdfd8a58e81bcae7b884fa85923d11ec50c20baf23d71841"
     },
     "data/extension_slots.json": {
       "bytes": 6540,
@@ -492,7 +492,7 @@
     },
     "reports/b8_dual_sync.json": {
       "bytes": 612,
-      "sha256": "3a5785e8708a0638b1f7fb2764beb819b7b1f27dbafec5c27fd7a8b73b8461c2"
+      "sha256": "5f6dfd43114b322d6d7f64e316c9afc29ac8d1adcd58e29e8b894ea1c48928fa"
     },
     "reports/b8_dual_sync_check.json": {
       "bytes": 1773,
@@ -528,11 +528,11 @@
     },
     "reports/v43_hardening_check.json": {
       "bytes": 2147,
-      "sha256": "7611aeb0f77b87df9a02274c14c88b2a3ef5cffa145e006ca6b449a88622fed3"
+      "sha256": "d537bb4a6b458e7d9f7ee6a86ad9d1e953db7188507530f2947c903f88d3fd15"
     },
     "reports/v44_model_gateway_check.json": {
-      "bytes": 3718,
-      "sha256": "2f5248723f081e420a14cfd1ff6bf4777037949b5197fe36cf02f829af39d59c"
+      "bytes": 4166,
+      "sha256": "f6244c99eabfca2d9997314fa00e2b7e171f44703874c7493b364de6a75d882a"
     },
     "reports/v45_live_probe.json": {
       "bytes": 1253,
@@ -599,8 +599,8 @@
       "sha256": "9632705c0d1402909828c8348c60440942be7aa66c9579b609dacdafb4f0321b"
     },
     "scripts/check_hebbian_store.py": {
-      "bytes": 7715,
-      "sha256": "969206417cc75ecf907be8c22411dbf19578d0af2a76eb4faf1f2dbb1dad9efb"
+      "bytes": 7810,
+      "sha256": "076ba06836db50848f888f1466578734f32f7a8f139018a304d259db2f835e3b"
     },
     "scripts/check_mechanism_map.py": {
       "bytes": 3424,
@@ -751,8 +751,8 @@
       "sha256": "0e2105cc5bc69dd877cdd26e4c7eeddb28dc7f7040af15f307d7cfa4e98c0170"
     },
     "tests_contract/test_hebbian_store.py": {
-      "bytes": 4314,
-      "sha256": "7693f3f20c3f85c657182647388cde1a44616413fe04c8488dd9356b6ced2e5b"
+      "bytes": 4509,
+      "sha256": "a54bbedf539846b1539c7d795ce14d5d73b63649a3b9b17b9cfa6ad7ae44f98e"
     },
     "tests_contract/test_ivsa_recon.py": {
       "bytes": 2083,

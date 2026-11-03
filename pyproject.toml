@@ -53,6 +53,10 @@ Repository = "https://github.com/weideyouni/holoaeon"
 Issues = "https://github.com/weideyouni/holoaeon/issues"
 Documentation = "https://github.com/weideyouni/holoaeon/tree/main/docs"
 
+[project.scripts]
+holoaeon-demo = "holoaeon.demo_product:main"
+holoaeon-bridge = "holoaeon.frontend_adapter:main"
+
 [tool.setuptools.dynamic]
 version = {attr = "holoaeon.spec.VERSION"}
 

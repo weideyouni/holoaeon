@@ -149,6 +149,24 @@ python scripts\check_dimension_lock.py          # diff0 未漂移
 
 **维度不变**：25 / 47 / 9 与 `EXTRA_PACK_ORDER=10` 一位未动；`spec.VERSION=0.9.1`、`diff0_hash`、`tamper` 三值仍未动。
 
+### V6.2 · 产品层三件套 · L9 路径闸门 · 领域化解耦（批2-4，不改维度）
+
+`DOC_VERSION` 0.9.8 → **0.9.9**（`spec.VERSION` 仍 0.9.1）。对应 `AGENT_FEED_V8_BATCH2_4_FUSION_20261103`，三批贯序执行，逐批回执：
+
+1. **批2 · L9 路径闸门**：`spec.GuardConfig` 新增 `product_layer_guard: bool = True`（附加层，不计入 `guard_layers=8` 维度锁，可关）；`guard.py` 新增 `l9_path_gate` 走 `extra_layers` 通道，`BUILTIN_LAYERS` 与 L1-L8 一个字符未动——越界读 / 未授权写 → `block`，无路径请求放行。产品层为商用铺路：权限粒度先于合规审计。
+2. **批3 · 产品层三件套**：新增 `holoaeon/frontend_adapter.py`（stdin/stdout JSON 协议，自动装配 9 领域包 + 11 扩展包，零依赖）、`holoaeon/demo_product.py`（`holoaeon-demo` 入口）、根目录 `install.sh` / `install.bat`（一键安装 + 自检）；`pyproject.toml` 在 `[project.urls]` 之后加 `[project.scripts]`（`holoaeon-demo` / `holoaeon-bridge`）。
+3. **批4 · 领域化解耦**：新增 `holoaeon/packs/tcm_rehab_pack.py`（中西医系统康复工程旗舰领域包，第 11 扩展包，不进 `PACK_ORDER`：辨证分型 / 方药检索 / 康复方案 / 知识库桥接，纯标准库离线，零剂量 / 毒剧药熔断 / 碳基终裁）；`packs/__init__.py` 三处注册（import / registry / order，`EXTRA_PACK_ORDER` 10→**11**）；`data/skill_matrix_index.json` "1600味" → "待接入"（大词无实物对齐，`count`/`digest` 未动）；`scripts/runtime_audit.py` 补 `medical_context` 审计标记。
+
+```powershell
+python -m holoaeon.demo_product              # 一键体验（hello / demo / l9 三模式）
+echo '{"task":"status"}' | python -m holoaeon.frontend_adapter   # 桥接协议往返
+python -m unittest discover -s tests_contract   # 184 OK
+python scripts\launch_local.py selftest         # 25/25
+python scripts\check_dimension_lock.py          # diff0 未漂移
+```
+
+**维度不变**：25 / 47 / 9 与 `spec.VERSION=0.9.1`、`diff0_hash`、`tamper` 三值仍未动；扩展包数随投喂包预定 10→**11**（`tcm_rehab`，不进 `PACK_ORDER`）。
+
 
 ## V2 · Evidence Hardening (0.9.2, docs)
 

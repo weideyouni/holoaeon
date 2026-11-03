@@ -52,6 +52,9 @@ HOST = "holoaeon"  # 宿主内核，特殊处理：基线 selftest 25/25，不�
 
 BIG_WORDS = ("1600", "1771561", "1331×1331", "108641", "锁数", "全息心跳",
              "曼陀罗", "多智能体", "超级矩阵")
+# 注：批4 领域化解耦——"1600味"已按投喂包从 data/skill_matrix_index.json 全局替换为
+# "待接入"（大词无实物对齐）；此处保留 "1600" 作为大词探测键，用于外部项目 README 扫描，
+# 若再命中说明外部项目仍在使用旧口径，审计分类可给出 medical_context 标记。
 
 ENTRY_NAMES = ("selftest.py", "selfcheck.py", "run_selfcheck.py", "selftest_main.py",
                "main.py", "app.py", "run.py", "entry.py", "cli.py",
@@ -179,6 +182,12 @@ def audit_dir(name, path):
     rec["top_md"] = len(top_md)
     rec["big_words"] = big_found[:6]
     rec["has_data"] = has_data
+    # 批4：medical_context 审计标记 —— 供外部 TCM 康复工程项目（如
+    # F:\doubaowork\开源发布_中西医融合康复工程_20261026）做审计分类；
+    # 命中 1600 味/经络/辨证 等词且带 README 大词时标记 external_tcm_project
+    readme_low = readme_txt.lower()
+    if ("1600" in readme_txt or "三场态" in readme_txt or "经络" in readme_txt) and readme:
+        rec["medical_context"] = "external_tcm_project_audit"
 
     hits, dirs = probe_entries(path)
     if not hits:
