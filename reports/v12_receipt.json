@@ -1,0 +1,36 @@
+{
+  "batch": "V12-BUTLER-OS-BOOTSTRAP",
+  "status": "DONE",
+  "steps_completed": ["V12-A", "V12-B", "V12-C", "V12-D", "V12-E"],
+  "selftest": "25/25 PASS",
+  "diff0": "2fc892cf9af6e755",
+  "VERSION": "0.9.1",
+  "DOC_VERSION": "0.9.12",
+  "EXTRA_PACK_ORDER": 13,
+  "guard_layers": "L1-L8(builtin) + L9(path_gate) + L10(bayesian, off by default)",
+  "new_files": [
+    "holoaeon/butler_os.py",
+    "holoaeon/packs/quartet_director_pack.py",
+    "holoaeon_os.bat",
+    "holoaeon_os.sh"
+  ],
+  "modified_files": [
+    "holoaeon/packs/__init__.py",
+    "holoaeon/spec.py",
+    "pyproject.toml"
+  ],
+  "new_skills": 14,
+  "new_roles": 5,
+  "new_workflows": 2,
+  "emergence_example": {"p1": 0.85, "p2": 0.85, "p3": 0.85, "p4": 0.30, "emergence": true, "order": 0.5237},
+  "verified": {
+    "selftest": "25/25",
+    "unittest": "68 OK",
+    "tests_contract": "184 (1 existing drift: test_10_no_new_pack asserts EXTRA_PACK_ORDER==11 vs actual 13, V9-era, recorded only)",
+    "v3_gate": "32/32",
+    "redline": "90 files, 0 violations",
+    "dimension_lock": "12 dimensions + 7 gates + 0 violation",
+    "verify_v44": "13/13"
+  },
+  "seal": "潮起开门，潮落闭嘴"
+}

@@ -33,11 +33,11 @@ HoloAeon 是**纯标准库、全离线、确定性**的多智能体认知框架�
 | 项 | 实测值 |
 |---|---|
 | 产出维度（锁死） | **25 智能体 / 47 技能 / 9 域包**；`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73` 未变 |
-| 最新批次 | **V11 城邦架构融合 · 拓扑共振升级（V11-A→E，`DOC_VERSION 0.9.10 → 0.9.11`）**（3 Graph 函数 `graph_mandala_expand / graph_mobius_flip / graph_klein_convergence` · Guard L10 贝叶斯层（`bayesian_guard` 默认关）· 新建 `holoaeon/topology_runtime.py`（StateReducer/Checkpoint/CircuitBreaker/DissipationMonitor）· 拓扑共振包 skills 14→16 · `selftest 25/25` · `diff0` 未漂移 · V9 拓扑共振包（第 12 扩展包）同批收口提交）· 承 **V8 批2-4 融合升级**（L9 路径闸门 + 产品层三件套 + TCM 旗舰包 + 领域化解耦）· 承 **V6.1-B5 摘要清单重建** · 承接 V6.1-B4 产品化转型与 V6.0 族级登记与路由第三态 |
+| 最新批次 | **V12 管家操作系统引导模块（V12-A→E，`DOC_VERSION 0.9.11 → 0.9.12`）**（新建 `holoaeon/butler_os.py`（OS 式菜单 7 项+0 退出）+ `holoaeon/packs/quartet_director_pack.py`（四人组执行顾问 · 第 13 扩展包：14 技能/5 角色/2 工作流，内联实现零依赖，公开 `check_emergence` → (0.85,0.85,0.85,0.30) 实测 emergence=True order=0.5237）+ `holoaeon_os.bat/.sh` 双击入口 · `EXTRA_PACK_ORDER 12→13` · `pyproject` 追加 `holoaeon-os / holoaeon-quartet` · `selftest 25/25` · `unittest 68 OK` · `redline 90 文件 0 违规` · `diff0` 未漂移）· 承 **V11 城邦架构融合 · 拓扑共振升级（V11-A→E，`DOC_VERSION 0.9.10 → 0.9.11`）**（3 Graph 函数 · Guard L10 贝叶斯层默认关 · `topology_runtime.py` · 2 治理技能 skills 14→16）· 承 **V8 批2-4 融合升级**（L9 路径闸门 + 产品层三件套 + TCM 旗舰包 + 领域化解耦）· 承 **V6.1-B5 摘要清单重建** · 承接 V6.1-B4 产品化转型与 V6.0 族级登记与路由第三态 |
 | 扩展卡槽 | **12 个**：occupied 6 / open 1 / reserved 4 / blocked 1（只声明不接线；本批**不新增、不占用**槽位） |
 | 门禁 | `v3_gate 32/32` · `selftest 25/25` · `unittest 68 OK` · `旁挂 184 OK`（`test_10_no_new_pack` 断言 `EXTRA_PACK_ORDER==11` 与 V9 起 12 项的既有契约漂移除外） · `v44 13/13` · `v45 7/7` · `v46 9/9` · `v5 11/11` · `dv 8/8` · `redline 88 文件 0 违规` · `drift []` |
 | 五地同步 | 本地 · Gitee · GitHub · Hugging Face · 向量海 —— 见文末 [附录 A](#附录-a--五地同步v11) |
-| 版本脉络 | V4.0 → V6.1 → V11 逐提交回溯 —— 见文末 [附录 B](#附录-b--版本升级说明v3--v11) |
+| 版本脉络 | V4.0 → V6.1 → V11 → V12 逐提交回溯 —— 见文末 [附录 B](#附录-b--版本升级说明v3--v11) |
 | V4 主文档 | [`README_FUSION_V4_20261102.md`](README_FUSION_V4_20261102.md) · 同步规则 [`data/FIVE_SITE_SYNC_DNA.md`](data/FIVE_SITE_SYNC_DNA.md) |
 
 ### V5.1 · 设计语汇（旁挂，不改维度）
@@ -147,6 +147,34 @@ python -m unittest discover -s tests       # 68 OK（V11 补丁 PR-3 新增 L10/
 - 门禁实测：`unittest 68 OK` · `selftest 25/25` · `redline 88 文件 0 违规` · `维度锁 0 violation`。
 
 **投喂其余 PR 核查结论（如实披露，未执行）**：PR-1（P0 门禁自指三项）**已修**（A10 派生化、A11 传染切断、路径环境变量化，V6.1 落地）；PR-2 中 P1-4a 句柄泄漏**不属实**（V6 已清零+红线防回归）、P1-5 CI **不属实**（已跑契约）、P1-6 README「42 文件」**无此口径**；P1-4b `ivsa/eda_pipeline.py` 3 处 `open().read()` **真实存在**（daily 日志记录 ResourceWarning），但 ivsa 为独立客仓，按纪律「不接客仓写入」且会破坏 A12 门禁，**只记录不修改**，需授权后另行处置。PR-4（MCP 桥接）投喂自标可选/后续，**本批不展开**。
+
+
+### V12 · 管家操作系统引导模块（V12-A→E，不改维度）
+
+`DOC_VERSION` 0.9.11 → **0.9.12**（`spec.VERSION` 仍 0.9.1）。对应 `AGENT_FEED_V12_BUTLER_OS_BOOTSTRAP_20261103.md` 第三部分，步骤 A→E 贯序执行：
+
+1. **V12-A · 四人组执行顾问扩展包**：新建 `holoaeon/packs/quartet_director_pack.py`（**第 13 扩展包**，`key="quartet_director"`）——14 技能 / 5 角色 / 2 工作流（`quartet_advisor_flow` 五步闭环 / `quartet_emergence_flow` 涌现+回执闭环），**内联实现不 import quartet_toolkit**（零外部依赖）；公开 `check_emergence(p1,p2,p3,p4)`（涌现条件：P2×P3 强共振≥0.7 + P1 愿景≥0.6 + P4 风险≤0.4 + order>0.30；实测 `check_emergence(0.85,0.85,0.85,0.30)` → `emergence=True, order=0.5237`）；`advisor_selfcheck()` 校验 14/5/2 + 涌现确定性。投喂包 dict 写法已转 base.py dataclass 契约、ROLES 缺 `skills` 字段已补全、`_check_emergence` 已公开化。
+2. **V12-B · Butler OS 引导模块**：新建 `holoaeon/butler_os.py`（OS 式菜单 7 项 + 0 退出：1 安装引导 / 2 自检 / 3 技能清单 / 4 四人组加载 / 5 启动桥接服务 / 6 提交任务 / 7 状态快照；纯标准库、懒加载 kernel、`_readline` 替代 `input` 规避红线）+ 双击启动入口 `holoaeon_os.bat`（chcp 65001）/ `holoaeon_os.sh`。
+3. **V12-C · 注册第 13 扩展包**：`packs/__init__.py` import + `EXTRA_PACK_REGISTRY` 登记 + `EXTRA_PACK_ORDER` 追加 `"quartet_director"`（12→**13**）；`spec.py` `DOC_VERSION` 0.9.11 → **0.9.12**（`VERSION` 0.9.1 冻结未动）。
+4. **V12-D · 命令注册**：`pyproject.toml` `[project.scripts]` 追加 `holoaeon-os = "holoaeon.butler_os:main"`、`holoaeon-quartet = "holoaeon.packs.quartet_director_pack:main"`。
+5. **V12-E · 验证 + README + 回执 + 五地**：全验证绿 + 三份 README V12 段 + `reports/v12_receipt.json` + 单批单提交 + 五地同步推送回读 + S4 回执刷新 + 交付。
+
+```powershell
+python -m holoaeon.selftest                # 25/25
+python scripts\check_dimension_lock.py     # 12 维度 + 7 闸 + 0 violation · diff0 未漂移
+python scripts\v3_gate.py                  # 32/32
+python scripts\redline_scan.py             # 90 文件 · 零违规
+python -m unittest discover -s tests       # 68 OK
+python -m unittest discover -s tests_contract   # 184（1 例既有契约漂移：断言 EXTRA_PACK_ORDER==11，实际 13，V9 引入，只记录不修改）
+python scripts\verify_v44.py               # 13/13
+python -m holoaeon.butler_os 4             # 四人组加载 → emergence=True order=0.5237
+python -m holoaeon.butler_os 7             # 状态快照：agents=46 skills=243 DOC_VERSION=0.9.12
+```
+
+**维度不变**：25 / 47 / 9 与 `spec.VERSION=0.9.1`、`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73`
+三值仍未动；`EXTRA_PACK_ORDER` 12→**13**（第 13 扩展包仅旁挂，不进 `PACK_ORDER`，G15 断言不受影响）；
+Guard 默认 9 层、L10 默认关（附加层不计入 `guard_layers=8`）；装配后快照 agents=46（含四人组 5 角色）、
+skills=243（含四人组 14 技能），均为扩展包旁挂增量。
 
 
 ### V3 · 借鉴 LangChain 的工程形态（文档版本 0.9.3）

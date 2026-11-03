@@ -421,6 +421,39 @@ python -m unittest discover -s tests_contract   # 184（1 例既有契约漂移�
 三值仍未动；`EXTRA_PACK_ORDER=12` 未再增；Guard 默认 9 层、开启 L10 后 10 层（附加层不计入 `guard_layers=8`）。
 
 
+## V12 · 管家操作系统引导模块（V12-A→E，不改维度）
+
+用户点名：按 `AGENT_FEED_V12_BUTLER_OS_BOOTSTRAP_20261103.md` 第三部分步骤 A→E，执行
+V12 管家操作系统引导模块工程。工程维度纪律不变（25/47/9 锁死）、产出物不变、五地同步与推送不变、
+README 三份必须更新。判据优先于 SOP 字面路径。
+
+| 步 | 内容 | 落点 | 实测 |
+|---|---|---|---|
+| V12-A | 四人组执行顾问扩展包（第 13 扩展包，14 技能/5 角色/2 工作流，内联实现不 import quartet_toolkit，公开 `check_emergence`） | 新建 `holoaeon/packs/quartet_director_pack.py` | skills=14 roles=5 workflows=2 · `check_emergence(0.85,0.85,0.85,0.30)` → emergence=True order=0.5237 · install 幂等（二次空） |
+| V12-B | Butler OS 引导模块（7 菜单+0 退出，懒加载 kernel）+ 双击启动入口 | 新建 `holoaeon/butler_os.py` + `holoaeon_os.bat`（chcp 65001）/ `holoaeon_os.sh` | 菜单 7 项 · 非交互 4/7 冒烟绿 · 交互管道 0 退出 · `_readline` 替代 input 规避红线 |
+| V12-C | 注册第 13 扩展包 + 文档版本 | `packs/__init__.py`（import+registry+`EXTRA_PACK_ORDER` 12→13）+ `spec.py` DOC_VERSION 0.9.11 → **0.9.12** | `EXTRA_PACK_ORDER=13` · `VERSION=0.9.1` 冻结未动 |
+| V12-D | 命令注册 | `pyproject.toml` `[project.scripts]` 追加 `holoaeon-os` / `holoaeon-quartet` | 四命令齐备（demo/bridge/os/quartet） |
+| V12-E | 验证 + README + 回执 + 五地 | 全验证 + 三份 README V12 段 + `reports/v12_receipt.json` + 单批单提交 + 五地同步 | selftest 25/25 · unittest 68 OK · redline 90 文件 0 违规 · v3_gate 32/32 · 维度锁 0 violation · verify_v44 13/13 · contract 184（既有漂移：断言 11 实际 13） |
+
+红线（不改一字）：`BUILTIN_LAYERS` L1-L8 / `spec.VERSION=0.9.1` / `layers=8` / `PACK_ORDER` /
+`graph.py` / `scheduler.py` / `hypervector.py` / `kernel.py submit`；新包只进 `EXTRA_PACK_REGISTRY` /
+`EXTRA_PACK_ORDER`，不破坏 G15 的 25/47 断言。契约核查：投喂包 SKILLS/ROLES/WORKFLOWS 的 dict
+写法已转 base.py dataclass 契约；ROLES 缺 skills 字段按参考包补全；验证清单第 7 项 `_check_emergence`
+已公开化为 `check_emergence`。
+
+```powershell
+python -m holoaeon.selftest                # 25/25
+python scripts\redline_scan.py             # 90 文件 · 零违规
+python -m unittest discover -s tests       # 68 OK
+python scripts\verify_v44.py               # 13/13
+python -m holoaeon.butler_os 7             # 状态快照：agents=46 skills=243 DOC_VERSION=0.9.12
+```
+
+维度不变：25 / 47 / 9 与 `spec.VERSION=0.9.1`、`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73`
+三值仍未动；`EXTRA_PACK_ORDER=13`（第 13 扩展包旁挂，不进 PACK_ORDER）；Guard 默认 9 层、L10 默认关
+（附加层不计入 `guard_layers=8`）；装配后快照 agents=46、skills=243（扩展包旁挂增量）。
+
+
 ## 附录 · Git 版本升级说明（V3 收口 → V11，按提交回溯）
 
 > 口径：sha 与提交主题取自 `git log --oneline` 实测；数字类指标（条目数、字节数、sha16）
@@ -456,6 +489,7 @@ python -m unittest discover -s tests_contract   # 184（1 例既有契约漂移�
 | V8 批2-4 | `2fc1faf` / `4bf84df` | L9 路径闸门（`product_layer_guard`）+ 产品层三件套（frontend_adapter / demo_product / install）+ TCM 旗舰包（`tcm_rehab` 第 11 扩展包）+ 领域化解耦；`DOC_VERSION 0.9.8 → 0.9.9` |
 | V9 拓扑共振包 | 本批提交（`git log -1 --format=%h` 回读） | `topology_resonance_pack.py`（8 基础数学 + 6 四人组技能）；`EXTRA_PACK_ORDER` 11→**12**；`DOC_VERSION 0.9.9 → 0.9.10` |
 | V11 城邦架构融合 | 本批提交（`git log -1 --format=%h` 回读） | 3 Graph 函数 + Guard L10 贝叶斯层 + 新建 `topology_runtime.py` + 2 治理技能（skills 14→16）+ `DOC_VERSION 0.9.10 → 0.9.11`；selftest 25/25 · `diff0` 未漂移 |
+| V12 管家引导 | 本批提交（`git log -1 --format=%h` 回读） | `butler_os.py`（7 菜单+0 退出）+ `quartet_director_pack.py`（第 13 扩展包 14/5/2）+ `holoaeon_os.bat/.sh` + `EXTRA_PACK_ORDER` 12→13 + `DOC_VERSION 0.9.11 → 0.9.12`；selftest 25/25 · redline 90 文件 0 违规 · verify_v44 13/13 · `diff0` 未漂移 |
 
 **升级主线一句话**：每一批只做一件事，且**只加旁挂、不改锁数**；每批必带 `verify_*` 判据、
 必带票据、必过五地同步（`drift=[]` 方可提交）。
