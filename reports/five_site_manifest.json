@@ -139,8 +139,8 @@
       "sha256": "847ca4efbe5449e5745b880b4b64ac7f34101098f5773cece62f88801c009722"
     },
     "SHA256SUMS": {
-      "bytes": 23105,
-      "sha256": "0e4f96c95a1cfdd551344c0d2d04f94e4efadad72a608e775cae20c279f75aad"
+      "bytes": 23196,
+      "sha256": "d3eb52531554687beac8c3c2a8eb63f453b3ad31e9f4bfebeab25e5beeb6e267"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
@@ -292,7 +292,7 @@
     },
     "data/dual_repo_sums.json": {
       "bytes": 2127,
-      "sha256": "c3318c996870c6117d9f93de8a0e5ff89493cabf44a67134dce33831e0ef64a8"
+      "sha256": "a0fb42e433c3353d8cf3e5c4860d22bd17ef8f57bb28ddcc64b835c6551e1a9c"
     },
     "data/extension_slots.json": {
       "bytes": 6540,
@@ -492,7 +492,7 @@
     },
     "reports/b8_dual_sync.json": {
       "bytes": 612,
-      "sha256": "2209f8c61a546b86fe078cb4d0790974d6fb3dac7d6baf0dbaad88c092cb0e5e"
+      "sha256": "be154b300e87bf6fb9997085d789433b22f2a06df78f398f9006d42d4b2e1246"
     },
     "reports/b8_dual_sync_check.json": {
       "bytes": 1773,
