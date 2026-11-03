@@ -127,16 +127,16 @@
   },
   "repo": {
     "README.md": {
-      "bytes": 112798,
-      "sha256": "b4ea81854366b6654500ae749655be8f61035d938056a51034b4fd277fd55c88"
+      "bytes": 114683,
+      "sha256": "e7513e49c416ce2b4acc83f0dcc4144ac52918b4f907d4d184bcd4396b6fd351"
     },
     "README.zh-CN.md": {
-      "bytes": 74981,
-      "sha256": "52e8767a4f1980ce8d63edaaffc2259c1fd01e690af3fe31704620aa32c1f1c4"
+      "bytes": 76866,
+      "sha256": "d0661b0cb898298b83757538a73e74a68e244e6d0096fe2253ddec9583228fd7"
     },
     "README_FUSION_V4_20261102.md": {
-      "bytes": 45657,
-      "sha256": "af197d910f547e556e02f9590a619c77697236e2b7184a5369c1c197ae537902"
+      "bytes": 46835,
+      "sha256": "be5c6aa6544b5c8b46c690d1eb656c1adffd8f0e836ae187898ee8871e6b30b8"
     },
     "SHA256SUMS": {
       "bytes": 23562,
@@ -671,8 +671,8 @@
       "sha256": "9c8f9eb42c86050770af683202bd572afe37596a9bc13fc6b0b2c5def63505cd"
     },
     "scripts/mirror_hf.py": {
-      "bytes": 5237,
-      "sha256": "32f8684e98dc94cde71bbe202741f066170b74065eb4fc41f822a6f46fe70630"
+      "bytes": 5758,
+      "sha256": "f58b9b7b2b5db05dd1c75c44233e863d1cc68e63da3b8c8d6e4e4e91344ba007"
     },
     "scripts/test_restart_consistency.py": {
       "bytes": 5726,
