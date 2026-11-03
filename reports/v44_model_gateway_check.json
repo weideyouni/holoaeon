@@ -160,7 +160,7 @@
       "passed": true,
       "status": "measured",
       "ticket_bytes": 10129,
-      "prev_run": "12/13",
+      "prev_run": "13/13",
       "closing_rule": "ticket + all_other_checks_pass(excluding A10/A11)"
     },
     {
