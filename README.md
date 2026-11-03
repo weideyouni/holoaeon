@@ -65,10 +65,10 @@ self-organizing search** layer (see [ALGORITHM.md](ALGORITHM.md)).
 | 项 | 实测值 |
 |---|---|
 | 产出维度（锁死） | **25 智能体 / 47 技能 / 9 域包**；`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73` 未变 |
-| 最新批次 | **V6.1-B3 同步卫生 · 五地文件集对齐**（附录 A 基数改 V6.1 终态 · 锚点修复 · 记录下批号段 `182` · HF 清 10 个非 git 孤儿、补传 2 件，`466 → 458` 与 git 跟踪集同集）· 承 **V6.1-B2 工程纪律固化 · A10 派生 · 票据回写**（A10 自写回执改 `REPO_FILES` 派生 · `missing` 不豁免 · 差分证据 · 八步写序入库 `docs/工程纪律_批次升级与五地同步.md` · 技能 `holoaeon-batch-upgrade-discipline` · `01`/`06` 回写，`diff0` 未漂移）· 承接 V6.0 族级登记与路由第三态 |
+| 最新批次 | **V6.1-B4 产品化转型 · 批0 理想形态定义书 + 批1 全仓 runtime 体检**（五验收标尺落 `docs/理想形态定义书_v1.0_20261103.md` · 体检脚本 `scripts/runtime_audit.py` 全仓 360 目录 → ✅189/⚠️2/📄29/❌10/⏭130，人工复核 5 误报改判 · 对照表 `F:\doubaowork\HOLOAEON_全仓runtime体检对照表_20261103.md` · V7 批次链路固化入纪律与技能 · `DOC_VERSION 0.9.7 → 0.9.8`，`diff0` 未漂移）· 承 **V6.1-B3 同步卫生 · 五地文件集对齐**（附录 A 基数改 V6.1 终态 · 锚点修复 · 记录下批号段 `182` · HF 清 10 个非 git 孤儿、补传 2 件，`466 → 458` 与 git 跟踪集同集）· 承 **V6.1-B2 工程纪律固化 · A10 派生 · 票据回写**（A10 自写回执改 `REPO_FILES` 派生 · `missing` 不豁免 · 差分证据 · 八步写序入库 `docs/工程纪律_批次升级与五地同步.md` · 技能 `holoaeon-batch-upgrade-discipline` · `01`/`06` 回写，`diff0` 未漂移）· 承接 V6.0 族级登记与路由第三态 |
 | 扩展卡槽 | **12 个**：occupied 6 / open 1 / reserved 4 / blocked 1（只声明不接线；本批**不新增、不占用**槽位） |
 | 门禁 | `v3_gate 32/32` · `unittest 34 OK` · `sidecar 184 OK`（含 V6 12 例 + V6.1 4 例） · `v44 13/13` · `v45 7/7` · `v46 9/9` · `v5 11/11` · `dv 8/8` · `redline 0 违规` · `drift []` |
-| 五地同步 | 本地 · Gitee · GitHub · Hugging Face · 向量海 —— 见文末 [附录 A](#附录-a--五地同步v61-b3) |
+| 五地同步 | 本地 · Gitee · GitHub · Hugging Face · 向量海 —— 见文末 [附录 A](#附录-a--五地同步v61-b4) |
 | 版本脉络 | V4.0 → V6.1 逐提交回溯 —— 见文末 [附录 B](#附录-b--版本升级说明v3--v61) |
 | V4 主文档 | [`README_FUSION_V4_20261102.md`](README_FUSION_V4_20261102.md) · 同步规则 [`data/FIVE_SITE_SYNC_DNA.md`](data/FIVE_SITE_SYNC_DNA.md) |
 
@@ -908,12 +908,12 @@ organs, physiological structures, or supernatural entities. All simulated receip
 
 ---
 
-## 附录 A · 五地同步（V6.1-B3）
+## 附录 A · 五地同步（V6.1-B4）
 
 **口径（重要）**：本页不硬编码“当前 HEAD”，因为任何文档收尾提交都会让 HEAD 变化，写死即自指失效。
-下表为 **V6.1-B3** 时点读数（契约 184、`repo` 171、`DOC_VERSION 0.9.7`、zip `a87fa921bf963fa1`）；HEAD / HF sha / 回执字节每提交一次就变，故一律以右侧命令回读为准。
+下表为 **V6.1-B4** 时点读数（契约 184、`repo` 以回读为准、`DOC_VERSION 0.9.8`、zip 以回读为准）；HEAD / HF sha / 回执字节每提交一次就变，故一律以右侧命令回读为准。
 
-| 站点 | 检查命令 | V6.0 基数（V6.1 以回读为准） |
+| 站点 | 检查命令 | V6.0 基数（V6.1-B4 以回读为准） |
 |---|---|---|
 | S1 本地 | `git rev-parse --short HEAD` | 以回读为准（内容提交先落，清单随后重建） |
 | S2 Gitee | `git ls-remote <gitee> refs/heads/main` | 与本地 HEAD 同值（推送后回读） |
@@ -921,7 +921,7 @@ organs, physiological structures, or supernatural entities. All simulated receip
 | S4 向量海 | `python scripts/build_vector_sea_manifest.py` | 以 `check()` 的 `entries` / `sums_74_in_sync` 回读为准（V6.1-B3 时点 188 条，`sums_74_in_sync=True`；**下一批新号从 `182` 起**） |
 | S5 Hugging Face | `python scripts/mirror_hf.py --base <old> --head <new>` | 以输出 `sha` 与 `mismatch=[]` 回读为准（V6.1-B3 时点 458 文件，与 `git ls-files` 同集；`sha` 以回读为准） |
 | 回执 | `python scripts/five_site_dna.py preflight` | `files` / `history` / 字节数以回读为准 |
-| 交付 zip | `python scripts/build_b9_zip.py` | 47 条目 / 133,315 B / `a87fa921bf963fa1`（以回读为准） |
+| 交付 zip | `python scripts/build_b9_zip.py` | 以回读为准（V6.1-B3 时点 47 条目 / 133,315 B / `a87fa921bf963fa1`） |
 
 **HEAD sha、HF sha、回执字节与 history 条数每提交一次就会变**，本页故意不写死；
 读取方式：`git rev-parse --short HEAD`、`mirror_hf.py` 输出的 `sha`、`five_site_dna.py preflight` 的回执路径。
@@ -943,6 +943,7 @@ organs, physiological structures, or supernatural entities. All simulated receip
 
 | 阶段 | 提交 | 主题与产出 |
 |---|---|---|
+| V6.1-B4 产品化转型 | 本批提交（`git log -1 --format=%h` 回读） | 批0 理想形态定义书（五验收标尺/定位/四商用前提/红线）；批1 全仓 runtime 体检脚本 `scripts/runtime_audit.py` + `reports/runtime_audit.json`（360 目录 → ✅189/⚠️2/📄29/❌10/⏭130，人工复核 5 误报改判 verified=human）+ 对照表报告；V7 批次链路固化入 `docs/工程纪律_批次升级与五地同步.md` §七·补 与技能 `holoaeon-batch-upgrade-discipline`；`DOC_VERSION 0.9.7 → 0.9.8`，**25/47/9 未变，`diff0` 未漂移** |
 | V3 收口 | `3d359bd` / `32b2667` | LangChain 工程形态旁挂（W12–W19），32/32 门禁，维度不变 |
 | 同步基建 | `92fd8b5` / `dfad361` | 五地同步 DNA V1.0→V1.1（G1–G8 + P1–P6），离线哈希校验器 |
 | V4.0 开场 | `80089b6` | 冷热插拔升级：第 10 个附加包，**25/47/9 不变** |
