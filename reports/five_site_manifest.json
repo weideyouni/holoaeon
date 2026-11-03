@@ -531,8 +531,8 @@
       "sha256": "134b1f70c3a3b4cff0750f445d599ca9261f2134067dd06455d975228b43249b"
     },
     "reports/v44_model_gateway_check.json": {
-      "bytes": 3947,
-      "sha256": "0186a41de51cb006179bca098f80497e6161be9b339f4e987180fea28f0f7206"
+      "bytes": 3718,
+      "sha256": "2f5248723f081e420a14cfd1ff6bf4777037949b5197fe36cf02f829af39d59c"
     },
     "reports/v45_live_probe.json": {
       "bytes": 1253,
