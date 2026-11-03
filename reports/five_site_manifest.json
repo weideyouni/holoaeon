@@ -127,8 +127,8 @@
   },
   "repo": {
     "README.md": {
-      "bytes": 66201,
-      "sha256": "04895c1be1439fcbe17f3c743c8ac9902bafc8608af2aadb2b3718206d010a64"
+      "bytes": 68379,
+      "sha256": "de126a42968cc4a5b558bb6d85111bd0f2c9fb039e810d4b8c856432b2ea12f1"
     },
     "README.zh-CN.md": {
       "bytes": 34948,
@@ -139,8 +139,8 @@
       "sha256": "90317835249973e04926c74f5fb0a798c709fc95d293517a2fc7b1777aed1843"
     },
     "SHA256SUMS": {
-      "bytes": 22998,
-      "sha256": "ba86fb6d343674ff76b5725479cfc608edd26ba5ff1cba0baea27529bd6244c0"
+      "bytes": 23105,
+      "sha256": "d1aa6c35ff1969af9cdd3a47a3ca098c4afa31117e541f5ced4b75783feaaca4"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
@@ -292,7 +292,7 @@
     },
     "data/dual_repo_sums.json": {
       "bytes": 2127,
-      "sha256": "1d9ff40ea763b841bdfd8a58e81bcae7b884fa85923d11ec50c20baf23d71841"
+      "sha256": "60eaec73cd9a081f9846b12321d985a088d0def19becf0141a05ba2c59272462"
     },
     "data/extension_slots.json": {
       "bytes": 6540,
@@ -492,7 +492,7 @@
     },
     "reports/b8_dual_sync.json": {
       "bytes": 612,
-      "sha256": "5f6dfd43114b322d6d7f64e316c9afc29ac8d1adcd58e29e8b894ea1c48928fa"
+      "sha256": "8a9af311219694cf2403d8a78173b9d2bdd3b95fe73b66495e560a7f49565b44"
     },
     "reports/b8_dual_sync_check.json": {
       "bytes": 1773,
