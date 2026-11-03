@@ -140,15 +140,15 @@
     },
     "SHA256SUMS": {
       "bytes": 22502,
-      "sha256": "97a2350aaeea6a367ecb134ad83dbd7a2f0d2cf4ef965816d9b5810a576a6944"
+      "sha256": "6f17f11d2feaf95fec3710c93a84ab5da78a8dc6bcfd700796556751fbf2ca0f"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
       "sha256": "b98f27923178bfd982e0b9329fade05b6c1590b628650b130635e7568804370f"
     },
     "data/B0_批次进度.csv": {
-      "bytes": 1635,
-      "sha256": "b42dab301fb59fd22ef861ea8cc2657738bd28a9f2968aef4f50a78a15798ee7"
+      "bytes": 1634,
+      "sha256": "98fd4adcdd06cb95bfefbc73c0387c566982b23a2cf3e0db65ab96455c6cad78"
     },
     "data/B0_自动匹配技能.csv": {
       "bytes": 83726,
@@ -292,7 +292,7 @@
     },
     "data/dual_repo_sums.json": {
       "bytes": 2127,
-      "sha256": "445c5bbca1d47564f819bd5caa0a57465774c497e8d2a5ff7ab98067279daa41"
+      "sha256": "e4270bce93d7f0d9242d810a96c72dc7368af496a5cbe18cdcbd93c3efce7dae"
     },
     "data/extension_slots.json": {
       "bytes": 6540,
@@ -492,7 +492,7 @@
     },
     "reports/b8_dual_sync.json": {
       "bytes": 612,
-      "sha256": "6296b127fcad6af3ef3bacf3428aa96c4df8251c5e3a2d9b9f6698388b529fc7"
+      "sha256": "230d74e569b76616d82c6ba869c5e72dc9b31c964f388ff414b1bbf5a55b23d9"
     },
     "reports/b8_dual_sync_check.json": {
       "bytes": 1773,
