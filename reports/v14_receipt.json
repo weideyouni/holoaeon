@@ -1,0 +1,43 @@
+{
+  "batch": "V14-SKILL-LATHE-PROTOCOL-PLUGINS",
+  "status": "DONE",
+  "steps_completed": ["A", "B", "C", "D", "E", "F"],
+  "selftest": "25/25 PASS",
+  "unittest": "68 OK",
+  "contract": "184 OK",
+  "redline": "95 文件 0 违规",
+  "v3_gate": "32/32 PASS",
+  "dimension_lock": "12 维度 + 7 闸 + 0 violation（diff0=2fc892cf9af6e755 未漂移）",
+  "verify_v44": "13/13 PASS（A12 零依赖未破）",
+  "mcp_regression": "13/13 PASS（doc_version 期望同步 0.9.13）",
+  "VERSION": "0.9.1",
+  "DOC_VERSION": "0.9.13",
+  "EXTRA_PACK_ORDER": 14,
+  "new_files": [
+    "holoaeon/skill_lathe.py",
+    "holoaeon/protocol_plugins.py",
+    "holoaeon/packs/vector_sea_pack.py",
+    "holoaeon/vector_sea_explorer.py"
+  ],
+  "modified_files": ["holoaeon/packs/__init__.py", "holoaeon/spec.py", "holoaeon/butler_os.py", "pyproject.toml", "README.md", "README.zh-CN.md", "README_FUSION_V4_20261102.md"],
+  "vector_sea_skills": 8,
+  "vector_sea_roles": 4,
+  "vector_sea_workflows": 2,
+  "lathe_class": "SkillLathe",
+  "lathe_selfcheck": "PASS（A/B 加工、C 丢弃、确定性复算）",
+  "protocol_count": 12,
+  "protocols": ["openai_function", "anthropic_tool", "gemini_function", "mcp", "a2a", "acp", "langchain_tool", "llamaindex_tool", "autogen_tool", "crewai_tool", "bedrock_converse", "envelope"],
+  "protocol_selfcheck": "PASS（12 协议穷举 + 未知协议 ValueError）",
+  "vector_sea_pack_selfcheck": "PASS（skills=8 roles=4 workflows=2 · TVCB_grade=A · protocols=12）",
+  "pipeline_stages": ["input", "ocr", "snapshot", "search", "refine", "output", "salvage", "lathe", "protocol_export"],
+  "assembly_snapshot": {"agents": 50, "skills": 251},
+  "dimensions": "25/47/9 不变（vector_sea 仅旁挂 EXTRA_PACK_REGISTRY，不进 PACK_ORDER，G15 不受影响）",
+  "freeze": {"diff0": "2fc892cf9af6e755", "tamper": "f42c8229ee5acd73", "VERSION": "0.9.1", "DOC_VERSION": "0.9.13"},
+  "transcription_notes": [
+    "投喂 A 段伪码缩进/注释符破损（'3. 生成可执行函数'/'4. 组装SkillSpec' 缺 #），已契约转写为可运行实现",
+    "投喂 B 段语法破损已修正：'-direction'→direction、'type:object'→'type':'object'、'task)'→'task'、'properties':4props→props、'-8 dict'→'-> dict'、'in9skill_spec'→'in skill_spec'",
+    "验证清单第 8 项 p.SKILLS（大写）与 base.py 契约不符（应为小写 skills/roles/workflows），用契约属性复测 8/4/2",
+    "MCP 回归测试脚本 doc_version 期望 0.9.12→0.9.13（脚本期望过期，产品行为正确）"
+  ],
+  "seal": "潮起开门，潮落闭嘴"
+}

@@ -28,6 +28,7 @@ from .fusion_upgrade_pack import FusionUpgradePack
 from .tcm_rehab_pack import TCMRehabPack
 from .topology_resonance_pack import TopologyResonancePack
 from .quartet_director_pack import QuartetDirectorPack
+from .vector_sea_pack import VectorSeaPack
 from .writing import WritingPack
 
 # 九大领域包（每次调用返回新实例，避免共享状态）
@@ -85,12 +86,14 @@ EXTRA_PACK_REGISTRY: Dict[str, type] = {
     TCMRehabPack.key: TCMRehabPack,
     TopologyResonancePack.key: TopologyResonancePack,
     QuartetDirectorPack.key: QuartetDirectorPack,
+    VectorSeaPack.key: VectorSeaPack,
 }
 
 EXTRA_PACK_ORDER: List[str] = ["sovereignty", "subdistill", "omnilife", "omnicore",
                                 "metab", "nephron", "uplift", "persona_quartet",
                                 "skill_matrix", "fusion_upgrade", "tcm_rehab",
-                                "topology_resonance", "quartet_director"]
+                                "topology_resonance", "quartet_director",
+                                "vector_sea"]
 
 
 def get_extra_pack(key: str) -> DomainPack:

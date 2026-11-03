@@ -51,6 +51,12 @@ def _get_quartet_pack():
     return get_extra_pack("quartet_director")
 
 
+def _get_vector_sea_pack():
+    """向量海勘探+加工+分发扩展包实例（第 14 扩展包）。"""
+    from .packs import get_extra_pack
+    return get_extra_pack("vector_sea")
+
+
 # ------------------------------------------------------------ 菜单实现
 def cmd_install() -> int:
     """1. 安装引导：装配内核并打印统计。"""
@@ -172,6 +178,51 @@ def cmd_status() -> int:
     return 0
 
 
+def cmd_explore() -> int:
+    """[8] 向量海勘探：PDF/文档→打捞 TVCB（9 阶段勘探流水线示例）。"""
+    print()
+    print("== 向量海勘探（V14 9 阶段流水线）==")
+    p = _get_vector_sea_pack()
+    print("扩展包: %s | 技能 %d / 角色 %d / 工作流 %d"
+          % (p.key, len(p.skills), len(p.roles), len(p.workflows)))
+    from .vector_sea_explorer import explore_and_manufacture
+    text = "向量海 勘探 技能机床 协议适配 智慧打捞 张量耦合 能量分级 平台"
+    result = explore_and_manufacture(text=text, energy=0.85)
+    if result["status"] != "ok":
+        print("流水线终止:", result["hint"])
+        return 1
+    print("阶段: %s" % " → ".join(result["stages"]))
+    print("TVCB: %s | 主题: %s | 能量级: %s"
+          % (result["tvcb"]["tvcb_id"], result["tvcb"]["topic"]["primary"],
+             result["tvcb"]["energy_grade"]))
+    print("SkillSpec: %s | 协议导出: %d 种"
+          % (result["skill_spec"]["name"], result["protocol_count"]))
+    return 0
+
+
+def cmd_lathe() -> int:
+    """[9] 技能机床：TVCB→可执行技能+协议导出（机床+适配器示例）。"""
+    print()
+    print("== 技能机床（Skill Lathe）==")
+    from .skill_lathe import SkillLathe
+    lathe = SkillLathe()
+    tvcb = {"tvcb_id": "TVCB-TEST0001", "topic": {"primary": "test"},
+            "keywords": ["AI", "agent"], "idea_pattern": "test pattern",
+            "reusable_points": ["point1"], "energy_grade": "A"}
+    spec = lathe.turn_skill(tvcb)
+    if spec is None:
+        print("能量级 C：丢弃")
+        return 1
+    print("TVCB → SkillSpec: %s" % spec["name"])
+    print("描述: %s" % spec["description"])
+    print("标签: %s" % spec["tags"])
+    from .protocol_plugins import export_all_protocols
+    exports = export_all_protocols(spec)
+    print("协议遍历穷举导出: %d 种" % len(exports))
+    print("  %s" % ", ".join(exports.keys()))
+    return 0
+
+
 MENU = {
     "1": ("安装引导", cmd_install),
     "2": ("自检", cmd_selftest),
@@ -180,6 +231,8 @@ MENU = {
     "5": ("启动桥接服务", cmd_bridge),
     "6": ("提交任务", cmd_submit),
     "7": ("状态快照", cmd_status),
+    "8": ("向量海勘探", cmd_explore),
+    "9": ("技能机床", cmd_lathe),
 }
 
 

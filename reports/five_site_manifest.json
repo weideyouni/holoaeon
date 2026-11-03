@@ -127,20 +127,20 @@
   },
   "repo": {
     "README.md": {
-      "bytes": 81583,
-      "sha256": "3fa62a0417edb4cb7b3647636de59f12f696beb72aadd7d67df4796f50ce5bdc"
+      "bytes": 86430,
+      "sha256": "8c2edf9c3f427506f2e5323fd31c8a21d2a2325599023442c56fed150a18eb10"
     },
     "README.zh-CN.md": {
-      "bytes": 44492,
-      "sha256": "5421c0f707090c67069f823f8c98e4c77f592e4d6b68a820161facd470260aa6"
+      "bytes": 49212,
+      "sha256": "7e8c02e774dd187a35b54cfe3a7988c3332ff46c46bf93ca11ec334303295a3b"
     },
     "README_FUSION_V4_20261102.md": {
-      "bytes": 34864,
-      "sha256": "9c74d2d32d96aee23c592d5ca05558a7ee23a5c5336402a209f634751b1cff14"
+      "bytes": 35906,
+      "sha256": "2a673d0b297a1dd1479ce0b1bf6b849b84c1537e5092862aa6bf3fb2676caf37"
     },
     "SHA256SUMS": {
-      "bytes": 23380,
-      "sha256": "fc0e03cd34f9b60d6f5fa7e8ad9b12ac5132e62e132bbf90ea3f7f5a296a195a"
+      "bytes": 23471,
+      "sha256": "0485e5ffe6f340fafc0cc06ad0b75789aea9cbc1202e2408d59b8bc3113033c9"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
@@ -292,7 +292,7 @@
     },
     "data/dual_repo_sums.json": {
       "bytes": 2127,
-      "sha256": "6be8d38742815e822e3d9267940bd0e7cc033a6588141b021b7b963e5db30207"
+      "sha256": "229bdd5e637b5747efe6b94b6bdc63a34c2d2971a7910ec5f7ca90e441d8b3f7"
     },
     "data/extension_slots.json": {
       "bytes": 6540,
@@ -492,7 +492,7 @@
     },
     "reports/b8_dual_sync.json": {
       "bytes": 612,
-      "sha256": "4630c84efcb27945bac969e0122e0937c6a08da0568cba9df084157f09738963"
+      "sha256": "78c0ab1a928f3855dad4525d110ff2acac32e017ec7bbe434f365aa98866db6e"
     },
     "reports/b8_dual_sync_check.json": {
       "bytes": 1773,

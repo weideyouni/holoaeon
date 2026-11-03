@@ -65,7 +65,7 @@ self-organizing search** layer (see [ALGORITHM.md](ALGORITHM.md)).
 | 项 | 实测值 |
 |---|---|
 | 产出维度（锁死） | **25 智能体 / 47 技能 / 9 域包**；`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73` 未变 |
-| 最新批次 | **V12 管家操作系统引导模块（V12-A→E，`DOC_VERSION 0.9.11 → 0.9.12`）**（新建 `holoaeon/butler_os.py`（OS 式菜单 7 项+0 退出：安装引导/自检/技能清单/四人组加载/桥接服务/提交任务/状态快照，纯标准库懒加载 kernel）+ `holoaeon/packs/quartet_director_pack.py`（四人组执行顾问扩展包 · 第 13 扩展包：14 技能/5 角色/2 工作流，内联实现不 import quartet_toolkit，公开 `check_emergence` 实测 (0.85,0.85,0.85,0.30) → `emergence=True order=0.5237`）+ 双击入口 `holoaeon_os.bat/.sh` · `EXTRA_PACK_ORDER 12→13` · `pyproject` 追加 `holoaeon-os / holoaeon-quartet` 命令 · `selftest 25/25` · `unittest 68 OK` · `redline 90 文件 0 违规` · `diff0` 未漂移）· 承 **V11 城邦架构融合 · 拓扑共振升级（V11-A→E，`DOC_VERSION 0.9.10 → 0.9.11`）**（拓扑共振包追加 3 Graph 函数 · Guard L10 贝叶斯层默认关 · 新建 `topology_runtime.py` · 追加 2 治理技能 skills 14→16）· 承 **V8 批2-4 融合升级 · L9 路径闸门 + 产品层三件套 + TCM 旗舰包 + 领域化解耦**（`DOC_VERSION 0.9.8 → 0.9.9`）· 承 **V6.1-B5 摘要清单重建** · 承接 V6.1-B4 产品化转型与 V6.0 族级登记与路由第三态 |
+| 最新批次 | **V14 技能机床与插件化协议适配平台（V14-A→F，`DOC_VERSION 0.9.12 → 0.9.13`）**（新建 `holoaeon/skill_lathe.py`（技能机床：TVCB→SkillSpec，能量分级 A/B/C 级丢弃，`salvaged_<topic>_<hash4>` 命名，batch_turn JSON 序列化清空 fn）+ `holoaeon/protocol_plugins.py`（12 种平台协议遍历穷举导出：OpenAI/Anthropic/Gemini/MCP/A2A/ACP/LangChain/LlamaIndex/AutoGen/CrewAI/Bedrock/Envelope，未知协议 raise ValueError）+ `holoaeon/packs/vector_sea_pack.py`（向量海勘探+加工+分发 · 第 14 扩展包：8 技能/4 角色/2 工作流，key="vector_sea"，V13 勘探 5 技能+V14 机床/协议/工作台 3 技能）+ `holoaeon/vector_sea_explorer.py`（9 阶段流水线 input→ocr→snapshot→search→refine→output→salvage→lathe→protocol_export）+ `EXTRA_PACK_ORDER 13→14` · `butler_os` 菜单追加 8 向量海勘探/9 技能机床 · `pyproject` 追加 `holoaeon-explore / holoaeon-lathe` · `selftest 25/25` · `unittest 68 OK` · `contract 184 OK` · `redline 95 文件 0 违规` · `diff0` 未漂移 · 装配快照 agents=50 skills=251）· 承 **V12 管家操作系统引导模块（V12-A→E，`DOC_VERSION 0.9.11 → 0.9.12`）**（新建 `holoaeon/butler_os.py`（OS 式菜单 7 项+0 退出：安装引导/自检/技能清单/四人组加载/桥接服务/提交任务/状态快照，纯标准库懒加载 kernel）+ `holoaeon/packs/quartet_director_pack.py`（四人组执行顾问扩展包 · 第 13 扩展包：14 技能/5 角色/2 工作流，内联实现不 import quartet_toolkit，公开 `check_emergence` 实测 (0.85,0.85,0.85,0.30) → `emergence=True order=0.5237`）+ 双击入口 `holoaeon_os.bat/.sh` · `EXTRA_PACK_ORDER 12→13` · `pyproject` 追加 `holoaeon-os / holoaeon-quartet` 命令 · `selftest 25/25` · `unittest 68 OK` · `redline 90 文件 0 违规` · `diff0` 未漂移）· 承 **V11 城邦架构融合 · 拓扑共振升级（V11-A→E，`DOC_VERSION 0.9.10 → 0.9.11`）**（拓扑共振包追加 3 Graph 函数 · Guard L10 贝叶斯层默认关 · 新建 `topology_runtime.py` · 追加 2 治理技能 skills 14→16）· 承 **V8 批2-4 融合升级 · L9 路径闸门 + 产品层三件套 + TCM 旗舰包 + 领域化解耦**（`DOC_VERSION 0.9.8 → 0.9.9`）· 承 **V6.1-B5 摘要清单重建** · 承接 V6.1-B4 产品化转型与 V6.0 族级登记与路由第三态 |
 | 扩展卡槽 | **12 个**：occupied 6 / open 1 / reserved 4 / blocked 1（只声明不接线；本批**不新增、不占用**槽位） |
 | 门禁 | `v3_gate 32/32` · `selftest 25/25` · `unittest 68 OK` · `sidecar 184 OK`（`test_10_no_new_pack` 断言 `EXTRA_PACK_ORDER==11` 与 V9 起 12 项的既有契约漂移除外，非本批回归） · `v44 13/13` · `v45 7/7` · `v46 9/9` · `v5 11/11` · `dv 8/8` · `redline 88 文件 0 违规` · `drift []` |
 | 五地同步 | 本地 · Gitee · GitHub · Hugging Face · 向量海 —— 见文末 [附录 A](#附录-a--五地同步v11) |
@@ -236,7 +236,7 @@ python -m unittest discover -s tests_contract   # 184 全绿（V12.1 已同步 t
 python scripts\verify_v44.py               # 13/13（A1-A13 全 PASS）
 python -m holoaeon.butler_os 4             # Butler OS 冒烟：四人组加载 → emergence=True order=0.5237
 python -m holoaeon.mcp_adapter             # MCP stdio 桥接（initialize/tools/list/tools/call 自测 13/13）
-python -m holoaeon.butler_os 7             # 状态快照：agents=46 skills=243 DOC_VERSION=0.9.12
+python -m holoaeon.butler_os 7             # 状态快照：agents=50 skills=251 DOC_VERSION=0.9.13
 python -m holoaeon.butler_os               # 交互菜单（管道 0 退出）正常
 ```
 
@@ -250,6 +250,21 @@ python -m holoaeon.butler_os               # 交互菜单（管道 0 退出）�
 三值仍未动；`EXTRA_PACK_ORDER` 12→**13**（第 13 扩展包仅旁挂，不进 `PACK_ORDER`，G15 断言不受影响）；
 Guard 默认 9 层、L10 默认关（附加层不计入 `guard_layers=8`）；装配后快照 agents **46**（含四人组 5 角色）、
 skills **243**（含四人组 14 技能），均为扩展包旁挂增量。
+
+### V14 · 技能机床与插件化协议适配平台（V14-A→F，不改维度）
+
+`DOC_VERSION` 0.9.12 → **0.9.13**（`spec.VERSION` 仍 0.9.1）。对应 `AGENT_FEED_V14_SKILL_LATHE_PROTOCOL_PLUGINS_20261103.md` 第三部分，步骤 A→F 贯序执行（整合 V13 勘探打捞 + V14 机床加工 + 协议适配）：
+
+1. **V14-A · 技能机床**：新建 `holoaeon/skill_lathe.py` —— `SkillLathe` 类（`GRADE_A_THRESHOLD=0.7 / GRADE_B_THRESHOLD=0.4`），`turn_skill(tvcb)` TVCB→SkillSpec（能量级 C 丢弃返回 None；`skill_name=salvaged_<topic>_<id尾4位>`；描述=topic+前 3 关键词；`fn` 确定性 callable 返回 source/topic/keywords/idea_pattern/reusable_points/executed；tags=[topic, grade_X, salvaged]；inputs={"query":"str"}；permissions=0），`batch_turn`（JSON 序列化时 fn 置 None）；纯标准库零依赖。
+2. **V14-B · 插件化协议适配器**：新建 `holoaeon/protocol_plugins.py` —— `PROTOCOL_REGISTRY` 12 协议（openai_function/anthropic_tool/gemini_function/mcp/a2a/acp/langchain_tool/llamaindex_tool/autogen_tool/crewai_tool/bedrock_converse/envelope，各含 name/format/direction），`export_skill_to_protocol`（未知协议 raise ValueError，inputs→properties 每项 {"type":"string","description":v}），`export_all_protocols`（遍历穷举 dict），`list_protocols`；纯标准库零依赖。
+3. **V14-C · 向量海扩展包升级**：新建 `holoaeon/packs/vector_sea_pack.py` —— 继承 `DomainPack`，key="vector_sea"，**8 技能/4 角色/2 工作流**（技能 1-5 来自 V13 勘探：ocr_snapshot/vector_match/tensor_coupling/wisdom_salvage/multi_modal_scan；6-8 来自 V14：skill_lathe 机床/protocol_export 协议导出/skill_workbench 工作台；角色 explorer/driller/lathe_operator/protocol_engineer；工作流 explore_drill_refine/lathe_export_deploy）。
+4. **V14-D · 勘探平台增强**：新建 `holoaeon/vector_sea_explorer.py` —— `explore_and_manufacture(input_path, target_protocols=None)` 9 阶段流水线（1-7 V13 勘探 input→ocr→snapshot→search→refine→output→salvage；8 SkillLathe 机床加工；9 协议导出，None 时遍历穷举 12 种）；返回 {tvcb, skill_spec(fn 剔除), protocol_exports, salvaged_at}。
+5. **V14-E · 注册第 14 扩展包**：`packs/__init__.py` import `VectorSeaPack` + `EXTRA_PACK_REGISTRY` 登记 + `EXTRA_PACK_ORDER` 追加 `"vector_sea"`（13→**14**）。
+6. **V14-F · 菜单+命令+文档版本**：`butler_os.py` 菜单追加 [8]向量海勘探/[9]技能机床（含 cmd_explore/cmd_lathe 与 `_get_vector_sea_pack` 懒加载）；`pyproject.toml` 追加 `holoaeon-explore="holoaeon.vector_sea_explorer:main"` / `holoaeon-lathe="holoaeon.skill_lathe:main"`。
+
+验证全绿：`selftest 25/25` · `unittest 68 OK` · `tests_contract 184 OK` · `redline 95 文件 0 违规`（strict FORBIDDEN_CALLS）· `v3_gate 32/32` · 维度锁 0 violation（diff0=2fc892cf9af6e755 未漂移）· `verify_v44 13/13`（A12 零依赖未破）· MCP 回归 13/13 · 机床自检（A/B 加工、C 丢弃、确定性复算）PASS · 协议适配器自检（12 协议穷举+未知协议 ValueError）PASS · 向量海包自检（8/4/2 + TVCB_A + protocols=12）PASS · 装配快照 agents=**50** skills=**251**（+4 角色 +8 技能 旁挂增量，G15 不受影响）。
+
+**维度不变**：25 / 47 / 9 与 `spec.VERSION=0.9.1`、`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73`；`EXTRA_PACK_ORDER` 13→**14**（第 14 扩展包仅旁挂，不进 `PACK_ORDER`）；用户落地路径：PDF/图片/文字 → OCR → TF-IDF 快照 → 向量海余弦搜索 → TVCB 精炼 → 技能机床加工 → 12 协议适配导出 → 部署到任意平台。
 
 
 ## V2 · Evidence Hardening (0.9.2, docs)

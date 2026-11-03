@@ -59,6 +59,8 @@ holoaeon-bridge = "holoaeon.frontend_adapter:main"
 holoaeon-os = "holoaeon.butler_os:main"
 holoaeon-quartet = "holoaeon.packs.quartet_director_pack:main"
 holoaeon-mcp = "holoaeon.mcp_adapter:main"
+holoaeon-explore = "holoaeon.vector_sea_explorer:main"
+holoaeon-lathe = "holoaeon.skill_lathe:main"
 
 [tool.setuptools.dynamic]
 version = {attr = "holoaeon.spec.VERSION"}
