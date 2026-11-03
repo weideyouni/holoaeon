@@ -196,6 +196,20 @@ python -m holoaeon.butler_os 10            # 去幻觉检测（莱布尼茨PSR×
 用户落地路径：PDF/图片/文字 → OCR → TF-IDF 快照 → 向量海余弦搜索 → TVCB 精炼 → 技能机床加工 → 12 协议适配导出 → 部署到任意平台。
 Guard 默认 9 层、L10 默认关（附加层不计入 `guard_layers=8`）；装配后快照 agents=46（含四人组 5 角色）、skills=243（含四人组 14 技能），均为扩展包旁挂增量。
 
+### V22 · 工程技能本地化工具箱（V22-A→F，mattpocock/skills 310K★ 蒸馏，第 18 扩展包，不改维度）
+
+`DOC_VERSION` 0.9.16 → **0.9.17**（`spec.VERSION` 仍 0.9.1）。对应 `AGENT_FEED_V22_ENG_SKILLS_LOCALIZATION_20261104.md` 步骤 A→F 贯序执行（原投喂稿编号 V21 与已交付"V21 概念解剖器图像增强版"撞车，审视修正为 V22）。蒸馏口径：mattpocock/skills（39 个 SKILL.md，MIT，310K★，"Skills for Real Engineers"）→ 39→8 核心 → **LLM 提示词→确定性 Python 函数**（规则驱动非 LLM）→ 8 技能映射 8 个全息机制 → 四人组决策（emergence=True，P2×P3=0.72、P1=0.85、P4=0.30、order=0.52）→ 借鉴 D-01 handoff / D-02 wait-what→re_explain / D-03 prototype：
+
+1. **V22-A · 新建 `holoaeon/packs/engineering_skills_pack.py`**：第 18 扩展包 8 技能/4 角色/2 工作流，key="eng_skills"。8 技能×8 机制：grill_plan 审讯规划（心跳机制：计划→结构化问题清单，中文正则分词 `[a-zA-Z0-9_]+|[\u4e00-\u9fff]+`）/ session_handoff 会话交接（经络机制 Bus：状态→交接文档，**handoff_id 由状态内容 sha1 派生，确定性不编造**）/ re_explain 重新解释（语义通信基座：文本→CONCEPT_MAP 术语重解释，Seb 同义）/ quick_prototype 快速原型（细胞骨架：验证方案+golden 回归，不污染主分支）/ deterministic_tdd 确定性 TDD（皮肤机制：红绿重构+selftest+diff0）/ dual_axis_review 双轴审查（皮肤机制：redline=Standards + verify_v44=Spec 双轴并行，命令指真实入口）/ hypothesis_debug 假设调试（去幻觉：五阶段调试环+莱布尼茨 PSR，禁"猜测→改→试→猜测"）/ shared_glossary 共享词汇表（赫布+经络：CONCEPT_MAP+访问权重，**默认 learning=False 固定基线保证确定性**，learning=True 才赫布增强）。
+2. **V22-B · 注册第 18 扩展包**：`packs/__init__.py` import + `EXTRA_PACK_REGISTRY` 登记 + `EXTRA_PACK_ORDER` 追加 `"eng_skills"`（17→**18**）；`butler_os.py` 追加 `_get_eng_skills_pack()` + `cmd_eng_skills()` + 菜单 13 工程技能；`pyproject.toml` 追加 `holoaeon-eng`（现 12 命令）；`spec.py` `DOC_VERSION` 0.9.16 → **0.9.17**（VERSION 0.9.1 冻结未动）。
+3. **V22-C · 同步断言**：`concept_anatomy.py` verify token 同步（verify_extra_pack_order 17→**18**、verify_doc_version 0.9.16→**0.9.17**，R-04 同步契约）；`tests/test_v19_concept_anatomy.py` 断言同步（18 / 0.9.17）；`tests/test_v12_v17_integration.py` all_extra_packs()==17→**18**；B8 双仓清单重建（根 `SHA256SUMS` + `data/dual_repo_sums.json` + `reports/b8_dual_sync_check.json`，holo_entries=250）。
+4. **V22-D · 测试**：新建 `tests/test_v22_eng_skills.py`（27 tests：8 技能结构 / 确定性【handoff_id 稳定/权重稳定/问题清单一致】/ CLI【--list/--roles/--workflows/--skill/未知技能/坏 JSON】/ 注册【EXTRA=18/eng_skills 收尾】/ 版本同步 / Kernel install 8 技能 4 agent）。
+5. **V22-E · 工程纪律**：包内导入全相对导入（redline `third_party_import` 零违规）；审视修正 6 处（编号撞车→V22、时间戳→确定性 sha1、赫布权重累积→固定基线、split 中文退化→正则、f-string 双重插值→format、import 置顶+补 main CLI/`__main__` 守卫）。
+
+验证全绿：`selftest 25/25` · `unittest 358 OK`（+27 V22 tests）· `redline 106 文件 0 违规` · `v3_gate 32/32` · `dimension_lock 0 violation`（diff0=2fc892cf9af6e755 未漂移）· `py38 255 文件 0 失败` · `contract PASS` · `plugin runtime 10/10` · `verify_v44 13/13` · 8 技能烟测全过（grill 3 问/handoff 确定性 id/re_explain 命中/prototype throwaway/tdd vertical/review parallel/debug 5 相/glossary 共振）· B8 holo_entries=250 · five_site 28/171/0 · zip 不动点 a87fa921bf963fa1 · `VERSION=0.9.1` 冻结未动。CLI 实测：`holoaeon-eng --list` / `holoaeon-eng --skill grill_plan --args '{"plan_description":"加个缓存"}'` / `python -m holoaeon.butler_os 13`。
+
+**维度不变**：25 / 47 / 9 与 `spec.VERSION=0.9.1`、`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73`；`EXTRA_PACK_ORDER=17→18`（第 18 扩展包仅旁挂，不进 `PACK_ORDER`）；`DOC_VERSION=0.9.16→0.9.17`。
+
 ### V21 · 概念解剖器 · 图像增强版（V21-A→D，快照-参考-生成 + 系列工具 + 加载协议 + 视觉锻造台，不改维度）
 
 潘老师实测反馈"图像方面太弱，不要再出一堆文字，要像样的图"：先规划（`docs/V21_概念解剖器_图像增强_规划.md`：问题诊断四维差距【无爆炸展开/无标注引线/无放大细节/无成品对照】→ 双轨架构【本地确定性 SVG + 生成式后端】+ 模块二视觉锻造台八步流水线），再概念验证（image_search 快照 2 张标杆图【大英百科横截面标注图/千图网数字编号爆炸图】→ image_edit 生成圆珠笔爆炸图示意图【数字编号 1-15 + 零件分解 + 成品对照】，"快照→生成"链路实证可行），按路线 A→D 贯序执行：

@@ -268,6 +268,20 @@ skills **243**（含四人组 14 技能），均为扩展包旁挂增量。
 
 **维度不变**：25 / 47 / 9 与 `spec.VERSION=0.9.1`、`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73`；`EXTRA_PACK_ORDER` 13→**14**（第 14 扩展包仅旁挂，不进 `PACK_ORDER`）；用户落地路径：PDF/图片/文字 → OCR → TF-IDF 快照 → 向量海余弦搜索 → TVCB 精炼 → 技能机床加工 → 12 协议适配导出 → 部署到任意平台。
 
+### V22 · Engineering Skills Toolbox (V22-A→F, mattpocock/skills 310K★ distillation, 18th extra pack, dimensions untouched)
+
+`DOC_VERSION` 0.9.16 → **0.9.17** (`spec.VERSION` stays 0.9.1). From `AGENT_FEED_V22_ENG_SKILLS_LOCALIZATION_20261104.md` (original feed numbered V21 — collided with the shipped "V21 concept anatomizer image-enhanced" batch — corrected to V22). Distillation: mattpocock/skills (39 SKILL.md, MIT, 310K★, "Skills for Real Engineers") → 39→8 core skills → **LLM prompts → deterministic Python functions** (rule-driven, not LLM) → 8 skills mapped onto 8 holographic mechanisms → quartet emergence=True (P2×P3=0.72, P1=0.85, P4=0.30, order=0.52) → borrowing D-01 handoff / D-02 wait-what→re_explain / D-03 prototype:
+
+1. **V22-A · New `holoaeon/packs/engineering_skills_pack.py`**: 18th extra pack, 8 skills/4 roles/2 workflows, key="eng_skills". grill_plan (heartbeat: plan→question list, CJK regex tokenization) / session_handoff (meridian Bus: state→handoff doc, **handoff_id derived from state sha1 — deterministic**) / re_explain (semantic base: text→CONCEPT_MAP re-expression) / quick_prototype (cytoskeleton: validation plan + golden, no main-branch pollution) / deterministic_tdd (skin: red-green-refactor + selftest + diff0) / dual_axis_review (skin: redline=Standards + verify_v44=Spec in parallel, real entry points) / hypothesis_debug (dehallucination: 5-phase loop + Leibniz PSR) / shared_glossary (Hebbian+meridian: CONCEPT_MAP + access weights, **default learning=False fixed baseline for determinism**).
+2. **V22-B · Register 18th extra pack**: `packs/__init__.py` import + registry + `EXTRA_PACK_ORDER` append `"eng_skills"` (17→**18**); `butler_os.py` menu 13 工程技能 (`_get_eng_skills_pack` + `cmd_eng_skills`); `pyproject.toml` append `holoaeon-eng` (12 commands now); `spec.py` DOC_VERSION 0.9.16 → **0.9.17**.
+3. **V22-C · Assertion sync**: `concept_anatomy.py` verify tokens (18 / 0.9.17, R-04 contract); `test_v19_concept_anatomy.py` (18 / 0.9.17); `test_v12_v17_integration.py` all_extra_packs()==17→**18**; B8 dual-repo manifest rebuilt (SHA256SUMS + dual_repo_sums.json, holo_entries=250).
+4. **V22-D · Tests**: new `tests/test_v22_eng_skills.py` (27 tests: structure / determinism [handoff_id stable, weights stable, question list identical] / CLI [--list/--roles/--workflows/--skill/unknown/bad JSON] / registration [EXTRA=18] / version sync / Kernel install).
+5. **V22-E · Discipline**: all intra-package relative imports (redline third_party_import 0 violations); 6 review fixes (V21→V22 numbering, timestamp→deterministic sha1, weight accumulation→fixed baseline, split→CJK regex, double interpolation→format, imports to top + main CLI/`__main__` guard).
+
+All green: `selftest 25/25` · `unittest 358 OK` (+27 V22 tests) · `redline 106 files 0 violations` · `v3_gate 32/32` · `dimension_lock 0 violation` (diff0=2fc892cf9af6e755 intact) · `py38 255 files 0 failures` · `contract PASS` · `plugin runtime 10/10` · `verify_v44 13/13` · 8-skill smoke all pass · B8 holo_entries=250 · five_site 28/171/0 · zip fixed point a87fa921bf963fa1 · `VERSION=0.9.1` frozen.
+
+**Dimensions untouched**: 25 / 47 / 9, `spec.VERSION=0.9.1`, `diff0_hash=2fc892cf9af6e755`, `tamper=f42c8229ee5acd73`; `EXTRA_PACK_ORDER=17→18` (18th extra pack only, not in `PACK_ORDER`); `DOC_VERSION=0.9.16→0.9.17`.
+
 ### V21 · 概念解剖器 · 图像增强版（V21-A→D，快照-参考-生成 + 系列工具 + 加载协议 + 视觉锻造台，不改维度）
 
 潘老师实测反馈"图像方面太弱，不要再出一堆文字，要像样的图"：先规划（`docs/V21_概念解剖器_图像增强_规划.md`：问题诊断四维差距【无爆炸展开/无标注引线/无放大细节/无成品对照】→ 双轨架构【本地确定性 SVG + 生成式后端】+ 模块二视觉锻造台八步流水线），再概念验证（image_search 快照 2 张标杆图【大英百科横截面标注图/千图网数字编号爆炸图】→ image_edit 生成圆珠笔爆炸图示意图【数字编号 1-15 + 零件分解 + 成品对照】，"快照→生成"链路实证可行），按路线 A→D 贯序执行：

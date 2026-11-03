@@ -1,0 +1,89 @@
+{
+  "batch": "V22-ENG-SKILLS-LOCALIZATION",
+  "status": "DONE",
+  "date": "2026-11-04",
+  "route": "投喂包审视修正（编号冲突/确定性缺陷）→ 工程技能本地化第18扩展包 → 同步断言 → 测试 → 全套验证矩阵 → README×3 + 回执 → 五地同步",
+  "source": "mattpocock/skills (MIT, 310K★, 39 SKILL.md)",
+  "distillation": "39→8 核心技能本地化（LLM提示词→确定性Python函数，规则驱动非LLM）",
+  "holographic_coverage": "8技能×8机制 + runtime/graph/城邦/耗散 = 11/11 全息覆盖",
+  "borrowed": ["D-01 handoff→session_handoff", "D-02 wait-what→re_explain", "D-03 prototype→quick_prototype"],
+  "quartet_decision": {
+    "P1": 0.85,
+    "P2": 0.85,
+    "P3": 0.85,
+    "P4": 0.30,
+    "P2xP3": 0.7225,
+    "order": 0.5237,
+    "emergence": true,
+    "verdict": "四人组定调通过（与 V19/V20/V21 同体系口径）"
+  },
+  "review_fixes": [
+    "投喂稿编号 V21 与已交付「V21 概念解剖器图像增强版」撞车 → 全链修正为 V22（标题/回执/测试名/章节名）",
+    "session_handoff.handoff_id 时间戳 int(time.time()) 破坏确定性 → 状态内容 sha1 派生（同状态→同 id）",
+    "_access_weights 模块级累积破坏确定性 → 默认 learning=False 固定基线（dimension 映射），learning=True 才赫布增强",
+    "grill_plan str.split() 中文退化 → 正则 [a-zA-Z0-9_]+|[\\u4e00-\\u9fff]+ 分词",
+    "_compute_frontier f-string 双重插值 → 普通字符串模板 + .format 单次填值",
+    "import json/time 置顶 + 补 main() CLI（--list/--skill/--roles/--workflows）+ __main__ 守卫（pyproject holoaeon-eng 入口）",
+    "dual_axis_review 命令伪代码 → 真实入口 scripts\\redline_scan.py / scripts\\verify_v44.py",
+    "check_hebbian_store.py ==11 为批4 历史黄金值、不在本批门禁 → 保持不动（V19-V21 同口径）"
+  ],
+  "steps": {
+    "A": "落盘 holoaeon/packs/engineering_skills_pack.py（第18扩展包：8技能/4角色/2工作流，key=eng_skills；8技能 grill_plan/session_handoff/re_explain/quick_prototype/deterministic_tdd/dual_axis_review/hypothesis_debug/shared_glossary，SkillSpec 按 base.py 实际字段；包内导入全相对导入）",
+    "B": "packs/__init__.py 注册（import + EXTRA_PACK_REGISTRY + EXTRA_PACK_ORDER 17→18，末尾 eng_skills）+ butler_os.py 菜单 13 工程技能（_get_eng_skills_pack + cmd_eng_skills）+ pyproject.toml 追加 holoaeon-eng（现 12 命令）+ spec.py DOC_VERSION 0.9.16→0.9.17",
+    "C": "同步断言：concept_anatomy.py verify token（verify_extra_pack_order 18 / verify_doc_version 0.9.17，R-04 契约）+ test_v19_concept_anatomy.py（18/0.9.17）+ test_v12_v17_integration.py all_extra_packs()==18 + B8 双仓清单重建（SHA256SUMS + dual_repo_sums.json + b8_dual_sync_check.json，holo_entries=250）",
+    "D": "新建 tests/test_v22_eng_skills.py（27 tests：结构/确定性【handoff_id 稳定/权重稳定/问题清单一致】/CLI/注册/版本/Kernel install）+ 8 技能烟测全过",
+    "E": "全套验证矩阵全绿 + README.md/README.zh-CN.md 插 V22 章节（V21 前）+ README_FUSION_V4_20261102.md 批次表插 V22 行 + reports/v22_receipt.json + 重建 five_site_manifest + verify_v44"
+  },
+  "verification": {
+    "selftest": "25/25 PASS（diff0 未漂移）",
+    "unittest": "358 OK（+27 V22 tests；含 V19/V20/V21 全量 + tests_contract 全套）",
+    "smoke_8skills": "grill 3 问 / handoff 确定性 id（handoff_c1393dbec7c2）/ re_explain 命中 1 / prototype throwaway=True / tdd vertical_slice=True / review parallel=True / debug 5 相 / glossary 经络共振 2",
+    "redline": "106 文件 0 违规（新包相对导入无 third_party_import）",
+    "v3_gate": "32/32 PASS",
+    "dimension_lock": "12 维度 + 7 闸 0 violation（diff0=2fc892cf9af6e755 未漂移）",
+    "contract": "PASS",
+    "py38_syntax": "255 文件 0 失败（+2 新文件）",
+    "plugin_runtime": "10/10 全绿",
+    "verify_v44": "13/13 PASS（A1-A13，README 提交后重建清单对齐）",
+    "b8_dual_sync": "holo_entries=250 / ivsa_entries=91 / interface_equal=true / verdict PASS",
+    "five_site": "manifest 28/171/0 + zip_sha16=a87fa921bf963fa1（zip 不动点保持）"
+  },
+  "diff0": {
+    "expected": "2fc892cf9af6e755",
+    "actual": "2fc892cf9af6e755",
+    "drifted": false,
+    "note": "V22 仅新增旁挂扩展包与文档，不改输出路径与维度值；diff0 黄金值未漂移"
+  },
+  "VERSION": "0.9.1 (不变)",
+  "DOC_VERSION": "0.9.16 → 0.9.17",
+  "EXTRA_PACK_ORDER": "17 → 18 (eng_skills 收尾)",
+  "tamper": "f42c8229ee5acd73 (不变)",
+  "new_files": [
+    "F:/doubaowork/holoaeon/holoaeon/packs/engineering_skills_pack.py",
+    "F:/doubaowork/holoaeon/tests/test_v22_eng_skills.py",
+    "F:/doubaowork/holoaeon/reports/v22_receipt.json"
+  ],
+  "modified_files": [
+    "F:/doubaowork/holoaeon/holoaeon/packs/__init__.py (注册第18扩展包 eng_skills，ORDER 17→18)",
+    "F:/doubaowork/holoaeon/holoaeon/butler_os.py (菜单 13 工程技能 + _get_eng_skills_pack + cmd_eng_skills)",
+    "F:/doubaowork/holoaeon/pyproject.toml (追加 holoaeon-eng，现 12 命令)",
+    "F:/doubaowork/holoaeon/holoaeon/spec.py (DOC_VERSION 0.9.16→0.9.17)",
+    "F:/doubaowork/holoaeon/holoaeon/concept_anatomy.py (verify token 同步 18/0.9.17)",
+    "F:/doubaowork/holoaeon/tests/test_v19_concept_anatomy.py (断言同步 18/0.9.17)",
+    "F:/doubaowork/holoaeon/tests/test_v12_v17_integration.py (all_extra_packs()==18)",
+    "F:/doubaowork/holoaeon/README.md (插 V22 批次记录于 V21 前)",
+    "F:/doubaowork/holoaeon/README.zh-CN.md (插 V22 批次记录于 V21 前)",
+    "F:/doubaowork/holoaeon/README_FUSION_V4_20261102.md (批次表倒序插 V22 行，V21-E 行完整保留)",
+    "F:/doubaowork/holoaeon/SHA256SUMS (B8 双仓清单重建)",
+    "F:/doubaowork/holoaeon/data/dual_repo_sums.json (B8 记录 digest 同步)",
+    "F:/doubaowork/holoaeon/reports/b8_dual_sync.json (B8 校验回执刷新)",
+    "F:/doubaowork/holoaeon/reports/five_site_manifest.json (重建)"
+  ],
+  "not_committed": [
+    "AGENT_FEED_V22_ENG_SKILLS_LOCALIZATION_20261104.md（投喂包约定不提交件）",
+    "reports/v44_model_gateway_check.json (中间态校验产物按批决定)",
+    "F:/doubaowork/mattpocock_skills/（源材料克隆，仓库外）"
+  ],
+  "next": "按潘老师指令迭代（工程技能包落地场景化 / 生成式后端规范化）",
+  "seal": "潮起开门，潮落闭嘴"
+}

@@ -75,6 +75,12 @@ def _get_concept_anatomy_pack():
     return get_extra_pack("concept_anatomy")
 
 
+def _get_eng_skills_pack():
+    """工程技能本地化扩展包实例（第 18 扩展包，mattpocock/skills 蒸馏）。"""
+    from .packs import get_extra_pack
+    return get_extra_pack("eng_skills")
+
+
 # ------------------------------------------------------------ 菜单实现
 def cmd_install() -> int:
     """1. 安装引导：装配内核并打印统计。"""
@@ -342,6 +348,21 @@ def cmd_concept_anatomy() -> int:
     return 0
 
 
+def cmd_eng_skills() -> int:
+    """[13] 工程技能：8个本地化技能速查（审讯/交接/解释/原型/TDD/审查/调试/词汇）。"""
+    print()
+    print("== 工程技能（mattpocock/skills 310K★ 蒸馏 · 8技能/4角色/2工作流）==")
+    p = _get_eng_skills_pack()
+    print("扩展包: %s | 技能 %d / 角色 %d / 工作流 %d"
+          % (p.key, len(p.skills), len(p.roles), len(p.workflows)))
+    for s in p.skills:
+        print("  - %s: %s" % (s.name, s.description))
+    print("角色: %s" % " / ".join(r.name for r in p.roles))
+    print("工作流: %s" % " / ".join(w.name for w in p.workflows))
+    print("示例: holoaeon-eng --skill grill_plan --args '{\"plan_description\":\"加个缓存\"}'")
+    return 0
+
+
 MENU = {
     "1": ("安装引导", cmd_install),
     "2": ("自检", cmd_selftest),
@@ -355,6 +376,7 @@ MENU = {
     "10": ("去幻觉检测", cmd_dehallucinate),
     "11": ("自主调度", cmd_super_agent),
     "12": ("概念解剖", cmd_concept_anatomy),
+    "13": ("工程技能", cmd_eng_skills),
 }
 
 

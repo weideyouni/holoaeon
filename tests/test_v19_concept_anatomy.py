@@ -23,9 +23,9 @@ class TestDesignTokens(unittest.TestCase):
         self.assertEqual(len([k for k in DESIGN_TOKENS if k.startswith("holo_")]), 5)
 
     def test_verify_tokens_synced_v19(self):
-        # V19：EXTRA_PACK_ORDER=17 / DOC_VERSION=0.9.16（VERSION 0.9.1 冻结）
-        self.assertEqual(DESIGN_TOKENS["verify_extra_pack_order"], 17)
-        self.assertEqual(DESIGN_TOKENS["verify_doc_version"], "0.9.16")
+        # V19 建立：EXTRA=17 / DOC=0.9.16；V22 同步：EXTRA=18 / DOC=0.9.17（VERSION 0.9.1 冻结）
+        self.assertEqual(DESIGN_TOKENS["verify_extra_pack_order"], 18)
+        self.assertEqual(DESIGN_TOKENS["verify_doc_version"], "0.9.17")
         self.assertEqual(DESIGN_TOKENS["verify_version"], "0.9.1")
         self.assertEqual(DESIGN_TOKENS["verify_diff0"], "2fc892cf9af6e755")
 
@@ -108,8 +108,8 @@ class TestPackRegistration(unittest.TestCase):
         from holoaeon.packs import EXTRA_PACK_ORDER
         self.assertGreaterEqual(len(EXTRA_PACK_ORDER), 7)
         self.assertIn("concept_anatomy", EXTRA_PACK_ORDER)
-        self.assertEqual(EXTRA_PACK_ORDER[-1], "concept_anatomy")
-        self.assertEqual(len(EXTRA_PACK_ORDER), 17)
+        self.assertEqual(EXTRA_PACK_ORDER[-1], "eng_skills")  # V22：第18扩展包收尾
+        self.assertEqual(len(EXTRA_PACK_ORDER), 18)
 
     def test_get_extra_pack_counts(self):
         from holoaeon.packs import get_extra_pack

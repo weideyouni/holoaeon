@@ -32,6 +32,7 @@ from .vector_sea_pack import VectorSeaPack
 from .dehallucination_pack import DeHallucinationPack
 from .super_agent_pack import SuperAgentPack
 from .concept_anatomy_pack import ConceptAnatomyPack
+from .engineering_skills_pack import EngineeringSkillsPack
 from .writing import WritingPack
 
 # 九大领域包（每次调用返回新实例，避免共享状态）
@@ -81,6 +82,9 @@ def all_packs() -> List[DomainPack]:
 #   Anatomy 创意蒸馏（wheresryan22/anatomy, MIT）：概念→确定性机制→结构化解剖图，
 #   十步工序 + 深度审计（重叠/穿透/一致性）+ 26 Token，5技能/3角色/1工作流，
 #   纯标准库确定性离线，同概念+同Token→同解剖图。）
+# （第二十四：工程技能本地化 eng_skills，2026-11-04 增量旁挂（V22），
+#   mattpocock/skills（MIT, 310K★）蒸馏本地化：LLM提示词→确定性Python函数，
+#   8技能/4角色/2工作流，纯标准库确定性离线，同输入→同输出。）
 # ------------------------------------------------------------------------------------
 EXTRA_PACK_REGISTRY: Dict[str, type] = {
     SovereigntyPack.key: SovereigntyPack,
@@ -100,6 +104,7 @@ EXTRA_PACK_REGISTRY: Dict[str, type] = {
     DeHallucinationPack.key: DeHallucinationPack,
     SuperAgentPack.key: SuperAgentPack,
     ConceptAnatomyPack.key: ConceptAnatomyPack,
+    EngineeringSkillsPack.key: EngineeringSkillsPack,
 }
 
 EXTRA_PACK_ORDER: List[str] = ["sovereignty", "subdistill", "omnilife", "omnicore",
@@ -107,7 +112,8 @@ EXTRA_PACK_ORDER: List[str] = ["sovereignty", "subdistill", "omnilife", "omnicor
                                 "skill_matrix", "fusion_upgrade", "tcm_rehab",
                                 "topology_resonance", "quartet_director",
                                 "vector_sea", "dehallucination",
-                                "super_agent", "concept_anatomy"]
+                                "super_agent", "concept_anatomy",
+                                "eng_skills"]
 
 
 def get_extra_pack(key: str) -> DomainPack:
