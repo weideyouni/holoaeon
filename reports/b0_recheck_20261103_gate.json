@@ -1,0 +1,354 @@
+{
+  "checks": [
+    {
+      "detail": {
+        "agents": 25,
+        "packs": 9,
+        "skills": 47
+      },
+      "id": "A1",
+      "name": "维度不变 25/47/9",
+      "ok": true
+    },
+    {
+      "detail": {
+        "batch": [
+          "echo:a",
+          "echo:b",
+          "echo:c"
+        ],
+        "single": "echo:hello"
+      },
+      "id": "A4.1",
+      "name": "call 与 batch 同实现",
+      "ok": true
+    },
+    {
+      "detail": {
+        "order": [
+          "admit",
+          "route",
+          "before_skill",
+          "after_skill",
+          "egress"
+        ],
+        "pipeline": {
+          "kind": "pipeline",
+          "name": "guard -> echo -> sink",
+          "steps": [
+            {
+              "kind": "guard",
+              "name": "guard"
+            },
+            {
+              "kind": "skill",
+              "manifest": "echo",
+              "name": "echo"
+            },
+            {
+              "kind": "sink",
+              "name": "sink"
+            }
+          ]
+        },
+        "status": "ok"
+      },
+      "id": "A4.2",
+      "name": "五段钩子顺序",
+      "ok": true
+    },
+    {
+      "detail": {
+        "dump_keys": [
+          "kind",
+          "name",
+          "steps"
+        ]
+      },
+      "id": "A4.3",
+      "name": "管道可 dump",
+      "ok": true
+    },
+    {
+      "detail": {
+        "hook": "boom-hook",
+        "stage": "admit"
+      },
+      "id": "A4.4",
+      "name": "钩子抛错定位到具体钩子",
+      "ok": true
+    },
+    {
+      "detail": {
+        "h1": "8cfef70fbd0ccc2c",
+        "h2": "8cfef70fbd0ccc2c"
+      },
+      "id": "A5.1",
+      "name": "耗时改变不影响结构哈希",
+      "ok": true
+    },
+    {
+      "detail": {
+        "base": "8cfef70fbd0ccc2c",
+        "changed": "aab362f5e857f284"
+      },
+      "id": "A5.2",
+      "name": "结构改变影响哈希",
+      "ok": true
+    },
+    {
+      "detail": {
+        "replay": "8cfef70fbd0ccc2c"
+      },
+      "id": "A5.3",
+      "name": "可序列化可回放",
+      "ok": true
+    },
+    {
+      "detail": {
+        "hash": "d1c7031843b33a20"
+      },
+      "id": "A5.4",
+      "name": "开不开 span 树内核字节不变",
+      "ok": true
+    },
+    {
+      "detail": [
+        {
+          "field": "text",
+          "got": null,
+          "reason": "缺少必填字段"
+        }
+      ],
+      "id": "A6.1",
+      "name": "缺参指名",
+      "ok": true
+    },
+    {
+      "detail": [
+        {
+          "field": "n",
+          "got": "str",
+          "reason": "期望 int，得到 str"
+        }
+      ],
+      "id": "A6.2",
+      "name": "类型错指名",
+      "ok": true
+    },
+    {
+      "detail": [
+        {
+          "field": "bogus",
+          "got": "int",
+          "reason": "多余字段（schema 未声明）"
+        }
+      ],
+      "id": "A6.3",
+      "name": "多余字段指名",
+      "ok": true
+    },
+    {
+      "detail": {
+        "attempts": 1,
+        "out": "x/3"
+      },
+      "id": "A6.4",
+      "name": "修复环可自愈",
+      "ok": true
+    },
+    {
+      "detail": {
+        "max_repair": 2
+      },
+      "id": "A6.5",
+      "name": "修复环超限抛错",
+      "ok": true
+    },
+    {
+      "detail": {
+        "count": 47,
+        "keys_ok": true
+      },
+      "id": "A7.1",
+      "name": "47 条四件套齐全",
+      "ok": true
+    },
+    {
+      "detail": {
+        "common": 47,
+        "improved": 0,
+        "left_acc": 1.0,
+        "regressed": 47,
+        "right_acc": 0.0,
+        "variant": "cross"
+      },
+      "id": "A7.2",
+      "name": "eval_diff 能 diff 出变好/变差",
+      "ok": true
+    },
+    {
+      "detail": {
+        "evidence_class": "simulated"
+      },
+      "id": "A7.3",
+      "name": "judge 只披露不裁决",
+      "ok": true
+    },
+    {
+      "detail": {
+        "id": "e4890b69e3a6219a"
+      },
+      "id": "A8.1",
+      "name": "暂停态可序列化跨实例恢复",
+      "ok": true
+    },
+    {
+      "detail": {
+        "status": "approved"
+      },
+      "id": "A8.2",
+      "name": "获批后可执行",
+      "ok": true
+    },
+    {
+      "detail": {
+        "reason": "令牌不匹配"
+      },
+      "id": "A8.3",
+      "name": "令牌错不执行",
+      "ok": true
+    },
+    {
+      "detail": {
+        "tiers": [
+          "none",
+          "step",
+          "tick"
+        ]
+      },
+      "id": "A8.4",
+      "name": "三档各写清保证与代价",
+      "ok": true
+    },
+    {
+      "detail": {
+        "resume_from": 6,
+        "steps_left": 4
+      },
+      "id": "A8.5",
+      "name": "强杀续跑 DIFF=0",
+      "ok": true
+    },
+    {
+      "detail": {
+        "skills": 47
+      },
+      "id": "A9.1",
+      "name": "manifest 常驻且不读正文",
+      "ok": true
+    },
+    {
+      "detail": {
+        "newly_loaded": [],
+        "picked": []
+      },
+      "id": "A9.2",
+      "name": "只有候选读正文",
+      "ok": true
+    },
+    {
+      "detail": {
+        "loader": 47,
+        "raw": 47,
+        "total": 47
+      },
+      "id": "A9.3",
+      "name": "裁剪不降命中率",
+      "ok": true
+    },
+    {
+      "detail": {
+        "digest": "808b59664b6adb92",
+        "hit_rate": 0.5
+      },
+      "id": "A9.4",
+      "name": "同输入第二次命中且逐字节相同",
+      "ok": true
+    },
+    {
+      "detail": {
+        "after": "6563e6afe20051a8",
+        "before": "6563e6afe20051a8"
+      },
+      "id": "A10.1",
+      "name": "原账本字节不变",
+      "ok": true
+    },
+    {
+      "detail": {
+        "diffs": 3
+      },
+      "id": "A10.2",
+      "name": "两支可并排比较",
+      "ok": true
+    },
+    {
+      "detail": {
+        "counts": {
+          "checkpoint": 1,
+          "guard_verdict": 1,
+          "interrupt": 1,
+          "route": 1,
+          "run_end": 1,
+          "run_start": 1,
+          "skill_call": 1
+        },
+        "types": [
+          "run_start",
+          "route",
+          "skill_call",
+          "guard_verdict",
+          "interrupt",
+          "checkpoint",
+          "run_end"
+        ]
+      },
+      "id": "A10.3",
+      "name": "事件类型 6–8 种且只读零网络",
+      "ok": true
+    },
+    {
+      "detail": {
+        "hash": "d1c7031843b33a20"
+      },
+      "id": "A10.4",
+      "name": "开不开事件通道内核字节不变",
+      "ok": true
+    },
+    {
+      "detail": {
+        "passed": 6,
+        "total": 6
+      },
+      "id": "A11.1",
+      "name": "新桥 3 方法 + conformance",
+      "ok": true
+    },
+    {
+      "detail": {
+        "pyproject": "pyproject.toml"
+      },
+      "id": "A12.1",
+      "name": "零依赖未破",
+      "ok": true
+    }
+  ],
+  "doc_version": "0.9.3",
+  "evidence_class": "simulated",
+  "failed": [],
+  "gate": "v3",
+  "passed": 32,
+  "total": 32,
+  "verdict": "PASS"
+}
