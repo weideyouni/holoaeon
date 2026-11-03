@@ -1,0 +1,77 @@
+{
+  "batch": "V21-CONCEPT-ANATOMY-IMAGE-ENHANCE",
+  "status": "DONE",
+  "date": "2026-11-04",
+  "route": "先规划 → 概念验证（快照-参考-生成）→ 渲染器系列+加载协议 → 视觉锻造台八步流水线 → 验证 → 文档 → 五地同步",
+  "modules": {
+    "M1_render": "concept_anatomy_render.py：4 渲染器 explosion/annotated/legend/diagram + RENDER_REGISTRY + register_render/load_render 加载协议（未注册回落 diagram）+ 5 图像 Token（img_style/img_palette/img_axis/img_annotate/img_compare）+ concept_anatomy.py 集成 --img/--save",
+    "M2_forge": "concept_visual_forge.py：八步确定性流水线 forge→text_search→image_desc_v1→system_prompt_gen→matrix_modify（6风格×3构图×3色调）→optimize_prompt（质量锚点+负面+确定性锚点）→stylize 三档（blueprint/art_direction/artistic）+ concept_anatomy.py 集成 --forge"
+  },
+  "concept_proof": {
+    "snapshot": "image_search 快照 2 标杆图（大英百科横截面标注图 / 千图网数字编号爆炸图）",
+    "generate": "image_edit 生成圆珠笔爆炸图示意图（数字编号 1-15 + 零件分解 + 成品对照，白底产品渲染）",
+    "conclusion": "快照→生成链路可行，图像短板通过本地渲染增强+生成式后端双轨解决"
+  },
+  "quartet_decision": {
+    "P1": 0.85,
+    "P2": 0.85,
+    "P3": 0.85,
+    "P4": 0.30,
+    "P2xP3": 0.7225,
+    "order": 0.5237,
+    "emergence": true,
+    "verdict": "四人组定调通过（与 V19/V20 同体系口径）"
+  },
+  "steps": {
+    "A": "落盘 holoaeon/concept_anatomy_render.py（4 渲染器+注册表+协议+图像 Token）+ holoaeon/concept_visual_forge.py（八步流水线+FORGE_MATRIX+CLI）+ concept_anatomy.py 集成 --img <style>/--save/--forge；包内导入全部相对导入（redline third_party_import 修复：from .concept_anatomy import ...）",
+    "B": "新建 tests/test_v21_render.py（13 tests：4 渲染器 SVG 断言+协议+CLI subprocess）+ tests/test_v21_visual_forge.py（13 tests：搜索/描述/提示词/矩阵/优化/三档风格化/CLI 集成）",
+    "C": "全套验证矩阵全绿 + 实测 4 风格出图（explosion 4196/annotated 1499/legend 1090/diagram 2009 字符）+ --forge 双通道实测（表外圆珠笔 hit=False 关键词+就近 9 概念；内置经络 hit=True 8 组件）",
+    "D": "docs/V21_概念解剖器_图像增强_使用手册.md（新）+ README.md/README.zh-CN.md 插 V21 章节（V20 前）+ README_FUSION_V4_20261102.md 批次表插 V21 行 + reports/v21_receipt.json + 重建 five_site_manifest + verify_v44"
+  },
+  "verification": {
+    "selftest": "25/25 PASS",
+    "unittest": "全套 OK（V20 134 + V21 新 26 tests = 160）",
+    "redline": "105 文件 0 违规（含 2 新源码文件，相对导入无 third_party_import）",
+    "v3_gate": "32/32 PASS",
+    "dimension_lock": "12 维度 + 7 闸 0 violation（diff0=2fc892cf9af6e755 未漂移）",
+    "contract": "PASS",
+    "py38_syntax": "253 文件 0 失败（+2 新文件）",
+    "plugin_runtime": "10/10 全绿",
+    "verify_v44": "13/13 PASS（A1-A13，README 提交后重建清单对齐）",
+    "render_cli": "4 风格 --img --save 实测：SVG 头合法、字符数 4196/1499/1090/2009",
+    "forge_cli": "--forge 八步 JSON 实测：表外圆珠笔（关键词抽取+就近概念）/内置经络（8 组件）双通道"
+  },
+  "diff0": {
+    "expected": "2fc892cf9af6e755",
+    "actual": "2fc892cf9af6e755",
+    "drifted": false,
+    "note": "V21 仅新增旁挂渲染器/锻造模块，不改输出路径与维度值；diff0 黄金值未漂移"
+  },
+  "VERSION": "0.9.1 (不变)",
+  "DOC_VERSION": "0.9.16 (不变)",
+  "EXTRA_PACK_ORDER": "17 (不变)",
+  "tamper": "f42c8229ee5acd73 (不变)",
+  "new_files": [
+    "F:/doubaowork/holoaeon/holoaeon/concept_anatomy_render.py",
+    "F:/doubaowork/holoaeon/holoaeon/concept_visual_forge.py",
+    "F:/doubaowork/holoaeon/tests/test_v21_render.py",
+    "F:/doubaowork/holoaeon/tests/test_v21_visual_forge.py",
+    "F:/doubaowork/holoaeon/docs/V21_概念解剖器_图像增强_使用手册.md",
+    "F:/doubaowork/holoaeon/docs/V21_概念解剖器_图像增强_规划.md",
+    "F:/doubaowork/holoaeon/reports/v21_receipt.json"
+  ],
+  "modified_files": [
+    "F:/doubaowork/holoaeon/holoaeon/concept_anatomy.py (集成 --img/--save/--forge 分支)",
+    "F:/doubaowork/holoaeon/README.md (插 V21 批次记录于 V20 前)",
+    "F:/doubaowork/holoaeon/README.zh-CN.md (插 V21 批次记录于 V20 前)",
+    "F:/doubaowork/holoaeon/README_FUSION_V4_20261102.md (批次表倒序插 V21 行，V20 行完整保留)",
+    "F:/doubaowork/holoaeon/reports/five_site_manifest.json (重建)"
+  ],
+  "not_committed": [
+    "AGENT_FEED_V20/V21 投喂包 md（约定不提交件）",
+    "reports/v44_model_gateway_check.json (中间态校验产物按批决定)",
+    "F:/doubaowork/demo_v21_*.svg + demo_ballpoint_pen_anatomy.svg (仓库外演示件，不入仓)"
+  ],
+  "next": "V22 = 按潘老师指令迭代（生成式后端规范化 / 新模块旁挂）",
+  "seal": "潮起开门，潮落闭嘴"
+}

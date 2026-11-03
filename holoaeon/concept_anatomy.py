@@ -553,6 +553,36 @@ def main(argv: Optional[List[str]] = None) -> int:
         print(explain(concept))
         return 0
 
+    # V21 视觉锻造：--forge 八步流水线（文字→搜索→初级图像描述→系统提示词→矩阵→优化→三档风格化）
+    if "--forge" in args:
+        args = [a for a in args if a != "--forge"]
+        concept = args[0] if args else "经络"
+        from .concept_visual_forge import forge as _forge
+        print(json.dumps(_forge(concept), ensure_ascii=False, indent=2))
+        return 0
+
+    # V21 图像增强：--img <style> 渲染器协议出图；--save <path> 落盘 SVG
+    if "--img" in args:
+        i = args.index("--img")
+        style = args[i + 1] if len(args) > i + 1 else "diagram"
+        save = None
+        if "--save" in args:
+            si = args.index("--save")
+            save = args[si + 1] if len(args) > si + 1 else None
+        concept = args[0] if args and args[0] != "--img" else "经络"
+        from .concept_anatomy_render import render as _render, DEFAULT_TOKENS
+        ca = ConceptAnatomizer()
+        result = ca.anatomize(concept)
+        svg = _render(result, {**DEFAULT_TOKENS, "img_style": style})
+        if save:
+            with open(save, "w", encoding="utf-8") as f:
+                f.write(svg)
+            print(json.dumps({"saved": save, "style": style, "chars": len(svg)},
+                             ensure_ascii=False, indent=2))
+        else:
+            print(svg)
+        return 0
+
     if not args:
         print(json.dumps({"available_concepts": list(CONCEPT_MAP.keys())},
                          ensure_ascii=False, indent=2))
