@@ -1,0 +1,76 @@
+{
+  "batch": "V22+-QIANWEN-EVALUATION-PATCH",
+  "status": "DONE",
+  "date": "2026-11-04",
+  "route": "千问报告分析 → 编号裁决 V22+ → 四人组定调 → PR-1 分词修复 → PR-2 清单检查 → 测试 → 验证矩阵 → README×3 + 回执 → 五地同步",
+  "source": "千问 STANDARD_BASED_EVALUATION_20261103 + 耦合装入报告 + 翻车复盘",
+  "numbering_ruling": "投喂稿自称 V22 与已交付「V22 工程技能本地化」（4c9070e）撞车 → 现场裁决 V22+（补丁升级）：批次名/测试名（test_v22p_chinese_split）/回执（v22p_receipt）/README/FUSION 章节全链改名；投喂稿加 1.3 审视修正注记",
+  "quartet_decision": {
+    "P1": 0.85,
+    "P2": 0.85,
+    "P3": 0.85,
+    "P4": 0.30,
+    "P2xP3": 0.7225,
+    "order": 0.5237,
+    "emergence": true,
+    "verdict": "四人组定调通过（实测 check_emergence）"
+  },
+  "patches": {
+    "PR-1": "_split() CJK bigram 分词修复（P0-1）：external_skill_registry.py 行 120-131 isalnum() 中文整句塌单 token → 中文连续段切相邻字符对 + 英文段走原逻辑；修复后 _split('把视频逐字稿转成张量') → 9 个 bigram token；确定性纯字符扫描",
+    "PR-2": "SHA256SUMS _tmp_ 残留检查（P1-1）：grep 0 matches → 检查通过，清单无需修改",
+    "PR-3": "tests/test_v22p_chinese_split.py 6 tests（按真实登记表 data/v6_skill_family_registry.json 实测校准断言口径：CJK bigram/长句不塌 token/中英混合/match 中文路由【数据经络皮肤细胞骨架→F05/F08/F10】/大小写一致/确定性）"
+  },
+  "already_fixed": {
+    "P0-2": "大小写归一化已修确认（line 94 text.lower()，match('DATA 经络')==match('data 经络') 同族）",
+    "P1-2": "收尾反馈为千问侧问题，不改 HoloAeon（HoloAeon 侧已有 Receipt 回执）",
+    "P2-1": "功能适合性 7.0『接真模型有限』= 设计取舍非缺陷，不修",
+    "P2-2": "兼容性 6.0『无 MCP/A2A』= V14 protocol_plugins 12 协议已有",
+    "P2-3": "可维护性 7.0『V6 12 条』= V18 审计 10 项已修"
+  },
+  "verification": {
+    "selftest": "25/25 PASS（diff0 未漂移）",
+    "unittest": "364 OK（+6 V22+ tests）",
+    "smoke_split": "_split('把视频逐字稿转成张量') → ['把视','视频','频逐','逐字','字稿','稿转','转成','成张','张量']（9 token，不再塌单 token）",
+    "smoke_match": "match('数据经络皮肤细胞骨架',k=3) → F05/F08/F10（中文路由命中）",
+    "redline": "106 文件 0 违规",
+    "v3_gate": "32/32 PASS",
+    "dimension_lock": "12 维度 + 7 闸 0 violation（diff0=2fc892cf9af6e755 未漂移，旁挂层改_split 不影响）",
+    "contract": "PASS",
+    "py38_syntax": "256 文件 0 失败（+1 新测试文件）",
+    "plugin_runtime": "10/10 全绿",
+    "verify_v44": "13/13 PASS（A1-A13，README 提交后重建清单对齐）",
+    "b8_dual_sync": "holo_entries=251 / ivsa_entries=91 / interface_equal=true / verdict PASS",
+    "five_site": "manifest 28/171/0 + zip_sha16=a87fa921bf963fa1（zip 不动点保持）"
+  },
+  "diff0": {
+    "expected": "2fc892cf9af6e755",
+    "actual": "2fc892cf9af6e755",
+    "drifted": false,
+    "note": "external_skill_registry 属 fusion_upgrade 旁挂层（不在 25/47/9 内核维度内），改 _split 不影响 diff0；实测 dimension_lock 0 violation"
+  },
+  "VERSION": "0.9.1 (不变)",
+  "DOC_VERSION": "0.9.17 (不变，补丁不升级)",
+  "EXTRA_PACK_ORDER": "18 (不变，补丁不加扩展包)",
+  "tamper": "f42c8229ee5acd73 (不变)",
+  "new_files": [
+    "F:/doubaowork/holoaeon/tests/test_v22p_chinese_split.py",
+    "F:/doubaowork/holoaeon/reports/v22p_receipt.json"
+  ],
+  "modified_files": [
+    "F:/doubaowork/holoaeon/holoaeon/fusion_upgrade/external_skill_registry.py (_split CJK bigram 修复)",
+    "F:/doubaowork/holoaeon/README.md (插 V22+ 批次记录于 V22 前)",
+    "F:/doubaowork/holoaeon/README.zh-CN.md (插 V22+ 批次记录于 V22 前)",
+    "F:/doubaowork/holoaeon/README_FUSION_V4_20261102.md (批次表倒序插 V22+ 行，V22 行完整保留)",
+    "F:/doubaowork/holoaeon/SHA256SUMS (B8 双仓清单重建)",
+    "F:/doubaowork/holoaeon/data/dual_repo_sums.json (B8 记录 digest 同步)",
+    "F:/doubaowork/holoaeon/reports/b8_dual_sync.json (B8 校验回执刷新)",
+    "F:/doubaowork/holoaeon/reports/five_site_manifest.json (重建)"
+  ],
+  "not_committed": [
+    "AGENT_FEED_V22_QIANWEN_EVALUATION_PATCH_20261104.md（投喂包约定不提交件，内容已加 1.3 审视修正注记）",
+    "STANDARD_BASED_EVALUATION_20261103.md 等千问报告（约定不提交件）",
+    "reports/v44_model_gateway_check.json (中间态校验产物按批决定)"
+  ],
+  "next": "按潘老师指令迭代（千问报告其余短板跟进 / 新批次）",
+  "seal": "潮起开门，潮落闭嘴"
+}

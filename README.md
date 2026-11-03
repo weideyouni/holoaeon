@@ -268,6 +268,20 @@ skills **243**（含四人组 14 技能），均为扩展包旁挂增量。
 
 **维度不变**：25 / 47 / 9 与 `spec.VERSION=0.9.1`、`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73`；`EXTRA_PACK_ORDER` 13→**14**（第 14 扩展包仅旁挂，不进 `PACK_ORDER`）；用户落地路径：PDF/图片/文字 → OCR → TF-IDF 快照 → 向量海余弦搜索 → TVCB 精炼 → 技能机床加工 → 12 协议适配导出 → 部署到任意平台。
 
+### V22+ · Qianwen Evaluation Patch (CJK tokenization fix · V22 patch upgrade, dimensions untouched)
+
+`DOC_VERSION` stays **0.9.17** (patch only, no functional-dimension change; `spec.VERSION` stays 0.9.1). From `AGENT_FEED_V22_QIANWEN_EVALUATION_PATCH_20261104.md` (feed numbered V22 — collided with the shipped "V22 engineering skills localization" — corrected to **V22+ patch upgrade**). Sources: Qianwen STANDARD_BASED_EVALUATION (79.0/100, 5 gaps) + coupling-load report (family-level routing CJK tokenization defect) + crash review (no closing receipt):
+
+1. **V22+-A · PR-1 fix `_split()` CJK tokenization (P0-1)**: `holoaeon/fusion_upgrade/external_skill_registry.py` lines 120-131 used `isalnum()` which collapses a whole Chinese sentence into one token (中文路由全盲) → **CJK bigram tokenizer** (contiguous CJK runs cut into adjacent char pairs, ASCII runs keep the original path; zero-dependency, pure char scan, deterministic). After fix: `_split('把视频逐字稿转成张量')` → 9 bigram tokens incl. '视频'.
+2. **V22+-B · PR-2 manifest hygiene (P1-1)**: SHA256SUMS grep shows zero `_tmp_` residue → check passed, no manifest edit.
+3. **V22+-C · Already fixed / not touched**: P0-2 case normalization confirmed (line 94 `text.lower()`; `match("DATA 经络")==match("data 经络")`); P1-2 closing feedback is Qianwen-side, not HoloAeon; P2-1 design tradeoff, P2-2 covered by V14 protocol_plugins, P2-3 covered by V18 audit.
+4. **V22+-D · Tests**: new `tests/test_v22p_chinese_split.py` (6 tests: CJK bigram / long-sentence no single-token collapse / mixed CN-EN / match CJK route【数据经络皮肤细胞骨架 → F05/F08/F10】/ case-insensitive consistency / determinism). Assertions calibrated against the real `data/v6_skill_family_registry.json` (the feed's "video/tensor family must exist" assumption does not match the registry).
+5. **V22+-E · Discipline**: external_skill_registry is a fusion_upgrade **sidecar layer** (outside the 25/47/9 kernel dimensions) → diff0 intact (measured 0 violation); B8 dual-repo manifest rebuilt (holo_entries=251).
+
+All green: `selftest 25/25` · `unittest 364 OK` (+6 V22+ tests) · `redline 106 files 0 violations` · `v3_gate 32/32` · `dimension_lock 0 violation` (diff0=2fc892cf9af6e755 intact) · `py38 256 files 0 failures` · `contract PASS` · `plugin runtime 10/10` · `verify_v44 13/13` · B8 holo_entries=251 · five_site 28/171/0 · zip fixed point a87fa921bf963fa1 · `VERSION=0.9.1` frozen.
+
+**Dimensions untouched**: 25 / 47 / 9, `spec.VERSION=0.9.1`, `diff0_hash=2fc892cf9af6e755`, `tamper=f42c8229ee5acd73`; `DOC_VERSION=0.9.17` (patch, no bump); `EXTRA_PACK_ORDER=18` (patch adds no pack).
+
 ### V22 · Engineering Skills Toolbox (V22-A→F, mattpocock/skills 310K★ distillation, 18th extra pack, dimensions untouched)
 
 `DOC_VERSION` 0.9.16 → **0.9.17** (`spec.VERSION` stays 0.9.1). From `AGENT_FEED_V22_ENG_SKILLS_LOCALIZATION_20261104.md` (original feed numbered V21 — collided with the shipped "V21 concept anatomizer image-enhanced" batch — corrected to V22). Distillation: mattpocock/skills (39 SKILL.md, MIT, 310K★, "Skills for Real Engineers") → 39→8 core skills → **LLM prompts → deterministic Python functions** (rule-driven, not LLM) → 8 skills mapped onto 8 holographic mechanisms → quartet emergence=True (P2×P3=0.72, P1=0.85, P4=0.30, order=0.52) → borrowing D-01 handoff / D-02 wait-what→re_explain / D-03 prototype:

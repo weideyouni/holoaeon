@@ -118,16 +118,43 @@ def match(task, k=3, root=None):
 
 
 def _split(text):
-    out, buf = [], ""
+    """中英混合分词：ASCII 连续段按非字母数字切；CJK 连续段按 bigram 切。
+
+    缺陷根因（千问 2026-11-03 耦合装入报告 P0-1）：中文 isalnum() 为真且无空格，
+    整句会塌成单 token，使成员名/关键词的 token 交集匹配对中文完全失效。
+    CJK bigram 是零依赖下最简可用方案（V22+ 补丁升级采纳千问方案）。
+    确定性：纯字符扫描，同输入必得同 token 列表。
+    """
+    out, buf_ascii, buf_cjk = [], "", ""
+
+    def _flush_cjk():
+        nonlocal buf_cjk
+        if len(buf_cjk) == 1:
+            out.append(buf_cjk)
+        elif len(buf_cjk) > 1:
+            out.extend(buf_cjk[i:i + 2] for i in range(len(buf_cjk) - 1))
+        buf_cjk = ""
+
     for ch in text:
-        if ch.isalnum():
-            buf += ch
+        if '\u4e00' <= ch <= '\u9fff':
+            if buf_ascii:
+                out.append(buf_ascii)
+                buf_ascii = ""
+            buf_cjk += ch
+        elif ch.isalnum():
+            if buf_cjk:
+                _flush_cjk()
+            buf_ascii += ch
         else:
-            if buf:
-                out.append(buf)
-            buf = ""
-    if buf:
-        out.append(buf)
+            if buf_ascii:
+                out.append(buf_ascii)
+                buf_ascii = ""
+            if buf_cjk:
+                _flush_cjk()
+    if buf_ascii:
+        out.append(buf_ascii)
+    if buf_cjk:
+        _flush_cjk()
     return out
 
 

@@ -196,6 +196,20 @@ python -m holoaeon.butler_os 10            # 去幻觉检测（莱布尼茨PSR×
 用户落地路径：PDF/图片/文字 → OCR → TF-IDF 快照 → 向量海余弦搜索 → TVCB 精炼 → 技能机床加工 → 12 协议适配导出 → 部署到任意平台。
 Guard 默认 9 层、L10 默认关（附加层不计入 `guard_layers=8`）；装配后快照 agents=46（含四人组 5 角色）、skills=243（含四人组 14 技能），均为扩展包旁挂增量。
 
+### V22+ · 千问评估补丁（中文分词修复 · V22 补丁升级，不改维度）
+
+`DOC_VERSION` 保持 **0.9.17** 不变（补丁不改功能维度，`spec.VERSION` 仍 0.9.1）。对应 `AGENT_FEED_V22_QIANWEN_EVALUATION_PATCH_20261104.md`（投喂稿编号 V22 与已交付「V22 工程技能本地化」撞车 → 现场裁决为 **V22+ 补丁升级**）。报告来源：千问端 STANDARD_BASED_EVALUATION（8 维度 79.0 分居首，5 短板）+ 耦合装入报告（族级路由中文分词缺陷）+ 翻车复盘（无收尾反馈）：
+
+1. **V22+-A · PR-1 修复 `_split()` 中文分词（P0-1）**：`holoaeon/fusion_upgrade/external_skill_registry.py` 行 120-131 原实现 `isalnum()` 对中文整句塌单 token（`_split('把视频逐字稿转成张量')` → 单 token，'视频' 不可命中，中文路由全盲）→ 改为 **CJK bigram 分词**（中文连续段 `[a-zA-Z0-9_]+` 外按相邻字符对切，英文段走原逻辑；零依赖、纯字符扫描、同输入同输出）。修复后 `_split('把视频逐字稿转成张量')` → `['把视','视频','频逐','逐字','字稿','稿转','转成','成张','张量']`。
+2. **V22+-B · PR-2 清单卫生（P1-1）**：SHA256SUMS 实测 grep 无 `_tmp_` 残留（0 matches）→ 检查通过，清单无需修改。
+3. **V22+-C · 已修确认（不修改）**：P0-2 大小写归一化——`match()` line 94 已 `text = (task or "").lower()`，实测 `match("DATA 经络")==match("data 经络")` 同族；P1-2 收尾反馈为千问侧问题不改 HoloAeon；P2-1 功能适合性=设计取舍、P2-2 MCP/A2A=V14 protocol_plugins 已有、P2-3 V6 卫生=V18 审计 10 项已修。
+4. **V22+-D · 测试**：新建 `tests/test_v22p_chinese_split.py`（6 tests：CJK bigram / 长中文句不塌 token / 中英混合分词 / match 中文长句可路由【数据经络皮肤细胞骨架 → F05/F08/F10】/ 大小写归一化一致 / 确定性）。断言口径按真实登记表 `data/v6_skill_family_registry.json` 实测校准（投喂稿 PR-3 的"视频张量必有族"假设与登记表不符，改为真实可验证口径）。
+5. **V22+-E · 工程纪律**：external_skill_registry 属 fusion_upgrade **旁挂层**（不在 25/47/9 内核维度内）→ diff0 未漂移（实测 dimension_lock 0 violation）；B8 双仓清单重建（holo_entries=251）。
+
+验证全绿：`selftest 25/25` · `unittest 364 OK`（+6 V22+ tests）· `redline 106 文件 0 违规` · `v3_gate 32/32` · `dimension_lock 0 violation`（diff0=2fc892cf9af6e755 未漂移）· `py38 256 文件 0 失败` · `contract PASS` · `plugin runtime 10/10` · `verify_v44 13/13` · B8 holo_entries=251 · five_site 28/171/0 · zip 不动点 a87fa921bf963fa1 · `VERSION=0.9.1` 冻结未动。
+
+**维度不变**：25 / 47 / 9、`spec.VERSION=0.9.1`、`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73`；`DOC_VERSION=0.9.17`（补丁不升级）；`EXTRA_PACK_ORDER=18`（补丁不加扩展包）。
+
 ### V22 · 工程技能本地化工具箱（V22-A→F，mattpocock/skills 310K★ 蒸馏，第 18 扩展包，不改维度）
 
 `DOC_VERSION` 0.9.16 → **0.9.17**（`spec.VERSION` 仍 0.9.1）。对应 `AGENT_FEED_V22_ENG_SKILLS_LOCALIZATION_20261104.md` 步骤 A→F 贯序执行（原投喂稿编号 V21 与已交付"V21 概念解剖器图像增强版"撞车，审视修正为 V22）。蒸馏口径：mattpocock/skills（39 个 SKILL.md，MIT，310K★，"Skills for Real Engineers"）→ 39→8 核心 → **LLM 提示词→确定性 Python 函数**（规则驱动非 LLM）→ 8 技能映射 8 个全息机制 → 四人组决策（emergence=True，P2×P3=0.72、P1=0.85、P4=0.30、order=0.52）→ 借鉴 D-01 handoff / D-02 wait-what→re_explain / D-03 prototype：
