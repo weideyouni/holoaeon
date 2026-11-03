@@ -69,6 +69,12 @@ def _get_super_agent_pack():
     return get_extra_pack("super_agent")
 
 
+def _get_concept_anatomy_pack():
+    """概念解剖器扩展包实例（第 17 扩展包，Anatomy 创意蒸馏）。"""
+    from .packs import get_extra_pack
+    return get_extra_pack("concept_anatomy")
+
+
 # ------------------------------------------------------------ 菜单实现
 def cmd_install() -> int:
     """1. 安装引导：装配内核并打印统计。"""
@@ -297,6 +303,45 @@ def cmd_super_agent() -> int:
     return 0
 
 
+def cmd_concept_anatomy() -> int:
+    """[12] 概念解剖：解剖HoloAeon概念（经络/赫布场/城邦等）。"""
+    print()
+    print("== 概念解剖（Anatomy 创意蒸馏 · 十步工序 + 深度审计 + 26 Token）==")
+    p = _get_concept_anatomy_pack()
+    print("扩展包: %s | 技能 %d / 角色 %d / 工作流 %d"
+          % (p.key, len(p.skills), len(p.roles), len(p.workflows)))
+    from .concept_anatomy import CONCEPT_MAP, ConceptAnatomizer
+    print("可用概念: %s" % " / ".join(list(CONCEPT_MAP.keys())))
+    line = _readline("concept> ")
+    if line is None or not line.strip():
+        concept = "经络"
+        print("（空输入，使用演示概念: %s）" % concept)
+    else:
+        concept = line.strip()
+    ca = ConceptAnatomizer()
+    r = ca.anatomize(concept)
+    if "error" in r:
+        print("未知概念: %s（可选: %s）" % (concept, " / ".join(r["available"])))
+        return 1
+    print("概念: %s | 维度: %s | 状态: %s"
+          % (r["concept"], r["anatomy"]["dimension"], r["status"]))
+    print("机制: %s" % r["anatomy"]["mechanism"])
+    print("组件 %d 个: %s"
+          % (r["anatomy"]["component_count"],
+             " → ".join(r["anatomy"]["sort_order"])))
+    print("验证: %s" % r["anatomy"]["verification_rule"])
+    audit = r["anatomy"]["audit"]
+    print("审计: 重叠 %d / 穿透 %d / 一致性 %d | all_passed=%s"
+          % (audit["checks"]["overlap"]["overlaps_found"],
+             audit["checks"]["penetration"]["issues_found"],
+             audit["checks"]["consistency"]["issues_found"],
+             audit["all_passed"]))
+    svg = r["output"].get("svg", "")
+    if svg:
+        print("SVG: %d 字符（等距投影，可选输出）" % len(svg))
+    return 0
+
+
 MENU = {
     "1": ("安装引导", cmd_install),
     "2": ("自检", cmd_selftest),
@@ -309,6 +354,7 @@ MENU = {
     "9": ("技能机床", cmd_lathe),
     "10": ("去幻觉检测", cmd_dehallucinate),
     "11": ("自主调度", cmd_super_agent),
+    "12": ("概念解剖", cmd_concept_anatomy),
 }
 
 

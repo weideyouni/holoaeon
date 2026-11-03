@@ -64,6 +64,7 @@ holoaeon-lathe = "holoaeon.skill_lathe:main"
 holoaeon-dehallucinate = "holoaeon.dehallucination:main"
 holoaeon-router = "holoaeon.router_layer:main"
 holoaeon-watchdog = "holoaeon.external_watchdog:main"
+holoaeon-anatomy = "holoaeon.concept_anatomy:main"
 
 [tool.setuptools.dynamic]
 version = {attr = "holoaeon.spec.VERSION"}

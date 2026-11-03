@@ -158,10 +158,10 @@ class TestCrossModuleIntegration(unittest.TestCase):
     """跨模块集成测试——验证V12-V16模块在Kernel中协同"""
 
     def test_all_extra_packs_loadable(self):
-        """全部16个扩展包可加载"""
+        """全部17个扩展包可加载（V19 16→17 +concept_anatomy）"""
         from holoaeon.packs import all_extra_packs
         packs = all_extra_packs()
-        self.assertEqual(len(packs), 16)
+        self.assertEqual(len(packs), 17)
 
     def test_kernel_with_all_packs(self):
         """装齐全部扩展包的Kernel可submit"""
