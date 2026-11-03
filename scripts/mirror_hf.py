@@ -28,7 +28,7 @@ import json
 import os
 import subprocess
 import sys
-from typing import Any, Dict, Iterable, List, Optional
+from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REPO_TYPE = "model"
@@ -66,13 +66,23 @@ def build_plan(repo: str, rels: Iterable[str]) -> List[str]:
     return plan
 
 
-def verify_remote(sib: Dict[str, str], repo: str, plan: Iterable[str]) -> List[str]:
-    """逐件比对 blob_id；返回不一致清单。"""
+def verify_remote(sib: Dict[str, Tuple[str, Optional[str]]], repo: str,
+                  plan: Iterable[str]) -> List[str]:
+    """逐件比对：普通文件用 git blob sha1 判等；LFS 文件用内容 sha256 判等。"""
     bad = []
     for rel in plan:
-        local = blob_sha1(os.path.join(repo, rel.replace("/", os.sep)))
-        if sib.get(rel) != local:
-            bad.append(rel)
+        path = os.path.join(repo, rel.replace("/", os.sep))
+        if not os.path.isfile(path):
+            continue
+        blob, lfs_sha = sib.get(rel, (None, None))
+        if lfs_sha:
+            local = hashlib.sha256(open(path, "rb").read()).hexdigest()
+            if local != lfs_sha:
+                bad.append(rel)
+        else:
+            local = blob_sha1(path)
+            if blob != local:
+                bad.append(rel)
     return bad
 
 
@@ -96,7 +106,10 @@ def run(repo: str, base: str, head: str, check_only: bool, repo_id: str,
                         commit_message="sync %s..%s" % (base, head))
         uploaded.append(rel)
     info = api.model_info(repo_id, files_metadata=True)  # 注意：不传 repo_type
-    sib = {s.rfilename: s.blob_id for s in info.siblings}
+    sib: Dict[str, Tuple[str, Optional[str]]] = {}
+    for s in info.siblings:
+        lfs = getattr(s, "lfs", None)
+        sib[s.rfilename] = (s.blob_id, lfs.sha256 if lfs else None)
     mismatch = verify_remote(sib, repo, plan)
     return {"verdict": "PASS" if not mismatch else "FAIL", "repo_type": REPO_TYPE,
             "repo_id": repo_id, "base": base, "head": head,
