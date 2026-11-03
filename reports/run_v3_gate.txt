@@ -1,4 +1,4 @@
-# HoloAeon V3 gate run  (2026-10-31T19:58:20)
+# HoloAeon V3 gate run  (2026-11-04T00:05:36)
 
 ===== status =====
 $ scripts/launch_local.py status
@@ -101,7 +101,7 @@ $ scripts/launch_local.py status
   "guard": {
     "inspected": 0,
     "blocked": 0,
-    "layers": 8,
+    "layers": 9,
     "advised": 0
   },
   "has_graph": true,
@@ -135,74 +135,93 @@ $ scripts/launch_local.py selftest
 [PASS] G22 metab — 52/52 代谢层包（26技能/0agent/8工作流/6染色体/8冲突）
 [PASS] G23 nephron — 62/62 肾单位 P0 包（24技能/0agent/7工作流/41字段/27码/10审视）
 [PASS] G24 uplift — 46/46 补齐短板升级包（24技能/0agent/7工作流/6单元/10审视/5缺陷/10裁决/22验收）
-==> 24/24
+[PASS] G25 persona_quartet — 8/8 四人全维度数字分身包（4技能/5角色/1工作流/4主体×7维度/归因仿真）
+==> 25/25
 exit=0
 
 ===== unittest34 =====
 $ -m unittest discover -s tests
-..................................
+....................................................................
 ----------------------------------------------------------------------
-Ran 34 tests in 0.150s
+Ran 68 tests in 0.156s
 
 OK
 exit=0
 
 ===== unittest-verax =====
 $ -m unittest discover -s tests/verax
-................
+....................F
+======================================================================
+FAIL: test_word_count_is_stable_and_matches_golden (test_repro.TestRepro.test_word_count_is_stable_and_matches_golden)
 ----------------------------------------------------------------------
-Ran 16 tests in 0.108s
+Traceback (most recent call last):
+  File "F:\doubaowork\holoaeon\tests\verax\test_repro.py", line 25, in test_word_count_is_stable_and_matches_golden
+    self.assertEqual(verdict["reprohash_list"], [GOLDEN_HASH, GOLDEN_HASH])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['e1b6c4ba5c26943b', 'e1b6c4ba5c26943b'] != ['2b82a6ef7188ce91', '2b82a6ef7188ce91']
 
-OK
-exit=0
+First differing element 0:
+'e1b6c4ba5c26943b'
+'2b82a6ef7188ce91'
+
+- ['e1b6c4ba5c26943b', 'e1b6c4ba5c26943b']
++ ['2b82a6ef7188ce91', '2b82a6ef7188ce91']
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.149s
+
+FAILED (failures=1)
+exit=1
 
 ===== unittest-v3 =====
 $ -m unittest discover -s tests/v3
 .....
 ----------------------------------------------------------------------
-Ran 5 tests in 0.374s
+Ran 5 tests in 0.393s
 
 OK
 exit=0
 
 ===== redline =====
 $ scripts/redline_scan.py
-扫描文件数：41
+扫描文件数：101
 结果： 干净（零违规）
 exit=0
 
 ===== verax_verify =====
 $ scripts/verax_verify.py --out reports
 ========================================================================
-VERAX 门禁：红线 → 自检 → 复现 → 诚实 → 热插拔
+VERAX 门禁：红线 → 自检 → 复现 → 篡改 → 诚实 → 热插拔 → 策略
 ========================================================================
-[1/5] 红线扫描：files=41 violations=0
-[2/5] 自检：24/24
-[3/5] 复现 data_describe    stable=True  golden=True  hash=3352db0f803eb727
-[3/5] 复现 guard_eval       stable=True  golden=True  hash=98b9b7b340f7f980
-[3/5] 复现 guard_os_system  stable=True  golden=True  hash=a7deb622e17a2b55
-[3/5] 复现 quant_sharpe     stable=True  golden=True  hash=2c9e5d7d01526ce8
-[3/5] 复现 word_count       stable=True  golden=True  hash=2b82a6ef7188ce91
-[4/5] 诚实契约：h1=0 h2=0
-[5/5] 热插拔：40 → 47（新增 7，未重启）
+[1/7] 红线扫描：files=101 violations=0
+[2/7] 自检：25/25
+[3/7] 复现 data_describe    stable=True  golden=False hash=8cd80c70ad275455
+[3/7] 复现 guard_eval       stable=True  golden=True  hash=98b9b7b340f7f980
+[3/7] 复现 guard_os_system  stable=True  golden=True  hash=a7deb622e17a2b55
+[3/7] 复现 quant_sharpe     stable=True  golden=False hash=8ee7170326666303
+[3/7] 复现 word_count       stable=True  golden=True  hash=e1b6c4ba5c26943b
+[5/7] 诚实契约：h1=0 h2=3
+[4/7] 篡改自检：mutations=5 changed=5 sensitive=True base=8cd80c70ad275455
+[6/7] 热插拔：40 → 47（新增 7，未重启）
+[7/7] 策略：red hits=['diff0_drift'] downgradable=False（spec-diff0 v0.2 §8）
 ------------------------------------------------------------------------
-conclusion=green verdict_hash=ec516f4ed413b5af
+conclusion=red verdict_hash=19d9383cf876dad9
 md=reports\attestation.md
 jsonl=reports\attestation.jsonl
-VERAX_EXIT=0
-exit=0
+VERAX_EXIT=1
+exit=1
 
 ===== bench_public =====
 $ benchmarks/bench_public.py
 ========================================================================
 HoloAeon 公开基准 v0.9.1
 ========================================================================
-[1/3] DIFF=0    run1=2fc892cf9af6e755 run2=2fc892cf9af6e755 equal=True
-       敏感性   base=2fc892cf9af6e755 tampered=f42c8229ee5acd73 sensitive=True
+[1/3] DIFF=0    run1=6d119b2a9f2df687 run2=6d119b2a9f2df687 equal=True
+       敏感性   base=6d119b2a9f2df687 tampered=8f424d9ee3ebfb9b sensitive=True
 [2/3] 拦截率     16/16 = 100%；合法放行 4/4
-[3/3] 足迹       build=31.66ms peak=1.69MiB agents=25 skills=47
+[3/3] 足迹       build=36.08ms peak=1.69MiB agents=25 skills=47
 ------------------------------------------------------------------------
-DIFF=0 2fc892cf9af6e755 | 拦截 100% | 冷装配 31.66ms / 峰值 1.69MiB
+DIFF=0 6d119b2a9f2df687 | 拦截 100% | 冷装配 36.08ms / 峰值 1.69MiB
 written: F:\doubaowork\holoaeon\benchmarks\results-0.9.1.json
 BENCH_EXIT=0
 exit=0
@@ -210,7 +229,7 @@ exit=0
 ===== bench_semvec =====
 $ scripts/bench_semvec.py
 ========================================================================
-semvec 实测  corpus=47 docs  vocab=334  dim=32  fit=185.49ms
+semvec 实测  corpus=47 docs  vocab=334  dim=32  fit=199.26ms
 确定性  digest_a=789b71a36bfcd66a digest_b=789b71a36bfcd66a equal=True
 ------------------------------------------------------------------------
 意图                           基线               语义               混合0.75          
@@ -242,6 +261,6 @@ exit=0
 $ scripts/make_snapshot.py
 snapshot json: F:\doubaowork\holoaeon\snapshot\project_snapshot.json
 snapshot md  : F:\doubaowork\holoaeon\snapshot\SNAPSHOT.md
-snapshot_sha16=400e979585106b6d
-code: holoaeon/ 41 files / 11675 lines
+snapshot_sha16=ce7c808d1eec5798
+code: holoaeon/ 101 files / 23049 lines
 exit=0

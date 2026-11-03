@@ -3,7 +3,7 @@
 > 三个数字，随发版重跑。全部条目 `evidence_class=simulated`：仿真 ≠ 证明。
 
 ```
-DIFF=0 2fc892cf9af6e755 | 拦截 100% | 冷装配 31.6ms / 峰值 1.69MiB
+DIFF=0 6d119b2a9f2df687 | 拦截 100% | 冷装配 36.08ms / 峰值 1.69MiB
 ```
 
 ## 一 · DIFF=0（确定性）
@@ -12,8 +12,8 @@ DIFF=0 2fc892cf9af6e755 | 拦截 100% | 冷装配 31.6ms / 峰值 1.69MiB
 |---|---|
 | workload 步数 | 16 |
 | 规范化后两次一致 | True |
-| run1 哈希 | `2fc892cf9af6e755` |
-| run2 哈希 | `2fc892cf9af6e755` |
+| run1 哈希 | `6d119b2a9f2df687` |
+| run2 哈希 | `6d119b2a9f2df687` |
 | DIFF=0 | **True** |
 | 规范化保留的顶层键 | `runtime_id, steps` |
 
@@ -24,9 +24,9 @@ DIFF=0 2fc892cf9af6e755 | 拦截 100% | 冷装配 31.6ms / 峰值 1.69MiB
 
 | 敏感性自检 | 值 |
 |---|---|
-| 原始哈希 | `2fc892cf9af6e755` |
+| 原始哈希 | `6d119b2a9f2df687` |
 | 篡改字段 | steps[*].value.task（word_count 任务原文） |
-| 篡改后哈希 | `f42c8229ee5acd73` |
+| 篡改后哈希 | `8f424d9ee3ebfb9b` |
 | 哈希对内容敏感 | **True** |
 
 ## 二 · 守卫拦截率（安全边界）
@@ -45,7 +45,7 @@ DIFF=0 2fc892cf9af6e755 | 拦截 100% | 冷装配 31.6ms / 峰值 1.69MiB
 
 | 项 | 值 |
 |---|---|
-| 内核装配耗时 | 31.6 ms |
+| 内核装配耗时 | 36.08 ms |
 | 峰值内存（tracemalloc） | 1.69 MiB |
 | 装齐后 agent / skill | 25 / 47 |
 
@@ -59,8 +59,8 @@ DIFF=0 2fc892cf9af6e755 | 拦截 100% | 冷装配 31.6ms / 峰值 1.69MiB
 | platform | `Windows-10-10.0.19045-SP0` |
 | machine | `AMD64` |
 | cpu_count | 32 |
-| python | 3.13.14 |
-| 生成时刻 | 2026-11-01T12:53:09Z |
+| python | 3.13.16 |
+| 生成时刻 | 2026-11-03T16:05:38Z |
 
 ## 复跑
 

@@ -63,6 +63,12 @@ def _get_dehallucination_pack():
     return get_extra_pack("dehallucination")
 
 
+def _get_super_agent_pack():
+    """确定性自主调度扩展包实例（第 16 扩展包，Super-agent 蒸馏）。"""
+    from .packs import get_extra_pack
+    return get_extra_pack("super_agent")
+
+
 # ------------------------------------------------------------ 菜单实现
 def cmd_install() -> int:
     """1. 安装引导：装配内核并打印统计。"""
@@ -257,6 +263,40 @@ def cmd_dehallucinate() -> int:
     return 0
 
 
+def cmd_super_agent() -> int:
+    """[11] 自主调度（Super-agent 模式：Router 分派+两级过滤+Watchdog）。"""
+    print()
+    print("== 确定性自主调度（Super-agent 对标蒸馏 · D-01~D-05）==")
+    p = _get_super_agent_pack()
+    print("扩展包: %s | 技能 %d / 角色 %d / 工作流 %d"
+          % (p.key, len(p.skills), len(p.roles), len(p.workflows)))
+    from .router_layer import RouterLayer
+    from .event_filter import EventFilter
+    from .external_watchdog import ExternalWatchdog
+    router = RouterLayer()
+    router.register_rule("写文章", "writing_planner")
+    router.register_rule("分析数据", "data_analyst")
+    router.register_rule("监控", "watchdog_operator", priority=1)
+    router.start()
+    line = _readline("task> ")
+    if line is None or not line.strip():
+        task = "帮我监控系统状态"
+        print("（空输入，使用演示任务: %s）" % task)
+    else:
+        task = line.strip()
+    target = router.receive(task)
+    print("Router 分派: %s -> %s（规则驱动，确定性）" % (task, target))
+    f = EventFilter()
+    print("两级过滤: %s" % f.filter("代码审查发现一个bug"))
+    w = ExternalWatchdog(".")
+    w.alert("info", "任务已分派到 %s" % target)
+    snap = w.snapshot()
+    print("Watchdog: 警报 %d 条 | 健康历史 %d 条"
+          % (snap["alerts_count"], snap["history_count"]))
+    print("状态: %s" % router.status())
+    return 0
+
+
 MENU = {
     "1": ("安装引导", cmd_install),
     "2": ("自检", cmd_selftest),
@@ -268,6 +308,7 @@ MENU = {
     "8": ("向量海勘探", cmd_explore),
     "9": ("技能机床", cmd_lathe),
     "10": ("去幻觉检测", cmd_dehallucinate),
+    "11": ("自主调度", cmd_super_agent),
 }
 
 

@@ -1,8 +1,8 @@
 {
   "bench": {
-    "build_ms": 31.66,
+    "build_ms": 36.08,
     "diff0": true,
-    "diff0_hash": "2fc892cf9af6e755",
+    "diff0_hash": "6d119b2a9f2df687",
     "guard_rate": 1.0,
     "legit_pass": "4/4",
     "peak_mib": 1.69,
@@ -26,7 +26,7 @@
           "path": "holoaeon/__init__.py"
         },
         {
-          "lines": 184,
+          "lines": 196,
           "path": "holoaeon/agent.py"
         },
         {
@@ -34,19 +34,51 @@
           "path": "holoaeon/bus.py"
         },
         {
+          "lines": 365,
+          "path": "holoaeon/butler_os.py"
+        },
+        {
+          "lines": 103,
+          "path": "holoaeon/cache.py"
+        },
+        {
           "lines": 182,
           "path": "holoaeon/cluster.py"
+        },
+        {
+          "lines": 326,
+          "path": "holoaeon/dehallucination.py"
+        },
+        {
+          "lines": 76,
+          "path": "holoaeon/demo_product.py"
         },
         {
           "lines": 176,
           "path": "holoaeon/envelope.py"
         },
         {
+          "lines": 77,
+          "path": "holoaeon/event_channel.py"
+        },
+        {
+          "lines": 97,
+          "path": "holoaeon/event_filter.py"
+        },
+        {
+          "lines": 119,
+          "path": "holoaeon/external_watchdog.py"
+        },
+        {
+          "lines": 107,
+          "path": "holoaeon/frontend_adapter.py"
+        },
+        {
           "lines": 273,
           "path": "holoaeon/graph.py"
         },
         {
-          "lines": 178,
+          "lines": 303,
           "path": "holoaeon/guard.py"
         },
         {
@@ -54,8 +86,16 @@
           "path": "holoaeon/hypervector.py"
         },
         {
-          "lines": 171,
+          "lines": 199,
+          "path": "holoaeon/interrupt.py"
+        },
+        {
+          "lines": 208,
           "path": "holoaeon/kernel.py"
+        },
+        {
+          "lines": 163,
+          "path": "holoaeon/mcp_adapter.py"
         },
         {
           "lines": 150,
@@ -66,15 +106,31 @@
           "path": "holoaeon/model_adapter.py"
         },
         {
-          "lines": 130,
+          "lines": 173,
+          "path": "holoaeon/protocol_plugins.py"
+        },
+        {
+          "lines": 179,
           "path": "holoaeon/redline.py"
+        },
+        {
+          "lines": 92,
+          "path": "holoaeon/replay_branch.py"
+        },
+        {
+          "lines": 162,
+          "path": "holoaeon/router_layer.py"
+        },
+        {
+          "lines": 275,
+          "path": "holoaeon/runnable.py"
         },
         {
           "lines": 148,
           "path": "holoaeon/scheduler.py"
         },
         {
-          "lines": 1299,
+          "lines": 1343,
           "path": "holoaeon/selftest.py"
         },
         {
@@ -86,8 +142,28 @@
           "path": "holoaeon/skill.py"
         },
         {
-          "lines": 232,
+          "lines": 149,
+          "path": "holoaeon/skill_lathe.py"
+        },
+        {
+          "lines": 113,
+          "path": "holoaeon/skill_loader.py"
+        },
+        {
+          "lines": 125,
+          "path": "holoaeon/skill_schema.py"
+        },
+        {
+          "lines": 246,
           "path": "holoaeon/spec.py"
+        },
+        {
+          "lines": 237,
+          "path": "holoaeon/topology_runtime.py"
+        },
+        {
+          "lines": 131,
+          "path": "holoaeon/vector_sea_explorer.py"
         },
         {
           "lines": 31,
@@ -102,19 +178,127 @@
           "path": "holoaeon/audit/fields.py"
         },
         {
-          "lines": 94,
+          "lines": 106,
           "path": "holoaeon/audit/honesty.py"
+        },
+        {
+          "lines": 130,
+          "path": "holoaeon/audit/mutation.py"
         },
         {
           "lines": 54,
           "path": "holoaeon/audit/receipt.py"
         },
         {
+          "lines": 140,
+          "path": "holoaeon/audit/span_tree.py"
+        },
+        {
+          "lines": 79,
+          "path": "holoaeon/audit/verdict_policy.py"
+        },
+        {
           "lines": 142,
           "path": "holoaeon/audit/verify.py"
         },
         {
-          "lines": 80,
+          "lines": 35,
+          "path": "holoaeon/design_vocab/__init__.py"
+        },
+        {
+          "lines": 89,
+          "path": "holoaeon/design_vocab/compile_modes.py"
+        },
+        {
+          "lines": 188,
+          "path": "holoaeon/design_vocab/detectors.py"
+        },
+        {
+          "lines": 81,
+          "path": "holoaeon/design_vocab/hebbian.py"
+        },
+        {
+          "lines": 65,
+          "path": "holoaeon/design_vocab/meridian.py"
+        },
+        {
+          "lines": 54,
+          "path": "holoaeon/design_vocab/vocabulary.py"
+        },
+        {
+          "lines": 19,
+          "path": "holoaeon/fusion_upgrade/__init__.py"
+        },
+        {
+          "lines": 229,
+          "path": "holoaeon/fusion_upgrade/admission.py"
+        },
+        {
+          "lines": 244,
+          "path": "holoaeon/fusion_upgrade/contract.py"
+        },
+        {
+          "lines": 260,
+          "path": "holoaeon/fusion_upgrade/dual_sync.py"
+        },
+        {
+          "lines": 146,
+          "path": "holoaeon/fusion_upgrade/external_skill_registry.py"
+        },
+        {
+          "lines": 233,
+          "path": "holoaeon/fusion_upgrade/hebbian_store.py"
+        },
+        {
+          "lines": 86,
+          "path": "holoaeon/fusion_upgrade/manifest.py"
+        },
+        {
+          "lines": 200,
+          "path": "holoaeon/fusion_upgrade/model_gateway.py"
+        },
+        {
+          "lines": 177,
+          "path": "holoaeon/fusion_upgrade/plan.py"
+        },
+        {
+          "lines": 277,
+          "path": "holoaeon/fusion_upgrade/plugin_runtime.py"
+        },
+        {
+          "lines": 124,
+          "path": "holoaeon/fusion_upgrade/protocol.py"
+        },
+        {
+          "lines": 129,
+          "path": "holoaeon/fusion_upgrade/reasoning_adapter.py"
+        },
+        {
+          "lines": 106,
+          "path": "holoaeon/fusion_upgrade/selftest.py"
+        },
+        {
+          "lines": 88,
+          "path": "holoaeon/fusion_upgrade/semantic_family.py"
+        },
+        {
+          "lines": 136,
+          "path": "holoaeon/fusion_upgrade/slot_registry.py"
+        },
+        {
+          "lines": 109,
+          "path": "holoaeon/fusion_upgrade/snapshot.py"
+        },
+        {
+          "lines": 124,
+          "path": "holoaeon/fusion_upgrade/swap.py"
+        },
+        {
+          "lines": 158,
+          "path": "holoaeon/fusion_upgrade/three_field.py"
+        },
+        {
+          "lines": 114,
           "path": "holoaeon/packs/__init__.py"
         },
         {
@@ -128,6 +312,14 @@
         {
           "lines": 123,
           "path": "holoaeon/packs/data.py"
+        },
+        {
+          "lines": 264,
+          "path": "holoaeon/packs/dehallucination_pack.py"
+        },
+        {
+          "lines": 164,
+          "path": "holoaeon/packs/fusion_upgrade_pack.py"
         },
         {
           "lines": 457,
@@ -162,12 +354,24 @@
           "path": "holoaeon/packs/optimization.py"
         },
         {
+          "lines": 229,
+          "path": "holoaeon/packs/persona_quartet_pack.py"
+        },
+        {
           "lines": 120,
           "path": "holoaeon/packs/quant.py"
         },
         {
+          "lines": 593,
+          "path": "holoaeon/packs/quartet_director_pack.py"
+        },
+        {
           "lines": 93,
           "path": "holoaeon/packs/research.py"
+        },
+        {
+          "lines": 158,
+          "path": "holoaeon/packs/skill_matrix_pack.py"
         },
         {
           "lines": 342,
@@ -178,16 +382,52 @@
           "path": "holoaeon/packs/subdistill_pack.py"
         },
         {
+          "lines": 206,
+          "path": "holoaeon/packs/super_agent_pack.py"
+        },
+        {
+          "lines": 191,
+          "path": "holoaeon/packs/tcm_rehab_pack.py"
+        },
+        {
+          "lines": 1264,
+          "path": "holoaeon/packs/topology_resonance_pack.py"
+        },
+        {
           "lines": 821,
           "path": "holoaeon/packs/uplift_pack.py"
         },
         {
+          "lines": 290,
+          "path": "holoaeon/packs/vector_sea_pack.py"
+        },
+        {
           "lines": 94,
           "path": "holoaeon/packs/writing.py"
+        },
+        {
+          "lines": 41,
+          "path": "holoaeon/skill_matrix/__init__.py"
+        },
+        {
+          "lines": 150,
+          "path": "holoaeon/skill_matrix/index.py"
+        },
+        {
+          "lines": 385,
+          "path": "holoaeon/skill_matrix/mech.py"
+        },
+        {
+          "lines": 173,
+          "path": "holoaeon/skill_matrix/runtime.py"
+        },
+        {
+          "lines": 144,
+          "path": "holoaeon/skill_matrix/selftest.py"
         }
       ],
-      "files": 41,
-      "lines": 11675
+      "files": 101,
+      "lines": 23049
     }
   },
   "dimensions": {
@@ -311,11 +551,74 @@
         "kind": "extra",
         "skills": 24,
         "workflows": 7
+      },
+      {
+        "agents": 5,
+        "key": "persona_quartet",
+        "kind": "extra",
+        "skills": 4,
+        "workflows": 1
+      },
+      {
+        "agents": 2,
+        "key": "skill_matrix",
+        "kind": "extra",
+        "skills": 6,
+        "workflows": 1
+      },
+      {
+        "agents": 2,
+        "key": "fusion_upgrade",
+        "kind": "extra",
+        "skills": 8,
+        "workflows": 1
+      },
+      {
+        "agents": 2,
+        "key": "tcm_rehab",
+        "kind": "extra",
+        "skills": 4,
+        "workflows": 1
+      },
+      {
+        "agents": 5,
+        "key": "topology_resonance",
+        "kind": "extra",
+        "skills": 16,
+        "workflows": 2
+      },
+      {
+        "agents": 5,
+        "key": "quartet_director",
+        "kind": "extra",
+        "skills": 14,
+        "workflows": 2
+      },
+      {
+        "agents": 4,
+        "key": "vector_sea",
+        "kind": "extra",
+        "skills": 8,
+        "workflows": 2
+      },
+      {
+        "agents": 3,
+        "key": "dehallucination",
+        "kind": "extra",
+        "skills": 6,
+        "workflows": 1
+      },
+      {
+        "agents": 3,
+        "key": "super_agent",
+        "kind": "extra",
+        "skills": 5,
+        "workflows": 1
       }
     ],
     "full": {
-      "agents": 25,
-      "skills": 191
+      "agents": 56,
+      "skills": 262
     },
     "matrix_id": "HOLOAEON-MATRIX-0.9.1",
     "protocol_id": "HOLOAEON-DATAPROTO v1.0",
@@ -337,7 +640,7 @@
     "python scripts/bench_semvec.py",
     "python scripts/ledger_view.py --sample data/ledger_sample.jsonl"
   ],
-  "generated_at": "2026-10-31T12:32:07Z",
+  "generated_at": "2026-11-03T16:05:39Z",
   "how_to_join": [
     "读 snapshot/SNAPSHOT.md 的「不变量」与「入口」，先在本地跑通 3 条命令",
     "改动前用 tests\\ + selftest + redline 三闸确认基线全绿",
@@ -370,6 +673,11 @@
     "repo": "https://github.com/weideyouni/holoaeon",
     "root_layout": [
       {
+        "bytes": 208,
+        "path": ".gitattributes",
+        "type": "file"
+      },
+      {
         "files": 3,
         "path": ".github/",
         "type": "dir"
@@ -385,6 +693,86 @@
         "type": "file"
       },
       {
+        "bytes": 32173,
+        "path": "AGENT_FEED_V10_TOPOLOGY_INTEGRATION_20261103.md",
+        "type": "file"
+      },
+      {
+        "bytes": 33392,
+        "path": "AGENT_FEED_V11_CITY_STATE_FUSION_20261103.md",
+        "type": "file"
+      },
+      {
+        "bytes": 18164,
+        "path": "AGENT_FEED_V12_BUTLER_OS_BOOTSTRAP_20261103.md",
+        "type": "file"
+      },
+      {
+        "bytes": 19933,
+        "path": "AGENT_FEED_V13_VECTOR_SEA_EXPLORATION_20261103.md",
+        "type": "file"
+      },
+      {
+        "bytes": 27354,
+        "path": "AGENT_FEED_V14_SKILL_LATHE_PROTOCOL_PLUGINS_20261103.md",
+        "type": "file"
+      },
+      {
+        "bytes": 32948,
+        "path": "AGENT_FEED_V15_DEHALLUCINATION_LEIBNIZ_ZHANGPING_20261103.md",
+        "type": "file"
+      },
+      {
+        "bytes": 23208,
+        "path": "AGENT_FEED_V16_SUPER_AGENT_DISTILLATION_20261103.md",
+        "type": "file"
+      },
+      {
+        "bytes": 10754,
+        "path": "AGENT_FEED_V2_DONE_20261101.md",
+        "type": "file"
+      },
+      {
+        "bytes": 11626,
+        "path": "AGENT_FEED_V3_DONE_20261101.md",
+        "type": "file"
+      },
+      {
+        "bytes": 16777,
+        "path": "AGENT_FEED_V3_LANGCHAIN_20261101.md",
+        "type": "file"
+      },
+      {
+        "bytes": 19830,
+        "path": "AGENT_FEED_V4_REHAB_FUSION_20261102.md",
+        "type": "file"
+      },
+      {
+        "bytes": 15926,
+        "path": "AGENT_FEED_V5_CODE_FIX_20261102.md",
+        "type": "file"
+      },
+      {
+        "bytes": 24927,
+        "path": "AGENT_FEED_V6_CODE_FIX_ONESHOT_20261102.md",
+        "type": "file"
+      },
+      {
+        "bytes": 24184,
+        "path": "AGENT_FEED_V7_PRODUCT_PIVOT_20261103.md",
+        "type": "file"
+      },
+      {
+        "bytes": 36035,
+        "path": "AGENT_FEED_V8_BATCH2_4_FUSION_20261103.md",
+        "type": "file"
+      },
+      {
+        "bytes": 13743,
+        "path": "AGENT_FEED_V9_TOPOLOGY_RESONANCE_FUSION_20261103.md",
+        "type": "file"
+      },
+      {
         "bytes": 9807,
         "path": "AGENT_FEED_VERAX_20261031.md",
         "type": "file"
@@ -392,6 +780,11 @@
       {
         "bytes": 6980,
         "path": "ALGORITHM.md",
+        "type": "file"
+      },
+      {
+        "bytes": 8550,
+        "path": "BASELINE_STATUS_20261103.md",
         "type": "file"
       },
       {
@@ -405,6 +798,16 @@
         "type": "file"
       },
       {
+        "bytes": 11070,
+        "path": "COMMERCIAL_FEASIBILITY_REPORT_20261103.md",
+        "type": "file"
+      },
+      {
+        "bytes": 14970,
+        "path": "COMMERCIAL_LANDING_SOP_20261103.md",
+        "type": "file"
+      },
+      {
         "bytes": 1759,
         "path": "CONTRIBUTING.md",
         "type": "file"
@@ -415,17 +818,27 @@
         "type": "file"
       },
       {
+        "bytes": 3410,
+        "path": "HONESTY_V3_20261101.md",
+        "type": "file"
+      },
+      {
         "bytes": 11541,
         "path": "LICENSE",
         "type": "file"
       },
       {
-        "bytes": 39142,
+        "bytes": 21049,
+        "path": "QUARTET_SYSTEM_UPGRADE_20261103.md",
+        "type": "file"
+      },
+      {
+        "bytes": 92261,
         "path": "README.md",
         "type": "file"
       },
       {
-        "bytes": 16771,
+        "bytes": 55294,
         "path": "README.zh-CN.md",
         "type": "file"
       },
@@ -440,13 +853,33 @@
         "type": "file"
       },
       {
+        "bytes": 37233,
+        "path": "README_FUSION_V4_20261102.md",
+        "type": "file"
+      },
+      {
         "bytes": 11420,
         "path": "README_MANIFESTO_v0.9.1.md",
         "type": "file"
       },
       {
+        "bytes": 2135,
+        "path": "README_V2.md",
+        "type": "file"
+      },
+      {
         "bytes": 5565,
         "path": "README_VERAX_20261031.md",
+        "type": "file"
+      },
+      {
+        "bytes": 23471,
+        "path": "SHA256SUMS",
+        "type": "file"
+      },
+      {
+        "bytes": 13679,
+        "path": "STANDARD_BASED_EVALUATION_20261103.md",
         "type": "file"
       },
       {
@@ -480,12 +913,12 @@
         "type": "file"
       },
       {
-        "files": 4,
+        "files": 6,
         "path": "benchmarks/",
         "type": "dir"
       },
       {
-        "files": 6,
+        "files": 7,
         "path": "bridges/",
         "type": "dir"
       },
@@ -495,27 +928,47 @@
         "type": "dir"
       },
       {
-        "files": 3,
+        "files": 69,
         "path": "data/",
         "type": "dir"
       },
       {
-        "files": 21,
+        "files": 31,
         "path": "docs/",
         "type": "dir"
       },
       {
-        "files": 7,
+        "files": 8,
         "path": "examples/",
         "type": "dir"
       },
       {
-        "files": 19,
+        "files": 41,
         "path": "holoaeon/",
         "type": "dir"
       },
       {
-        "bytes": 2179,
+        "bytes": 65,
+        "path": "holoaeon_os.bat",
+        "type": "file"
+      },
+      {
+        "bytes": 116,
+        "path": "holoaeon_os.sh",
+        "type": "file"
+      },
+      {
+        "bytes": 1772,
+        "path": "install.bat",
+        "type": "file"
+      },
+      {
+        "bytes": 1815,
+        "path": "install.sh",
+        "type": "file"
+      },
+      {
+        "bytes": 2634,
         "path": "pyproject.toml",
         "type": "file"
       },
@@ -525,23 +978,33 @@
         "type": "dir"
       },
       {
-        "files": 14,
+        "files": 66,
         "path": "reports/",
         "type": "dir"
       },
       {
-        "files": 28,
+        "files": 94,
         "path": "scripts/",
         "type": "dir"
       },
       {
-        "files": 2,
+        "files": 3,
+        "path": "skills/",
+        "type": "dir"
+      },
+      {
+        "files": 6,
         "path": "snapshot/",
         "type": "dir"
       },
       {
-        "files": 3,
+        "files": 5,
         "path": "tests/",
+        "type": "dir"
+      },
+      {
+        "files": 21,
+        "path": "tests_contract/",
         "type": "dir"
       }
     ]
@@ -552,7 +1015,7 @@
     "corpus_docs": 47,
     "digest": "789b71a36bfcd66a",
     "dim": 32,
-    "fit_ms": 185.49,
+    "fit_ms": 199.26,
     "hybrid_correct": 11,
     "intents": 12,
     "vocab": 334

@@ -3,7 +3,7 @@
   "evidence_class": "simulated",
   "generated_at": "2026-11-02",
   "holoaeon": {
-    "entries": 244,
+    "entries": 245,
     "exclude_reason": "清单自身与派生件不入清单，避免自指循环",
     "excludes": [
       "SHA256SUMS",
@@ -19,7 +19,7 @@
     ],
     "manifest": "SHA256SUMS",
     "root": "F:/doubaowork/holoaeon",
-    "sums_sha256": "0485e5ffe6f340fafc0cc06ad0b75789aea9cbc1202e2408d59b8bc3113033c9"
+    "sums_sha256": "8f21ef5c320afcca05ec93c01a08bcb1abcb3af3f8e78106a77718c9af4ee280"
   },
   "interface": {
     "expected_total": 17,

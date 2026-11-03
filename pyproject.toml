@@ -62,6 +62,8 @@ holoaeon-mcp = "holoaeon.mcp_adapter:main"
 holoaeon-explore = "holoaeon.vector_sea_explorer:main"
 holoaeon-lathe = "holoaeon.skill_lathe:main"
 holoaeon-dehallucinate = "holoaeon.dehallucination:main"
+holoaeon-router = "holoaeon.router_layer:main"
+holoaeon-watchdog = "holoaeon.external_watchdog:main"
 
 [tool.setuptools.dynamic]
 version = {attr = "holoaeon.spec.VERSION"}

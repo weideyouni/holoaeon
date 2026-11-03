@@ -16,17 +16,17 @@ HoloAeon 是一个**零依赖、默认离线、确定性、带回执**的多智�
 | 版本 | 0.9.1（HOLOAEON-RUNTIME-0.9.1） |
 | 核心包 | 25 智能体 / 47 技能 / 9 工作流 |
 | 领域包 | 9 个（writing / literature / research / data / growth / business / quant / optimization / gaoyi） |
-| 扩展包 | 7 个（sovereignty / subdistill / omnilife / omnicore / metab / nephron / uplift） |
-| 全装后 | 25 智能体 / 191 技能 |
-| 代码量 | holoaeon/ 41 文件 / 11675 行 |
+| 扩展包 | 16 个（sovereignty / subdistill / omnilife / omnicore / metab / nephron / uplift / persona_quartet / skill_matrix / fusion_upgrade / tcm_rehab / topology_resonance / quartet_director / vector_sea / dehallucination / super_agent） |
+| 全装后 | 56 智能体 / 262 技能 |
+| 代码量 | holoaeon/ 101 文件 / 23049 行 |
 
 ## 三 · 三个数字（证据入口）
 
 | 指标 | 值 | 出处 |
 |---|---|---|
-| DIFF=0 | `2fc892cf9af6e755`（一致=True，敏感性=True） |
+| DIFF=0 | `6d119b2a9f2df687`（一致=True，敏感性=True） |
 | 守卫拦截率 | 100%（合法 4/4 放行） |
-| 足迹 | 31.66 ms / 1.69 MiB |
+| 足迹 | 36.08 ms / 1.69 MiB |
 
 ## 四 · 语义通道实测（披露，不设目标值）
 
@@ -35,7 +35,7 @@ HoloAeon 是一个**零依赖、默认离线、确定性、带回执**的多智�
 | 意图数 / 词表 / 维度 | 12 / 334 / 32 |
 | 基线正确 / 混合正确 | 10 / 11 |
 | 两次 fit 逐位一致 | True |
-| fit 耗时 | 185.49 ms |
+| fit 耗时 | 199.26 ms |
 
 ## 五 · 入口命令（照抄可跑）
 
@@ -89,41 +89,73 @@ python scripts/ledger_view.py --sample data/ledger_sample.jsonl
 
 | 路径 | 类型 | 说明 |
 |---|---|---|
+| `.gitattributes` | file | 208 B |
 | `.github/` | dir | 3 项 |
 | `.gitignore` | file | 788 B |
 | `AGENT_FEED_DIFF0_20261031.md` | file | 8089 B |
+| `AGENT_FEED_V10_TOPOLOGY_INTEGRATION_20261103.md` | file | 32173 B |
+| `AGENT_FEED_V11_CITY_STATE_FUSION_20261103.md` | file | 33392 B |
+| `AGENT_FEED_V12_BUTLER_OS_BOOTSTRAP_20261103.md` | file | 18164 B |
+| `AGENT_FEED_V13_VECTOR_SEA_EXPLORATION_20261103.md` | file | 19933 B |
+| `AGENT_FEED_V14_SKILL_LATHE_PROTOCOL_PLUGINS_20261103.md` | file | 27354 B |
+| `AGENT_FEED_V15_DEHALLUCINATION_LEIBNIZ_ZHANGPING_20261103.md` | file | 32948 B |
+| `AGENT_FEED_V16_SUPER_AGENT_DISTILLATION_20261103.md` | file | 23208 B |
+| `AGENT_FEED_V2_DONE_20261101.md` | file | 10754 B |
+| `AGENT_FEED_V3_DONE_20261101.md` | file | 11626 B |
+| `AGENT_FEED_V3_LANGCHAIN_20261101.md` | file | 16777 B |
+| `AGENT_FEED_V4_REHAB_FUSION_20261102.md` | file | 19830 B |
+| `AGENT_FEED_V5_CODE_FIX_20261102.md` | file | 15926 B |
+| `AGENT_FEED_V6_CODE_FIX_ONESHOT_20261102.md` | file | 24927 B |
+| `AGENT_FEED_V7_PRODUCT_PIVOT_20261103.md` | file | 24184 B |
+| `AGENT_FEED_V8_BATCH2_4_FUSION_20261103.md` | file | 36035 B |
+| `AGENT_FEED_V9_TOPOLOGY_RESONANCE_FUSION_20261103.md` | file | 13743 B |
 | `AGENT_FEED_VERAX_20261031.md` | file | 9807 B |
 | `ALGORITHM.md` | file | 6980 B |
+| `BASELINE_STATUS_20261103.md` | file | 8550 B |
 | `CHANGELOG.md` | file | 29457 B |
 | `CODE_OF_CONDUCT.md` | file | 1630 B |
+| `COMMERCIAL_FEASIBILITY_REPORT_20261103.md` | file | 11070 B |
+| `COMMERCIAL_LANDING_SOP_20261103.md` | file | 14970 B |
 | `CONTRIBUTING.md` | file | 1759 B |
 | `DELIVERY_VERAX_20261031.md` | file | 2617 B |
+| `HONESTY_V3_20261101.md` | file | 3410 B |
 | `LICENSE` | file | 11541 B |
-| `README.md` | file | 39142 B |
-| `README.zh-CN.md` | file | 16771 B |
+| `QUARTET_SYSTEM_UPGRADE_20261103.md` | file | 21049 B |
+| `README.md` | file | 92261 B |
+| `README.zh-CN.md` | file | 55294 B |
 | `README_DIFF0_20261031.md` | file | 6229 B |
 | `README_EMPOWER_20261031.md` | file | 10167 B |
+| `README_FUSION_V4_20261102.md` | file | 37233 B |
 | `README_MANIFESTO_v0.9.1.md` | file | 11420 B |
+| `README_V2.md` | file | 2135 B |
 | `README_VERAX_20261031.md` | file | 5565 B |
+| `SHA256SUMS` | file | 23471 B |
+| `STANDARD_BASED_EVALUATION_20261103.md` | file | 13679 B |
 | `SYSTEM_README.md` | file | 13233 B |
 | `SYSTEM_README_v0.5.0.md` | file | 11697 B |
 | `SYSTEM_README_v0.6.0.md` | file | 12692 B |
 | `SYSTEM_README_v0.7.0.md` | file | 15369 B |
 | `SYSTEM_README_v0.8.0.md` | file | 14153 B |
 | `SYSTEM_README_v0.9.0.md` | file | 9167 B |
-| `benchmarks/` | dir | 4 项 |
-| `bridges/` | dir | 6 项 |
+| `benchmarks/` | dir | 6 项 |
+| `bridges/` | dir | 7 项 |
 | `cookbooks/` | dir | 3 项 |
-| `data/` | dir | 3 项 |
-| `docs/` | dir | 21 项 |
-| `examples/` | dir | 7 项 |
-| `holoaeon/` | dir | 19 项 |
-| `pyproject.toml` | file | 2179 B |
+| `data/` | dir | 69 项 |
+| `docs/` | dir | 31 项 |
+| `examples/` | dir | 8 项 |
+| `holoaeon/` | dir | 41 项 |
+| `holoaeon_os.bat` | file | 65 B |
+| `holoaeon_os.sh` | file | 116 B |
+| `install.bat` | file | 1772 B |
+| `install.sh` | file | 1815 B |
+| `pyproject.toml` | file | 2634 B |
 | `releases/` | dir | 10 项 |
-| `reports/` | dir | 14 项 |
-| `scripts/` | dir | 28 项 |
-| `snapshot/` | dir | 2 项 |
-| `tests/` | dir | 3 项 |
+| `reports/` | dir | 66 项 |
+| `scripts/` | dir | 94 项 |
+| `skills/` | dir | 3 项 |
+| `snapshot/` | dir | 6 项 |
+| `tests/` | dir | 5 项 |
+| `tests_contract/` | dir | 21 项 |
 
 --
 快照由 `scripts/make_snapshot.py` 生成，重跑即可刷新；不含只读机密。

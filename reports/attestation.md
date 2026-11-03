@@ -2,10 +2,10 @@
 HoloAeon VERAX 自证报告（Self-Attestation）
 ========================================================================
 runtime_id : HOLOAEON-RUNTIME-0.9.1
-commit     : 03b7c5c29faa
-ts_build   : 2026-11-01T00:20:55Z   （物理量，不进 verdict_hash）
-verdict    : GREEN
-verdict_hash : f2fb0236c8bbd721
+commit     : c36e0156c2db
+ts_build   : 2026-11-03T16:07:11Z   （物理量，不进 verdict_hash）
+verdict    : YELLOW
+verdict_hash : 886af2388a2b7560
 证据分级   : 本报告全部条目默认 simulated；仿真≠证明。
 
 ------------------------------------------------------------------------
@@ -37,11 +37,11 @@ G22        G22 metab                          pass   52/52 代谢层包（26技�
 G23        G23 nephron                        pass   62/62 肾单位 P0 包（24技能/0agent/7工作流/41字段/27码/10审视）
 G24        G24 uplift                         pass   46/46 补齐短板升级包（24技能/0agent/7工作流/6单元/10审视/5缺陷/10裁决/22验收）
 G25        G25 persona_quartet                pass   8/8 四人全维度数字分身包（4技能/5角色/1工作流/4主体×7维度/归因仿真）
-BM-data_describe 复现基准 data_describe                 pass   hash=3352db0f803eb727 golden=True
+BM-data_describe 复现基准 data_describe                 pass   hash=8cd80c70ad275455 golden=True
 BM-guard_eval 复现基准 guard_eval                    pass   hash=98b9b7b340f7f980 golden=True
 BM-guard_os_system 复现基准 guard_os_system               pass   hash=a7deb622e17a2b55 golden=True
-BM-quant_sharpe 复现基准 quant_sharpe                  pass   hash=2c9e5d7d01526ce8 golden=True
-BM-word_count 复现基准 word_count                    pass   hash=2b82a6ef7188ce91 golden=True
+BM-quant_sharpe 复现基准 quant_sharpe                  pass   hash=8ee7170326666303 golden=True
+BM-word_count 复现基准 word_count                    pass   hash=e1b6c4ba5c26943b golden=True
 BM-hotplug 热插拔 optimization 不重启               pass   hash=None golden=None
 V2-policy  fail-loud 三条硬红线（diff0/mutation/g   pass   hash=None golden=None
 
@@ -49,29 +49,29 @@ V2-policy  fail-loud 三条硬红线（diff0/mutation/g   pass   hash=None golde
 二、复现判定（ReproVerdict）
 ------------------------------------------------------------------------
 task_id=data_describe runs=2 stable=True golden_match=True
-  reprohash: 3352db0f803eb727, 3352db0f803eb727
+  reprohash: 8cd80c70ad275455, 8cd80c70ad275455
   diff_physical（仅记录，不影响判定）: 1 项
 task_id=guard_eval runs=2 stable=True golden_match=True
   reprohash: 98b9b7b340f7f980, 98b9b7b340f7f980
 task_id=guard_os_system runs=2 stable=True golden_match=True
   reprohash: a7deb622e17a2b55, a7deb622e17a2b55
 task_id=quant_sharpe runs=2 stable=True golden_match=True
-  reprohash: 2c9e5d7d01526ce8, 2c9e5d7d01526ce8
+  reprohash: 8ee7170326666303, 8ee7170326666303
   diff_physical（仅记录，不影响判定）: 1 项
 task_id=word_count runs=2 stable=True golden_match=True
-  reprohash: 2b82a6ef7188ce91, 2b82a6ef7188ce91
+  reprohash: e1b6c4ba5c26943b, e1b6c4ba5c26943b
   diff_physical（仅记录，不影响判定）: 1 项
 
 ------------------------------------------------------------------------
 三、诚实契约（honesty）
 ------------------------------------------------------------------------
-simulated=0 measured=0 third_party=0 noncompliant=0
-H1（measured 无来源）/ H2（缺 evidence_class）命中计数：0
+simulated=0 measured=0 third_party=0 noncompliant=3
+H1（measured 无来源）/ H2（缺 evidence_class）命中计数：3
 
 ------------------------------------------------------------------------
 四、红线（redline）
 ------------------------------------------------------------------------
-扫描文件数=44 violations=0
+扫描文件数=101 violations=0
 未登记字段（按物理量处理，已告警）：$.results[0].input.csv_text, $.results[0].input.returns_s
 
 五、门禁退出码：0=绿 / 1=红 / 2=黄（scripts/verax_verify.py）

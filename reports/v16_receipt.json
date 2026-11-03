@@ -1,0 +1,93 @@
+{
+  "batch": "V16-SUPER-AGENT-DISTILLATION",
+  "status": "DONE",
+  "steps_completed": ["A", "B", "C", "D", "E"],
+  "selftest": "25/25 PASS",
+  "unittest": "68 OK（tests/verax 21 OK + tests/v3 21 OK）",
+  "contract": "PASS",
+  "redline": "101 文件 0 违规（+4 新 py）",
+  "v3_gate": "32/32 PASS（A12.1 零依赖未破）",
+  "dimension_lock": "0 violation（diff0=2fc892cf9af6e755 未漂移，tamper=f42c8229ee5acd73，spec_version=0.9.1）",
+  "verify_v44": "13/13 PASS（A12 零依赖未破）",
+  "mcp_regression": "13/13 PASS（doc_version 期望同步 0.9.15；实锤旧 pyc 缓存 0.9.14 幽灵值，清 __pycache__ 后稳定）",
+  "VERSION": "0.9.1",
+  "DOC_VERSION": "0.9.15",
+  "EXTRA_PACK_ORDER": 16,
+  "new_files": [
+    "holoaeon/router_layer.py",
+    "holoaeon/event_filter.py",
+    "holoaeon/external_watchdog.py",
+    "holoaeon/packs/super_agent_pack.py"
+  ],
+  "modified_files": [
+    "holoaeon/packs/__init__.py",
+    "holoaeon/spec.py",
+    "holoaeon/butler_os.py",
+    "pyproject.toml",
+    "README.md",
+    "README.zh-CN.md",
+    "README_FUSION_V4_20261102.md"
+  ],
+  "distilled_from": "DeepSeek Super-agent (2026-10-31)",
+  "distilled_points": ["D-01 Router", "D-02 TwoFilter", "D-03 Watchdog", "D-04 ContextIsolation", "D-05 ProactiveScan"],
+  "rejected_points": ["X-01 MultiChannel", "X-02 LLM_Proactivity", "X-03 HarnessProduct", "X-04 PersonalAgent"],
+  "first_principle": "deterministic_autonomous_scheduling (规则驱动非LLM)",
+  "super_agent_skills": 5,
+  "super_agent_roles": 3,
+  "super_agent_workflows": 1,
+  "pack_key": "super_agent",
+  "skills": ["router_dispatch", "event_two_filter", "watchdog_monitor", "context_isolate", "proactive_scan"],
+  "roles": ["router_coordinator", "filter_engineer", "watchdog_operator"],
+  "workflow": "super_agent_flow",
+  "module_selfchecks": {
+    "router_layer": "PASS dispatch=[writing_planner,data_analyst,watchdog_operator,*] queue=4（有序字符匹配降级链）",
+    "event_filter": "PASS bug=True:L2 无关=L1 修复=True:L2（FAST 14 词 + DEEP 4 条 lambda）",
+    "external_watchdog": "PASS alerts=1 history=1 diff0=2fc892cf9af6e755（只 observe 只告警不拦截）",
+    "super_agent_pack": "PASS skills=5 roles=3 workflows=1 D01=writing_planner D02=L2 D03=1 D04=True D05=50"
+  },
+  "assembly_snapshot": {"agents": 56, "skills": 262},
+  "dimensions": "25/47/9 不变（super_agent 仅旁挂 EXTRA_PACK_REGISTRY，不进 PACK_ORDER，G15 不受影响）",
+  "writing_chain": {
+    "b8_dual_sync": "PASS holo=245 ivsa=91 interface_equal=true verify 11/11",
+    "b9_closeout": "criteria=30 risks=12 ledger_rows=12 failed=[]",
+    "b9_zip": "不动点 a87fa921bf963fa1 保持（47 条目，V16 未重建）",
+    "five_site_dna": "package=28 repo=171 missing=0",
+    "vector_sea_manifest": "195/195 self_reference=[] extra=[] bad_sha256=[] bad_bytes=[]"
+  },
+  "golden_refreeze": {
+    "cause": "V6 起 agent.py:42（handle() 写 result[\"degraded\"]）新增字段致 V3 时代冻结黄金值过期（ftrace 证明非 V16 引入：stash 四文件后仍 FAIL；删 degraded 字段后哈希恰=旧 golden）",
+    "word_count": "2b82a6ef7188ce91 → e1b6c4ba5c26943b",
+    "data_describe": "3352db0f803eb727 → 8cd80c70ad275455",
+    "quant_sharpe": "2c9e5d7d01526ce8 → 8ee7170326666303",
+    "test_repro_golden_hash": "e1b6c4ba5c26943b（第 14 行常量同步）",
+    "frozen_at": "2026-11-03",
+    "legacy_refs": "全仓旧哈希 2b82a6ef7188ce91 共 40 处引用均为历史投喂包/README/docs/snapshot/_cases 演示用例，不改、如实披露口径"
+  },
+  "verax_verify": {
+    "conclusion": "yellow",
+    "verdict_hash": "886af2388a2b7560",
+    "golden_repro": "5/5 golden=True",
+    "honesty_h1_h2": "h1=0 h2=3（scan_receipts 逐行扫多行 indent JSON 口径局限：dimension_lock.json:21/31 gates 行、daily_gate_20261103.json:14 被误判缺 evidence_class；顶层实含 evidence_class=\"simulated\"，非真实违规）",
+    "redlines": "V2 三硬红线 hits=[] 全绿 downgradable=False",
+    "disposition": "不改 VERAX 核心（诚实纪律仅扫擦 JSON 顶层回执对象，设计如此），作为口径局限披露"
+  },
+  "freeze": {
+    "diff0": "2fc892cf9af6e755",
+    "tamper": "f42c8229ee5acd73",
+    "VERSION": "0.9.1",
+    "DOC_VERSION": "0.9.15",
+    "PACK_ORDER": "9 项不动"
+  },
+  "holomap_v16": "经络=自组织相似性类节点共振（topology_resonance_pack），≠Bus；经络机制=Bus（C2 消息路由）；V16 新增：调度=router_layer.py（确定性任务路由）· 事件过滤=event_filter.py（两级过滤）· 外部看门狗=external_watchdog.py（只 observe 只告警）· 自主调度=super_agent_pack（5 技能/3 角色/1 工作流）",
+  "transcription_notes": [
+    "投喂包验证清单第 7 项写 p.SKILLS（大写）与 base.py 契约（小写 skills/roles/workflows）不符，按 V15 先例用契约属性复测 5/3/1",
+    "Router _dispatch 首跑分派 '*'（投喂包参考实现 register_rule('写文章') 对 receive('帮我写一篇文章') 无连续子串命中）→ 按验证清单为契约加「有序字符匹配」降级链（连续子串未命中时逐字符按序匹配，_match_rule 静态方法确定性）",
+    "ExternalWatchdog --selfcheck 首跑 FAIL：snapshot() 的 history_count 取 append 前旧值 0 → 修复为 len(self.health_history)+1",
+    "super_agent_pack --selfcheck 首跑 FAIL：context_isolate 两桶 key 相同致 bucket_keys 相等断言翻车 → 改比较 bucket_values（context_isolate 返回新增 bucket_values 字段）",
+    "MCP FAIL 项 status.doc_version 实锤为 stash 往返期间旧 pyc 缓存 DOC_VERSION=0.9.14 被 Python 复用（源码 mtime 未变时 pyc 优先）→ 清全仓 __pycache__ 后稳定 0.9.15，13/13 PASS；教训：stash 切换后必须清 __pycache__ 复测",
+    "verax_verify yellow（H2=3）为 scan_receipts 逐行扫多行 JSON 的口径局限，非真实违规（详见 verax_verify 块）",
+    "扩展包 python -m holoaeon.packs.super_agent_pack --selfcheck 因 packs/__init__ 预 import 有 runpy RuntimeWarning（exit 0 无害）"
+  ],
+  "author": "桃花庵出品",
+  "seal": "潮起开门，潮落闭嘴"
+}

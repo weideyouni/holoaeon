@@ -11,7 +11,9 @@ sys.path.insert(0, ROOT)
 
 from holoaeon.audit import load_golden, verify  # noqa: E402
 
-GOLDEN_HASH = "2b82a6ef7188ce91"
+# V16 结构演进修复：V6 起 agent 输出含 degraded 字段，黄金值由 2b82a6ef7188ce91
+# 重冻结为 e1b6c4ba5c26943b（与 holoaeon/audit/golden/word_count.json 同步）
+GOLDEN_HASH = "e1b6c4ba5c26943b"
 
 
 class TestRepro(unittest.TestCase):
