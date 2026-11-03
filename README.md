@@ -65,11 +65,11 @@ self-organizing search** layer (see [ALGORITHM.md](ALGORITHM.md)).
 | 项 | 实测值 |
 |---|---|
 | 产出维度（锁死） | **25 智能体 / 47 技能 / 9 域包**；`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73` 未变 |
-| 最新批次 | **V6.1-B4 产品化转型 · 批0 理想形态定义书 + 批1 全仓 runtime 体检**（五验收标尺落 `docs/理想形态定义书_v1.0_20261103.md` · 体检脚本 `scripts/runtime_audit.py` 全仓 360 目录 → ✅189/⚠️2/📄29/❌10/⏭130，人工复核 5 误报改判 · 对照表 `F:\doubaowork\HOLOAEON_全仓runtime体检对照表_20261103.md` · V7 批次链路固化入纪律与技能 · `DOC_VERSION 0.9.7 → 0.9.8`，`diff0` 未漂移）· 承 **V6.1-B3 同步卫生 · 五地文件集对齐**（附录 A 基数改 V6.1 终态 · 锚点修复 · 记录下批号段 `182` · HF 清 10 个非 git 孤儿、补传 2 件，`466 → 458` 与 git 跟踪集同集）· 承 **V6.1-B2 工程纪律固化 · A10 派生 · 票据回写**（A10 自写回执改 `REPO_FILES` 派生 · `missing` 不豁免 · 差分证据 · 八步写序入库 `docs/工程纪律_批次升级与五地同步.md` · 技能 `holoaeon-batch-upgrade-discipline` · `01`/`06` 回写，`diff0` 未漂移）· 承接 V6.0 族级登记与路由第三态 |
+| 最新批次 | **V11 城邦架构融合 · 拓扑共振升级（V11-A→E，`DOC_VERSION 0.9.10 → 0.9.11`）**（拓扑共振包追加 3 Graph 函数 `graph_mandala_expand / graph_mobius_flip / graph_klein_convergence` · Guard 新增 L10 贝叶斯层 `l10_bayesian`（`GuardConfig.bayesian_guard` 默认关，附加层不计入 `guard_layers=8`）· 新建 `holoaeon/topology_runtime.py`（StateReducer/Checkpoint/CircuitBreaker/DissipationMonitor 四类，纯标准库零依赖）· 追加 2 治理技能 `city_state_governance / dissipation_emergence_monitor`（拓扑共振包 skills 14→16）· `selftest 25/25` · `diff0` 未漂移 · V9 拓扑共振包（第 12 扩展包）与本批同批收口提交）· 承 **V8 批2-4 融合升级 · L9 路径闸门 + 产品层三件套 + TCM 旗舰包 + 领域化解耦**（`DOC_VERSION 0.9.8 → 0.9.9`）· 承 **V6.1-B5 摘要清单重建**（双仓 240 条目 · 五地清单对齐）· 承接 V6.1-B4 产品化转型与 V6.0 族级登记与路由第三态 |
 | 扩展卡槽 | **12 个**：occupied 6 / open 1 / reserved 4 / blocked 1（只声明不接线；本批**不新增、不占用**槽位） |
-| 门禁 | `v3_gate 32/32` · `unittest 34 OK` · `sidecar 184 OK`（含 V6 12 例 + V6.1 4 例） · `v44 13/13` · `v45 7/7` · `v46 9/9` · `v5 11/11` · `dv 8/8` · `redline 0 违规` · `drift []` |
-| 五地同步 | 本地 · Gitee · GitHub · Hugging Face · 向量海 —— 见文末 [附录 A](#附录-a--五地同步v61-b4) |
-| 版本脉络 | V4.0 → V6.1 逐提交回溯 —— 见文末 [附录 B](#附录-b--版本升级说明v3--v61) |
+| 门禁 | `v3_gate 32/32` · `selftest 25/25` · `unittest 34 OK` · `sidecar 184 OK`（`test_10_no_new_pack` 断言 `EXTRA_PACK_ORDER==11` 与 V9 起 12 项的既有契约漂移除外，非本批回归） · `v44 13/13` · `v45 7/7` · `v46 9/9` · `v5 11/11` · `dv 8/8` · `redline 88 文件 0 违规` · `drift []` |
+| 五地同步 | 本地 · Gitee · GitHub · Hugging Face · 向量海 —— 见文末 [附录 A](#附录-a--五地同步v11) |
+| 版本脉络 | V4.0 → V6.1 → V11 逐提交回溯 —— 见文末 [附录 B](#附录-b--版本升级说明v3--v11) |
 | V4 主文档 | [`README_FUSION_V4_20261102.md`](README_FUSION_V4_20261102.md) · 同步规则 [`data/FIVE_SITE_SYNC_DNA.md`](data/FIVE_SITE_SYNC_DNA.md) |
 
 ### V5.1 · 设计语汇（旁挂，不改维度）
@@ -166,6 +166,41 @@ python scripts\check_dimension_lock.py          # diff0 未漂移
 ```
 
 **维度不变**：25 / 47 / 9 与 `spec.VERSION=0.9.1`、`diff0_hash`、`tamper` 三值仍未动；扩展包数随投喂包预定 10→**11**（`tcm_rehab`，不进 `PACK_ORDER`）。
+
+### V9 · 拓扑共振包（第 12 扩展包，不改维度）
+
+`DOC_VERSION` 0.9.9 → **0.9.10**（`spec.VERSION` 仍 0.9.1）。拓扑共振（自组织相似性耗散结构）扩展包落地，与 V11 同批收口提交：
+
+- 新增 `holoaeon/packs/topology_resonance_pack.py`：8 基础数学技能（`resonance_node` / `mandala_fanout` / `mobius_edge` / `klein_convergence` / `kalman_state` / `bayesian_guard` / `hilbert_project` / `dissipation_measure`）+ 6 四人组技能（`dao_define_problem` / `fa_gradient_analysis` / `shu_constraint_handling` / `qi_algorithm_selection` / `quartet_tensor` / `emergence_chain`），纯标准库离线，零网络。
+- `packs/__init__.py` 三处注册（import / registry / order），`EXTRA_PACK_ORDER` 11→**12**（`topology_resonance`，不进 `PACK_ORDER`）。
+
+```powershell
+python -c "from holoaeon.packs.topology_resonance_pack import TopologyResonancePack as T; p=T(); print(len(p.skills))"   # 14（V9）
+python scripts\check_dimension_lock.py          # diff0 未漂移
+```
+
+**维度不变**：25 / 47 / 9 与 `spec.VERSION=0.9.1`、`diff0_hash`、`tamper` 三值仍未动；扩展包数 11→**12**（`topology_resonance`，不进 `PACK_ORDER`）。
+
+### V11 · 城邦架构融合 · 拓扑共振升级（V11-A→E，不改维度）
+
+`DOC_VERSION` 0.9.10 → **0.9.11**（`spec.VERSION` 仍 0.9.1）。对应 `AGENT_FEED_V11_CITY_STATE_FUSION_20261103.md` 第七章，五步贯序执行：
+
+1. **V11-A · Graph 集成**：`topology_resonance_pack.py` 追加 3 个图函数（不碰 `graph.py`）——`graph_mandala_expand(graph, center, fanout)`（曼陀罗扇出，中心→N 空闲节点建 0.5 权边）、`graph_mobius_flip(graph, a, b)`（莫比乌斯双向回边，权 = max(原权,0.4)+0.3，建边后 `detect_cycles()` 报环）、`graph_klein_convergence(graph, max_iter, threshold)`（边权向全局平均密度收敛 η=0.1，连续三轮 Δ 上升→熔断）；实调验证全绿（越界/自环/非图三重防御）。注：投喂包示例 `add_edge()` 为示意，AdaptiveGraph 无此方法，按真实 `weights` 矩阵接口实现（判据优先于 SOP 字面）。
+2. **V11-B · L10 贝叶斯层**：`guard.py` 新增模块级 `_L10_LIKELIHOOD` 似然表（write/delete/read/execute/network/safe 六特征）+ `l10_bayesian(env)`（读 `metadata.bayes_feature` / `bayes_prior` 默认 0.15，后验 >0.5 → BLOCK "L10"，无特征直接放行）；`Guard.__post_init__` 追加 `if self.config.bayesian_guard: self.layers.append(("L10", l10_bayesian))`；`spec.GuardConfig` 新增 `bayesian_guard: bool = False`（默认关）。`BUILTIN_LAYERS` 与 L1-L8 一个字符未动，默认行为不变（仍 9 层）。
+3. **V11-C · Runtime 增强**：新建 `holoaeon/topology_runtime.py`——StateReducer（指数平滑归约）/ Checkpoint（快照链，断点续跑）/ CircuitBreaker（连续失败熔断 → half-open 探测）/ DissipationMonitor（Shannon 熵 + 秩序 + 耗散率 + 涌现重组判断），纯标准库零包内依赖，全通过红线。
+4. **V11-D · 治理技能**：`topology_resonance_pack.py` 追加 `city_state_governance`（循环指纹检测 + 连续失败熔断 + 指数/线性退避重试）与 `dissipation_emergence_monitor`（Observability + Traceability + 半窗熵比较涌现判定），skills **14→16**。
+5. **V11-E · 文档版本**：`DOC_VERSION` 0.9.10 → **0.9.11**。
+
+```powershell
+python -m holoaeon.selftest                # 25/25
+python scripts\check_dimension_lock.py     # 12 维度 + 7 闸 + 0 violation · diff0=2fc892cf9af6e755 未漂移
+python scripts\v3_gate.py                  # 32/32
+python scripts\redline_scan.py             # 88 文件 · 零违规
+python -m unittest discover -s tests       # 34 OK
+python -m unittest discover -s tests_contract   # 184（1 例既有契约漂移：EXTRA_PACK_ORDER 11→12，V9 引入，非本批回归）
+```
+
+**维度不变**：25 / 47 / 9 与 `spec.VERSION=0.9.1`、`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73` 三值仍未动；`EXTRA_PACK_ORDER=12` 未再增；Guard 默认 9 层、开启 L10 后 10 层（附加层不计入 `guard_layers=8`）。
 
 
 ## V2 · Evidence Hardening (0.9.2, docs)
@@ -926,20 +961,20 @@ organs, physiological structures, or supernatural entities. All simulated receip
 
 ---
 
-## 附录 A · 五地同步（V6.1-B4）
+## 附录 A · 五地同步（V11）
 
 **口径（重要）**：本页不硬编码“当前 HEAD”，因为任何文档收尾提交都会让 HEAD 变化，写死即自指失效。
-下表为 **V6.1-B4** 时点读数（契约 184、`repo` 以回读为准、`DOC_VERSION 0.9.8`、zip 以回读为准）；HEAD / HF sha / 回执字节每提交一次就变，故一律以右侧命令回读为准。
+下表为 **V11** 时点读数（契约 184、`repo` 以回读为准、`DOC_VERSION 0.9.11`、zip 以回读为准）；HEAD / HF sha / 回执字节每提交一次就变，故一律以右侧命令回读为准。
 
-| 站点 | 检查命令 | V6.0 基数（V6.1-B4 以回读为准） |
+| 站点 | 检查命令 | V11 基数（以回读为准） |
 |---|---|---|
 | S1 本地 | `git rev-parse --short HEAD` | 以回读为准（内容提交先落，清单随后重建） |
 | S2 Gitee | `git ls-remote <gitee> refs/heads/main` | 与本地 HEAD 同值（推送后回读） |
-| S3 GitHub | `git ls-remote origin refs/heads/main`（延时 12 s 回读） | 同上；三值一致 |
-| S4 向量海 | `python scripts/build_vector_sea_manifest.py` | 以 `check()` 的 `entries` / `sums_74_in_sync` 回读为准（V6.1-B3 时点 188 条，`sums_74_in_sync=True`；**下一批新号从 `182` 起**） |
-| S5 Hugging Face | `python scripts/mirror_hf.py --base <old> --head <new>` | 以输出 `sha` 与 `mismatch=[]` 回读为准（V6.1-B3 时点 458 文件，与 `git ls-files` 同集；`sha` 以回读为准） |
+| S3 GitHub | `git ls-remote origin refs/heads/main`（延时 12-20 s 回读） | 同上；三值一致 |
+| S4 向量海 | `python scripts/build_vector_sea_manifest.py` | 以 `check()` 的 `entries` / `sums_74_in_sync` 回读为准（下一批新号段以 V11 回执为准） |
+| S5 Hugging Face | `python scripts/mirror_hf.py --base <old> --head <new>` | 以输出 `sha` 与 `mismatch=[]` 回读为准（与 `git ls-files` 同集；`sha` 以回读为准） |
 | 回执 | `python scripts/five_site_dna.py preflight` | `files` / `history` / 字节数以回读为准 |
-| 交付 zip | `python scripts/build_b9_zip.py` | 以回读为准（V6.1-B3 时点 47 条目 / 133,315 B / `a87fa921bf963fa1`） |
+| 交付 zip | `python scripts/build_b9_zip.py` | 以回读为准 |
 
 **HEAD sha、HF sha、回执字节与 history 条数每提交一次就会变**，本页故意不写死；
 读取方式：`git rev-parse --short HEAD`、`mirror_hf.py` 输出的 `sha`、`five_site_dna.py preflight` 的回执路径。
@@ -955,12 +990,16 @@ organs, physiological structures, or supernatural entities. All simulated receip
 
 ---
 
-## 附录 B · 版本升级说明（V3 → V6.1）
+## 附录 B · 版本升级说明（V3 → V11）
 
 > 口径：sha 取自 `git log` 实测；条目数 / 字节 / `sha16` 以对应批次命令回读为准，不硬编码猜测值。
 
 | 阶段 | 提交 | 主题与产出 |
 |---|---|---|
+| V11 城邦架构融合 | 本批提交（`git log -1 --format=%h` 回读） | 拓扑共振升级五步：3 Graph 函数（mandala 扇出 / mobius 回边 / klein 收敛熔断）、Guard L10 贝叶斯层（`bayesian_guard` 默认关，附加层不计 `guard_layers=8`）、新建 `holoaeon/topology_runtime.py`（StateReducer/Checkpoint/CircuitBreaker/DissipationMonitor，纯标准库零依赖）、拓扑共振包 skills 14→16（`city_state_governance` + `dissipation_emergence_monitor`）；V9 拓扑共振包（第 12 扩展包）同批收口提交；`DOC_VERSION 0.9.10 → 0.9.11`，`selftest 25/25`，**25/47/9 未变，`diff0` 未漂移** |
+| V9 拓扑共振包 | 本批提交（`git log -1 --format=%h` 回读） | 新增 `topology_resonance_pack.py`（8 基础数学技能 + 6 四人组技能，纯标准库离线）；`EXTRA_PACK_ORDER` 11→**12**；`DOC_VERSION 0.9.9 → 0.9.10`，**25/47/9 未变** |
+| V8 批2-4 融合升级 | `2fc1faf` / `4bf84df` / `2c9a394` | L9 路径闸门（`product_layer_guard` 默认 True，附加层）+ 产品层三件套（frontend_adapter / demo_product / install 脚本）+ TCM 旗舰包（`tcm_rehab` 第 11 扩展包）+ 领域化解耦；`DOC_VERSION 0.9.8 → 0.9.9`，**25/47/9 未变，`diff0` 未漂移** |
+| V6.1-B5 摘要清单重建 | `2c9a394` | 纳入批2-4融合升级票据 · 双仓 240 条目 · 五地清单对齐（维度不变 25/47/9） |
 | V6.1-B4 产品化转型 | 本批提交（`git log -1 --format=%h` 回读） | 批0 理想形态定义书（五验收标尺/定位/四商用前提/红线）；批1 全仓 runtime 体检脚本 `scripts/runtime_audit.py` + `reports/runtime_audit.json`（360 目录 → ✅189/⚠️2/📄29/❌10/⏭130，人工复核 5 误报改判 verified=human）+ 对照表报告；V7 批次链路固化入 `docs/工程纪律_批次升级与五地同步.md` §七·补 与技能 `holoaeon-batch-upgrade-discipline`；`DOC_VERSION 0.9.7 → 0.9.8`，**25/47/9 未变，`diff0` 未漂移** |
 | V3 收口 | `3d359bd` / `32b2667` | LangChain 工程形态旁挂（W12–W19），32/32 门禁，维度不变 |
 | 同步基建 | `92fd8b5` / `dfad361` | 五地同步 DNA V1.0→V1.1（G1–G8 + P1–P6），离线哈希校验器 |

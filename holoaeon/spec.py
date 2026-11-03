@@ -32,7 +32,7 @@ VERSION = "0.9.1"
 # VERSION / RUNTIME_ID 会写进每条回执并参与 ReproHash，改动即等于让 DIFF=0 黄金值
 # （2fc892cf9af6e755）漂移，与"V1 黄金值不许漂移"的硬口径冲突。
 # 因此 V2 的版本号单独记在 DOC_VERSION，供文档/快照/徽章使用。
-DOC_VERSION = "0.9.9"
+DOC_VERSION = "0.9.11"
 MATRIX_ID = "HOLOAEON-MATRIX-0.9.1"
 RUNTIME_ID = "HOLOAEON-RUNTIME-0.9.1"
 PROTOCOL_ID = "HOLOAEON-DATAPROTO v1.0"
@@ -126,6 +126,9 @@ class GuardConfig:
     # L9 产品层路径闸门（附加层，走 extra_layers 通道，不计入 guard_layers=8 维度锁；
     # 默认开启，可关。L1-L8 一个字符不动）
     product_layer_guard: bool = True
+    # L10 贝叶斯层（附加层，走 extra_layers 通道，不计入 guard_layers=8 维度锁；
+    # 默认关闭，可开。基于先验概率+似然比做贝叶斯决策）
+    bayesian_guard: bool = False
 
 
 @dataclass

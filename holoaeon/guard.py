@@ -184,6 +184,49 @@ def l9_path_gate(env: Envelope) -> Optional[Verdict]:
     return None
 
 
+# L10 贝叶斯层似然表（与 topology_resonance_pack.bayesian_guard 同源，确定性）
+_L10_LIKELIHOOD = {
+    "write": {"block": 0.70, "allow": 0.20},
+    "delete": {"block": 0.85, "allow": 0.05},
+    "read": {"block": 0.05, "allow": 0.60},
+    "execute": {"block": 0.60, "allow": 0.15},
+    "network": {"block": 0.90, "allow": 0.10},
+    "safe": {"block": 0.02, "allow": 0.80},
+}
+
+
+def l10_bayesian(env: Envelope) -> Optional[Verdict]:
+    """L10 贝叶斯守卫（附加层，走 extra_layers 通道，不计入 guard_layers=8）。
+
+    只对显式携带贝叶斯特征的信封生效：
+      metadata.bayes_feature   write | delete | read | execute | network | safe
+      metadata.bayes_prior     历史拦截率（0~1，缺省 0.15）
+    无特征请求 → 直接放行（不干扰既有行为、不改变任何 L1-L8 判据）。
+    后验 P(block|feature) > 0.5 → BLOCK；否则放行。
+
+    城邦映射：贝叶斯折射衍射 → 不确定性终极处理（概率波干涉中寻找路径）。
+    """
+    feature = env.metadata.get("bayes_feature")
+    if not feature:
+        return None
+    prior_raw = env.metadata.get("bayes_prior", 0.15)
+    try:
+        prior_block = max(0.0, min(1.0, float(prior_raw)))
+    except (TypeError, ValueError):
+        prior_block = 0.15
+    prior_allow = 1.0 - prior_block
+    feat_key = str(feature).lower().strip()
+    ll = _L10_LIKELIHOOD.get(feat_key)
+    if ll is None:
+        ll = _L10_LIKELIHOOD["safe"]
+    p_feature = ll["block"] * prior_block + ll["allow"] * prior_allow
+    posterior = (ll["block"] * prior_block) / p_feature if p_feature > 0 else prior_block
+    if posterior > 0.5:
+        return Verdict(BLOCK, "L10",
+                       f"贝叶斯后验拦截：P(block|{feat_key})={posterior:.4f}")
+    return None
+
+
 BUILTIN_LAYERS: List[Tuple[str, LayerFn]] = [
     ("L1", l1_structure),
     ("L2", l2_size),
@@ -208,6 +251,9 @@ class Guard:
         # L9 产品层路径闸门：条件挂载（开关=GuardConfig.product_layer_guard，默认 True）
         if self.config.product_layer_guard:
             self.layers.append(("L9", l9_path_gate))
+        # L10 贝叶斯层：条件挂载（开关=GuardConfig.bayesian_guard，默认 False）
+        if self.config.bayesian_guard:
+            self.layers.append(("L10", l10_bayesian))
         for fn in self.extra_layers:
             self.layers.append((f"LX", fn))
 
@@ -216,6 +262,9 @@ class Guard:
         # 供审计/回执可见，不影响 L1-L8 判据）
         if self.config.product_layer_guard:
             env.metadata.setdefault("product_layer_guard", True)
+        # L10 挂载时注入贝叶斯守卫配置（同上，默认关时不注入）
+        if self.config.bayesian_guard:
+            env.metadata.setdefault("bayesian_guard", True)
         verdict = Verdict(ALLOW, "L0", "通过")
         for name, fn in self.layers:
             v = fn(env)

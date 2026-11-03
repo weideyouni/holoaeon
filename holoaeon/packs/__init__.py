@@ -26,6 +26,7 @@ from .persona_quartet_pack import PersonaQuartetPack
 from .skill_matrix_pack import SkillMatrixPack
 from .fusion_upgrade_pack import FusionUpgradePack
 from .tcm_rehab_pack import TCMRehabPack
+from .topology_resonance_pack import TopologyResonancePack
 from .writing import WritingPack
 
 # 九大领域包（每次调用返回新实例，避免共享状态）
@@ -65,6 +66,9 @@ def all_packs() -> List[DomainPack]:
 # （第十九：冷热插拔赋能升级 fusion_upgrade，2026-11-02 增量旁挂，内外融合协议可跑。）
 # （第二十：中西医系统康复工程旗舰领域包 tcm_rehab，2026-11-03 增量旁挂，
 #   领域化解耦：四技能纯标准库离线确定性，零剂量/不诊疗/碳基终裁。）
+# （第二十一：拓扑共振 topology_resonance，2026-11-03 增量旁挂，
+#   城邦术语×数学概念融合：1331共振·曼陀罗·莫比乌斯·克莱因·希尔伯特·卡尔曼·贝叶斯，
+#   自组织相似性耗散结构，8技能/3角色/1工作流，纯标准库确定性离线。）
 # ------------------------------------------------------------------------------------
 EXTRA_PACK_REGISTRY: Dict[str, type] = {
     SovereigntyPack.key: SovereigntyPack,
@@ -78,11 +82,13 @@ EXTRA_PACK_REGISTRY: Dict[str, type] = {
     SkillMatrixPack.key: SkillMatrixPack,
     FusionUpgradePack.key: FusionUpgradePack,
     TCMRehabPack.key: TCMRehabPack,
+    TopologyResonancePack.key: TopologyResonancePack,
 }
 
 EXTRA_PACK_ORDER: List[str] = ["sovereignty", "subdistill", "omnilife", "omnicore",
                                 "metab", "nephron", "uplift", "persona_quartet",
-                                "skill_matrix", "fusion_upgrade", "tcm_rehab"]
+                                "skill_matrix", "fusion_upgrade", "tcm_rehab",
+                                "topology_resonance"]
 
 
 def get_extra_pack(key: str) -> DomainPack:

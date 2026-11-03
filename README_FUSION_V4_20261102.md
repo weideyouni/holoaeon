@@ -387,7 +387,41 @@ V4.4 拼请求、V4.5 真发请求之后，补的是**接续结构**：后来者
 边界（不冒充）：未调用真实模型做康复域推理；未复制 ivsa 任何正文；未动 ivsa 21 组自检与医学红线；
 `EXT-DIM-01` 仍 `blocked`，`EXT-PLUGIN-01` / `EXT-RUNTIME-01` 仍 `reserved`。
 
-## 附录 · Git 版本升级说明（V3 收口 → V4.6，按提交回溯）
+
+## V11 · 城邦架构融合 · 拓扑共振升级（V11-A→E，不改维度）
+
+用户点名：读取 `AGENT_FEED_V11_CITY_STATE_FUSION_20261103.md` 第七章，执行 V11 城邦融合五大步
+（V11-A/B/C/D/E）与 README 更新、Git 升级说明、五地同步、代码推送以及回执交付。工程维度纪律不变
+（25/47/9 锁死），判据优先于 SOP 字面路径。
+
+| 步 | 内容 | 落点 | 实测 |
+|---|---|---|---|
+| V11-A | 3 个 Graph 函数（曼陀罗扇出 / 莫比乌斯回边 / 克莱因收敛熔断） | `holoaeon/packs/topology_resonance_pack.py`（不碰 `graph.py`） | mandala edges=8/children=8 · mobius w=0.7/cycles=44 · klein iter=14/converged=True · 越界/自环/非图防御通过 |
+| V11-B | L10 贝叶斯层 | `guard.py`（`_L10_LIKELIHOOD` + `l10_bayesian`，`Guard.__post_init__` 条件挂载）+ `spec.GuardConfig.bayesian_guard=False` | 默认 9 层不变 / 开启 10 层 / delete 拦截 / safe 放行 |
+| V11-C | Runtime 四类 | 新建 `holoaeon/topology_runtime.py`（StateReducer/Checkpoint/CircuitBreaker/DissipationMonitor） | 归约/快照/熔断三态/耗散监控全绿 |
+| V11-D | 2 治理技能 | `topology_resonance_pack.py`（skills 14→16） | `city_state_governance`（指纹环+熔断+退避）· `dissipation_emergence_monitor`（半窗熵涌现判定，四场景全对） |
+| V11-E | 文档版本 | `spec.py` DOC_VERSION 0.9.10 → **0.9.11** | selftest 25/25 · 维度锁 0 violation（diff0=2fc892cf9af6e755 未漂移）· v3_gate 32/32 · redline 88 文件零违规 · tests 34 OK · tests_contract 184（1 例 V9 既有契约漂移：`EXTRA_PACK_ORDER` 11→12） |
+
+红线（不改一字）：`BUILTIN_LAYERS` L1-L8 / `spec.VERSION=0.9.1` / `layers=8` / `PACK_ORDER` /
+`graph.py` / `scheduler.py` / `hypervector.py` / `kernel.py submit`；新增全走 `extra_layers` 通道或全新文件。
+修正两处 SOP 勘误（判据优先）：投喂包 7.6 的 `checksum()`（selftest 无此函数）改走
+`scripts/check_dimension_lock.py`；投喂包 `add_edge()` 为示意，`AdaptiveGraph` 无此方法，按真实
+`weights` 矩阵接口实现。
+
+```powershell
+python -m holoaeon.selftest                # 25/25
+python scripts\check_dimension_lock.py     # 0 violation · diff0 未漂移
+python scripts\v3_gate.py                  # 32/32
+python scripts\redline_scan.py             # 88 文件 · 零违规
+python -m unittest discover -s tests       # 34 OK
+python -m unittest discover -s tests_contract   # 184（1 例既有契约漂移）
+```
+
+维度不变：25 / 47 / 9 与 `spec.VERSION=0.9.1`、`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73`
+三值仍未动；`EXTRA_PACK_ORDER=12` 未再增；Guard 默认 9 层、开启 L10 后 10 层（附加层不计入 `guard_layers=8`）。
+
+
+## 附录 · Git 版本升级说明（V3 收口 → V11，按提交回溯）
 
 > 口径：sha 与提交主题取自 `git log --oneline` 实测；数字类指标（条目数、字节数、sha16）
 > 以对应批次 `verify_*` / `five_site_dna` 命令回读为准，不在此处硬编码猜测值。
@@ -418,6 +452,10 @@ V4.4 拼请求、V4.5 真发请求之后，补的是**接续结构**：后来者
 | V4.5-B2 | `f0f1bb5` | chat 补做：`/v1/chat/completions` 200 / 41+29 tokens；卡槽放到 C 盘模型目录后 `lms import` 成功 |
 | V4.6-B1 | `f0f1bb5` / `978dc10` / `6646315` | 12 卡槽 + 协作指南；C1–C9 9/9；卡槽实数勘误 14→12 后补收口 |
 | V5.0-B1 | `aa88c37` | 康复域知识库全量入库（14 条登记 / ivsa 300 行）；影子维度 D_REHAB 不入锁；`EXT-EVIDENCE-01` 解封而 tier 不变；D1–D10 11/11 |
+| V6.1-B4/B5 | `5e2b6d8` / `49c8b8f` / `2c9a394` | 批0 理想形态定义书 + 批1 全仓 runtime 体检（V7 批次链路固化）；B5 摘要清单重建（双仓 240 条目 · 五地清单对齐） |
+| V8 批2-4 | `2fc1faf` / `4bf84df` | L9 路径闸门（`product_layer_guard`）+ 产品层三件套（frontend_adapter / demo_product / install）+ TCM 旗舰包（`tcm_rehab` 第 11 扩展包）+ 领域化解耦；`DOC_VERSION 0.9.8 → 0.9.9` |
+| V9 拓扑共振包 | 本批提交（`git log -1 --format=%h` 回读） | `topology_resonance_pack.py`（8 基础数学 + 6 四人组技能）；`EXTRA_PACK_ORDER` 11→**12**；`DOC_VERSION 0.9.9 → 0.9.10` |
+| V11 城邦架构融合 | 本批提交（`git log -1 --format=%h` 回读） | 3 Graph 函数 + Guard L10 贝叶斯层 + 新建 `topology_runtime.py` + 2 治理技能（skills 14→16）+ `DOC_VERSION 0.9.10 → 0.9.11`；selftest 25/25 · `diff0` 未漂移 |
 
 **升级主线一句话**：每一批只做一件事，且**只加旁挂、不改锁数**；每批必带 `verify_*` 判据、
 必带票据、必过五地同步（`drift=[]` 方可提交）。
