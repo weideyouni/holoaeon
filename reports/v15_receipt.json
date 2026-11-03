@@ -1,0 +1,65 @@
+{
+  "batch": "V15-DEHALLUCINATION-LEIBNIZ-ZHANGPING",
+  "status": "DONE",
+  "steps_completed": ["A", "B", "C", "D"],
+  "selftest": "25/25 PASS",
+  "unittest": "68 OK",
+  "contract": "184 OK",
+  "redline": "97 文件 0 违规（+2 新文件）",
+  "v3_gate": "32/32 PASS（A12.1 零依赖未破）",
+  "dimension_lock": "12 维度 + 7 闸 + 0 violation（diff0=2fc892cf9af6e755 未漂移）",
+  "verify_v44": "13/13 PASS（A12 零依赖未破）",
+  "mcp_regression": "13/13 PASS（doc_version 期望同步 0.9.14）",
+  "VERSION": "0.9.1",
+  "DOC_VERSION": "0.9.14",
+  "EXTRA_PACK_ORDER": 15,
+  "new_files": [
+    "holoaeon/dehallucination.py",
+    "holoaeon/packs/dehallucination_pack.py"
+  ],
+  "modified_files": [
+    "holoaeon/packs/__init__.py",
+    "holoaeon/spec.py",
+    "holoaeon/butler_os.py",
+    "pyproject.toml",
+    "README.md",
+    "README.zh-CN.md",
+    "README_FUSION_V4_20261102.md"
+  ],
+  "verdict_types": ["non_hallucination", "hallucination", "uncertain"],
+  "theory_basis": "Leibniz(PSR)+ZhangPing(Seb)+HoloAeon(Hebbian)",
+  "thresholds": {
+    "COSINE_HIGH": 0.7,
+    "COSINE_LOW": 0.4,
+    "BAYES_PRIOR": 0.15,
+    "BAYES_THRESHOLD": 0.5
+  },
+  "pipeline_stages": ["input", "seb_extract", "reality_anchor", "snapshot_vec", "leibniz_compare", "synonym_map", "verdict", "hebbian_update"],
+  "dehallucination_skills": 6,
+  "dehallucination_roles": 3,
+  "dehallucination_workflows": 1,
+  "skills": ["semantic_base_extract", "reality_anchor", "leibniz_space_compare", "synonym_mapping", "hallucination_verdict", "hebbian_feedback"],
+  "roles": ["anchor_engineer", "semantic_analyst", "verdict_judge"],
+  "workflow": "dehallucination_flow",
+  "module_selfcheck": "PASS（三分支 high_cosine=non_hallucination / low_cosine=hallucination / mid 分支齐全）",
+  "pack_selfcheck": "PASS（skills=6 roles=3 workflows=1 · case_high=non_hallucination · case_low=hallucination）",
+  "degrade_detection": "check('人工智能多智能体系统架构设计') → verdict=hallucination cosine=0.0 entropy=0.9943（verdict/cosine/entropy 三值齐）",
+  "butler_os_menu": "菜单 [10] 去幻觉检测（cmd_dehallucinate）冒烟 PASS：扩展包 6/3/1 + 8 阶段输出齐",
+  "assembly_snapshot": {"agents": 53, "skills": 257},
+  "dimensions": "25/47/9 不变（dehallucination 仅旁挂 EXTRA_PACK_REGISTRY，不进 PACK_ORDER，G15 不受影响）",
+  "holomap_fix": "经络=自组织相似性类节点共振（topology_resonance_pack resonance_node，1331×1331 共振+莫比乌斯回边+克莱因收敛熔断），≠Bus；经络机制=Bus（C2 发布/订阅/路由消息总线，独立概念）",
+  "freeze": {
+    "diff0": "2fc892cf9af6e755",
+    "tamper": "f42c8229ee5acd73",
+    "VERSION": "0.9.1",
+    "DOC_VERSION": "0.9.14"
+  },
+  "transcription_notes": [
+    "投喂参考实现整体结构完整可运行；main() 的 --callback 分支注释声称支持该标志但代码未真正区分（所有 argv 拼 text），已转写：strip '--callback' 标记后走降级无联网模式可跑",
+    "验证清单第 7 项 p.SKILLS/p.ROLES（大写）与 base.py 契约不符，按 V14 先例用契约属性 skills/roles/workflows 复测 6/3/1",
+    "MCP 回归测试脚本 doc_version 期望 0.9.13→0.9.14（脚本期望过期，产品行为正确）",
+    "dehallucination_pack 阈值常量（COSINE_HIGH/COSINE_LOW/BAYES_PRIOR/BAYES_THRESHOLD）从 dehallucination import 保持口径一致，技能函数内联实现零依赖"
+  ],
+  "author": "桃花庵出品",
+  "seal": "潮起开门，潮落闭嘴"
+}

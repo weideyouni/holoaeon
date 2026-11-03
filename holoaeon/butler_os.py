@@ -57,6 +57,12 @@ def _get_vector_sea_pack():
     return get_extra_pack("vector_sea")
 
 
+def _get_dehallucination_pack():
+    """自组织相似性全息去幻觉扩展包实例（第 15 扩展包）。"""
+    from .packs import get_extra_pack
+    return get_extra_pack("dehallucination")
+
+
 # ------------------------------------------------------------ 菜单实现
 def cmd_install() -> int:
     """1. 安装引导：装配内核并打印统计。"""
@@ -223,6 +229,34 @@ def cmd_lathe() -> int:
     return 0
 
 
+def cmd_dehallucinate() -> int:
+    """[10] 去幻觉检测：AI输出→充足理由锚定→幻觉判定（8 阶段流水线示例）。"""
+    print()
+    print("== 去幻觉检测（莱布尼茨PSR × 张平Seb × 赫布场）==")
+    p = _get_dehallucination_pack()
+    print("扩展包: %s | 技能 %d / 角色 %d / 工作流 %d"
+          % (p.key, len(p.skills), len(p.roles), len(p.workflows)))
+    from .dehallucination import DeHallucinationModule
+    line = _readline("ai> ")
+    if line is None or not line.strip():
+        text = "人工智能 多智能体 系统 架构 设计"
+        print("（空输入，使用演示样本: %s）" % text)
+    else:
+        text = line.strip()
+    module = DeHallucinationModule()  # 降级模式（无联网回调）
+    result = module.check(text)
+    print("语义基: %s" % " ".join(result["semantic_base"][:6]))
+    print("现实快照: %s" % result["reality_snapshot"])
+    print("余弦相似度: %.4f | 同义映射: %s | 贝叶斯后验: %.4f"
+          % (result["cosine_similarity"], result["synonym_match"],
+             result["bayesian_posterior"]))
+    print("耗散熵: %.4f | 充足理由: %s" % (result["dissipation_entropy"],
+                                      result["sufficient_reason"]))
+    print("判定: %s | 赫布权重: %.4f"
+          % (result["verdict"], result["hebbian_weight"]))
+    return 0
+
+
 MENU = {
     "1": ("安装引导", cmd_install),
     "2": ("自检", cmd_selftest),
@@ -233,6 +267,7 @@ MENU = {
     "7": ("状态快照", cmd_status),
     "8": ("向量海勘探", cmd_explore),
     "9": ("技能机床", cmd_lathe),
+    "10": ("去幻觉检测", cmd_dehallucinate),
 }
 
 

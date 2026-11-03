@@ -127,16 +127,16 @@
   },
   "repo": {
     "README.md": {
-      "bytes": 86430,
-      "sha256": "8c2edf9c3f427506f2e5323fd31c8a21d2a2325599023442c56fed150a18eb10"
+      "bytes": 92261,
+      "sha256": "3920e8d1fb32287b0cb3b3f4539b744b93ff1f511f2c841bbc72c8de43bdfbd7"
     },
     "README.zh-CN.md": {
-      "bytes": 49212,
-      "sha256": "7e8c02e774dd187a35b54cfe3a7988c3332ff46c46bf93ca11ec334303295a3b"
+      "bytes": 55294,
+      "sha256": "4eb110b8ce622f7e77cc9b1bbab45d239192020ac9632b9cca8ffcd9500b24f9"
     },
     "README_FUSION_V4_20261102.md": {
-      "bytes": 35906,
-      "sha256": "2a673d0b297a1dd1479ce0b1bf6b849b84c1537e5092862aa6bf3fb2676caf37"
+      "bytes": 37233,
+      "sha256": "481c6b3367a7b653b6ad1c31d7c4eab3313e863ad1575c9c181ce820f422cafe"
     },
     "SHA256SUMS": {
       "bytes": 23471,
@@ -496,7 +496,7 @@
     },
     "reports/b8_dual_sync_check.json": {
       "bytes": 1773,
-      "sha256": "e798b039effda02466379db76cd151537181b8af0f8673805651a526dfa7deb3"
+      "sha256": "f870642e85aba7258e275362d2ccdb6a3ddb2ba0d8eb18f1ea7a85031c9180de"
     },
     "reports/contract_v1_check.json": {
       "bytes": 635,

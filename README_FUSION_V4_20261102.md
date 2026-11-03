@@ -436,6 +436,7 @@ README 三份必须更新。判据优先于 SOP 字面路径。
 | V12-E | 验证 + README + 回执 + 五地 | 全验证 + 三份 README V12 段 + `reports/v12_receipt.json` + 单批单提交 + 五地同步 | selftest 25/25 · unittest 68 OK · redline 90 文件 0 违规 · v3_gate 32/32 · 维度锁 0 violation · verify_v44 13/13 · contract 184（既有漂移：断言 11 实际 13） |
 | V12.1 | 未决项闭环（第一性原理裁决） | contract 契约测试同步 + 新建 `holoaeon/mcp_adapter.py`（MCP stdio 最小协议子集）+ `holoaeon-mcp` 命令 + 三份 README 披露 + 单提交 | `test_10_no_new_pack` 改下界断言（PACK_ORDER==9 锁不变，EXTRA>=11 防回退）→ **contract 184 全绿** · MCP 自测 13/13（initialize/tools/list/call + 4 错误分支）· selftest 25/25 · redline 91 文件 0 违规 · 维度锁 0 violation |
 | V14 | 技能机床与插件化协议适配平台（V14-A→F） | 新建 `holoaeon/skill_lathe.py`（技能机床 TVCB→SkillSpec，能量分级 A/B/C 级丢弃）+ `holoaeon/protocol_plugins.py`（12 平台协议遍历穷举导出，未知协议 ValueError）+ `holoaeon/packs/vector_sea_pack.py`（向量海第 14 扩展包 8 技能/4 角色/2 工作流，key="vector_sea"）+ `holoaeon/vector_sea_explorer.py`（9 阶段流水线 input→ocr→snapshot→search→refine→output→salvage→lathe→protocol_export）+ `EXTRA_PACK_ORDER` 13→14 + butler_os 菜单 8/9 + `pyproject` 追加 `holoaeon-explore / holoaeon-lathe` + `spec.py` DOC_VERSION 0.9.12 → **0.9.13** | `EXTRA_PACK_ORDER=14` · 协议数 12 · 端到端 skill=salvaged_test_test 导出 12 协议 · vector_sea skills=8 roles=4 workflows=2 · selftest 25/25 · unittest 68 OK · contract 184 OK · redline 95 文件 0 违规 · v3_gate 32/32 · verify_v44 13/13 · MCP 回归 13/13 · 装配快照 agents=50 skills=251 · `VERSION=0.9.1` 冻结未动 |
+| V15 | 自组织相似性全息去幻觉模块（V15-A→D） | 新建 `holoaeon/dehallucination.py`（DeHallucinationModule 8 阶段流水线 input→seb_extract→reality_anchor→snapshot_vec→leibniz_compare→synonym_map→verdict→hebbian_update，莱布尼茨 PSR×张平 Seb×赫布场，COSINE_HIGH=0.7/COSINE_LOW=0.4/BAYES_PRIOR=0.15/BAYES_THRESHOLD=0.5，联网 fetch_callback 注入缺失降级，贝叶斯+耗散熵判定）+ `holoaeon/packs/dehallucination_pack.py`（第 15 扩展包 6 技能/3 角色/1 工作流，key="dehallucination"）+ `EXTRA_PACK_ORDER` 14→15 + butler_os 菜单 10 去幻觉检测 + `pyproject` 追加 `holoaeon-dehallucinate` + `spec.py` DOC_VERSION 0.9.13 → **0.9.14** + 全息体系对应表修正（经络=自组织相似性共振 ≠ 经络机制=Bus） | `EXTRA_PACK_ORDER=15` · dehallucination skills=6 roles=3 workflows=1 · 模块自检 PASS（三分支）· 降级检测三值齐（verdict/cosine/entropy）· selftest 25/25 · unittest 68 OK · contract 184 OK · redline 97 文件 0 违规 · v3_gate 32/32 · verify_v44 13/13 · MCP 回归 13/13（doc_version 0.9.14）· 装配快照 agents=53 skills=257 · `VERSION=0.9.1` 冻结未动 |
 
 红线（不改一字）：`BUILTIN_LAYERS` L1-L8 / `spec.VERSION=0.9.1` / `layers=8` / `PACK_ORDER` /
 `graph.py` / `scheduler.py` / `hypervector.py` / `kernel.py submit`；新包只进 `EXTRA_PACK_REGISTRY` /
@@ -448,11 +449,12 @@ python -m holoaeon.selftest                # 25/25
 python scripts\redline_scan.py             # 90 文件 · 零违规
 python -m unittest discover -s tests       # 68 OK
 python scripts\verify_v44.py               # 13/13
-python -m holoaeon.butler_os 7             # 状态快照：agents=50 skills=251 DOC_VERSION=0.9.13
+python -m holoaeon.butler_os 7             # 状态快照：agents=53 skills=257 DOC_VERSION=0.9.14
+python -m holoaeon.butler_os 10            # 去幻觉检测（莱布尼茨PSR×张平Seb×赫布场 8 阶段流水线）
 ```
 
 维度不变：25 / 47 / 9 与 `spec.VERSION=0.9.1`、`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73`
-三值仍未动；`EXTRA_PACK_ORDER=14`（第 14 扩展包 vector_sea 旁挂，不进 PACK_ORDER）；Guard 默认 9 层、L10 默认关
+三值仍未动；`EXTRA_PACK_ORDER=15`（第 15 扩展包 dehallucination 旁挂，不进 PACK_ORDER）；Guard 默认 9 层、L10 默认关
 （附加层不计入 `guard_layers=8`）；装配后快照 agents=46、skills=243（扩展包旁挂增量）。
 
 

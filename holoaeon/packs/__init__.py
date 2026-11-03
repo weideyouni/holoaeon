@@ -29,6 +29,7 @@ from .tcm_rehab_pack import TCMRehabPack
 from .topology_resonance_pack import TopologyResonancePack
 from .quartet_director_pack import QuartetDirectorPack
 from .vector_sea_pack import VectorSeaPack
+from .dehallucination_pack import DeHallucinationPack
 from .writing import WritingPack
 
 # 九大领域包（每次调用返回新实例，避免共享状态）
@@ -71,6 +72,9 @@ def all_packs() -> List[DomainPack]:
 # （第二十一：拓扑共振 topology_resonance，2026-11-03 增量旁挂，
 #   城邦术语×数学概念融合：1331共振·曼陀罗·莫比乌斯·克莱因·希尔伯特·卡尔曼·贝叶斯，
 #   自组织相似性耗散结构，8技能/3角色/1工作流，纯标准库确定性离线。）
+# （第二十二：自组织相似性全息去幻觉 dehallucination，2026-11-03 增量旁挂，
+#   莱布尼茨充足理由律 × 张平语义基(Seb) × HoloAeon赫布场：6技能/3角色/1工作流，
+#   8 阶段流水线，联网经回调注入缺失降级，纯标准库确定性离线。）
 # ------------------------------------------------------------------------------------
 EXTRA_PACK_REGISTRY: Dict[str, type] = {
     SovereigntyPack.key: SovereigntyPack,
@@ -87,13 +91,14 @@ EXTRA_PACK_REGISTRY: Dict[str, type] = {
     TopologyResonancePack.key: TopologyResonancePack,
     QuartetDirectorPack.key: QuartetDirectorPack,
     VectorSeaPack.key: VectorSeaPack,
+    DeHallucinationPack.key: DeHallucinationPack,
 }
 
 EXTRA_PACK_ORDER: List[str] = ["sovereignty", "subdistill", "omnilife", "omnicore",
                                 "metab", "nephron", "uplift", "persona_quartet",
                                 "skill_matrix", "fusion_upgrade", "tcm_rehab",
                                 "topology_resonance", "quartet_director",
-                                "vector_sea"]
+                                "vector_sea", "dehallucination"]
 
 
 def get_extra_pack(key: str) -> DomainPack:
