@@ -85,7 +85,7 @@ flowchart TB
 | 门禁 | 命令 | 期望 | 本轮实测 |
 |---|---|---|---|
 | 维度锁 | `python scripts/v3_gate.py --json reports/gate.json` | 32/32，A1=25/47/9 | ✅ 32/32 |
-| 单元测试 | `python -m unittest discover -s tests` | 34 OK | ✅ 34 |
+| 单元测试 | `python -m unittest discover -s tests` | 68 OK | ✅ 68 |
 | 启动自检 | `python scripts/launch_local.py selftest` | 25/25 | ✅ 25/25 |
 | 技能矩阵 | `python scripts/verify_skill_matrix.py` | 17/17 | ✅ 17 |
 | 红线扫描 | `python scripts/redline_scan.py` | 零违规 | ✅ 71 文件 0 违规 |
