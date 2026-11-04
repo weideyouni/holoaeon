@@ -16,7 +16,7 @@
   R-01 时间戳默认关闭（out_timestamp=False）：同概念+同Token→同解剖图（确定性优先）
   R-02 main 提升为模块级函数（pyproject entry point holoaeon.concept_anatomy:main）
   R-03 穿透审计实现（depth 单调性验证），不再只声明 token
-  R-04 verify token 与 DOC_VERSION/EXTRA_PACK_ORDER 同步（19 / 0.9.19）
+  R-04 verify token 与 DOC_VERSION/EXTRA_PACK_ORDER 同步（19 / 0.9.20）
 
 保护哪条立身原则：确定性（同概念→同解剖图）、可审计（每次解剖留审计报告）
 """
@@ -60,7 +60,7 @@ DESIGN_TOKENS = {
     "verify_selftest": "25/25",           # selftest期望
     "verify_extra_pack_order": 19,        # EXTRA_PACK_ORDER期望（V19 16→17，V22 17→18，V24 18→19）
     "verify_version": "0.9.1",            # VERSION期望
-    "verify_doc_version": "0.9.19",       # DOC_VERSION期望（V19 0.9.15→0.9.16，V22 0.9.16→0.9.17，V23 0.9.17→0.9.18，V24 0.9.18→0.9.19）
+    "verify_doc_version": "0.9.20",       # DOC_VERSION期望（V23 0.9.17→0.9.18，V24 0.9.19，V25 0.9.19→0.9.20）
 
     # 全息Token（5个）
     "holo_meridian": "topology_resonance.resonance_node",  # 经络映射

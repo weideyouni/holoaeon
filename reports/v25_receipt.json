@@ -1,0 +1,116 @@
+{
+  "batch": "V25-ENGINEERING-MACHINE",
+  "title": "工程机床 HoloAeon 化（machine_tool 八段流水线进仓 · 维度不变）",
+  "status": "DONE",
+  "date": "2026-11-05",
+  "head_before": "cfddea897caf4601007efc6bb4b182575e5a0ac0",
+  "doc_version": "0.9.19 -> 0.9.20",
+  "spec_version": "0.9.1（冻结未动）",
+  "extra_pack_order": "unchanged(19 after V24)",
+  "assembly": "66 agents / 280 skills（含全部扩展包，非冻结口径；核心九包仍 25/47）",
+
+  "source": {
+    "feed": "AGENT_FEED_V25_ENGINEERING_MACHINE_20261105.md（545 行，仓根未跟踪）",
+    "carrier_outside": "F:/doubaowork/engineering_machine.py（WorkBuddy 侧执行层）+ F:/doubaowork/memory_of_yuan.py（数据层）+ 长期记忆（纪律层）",
+    "problem": "每线程上下文容量有限 → 压缩对话 → 断档重配。机床 = 把全部工程记忆固化为跨线程可复现的机床，新线程一次 boot 完成全量对齐。"
+  },
+
+  "first_principle": "机床的目的=跨线程稳定执行 / HoloAeon 的本质=确定性规则认知协作 / 交集=八段流水线本身全是确定性规则（git 探针、闸门表、台账一致性判断），没有一处依赖 LLM。所以这不是加功能，是把纪律变成结构。",
+
+  "quartet_decision": {
+    "call": "QuartetSession.emergence_check(0.85, 0.85, 0.85, 0.30, 0.5237)",
+    "result": "emergence=True / P2xP3=0.7225 / P1=0.85 / P4=0.30 / order=0.5237",
+    "conditions": {
+      "P2xP3_strong_ge_0.7": true,
+      "P1_vision_ge_0.6": true,
+      "P4_risk_le_0.4": true,
+      "order_gt_0.30": true
+    },
+    "final_arbiter": "碳基（潘老师）"
+  },
+
+  "adopted": [
+    "D-01 八段流水线固化顺序（S1-S8，跳段即失守）",
+    "D-02 红线纪律 10 条一字不改（含 diff0 判据与 append-only）",
+    "D-03 五步协议 + 涌现条件的确定性判定（emergence_check 纯函数）",
+    "D-04 五地台账「全一致才收口」（S4 用归档库口径，不参与 sha 一致性）",
+    "D-05 断线恢复协议（实时 HEAD ≠ 账面 HEAD 时以实时为准并回填）"
+  ],
+  "rejected": [
+    "X-01 WorkBuddy 会话依赖（人工 Edit / 人工派发）",
+    "X-02 外部记忆源文件路径硬编码",
+    "X-03 纯表现层 boot 横幅（核心逻辑一律返回 dict，CLI 只做渲染）",
+    "X-04 密钥类敏感项入模块（纪律：不外传、不入仓）"
+  ],
+  "mechanism_mapping": "心跳=MachineTool.tick / 细胞骨架=BaselineProbe / 皮肤=RED_LINES 前置校验 + MemoryBackfill append-only / 经络=Envelope 段间载荷 / 语义通信=Envelope(batch,stage,payload,seal,ts) / 赫布协作场=VerificationGate 结果累积 / 城邦架构=FiveSiteLedger / 涌现校验=QuartetSession.emergence_check",
+
+  "feed_corrections": [
+    "C-01 投喂稿 §3 在包内 import subprocess 并调用 subprocess.run —— 直接违反红线（redline.py FORBIDDEN_MODULES 含 subprocess、FORBIDDEN_CALLS 含 run）。落盘实测：108→109 文件同时冒出 4 处违规（1 forbidden_import + 3 dangerous_call）。改为分层：包=判定、scripts/machine_tool_run.py=执行，红线回到 109 文件 0 违规。这是本批最关键的一处「实测 > 原文」。",
+    "C-02 §3 GATES 写 scripts/v3_gate.py --json、scripts/redline_scan.py（无解释器前缀）；改为 sys.executable 起跑的 argv 表，期望关键字改为实际输出可命中的 PASS / 零违规 / 全部一致。",
+    "C-03 §3 BaselineProbe._read_version() 去仓库根找 VERSION / holoaeon/VERSION 文件，本仓无此文件（VERSION/DOC_VERSION 是 holoaeon/spec.py 常量）——照抄会静默返回 None。改为相对导入 from . import spec；git 身份改 .git 文件直读（HEAD → refs → packed-refs）。",
+    "C-04 §3 MachineTool.main() 用 os.getcwd() 当 repo，从仓外调用会探错目录；改为以本文件位置推导仓库根。",
+    "C-05 §3 MemoryBackfill.append 内 if not text.startswith(...): pass 是死代码，删除。",
+    "C-06 §3 test_five_site_consistent 用硬编码 8072d1c 作 head；改为 TEST_HEAD 常量，且 S4 用 195/195 归档口径——否则 consistent() 永远 False（heads 不唯一）。",
+    "C-07 §6 期望口径「180+11+21」陈旧（V24 后实测 188+11+21）；本批实测 203（188+V25 15）+11+21。红线段数 108→109。",
+    "C-08 §7-D 写 README×3 批次表倒序插行；第三份 README_FUSION_V4 的批次表止于 V12（V4 期 V4.1/V4.2/V4.3 表），故新增「V13 → V25 跨批次增量索引（倒序）」节承担索引职责，不把 V25 混进 V4.x 表。"
+  ],
+
+  "patches": {
+    "A": "新建 holoaeon/machine_tool.py：SEAL / RED_LINES(10) / PIPELINE(8) / FIVE_STEP(5) / EMERGENCE_RULES / GATES(8) / FIVE_SITE(5) + Envelope / BaselineProbe / QuartetSession / LabVerify / FeedPackageBuilder / ExecutorHandoff / VerificationGate(record+ingest+missing+all_green) / FiveSiteLedger(S4 归档口径) / MemoryBackfill / MachineTool(status+boot+assembly+tick+check) + main()（status|boot|check|redlines|pipeline|gates|tick）",
+    "B": "新建 scripts/machine_tool_run.py（执行层，唯一有执行权）：run_argv / git_status / live_status / live_boot / run_gate / run_check，CLI status|boot|check|gate，退出码 PASS=0 / 其他=1。默认不跑 bench（--bench 显式开，避免污染 benchmarks 产物）",
+    "C": "新建 tests/test_machine_tool.py 15 例（投喂稿 11 例 + 增 2 例实证回归「流水线 8 段顺序固定」「真探针读真实仓库」+ 拆 2 例门禁/状态形状），全 OK",
+    "D": "holoaeon/spec.py：DOC_VERSION 0.9.19 → 0.9.20",
+    "E": "R-04 连带：concept_anatomy.py 注释与 verify_doc_version 0.9.19→0.9.20；tests/test_v19_concept_anatomy.py、tests/test_v22_eng_skills.py 断言同步",
+    "F": "README.zh-CN.md / README.md：顶部批次行倒序插 V25 段 + 门禁行 203 OK / 109 文件 + 徽章 180→203 + 正文各插 ### V25 章节（中英不混写）",
+    "G": "README_FUSION_V4_20261102.md：新增「V13 → V25 跨批次增量索引（倒序）」节，V12 前插位，使 V4 主文档不再止于 V12",
+    "H": "reports/v25_receipt.json（本文件）+ 单批单提交 + 五地同步 + 玉安记忆回填"
+  },
+
+  "dimensions_untouched": {
+    "PACK_ORDER": 9,
+    "EXTRA_PACK_ORDER": "19（未新增扩展包；machine_tool 为模块级，先例 butler_os V12）",
+    "BUILTIN_LAYERS": "L1-L8",
+    "layers": 8,
+    "VERSION": "0.9.1",
+    "reprohash": "新文件不参与 ReproHash（machine_tool.py / machine_tool_run.py / test_machine_tool.py）"
+  },
+
+  "verification": {
+    "verdict": "PASS（python scripts/machine_tool_run.py check → all_green=true / missing_gates=[]）",
+    "selftest": "25/25 PASS",
+    "v3_gate": "32/32 PASS（{\"passed\": 32, \"total\": 32, \"failed\": [], \"verdict\": \"PASS\"}）",
+    "unittest_main": "203 OK（V24 的 188 + 本批 15）",
+    "unittest_v3": "11 OK",
+    "unittest_verax": "21 OK",
+    "redline": "109 文件 0 违规",
+    "dimension_lock": "全部一致 PASS",
+    "bench_diff0": "DIFF=0 run1=run2=6d119b2a9f2df687 / tampered=8f424d9ee3ebfb9b / 拦截 16-16=100% / build=30.94ms peak=1.69MiB / agents=25 skills=47",
+    "py38": "parsed=263 / failures=0（V24 后 260 + 本批 3 个新 py）",
+    "cli_boot": "python -m holoaeon.machine_tool boot → VERSION 0.9.1 / DOC 0.9.20 / extras 19(swarm_intel) / 装配 66 agents 280 skills / 流水线 8 段 / 封口",
+    "cli_redlines": "10 条",
+    "cli_pipeline": "S1..S8 顺序输出",
+    "cli_gates": "8 道（默认 7 道，bench 需 --bench）",
+    "cli_tick": "python -m holoaeon.machine_tool tick V25 → emergence=True / order=0.5237",
+    "doc_version_sync": "spec.DOC_VERSION = concept_anatomy.verify_doc_version = 0.9.20；两处测试断言同步"
+  },
+
+  "diff0_note": "双口径不可混用：黄金注释值 2fc892cf9af6e755（spec.py 注释 + D09，口径「VERSION/RUNTIME_ID 不许动」）与本批判据 6d119b2a9f2df687（benchmarks/bench_public.py 16 步 workload 连跑一致性）不是同一 workload。本批复述：判据未漂移；黄金注释值未动。",
+
+  "s4_decision": "S4 向量海不改 195 件冻结编号体系（74_SHA256SUMS → manifest.json 是自指不动点，扩号会破自洽且使历史 check 口径失效）。增量的落点改为独立「批次增量归档区」，脚本化幂等、独立 manifest 校验，让 S4 真正承接 V12 以后的增量而不动既有冻结档案。",
+
+  "five_site": {
+    "status": "pending_refresh",
+    "ledger_outside_repo": "F:/doubaowork/vector-sea/_holoaeon_v4_five_site_receipt_20261102.json（history 追加 V25 条目）",
+    "note": "五地回读结果记入仓外台账，仓内回执不复制远端 sha / 文件数，避免自指漂移（与 V23/V24 同口径）"
+  },
+
+  "not_committed": [
+    "AGENT_FEED_V25_ENGINEERING_MACHINE_20261105.md（投喂包，仓根未跟踪）",
+    "AGENT_FEED_V5..V24 历史投喂包（仓根未跟踪）",
+    "benchmarks/results-0.9.1.json / benchmarks/README.md（bench 运行时产物，已 git checkout 还原）",
+    "reports/daily_gate*.json / reports/*.log / reports/daily_baseline_*.md",
+    "根目录 BASELINE_STATUS_* / COMMERCIAL_* / QUARTET_* / STANDARD_BASED_*"
+  ],
+  "seal": "潮起开门，潮落闭嘴",
+  "evidence_class": "simulated（仿真≠证明，碳基终裁）"
+}
