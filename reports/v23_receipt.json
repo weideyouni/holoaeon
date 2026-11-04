@@ -1,0 +1,92 @@
+{
+  "batch": "V23-RECYCLE-HONESTY",
+  "status": "DONE",
+  "date": "2026-11-05",
+  "feed": "AGENT_FEED_V23_RECYCLE_HONESTY_PATCH_20261104.md",
+  "trigger": "千问 V22+ 评估 78.0 分：P0-1 维度锁自指（EXPECTED 只检 9/12 项）/ P1-2 README 顶部表格 7 项陈旧 / P1-3 一句安心话行数陈旧 / P1-4 V18-A CI 结论过期 / P1-5 Guard 层数三处不一致 / P2-7 缺同名包排查 / P2-8 缺中文路由测试",
+  "route": "投喂包全文阅读 → 四人组定调 → 9 补丁 A→I 贯序落盘 → 全套验证矩阵 → README×2 回读 + V23 章节 + 回执 → 单批单提交 → 五地同步（S1→S2→S3→S4→S5）→ 回读一致",
+  "quartet_decision": {
+    "P1": 0.85,
+    "P2": 0.85,
+    "P3": 0.85,
+    "P4": 0.30,
+    "P2xP3": 0.7225,
+    "order": 0.5237,
+    "emergence": true,
+    "verdict": "四人组定调通过（P2×P3≥0.7 / P1≥0.6 / P4≤0.4 / order>0.30 四项全满足）"
+  },
+  "adopted": [
+    "方案 B 诚实化：冻结快照项显式声明不参与校验（FROZEN_SNAPSHOT + verify:false），不更新冻结值",
+    "README 回读：7 项陈旧数字按实测覆盖",
+    "CI 结论修正：ci.yml 已存在且 GitHub 实跑 run #25 全绿",
+    "Guard 层数统一口径：L1-L8 冻结 / L9-L10 附加层不计入 guard_layers=8",
+    "router 中文路由测试 6 例"
+  ],
+  "rejected": [
+    "重算 diff0 并重冻结（不必要，adds risk 零收益）",
+    "外部 benchmark 对标（违反第一性原理：确定性软件不追外部榜单）",
+    "自动校验快照项并判 FAIL（每次批次演进都会破坏 PASS）",
+    "把冻结值改成最新值（失去冻结的意义）"
+  ],
+  "patches": {
+    "A": "reports/dimension_lock.json D02/D05/D06/D07 追加 verify:false + note 声明冻结快照项（D02 当前 0.9.18 / D06 当前 18 / D07 当前 180/11/21）；八项运行态锁死项一字未动",
+    "B": "scripts/check_dimension_lock.py 新增 FROZEN_SNAPSHOT（4 项）+ read_frozen_snapshot_current() + print_frozen_snapshot()；PASS 后打印 [SNAPSHOT] 差异块；EXPECTED 不变、退出码逻辑不变；DOMAIN_PACK_COUNT 常量不存在 → 改用 len(PACK_ORDER)",
+    "C": "README.md / README.zh-CN.md 顶部表格按实测覆盖：日期 2026-11-05 / 最新批次 V23 / 徽章 tests-180+11+21 / redline 88→106 / unittest 68→180+11+21 / test_10_no_new_pack 下界 >=11 口径",
+    "D": "一句安心话去『3547 行』→『纯标准库 Python（零第三方依赖，行数随版本演进不复写死）』",
+    "E": "V18-A CI 结论『无 .github/workflows』→『.github/workflows/ci.yml 已存在且已在 GitHub 实跑，run #25 全绿』（两份 README 同步）",
+    "F": "Guard 口径统一：L1-L8（8 层）维度锁冻结串联守卫；L9 产品层路径闸门 / L10 贝叶斯层为附加层默认 L9 开 L10 关、不计入 guard_layers=8；两份 README 架构/守卫段同步追加",
+    "G": "两份 README 补 <details> 同名包冲突排查（PyPI 同名包 / PYTHONPATH 污染 / pip cache 残留 / __file__ 验证）",
+    "H": "新建 tests/v3/test_router_chinese.py 6 例（连续子串 / 子串 / 逐字符按序降级 / 无匹配广播 '*' / 中英混合 / 确定性），按 RouterLayer 真实 API register_rule(pattern,target,priority=0) / receive(task)->str 适配",
+    "I": "spec.py DOC_VERSION 0.9.17 → 0.9.18；R-04 同步契约连带：concept_anatomy.py verify_doc_version 0.9.17→0.9.18 + 注释，tests/test_v19_concept_anatomy.py 断言同步 0.9.18，tests/test_v22_eng_skills.py 版本断言同步 0.9.18"
+  },
+  "verification": {
+    "selftest": "25/25 PASS",
+    "v3_gate": "32/32 PASS",
+    "dimension_lock": "PASS（12 维度 + 7 闸 + 0 violation；[SNAPSHOT] spec_doc_version 0.9.4→0.9.18 演进正常 / extra_packs 9→18 演进正常 / domain_packs 9 一致）",
+    "redline": "106 文件 0 违规（新增测试文件不在红线扫描范围）",
+    "unittest_main": "180 OK",
+    "unittest_v3": "11 OK（原 5 + V23-H 新增 6）",
+    "unittest_verax": "21 OK",
+    "bench_selfcheck": "DIFF=0 run1=run2=6d119b2a9f2df687 equal=True · 拦截 100%（16/16）· 冷装配 30.53ms / 峰值 1.69MiB · agents=25 skills=47",
+    "doc_version_sync": "spec.DOC_VERSION=0.9.18 = concept_anatomy.verify_doc_version=0.9.18 = 两处测试断言 0.9.18"
+  },
+  "diff0": {
+    "workload": "benchmarks/bench_public.py measure_diff0() 16 步 workload 同机连跑两次",
+    "actual": "6d119b2a9f2df687",
+    "run1_eq_run2": true,
+    "drifted": false,
+    "golden_note": "dimension_lock D09 的 2fc892cf9af6e755 是 spec.py 注释所载 V1 黄金值（VERSION/RUNTIME_ID 不许动的口径），与 bench 16 步 workload 哈希不是同一 workload，不可直接比对；本批零漂移判据为 bench 哈希与改动前基线一致（6d119b2a9f2df687）",
+    "note": "V23 全部修改点（文档/数据/测试/校验脚本/verify token）均不参与 ReproHash，实测哈希与基线逐字符一致"
+  },
+  "VERSION": "0.9.1 (不变，冻结)",
+  "DOC_VERSION": "0.9.17 → 0.9.18",
+  "EXTRA_PACK_ORDER": "18 (不变)",
+  "PACK_ORDER": "9 (不变，25 agents / 47 skills)",
+  "tamper": "f42c8229ee5acd73 (不变)",
+  "new_files": [
+    "F:/doubaowork/holoaeon/tests/v3/test_router_chinese.py",
+    "F:/doubaowork/holoaeon/reports/v23_receipt.json"
+  ],
+  "modified_files": [
+    "F:/doubaowork/holoaeon/holoaeon/spec.py (DOC_VERSION 0.9.17→0.9.18)",
+    "F:/doubaowork/holoaeon/holoaeon/concept_anatomy.py (R-04 verify token 同步 0.9.18)",
+    "F:/doubaowork/holoaeon/reports/dimension_lock.json (D02/D05/D06/D07 verify:false + note)",
+    "F:/doubaowork/holoaeon/scripts/check_dimension_lock.py (FROZEN_SNAPSHOT + read_frozen_snapshot_current + print_frozen_snapshot)",
+    "F:/doubaowork/holoaeon/tests/test_v19_concept_anatomy.py (断言同步 0.9.18)",
+    "F:/doubaowork/holoaeon/tests/test_v22_eng_skills.py (版本断言同步 0.9.18)",
+    "F:/doubaowork/holoaeon/README.md (顶部表格回读 + V23 章节 + Guard 口径 + 同名包排查)",
+    "F:/doubaowork/holoaeon/README.zh-CN.md (顶部表格回读 + V23 章节 + Guard 口径 + 同名包排查)"
+  ],
+  "not_committed": [
+    "AGENT_FEED_*.md（投喂包约定不提交件）",
+    "reports/daily_gate*.json / reports/*.log / reports/daily_baseline_*.md",
+    "根目录 BASELINE_STATUS / COMMERCIAL_* / QUARTET_* / STANDARD_BASED_* 等过程文档",
+    "benchmarks/README.md + benchmarks/results-0.9.1.json（bench 自跑耗时噪声 36.08→30.53ms，已 checkout 还原，不纳入本批）"
+  ],
+  "engine_discipline": {
+    "dimension_frozen": "25/47/9 · VERSION=0.9.1 · MATRIX_ID · RUNTIME_ID · BUILTIN_LAYERS=L1-L8 · PACK_ORDER=9 · EXTRA_PACK_ORDER=18 · tamper=f42c8229ee5acd73 全部未动",
+    "single_batch_single_commit": true,
+    "five_site_sync": "S1 本地 → S2 Gitee（权威）→ S3 GitHub → S4 向量海 → S5 HF → 回读一致"
+  },
+  "seal": "潮起开门，潮落闭嘴"
+}

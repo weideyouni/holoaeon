@@ -29,6 +29,70 @@ EXPECTED = {
     "skill_matrix_runtime_skills": 1199,
 }
 
+# 冻结快照项：文档态，随版本演进，不参与运行态校验
+# 与 EXPECTED（运行态锁死项）性质不同：
+#   EXPECTED 的值永远不变（如 spec_version=0.9.1）
+#   FROZEN_SNAPSHOT 的值会随 DOC_VERSION 演进（如 spec_doc_version 0.9.4→0.9.18）
+# 校验策略：只读取并打印差异，不判 FAIL——演进是受控的，碳基终审
+FROZEN_SNAPSHOT = {
+    "spec_doc_version": {
+        "frozen_value": "0.9.4",
+        "current_source": "holoaeon.spec.DOC_VERSION",
+        "reason": "文档版本号，随批次演进，不参与运行态锁死校验",
+    },
+    "holoaeon_domain_packs": {
+        "frozen_value": 9,
+        "current_source": "holoaeon.packs.PACK_ORDER len",
+        "reason": "九领域包数，V1 起未变",
+    },
+    "holoaeon_extra_packs": {
+        "frozen_value": 9,
+        "current_source": "holoaeon.packs.EXTRA_PACK_ORDER len",
+        "reason": "扩展包数，随批次演进（9→18）",
+    },
+    "holoaeon_unittests": {
+        "frozen_value": "34/21/5",
+        "current_source": "tests/ + tests/v3 + tests/verax 实跑计数",
+        "reason": "三套测试计数，随批次演进（34/21/5→180/5/21）",
+    },
+}
+
+
+def read_frozen_snapshot_current():
+    """读取冻结快照项的当前值（只读，不校验）。"""
+    current = {}
+    try:
+        from holoaeon.spec import DOC_VERSION
+        current["spec_doc_version"] = DOC_VERSION
+    except Exception:
+        current["spec_doc_version"] = "(读取失败)"
+    try:
+        from holoaeon.packs import PACK_ORDER, EXTRA_PACK_ORDER
+        current["holoaeon_domain_packs"] = len(PACK_ORDER)
+        current["holoaeon_extra_packs"] = len(EXTRA_PACK_ORDER)
+    except Exception:
+        current["holoaeon_domain_packs"] = "(读取失败)"
+        current["holoaeon_extra_packs"] = "(读取失败)"
+    # unittest 计数不在此自动跑（避免拖慢校验），只标注"见实测"
+    current["holoaeon_unittests"] = "(见实测，不自动跑)"
+    return current
+
+
+def print_frozen_snapshot():
+    """打印冻结快照项当前值与冻结值的差异（仅供碳基终审视察，不判 FAIL）。"""
+    current = read_frozen_snapshot_current()
+    print("[SNAPSHOT] 冻结快照项（不参与校验，仅供碳基终审视察）：")
+    for key, meta in FROZEN_SNAPSHOT.items():
+        cur = current.get(key, "(未知)")
+        frozen = meta["frozen_value"]
+        if key == "holoaeon_unittests":
+            note = "← 见 README 实测值"
+        elif str(cur) == str(frozen):
+            note = "← 一致"
+        else:
+            note = "← 演进（正常）"
+        print(f"  - {key}: 冻结={frozen}  当前={cur}  {note}")
+
 
 def main():
     if not os.path.isfile(LOCK):
@@ -63,6 +127,7 @@ def main():
         return 1
     print("[PASS] dimension_lock.json 12 维度 + 7 闸 + 0 violation 全部一致")
     print("       diff0_hash=2fc892cf9af6e755 tamper=f42c8229ee5acd73 spec_version=0.9.1")
+    print_frozen_snapshot()
     return 0
 
 

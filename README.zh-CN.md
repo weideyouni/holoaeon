@@ -10,7 +10,7 @@
 
 ![Dependencies](https://img.shields.io/badge/dependencies-0-success.svg)
 
-![Tests](https://img.shields.io/badge/tests-34%20passed-success.svg)
+![Tests](https://img.shields.io/badge/tests-180%2B11%2B21%20passed-success.svg)
 
 ![SelfTest](https://img.shields.io/badge/selftest-25%2F25-success.svg)
 
@@ -28,14 +28,14 @@ HoloAeon 是**纯标准库、全离线、确定性**的多智能体认知框架�
 **它的定位：给大模型当管家。**大模型负责语言与生成，HoloAeon 负责安检、记账、路由、
 复现——让 AI 的每一次回答旁边，站着一个可审计的记忆体。
 
-## 当前工程状态（2026-11-02）
+## 当前工程状态（2026-11-05）
 
 | 项 | 实测值 |
 |---|---|
 | 产出维度（锁死） | **25 智能体 / 47 技能 / 9 域包**；`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73` 未变 |
-| 最新批次 | **V16 确定性自主调度增强 · DeepSeek Super-agent 对标蒸馏（V16-A→E，`DOC_VERSION 0.9.14 → 0.9.15`）**（新建 `holoaeon/router_layer.py`（RouterLayer 确定性任务路由：task_queue deque/shared_context/dispatch_rules 按 priority 排序/worker_results/is_running，receive→_dispatch 带「有序字符匹配」降级链）+ `holoaeon/event_filter.py`（EventFilter 两级过滤：FAST_PATTERNS 14 词 + DEEP_RULES 4 条 lambda，filter 返回 passed/level/reason，batch_filter CLI）+ `holoaeon/external_watchdog.py`（ExternalWatchdog 外部只读看门狗：BASE_LINE 冻结基线，check_selftest/check_diff0/check_redline 只 observe 不执行，alert 只告警不拦截）+ `holoaeon/packs/super_agent_pack.py`（第 16 扩展包：5 技能/3 角色/1 工作流，key="super_agent"）+ `EXTRA_PACK_ORDER 15→16` · `butler_os` 菜单追加 11 自主调度 · `pyproject` 追加 `holoaeon-router / holoaeon-watchdog`（现 10 命令）· 蒸馏 5 精华 D-01~D-05 + 剔除 4 糟粕 X-01~X-04，第一性原理交集=**确定性的自主调度**（规则驱动非 LLM）· `selftest 25/25` · `unittest 68 OK` · `redline 101 文件 0 违规` · `v3_gate 32/32` · `verify_v44 13/13` · contract PASS · MCP 回归 13/13（doc_version 0.9.15）· 四新模块 selfcheck PASS · 装配快照 agents=56 skills=262 · 写型链全绿（zip 不动点 a87fa921bf963fa1 保持）· golden 重冻结 3 项（V6 degraded 结构演进修复））+ 全息体系对应表 V16 更新（Router=router_layer.py/事件过滤=event_filter.py/外部看门狗=external_watchdog.py/自主调度=super_agent_pack）· 承 **V15 自组织相似性全息去幻觉模块（V15-A→D，`DOC_VERSION 0.9.13 → 0.9.14`）**（新建 `holoaeon/dehallucination.py`（DeHallucinationModule 8 阶段流水线 input→seb_extract→reality_anchor→snapshot_vec→leibniz_compare→synonym_map→verdict→hebbian_update：莱布尼茨 PSR × 张平 Seb × HoloAeon 赫布场，COSINE_HIGH=0.7/COSINE_LOW=0.4/BAYES_PRIOR=0.15/BAYES_THRESHOLD=0.5，联网 fetch_callback 回调注入缺失降级，贝叶斯+耗散熵判定）+ `holoaeon/packs/dehallucination_pack.py`（第 15 扩展包：6 技能/3 角色/1 工作流，key="dehallucination"）+ `EXTRA_PACK_ORDER 14→15` · `butler_os` 菜单追加 10 去幻觉检测 · `pyproject` 追加 `holoaeon-dehallucinate` · `selftest 25/25` · `unittest 68 OK` · `contract 184 OK` · `redline 97 文件 0 违规` · `v3_gate 32/32` · `verify_v44 13/13` · MCP 回归 13/13 · `diff0` 未漂移 · 装配快照 agents=53 skills=257）+ 全息体系对应表修正（经络=自组织相似性类节点共振 topology_resonance_pack，**≠Bus**；经络机制=Bus C2 消息路由，独立概念）· 承 **V14 技能机床与插件化协议适配平台（V14-A→F，`DOC_VERSION 0.9.12 → 0.9.13`）**（新建 `holoaeon/skill_lathe.py`（技能机床：TVCB→SkillSpec，能量分级 A/B/C 级丢弃，`salvaged_<topic>_<hash4>` 命名）+ `holoaeon/protocol_plugins.py`（12 种平台协议遍历穷举导出：OpenAI/Anthropic/Gemini/MCP/A2A/ACP/LangChain/LlamaIndex/AutoGen/CrewAI/Bedrock/Envelope，未知协议 raise ValueError）+ `holoaeon/packs/vector_sea_pack.py`（向量海勘探+加工+分发 · 第 14 扩展包：8 技能/4 角色/2 工作流，key="vector_sea"，V13 勘探 5 技能+V14 机床/协议/工作台 3 技能）+ `holoaeon/vector_sea_explorer.py`（9 阶段流水线 input→ocr→snapshot→search→refine→output→salvage→lathe→protocol_export）+ `EXTRA_PACK_ORDER 13→14` · butler_os 菜单追加 8/9 · `pyproject` 追加 `holoaeon-explore / holoaeon-lathe` · `selftest 25/25` · `unittest 68 OK` · `contract 184 OK` · `redline 95 文件 0 违规` · `diff0` 未漂移 · 装配快照 agents=50 skills=251）· 承 **V12 管家操作系统引导模块（V12-A→E，`DOC_VERSION 0.9.11 → 0.9.12`）**（新建 `holoaeon/butler_os.py`（OS 式菜单 7 项+0 退出）+ `holoaeon/packs/quartet_director_pack.py`（四人组执行顾问 · 第 13 扩展包：14 技能/5 角色/2 工作流，内联实现零依赖，公开 `check_emergence` → (0.85,0.85,0.85,0.30) 实测 emergence=True order=0.5237）+ `holoaeon_os.bat/.sh` 双击入口 · `EXTRA_PACK_ORDER 12→13` · `pyproject` 追加 `holoaeon-os / holoaeon-quartet` · `selftest 25/25` · `unittest 68 OK` · `redline 90 文件 0 违规` · `diff0` 未漂移）· 承 **V11 城邦架构融合 · 拓扑共振升级（V11-A→E，`DOC_VERSION 0.9.10 → 0.9.11`）**（3 Graph 函数 · Guard L10 贝叶斯层默认关 · `topology_runtime.py` · 2 治理技能 skills 14→16）· 承 **V8 批2-4 融合升级**（L9 路径闸门 + 产品层三件套 + TCM 旗舰包 + 领域化解耦）· 承 **V6.1-B5 摘要清单重建** · 承接 V6.1-B4 产品化转型与 V6.0 族级登记与路由第三态 |
+| 最新批次 | **V23 回收式整理补丁（维度锁诚实化 FROZEN_SNAPSHOT + README 回读 + Guard 口径统一 + CI 结论修正 + router 中文路由测试 6 例，`DOC_VERSION 0.9.17 → 0.9.18`）** · 承 **V22+ 千问评估补丁（CJK 中文分词修复 + SHA256SUMS 0 漂移 + 第 18 扩展包 eng_skills，`DOC_VERSION 0.9.17`）** · 承 **V16 确定性自主调度增强 · DeepSeek Super-agent 对标蒸馏（V16-A→E，`DOC_VERSION 0.9.14 → 0.9.15`）**（新建 `holoaeon/router_layer.py`（RouterLayer 确定性任务路由：task_queue deque/shared_context/dispatch_rules 按 priority 排序/worker_results/is_running，receive→_dispatch 带「有序字符匹配」降级链）+ `holoaeon/event_filter.py`（EventFilter 两级过滤：FAST_PATTERNS 14 词 + DEEP_RULES 4 条 lambda，filter 返回 passed/level/reason，batch_filter CLI）+ `holoaeon/external_watchdog.py`（ExternalWatchdog 外部只读看门狗：BASE_LINE 冻结基线，check_selftest/check_diff0/check_redline 只 observe 不执行，alert 只告警不拦截）+ `holoaeon/packs/super_agent_pack.py`（第 16 扩展包：5 技能/3 角色/1 工作流，key="super_agent"）+ `EXTRA_PACK_ORDER 15→16` · `butler_os` 菜单追加 11 自主调度 · `pyproject` 追加 `holoaeon-router / holoaeon-watchdog`（现 10 命令）· 蒸馏 5 精华 D-01~D-05 + 剔除 4 糟粕 X-01~X-04，第一性原理交集=**确定性的自主调度**（规则驱动非 LLM）· `selftest 25/25` · `unittest 68 OK` · `redline 101 文件 0 违规` · `v3_gate 32/32` · `verify_v44 13/13` · contract PASS · MCP 回归 13/13（doc_version 0.9.15）· 四新模块 selfcheck PASS · 装配快照 agents=56 skills=262 · 写型链全绿（zip 不动点 a87fa921bf963fa1 保持）· golden 重冻结 3 项（V6 degraded 结构演进修复））+ 全息体系对应表 V16 更新（Router=router_layer.py/事件过滤=event_filter.py/外部看门狗=external_watchdog.py/自主调度=super_agent_pack）· 承 **V15 自组织相似性全息去幻觉模块（V15-A→D，`DOC_VERSION 0.9.13 → 0.9.14`）**（新建 `holoaeon/dehallucination.py`（DeHallucinationModule 8 阶段流水线 input→seb_extract→reality_anchor→snapshot_vec→leibniz_compare→synonym_map→verdict→hebbian_update：莱布尼茨 PSR × 张平 Seb × HoloAeon 赫布场，COSINE_HIGH=0.7/COSINE_LOW=0.4/BAYES_PRIOR=0.15/BAYES_THRESHOLD=0.5，联网 fetch_callback 回调注入缺失降级，贝叶斯+耗散熵判定）+ `holoaeon/packs/dehallucination_pack.py`（第 15 扩展包：6 技能/3 角色/1 工作流，key="dehallucination"）+ `EXTRA_PACK_ORDER 14→15` · `butler_os` 菜单追加 10 去幻觉检测 · `pyproject` 追加 `holoaeon-dehallucinate` · `selftest 25/25` · `unittest 68 OK` · `contract 184 OK` · `redline 97 文件 0 违规` · `v3_gate 32/32` · `verify_v44 13/13` · MCP 回归 13/13 · `diff0` 未漂移 · 装配快照 agents=53 skills=257）+ 全息体系对应表修正（经络=自组织相似性类节点共振 topology_resonance_pack，**≠Bus**；经络机制=Bus C2 消息路由，独立概念）· 承 **V14 技能机床与插件化协议适配平台（V14-A→F，`DOC_VERSION 0.9.12 → 0.9.13`）**（新建 `holoaeon/skill_lathe.py`（技能机床：TVCB→SkillSpec，能量分级 A/B/C 级丢弃，`salvaged_<topic>_<hash4>` 命名）+ `holoaeon/protocol_plugins.py`（12 种平台协议遍历穷举导出：OpenAI/Anthropic/Gemini/MCP/A2A/ACP/LangChain/LlamaIndex/AutoGen/CrewAI/Bedrock/Envelope，未知协议 raise ValueError）+ `holoaeon/packs/vector_sea_pack.py`（向量海勘探+加工+分发 · 第 14 扩展包：8 技能/4 角色/2 工作流，key="vector_sea"，V13 勘探 5 技能+V14 机床/协议/工作台 3 技能）+ `holoaeon/vector_sea_explorer.py`（9 阶段流水线 input→ocr→snapshot→search→refine→output→salvage→lathe→protocol_export）+ `EXTRA_PACK_ORDER 13→14` · butler_os 菜单追加 8/9 · `pyproject` 追加 `holoaeon-explore / holoaeon-lathe` · `selftest 25/25` · `unittest 68 OK` · `contract 184 OK` · `redline 95 文件 0 违规` · `diff0` 未漂移 · 装配快照 agents=50 skills=251）· 承 **V12 管家操作系统引导模块（V12-A→E，`DOC_VERSION 0.9.11 → 0.9.12`）**（新建 `holoaeon/butler_os.py`（OS 式菜单 7 项+0 退出）+ `holoaeon/packs/quartet_director_pack.py`（四人组执行顾问 · 第 13 扩展包：14 技能/5 角色/2 工作流，内联实现零依赖，公开 `check_emergence` → (0.85,0.85,0.85,0.30) 实测 emergence=True order=0.5237）+ `holoaeon_os.bat/.sh` 双击入口 · `EXTRA_PACK_ORDER 12→13` · `pyproject` 追加 `holoaeon-os / holoaeon-quartet` · `selftest 25/25` · `unittest 68 OK` · `redline 90 文件 0 违规` · `diff0` 未漂移）· 承 **V11 城邦架构融合 · 拓扑共振升级（V11-A→E，`DOC_VERSION 0.9.10 → 0.9.11`）**（3 Graph 函数 · Guard L10 贝叶斯层默认关 · `topology_runtime.py` · 2 治理技能 skills 14→16）· 承 **V8 批2-4 融合升级**（L9 路径闸门 + 产品层三件套 + TCM 旗舰包 + 领域化解耦）· 承 **V6.1-B5 摘要清单重建** · 承接 V6.1-B4 产品化转型与 V6.0 族级登记与路由第三态 |
 | 扩展卡槽 | **12 个**：occupied 6 / open 1 / reserved 4 / blocked 1（只声明不接线；本批**不新增、不占用**槽位） |
-| 门禁 | `v3_gate 32/32` · `selftest 25/25` · `unittest 68 OK` · `旁挂 184 OK`（`test_10_no_new_pack` 断言 `EXTRA_PACK_ORDER==11` 与 V9 起 12 项的既有契约漂移除外） · `v44 13/13` · `v45 7/7` · `v46 9/9` · `v5 11/11` · `dv 8/8` · `redline 88 文件 0 违规` · `drift []` |
+| 门禁 | `v3_gate 32/32` · `selftest 25/25` · `unittest 180 OK`（主 tests）+ `v3 11 OK`（含 V23-H 新增 router 中文 6 例）+ `verax 21 OK` · `旁挂 184 OK`（`tests_contract` 的 `test_10_no_new_pack` 已改下界 `>=11`，V12 起不再过期） · `v44 13/13` · `v45 7/7` · `v46 9/9` · `v5 11/11` · `dv 8/8` · `redline 106 文件 0 违规` · `drift []` |
 | 五地同步 | 本地 · Gitee · GitHub · Hugging Face · 向量海 —— 见文末 [附录 A](#附录-a--五地同步v11) |
 | 版本脉络 | V4.0 → V6.1 → V11 → V12 逐提交回溯 —— 见文末 [附录 B](#附录-b--版本升级说明v3--v11) |
 | V4 主文档 | [`README_FUSION_V4_20261102.md`](README_FUSION_V4_20261102.md) · 同步规则 [`data/FIVE_SITE_SYNC_DNA.md`](data/FIVE_SITE_SYNC_DNA.md) |
@@ -196,6 +196,24 @@ python -m holoaeon.butler_os 10            # 去幻觉检测（莱布尼茨PSR×
 用户落地路径：PDF/图片/文字 → OCR → TF-IDF 快照 → 向量海余弦搜索 → TVCB 精炼 → 技能机床加工 → 12 协议适配导出 → 部署到任意平台。
 Guard 默认 9 层、L10 默认关（附加层不计入 `guard_layers=8`）；装配后快照 agents=46（含四人组 5 角色）、skills=243（含四人组 14 技能），均为扩展包旁挂增量。
 
+### V23 · 回收式整理补丁（维度锁诚实化 + README 回读 + Guard 统一，不改维度）
+
+`DOC_VERSION` 0.9.17 → **0.9.18**（`spec.VERSION` 仍 0.9.1）。对应 `AGENT_FEED_V23_RECYCLE_HONESTY_PATCH_20261104.md`，触发依据=千问 V22+ 评估 78.0 分（P0-1 维度锁自指 / P1-2 README 7 项陈旧 / P1-3 行数陈旧 / P1-4 CI 结论过期 / P1-5 Guard 口径不一致 / P2-7 缺同名包排查 / P2-8 缺中文路由测试）。四人组定调 `check_emergence(0.85,0.85,0.85,0.30)` → emergence=True order=0.5237。扬弃结论：取「诚实化方案 B」（冻结快照显式声明），弃「重算 diff0 / 更新冻结值 / 自动校验快照 / 外部 benchmark」。
+
+1. **V23-A · 维度锁诚实化**：`reports/dimension_lock.json` D02/D05/D06/D07 四项追加 `"verify": false` + note 注明「冻结快照项：值随 DOC_VERSION 演进，不参与运行态锁死校验」；D01/D03/D04/D08/D09/D10/D11/D12 八项运行态锁死项一字未动。
+2. **V23-B · 校验脚本透明化**：`scripts/check_dimension_lock.py` 新增 `FROZEN_SNAPSHOT` 字典 + `read_frozen_snapshot_current()` + `print_frozen_snapshot()`，PASS 后打印 `[SNAPSHOT]` 差异块（spec_doc_version 0.9.4→0.9.18、extra_packs 9→18 标「演进（正常）」）；`EXPECTED` 不变、退出码逻辑不变（快照差异不判 FAIL）。
+3. **V23-C · README 回读**：`README.md` / `README.zh-CN.md` 顶部表格按实测覆盖——日期 2026-11-05、最新批次 V23、徽章 `tests-180+11+21`、门禁 `redline 106 文件 0 违规`、`unittest 180 + v3 11 + verax 21`、`test_10_no_new_pack` 下界 `>=11` 口径。
+4. **V23-D · 一句安心话**：去掉写死的「3547 行」，改为「纯标准库 Python（零第三方依赖，行数随版本演进不复写死）」。
+5. **V23-E · CI 结论修正**：「无 .github/workflows」→「`.github/workflows/ci.yml` 已存在且已在 GitHub 实跑，run #25 全绿」。
+6. **V23-F · Guard 口径统一**：L1-L8（8 层）为维度锁冻结串联守卫，L9（产品层路径闸门）/L10（贝叶斯层）为附加层默认 L9 开 L10 关、不计入 `guard_layers=8`；README 两版同步追加口径说明。
+7. **V23-G · 同名包排查**：两份 README 补 `<details>` 同名包冲突排查（PyPI 同名包 / PYTHONPATH 污染 / 缓存残留 / `__file__` 验证）。
+8. **V23-H · router 中文路由测试**：新建 `tests/v3/test_router_chinese.py` 6 例（连续子串 / 子串 / 逐字符按序降级 / 无匹配广播 `*` / 中英混合 / 确定性），按 `RouterLayer` 真实 API（`register_rule` / `receive→str`）适配，非投喂稿假设的 `register(name, skills=[...])`。
+9. **V23-I · 文档版本**：`spec.py` `DOC_VERSION = "0.9.18"`（`VERSION="0.9.1"` 冻结未动）。
+
+验证全绿：`selftest 25/25` · `unittest 180 OK`（主 tests）+ `v3 11 OK`（含 V23-H 新增 6 例）+ `verax 21 OK` · `redline 106 文件 0 违规` · `v3_gate 32/32` · `dimension_lock PASS`（SNAPSHOT 差异块正常打印）· `bench diff0` 两次连跑一致（`6d119b2a9f2df687` 未变，V23 全部修改点不参与 ReproHash）· `DOC_VERSION=0.9.18` · `EXTRA_PACK_ORDER=18`（不变）。
+
+**维度不变**：25 / 47 / 9、`spec.VERSION=0.9.1`、`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73`；`EXTRA_PACK_ORDER=18` 不变；V23 为纯「数据+文档+测试+校验脚本」回收式补丁，不碰任何运行态源码。
+
 ### V22+ · 千问评估补丁（中文分词修复 · V22 补丁升级，不改维度）
 
 `DOC_VERSION` 保持 **0.9.17** 不变（补丁不改功能维度，`spec.VERSION` 仍 0.9.1）。对应 `AGENT_FEED_V22_QIANWEN_EVALUATION_PATCH_20261104.md`（投喂稿编号 V22 与已交付「V22 工程技能本地化」撞车 → 现场裁决为 **V22+ 补丁升级**）。报告来源：千问端 STANDARD_BASED_EVALUATION（8 维度 79.0 分居首，5 短板）+ 耦合装入报告（族级路由中文分词缺陷）+ 翻车复盘（无收尾反馈）：
@@ -291,7 +309,7 @@ V19 做了**能力**（能解剖概念），没做**用途**（解剖出来能�
 `DOC_VERSION` 保持 **0.9.15** 不变（V17 记忆模块在源码树外，V18 不改源码，不触发版本升级）。对应 `AGENT_FEED_V18_PATCH_CLOSURE_V17_BRIDGE_INTEGRATION_20261104.md` 步骤 A→E 贯序执行：
 
 1. **V17-A · 玉安记忆之王执行**：新建 `F:/doubaowork/memory_of_yuan.py`（项目外，纯标准库）—— 10 记忆域 JSON（`F:/doubaowork/holoaeon_memory/`：engineering_discipline/engineering_process/output_dimensions/five_site_sync/verification_procedures/version_history/holographic_system/quartet_toolkit/haole_yuan_lab/vector_sea）+ `.pth` 全域注册两处（.workbuddy 3.13.12 site-packages + sandbox site-packages，指向 `F:/doubaowork`）+ SKILL.md（`holoaeon` 关键词引发）；赫布场 learning_rate=0.12 decay=0.99；`memory_graph` 中英混合 token 分词（edges=8≥5）；封口密语：潮起开门，潮落闭嘴。V17 验证清单 9/9 PASS（10 域 / 全域加载 / 跨目录 seal / 全息 matched=5 / versions=16 / edges=8 / 同义 holoaeon / 封存 True / selftest 25/25）。
-2. **V18-A · V6 遗留 12 项代码卫生审计收口**：逐项核验 —— 10 项已修/不适用 + 1 项已知漂移非阻断（test_holoaeon.py:316 断言 >=7）+ 1 项残留 CI 缺口低优先级（无 .github/workflows）；**正式收口，无需额外代码修改**。
+2. **V18-A · V6 遗留 12 项代码卫生审计收口**：逐项核验 —— 10 项已修/不适用 + 1 项已知漂移非阻断（test_holoaeon.py:316 断言 >=7）+ 1 项 CI 缺口**已消除**（`.github/workflows/ci.yml` 已存在且已在 GitHub 实跑，run #25 全绿）；**正式收口，无需额外代码修改**。
 3. **V18-B · 集成测试**：新建 `tests/test_v12_v17_integration.py` —— 7 个 TestCase 22 tests 覆盖 V12-V17 六模块 + 跨模块协同（all_extra_packs()==16 / Kernel 装齐 9+16 包 submit / EXTRA_PACK_ORDER 顺序 topology_resonance→quartet_director→vector_sea→dehallucination→super_agent / butler_os 源码包含 vector_sea/dehallucination/router 字样；V17 已执行故不 skip；V13/V14 API 名按实际函数式 API 适配）。
 
 验证全绿：`selftest 25/25` · `golden verify 5/5`（verify_all(n=2) 5 tasks True）· `集成测试 22 OK` · `unittest 90 OK`（主 tests，含 22 集成）+ verax 21 OK + v3 5 OK · `redline 101 文件 0 违规` · `v3_gate 32/32` · `verify_v44 PASS` · 维度锁 0 violation（`diff0=2fc892cf9af6e755` 未漂移）· contract PASS（PACK 9 / EXTRA 16）· MCP 回归 4/4 · V17 记忆模块 10/10 domains · `DOC_VERSION 0.9.15`（不变）· 承 **V16 确定性自主调度增强**。
@@ -386,7 +404,7 @@ edline_scan 回读（当前 82 文件）零违规                |
 | 上述 + 4GB 内存 + 约 4GB 硬盘                      | ✅ 额外可接本地真模型（Ollama + qwen2.5:0.5b）               |
 | 上述 + 网络 + API 密钥                            | ✅ 额外可接豆包/千问等云端模型                                 |
 
-> 一句安心话：HoloAeon 核心是 3547 行纯标准库 Python，`pip install` 不安装任何东西，
+> 一句安心话：HoloAeon 核心是纯标准库 Python（零第三方依赖，具体行数随版本演进不复写死），`pip install` 不安装任何东西，
 > 不写注册表、不留后台进程——程序退出即消失。老机器放心折腾。
 
 ### 三步跑通（全程约 3 分钟，不联网）
@@ -540,6 +558,18 @@ omnicore 认知引擎 / metab 治理 / nephron 账本 / uplift 加固 / persona_
 | 中文路径报错             | 项目移到纯英文路径，如 `D:\holoaeon`                            |
 | 杀毒软件提示             | 零网络零系统写入，源码全可审：`python scripts/redline_scan.py` 自证清白 |
 
+<details>
+<summary>同名包冲突排查（pip install 后 import 报错）</summary>
+
+如果 `pip install holoaeon` 后 `import holoaeon` 报错或导入到错误包，可能原因：
+
+1. **PyPI 同名包**：HoloAeon 是本仓专有名，PyPI 上可能有同名占位包。解决：`pip uninstall holoaeon -y` 后 `pip install -e .`（从源码安装本仓）。
+2. **PYTHONPATH 污染**：检查 `echo $PYTHONPATH`（Windows PowerShell：`echo $env:PYTHONPATH`），确保没有指向其他同名目录。
+3. **缓存残留**：`pip cache purge` 后重装。
+4. **验证**：`python -c "import holoaeon; print(holoaeon.__file__)"` 应指向本仓路径。
+
+</details>
+
 ---
 
 ## 架构总览
@@ -569,6 +599,8 @@ omnicore 认知引擎 / metab 治理 / nephron 账本 / uplift 加固 / persona_
 ```
 
 隐喻→工程映射：心跳=调度 tick｜皮肤=守卫 L1-L8｜经络=语义路由｜细胞骨架=生命周期/持久化｜赫布场=共激活权重自适应｜全息=局部携带全局摘要。**隐喻是修辞，实证是确定性软件。**
+
+> **Guard 层数口径**：L1-L8（8 层）为维度锁冻结的串联守卫（写进 `dimension_lock` D08 旁注，不许动）；L9（产品层路径闸门）与 L10（贝叶斯层）为**附加层**，走 extra_layers 通道，默认 L9 开 / L10 关，不计入 `guard_layers=8` 维度锁。`spec.py` / README / docs 三处描述统一以此口径为准。
 
 ## 测试
 
