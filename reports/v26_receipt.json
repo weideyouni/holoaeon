@@ -1,0 +1,137 @@
+{
+  "batch": "V26-MOBIUS-VORTEX",
+  "title": "莫比乌斯漩涡模块（mobius_vortex 状态回流环 · 维度不变 · DOC 0.9.20->0.9.21）",
+  "status": "executed",
+  "date": "2026-11-05",
+  "head_before": "57ba2801b1a94c1cdaa8f1625d930035f6d21305",
+  "head_before_short": "57ba280",
+  "doc_version_before": "0.9.20",
+  "doc_version_after": "0.9.21",
+  "spec_version": "0.9.1",
+  "extra_pack_order": 19,
+  "extra_pack_order_changed": false,
+  "assembly": {"agents": 66, "skills": 280, "core_agents": 25, "core_skills": 47},
+  "source": "AGENT_FEED_V26_MOBIUS_VORTEX_20261105.md（仓根，477 行，未提交）",
+  "evidence_class": "simulated",
+  "first_principle": "正程（总监→豆包派发）已由 ACP 打通，缺的是回程。莫比乌斯环带=单侧曲面：执行面走一圈回到总监面，无内外之分。状态回传不建新通道，只承认既有事实：同一文件系统即接口面。",
+  "quartet_decision": {
+    "P4_question": "状态回传会不会变成又一个监控大屏式装饰？答：不会。没有回程，S2 定调就是盲飞；有回程，五步协议才有真实梯度。",
+    "P2_architecture": "五段组合：StateBeacon → VortexIngest → MobiusRing → QuartetBrief → SkillAtlas",
+    "P3_constraints": "零依赖、不碰冻结核心、不新增扩展包、新文件不参与 ReproHash、零密钥零网络",
+    "P1_algorithm": "两点几何（三点对齐）+ 两级过滤（L1 schema / L2 seal）+ 确定性聚合（零 LLM）",
+    "emergence": {"order": 0.5237, "verdict": "unchanged_from_V25"}
+  },
+  "adopted": [
+    "D-01 状态灯塔 JSON schema（seal + schema_version + batch + head + gates + five_site + lessons）",
+    "D-02 三点对齐几何（灯塔 / 实时 git / 账面玉安记忆）与断线恢复协议：不一致以实时为准并回填账面",
+    "D-03 四人组简报确定性聚合（P4 问题 / P2 事实 / P3 风险 / P1 建议，零 LLM）",
+    "D-04 SkillAtlas 10 条静态映射（技能自动匹配 + 意义字段）",
+    "D-05 文件即接口——同一文件系统即莫比乌斯面"
+  ],
+  "rejected": [
+    "X-01 实时推送 / WebSocket / 长轮询（文件轮询即可，确定性优先）",
+    "X-02 ACP 反向调用让豆包主动推 WorkBuddy API（密钥不过墙）",
+    "X-03 大屏 / 可视化前端（CLI + JSON 即全部）",
+    "X-04 自动执行简报里的建议（简报只陈述，碳基终审决断）"
+  ],
+  "mechanism_mapping": {
+    "漩涡汇入": "S1 基线（细胞骨架装配依据）",
+    "环面校验（schema+seal）": "皮肤机制（Guard 前置）",
+    "回执流 Envelope 化": "经络机制（Bus 发布/订阅）",
+    "连续回执信任累积": "赫布协作场（全绿次数→信任权重）",
+    "简报登记簿": "城邦架构（多批次简报归档）",
+    "莫比乌斯原语": "mobius_edge（quartet_toolkit 14 技能之一）"
+  },
+  "feed_corrections": [
+    {
+      "id": "C-01",
+      "claim": "§4/§5 称「新建，完整代码」",
+      "reality": "投喂包未附代码正文（原文仅标题）",
+      "resolution": "按 §1 五段规格与 §3 映射表实现；测试实际 12 例（清单口径 11 例），回执如实记录"
+    },
+    {
+      "id": "C-02",
+      "claim": "§1 P3 把 subprocess 列为可用标准库",
+      "reality": "holoaeon/redline.py 的 FORBIDDEN_MODULES 含 subprocess、FORBIDDEN_CALLS 含 run/system/popen",
+      "resolution": "照抄会让红线从 0 变 4 违规；沿用 V25 判例——包内不 shell out，git 身份改 `.git` 文件直读（HEAD → refs → packed-refs），import BaselineProbe 用相对导入"
+    },
+    {
+      "id": "C-03",
+      "claim": "§7 写 `scripts/v3_gate.py --json`",
+      "reality": "v3_gate.py argparse 不接受 --json，报 expected one argument",
+      "resolution": "去该参数运行，32/32 PASS（V25 已记录同一坑）"
+    },
+    {
+      "id": "C-04",
+      "claim": "§1 账面 HEAD 从玉安记忆读取",
+      "reality": "version_history.json 是对象 {domain, versions, history}，不是顶层数组",
+      "resolution": "MobiusRing.book_head() 取 history 倒序第一条含 head/head_full 的记录"
+    },
+    {
+      "id": "C-05",
+      "claim": "§8 E 称 R-04「连带同步」",
+      "reality": "实为 5 处：spec.py DOC_VERSION、concept_anatomy.py 头注释、concept_anatomy.py verify_doc_version token、tests/test_v19_concept_anatomy.py 注释+断言、tests/test_v22_eng_skills.py 断言",
+      "resolution": "5 处同源替换为 0.9.21，全套回归验证"
+    },
+    {
+      "id": "C-06",
+      "claim": "§3 称 vector_sea 为「617 技能索引」",
+      "reality": "仓内 vector_sea 扩展包实为 8 技能 / 4 角色 / 2 工作流（第 14 扩展包）",
+      "resolution": "Atlas 仅作索引引用，不改既有扩展包计数，也不引用未经实测的 617 口径"
+    }
+  ],
+  "patches": {
+    "A": "holoaeon/mobius_vortex.py 新建（StateBeacon / VortexIngest / MobiusRing / QuartetBrief / SkillAtlas / MobiusVortex + CLI status|atlas|beacon|ingest|align|brief）",
+    "B": "tests/test_mobius_vortex.py 新建 12 例（schema/seal/缺键/合法/文件入口/对齐/漂移/真仓 HEAD 格式/简报 PASS 与 BLOCK/Atlas 与 CLI）",
+    "C": "§7 验证清单全跑并记录实测",
+    "D": "README.zh-CN.md / README.md 新增 ### V26 章节 + 顶部最新批次 + 门禁表实测；README_FUSION 索引节 V13 → V26 并插入 V26 行",
+    "E": "DOC_VERSION 0.9.20 → 0.9.21，R-04 五处同源同步",
+    "F": "单批单提交 + 本回执",
+    "G": "五地同步 + 玉安记忆 version_history / five_site_sync 回填",
+    "H": "首次灯塔 batch=V26-EXEC → reports/state_beacon.json → 总监侧 brief 出简报，环面闭合"
+  },
+  "dimensions_untouched": {
+    "BUILTIN_LAYERS": "L1-L8 未触碰",
+    "VERSION": "0.9.1 未触碰",
+    "layers": "8 未触碰",
+    "PACK_ORDER": "9（25 agents / 47 skills）未触碰",
+    "EXTRA_PACK_ORDER": "19 未增长（模块级，先例 butler_os V12 / machine_tool V25）",
+    "graph_scheduler_hypervector_kernel": "未触碰",
+    "repro_hash": "新文件不参与 ReproHash"
+  },
+  "verification": {
+    "selftest": "25/25",
+    "v3_gate": "32/32",
+    "unittest_main": "215 OK（V25 203 + V26 12）",
+    "unittest_v3": "11 OK",
+    "unittest_verax": "21 OK",
+    "unittest_v26": "12 OK",
+    "redline": "110 文件 0 违规（V25 109 + V26 1）",
+    "dimension_lock": "PASS（12 维度 / 7 闸 / 0 violation，快照 0.9.21 与 19 演进正常）",
+    "py38_syntax": "parsed=265 failures=0",
+    "five_site_manifest": "package 28 / repo 171 / missing 0 / zip a87fa921bf963fa1",
+    "verify_v44": "A12 PASS / A13 PASS（尾部实测）",
+    "cli_status": "live_head 57ba280 / book_head 57ba280 / atlas_entries 10 / seal 正确",
+    "cli_atlas": "10 条"
+  },
+  "diff0_note": {
+    "judgement": "6d119b2a9f2df687（bench 16 步 workload）",
+    "tampered": "8f424d9ee3ebfb9b",
+    "blocked": "16/16 = 100%",
+    "footprint": "build=30.67ms peak=1.69MiB agents=25 skills=47",
+    "drift": 0,
+    "golden_comment_value": "2fc892cf9af6e755（V1 注释值，口径不同，不作判据）",
+    "bench_artifacts_reverted": true
+  },
+  "five_site": {
+    "status": "pending_refresh",
+    "ledger_outside_repo": "F:/doubaowork/vector-sea/_holoaeon_v4_five_site_receipt_20261102.json（history 追加 V26 条目 / s4_incremental 追加 V26_mobius_vortex）",
+    "note": "五地回读结果记入仓外台账，仓内回执不复制远端 sha / 文件数，避免自指漂移（与 V23/V24/V25 同口径）"
+  },
+  "not_committed": [
+    "AGENT_FEED_V26_MOBIUS_VORTEX_20261105.md（仓根投喂包，纪律不提交）",
+    "reports/state_beacon.json（运行产物，首次灯塔）"
+  ],
+  "seal": "潮起开门，潮落闭嘴",
+  "final_judgement": "碳基终审，仿真≠证明"
+}

@@ -421,12 +421,13 @@ python -m unittest discover -s tests_contract   # 184（1 例既有契约漂移�
 三值仍未动；`EXTRA_PACK_ORDER=12` 未再增；Guard 默认 9 层、开启 L10 后 10 层（附加层不计入 `guard_layers=8`）。
 
 
-## V13 → V25 · 跨批次增量索引（倒序）
+## V13 → V26 · 跨批次增量索引（倒序）
 
 > 本节只承担**索引**职责：让这份 V4 主文档不再止于 V12。每批的完整说明在主 `README.zh-CN.md` / `README.md` 的 `### Vxx` 章节，回执在 `reports/`。索引不复述正文，也不改写任何既有判据。
 
 | 批次 | 主题 | 关键产出 / 回执 |
 |---|---|---|
+| V26 | 莫比乌斯漩涡状态回流环（`DOC_VERSION 0.9.20 → 0.9.21`，不新增扩展包） | `holoaeon/mobius_vortex.py` · `tests/test_mobius_vortex.py` · `reports/v26_receipt.json` |
 | V25 | 工程机床 HoloAeon 化（`DOC_VERSION 0.9.19 → 0.9.20`，不新增扩展包） | `holoaeon/machine_tool.py` · `scripts/machine_tool_run.py` · `reports/v25_receipt.json` |
 | V24 | 群体智能引擎（MiroFish 五阶段蒸馏 · 第 19 扩展包 `swarm_intel`，`0.9.18 → 0.9.19`） | `holoaeon/swarm_intel.py` · `holoaeon/packs/swarm_intel_pack.py` · `reports/v24_receipt.json` |
 | V23 | 回收式整理补丁（维度锁诚实化 FROZEN_SNAPSHOT + README 回读，`0.9.17 → 0.9.18`） | `reports/dimension_lock.json` |
