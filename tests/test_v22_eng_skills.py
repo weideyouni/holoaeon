@@ -40,14 +40,14 @@ class TestPackSpec(unittest.TestCase):
         from holoaeon.packs import EXTRA_PACK_ORDER, EXTRA_PACK_REGISTRY, get_extra_pack
         self.assertIn("eng_skills", EXTRA_PACK_ORDER)
         self.assertIn("eng_skills", EXTRA_PACK_REGISTRY)
-        self.assertEqual(EXTRA_PACK_ORDER[-1], "eng_skills")
-        self.assertEqual(len(EXTRA_PACK_ORDER), 18)
+        self.assertIn("eng_skills", EXTRA_PACK_ORDER)   # V24：swarm_intel 接续末位，改「包含」断言
+        self.assertGreaterEqual(len(EXTRA_PACK_ORDER), 18)  # 下界（V24 实为 19）
         p = get_extra_pack("eng_skills")
         self.assertEqual(p.key, "eng_skills")
 
     def test_version_sync(self):
         from holoaeon.spec import DOC_VERSION, VERSION
-        self.assertEqual(DOC_VERSION, "0.9.18")  # V23：0.9.17→0.9.18
+        self.assertEqual(DOC_VERSION, "0.9.19")  # V24：0.9.18→0.9.19
         self.assertEqual(VERSION, "0.9.1")       # 冻结不动
 
     def test_install_on_kernel(self):

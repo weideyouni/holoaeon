@@ -1,0 +1,87 @@
+{
+  "batch": "V24-SWARM-INTEL",
+  "title": "群体智能引擎本地化（MiroFish 五阶段流水线蒸馏 · 第19扩展包 swarm_intel）",
+  "status": "DONE",
+  "date": "2026-11-05",
+  "head_before": "8072d1c5b4ebd2c41e7174257898dc5d86485ccb",
+  "doc_version": "0.9.18 -> 0.9.19",
+  "spec_version": "0.9.1（冻结未动）",
+  "extra_pack_order": "18 -> 19（旁挂，不进 PACK_ORDER）",
+  "assembly": "66 agents / 280 skills（含全部扩展包，非冻结口径；核心九包仍 25/47）",
+
+  "source": {
+    "project": "MiroFish",
+    "repo": "666ghj/MiroFish",
+    "license": "AGPL-3.0（传染性）",
+    "clone_path": "F:/doubaowork/MiroFish/（只读分析，不复制）",
+    "feed": "AGENT_FEED_V24_SWARM_INTEL_MIROFISH_DISTILLATION_20261105.md"
+  },
+  "license_discipline": "HoloAeon=Apache-2.0 / MiroFish=AGPL-3.0。只蒸馏创意与方法论（思想-表达二分法），本批新增代码全部自写，零源代码复制。",
+
+  "quartet_decision": {
+    "call": "check_emergence(0.85, 0.85, 0.85, 0.30)",
+    "result": "emergence=True / order=0.5237 / mean=0.7125 / std=0.2382",
+    "conditions": {
+      "P2xP3_strong_ge_0.7": true,
+      "P1_vision_ge_0.6": true,
+      "P4_risk_le_0.4": true,
+      "order_gt_0.30": true
+    },
+    "final_arbiter": "碳基（潘老师）"
+  },
+  "first_principle": "MiroFish=LLM群体涌现预测 / HoloAeon=确定性规则认知协作 / 交集=把群体涌现的 pipeline 结构用确定性规则实现。涌现是交互的函数，不是智能的函数。",
+
+  "adopted": [
+    "D-01 五阶段流水线（Graph->World->Simulate->Report->Interact）",
+    "D-02 规则版 Persona 生成（MiroFish 自身 _generate_profile_rule_based 亦为降级路径，此处升为主路径）",
+    "D-03 AgentAction + RoundSummary 结构化行动记录",
+    "D-04 双路并行模拟（主路径 + 验证路径）",
+    "D-05 God View 变量注入（注入前载荷过滤）",
+    "D-06 深度交互 / 采访 agent",
+    "D-07 确定性报告生成（action 统计 -> 涌现模式提取）"
+  ],
+  "rejected": [
+    "X-01 LLM 重度依赖（每个 action 调 LLM）",
+    "X-02 Zep Cloud 外部记忆服务",
+    "X-03 OASIS（camel-ai）框架依赖",
+    "X-04 Vue 前端 + FastAPI 后端",
+    "X-05 AGPL-3.0 代码复制（只蒸馏创意）",
+    "X-06 「预测万物」定位（本仓是认知内核，what-if 推演 != 概率预测）"
+  ],
+  "mechanism_coverage": "11/11（心跳/细胞骨架/皮肤/经络/赫布协作场/语义通信基座/自组织相似性/runtime/graph/类社会组合体/城邦架构）",
+
+  "patches": {
+    "A": "新建 holoaeon/swarm_intel.py：Stage/EntityNode/EntityGraph/AgentProfile/AgentAction/RoundSummary/SimulationRunState + SeedToGraph/PersonaArchitect/ParallelSimulator/ReportSynthesizer/DeepInteractor/SwarmOrchestrator + 5 个扩展包技能入口 + main() CLI",
+    "B": "确定性修正（执行侧）：投喂稿内置 hash() 造种子受 PYTHONHASHSEED 随机化影响、跨进程不稳定，改为 zlib.crc32 / hashlib.sha256；另修正 deque 无用导入与 __import__('sys') 红线违规（改 import sys）",
+    "C": "新建 holoaeon/packs/swarm_intel_pack.py：DomainPack 子类，5 技能/3 角色/2 工作流 + MECHANISM_COVERAGE 11/11 + get_manifest()；SkillSpec/RoleSpec/WorkflowSpec 按 base.py 真实字段（投喂稿的 key/desc/func 假字段已弃用）",
+    "D": "holoaeon/packs/__init__.py：import SwarmIntelPack + EXTRA_PACK_REGISTRY 登记 + EXTRA_PACK_ORDER 追加 swarm_intel（18->19）。注：投喂稿 §4 写成 dict 列表，真实结构是 List[str] + REGISTRY dict，按实测改",
+    "E": "butler_os.py：菜单追加 [14] 群体智能（cmd_swarm_intel + _get_swarm_intel_pack 懒加载）；pyproject.toml 追加 holoaeon-swarm-intel（现 13 命令）",
+    "F": "新建 tests/test_swarm_intel.py 8 例 + R-04 连带：concept_anatomy.py verify_doc_version 0.9.19 / verify_extra_pack_order 19；test_v19_concept_anatomy.py、test_v22_eng_skills.py、test_v12_v17_integration.py 的「==18 / 末位 eng_skills」断言改述为「包含 + 下界」"
+  },
+
+  "verification": {
+    "selftest": "25/25 PASS",
+    "v3_gate": "32/32 PASS",
+    "unittest_main": "188 OK（V23 的 180 + 本批 8）",
+    "unittest_v3": "11 OK",
+    "unittest_verax": "21 OK",
+    "redline": "108 文件 0 违规",
+    "dimension_lock": "PASS（12 维度 + 7 闸 + 0 violation；[SNAPSHOT] spec_doc_version 0.9.4->0.9.19 / extra_packs 9->19 演进正常 / domain_packs 9 一致）",
+    "bench_diff0": "DIFF=0 run1=run2=6d119b2a9f2df687 / tampered=8f424d9ee3ebfb9b / 拦截 16-16=100% / build=32.42ms peak=1.69MiB / agents=25 skills=47",
+    "cli_demo": "python -m holoaeon.swarm_intel --demo => 50 实体 / 50 agent / 250 行动 / 5 轮 / 终态 interact",
+    "butler_menu": "python -m holoaeon.butler_os 14 => 群体智能引擎面板正常",
+    "doc_version_sync": "spec.DOC_VERSION=0.9.19 = concept_anatomy.verify_doc_version=0.9.19 = 三处测试断言同步"
+  },
+
+  "diff0_note": "双口径不可混用：黄金注释值 2fc892cf9af6e755（spec.py 注释 + D09，口径「VERSION/RUNTIME_ID 不许动」）与本批判据 6d119b2a9f2df687（benchmarks/bench_public.py 16 步 workload 连跑一致性）不是同一 workload。本批复述：判据未漂移；黄金注释值未动。",
+  "feed_corrections": "投喂稿 §5 步骤 8 写 scripts/bench_public.py（真路径 benchmarks/bench_public.py）、写 diff0=2fc892...（判据应为 bench 16 步 6d119b2a...）；§6 同。执行层已按实测口径修正，投喂稿原文不改（历史产物）。",
+
+  "not_committed": [
+    "AGENT_FEED_V24_SWARM_INTEL_MIROFISH_DISTILLATION_20261105.md（投喂包，仓根未跟踪）",
+    "AGENT_FEED_V23_*.md / AGENT_FEED_V25_*.md 等历史投喂包",
+    "benchmarks/results-0.9.1.json（bench 运行时产物，git checkout 还原）",
+    "reports/daily_gate*.json / reports/*.log",
+    "F:/doubaowork/MiroFish/（外部克隆，AGPL，只读分析）"
+  ],
+  "seal": "潮起开门，潮落闭嘴"
+}

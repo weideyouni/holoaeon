@@ -33,6 +33,7 @@ from .dehallucination_pack import DeHallucinationPack
 from .super_agent_pack import SuperAgentPack
 from .concept_anatomy_pack import ConceptAnatomyPack
 from .engineering_skills_pack import EngineeringSkillsPack
+from .swarm_intel_pack import SwarmIntelPack
 from .writing import WritingPack
 
 # 九大领域包（每次调用返回新实例，避免共享状态）
@@ -105,6 +106,7 @@ EXTRA_PACK_REGISTRY: Dict[str, type] = {
     SuperAgentPack.key: SuperAgentPack,
     ConceptAnatomyPack.key: ConceptAnatomyPack,
     EngineeringSkillsPack.key: EngineeringSkillsPack,
+    SwarmIntelPack.key: SwarmIntelPack,
 }
 
 EXTRA_PACK_ORDER: List[str] = ["sovereignty", "subdistill", "omnilife", "omnicore",
@@ -113,7 +115,7 @@ EXTRA_PACK_ORDER: List[str] = ["sovereignty", "subdistill", "omnilife", "omnicor
                                 "topology_resonance", "quartet_director",
                                 "vector_sea", "dehallucination",
                                 "super_agent", "concept_anatomy",
-                                "eng_skills"]
+                                "eng_skills", "swarm_intel"]
 
 
 def get_extra_pack(key: str) -> DomainPack:

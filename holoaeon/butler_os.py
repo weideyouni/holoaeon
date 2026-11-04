@@ -81,6 +81,12 @@ def _get_eng_skills_pack():
     return get_extra_pack("eng_skills")
 
 
+def _get_swarm_intel_pack():
+    """群体智能引擎扩展包实例（第 19 扩展包，MiroFish 五阶段流水线蒸馏）。"""
+    from .packs import get_extra_pack
+    return get_extra_pack("swarm_intel")
+
+
 # ------------------------------------------------------------ 菜单实现
 def cmd_install() -> int:
     """1. 安装引导：装配内核并打印统计。"""
@@ -363,6 +369,29 @@ def cmd_eng_skills() -> int:
     return 0
 
 
+def cmd_swarm_intel() -> int:
+    """[14] 群体智能：五阶段流水线演示（Graph→World→Simulate→Report→Interact）。"""
+    from .swarm_intel import DEFAULT_SEED, SwarmOrchestrator
+    print()
+    print("== 群体智能引擎（MiroFish 五阶段流水线蒸馏 · 5技能/3角色/2工作流）==")
+    p = _get_swarm_intel_pack()
+    print("扩展包: %s | 技能 %d / 角色 %d / 工作流 %d"
+          % (p.key, len(p.skills), len(p.roles), len(p.workflows)))
+    orch = SwarmOrchestrator()
+    state = orch.run_pipeline(DEFAULT_SEED, total_rounds=3)
+    print("模拟: %s | 实体 %d | Agent %d | 行动 %d | 轮次 %d | 阶段 %s"
+          % (state.simulation_id,
+             state.graph.node_count if state.graph else 0,
+             len(state.profiles), len(state.all_actions),
+             state.current_round, state.current_stage.value))
+    if state.report:
+        print("报告: %s" % state.report["conclusion"])
+        for sig in state.report["emergent_signals"]:
+            print("  涌现: %s (占比 %s)" % (sig["pattern"], sig["ratio"]))
+    print("证据等级: simulated（仿真≠证明，碳基终裁）")
+    return 0
+
+
 MENU = {
     "1": ("安装引导", cmd_install),
     "2": ("自检", cmd_selftest),
@@ -377,6 +406,7 @@ MENU = {
     "11": ("自主调度", cmd_super_agent),
     "12": ("概念解剖", cmd_concept_anatomy),
     "13": ("工程技能", cmd_eng_skills),
+    "14": ("群体智能", cmd_swarm_intel),
 }
 
 
