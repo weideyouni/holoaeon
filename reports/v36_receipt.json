@@ -4,7 +4,7 @@
   "seal": "潮起开门，潮落闭嘴",
   "doc_version": "0.9.31",
   "extra_pack_order": "unchanged(19)",
-  "head": "PENDING_COMMIT",
+  "head": "727840b5f67b4da0e17da2a48989dcbfb087c8eb",
   "date": "2026-11-05",
   "modules": [
     "holoaeon/edu_gate.py",
