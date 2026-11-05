@@ -146,15 +146,8 @@
       "drift": [],
       "drift_count": 0,
       "missing_receipts": [],
-      "self_excluded_count": 1,
-      "self_excluded": [
-        {
-          "item": "repo:changed:reports/v44_model_gateway_check.json",
-          "owner": "scripts/verify_v44.py",
-          "prev_sha16": "8bd6235ada6101b6",
-          "curr_sha16": "a51522a0e94ebd05"
-        }
-      ],
+      "self_excluded_count": 0,
+      "self_excluded": [],
       "self_owners_count": 10,
       "self_derive": "derived",
       "checked": {
