@@ -1,0 +1,104 @@
+{
+  "batch": "V30-DOC-ANATOMY",
+  "title": "文档解剖器（doc_anatomy · pdf-inspector 创意本地化 · 链上第四环·解剖 · 维度不变）",
+  "status": "executed",
+  "seal": "潮起开门，潮落闭嘴",
+  "evidence_class": "simulated",
+  "source": {
+    "kind": "localised_candidate",
+    "candidate": "pdf-inspector",
+    "owner": "Firecrawl",
+    "license": "MIT",
+    "language": "Rust",
+    "versions_seen": "crates.io / npm / pypi 均 v1.25.2",
+    "evidence": "GitHub README 截图（本地 attachment 9f460445-f704-4c80-ba9f-814961263d24.png）",
+    "license_discipline": "MIT 虽宽松，仍走思想-表达二分：只取「先判有无文本层、再决定是否 OCR」的判定结构，不复制 Rust / wasm / 绑定代码",
+    "staging": "先在 F:/doubaowork/holoaeon_lathe/v30_staging 暂存（V29 神灯先做期间保持仓内干净），本批 Move-Item 进仓"
+  },
+  "head_before": "d4f25dadca0a068f661b0b66acefd318092a4aed",
+  "head_before_short": "d4f25da",
+  "doc_version_before": "0.9.24",
+  "doc_version_after": "0.9.25",
+  "extra_pack_order": "19 unchanged（模块级）",
+  "assembly": {
+    "full": "66 agents / 280 skills",
+    "core": "25 agents / 47 skills",
+    "note": "doc_anatomy 是模块级能力，不进包、不加 agent/skill"
+  },
+  "module": "holoaeon/doc_anatomy.py",
+  "tests": "tests/test_doc_anatomy.py",
+  "schema_version": "DOC-ANATOMY-v1.0",
+  "chain_position": {
+    "ring": 4,
+    "name": "解剖",
+    "upstream": ["mobius_vortex(回流·知道)", "klein_projection(投影·拿来)", "holo_forge(熔炼·成为)"],
+    "role": "成品入库前拆成结构件（版面骨架 / 阅读顺序 / 表格骨架）",
+    "d11_note": "D-11 强制声明已写入模块 docstring 的「链上位置」段与 CHAIN_POSITION 常量，CLI `chain` 可直接回读"
+  },
+  "capabilities": ["classify", "extract", "markdown", "tables"],
+  "mechanisms_count": 11,
+  "honest_boundary": [
+    "/Encrypt、/ObjStm、CID / Identity-H 复合字体 → 明确 unsupported",
+    "只解 FlateDecode，其他筛选器 → unsupported_filter",
+    "无文本层 → 判 scanned 并 ocr_required=True（本模块只举手，不接 OCR）",
+    "旋转 / 多栏只做保序近似，不做版面重建"
+  ],
+  "development_fixes": [
+    {"id": "F-01", "symptom": "BT 未重置文本矩阵 → y 累加、行序错乱",
+     "fix": "parse_content 遇 BT 重置 x/y", "status": "fixed"},
+    {"id": "F-02", "symptom": "有文本层却 ocr_needed=True",
+     "fix": "判据改为「有文本层就不举手」，mixed 亦不算需 OCR", "status": "fixed"},
+    {"id": "F-03", "symptom": "/F3 字体别名未解析 → 等宽检测失灵",
+     "fix": "补 _FONT_MAP_RE / _FONT_PAIR_RE / _BASEFONT_RE 与 font_map 参数", "status": "fixed"}
+  ],
+  "patches": {
+    "A": "doc_anatomy.py 进仓（25582 B；docstring V29→V30；四能力 + 11 机制 + 诚实边界 + CLI 8 子命令）",
+    "B": "test_doc_anatomy.py 进仓（9408 B；docstring 16 例→18 例 以实测为准）",
+    "C": "全量验证：selftest 25/25 / 主测 276 OK / v3 11 / verax 21 / doc_anatomy 18 / redline 114 0 违规 / v3_gate 32/32 / v44 13/13 / py38 273/0 / dimension_lock PASS / diff0 未漂移",
+    "D": "README×3 刷新（徽章 276+11+21、最新批次插 V30、V30 章节、FUSION V13→V30）+ 门禁行 276/114",
+    "E": "DOC_VERSION 0.9.24→0.9.25 + R-04 五处同源（spec / concept_anatomy 头注释 / verify token / test_v19 注释与断言 / test_v22 断言）"
+  },
+  "dimensions_untouched": {
+    "VERSION": "0.9.1（冻结）",
+    "MATRIX_ID": "HOLOAEON-MATRIX-0.9.1（冻结）",
+    "RUNTIME_ID": "HOLOAEON-RUNTIME-0.9.1（冻结）",
+    "layers": "8（冻结）",
+    "PACK_ORDER": "9（冻结）",
+    "EXTRA_PACK_ORDER": "19（不变）",
+    "third_party_code": "零复制（MIT 亦不复制）",
+    "secrets_and_network": "零密钥、零网络、零 OCR 服务、不 shell out"
+  },
+  "verification": {
+    "selftest": "25/25 PASS",
+    "unittest_main": "276 OK（V29 258 + test_doc_anatomy 18）",
+    "unittest_v3": "11 OK",
+    "unittest_verax": "21 OK",
+    "redline": "114 文件 0 违规（V29 113 + doc_anatomy.py）",
+    "v3_gate": "32/32 PASS",
+    "verify_v44": "13/13 PASS（重建五地清单后）",
+    "py38_syntax": "parsed=273 failures=0",
+    "dimension_lock": "PASS（spec_doc_version 0.9.25 演进正常 / extra_packs 19 演进正常）",
+    "diff0": "6d119b2a9f2df687 未漂移；拦截 16/16；放行 4/4；build=30.73ms peak=1.69MiB agents=25 skills=47",
+    "cli": "chain 输出「第 4 环 · 解剖 ← mobius_vortex → klein_projection → holo_forge」；axioms P01/P02；classify text/0.6/ocr_needed=false；markdown 标题→正文→列表→链接→分页全对"
+  },
+  "demo": {
+    "pdf": "F:/doubaowork/holoaeon_lathe/v29_demo.pdf（自造 2 页最小样本，仓外，不入库）",
+    "classify": {"kind": "text", "confidence": 0.6, "ocr_needed": false, "pages": 2, "chars": 361},
+    "markdown_head": "# HoloAeon Document Anatomy / Localized from pdf-inspector: classify, extract, markdown, tables. / No OCR for the majority of text-based PDFs.",
+    "tables": "矩形模式 3×2；对齐模式亦可达"
+  },
+  "five_site": {
+    "status": "pending_refresh",
+    "ledger_outside_repo": "F:/doubaowork/vector-sea/_holoaeon_v4_five_site_receipt_20261102.json（history 追加 V30 条目 / s4_incremental 追加 V30_doc_anatomy）",
+    "note": "五地回读结果记入仓外台账，仓内回执不复制远端 sha / 文件数（与 V23~V29 同口径）"
+  },
+  "not_committed": [
+    "AGENT_FEED 类投喂包（本批为对话内直投，无独立 md）",
+    "reports/state_beacon.json（灯塔，untracked）",
+    "reports/v44_model_gateway_check.json（校验器自写回执）",
+    "benchmarks/results-0.9.1.json 与 benchmarks/README.md（耗时抖动，已回退）",
+    "仓外：v29_demo.pdf / v29_demo_pdf.py / v30_staging（已清空）"
+  ],
+  "final_judgement": "通过。候选只取判定结构、零代码复制；四能力与诚实边界如实实现，18 例全绿；DOC 0.9.25、EXTRA 19 不变、diff0 零漂移；五地待同步。",
+  "seal_close": "潮起开门，潮落闭嘴"
+}
