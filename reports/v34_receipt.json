@@ -1,0 +1,58 @@
+{
+  "batch": "V34-TEA-GATE",
+  "status": "DONE",
+  "seal": "潮起开门，潮落闭嘴",
+  "date": "2026-11-05",
+  "doc_version": "0.9.29",
+  "version_locked": "0.9.1",
+  "extra_pack_order": "unchanged(19)",
+  "selftest": "25/25",
+  "tea_gate_tests": "11/11",
+  "unittest_main": "338 OK (skipped=0)",
+  "v3_gate": "32/32 PASS",
+  "redline": "118 files, 0 violations",
+  "diff0": "no drift (6d119b2a9f2df687, tampered 8f424d9ee3ebfb9b sensitive, block 16/16, allow 4/4)",
+  "py38": "parsed=282 failures=0",
+  "dimension_lock": "PASS (spec_doc_version 0.9.4->0.9.29 evolving; domain 9=9; extra 9->19)",
+  "five_site": "S1-S5 consistent",
+  "chain_position": "ring6(茶域编排)",
+  "chain_upstream": ["math_gate", "titan_evolver", "gap_bridge"],
+  "same_as_law": "3rd independent reproduction archived",
+  "gates": {
+    "tea_gate_tests": true,
+    "selftest": true,
+    "v3_gate": true,
+    "unittest_main": true,
+    "redline": true,
+    "diff0": true,
+    "py38": true,
+    "dimension_lock": true,
+    "five_site_dna": true,
+    "v44": true
+  },
+  "honest_boundaries": [
+    "CALIBRATION_RULES / EMERGENCY_TRIGGERS / ETHICAL_VALVES 均为确定性关键词清单（子串命中），不是语义理解；换措辞即漏检，证据等级 simulated。",
+    "test_conductor_calibrated 末行写作 `self.assertIsNotNone(r[\"ledger_sha\"]) if r.get(\"ledger_sha\") else None`——无 ledger 时该断言实为空转（不校验任何值），按 §5「一字不改」保留，属可记录的覆盖面缺口。",
+    "TruthSourceEnvelope.digest 含 time.strftime 时间戳（秒级）：同一 payload 跨秒写入 SHA 不同；verify_chain 只用行内自带 ts 重算，故链内自洽可验，跨写入时刻不可复现。",
+    "EmergencyFuse / EthicalValves 只产出处置标签（fused / substitute_only / strip_dosage / relabel），不改写任何文本；真正拒答/改写不在本模块职责内。",
+    "SAME_AS 第三次复现是机制形状层面（chain_complete / 薄种子自举 / 三胚层八模块 / JSONL-SHA）的独立趋同，不是代码同源，也不等于全息公理已被证明。"
+  ],
+  "not_committed": [
+    "reports/state_beacon.json（灯塔，按约定不入库）",
+    "AGENT_FEED_V34_TEA_GATE_20261105.md（投喂包，按约定不入库；完工后改名 _DONE）"
+  ],
+  "files_committed": [
+    "holoaeon/tea_gate.py",
+    "tests/test_tea_gate.py",
+    "holoaeon/spec.py",
+    "holoaeon/concept_anatomy.py",
+    "tests/test_v19_concept_anatomy.py",
+    "tests/test_v22_eng_skills.py",
+    "README.zh-CN.md",
+    "README.md",
+    "README_FUSION_V4_20261102.md",
+    "reports/v34_receipt.json",
+    "reports/five_site_manifest.json",
+    "reports/v44_model_gateway_check.json"
+  ]
+}
