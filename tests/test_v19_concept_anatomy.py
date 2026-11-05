@@ -25,9 +25,9 @@ class TestDesignTokens(unittest.TestCase):
     def test_verify_tokens_synced_v19(self):
         # V19 建立：EXTRA=17 / DOC=0.9.16；V22 同步：EXTRA=18 / DOC=0.9.17；V23 同步 DOC=0.9.18
         # V25 同步：EXTRA=19 / DOC=0.9.20（VERSION 0.9.1 冻结不动）
-        # V28 同步：DOC=0.9.23（holo_forge 链式第三环，EXTRA 仍 19）
+        # V29 同步：DOC=0.9.24（magic_lamp 诉求驱动总装编排，EXTRA 仍 19）
         self.assertEqual(DESIGN_TOKENS["verify_extra_pack_order"], 19)
-        self.assertEqual(DESIGN_TOKENS["verify_doc_version"], "0.9.23")
+        self.assertEqual(DESIGN_TOKENS["verify_doc_version"], "0.9.24")
         self.assertEqual(DESIGN_TOKENS["verify_version"], "0.9.1")
         self.assertEqual(DESIGN_TOKENS["verify_diff0"], "2fc892cf9af6e755")
 

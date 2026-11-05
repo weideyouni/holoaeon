@@ -1,0 +1,144 @@
+{
+  "batch": "V29-MAGIC-LAMP",
+  "title": "神灯模式（magic_lamp 诉求驱动总装编排 · 维度不变 · DOC 0.9.23->0.9.24）",
+  "status": "executed",
+  "seal": "潮起开门，潮落闭嘴",
+  "evidence_class": "simulated",
+  "source": {
+    "kind": "agent_feed",
+    "file": "AGENT_FEED_V29_MAGIC_LAMP_20261105.md",
+    "location": "repo_root(untracked，与 V24~V28 同口径不提交)",
+    "note": "§4/§5 代码一字不改落仓，唯一例外见 feed_corrections C-01"
+  },
+  "head_before": "91d7dad756b461f644e79c0e09fedcfbda8217fa",
+  "head_before_short": "91d7dad",
+  "head_after_expected": "本回执所在提交",
+  "doc_version_before": "0.9.23",
+  "doc_version_after": "0.9.24",
+  "extra_pack_order": "19 unchanged（模块级，先例 V12/V25/V26/V27/V28）",
+  "assembly": {
+    "full": "66 agents / 280 skills",
+    "core": "25 agents / 47 skills",
+    "note": "magic_lamp 是模块级能力，不进包、不加 agent/skill，故装配数与 V28 一致"
+  },
+  "module": "holoaeon/magic_lamp.py",
+  "tests": "tests/test_magic_lamp.py",
+  "chain_position": {
+    "role": "orchestrator_entry",
+    "new_ring": false,
+    "ring": null,
+    "invokes": ["mobius_vortex(回流)", "klein_projection(投影)", "holo_forge(熔炼)"],
+    "invoked_by": [],
+    "topology": "愿望 → W7 LampChainTrigger → 回流 → 投影 → 熔炼（单向；神灯不被任何链环调用）",
+    "d11_note": "D-11 要求新模块声明链上位置：本模块不新增环，是三环之上的编排入口，属\"入口声明\"而非\"第四/第五环\""
+  },
+  "pipeline": ["W1_intake", "W2_patterns", "W3_index", "W4_assemble",
+               "W5_gap", "W6_search_plan", "W7_chain", "W8_probe", "W9_proposal"],
+  "org_patterns": ["ORG-1 段化流水线", "ORG-2 Envelope契约", "ORG-3 确定性判定器",
+                   "ORG-4 一过性先行", "ORG-5 append-only台账", "ORG-6 心跳单批"],
+  "states": ["ready_assembled", "needs_search", "test_failed"],
+  "wardrobe_size": 14,
+  "first_wish": {
+    "run_at": "仓外 v29_first_wish.py（一次性，不入库）",
+    "results_path": "F:/doubaowork/holoaeon_lathe/v29_first_wish.json",
+    "proposal_path": "F:/doubaowork/holoaeon_lathe/v29_first_wish.md",
+    "cases": [
+      {"case": "满覆盖", "goal": "整合开源项目", "coverage": 1.0,
+       "state": "ready_assembled", "probe": "PASS（探针已焚）", "gaps": 0},
+      {"case": "缺口", "goal": "为康复工程整合一个时间序列异常检测的开源能力",
+       "coverage": 0.0, "state": "needs_search",
+       "gaps": ["时间序列异常检测", "康复工程"],
+       "queries": ["时间序列异常检测 康复工程 github",
+                   "为康复工程整合一个时间序列异常检测的开源能力 open source github"],
+       "online_executed": false},
+      {"case": "试测失败", "goal": "整合", "coverage": 1.0, "state": "test_failed",
+       "hard_gate": "禁止进入硬核执行（ORG-4）"}
+    ]
+  },
+  "adopted": [
+    {"id": "D-01", "name": "衣柜优先", "why": "已知技能组合装配是 O(索引) 确定性操作，先翻自己的"},
+    {"id": "D-02", "name": "离线搜索规格", "why": "模块零网络：只出 query spec 数据，联网执行权在碳基终审"},
+    {"id": "D-03", "name": "三链启动器", "why": "W7 复用 D-11 链式执行层，payload 确定性组装"},
+    {"id": "D-04", "name": "试测先行硬门", "why": "tempfile 探针即焚，未过试测禁止硬核（ORG-4 制度化到愿望层）"},
+    {"id": "D-05", "name": "方案书即前端", "why": "LampProposal 文本化 Envelope，任意大模型对话窗口可直接签收"}
+  ],
+  "rejected": [
+    {"id": "X-01", "name": "模块内联网", "why": "破坏零网络纪律与可审计复现"},
+    {"id": "X-02", "name": "LLM 判可行性", "why": "可行性裁决必须是确定性阈值规则，零 LLM"},
+    {"id": "X-03", "name": "未过试测就硬核", "why": "一过性先行是 V27 的硬门，不可跳过"},
+    {"id": "X-04", "name": "自动执行方案", "why": "碳基终审签收前不执行任何不可逆动作"}
+  ],
+  "feed_corrections": [
+    {
+      "id": "C-01",
+      "severity": "blocking",
+      "where": "AGENT_FEED_V29 §4 EphemeralFirstTester",
+      "symptom": "11 例中 5 例 error：KeyError: '\"goal\"'",
+      "root_cause": "PROBE 模板用 str.format 填充，而探针返回的 dict 字面量 {\"goal\": ..., \"steps\": ...} 本身含花括号，被 format 当作占位符",
+      "fix": "PROBE 改为 __GOAL__/__STEPS__ 占位 + json.dumps 替换（既避免与 dict 花括号冲突，也转义引号防注入）",
+      "scope": "仅此法，PROBE 语义与探针输出结构未变",
+      "status": "fixed"
+    },
+    {
+      "id": "C-02",
+      "severity": "note",
+      "where": "AGENT_FEED_V29 §7-3",
+      "symptom": "清单写 scripts/v3_gate.py --json",
+      "actual": "--json 为 argparse 死路（已知）；不带参数运行",
+      "status": "corrected_in_execution"
+    },
+    {
+      "id": "C-03",
+      "severity": "note",
+      "where": "AGENT_FEED_V29 §9",
+      "symptom": "回执 JSON 里 extra_pack_order 写成字符串 \"unchanged(19)\"",
+      "actual": "仓内回执沿用 V25~V28 结构：extra_pack_order 为说明字符串 + assembly 分 full/core 两口径",
+      "status": "normalized"
+    }
+  ],
+  "patches": {
+    "A": "新建 holoaeon/magic_lamp.py（§4 九段 + ORG 六条 + 三态 + CLI patterns|wardrobe；C-01 最小修复）",
+    "B": "新建 tests/test_magic_lamp.py（§5 原文 11 例）",
+    "C": "全量验证：selftest 25/25 / 主测 258 OK / v3 11 / verax 21 / redline 113 0 违规 / v3_gate 32/32 / v44 13/13 / py38 271/0 / dimension_lock PASS / diff0 未漂移",
+    "D": "README×3 刷新（徽章 258+11+21、最新批次插 V29、V29 章节、FUSION 索引 V13→V29）+ 门禁行 258/113",
+    "E": "DOC_VERSION 0.9.23→0.9.24 + R-04 五处同源（spec / concept_anatomy 头注释 / concept_anatomy verify token / test_v19 注释与断言 / test_v22 断言）"
+  },
+  "dimensions_untouched": {
+    "VERSION": "0.9.1（冻结）",
+    "MATRIX_ID": "HOLOAEON-MATRIX-0.9.1（冻结）",
+    "RUNTIME_ID": "HOLOAEON-RUNTIME-0.9.1（冻结）",
+    "layers": "8（冻结）",
+    "PACK_ORDER": "9（冻结）",
+    "EXTRA_PACK_ORDER": "19（不变）",
+    "graph_scheduler_hypervector_kernel_submit": "未触碰",
+    "secrets": "零密钥；模块无网络调用"
+  },
+  "verification": {
+    "selftest": "25/25 PASS",
+    "unittest_main": "258 OK（V28 247 + test_magic_lamp 11）",
+    "unittest_v3": "11 OK",
+    "unittest_verax": "21 OK",
+    "redline": "113 文件 0 违规（V28 112 + magic_lamp.py）",
+    "v3_gate": "32/32 PASS",
+    "verify_v44": "13/13 PASS（重建五地清单后）",
+    "py38_syntax": "parsed=271 failures=0",
+    "dimension_lock": "PASS（spec_doc_version 0.9.24 演进正常 / extra_packs 19 演进正常 / diff0_hash 2fc892cf9af6e755 未漂移）",
+    "diff0": "6d119b2a9f2df687 未漂移；拦截 16/16；合法放行 4/4；build=30.98ms peak=1.69MiB agents=25 skills=47",
+    "cli": "patterns 六条 DNA 输出 / wardrobe 14 项输出"
+  },
+  "diff0_note": "新文件不参与 ReproHash；spec.VERSION 与 MATRIX/RUNTIME ID 未动；diff0 黄金值 6d119b2a9f2df687 实测不变",
+  "five_site": {
+    "status": "pending_refresh",
+    "ledger_outside_repo": "F:/doubaowork/vector-sea/_holoaeon_v4_five_site_receipt_20261102.json（history 追加 V29 条目 / s4_incremental 追加 V29_magic_lamp）",
+    "note": "五地回读结果记入仓外台账，仓内回执不复制远端 sha / 文件数（与 V23~V28 同口径）"
+  },
+  "not_committed": [
+    "AGENT_FEED_V29_MAGIC_LAMP_20261105.md（投喂包，untracked）",
+    "reports/state_beacon.json（灯塔，untracked）",
+    "reports/v44_model_gateway_check.json（校验器自写回执，未纳入本批提交）",
+    "benchmarks/results-0.9.1.json 与 benchmarks/README.md（跑 bench 的耗时抖动，已回退）",
+    "仓外：v29_first_wish.py / v29_first_wish.json / v29_first_wish.md / v29_demo 系列 / v30_staging"
+  ],
+  "final_judgement": "通过。九段愿望编译流水线按投喂包落仓，11 例全绿，四态与三态判定均为确定性规则；DOC 0.9.24、EXTRA 19 不变、diff0 零漂移；五地待同步（下一步）。",
+  "seal_close": "潮起开门，潮落闭嘴"
+}
