@@ -1,0 +1,78 @@
+{
+  "batch": "V32-GAP-BRIDGE",
+  "status": "DONE",
+  "seal": "潮起开门，潮落闭嘴",
+  "evidence_class": "simulated",
+  "created_at": "2026-11-05T18:40:00+08:00",
+  "head_before": "f4834b56a93809ce3912054187eeb83aa1377521",
+  "doc_version_before": "0.9.26",
+  "doc_version_after": "0.9.27",
+  "extra_pack_order": "unchanged(19)",
+  "version_lineage": "V30(3340bc1) -> V31(f4834b5, DOC 0.9.26) -> V32(DOC 0.9.27)",
+  "chain_position": "bridge(magic_lamp <-> titan_evolver)",
+  "chain_position_note": "D-11 桥梁环（非新环）：连接器不新增环，维度不变；CHAIN_POSITION 常量随模块发布",
+  "deliverables": {
+    "module": "holoaeon/gap_bridge.py",
+    "tests": "tests/test_gap_bridge.py",
+    "module_bytes": 4359,
+    "module_lines": 117,
+    "tests_bytes": 3248,
+    "tests_lines": 85
+  },
+  "gates": {
+    "gap_bridge_tests": "11/11 OK",
+    "selftest": "25/25",
+    "v3_gate": "32/32 PASS",
+    "unittest_main": "316 OK (skipped=0)（V31 305 + test_gap_bridge 11）",
+    "unittest_v3": "11 OK",
+    "unittest_verax": "21 OK",
+    "redline": "116 文件 0 违规",
+    "dimension_lock": "PASS（12 维度 0 violation；spec_doc_version 0.9.27 演进正常 / extra_packs 19 演进正常）",
+    "diff0": "未漂移（run1=run2=6d119b2a9f2df687；篡改 8f424d9ee3ebfb9b 敏感；拦截 16/16）",
+    "py38": "parsed=278 py38_syntax_failures=0",
+    "v44": "13/13 PASS（A10 在 five_site_manifest 重建后恢复）",
+    "five_site_manifest": "重建 package=28 / repo=171 / missing=0 / zip_sha16=a87fa921bf963fa1，verify drift=[]"
+  },
+  "skipped_audit": {
+    "skipped_count": 0,
+    "verdict": "clean",
+    "items": [],
+    "cause_analysis": "V31 记录的 skipped=3 来自 tests/test_v12_v17_integration.py 三条用例：条件为 `import memory_of_yuan` 失败时 skipTest('memory_of_yuan未安装（V17未执行）')。本轮 F:\\doubaowork 可达、memory_of_yuan 可导入，三例真跑并全 OK，故 skipped=0，待查清单为空。",
+    "audited_by": "holoaeon.gap_bridge.SkipAuditor（输入：unittest -v 文本）"
+  },
+  "cli_smoke": {
+    "chain": "python -m holoaeon.gap_bridge chain -> ring=bridge / upstream=[magic_lamp, titan_evolver]",
+    "shadowscan_repo": "python -m holoaeon.gap_bridge shadowscan . -> ok=true / offenders=[] / dirs_checked=['.']",
+    "action_field": "report_only（处置权=碳基终审，本模块不删除不改名）"
+  },
+  "first_crossing": {
+    "step": "H",
+    "goal": "康复工程与时序数据整合（V32 首次过桥演练）",
+    "lamp_state": "needs_search",
+    "gaps": ["时序异常检测", "图数据库链路追踪"],
+    "proposals": 2,
+    "titan_contract": [
+      {"capability": "时序异常检测", "source": "magic_lamp.W5", "evidence": "wish goal: 康复工程与时序数据整合（V32 首次过桥演练）", "threshold": 0.6},
+      {"capability": "图数据库链路追踪", "source": "magic_lamp.W5", "evidence": "wish goal: 康复工程与时序数据整合（V32 首次过桥演练）", "threshold": 0.6}
+    ],
+    "ledger": "F:\\doubaowork\\holoaeon_lathe\\v32_gap_bridge_run.json（仓外，2231 B）",
+    "next_step": "titan_evolver adopt 编排（七步合入），合入仍由人一键批准"
+  },
+  "honest_boundaries": {
+    "report_only": "G1 只报不删，不提供 --fix、不自动改名；删除/改名权=碳基终审",
+    "text_only": "G2 只解析 unittest -v 文本，不读 unittest JSON 结果",
+    "no_auto_adopt": "G3 止于 propose 契约，不自动调用 titan_evolver.adopt",
+    "shadow_list_subset": "SHADOWABLE 为高频子集（12 名），不是全量 stdlib 名单",
+    "api_sharp_edge": "to_titan() 只接受 proposals 列表（list[dict]），不能直接吃 propose() 的整个返回 dict；H 步实测踩到一次，11 例未覆盖该误用形态（不改模块，按投喂包一字不改）",
+    "string_concat": "G1 的 action 字段由相邻字符串字面量隐式拼接（'report_only' + '（处置权=…）'），语法合法但易被误读为漏逗号；行为符合只报不删语义，测试不依赖该精确值"
+  },
+  "not_committed": [
+    "AGENT_FEED_V32_GAP_BRIDGE_20261105.md（投喂包输入，按纪律不入库）",
+    "reports/state_beacon.json（untracked 灯塔，状态面非源码）",
+    "F:\\doubaowork\\holoaeon_lathe\\v32_gap_bridge_run.json（仓外演练台账）",
+    "holoaeon_lathe 下 V32 相关脚本与日志（仓外工具）"
+  ],
+  "five_site": "S1-S5 consistent（S3/S5 当天 5/5 已闭环，见仓外台账 history=51）",
+  "final_judgement": "通过。桥只做连接与自检，不合入、不删除、不联网；11 例全绿、316 OK 无回归（skipped=3 结案为 skipped=0）、redline 116 零违规、diff0 未漂移、DOC 0.9.27、EXTRA 19 不变；首次过桥实跑 needs_search → 2 proposals → 泰坦契约字段齐备。",
+  "seal_closing": "潮起开门，潮落闭嘴"
+}

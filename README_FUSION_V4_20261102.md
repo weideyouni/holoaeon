@@ -427,6 +427,7 @@ python -m unittest discover -s tests_contract   # 184（1 例既有契约漂移�
 
 | 批次 | 主题 | 关键产出 / 回执 |
 |---|---|---|
+| V32 | 缺口进化桥 gap_bridge 神灯缺口→泰坦 propose 通路 + 环境自检（桥梁环·非新环 · `DOC_VERSION 0.9.26 → 0.9.27`，不新增扩展包） | `holoaeon/gap_bridge.py` · `tests/test_gap_bridge.py` · `reports/v32_receipt.json` |
 | V31 | 泰坦进化模块 titan_evolver 本地自进化引擎基座（清单/gap/评分/提案/合入编排 · 环面调度·不新增环 · `DOC_VERSION 0.9.25 → 0.9.26`，不新增扩展包） | `holoaeon/titan_evolver.py` · `scripts/titan_evolver_run.py` · `reports/capability-manifest.json` · `tests/test_titan_evolver.py` · `reports/v31_receipt.json` |
 | V30 | 文档解剖器 pdf-inspector 创意本地化（四能力 classify/extract/markdown/tables · 链上第四环·解剖 · `DOC_VERSION 0.9.24 → 0.9.25`，不新增扩展包） | `holoaeon/doc_anatomy.py` · `tests/test_doc_anatomy.py` · `reports/v30_receipt.json` |
 | V29 | 神灯模式诉求驱动总装编排（九段 W1–W9 · 三态裁决 · `DOC_VERSION 0.9.23 → 0.9.24`，不新增扩展包） | `holoaeon/magic_lamp.py` · `tests/test_magic_lamp.py` · `reports/v29_receipt.json` |
