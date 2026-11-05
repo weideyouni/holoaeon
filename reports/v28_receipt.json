@@ -1,0 +1,158 @@
+{
+  "batch": "V28-HOLO-FORGE",
+  "title": "全息熔炉模块（holo_forge 链式执行层第三环 · 双公理 · 维度不变 · DOC 0.9.22->0.9.23）",
+  "status": "executed",
+  "date": "2026-11-05",
+  "head_before": "552951d8220eb36273ca1c71d9cb0ba43525da56",
+  "head_before_short": "552951d",
+  "doc_version_before": "0.9.22",
+  "doc_version_after": "0.9.23",
+  "spec_version": "0.9.1",
+  "extra_pack_order": 19,
+  "extra_pack_order_changed": false,
+  "assembly": {"agents": 66, "skills": 280, "core_agents": 25, "core_skills": 47},
+  "source": "仓库根投喂包 AGENT_FEED_V28_HOLO_FORGE_20261105.md（26270 字节，§4 模块完整代码 + §5 测试完整代码），全文已读",
+  "evidence_class": "simulated",
+  "first_principle": "双公理立炉：全息=局部包含整体；万物互联=万物可链、契约即接口。链条几何递进：莫比乌斯环（回流·知道）→ 克莱因瓶（吸纳·拿来）→ 全息熔炉（熔炼·成为）。回流让四人组知道，投影把候选拿进来，熔炉把拿来的熔进自己——产出融合物而非拼盘。1+1>2 必须确定性：机制并集增益>0 且接口共享>=1。",
+  "quartet_decision": {
+    "P4_question": "熔炉会不会变成\"堆料\"？答：不会。拼接只认契约（seal+schema），协同分必须可复算；缺环降级而不是强耦合——万物互联不等于万物强绑。",
+    "P2_architecture": "六段流水线 F1 CalibrationSnapshot → F2 ChainExecutor → F3 BaseSelector → F4 LegoComposer → F5 FusionForge → F6 ProjectLibrary，外加贯穿段 ChatFrontendPack",
+    "P3_constraints": "零依赖纯标准库（json/os/sys/time）、不碰冻结核心、不新增扩展包（EXTRA 仍 19）、缺环降级不抛错、零密钥零网络、选择性加载只登记不复制代码",
+    "P1_algorithm": "能力交集打分（命中/需求数）排序 + seal/schema 契约互认 + 机制并集增益与接口共享判 1+1>2 + 四态状态机轨迹 + JSON 只追加库",
+    "emergence": {"members": 11, "pipeline": 6, "verdict": "deterministic"}
+  },
+  "adopted": [
+    "D-01 六段熔炼骨架（校准→链→基座→乐高→四态→入库）",
+    "D-02 链式执行层缺环优雅降级（degraded 不抛错，是万物互联≠强耦合的代码化）",
+    "D-03 两模式 manifest（full / selective，selective 只登记子集不复制第三方代码）",
+    "D-04 协同分确定性判据（机制并集增益 + 接口共享>=1 → 1+1>2）",
+    "D-05 对话窗口前端包（任意大模型平台即前端，本地项目库即后端）"
+  ],
+  "rejected": [
+    "X-01 强耦合总线（缺一环即整体崩溃）",
+    "X-02 复制第三方代码（选择性加载只登记来源与子集清单）",
+    "X-03 一过性产物入库（tempfile 用后即焚，discipline 延续 V27）",
+    "X-04 自动执行熔炼建议（简报只陈述，人做终裁）"
+  ],
+  "mechanism_mapping": {
+    "心跳": "六段流水线顺序推进",
+    "细胞骨架": "CalibrationSnapshot 快照档案结构",
+    "皮肤": "契约校验 + 许可证 Guard（selective 不复制）",
+    "经络": "ChainLink 契约共振：模块按 seal+schema 互认",
+    "赫布协作场": "ProjectLibrary 同名累积 = 信任权重",
+    "语义通信基座": "Envelope 链上传递 + ChatFrontendPack 提示包",
+    "自组织相似性类节点共振": "BaseSelector 能力交集打分",
+    "类社会组合体": "模块即社会成员，契约即社会规范",
+    "城邦架构": "多基座共存（catalog 注册簿）",
+    "runtime/graph": "链拓扑即图（CHAIN 三环）",
+    "耗散结构": "熔炉本体：开放契约 + 四态流动 + 非线性协同 + 锚点涨落"
+  },
+  "feed_corrections": [
+    {
+      "id": "C-01",
+      "claim": "§4 CalibrationSnapshot.build：head_aligned = len(set(heads)) <= 1",
+      "reality": "§5 fixture HIST 给 V26/V27 两个不同 head（8f0afb3 / 552951d），跨批 head 天然不同 → aligned=False → self_consistent=False，与 §5 test_calibrate_self_consistent（断言 True/healthy）冲突，照原文落地该例必红",
+      "resolution": "改为 aligned = bool(heads)（账面存在最新 head 即视为对齐；跨批 head 差异属正常演进）。13 例全绿"
+    },
+    {
+      "id": "C-02",
+      "claim": "§4 ChainExecutor.run：env = {\"from\":..., \"payload\": env, ...} 逐环套娃",
+      "reality": "三环皆 present 时 envelope[\"payload\"] 是上一环的 Envelope，§5 test_chain_run_envelope 断言 envelope[\"payload\"][\"batch\"] 不可达（KeyError）",
+      "resolution": "改为载荷恒定（每环读到同一份 dict(payload)），环节递进记录在 chain 数组上——「同一载荷被逐环加工」而非「载荷被层层套娃」。13 例全绿"
+    },
+    {
+      "id": "C-03",
+      "claim": "§4 FusionForge.melt：fused[\"path\"] = STATES[idx:]，注释称「四态轨迹」",
+      "reality": "product 态时 path 只剩 [\"product\"]，§5 test_fusion_four_states 断言四态全表 → 冲突",
+      "resolution": "改为 STATES[:idx+1]（从 plan 走到当前态，含起点；product 即全四态）。13 例全绿"
+    },
+    {
+      "id": "C-04",
+      "claim": "§0/§7 校准快照「整合 V2→V27 全部 26 批策划历史」",
+      "reality": "玉安记忆 version_history.json 的 history 数组实测仅 8 条（V18-V22 缺 history 级，正是锚点 C 所指亚健康）；versions 列表 V2→V27 齐全但无 head 字段",
+      "resolution": "F1 以实测 8 条为输入（batch_count=8 / self_consistent=true / healthy）；按 §8-G 补 V18-V22 history 级条目，锚点 C 本批落地"
+    },
+    {
+      "id": "C-05",
+      "claim": "§8-H「以 V26/V27 两模块为首批乐高件」可直接拼接",
+      "reality": "实测 V26 SCHEMA_VERSION=MOBIUS-BEACON-v1.0、V27 SCHEMA_VERSION=KLEIN-PROJECTION-v1.0，F4 契约（seal+schema 全等）判 contract mismatch → ok=false。跨批模块自报 schema 天然不同，这是 F4 的真实设计缺口",
+      "resolution": "首次熔炼按两层记录：①原样契约 → mismatch（如实记录）；②链层统一契约 HOLO-CHAIN-v1.0 适配后 → union 8 机制 / gain=1 / shared_interfaces=2 / one_plus_one_gt_two=true。建议锚点 D（提示包规范升格）时把「链层契约版本」写入模块 manifest"
+    },
+    {
+      "id": "C-06",
+      "claim": "§7 第 3 条 scripts/v3_gate.py --json → 32/32",
+      "reality": "v3_gate 不接受 --json（argparse 报 expected one argument），V27 已记录此死路",
+      "resolution": "去参跑 python scripts/v3_gate.py → {\"passed\":32,\"total\":32,\"verdict\":\"PASS\"}"
+    },
+    {
+      "id": "C-07",
+      "claim": "§4 模块内 SEAL 为本地字面量（未 from .machine_tool import SEAL）",
+      "reality": "redline 的 ImportFrom 只豁免 node.level != 0（必须相对导入）；本包无 from 导入，仅 stdlib 绝对导入，实测可过",
+      "resolution": "保留包内字面量；值与 machine_tool.SEAL 完全一致（潮起开门，潮落闭嘴），redline 112 文件 0 违规。仅为单一真源建议，非本批改动"
+    }
+  ],
+  "patches": {
+    "A": "holoaeon/holo_forge.py 新建（CalibrationSnapshot / ChainExecutor / BaseSelector / LegoComposer / FusionForge / ProjectLibrary / ChatFrontendPack / HoloForge + CLI axioms|chain|mechanisms）；按 C-01/C-02/C-03 做三处最小语义修复，其余一字不改",
+    "B": "tests/test_holo_forge.py 新建 13 例（§5 原文一字不改）",
+    "C": "七道闸门全跑并记录实测",
+    "D": "README.zh-CN.md / README.md 新增 ### V28 章节 + 顶部最新批次（V28 前插）+ 徽章 247+11+21 + 门禁表 247/112；README_FUSION 索引节改「V13 → V28」并插 V28 行",
+    "E": "DOC_VERSION 0.9.22 → 0.9.23，R-04 五处同源同步（spec / concept_anatomy 头注释 / concept_anatomy verify token / test_v19 注释与断言 / test_v22 断言）",
+    "F": "单批单提交 + 本回执",
+    "G": "五地同步 + 玉安记忆回填 + V18-V22 history 级补齐（锚点 C）+ D-11/D-12/D-13 固化",
+    "H": "首次熔炼演示（仓外 holoaeon_lathe/v28_first_melt.py → v28_first_melt_20261105.json）：三环 linked / 基座 holoaeon 1.0 / 乐高 gain=1 shared=2 → 1+1>2 / 三件四态 fusion_complete=true / 入库 count=1 / 前端包渲染"
+  },
+  "dimensions_untouched": {
+    "BUILTIN_LAYERS": "L1-L8 未触碰",
+    "VERSION": "0.9.1 未触碰",
+    "layers": "8 未触碰",
+    "PACK_ORDER": "9（25 agents / 47 skills）未触碰",
+    "EXTRA_PACK_ORDER": "19 未增长（模块级，先例 butler_os V12 / machine_tool V25 / mobius_vortex V26 / klein_projection V27）",
+    "graph_scheduler_hypervector_kernel": "未触碰",
+    "repro_hash": "新文件不参与 ReproHash"
+  },
+  "verification": {
+    "selftest": "25/25",
+    "v3_gate": "32/32",
+    "unittest_main": "247 OK（V27 234 + V28 13）",
+    "unittest_v3": "11 OK",
+    "unittest_verax": "21 OK",
+    "unittest_v28": "13 OK",
+    "redline": "112 文件 0 违规（V27 111 + V28 1）",
+    "dimension_lock": "PASS（12 维度 / 7 闸 / 0 violation，spec_doc_version 0.9.23 演进正常，extra_packs 19 演进正常）",
+    "py38_syntax": "parsed=269 failures=0",
+    "five_site_manifest": "package 28 / repo 171 / missing 0 / zip a87fa921bf963fa1",
+    "verify_v44": "13/13（A10 PASS / A11 PASS / A12 PASS / A13 PASS）",
+    "cli_axioms": "holography + universal_linkage 两条输出",
+    "cli_chain": "mobius_vortex（回流）/ klein_projection（投影）/ holo_forge（熔炼）三环输出",
+    "first_melt": "F2 complete=true（三环 linked）· F3 best=holoaeon score=1.0 selective=[forge,projection,beacon] · F4 原样 mismatch → 链层契约 emergent=true (gain=1/shared=2) · F5 fusion_complete=true（三件四态全路径）· F6 install count=1"
+  },
+  "diff0_note": {
+    "judgement": "6d119b2a9f2df687（bench 16 步 workload，DOC 升版与 README×3 改动后复跑仍一致）",
+    "tampered": "8f424d9ee3ebfb9b",
+    "blocked": "16/16 = 100%；合法放行 4/4",
+    "footprint": "build=32.28ms peak=1.69MiB agents=25 skills=47",
+    "drift": 0,
+    "golden_comment_value": "2fc892cf9af6e755（V1 注释值，口径不同，不作判据）",
+    "bench_artifacts_reverted": true,
+    "v44_receipt_reverted": true
+  },
+  "five_site": {
+    "status": "pending_refresh",
+    "ledger_outside_repo": "F:/doubaowork/vector-sea/_holoaeon_v4_five_site_receipt_20261102.json（history 追加 V28 条目 / s4_incremental 追加 V28_holo_forge）",
+    "note": "五地回读结果记入仓外台账，仓内回执不复制远端 sha / 文件数（与 V23~V27 同口径）"
+  },
+  "chain_position": {
+    "declared_by": "D-11 链式执行层为标准吸纳链，新模块须声明链上位置",
+    "position": "第三环（熔炼）",
+    "predecessors": ["mobius_vortex（回流·V26）", "klein_projection（投影·V27）"]
+  },
+  "not_committed": [
+    "AGENT_FEED_V28_HOLO_FORGE_20261105.md（投喂侧输入件，收口后加 _DONE，不进 git）",
+    "reports/v44_model_gateway_check.json（verify_v44 自写回执，跑完 git checkout 还原）",
+    "benchmarks/results-0.9.1.json（bench 产物，跑完 git checkout 还原）",
+    "reports/state_beacon.json（V28 灯塔运行产物）",
+    "F:/doubaowork/holoaeon_lathe/v28_first_melt.py 与 v28_first_melt_20261105.json / CALIBRATION_SNAPSHOT_20261105.json / forge_library/（仓外演示与库，零侵入）"
+  ],
+  "seal": "潮起开门，潮落闭嘴",
+  "final_judgement": "碳基终审，仿真≠证明"
+}
