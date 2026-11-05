@@ -421,12 +421,13 @@ python -m unittest discover -s tests_contract   # 184（1 例既有契约漂移�
 三值仍未动；`EXTRA_PACK_ORDER=12` 未再增；Guard 默认 9 层、开启 L10 后 10 层（附加层不计入 `guard_layers=8`）。
 
 
-## V13 → V30 · 跨批次增量索引（倒序）
+## V13 → V31 · 跨批次增量索引（倒序）
 
 > 本节只承担**索引**职责：让这份 V4 主文档不再止于 V12。每批的完整说明在主 `README.zh-CN.md` / `README.md` 的 `### Vxx` 章节，回执在 `reports/`。索引不复述正文，也不改写任何既有判据。
 
 | 批次 | 主题 | 关键产出 / 回执 |
 |---|---|---|
+| V31 | 泰坦进化模块 titan_evolver 本地自进化引擎基座（清单/gap/评分/提案/合入编排 · 环面调度·不新增环 · `DOC_VERSION 0.9.25 → 0.9.26`，不新增扩展包） | `holoaeon/titan_evolver.py` · `scripts/titan_evolver_run.py` · `reports/capability-manifest.json` · `tests/test_titan_evolver.py` · `reports/v31_receipt.json` |
 | V30 | 文档解剖器 pdf-inspector 创意本地化（四能力 classify/extract/markdown/tables · 链上第四环·解剖 · `DOC_VERSION 0.9.24 → 0.9.25`，不新增扩展包） | `holoaeon/doc_anatomy.py` · `tests/test_doc_anatomy.py` · `reports/v30_receipt.json` |
 | V29 | 神灯模式诉求驱动总装编排（九段 W1–W9 · 三态裁决 · `DOC_VERSION 0.9.23 → 0.9.24`，不新增扩展包） | `holoaeon/magic_lamp.py` · `tests/test_magic_lamp.py` · `reports/v29_receipt.json` |
 | V28 | 全息熔炉链式执行层第三环（双公理 · 六段熔炼 · `DOC_VERSION 0.9.22 → 0.9.23`，不新增扩展包） | `holoaeon/holo_forge.py` · `tests/test_holo_forge.py` · `reports/v28_receipt.json` |

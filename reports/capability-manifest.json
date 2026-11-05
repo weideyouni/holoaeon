@@ -1,0 +1,212 @@
+{
+  "manifest_version": "0.1.0",
+  "owner": "潘荟丞",
+  "last_updated": "2026-11-05",
+  "capabilities": [
+    {
+      "id": "swarm_intel.filter",
+      "name": "群体智能候选筛选",
+      "status": "implemented",
+      "impl": "holoaeon/swarm_intel.py (V24, HEAD=cfddea8)",
+      "gap": "五阶段流水线固定，无法动态调整角色权重",
+      "upgrade_path": {
+        "search": [
+          "swarm intelligence dynamic role",
+          "multi-agent weight tuning"
+        ],
+        "accept": "本地可跑，不破坏现有五阶段结构"
+      }
+    },
+    {
+      "id": "machine_tool.assemble",
+      "name": "工程机床总装",
+      "status": "implemented",
+      "impl": "holoaeon/machine_tool.py (V25, HEAD=57ba280)",
+      "gap": "仅装配不存数据；进化回写需手动",
+      "upgrade_path": {
+        "search": [
+          "self-evolving agent",
+          "auto upgrade architecture"
+        ],
+        "accept": "本模块实现"
+      }
+    },
+    {
+      "id": "mobius_vortex.feedback",
+      "name": "莫比乌斯状态回流",
+      "status": "implemented",
+      "impl": "holoaeon/mobius_vortex.py (V26, HEAD=8f0afb3)",
+      "gap": "五圈固定，无法扩展回流路径",
+      "upgrade_path": {
+        "search": [
+          "feedback loop extensible",
+          "state reflux plugin"
+        ],
+        "accept": "不破坏现有五圈结构"
+      }
+    },
+    {
+      "id": "klein_projection.assess",
+      "name": "克莱因收敛投影评估",
+      "status": "implemented",
+      "impl": "holoaeon/klein_projection.py (V27, HEAD=552951d)",
+      "gap": "11 机制投影打分固定，无法自定义评估维度",
+      "upgrade_path": {
+        "search": [
+          "custom evaluation metrics",
+          "projection scoring"
+        ],
+        "accept": "不破坏现有七段流水线"
+      }
+    },
+    {
+      "id": "holo_forge.chain",
+      "name": "全息熔炉链式执行",
+      "status": "implemented",
+      "impl": "holoaeon/holo_forge.py (V28, HEAD=91d7dad)",
+      "gap": "三链固定（漩涡→投影→熔炼），无法插入新环节",
+      "upgrade_path": {
+        "search": [
+          "chain executor plugin",
+          "pipeline extension"
+        ],
+        "accept": "不破坏现有链式契约"
+      }
+    },
+    {
+      "id": "magic_lamp.compile",
+      "name": "神灯愿望编译",
+      "status": "implemented",
+      "impl": "holoaeon/magic_lamp.py (V29, HEAD=d4f25da)",
+      "gap": "被动响应诉求，不主动巡检；GitHub 搜索只出 spec 不执行",
+      "upgrade_path": {
+        "search": [
+          "proactive agent",
+          "scheduled self-evolution"
+        ],
+        "accept": "本模块(titan_evolver)实现"
+      }
+    },
+    {
+      "id": "doc_anatomy.parse",
+      "name": "文档解剖器 PDF 解析",
+      "status": "implemented",
+      "impl": "holoaeon/doc_anatomy.py (V30, HEAD=3340bc1)",
+      "gap": "纯标准库解析，/Encrypt 与 CID/Identity-H 不支持；无文本层只举手不接 OCR",
+      "upgrade_path": {
+        "search": [
+          "PDF encrypted parse",
+          "CID font decoding",
+          "OCR fallback"
+        ],
+        "accept": "本地可跑，不破坏现有四能力结构"
+      }
+    },
+    {
+      "id": "ocr.document",
+      "name": "文档 OCR 识别",
+      "status": "implemented",
+      "impl": "mineru@4.0.12（GPU 加速，standard 层级模型 + VLM）",
+      "gap": "表格结构还原偶有错位；扫描件倾斜校正弱",
+      "upgrade_path": {
+        "search": [
+          "table recognition",
+          "layout analysis",
+          "OCR"
+        ],
+        "accept": "能输出 Markdown 表格且本地可跑"
+      },
+      "dependencies": [
+        "mineru"
+      ]
+    },
+    {
+      "id": "ocr.fallback_cpu",
+      "name": "CPU 级 OCR 备选",
+      "status": "candidate",
+      "impl": null,
+      "gap": "GPU 不可用时无降级方案",
+      "upgrade_path": {
+        "search": [
+          "PaddleOCR",
+          "RapidOCR",
+          "CPU OCR chinese"
+        ],
+        "accept": "中文准确率≥90%，单图<2s，CPU 可跑"
+      }
+    },
+    {
+      "id": "scheduler.task",
+      "name": "定时任务调度",
+      "status": "candidate",
+      "impl": null,
+      "gap": "未实现；依赖本模块首次构建",
+      "upgrade_path": {
+        "search": [
+          "APScheduler retry",
+          "task scheduler backoff"
+        ],
+        "accept": "支持指数退避重试 + 失败告警"
+      }
+    },
+    {
+      "id": "collector.github_search",
+      "name": "GitHub 定向检索",
+      "status": "candidate",
+      "impl": null,
+      "gap": "未实现；magic_lamp W6 只出 spec 不执行，本模块补齐真联网",
+      "upgrade_path": {
+        "search": [
+          "GitHub Search API python",
+          "repo shallow clone"
+        ],
+        "accept": "支持 Token 限流 + SHA 去重 + 浅克隆"
+      },
+      "dependencies": [
+        "github_token"
+      ]
+    },
+    {
+      "id": "kb.vector_search",
+      "name": "向量海检索",
+      "status": "implemented",
+      "impl": "sqlite-vec@0.1.9（10363 片段，440 体系，字符 3-gram 哈希 256 维）",
+      "gap": "非神经嵌入，语义相似度弱；增量重建需攒批",
+      "upgrade_path": {
+        "search": [
+          "sqlite-vec neural embedding",
+          "BGE embedding"
+        ],
+        "accept": "本地可跑，语义准确率提升且不破坏现有索引"
+      }
+    }
+  ],
+  "fetch_scope": [
+    "manifest 中 gap 对应关键词命中仓库",
+    "已依赖项目的上游仓库新版本（依赖升级）",
+    "fork/star 过仓库的更新"
+  ],
+  "license_blacklist": [
+    "GPL",
+    "AGPL",
+    "SSPL",
+    "BUSL"
+  ],
+  "schedule": [
+    {
+      "job": "collect",
+      "cron": "0 9 * * *",
+      "note": "每日 09:00 采集（Windows 任务计划）"
+    },
+    {
+      "job": "propose",
+      "cron": "0 10 * * 1",
+      "note": "每周一 10:00 出提案"
+    },
+    {
+      "job": "review",
+      "cron": "0 10 * * 1",
+      "note": "提案后人工 approve/reject（最长 10min）"
+    }
+  ]
+}

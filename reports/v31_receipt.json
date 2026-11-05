@@ -1,0 +1,136 @@
+{
+  "batch": "V31-TITAN-EVOLVER",
+  "title": "泰坦进化模块（titan_evolver · 本地自进化引擎基座 · 环面调度不新增环 · 维度不变）",
+  "status": "executed",
+  "seal": "潮起开门，潮落闭嘴",
+  "evidence_class": "simulated",
+  "source": {
+    "kind": "feed_package",
+    "file": "F:/doubaowork/AGENT_FEED_V31_TITAN_EVOLVER_SELF_EVOLVING_BASE_20261105.md",
+    "bytes": 33128,
+    "lines": 715,
+    "author": "潘荟丞（技术总监）",
+    "review": "WorkBuddy 技术执行总监（设计+验收，不碰源码）+ 潘老师（碳基终审）",
+    "positioning": "模块级（module-level），不新增扩展包、不新增维度；V24-V30 全部已执行，可直接启动",
+    "read_state": "全文读完 715 行后开工（先策划后执行，单包投喂 D-13）"
+  },
+  "head_before": "3340bc1e79bee832a2e763b3d9785101320ee1dc",
+  "head_before_short": "3340bc1",
+  "doc_version_before": "0.9.25",
+  "doc_version_after": "0.9.26",
+  "extra_pack_order": "19 unchanged（模块级，V31 不新增扩展包）",
+  "assembly": {
+    "full": "66 agents / 280 skills",
+    "core": "25 agents / 47 skills",
+    "note": "titan_evolver 是模块级编排能力，不进包、不加 agent/skill"
+  },
+  "files": {
+    "module": "holoaeon/titan_evolver.py",
+    "module_bytes": 32938,
+    "module_lines": 621,
+    "executor": "scripts/titan_evolver_run.py",
+    "executor_bytes": 13065,
+    "executor_lines": 295,
+    "tests": "tests/test_titan_evolver.py",
+    "tests_bytes": 11363,
+    "tests_cases": 29,
+    "core_asset": "reports/capability-manifest.json",
+    "core_asset_bytes": 6342,
+    "core_asset_capabilities": 12,
+    "core_asset_gaps": 12
+  },
+  "schema_version": "TITAN-EVOLVER-v1.0",
+  "chain_position": {
+    "ring": 0,
+    "name": "进化编排（环面调度，不新增环）",
+    "upstream": ["mobius_vortex(回流·知道)", "klein_projection(投影·拿来)", "holo_forge(熔炼·成为)", "doc_anatomy(解剖·拆件)", "machine_tool(装配·总装)"],
+    "role": "清单→缺口→检索→评分→提案→人审→合入→回写，形成进化闭环",
+    "d11_note": "D-11 强制声明写入模块 docstring「链上位置」段与 CHAIN_POSITION 常量；CLI `chain` 回读「ring 0 · 进化编排（环面调度，不新增环）」",
+    "vs_v29": "magic_lamp(V29)=被动编译器（许愿→编译→止于方案书，零网络）；titan_evolver(V31)=主动进化引擎（定时巡检+真联网+合入闭环）。共享 KnownSkillIndex 结构思路，本模块将其持久化为清单并补 gap / upgrade_path"
+  },
+  "capabilities": ["manifest", "gap_scan", "score", "propose", "adopt"],
+  "mechanisms_count": 11,
+  "honest_boundary": [
+    "不做全自动合入：机器只生成候选与提案，人一键 approve 才合入（供应链安全）",
+    "包内零网络：GitHub Search / 浅克隆全部落 scripts 执行层（V25 分层先例）",
+    "不解析 YAML：清单权威格式为 JSON，YAML 只导出不读入（零依赖无 PyYAML）",
+    "不做 OCR：只消费 doc_anatomy(V30) 的举手信号，不接 mineru / PaddleOCR",
+    "不调度真实定时器：只出 cron 规格（daily 09:00 / weekly Mon 10:00），注册在人工侧",
+    "不做 LLM 打分：评分为确定性规则可复算；LLM 若用，其输出必须过本层复核"
+  ],
+  "feed_corrections": [
+    {"id": "C-01", "feed_says": "核心资产 capability-manifest.yaml（YAML 模板）",
+     "reality": "仓内零依赖、无 PyYAML，无法解析 YAML",
+     "decision": "JSON 为权威（reports/capability-manifest.json），YAML 只导出不解析（export-yaml 子命令，实测 4769 B）",
+     "status": "implemented_as_deviation"},
+    {"id": "C-02", "feed_says": "第九节骨架 `import requests` 调 GitHub API",
+     "reality": "本机无 requests（已验证多次）",
+     "decision": "执行层全改标准库 urllib.request，保留 403/429 限流退避与三次指数重试",
+     "status": "implemented_as_deviation"},
+    {"id": "C-03", "feed_says": "骨架 `sha = repo.get('default_branch','main')` 并以此去重/克隆",
+     "reality": "把分支名当 SHA 用，语义错误且无法真去重",
+     "decision": "去重键改 repo@pushed_at；浅克隆后以 git rev-parse HEAD 取真实 sha（执行层唯一 subprocess 用途，scripts 不被红线扫描）",
+     "status": "fixed"}
+  ],
+  "development_fixes": [
+    {"id": "F-01", "symptom": "license_verdict 对 SSPL 返回 strong_copyleft，黑名单未在入口生效（V27 LICENSE_RULES 的 sspl 先被匹配）",
+     "fix": "黑名单（SSPL/BUSL/proprietary 前缀）前置优先拦截，返回 hard_block / reject，再走 V27 三级规则",
+     "found_by": "test_license_sspl_hard_block 首跑失败", "status": "fixed"},
+    {"id": "F-02", "symptom": "gap_queries 的 executed_by 原文只写「联网侧」，与「执行层」分层语义断言不符",
+     "fix": "统一为「scripts/titan_evolver_run.py（执行层·联网侧，包内零网络）」",
+     "found_by": "test_gap_queries_shape 首跑失败", "status": "fixed"}
+  ],
+  "patches": {
+    "A": "holoaeon/titan_evolver.py 新建（32938 B / 621 行；五件判定 manifest/gap_scan/score/propose/adopt + 11 机制 + 双公理 + 诚实边界 6 条 + 七步合入编排 + CLI 11 子命令）",
+    "B": "scripts/titan_evolver_run.py 新建（13065 B / 295 行；执行层联网：urllib Search API + 指数退避 + git clone --depth 1 + JSON 去重台账 + 提案落盘 + approve 计划 + rollback；产物写仓外 evolver/）",
+    "C": "reports/capability-manifest.json 初始化（6342 B；12 项能力 / 9 implemented + 3 candidate / 12 gap；fetch_scope 3 条 / license_blacklist 4 类 / schedule 3 条）",
+    "D": "tests/test_titan_evolver.py 新建（11363 B / 29 例，覆盖公理/链上/机制/清单持久化/缺口规格/四级许可/确定性评分/排名过滤/提案/合入降级/去重/调度/inspect/CLI）",
+    "E": "DOC_VERSION 0.9.25→0.9.26 + R-04 五处同源（spec.py / concept_anatomy.py 头注释 / DESIGN_TOKENS verify_doc_version / test_v19 注释与断言 / test_v22 断言）",
+    "F": "README×3 刷新（徽章 305+11+21、最新批次插 V31、V31 章节带入、FUSION V13→V31）+ 门禁行 305/115；five_site_manifest 重建（package 28 / repo 171 / missing 0 / zip a87fa921bf963fa1 不变）"
+  },
+  "dimensions_untouched": {
+    "VERSION": "0.9.1（冻结）",
+    "MATRIX_ID": "HOLOAEON-MATRIX-0.9.1（冻结）",
+    "RUNTIME_ID": "HOLOAEON-RUNTIME-0.9.1（冻结）",
+    "layers": "8（冻结，L1-L8 未变）",
+    "PACK_ORDER": "9（冻结）",
+    "EXTRA_PACK_ORDER": "19（不变）",
+    "third_party_code": "零复制（投喂包只给骨架，三处偏差已改写）",
+    "secrets_and_network": "包内零网络零密钥零 subprocess；执行层读 GITHUB_TOKEN 环境变量（本轮未设置，走未认证 60/h 口径）"
+  },
+  "verification": {
+    "selftest": "25/25 PASS",
+    "unittest_main": "305 OK (skipped=3)（V30 276 + test_titan_evolver 29）",
+    "unittest_v3": "11 OK",
+    "unittest_verax": "21 OK",
+    "redline": "115 文件 0 违规（V30 114 + titan_evolver.py；scripts/tests 不在扫描范围）",
+    "v3_gate": "32/32 PASS",
+    "verify_v44": "13/13 PASS（{\"passed\":13,\"total\":13,\"failed\":[],\"skipped\":[]}）",
+    "py38_syntax": "parsed=276 failures=0（V30 273 +3 新文件）",
+    "dimension_lock": "PASS（12 维度 + 7 闸 + 0 violation；spec_doc_version 当前 0.9.26 演进正常 / extra_packs 19 演进正常）",
+    "diff0": "DIFF=0 6d119b2a9f2df687 | 拦截 100% | 冷装配 31.27ms / 峰值 1.69MiB（agents=25 skills=47, BENCH_EXIT=0；bench 副产物已 git checkout -- 回退）",
+    "pipeline_note": "check_dimension_lock.py 直接以 scripts/ 为 cwd 运行时 holoaeon 不在 sys.path，FROZEN_SNAPSHOT 的「当前值」会显示读取失败（既有现象，非本批引入）；本批以 PYTHONPATH=仓根 复跑取真值 0.9.26 / 9 / 19"
+  },
+  "demo": {
+    "method": "离线确定性演示（不联网）：自造 3 条候选 JSON，走 CLI `proposal` 真跑",
+    "candidates": "F:/doubaowork/holoaeon_lathe/v31_demo_candidates.json",
+    "result": "MIT 候选 acme/PaddleOCR-lite 7.20 分通过；AGPL-3.0 5200★ 候选被许可证自动拒（strong_copyleft / distill_only）；6★ archived 候选分数不足阈值被拒",
+    "proposal": "F:/doubaowork/holoaeon_lathe/v31_demo_proposal.md（四段式：候选总览 / 逐条建议 / 被拒候选 / 审批口令）",
+    "yaml_export": "F:/doubaowork/holoaeon_lathe/capability-manifest.yaml（4769 B，只导出不解析）",
+    "cli": "chain → ring 0 · 进化编排（环面调度，不新增环）← mobius_vortex → klein_projection → holo_forge → doc_anatomy → machine_tool；inspect → 12 能力 / 12 gap / threshold 7.0 / schedule 3 条；plan doc_anatomy.parse → 七步全 available / degraded=false"
+  },
+  "five_site": {
+    "status": "pending_refresh",
+    "ledger_outside_repo": "F:/doubaowork/vector-sea/_holoaeon_v4_five_site_receipt_20261102.json（history 追加 V31 条目 / s4_incremental 追加 V31_titan_evolver）",
+    "note": "五地回读结果记入仓外台账，仓内回执不复制远端 sha / 文件数（与 V23~V30 同口径）"
+  },
+  "not_committed": [
+    "投喂包 AGENT_FEED_V31_...md（仓外 F:/doubaowork 根，未入 git）",
+    "reports/state_beacon.json（灯塔，untracked）",
+    "reports/v44_model_gateway_check.json（校验器自写回执）",
+    "benchmarks/results-0.9.1.json 与 benchmarks/README.md（耗时抖动，已 git checkout -- 回退）",
+    "仓外：v31_demo_candidates.json / v31_demo_proposal.md / capability-manifest.yaml / evolver/（采集与提案工作区）"
+  ],
+  "final_judgement": "通过。清单先立、机器只提案、人一键批准——供应链安全边界守住；包内零网络零 subprocess，执行层联网合规分层；29 例全绿，305 OK 无回归，redline 115 零违规，diff0 未漂移，DOC 0.9.26、EXTRA 19 不变；五地待同步。",
+  "seal_close": "潮起开门，潮落闭嘴"
+}
