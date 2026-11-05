@@ -28,8 +28,9 @@ class TestDesignTokens(unittest.TestCase):
         # V32 同步：DOC=0.9.27（gap_bridge 缺口进化桥，EXTRA 仍 19）
 # V33 同步：DOC=0.9.28（math_gate 数学编排闸门，EXTRA 仍 19）
 # V34 同步：DOC=0.9.29（tea_gate 茶域编排闸门，EXTRA 仍 19）
+# V35 同步：DOC=0.9.30（cosmo_gate 宇宙域编排闸门，EXTRA 仍 19）
         self.assertEqual(DESIGN_TOKENS["verify_extra_pack_order"], 19)
-        self.assertEqual(DESIGN_TOKENS["verify_doc_version"], "0.9.29")
+        self.assertEqual(DESIGN_TOKENS["verify_doc_version"], "0.9.30")
         self.assertEqual(DESIGN_TOKENS["verify_version"], "0.9.1")
         self.assertEqual(DESIGN_TOKENS["verify_diff0"], "2fc892cf9af6e755")
 

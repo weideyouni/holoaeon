@@ -1,0 +1,59 @@
+{
+  "batch": "V35-COSMO-GATE",
+  "status": "DONE",
+  "seal": "潮起开门，潮落闭嘴",
+  "date": "2026-11-05",
+  "doc_version": "0.9.30",
+  "version_locked": "0.9.1",
+  "extra_pack_order": "unchanged(19)",
+  "selftest": "25/25",
+  "cosmo_gate_tests": "12/12",
+  "unittest_main": "350 OK (skipped=0)",
+  "v3_gate": "32/32 PASS",
+  "redline": "119 files, 0 violations",
+  "diff0": "no drift (6d119b2a9f2df687, tampered 8f424d9ee3ebfb9b sensitive, block 16/16, allow 4/4)",
+  "py38": "parsed=284 failures=0",
+  "dimension_lock": "PASS (12 dims + 7 gates, 0 violation)",
+  "five_site": "S1-S5 consistent",
+  "chain_position": "ring7(宇宙域编排)",
+  "chain_upstream": ["tea_gate", "math_gate", "titan_evolver"],
+  "same_as_law": "4th independent reproduction (rhythm shape archived)",
+  "gates": {
+    "cosmo_gate_tests": true,
+    "selftest": true,
+    "v3_gate": true,
+    "unittest_main": true,
+    "redline": true,
+    "diff0": true,
+    "py38": true,
+    "dimension_lock": true,
+    "five_site_dna": true,
+    "v44": true
+  },
+  "honest_boundaries": [
+    "投喂包 §5 标题写 11 例，实际含 12 个 test 方法（多出 test_entropy_range_guard 的分组已包含在 test_entropy_leap？否——独立方法），实测 12/12；包内计数与正文不一致，以实测为准。",
+    "投喂包 §4 与 §5 自相矛盾：expand() 用 (-(visits), ...) 排序＝访问最多者优先，而 test_expand_unvisited_first 断言未访问优先。按 §4「一字不改」落地后实跑 1 失败，为保证 §5 断言成立，仅改一个 token（-(visits) → visits），其余逐字保留。这是本批唯一对 §4 的偏离，已登记。",
+    "§4 里 import time 未被使用（死导入），按一字不改保留；不影响零依赖与确定性。",
+    "MentorRouter 的 GROUP 与 MENTOR_TABLE 必须同键，否则 route() 命中 mentor 后取 GROUP[subject] 会 KeyError——当前 14 科对齐，但这是未写入 docstring 的耦合锐边。",
+    "StormIteration.step 在第 11 拍起 wave 恒为 10、done 恒 True，重复 step 只是 append 同一条 S10_close 日志（无幂等保护，属已知形状而非缺陷）。",
+    "EntropyBalance 在 order=0 时 ratio=inf，round(inf,4) 得 inf，leap 仍为 False；不抛异常但 ratio 不可 JSON 序列化（strict JSON 会写 null/失败）。",
+    "SAME_AS 第四次复现是机制形状层面（chain_complete / 薄种子自举 / 三胚层八模块 / 单一事实源）的独立趋同，不是代码同源，也不等于全息公理已证明；本批新增的是「节律」形状，非「防护」形状。"
+  ],
+  "not_committed": [
+    "reports/state_beacon.json（灯塔，按约定不入库）",
+    "AGENT_FEED_V35_COSMO_GATE_20261105.md（投喂包，按约定不入库；完工后改名 _DONE）"
+  ],
+  "files_committed": [
+    "holoaeon/cosmo_gate.py",
+    "tests/test_cosmo_gate.py",
+    "holoaeon/spec.py",
+    "holoaeon/concept_anatomy.py",
+    "tests/test_v19_concept_anatomy.py",
+    "tests/test_v22_eng_skills.py",
+    "README.zh-CN.md",
+    "README.md",
+    "README_FUSION_V4_20261102.md",
+    "reports/v35_receipt.json",
+    "reports/five_site_manifest.json"
+  ]
+}
