@@ -1,0 +1,143 @@
+{
+  "batch": "V27-KLEIN-PROJECTION",
+  "title": "克莱因收敛投影模块（klein_projection 全息吸纳 · 维度不变 · DOC 0.9.21->0.9.22）",
+  "status": "executed",
+  "date": "2026-11-05",
+  "head_before": "8f0afb347e80a70df494e6c26b1741cf2b0b8260",
+  "head_before_short": "8f0afb3",
+  "doc_version_before": "0.9.21",
+  "doc_version_after": "0.9.22",
+  "spec_version": "0.9.1",
+  "extra_pack_order": 19,
+  "extra_pack_order_changed": false,
+  "assembly": {"agents": 66, "skills": 280, "core_agents": 25, "core_skills": 47},
+  "source": "对话投喂（AGENT FEED V27 · 克莱因收敛投影 · §0 全息公理 + §2 七段规格 + §3 SkillAtlas 10 行）",
+  "evidence_class": "simulated",
+  "first_principle": "全息=局部包含整体：11 项自组织机制是一张可投影到任意开源候选的全息图，读得通=可吸纳、读不通=放弃。克莱因瓶=无向闭合曲面，瓶颈穿过瓶壁而不穿透——候选被吸纳、本体不被侵入（传染性许可证只蒸馏创意不复制代码的几何表达）。收敛判据=两轮投影分差为 0（不动点）。",
+  "quartet_decision": {
+    "P4_question": "投影会不会变成\"用别人的项目改造自己\"？答：不会。11 项机制是视网膜，候选是景物——投影分数只决定吸纳范围，不改本体维度；每个被吸纳的项目让全息图更完整。",
+    "P2_architecture": "七段流水线 CandidateIntake → HoloEvaluator → QuartetGate → TensorCoupler → EphemeralForge → Hardener → ProjectLibrary，外加贯穿段 ChatFrontendPack",
+    "P3_constraints": "零依赖纯标准库（json/os/ast/tempfile/re/sys/time/hashlib）、不碰冻结核心、不新增扩展包、一过性件强制 tempfile、零密钥零网络",
+    "P1_algorithm": "11 机制关键词投影打分（hits/2 截断 1.0）+ 许可证四级正则裁决 + 两轮不动点收敛 + ast 只校验不执行",
+    "emergence": {"order": "0.30*(p2*p3)+0.25*p1+0.20*(1-p4)+0.25*coverage", "verdict": "deterministic"}
+  },
+  "adopted": [
+    "D-01 七段流水线结构（受理→评估→门→耦合→一过性→转正→项目库）",
+    "D-02 许可证四级裁决（permissive/weak copyleft/strong copyleft/unknown），strong copyleft 只蒸馏创意",
+    "D-03 两轮不动点收敛（分差=0 即吸纳完成）",
+    "D-04 一过性代码 tempfile + ast 校验（不入仓、不入 git，用后即焚）",
+    "D-05 对话窗口提示包（平台即前端、本地库即后端，低硬件适配）"
+  ],
+  "rejected": [
+    "X-01 让 LLM 判断候选\"有没有创意\"（必须可复算，零 LLM）",
+    "X-02 直接复制 AGPL/GPL 代码（传染性许可证只取方法论）",
+    "X-03 一过性代码进仓库或进 git 历史",
+    "X-04 自动执行吸纳（简报与建议只陈述，人做终裁）"
+  ],
+  "mechanism_mapping": {
+    "心跳": "投影流水线顺序推进（一个候选一轮）",
+    "细胞骨架": "CandidateIntake 档案结构",
+    "皮肤": "许可证裁决 + seal 校验（Guard 前置）",
+    "经络": "HoloEvaluator 机制投影：候选特征与机制关键词共振",
+    "赫布协作场": "ProjectLibrary 注册次数累积 = 信任权重",
+    "语义通信基座": "ChatFrontendPack 提示包 = Envelope 文本化",
+    "类社会组合体": "D/X 扬弃角色分工",
+    "城邦架构": "项目库多项目登记簿",
+    "runtime/graph": "TensorCoupler 轴结构 + 邻接式映射",
+    "克莱因收敛": "两轮投影不动点判定"
+  },
+  "feed_corrections": [
+    {
+      "id": "C-01",
+      "claim": "§2 表列七段 + 贯穿段，未给代码正文",
+      "reality": "投喂内容为规格与性质描述，无类实现细节",
+      "resolution": "按 §2 表与 §1 全息公理自行实现；测试实际 19 例（覆盖七段 + 许可证四级 + 一过性焚毁 + 库幂等 + CLI）"
+    },
+    {
+      "id": "C-02",
+      "claim": "版本脉络称 V24/V25/V26「待执行」",
+      "reality": "实测 V24/V25/V26 均已闭环（HEAD 8f0afb3 / DOC 0.9.21 / EXTRA 19）",
+      "resolution": "以仓库实测为真值来源，V27 直接在 0.9.21 基线上执行，脉络差异记入回执"
+    },
+    {
+      "id": "C-03",
+      "claim": "§3 称 vector_sea 为「617 技能索引」",
+      "reality": "仓内 vector_sea 扩展包实为 8 技能 / 4 角色 / 2 工作流",
+      "resolution": "Atlas 条目改用实测口径，不引用未实测的 617"
+    },
+    {
+      "id": "C-04",
+      "claim": "§3 列 10 行映射",
+      "reality": "清单 10 行中「索引放大 vector_sea」与「投影扇出 mandala_fanout」部分重叠",
+      "resolution": "保留 10 条，但把 vector_sea 一条替换为 ProjectLibrary↔memory_of_yuan（账面查询，实测可核）"
+    },
+    {
+      "id": "C-05",
+      "claim": "「代码交机床处理，生成动态一过性代码」暗示执行代码",
+      "reality": "redline 禁 eval/exec/compile，包内不得执行动态代码",
+      "resolution": "一过性件只做 ast.parse 语法校验（不执行），落 tempfile 目录，用后即焚；执行仍由人/机床在仓外完成"
+    },
+    {
+      "id": "C-06",
+      "claim": "§7 未提清单重建",
+      "reality": "改动 README×3 后未重建 reports/five_site_manifest.json，verify_v44 的 A10（五地零漂移）会红",
+      "resolution": "先 five_site_dna.py build 重建（package 28 / repo 171 / missing 0 / zip a87fa921bf963fa1），再跑 v44 → 13/13"
+    }
+  ],
+  "patches": {
+    "A": "holoaeon/klein_projection.py 新建（CandidateIntake / HoloEvaluator / QuartetGate / TensorCoupler / EphemeralForge / Hardener / ProjectLibrary / ChatFrontendPack / KleinProjection + CLI status|atlas|assess|frontend|library）",
+    "B": "tests/test_klein_projection.py 新建 19 例",
+    "C": "七道闸门全跑并记录实测",
+    "D": "README.zh-CN.md / README.md 新增 ### V27 章节 + 顶部最新批次 + 徽章 + 门禁表；README_FUSION 索引节改「V13 → V27」并插 V27 行",
+    "E": "DOC_VERSION 0.9.21 → 0.9.22，R-04 五处同源同步（spec / concept_anatomy 头注释 / concept_anatomy verify token / test_v19 注释与断言 / test_v22 断言）",
+    "F": "单批单提交 + 本回执",
+    "G": "五地同步 + 玉安记忆回填",
+    "H": "首份 V27 候选评估档案可作为下一批灯塔输入（mobius_vortex 回流）"
+  },
+  "dimensions_untouched": {
+    "BUILTIN_LAYERS": "L1-L8 未触碰",
+    "VERSION": "0.9.1 未触碰",
+    "layers": "8 未触碰",
+    "PACK_ORDER": "9（25 agents / 47 skills）未触碰",
+    "EXTRA_PACK_ORDER": "19 未增长（模块级，先例 butler_os V12 / machine_tool V25 / mobius_vortex V26）",
+    "graph_scheduler_hypervector_kernel": "未触碰",
+    "repro_hash": "新文件不参与 ReproHash"
+  },
+  "verification": {
+    "selftest": "25/25",
+    "v3_gate": "32/32",
+    "unittest_main": "234 OK（V26 215 + V27 19）",
+    "unittest_v3": "11 OK",
+    "unittest_verax": "21 OK",
+    "unittest_v27": "19 OK",
+    "redline": "111 文件 0 违规（V26 110 + V27 1）",
+    "dimension_lock": "PASS（12 维度 / 7 闸 / 0 violation，spec_doc_version 0.9.22 演进正常，extra_packs 19 演进正常）",
+    "py38_syntax": "parsed=267 failures=0",
+    "five_site_manifest": "package 28 / repo 171 / missing 0 / zip a87fa921bf963fa1",
+    "verify_v44": "13/13（A10 PASS / A11 PASS / A12 PASS / A13 PASS）",
+    "cli_status": "mechanisms 11 / license_rules 3 / promote_gates 4 / atlas_entries 10 / seal 正确",
+    "cli_atlas": "10 条"
+  },
+  "diff0_note": {
+    "judgement": "6d119b2a9f2df687（bench 16 步 workload，DOC 升版后复跑仍一致）",
+    "tampered": "8f424d9ee3ebfb9b",
+    "blocked": "16/16 = 100%",
+    "footprint": "build=30.55ms peak=1.69MiB agents=25 skills=47",
+    "drift": 0,
+    "golden_comment_value": "2fc892cf9af6e755（V1 注释值，口径不同，不作判据）",
+    "bench_artifacts_reverted": true,
+    "v44_receipt_reverted": true
+  },
+  "five_site": {
+    "status": "pending_refresh",
+    "ledger_outside_repo": "F:/doubaowork/vector-sea/_holoaeon_v4_five_site_receipt_20261102.json（history 追加 V27 条目 / s4_incremental 追加 V27_klein_projection）",
+    "note": "五地回读结果记入仓外台账，仓内回执不复制远端 sha / 文件数（与 V23~V26 同口径）"
+  },
+  "not_committed": [
+    "reports/v44_model_gateway_check.json（verify_v44 自写回执，跑完 git checkout 还原）",
+    "benchmarks/results-0.9.1.json（bench 产物，跑完 git checkout 还原）",
+    "reports/state_beacon.json（V26 灯塔运行产物）"
+  ],
+  "seal": "潮起开门，潮落闭嘴",
+  "final_judgement": "碳基终审，仿真≠证明"
+}
