@@ -1,0 +1,49 @@
+{
+  "batch": "V36-EDU-GATE",
+  "status": "DONE",
+  "seal": "潮起开门，潮落闭嘴",
+  "doc_version": "0.9.31",
+  "extra_pack_order": "unchanged(19)",
+  "head": "PENDING_COMMIT",
+  "date": "2026-11-05",
+  "modules": [
+    "holoaeon/edu_gate.py",
+    "tests/test_edu_gate.py"
+  ],
+  "gates": {
+    "edu_gate_tests": "13/13 OK (feed declared 12; measured 13)",
+    "selftest": "25/25",
+    "v3_gate": "32/32 PASS (no-arg; --json argparse still fails)",
+    "unittest_main": "363 OK (skipped=0; 350 + V36 13)",
+    "redline": "120 files 0 violations",
+    "diff0": "6d119b2a9f2df687 no drift (benchmark run; bench files restored)",
+    "dimension_lock": "PASS (12 dims + 7 gates + 0 violation)",
+    "py38": "parsed=286 failures=0",
+    "v44": "13/13 PASS",
+    "five_site_dna": "verify PASS drift=[] (package 28 / repo 171 / missing 0)"
+  },
+  "e2e": {
+    "lineage": {"chain": [1, 2, 3]},
+    "orphan": {"ok": false, "error": "orphan parent"},
+    "rubric": {"total": 83.5, "grade": "B+"},
+    "progression": {"progressive": true, "rounds": 2},
+    "scan_hit": {"file": "a.md", "hit": "必赚"},
+    "scan_clean": {"ok": true},
+    "conductor": {"emitted_ok": true, "scan_ok": true, "grade": "B+"}
+  },
+  "chain_position": "ring8(教育域编排)",
+  "same_as_law": "5th reproduction; evaluation-shape archived",
+  "honest_boundaries": [
+    "feed declared 12 test cases; measured 13 (extra: test_seal_all). receipt uses measured value",
+    "EduConductor does not gate on scan['ok']: scan failing still returns full envelope (report-only by design; disposition = carbon-based final review)",
+    "RedlineSelfScan forbidden words hardcoded ('必赚'/'治愈'/'应当判处') in module per feed spec",
+    "grade_of(89.99) == 'B+' and round(sum,2) are float-bounded deterministic; documented",
+    "progression() on empty or single-round list: zip empty -> ok=True by construction; not asserted in feed tests",
+    "LineageBus.emit orphan returns dict (not exception) per feed spec",
+    "CHAIN_POSITION.upstream lists cosmo/tea/math (not parent chain of rings 5-8); declared as-is per feed"
+  ],
+  "not_committed": [
+    "AGENT_FEED_V36_EDU_GATE_20261105.md (repo-root feed, intentionally untracked)",
+    "reports/state_beacon.json (beacon, intentionally untracked)"
+  ]
+}

@@ -427,6 +427,7 @@ python -m unittest discover -s tests_contract   # 184（1 例既有契约漂移�
 
 | 批次 | 主题 | 关键产出 / 回执 |
 |---|---|---|
+| V36 | 教育域编排闸门 edu_gate 教育大师 V3.0 蒸馏（血缘信封 / 六维量规 / 红线自扫描 · SAME_AS 第五次复现·评价形状入档 · 领域编排环第八环 · `DOC_VERSION 0.9.30 → 0.9.31`，不新增扩展包） | `holoaeon/edu_gate.py` · `tests/test_edu_gate.py` · `reports/v36_receipt.json` |
 | V35 | 宇宙域编排闸门 cosmo_gate 宇宙智能体矩阵蒸馏（对偶闭环 / 导师三级路由 / S0-S10 暴风 / 熵平衡 · SAME_AS 第四次复现·节律形状入档 · 领域编排环第七环 · `DOC_VERSION 0.9.29 → 0.9.30`，不新增扩展包） | `holoaeon/cosmo_gate.py` · `tests/test_cosmo_gate.py` · `reports/v35_receipt.json` |
 | V34 | 茶域编排闸门 tea_gate 茶叶导学大师蒸馏（校准三律 / E14 急症双熔断 / 伦理阀 / JSONL 事实源 · SAME_AS 第三次复现定律化 · 领域编排环第六环 · `DOC_VERSION 0.9.28 → 0.9.29`，不新增扩展包） | `holoaeon/tea_gate.py` · `tests/test_tea_gate.py` · `reports/v34_receipt.json` |
 | V33 | 数学编排闸门 math_gate 数学大师蒸馏（双闸 L2/L5 · DNA 七条 · 三安全阀 · 六领域路由 · MATH-BUS 信封 · 同构实证 SAME_AS · 领域编排环第五环 · `DOC_VERSION 0.9.27 → 0.9.28`，不新增扩展包） | `holoaeon/math_gate.py` · `tests/test_math_gate.py` · `reports/v33_receipt.json` |
