@@ -427,6 +427,7 @@ python -m unittest discover -s tests_contract   # 184（1 例既有契约漂移�
 
 | 批次 | 主题 | 关键产出 / 回执 |
 |---|---|---|
+| V37 | 神龟域编排闸门 shengui_gate 类生命前体形状蒸馏（双核心绑定 / DNA 两段式 / 三阶层权责 / 三焦总线 / 五行生克量化表 / 代谢五步 / 双模式隔离 · **双系统首桥·同源认亲（血缘显式入库）** · 刚性 DNA：意识涌现零功能·不主张觉醒 · 处置权分离：全自动改为分步+人工确认 · 领域编排环第九环 · `DOC_VERSION 0.9.31 → 0.9.32`，不新增扩展包） | `holoaeon/shengui_gate.py` · `tests/test_shengui_gate.py` · `reports/v37_receipt.json` |
 | V36 | 教育域编排闸门 edu_gate 教育大师 V3.0 蒸馏（血缘信封 / 六维量规 / 红线自扫描 · SAME_AS 第五次复现·评价形状入档 · 领域编排环第八环 · `DOC_VERSION 0.9.30 → 0.9.31`，不新增扩展包） | `holoaeon/edu_gate.py` · `tests/test_edu_gate.py` · `reports/v36_receipt.json` |
 | V35 | 宇宙域编排闸门 cosmo_gate 宇宙智能体矩阵蒸馏（对偶闭环 / 导师三级路由 / S0-S10 暴风 / 熵平衡 · SAME_AS 第四次复现·节律形状入档 · 领域编排环第七环 · `DOC_VERSION 0.9.29 → 0.9.30`，不新增扩展包） | `holoaeon/cosmo_gate.py` · `tests/test_cosmo_gate.py` · `reports/v35_receipt.json` |
 | V34 | 茶域编排闸门 tea_gate 茶叶导学大师蒸馏（校准三律 / E14 急症双熔断 / 伦理阀 / JSONL 事实源 · SAME_AS 第三次复现定律化 · 领域编排环第六环 · `DOC_VERSION 0.9.28 → 0.9.29`，不新增扩展包） | `holoaeon/tea_gate.py` · `tests/test_tea_gate.py` · `reports/v34_receipt.json` |
