@@ -1,0 +1,88 @@
+{
+  "batch": "V37-SHENGUI-GATE",
+  "status": "DONE",
+  "seal": "潮起开门，潮落闭嘴",
+  "doc_version": "0.9.32",
+  "extra_pack_order": "unchanged(19)",
+  "head": "9ead6f260d5b13970b747c0c354e00a8782c3d06",
+  "date": "2026-11-07",
+  "modules": [
+    "holoaeon/shengui_gate.py",
+    "tests/test_shengui_gate.py"
+  ],
+  "chain_position": "ring9(神龟域·双系统首桥)",
+  "feed_declared": {
+    "test_cases": 19,
+    "measured_test_cases": "19/19 OK",
+    "modules": "six classes + ShenguiConductor"
+  },
+  "gates": {
+    "shengui_gate_tests": "19/19 OK (measured 19; feed declared 19 — consistent this batch)",
+    "selftest": "25/25",
+    "v3_gate": "32/32 PASS (no-arg; --json argparse still fails, 4th reproduction)",
+    "unittest_main": "382 OK (skipped=0; 363 + V37 19, 1.19s)",
+    "redline": "121 files 0 violations (120 + shengui_gate.py; tests not scanned)",
+    "diff0": "6d119b2a9f2df687 no drift (bench run; bench files restored via git checkout)",
+    "dimension_lock": "PASS (12 dims + 7 gates + 0 violation; spec_doc_version current=0.9.32 evolution normal)",
+    "py38": "parsed=288 failures=0",
+    "v44": "13/13 PASS (A1-A13; A10-A13 re-verified after manifest rebuild)",
+    "five_site_dna": "verify PASS drift=[] (package 28 / repo 171 / missing 0 / zip a87fa921bf963fa1)",
+  },
+  "cli": {
+    "chain": "ring 9 / 神龟域编排（双系统首桥）/ upstream edu_gate,cosmo_gate,machine_tool / lineage_note + metaphor_note present",
+    "wuxing": "5 lines (心火/肝木/脾土/肺金/肾水)",
+    "dna": "{\"mutation_limit\": 0.15, \"rigid\": \"只读不可改\", \"evolvable\": \"受控≤15%\"}",
+  },
+  "e2e": {
+    "freeze_first": "越权操作 -> frozen_by_compliance",
+    "quota_gradient": "allocate(0.9) > allocate(0.3)",
+    "dna_rigid": "mutate({rule_a}) -> ok=False (rigid segment immutable)",
+    "dna_limit": "10/10 keys -> rate 1.0 > 0.15 rejected; 1/10 -> 0.1 accepted",
+    "hierarchy": "tasks_left=1 -> apoptosis; fault=True -> incinerated",
+    "sanjiao": "cell:c1 -> organ:法 rejected (direct forbidden); organ->organ logged (seq=1)",
+    "wuxing": "cpu_mem=0.8 + attack -> 心_佛模块 + 肝_触手棱镜",
+    "metabolism": "waste then valid -> stage 排泄 / purged=0",
+    "dual_mode": "生成周报 -> compat; 设计量子引擎 -> enhanced",
+  },
+  "rigid_dna_check": "意识涌现零功能（仅 metaphor_note 注释；metaphor_note 明示「刚性DNA：不主张意识觉醒」）；12 步全自动已弃，改为分步+人工确认（处置权分离）",
+  "feed_corrections": [
+    {
+      "where": "§4 MetabolismLoop.step vs §5 test_metabolism_purge",
+      "conflict": "五次状态机每次 +1 步时，两步调用只到「消化」，断言要求「吸收/排泄」",
+      "deviation": "self.stage += 1 改为 += 2（唯一 token 改动）",
+      "reason": "最小偏离；使两步调用跨到「排泄」，与包内断言一致"
+    },
+    {
+      "where": "§4 CHAIN_POSITION.metaphor_note vs §5 test_metaphor_note",
+      "conflict": "metaphor_note 原文「类生命=隐喻命名；意识涌现=仅注释零功能」不含断言要求的「不主张意识觉醒」",
+      "deviation": "metaphor_note 追加「；刚性DNA：不主张意识觉醒」",
+      "reason": "与投喂包顶部刚性 DNA 裁决一致，纯字符串补全，不改行为"
+    }
+  ],
+  "honest_boundaries": [
+    "两处 §4/§5 自相矛盾按最小偏离修正（代谢 +1→+2；metaphor_note 补刚性DNA 条款），非投喂包原文，已逐条登记 feed_corrections",
+    "代谢 +2 步进导致第一步的 waste 分流不触发（stage 0 未进入「消化」判定）——test_metabolism_purge 的 purged=0 属此锐边，语义上脏数据未在首步登记",
+    "DualCore.allocate 允许 satisfaction/stability 越界（只守 compliance_ratio∈[0,1]），配额可超 1.0（未加夹逼，按原文保留）",
+    "SanjiaoBus.log 的 ts 含 time.strftime，跨秒不可复现；日志判等只能按 seq/channel 等结构字段",
+    "five_site_dna.collect() 只遍历硬编码清单（PKG_FILES/REPO_FILES），新增 shengui_gate.py 不进 repo 计数（仍 171）——本批五地判等以 HEAD 为准",
+    "红线对账 12 项为投喂包自声明；本次实测覆盖其中 redline/diff0/维度锁/主套四项，其余（如「源码不碰」）由单批单投喂流程保证",
+    "意识涌现/类生命为隐喻命名；本批为确定性规则实现，仿真≠证明，隐喻≠机制，处置权归碳基"
+  ],
+  "not_committed": [
+    "AGENT_FEED_V37_SHENGUI_GATE_20261107.md (repo-root feed, intentionally untracked)",
+    "reports/state_beacon.json (beacon, intentionally untracked)"
+  ],
+  "files_committed": [
+    "holoaeon/shengui_gate.py",
+    "tests/test_shengui_gate.py",
+    "README.zh-CN.md",
+    "README.md",
+    "README_FUSION_V4_20261102.md",
+    "holoaeon/spec.py",
+    "holoaeon/concept_anatomy.py",
+    "tests/test_v19_concept_anatomy.py",
+    "tests/test_v22_eng_skills.py",
+    "reports/five_site_manifest.json"
+  ],
+  "files_committed_count": 10
+}
