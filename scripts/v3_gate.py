@@ -345,6 +345,24 @@ def a12_constraints() -> None:
         deps_empty = "dependencies = []" in text or "dependencies=[]" in text
     check("A12.1", "零依赖未破", deps_empty, {"pyproject": os.path.basename(pyproject)})
 
+    # V38 · P38-B：SHA256SUMS 复算闸并入 A12 子检查（不新增 CHECKS 项 → 对外仍 32/32 口径）
+    # 闸只阻断不重建：重建是批次动作，自动重建会掩盖追溯性。
+    try:
+        import importlib.util
+        _cp = os.path.join(os.path.dirname(os.path.abspath(__file__)), "check_sums.py")
+        _sp = importlib.util.spec_from_file_location("check_sums_gate", _cp)
+        _md = importlib.util.module_from_spec(_sp)
+        _sp.loader.exec_module(_md)
+        _res = _md.verify("SHA256SUMS", ROOT)
+        sums_ok, sums_total = bool(_res.get("ok")), int(_res.get("total") or 0)
+        sums_bad = _res.get("mismatches") or _res.get("unreadable") or _res.get("error")
+    except Exception as exc:  # noqa: BLE001
+        sums_ok, sums_total, sums_bad = False, 0, str(exc)[:80]
+    if not sums_ok:
+        raise AssertionError(
+            "SHA256SUMS 复算不通过（改元文件后必须先跑批次重建 P38-A；闸只阻断不重建）：%r" % (sums_bad,))
+    print("  [SUMS] OK → %d 条复算一致（report_only，不自动重建）" % sums_total)
+
 
 # ------------------------------------------------------------ main
 def main() -> int:

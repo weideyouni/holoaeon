@@ -39,21 +39,25 @@ FROZEN_SNAPSHOT = {
         "frozen_value": "0.9.4",
         "current_source": "holoaeon.spec.DOC_VERSION",
         "reason": "文档版本号，随批次演进，不参与运行态锁死校验",
+        "note_cmd": "python -c \"from holoaeon.spec import DOC_VERSION; print(DOC_VERSION)\"",
     },
     "holoaeon_domain_packs": {
         "frozen_value": 9,
         "current_source": "holoaeon.packs.PACK_ORDER len",
         "reason": "九领域包数，V1 起未变",
+        "note_cmd": "python -c \"from holoaeon.packs import PACK_ORDER; print(len(PACK_ORDER))\"",
     },
     "holoaeon_extra_packs": {
         "frozen_value": 9,
         "current_source": "holoaeon.packs.EXTRA_PACK_ORDER len",
-        "reason": "扩展包数，随批次演进（9→18）",
+        "reason": "扩展包数，随批次演进，以命令回读为准，不记时点快照",
+        "note_cmd": "python -c \"from holoaeon.packs import EXTRA_PACK_ORDER; print(len(EXTRA_PACK_ORDER))\"",
     },
     "holoaeon_unittests": {
         "frozen_value": "34/21/5",
         "current_source": "tests/ + tests/v3 + tests/verax 实跑计数",
-        "reason": "三套测试计数，随批次演进（34/21/5→180/5/21）",
+        "reason": "三套测试计数，随批次演进，以命令回读为准，不记时点快照",
+        "note_cmd": "python -c \"import subprocess,sys;r=subprocess.run([sys.executable,'-m','unittest','discover','-s','tests'],capture_output=True,text=True);print([l for l in r.stderr.splitlines() if l.startswith('Ran')][-1])\"",
     },
 }
 

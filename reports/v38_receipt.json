@@ -1,0 +1,47 @@
+{
+ "batch": "V38-SUMS-HONESTY",
+ "status": "DONE",
+ "seal": "潮起开门，潮落闭嘴",
+ "doc_version": "0.9.33",
+ "spec_version_frozen": "0.9.1",
+ "sums_rebuilt": "2 mismatches -> 0（251 -> 250 条，见 C-07）",
+ "sums_entries": 250,
+ "sums_manifest_sha256": "43202ba4e12010fe8c4166c8b0ccb2ce880588f42b18fbaf78e104b2626b8f2a",
+ "check_sums_gate": "installed (report_only) · 并入 v3_gate A12 子检查，不新增 CHECKS 项（对外口径 32/32 不变）",
+ "qwen_p0": "closed（SHA256SUMS 恰 2 条不匹配已现场复现后清零）",
+ "gates": {
+  "unittest_main": "387 OK（382 + 本批 5 例 test_check_sums）",
+  "test_check_sums": "5/5 OK",
+  "selftest": "25/25",
+  "v3_gate": "32/32 PASS",
+  "redline": "121 文件 0 违规（本批新件不在红线扫描集）",
+  "diff0": "DIFF=0 6d119b2a9f2df687（tamper 8f424d9ee3ebfb9b sensitive=True）",
+  "dimension_lock": "12 维度 + 7 闸 + 0 violation PASS",
+  "py38": "parsed=290 / failures=0",
+  "v44": "13/13 PASS（A10 零漂移，self-excluded 1）",
+  "five_site_dna": "package 28 / repo 171 / missing 0 / zip a87fa921bf963fa1"
+ },
+ "note_readback": {
+  "D02_spec_doc_version": "python -c \"from holoaeon.spec import DOC_VERSION; print(DOC_VERSION)\" -> 0.9.33",
+  "D06_holoaeon_extra_packs": "python -c \"from holoaeon.packs import EXTRA_PACK_ORDER; print(len(EXTRA_PACK_ORDER))\" -> 19",
+  "D07_holoaeon_unittests": "回读 Ran 387 tests（三套主套口径；投喂包只要求命令回读，不记时点）"
+ },
+ "readme": {
+  "badge": "tests-387%2B11%2B21（实测 387，非投喂包预估 382）",
+  "gate_note": "徽章口径=主套 387 + v3 11 + verax 21 = 419",
+  "diff0_dual_hash": "顶部状态表下已注明 2fc892cf…（V1 规格黄金，冻结）/ 6d119b2a…（bench 16 步实测判据）——层级不同，非矛盾"
+ },
+ "feed_corrections": [
+  "C-01 投喂包 §3 main() 的 json 导入移至模块顶部",
+  "C-02 投喂包 §4 make_repo 对无目录文件补空串守卫",
+  "C-03 scripts/ 非包目录，测试改用 importlib 加载",
+  "C-04 执行顺序：先完成全部元文件改动，再重建清单",
+  "C-05 徽章取实测 387（投喂包写 382 未计本批 5 例）",
+  "C-06 check_sums 句柄改 with 一次性读取",
+  "C-07 清单原钉 reports/v44_model_gateway_check.json（每次 verify_v44 重写，A10 已 self-excluded）→ 按「清单只钉输入侧」移出，251→250",
+  "C-08 §3 返回体 action 与说明为隐式字符串拼接（action 被污染）→ 拆为 action / action_note"
+ ],
+ "head_note": "本批 head 由提交后回填台账/灯塔/记忆；回执不预写 head，避免 V37 式补正提交",
+ "evidence_class": "measured",
+ "written_at": "2026-11-07T08:29:30"
+}
