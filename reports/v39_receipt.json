@@ -1,0 +1,67 @@
+{
+  "batch": "V39-README-MANIFESTO",
+  "status": "DONE",
+  "seal": "潮起开门，潮落闭嘴",
+  "doc_version": "0.9.33",
+  "doc_version_note": "纯文档批次，不升版（VERSION=0.9.1 与全部冻结值不动）",
+  "extra_pack_order": 19,
+  "dimensions": 12,
+  "date": "2026-11-07",
+  "modules": [],
+  "new_tests": [],
+  "deliverable": {
+    "zh_section": "## 工程宣言 （README.zh-CN.md，插在「这是什么」与「当前工程状态」之间）",
+    "en_section": "## The HoloAeon Manifesto （README.md，插在 ## Why HoloAeon 之前）",
+    "zh_source": "F:\\doubaowork\\HOLOAEON_README_V3_中文嵌写稿_20261107.md",
+    "en_source": "F:\\doubaowork\\HOLOAEON_README_V3_Manifesto_EN_20261107.md"
+  },
+  "line_delta": {
+    "README.zh-CN.md": "979 -> 1221（+ manifesto）+ V39 小节/批次行",
+    "README.md": "1534 -> 1735（+ manifesto）+ V39 小节/批次行"
+  },
+  "quartet": {
+    "fn": "holoaeon.packs.quartet_director_pack.check_emergence",
+    "scores": {"P1": 0.88, "P2": 0.92, "P3": 0.80, "P4": 0.34},
+    "emergence": true,
+    "order": 0.5358,
+    "conditions": {"P2xP3_ge_0.7": true, "P1_ge_0.6": true, "P4_le_0.4": true, "order_gt_0.30": true}
+  },
+  "feed_corrections": [
+    "W-01 删「184 契约」（本机面板无此口径），改 387 + v3 11 + verax 21 = 419，与门禁行同源",
+    "W-02 「agent 领域的 SQLite 最佳候选」降级为「外部评审（千问静态评估）的类比」，并写明回应方式=制度化成门禁",
+    "W-03 致谢表增「印记等级」列：4 家 measured（Kimi/豆包/千问/DeepSeek）、6 家 untested（无独立回执，不虚标）",
+    "W-04 批次数补台账口径：V0.1→V38 38 个版本批次，五地台账 history=59（差额为补正提交与跨批事件）",
+    "W-05 「SAME_AS 五次独立趋同」具体化为五域闸门（数学/茶/宇宙/教育/神龟）",
+    "W-06 462 项知识库与 1331×1331 标「自述资产，未宣称第三方复核」",
+    "W-07 7.3 公开信加「非投资/合作/采购/医疗服务要约」声明；第九节补「非医疗器械注册产品，不替代法定诊疗流程」",
+    "W-08 修正 README 中 V38 小节的历史数字：check_sums total=251 -> 250（与清单实测一致）"
+  ],
+  "gates": {
+    "unittest_main": "387 OK（skipped=0，1.236s，本机实跑）",
+    "selftest": "25/25",
+    "v3_gate": "32/32（无参跑）",
+    "v44": "13/13（A10 零漂移）",
+    "dimension_lock": "PASS（12 维度 / 7 闸 / 0 violation）",
+    "redline": "121 文件 0 违规",
+    "check_sums": "ok=true / total=250 / mismatches=[]",
+    "manifest_rebuild": "changed=[] / entries=250 / manifest_sha256=43202ba4e12010fe8c4166c8b0ccb2ce880588f42b18fbaf78e104b2626b8f2a",
+    "five_site_dna": "package 28 / repo 171 / missing 0 / zip a87fa921bf963fa1"
+  },
+  "honest_boundaries": [
+    "README 本身不在 SHA256SUMS 清单内，故本批文档改动不改变清单哈希（changed=[]）——这意味着 README 的文字一致性由人工与四人组保证，不是由哈希闸保证",
+    "四人组打分为本机确定性函数的输入参数，参数由执行侧依证据自评，非第三方独立评分",
+    "愿景章节（第七章）按 A4 与已兑现能力硬隔离，仍是方向声明，不构成任何交付承诺",
+    "致谢表中 6 家模型标 untested：确有遍历比对参与，但无独立批次回执可回读",
+    "英文 Manifesto 为中文定稿的对译，术语沿用仓内既有口径；个别隐喻性表达在英文中弱化，非逐字等价"
+  ],
+  "not_committed": [
+    "AGENT_FEED_*.md（含本批 V39 投喂包，封口 _DONE 后仍不入库，沿用既有约定）",
+    "reports/state_beacon.json（灯塔，untracked）",
+    "F:\\doubaowork\\HOLOAEON_README_V3_*（仓外定稿稿）",
+    "F:\\doubaowork\\holoaeon_lathe\\*（机床与批次脚本）"
+  ],
+  "head_note": "回执不预写 head：本批单笔提交后以 git rev-parse 回读，避免 V37 式补正提交",
+  "chain_position": "V38 -> V39（文档批次，不改维度、不升 DOC）",
+  "evidence_class": "measured",
+  "written_at": "2026-11-07T09:56:00"
+}

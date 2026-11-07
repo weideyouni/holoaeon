@@ -127,12 +127,12 @@
   },
   "repo": {
     "README.md": {
-      "bytes": 188039,
-      "sha256": "13089c5c9a2269f59dadfc5bc182327684295cc67154a6b6226032265585e93c"
+      "bytes": 208882,
+      "sha256": "8c09673fe403884ab6927e65170a839ed6f9cd713067696f6edee576bb7aa648"
     },
     "README.zh-CN.md": {
-      "bytes": 149628,
-      "sha256": "23c6ad149c5c2e71d5fdaa805fd81b7b0e838faccb2c57c887ac075ddc085d3d"
+      "bytes": 170401,
+      "sha256": "aa0bbbe4168e17067c0a8f0f29ddd13170fe547dfcdbdd9c99aa2401b89998b8"
     },
     "README_FUSION_V4_20261102.md": {
       "bytes": 56256,
@@ -291,8 +291,8 @@
       "sha256": "e156699ed4bc7384aacda951b33eb8e746b5e80fc9399c913c00e2aa2c9f0c54"
     },
     "data/dual_repo_sums.json": {
-      "bytes": 2314,
-      "sha256": "32291c87c12b7a542befa402bf19df090976932a1a66e8c83044e69d7df30ca8"
+      "bytes": 2309,
+      "sha256": "4b9d5d819814b4d9c2337e0ad5bfb2bfd8d1ce5597b14344f0d5778c24293591"
     },
     "data/extension_slots.json": {
       "bytes": 6540,
@@ -492,11 +492,11 @@
     },
     "reports/b8_dual_sync.json": {
       "bytes": 612,
-      "sha256": "6cdb106c09e0209322586c25fee7b12624c46baea1710b0587d44cd8f53fc19f"
+      "sha256": "04bb1037fc5bbe4789d46025edd3fd81b307e0d97418a504cc9414c4ef5db4c2"
     },
     "reports/b8_dual_sync_check.json": {
-      "bytes": 1786,
-      "sha256": "bfd35fb92906ae47e0b5ef120d10627c609051c09ec8d4c526e860db728fc3f0"
+      "bytes": 1773,
+      "sha256": "5ee900a313930a2b601dbed6843fd71e2f1561c0fce1fb18c3271fb25820f6dc"
     },
     "reports/contract_v1_check.json": {
       "bytes": 635,
@@ -532,7 +532,7 @@
     },
     "reports/v44_model_gateway_check.json": {
       "bytes": 3718,
-      "sha256": "1500bc1b5e8ebbe881b9405fc2433bfff7bf19c919a48c6e7d080a5882232634"
+      "sha256": "2f5248723f081e420a14cfd1ff6bf4777037949b5197fe36cf02f829af39d59c"
     },
     "reports/v45_live_probe.json": {
       "bytes": 1253,
