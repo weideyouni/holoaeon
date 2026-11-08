@@ -1,0 +1,111 @@
+{
+  "feed": "V47_DEPLOY_GATE_SITE_GATEWAY",
+  "seal": "潮起开门，潮落闭嘴",
+  "executed": true,
+  "head": null,
+  "base_head": "77ab993",
+  "doc_version": "0.9.41",
+  "bench_report": {
+    "corpus_entries": 60,
+    "add_batch_ms": 16.8,
+    "dim": 256,
+    "literal_group": {
+      "queries": 3,
+      "top1_hit_rate": 1.0,
+      "top5_hit_rate": 1.0,
+      "avg_latency_ms": 1.378
+    },
+    "paraphrase_group": {
+      "queries": 3,
+      "top1_hit_rate": 0.0,
+      "top5_hit_rate": 0.3333,
+      "avg_latency_ms": 1.863
+    },
+    "channel": "hybrid=0.6*trigram_cos + 0.4*bigram_dice",
+    "note": "本机实跑；命中率与投喂包 §8 完全一致，延迟为毫秒级波动（包 §8 JSON 1.497/2.622/18.7；包 §8 正文 1.476/18.5 —— 三处不同，以本机实跑为准，见 deviations FC-47-03）",
+    "script": "scripts/bench_vector_baseline.py"
+  },
+  "tests_v47": "24/24 OK",
+  "regression": {
+    "main_suite": "550 OK",
+    "v3_domain": "11 OK",
+    "verax_domain": "21 OK",
+    "combined_total": 582,
+    "selftest": "25/25",
+    "v3_gate": "32/32 PASS",
+    "verify_v44": "13/13",
+    "py38": "parsed=309 failures=0",
+    "claims": "PASS mismatch=0 stale_header=0",
+    "five_site_dna": {
+      "package": 28,
+      "repo": 171,
+      "missing": 0,
+      "zip_sha16": "a87fa921bf963fa1"
+    }
+  },
+  "dimension_lock": "PASS",
+  "sums_drift": 0,
+  "redline": "129 文件 0 违规",
+  "diff0": {
+    "value": "6d119b2a9f2df687",
+    "diff": 0,
+    "tampered": "8f424d9ee3ebfb9b",
+    "sensitive": true,
+    "intercept": "16/16",
+    "allow": "4/4"
+  },
+  "offline": true,
+  "neural": false,
+  "zero_dependency": true,
+  "deviations": [
+    {
+      "id": "FC-47-01",
+      "type": "code",
+      "file": "holoaeon/deploy_gate.py",
+      "what": "投喂包 §4 原写 `from holoaeon.hypervector import ...` / `from holoaeon.phc_recall import embed`（包内绝对包名），改为 `from .hypervector import ...` / `from .phc_recall import embed`。",
+      "why": "红线 `third_party_import` 遍历 AST 全树，包内绝对导入被判违规（V42–V46 五次撞上）；不改则红线 0 违规不成立。",
+      "scope": "仅 2 行导入前缀，其余 255 行逐字节原样；投入产出比最大化。",
+      "result": "redline 129 文件 0 违规；24/24 全绿。"
+    },
+    {
+      "id": "FC-47-02",
+      "type": "doc",
+      "file": "README.zh-CN.md / README.md",
+      "what": "巨表「最新批次」行内嵌 V47 段时置于 V46 之前（V46 转「承」/`succeeded by`），门禁行与验收行同步 550/582/129。",
+      "why": "「最新在首」与全表既有惯例一致；若 V46 仍居首，读者会误读最新批。",
+      "scope": "两份 README 各 8 处锚点，行内替换，不改段落结构。"
+    },
+    {
+      "id": "FC-47-03",
+      "type": "feed-internal",
+      "file": "AGENT_FEED_V47 §8",
+      "what": "投喂包 §8 JSON 为 1.497ms/2.622ms/18.7ms，§8 正文写「1.476ms / 18.5ms」；本机实跑 1.378ms/1.863ms/16.8ms。",
+      "why": "包内正文与 JSON 自相矛盾（同批不同源）。按「以本机实跑为准、每个数字都能复算」取本机值写入 README 与回执，命中率（1.0/1.0/0.0/0.3333）三处完全一致。",
+      "scope": "仅延迟与入库毫秒数；命中率未动。"
+    },
+    {
+      "id": "FC-47-04",
+      "type": "wording",
+      "file": "holoaeon/deploy_gate.py VectorStore.save()",
+      "what": "docstring 称「JSONL 追加式存档」，实现为 `open(store_path, \"w\")` 整档重写（覆盖）。",
+      "why": "如实登记名实不符；按「一字不改」原则未改代码（不影响功能与验收），只在回执公开，避免把「追加式」当成事实传播。",
+      "scope": "文档措辞层面；持久化 roundtrip 测试通过。"
+    }
+  ],
+  "honest_boundaries": [
+    "同义改写组 Top-1=0 是字面通道的**天花板**，不是缺陷：trigram 余弦 + bigram Dice 本质是字形重叠，跨词汇语义召回需共现统计语料（semvec 路线）或 bridges 神经旁挂，本批明确不做。",
+    "Top-5=33.3% 只在这 60 条确定性语料（6 系统 × 10 模板）上成立，不可外推为通用语义检索能力。",
+    "延迟数字来自单机单进程微基准（60 条），**不是** 1e5 条目压力测试；「1e3–1e5 条目毫秒级」是与 sqlite-vec/faiss-cpu 的**容量档位对照声明**，1e5 未实测。",
+    "`neural=false` 是事实（sha256 3-gram bundle 确定性），同时意味着**无真语义泛化**——确定性换来的可复现，代价是不懂同义词。",
+    "网络二极管是 **report-only 裁决**：`outbound()` 恒返回 BLOCK 且不执行任何网络动作；真实阻断由部署侧防火墙/nginx 落地，本仓不接线、不验证部署侧配置是否生效。",
+    "`ModelAutoCouple` 只对 discovery 数据做优先级裁决；`coupled=true` **不等于模型可用**——端口 up ≠ 模型已加载就绪。",
+    "无 discovery 时从 `bridges/local_model_probe.py` 动态载入；该文件缺失即抛异常，未做优雅降级（投喂包原文如此，未擅自加兜底）。",
+    "`TerminalPool.release()` 返回式为 `held.discard(x) is None or x not in held`，恒真——即 release 永远报 ok，不校验该终端是否真的被持有（本批无测试覆盖该项）。",
+    "`MemoryStore` 无文件锁：多进程并发追加存在行交错风险，当前假设单机单进程。",
+    "容量公式 35000 → adults_35plus=19250 沿用 V41 的 0.55 系数，是**参数化推演**，不是实测人口学数据。",
+    "医保报销域**未接入**向量库（域分离）：本批不改变、也不提供任何报销资格判定的调整；pharma_gate 仍精确查表。"
+  ],
+  "notes": "四件新建：holoaeon/deploy_gate.py（ring15，257 行）、bridges/site_gateway.py（132 行）、scripts/bench_vector_baseline.py（108 行）、tests/test_v47_deploy_gateway.py（177 行，24 例）。不加扩展包（PACK_ORDER=9 / EXTRA_PACK_ORDER=19 未动）；VERSION 0.9.1 冻结未动；新模块不在 SHA256SUMS（清单 250 条 0 漂移）。",
+  "date": "2026-11-09",
+  "executor": "豆包程序员突击队（豆包工作 · 本地 Windows）"
+}

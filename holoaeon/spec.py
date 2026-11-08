@@ -32,7 +32,7 @@ VERSION = "0.9.1"
 # VERSION / RUNTIME_ID 会写进每条回执并参与 ReproHash，改动即等于让 DIFF=0 黄金值
 # （2fc892cf9af6e755）漂移，与"V1 黄金值不许漂移"的硬口径冲突。
 # 因此 V2 的版本号单独记在 DOC_VERSION，供文档/快照/徽章使用。
-DOC_VERSION = "0.9.40"  # V46 药品域闸门（pharma_gate + bridges/local_model_probe · 领域编排环第十四环·药品域 · 唯一升号点 · 维度不变）
+DOC_VERSION = "0.9.41"  # V47 部署域闸门（deploy_gate + bridges/site_gateway · 领域编排环第十五环·部署域 · 唯一升号点 · 维度不变）
 MATRIX_ID = "HOLOAEON-MATRIX-0.9.1"
 RUNTIME_ID = "HOLOAEON-RUNTIME-0.9.1"
 PROTOCOL_ID = "HOLOAEON-DATAPROTO v1.0"
