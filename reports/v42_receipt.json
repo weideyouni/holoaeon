@@ -1,0 +1,89 @@
+{
+  "schema": "HOLOAEON-BATCH-RECEIPT-v1.0",
+  "batch": "V42-PHC-RECALL",
+  "title": "公共卫生召回层（实战1号轻量化加速 · 千问建议扬弃融合）",
+  "seal": "潮起开门，潮落闭嘴",
+  "doc_version": {
+    "from": "0.9.35",
+    "to": "0.9.36",
+    "bump_sites": [
+      "holoaeon/spec.py:35",
+      "tests/test_v22_eng_skills.py:50"
+    ],
+    "note": "VERSION 0.9.1 冻结不动；dimensions 12 不变；EXTRA_PACK_ORDER 19 不变"
+  },
+  "chain_position": {
+    "ring": 11,
+    "layer": "recall（附属召回层）",
+    "parent": "phc_chronic_engine",
+    "upstream": ["hypervector", "phc_chronic_engine", "magic_lamp"],
+    "new_ring": false
+  },
+  "files": {
+    "new": [
+      "holoaeon/phc_recall.py",
+      "tests/test_phc_recall.py"
+    ],
+    "modified": [
+      "holoaeon/spec.py",
+      "tests/test_v22_eng_skills.py",
+      "README.zh-CN.md",
+      "README.md",
+      "reports/five_site_manifest.json"
+    ],
+    "new_extra_pack": false,
+    "manifest_entries": 250
+  },
+  "api": {
+    "constants": ["SEAL", "CHAIN_POSITION", "ITEM_KINDS", "SHARDS"],
+    "functions": ["validate_item", "_trigrams", "embed", "recall_pipeline", "audit"],
+    "classes": ["ShardIndex", "RuleGate", "SyncLedger"],
+    "item_kinds": ["disease", "syndrome", "drug_w", "drug_tcm", "rehab", "redflag", "insurance"],
+    "shards": ["nervous", "cardio_cerebro", "endocrine", "immune", "malignancy", "ortho", "phc_a"]
+  },
+  "gates": {
+    "unittest_main": {"passed": 449, "failed": 0, "delta": "+18"},
+    "unittest_v3": 11,
+    "unittest_verax": 21,
+    "badge_total": 481,
+    "selftest": "25/25",
+    "v3_gate": "32/32",
+    "verify_v44": "13/13",
+    "dimension_lock": "PASS 12 dims / 0 violation",
+    "redline": {"files": 124, "violations": 0, "delta_files": "+1"},
+    "check_sums": {"ok": true, "total": 250, "mismatches": []},
+    "diff0": {"verdict": "DIFF=0", "hash": "6d119b2a9f2df687", "tampered": "8f424d9ee3ebfb9b", "blocked": "16/16", "cold_ms": 33.92, "peak_mib": 1.69},
+    "py38_syntax": {"parsed": 296, "failures": 0},
+    "five_site_manifest": {"package": 28, "repo": 171, "missing": 0, "zip_sha16": "a87fa921bf963fa1"},
+    "readme_claims_check": {"verdict": "PASS", "mismatch": 0, "stale_header": 0}
+  },
+  "quartet": {
+    "scores": {"P1": 0.85, "P2": 0.85, "P3": 0.85, "P4": 0.30},
+    "emergence": true,
+    "order": 0.5237
+  },
+  "feed_corrections": [
+    {
+      "id": "FC-42-01",
+      "where": "投喂包 §5 模块头部 import",
+      "original": "from holoaeon.hypervector import HypervectorConfig, HypervectorSpace",
+      "applied": "from .hypervector import HypervectorConfig, HypervectorSpace",
+      "reason": "holoaeon/redline.py visit_ImportFrom：node.level == 0 且顶层名非 stdlib → third_party_import 违规。包内跨模块导入必须相对导入，否则红线由 124 文件 0 违规转为 1 违规，全门禁打红。",
+      "scope": "最少 token 偏离（仅 import 一行）；其余代码一字不改"
+    }
+  ],
+  "honest_boundaries": [
+    "零新依赖：不引入 sqlite-vec / ZVec / turbovec / LEANN / Milvus 等任何外部向量库，复用同仓 hypervector.py（只调用不修改，遵守不碰红线）",
+    "零网络：SyncLedger 是本地台账（记录来源/版本/生效日期），不是联网同步器；真实联网更新由部署侧执行",
+    "零处方零剂量零诊断：召回只返回候选集 + 引用来源，RuleGate.zero_prescription=True，decision 固定「执业医师终审」，测试断言返回体不含 dose / prescription: 字段",
+    "零像素：本层不处理影像，影像仍只以 SHA256 指针形式存在于 V41 引擎态",
+    "neural=false：嵌入为字符 3-gram → make(sha256) → bundle 的确定性组合，无神经网络、无模型推理；余弦相似度是 VSA 代数运算，不代表语义理解",
+    "三段链路≈klein_projection「投影→评估→吸纳」节拍属关联声明（lineage_note），不计入 SAME_AS 趋同，不宣布第七次",
+    "SyncLedger.last_sync 取本机日期 strftime，跨日重跑该字段会变——属可登记的非确定性字段，不参与任何哈希判据",
+    "本层是索引与召回，不改变 V41 引擎的病种登记/风险规则/随访调度任何行为（纯增量）",
+    "声明「实验田 18/18 OK」由本机实跑复现，非引用上游标称"
+  ],
+  "medical_red_line": "处置权分离：召回=候选集+引用，执业医师终审；零自动诊断、零处方、零剂量",
+  "head": null,
+  "head_note": "按 V41 惯例刻意不预写 head：提交后由台账 / 灯塔 / 五地回读承载真实头指针"
+}
