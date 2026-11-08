@@ -1,0 +1,63 @@
+{
+ "feed": "V41_SHIZHAN01_PHC_CHRONIC_ENGINE",
+ "batch": "V41-PHC-CHRONIC-ENGINE",
+ "seal": "潮起开门，潮落闭嘴",
+ "executed": true,
+ "evidence_class": "measured",
+ "doc_version": "0.9.35",
+ "doc_version_note": "唯一升号点；spec.VERSION=0.9.1 / MATRIX_ID / RUNTIME_ID / PACK_ORDER / BUILTIN_LAYERS 全部冻结不动",
+ "chain_position": "ring 11 · 公共卫生域编排（phc_chronic_engine）——academic_gate（ring 10）之后",
+ "source_distillation": "国家基本公共卫生服务规范 + 国卫基层发〔2025〕7号/15号 + 国卫办基层函〔2025〕439号口径（A 类 3 病种：高血压/T2DM/慢阻肺病）+ 六大系统人类疾病图谱 → 只取公卫规则的确定性形状；不搬患者数据、不接诊疗系统、不联网",
+ "p4_ruling": "处置权分离·医学版：引擎只做打分+路由+调度+存档，零自动诊断零处方；MDT 意见槽留白且 decision 固定医师终审；risk_score 带 disclaimer；急性事件（R08）直通 IV 级红档，危急不被分数稀释",
+ "files_committed": [
+  "README.md",
+  "README.zh-CN.md",
+  "holoaeon/phc_chronic_engine.py",
+  "holoaeon/spec.py",
+  "tests/test_phc_chronic_engine.py",
+  "tests/test_v22_eng_skills.py",
+  "reports/five_site_manifest.json",
+  "reports/v41_receipt.json"
+ ],
+ "tests_phc_engine": "25/25 OK（tests/test_phc_chronic_engine.py，投喂包 §5 逐字节原样落盘，首跑即绿）",
+ "regression": {
+  "main_suite": "431 OK（skipped=0，1.179s；= 上批 406 + 本批 25）",
+  "v3_domain": "11 OK",
+  "verax_domain": "21 OK",
+  "selftest": "25/25",
+  "v3_gate": "32/32 PASS（无参跑）",
+  "v44": "13/13 PASS（先 five_site_dna build）",
+  "redline": "123 文件 0 违规",
+  "py38": "parsed=294 / failures=0（上批 292 + 本批 2）"
+ },
+ "dimension_lock": "PASS（12 维度 + 7 闸 + 0 violation）",
+ "sums": "ok=true / total=250 / mismatches=[] / manifest_unchanged=true（新模块与 25 例测试不入清单，与 V33–V40 口径一致：清单只钉 18 个核心 holoaeon 件）",
+ "sums_drift": 0,
+ "diff0": "DIFF=0 · 6d119b2a9f2df687（本批实跑 bench_public，16 步拦截 100%，冷装配 31.69ms / 峰值 1.69MiB；跑后 git checkout -- benchmarks 还原，未入提交）",
+ "five_site_manifest": "package 28 / repo 171 / missing 0 / zip_sha16 a87fa921bf963fa1（build 重写后纳入本批提交）",
+ "lineage_entry": "LIN-E01 延伸（同源认亲）：随访 → 转诊 → 2 周追踪回流 = mobius_vortex 状态回流的医学域复现；不计 SAME_AS",
+ "same_as_note": "SAME_AS-06（医学→数学→茶→宇宙→教育→学术，第六次）仍待碳基终审裁定；本批未新增趋同，不宣布第七次",
+ "five_site": "S1 本地 / S2 Gitee（权威）/ S3 GitHub / S4 向量海 / S5 HuggingFace —— 推送与逐地回读结果见台账 history 末条与灯塔",
+ "feed_corrections": [
+  "C1 唯一代码级偏离：tests/test_v22_eng_skills.py:50 的版本同步断言 0.9.34→0.9.35（DOC 升号的必然伴随项，与 V40 同做法；§4 模块 17503 B 与 §5 测试 6568 B 均按投喂包逐字节原样落盘，未改一字）",
+  "C2 README 双份同步：投喂包 §3 只点名 README.md，中文 README 按仓内双份纪律同步（徽章 / 能力清单 / 工程验收 / 最新批次 / 门禁行 / ### V41 小节）",
+  "C3 数字随实测同步（A1 口径）：徽章 tests-406→431、工程验收 431+11+21=463、redline 122→123；均为本批实测，非估算",
+  "C4 最新批次行以「前插 + 承」方式更新，未删改 V40/V39 历史描述"
+ ],
+ "honest_boundaries": [
+  "25 条测试是确定性断言，不构成临床有效性验证；未做真实病历语料的外部复核或第三方盲评",
+  "风险规则 R01–R12 是公卫分层的规则化近似，不是诊断模型；输出只做分级辅助，处置权刚性归执业医师",
+  "CapacityPlanner 流行率为文献口径占位（htn 0.25 / t2dm 0.10 / copd 0.03），部署必须替换为本地建档实际数，否则容量估算失真",
+  "7 模态信封只做指针与结构登记，不校验影像质量、不做判读；判读委托人工或外部技能",
+  "等保三级 MLPS3 是能力映射检查表（report-only），不等于通过等保测评；静态加密留接口由部署层实现",
+  "redline 通过是仓内自扫描口径（123 文件 0 违规），不等于外部安全审计结论",
+  "SAME_AS-06 为待裁定条目，本批不宣称裁定结论"
+ ],
+ "not_committed": [
+  "AGENT_FEED_V41_SHIZHAN01_PHC_CHRONIC_ENGINE_20261108.md（投喂包，收工改 _DONE）",
+  "reports/state_beacon.json（灯塔，历批 untracked 惯例）",
+  "F:\\doubaowork\\vector-sea\\_holoaeon_v4_five_site_receipt_20261102.json（五地台账，仓外）"
+ ],
+ "head_note": "回执不预写 head，避免补正提交；真实 head 由提交后回读登记到台账、灯塔与记忆之王",
+ "notes": "纯模块级批次：1 模块 + 1 测试，不新增扩展包（EXTRA_PACK_ORDER 19 不变）、不碰 BUILTIN_LAYERS、不碰 graph/scheduler/hypervector/kernel.submit；纯标准库 hashlib/json/time，零网络零密钥零像素"
+}
