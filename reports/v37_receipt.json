@@ -84,5 +84,8 @@
     "tests/test_v22_eng_skills.py",
     "reports/five_site_manifest.json"
   ],
-  "files_committed_count": 10
+  "files_committed_count": 10,
+  "head_final": "8b18f9b01675a3689e09cb49f495ffda44c424a4",
+  "head_final_chain": ["9ead6f260d5b13970b747c0c354e00a8782c3d06（V37 主体）", "8b18f9b01675a3689e09cb49f495ffda44c424a4（V37 LIN-E01 补丁，最终 head）"],
+  "head_note": "V37 分两笔提交（主体 9ead6f2 + LIN-E01 补丁 8b18f9b）；回执 `head` 保留主体提交不改，最终 head 由本键补齐（V40 补做，2026-11-08）"
 }

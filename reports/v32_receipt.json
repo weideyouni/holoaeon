@@ -74,5 +74,6 @@
   ],
   "five_site": "S1-S5 consistent（S3/S5 当天 5/5 已闭环，见仓外台账 history=51）",
   "final_judgement": "通过。桥只做连接与自检，不合入、不删除、不联网；11 例全绿、316 OK 无回归（skipped=3 结案为 skipped=0）、redline 116 零违规、diff0 未漂移、DOC 0.9.27、EXTRA 19 不变；首次过桥实跑 needs_search → 2 proposals → 泰坦契约字段齐备。",
-  "seal_closing": "潮起开门，潮落闭嘴"
+  "seal_closing": "潮起开门，潮落闭嘴",
+  "closeout_section_note": "本回执未设「§七 收尾补做」段（V32 期格式未定）；V40 补做只登记该缺口，不为历史回执造段"
 }

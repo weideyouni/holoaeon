@@ -472,7 +472,7 @@ Guard 默认 9 层、L10 默认关（附加层不计入 `guard_layers=8`）；�
 
 **实测**：`unittest tests.test_check_sums` **5/5** · 主套 **387 OK**（skipped=0，382+5）· `selftest 25/25` · `v3_gate 32/32` · `redline 121 文件 0 违规` · `check_sums .` → `ok=true, total=250, mismatches=0` · `diff0` 未漂移（`6d119b2a9f2df687`）。
 
-**诚实偏离（feed_corrections）**：C-01 投喂包 §3 `main()` 的 `json` 导入位置移至模块顶部（原位置可用但不合卫生）；C-02 投喂包 §4 `make_repo` 的 `os.makedirs(os.path.dirname(p))` 对无目录文件会抛 FileNotFoundError，补空串守卫；C-03 `scripts/` 非包目录，测试按投喂包注释改用 importlib 加载；C-04 执行顺序微调：先完成全部元文件改动再重建清单（若按原序先重建后改 `check_dimension_lock.py`，清单会立即再漂移）；C-05 徽章采用实测 387（投喂包写 382 时未计入本批新增 5 例）；C-06 `check_sums.py` 句柄改 `with` 一次性读取（句柄泄漏清零纪律）；C-07 清单原钉 `reports/v44_model_gateway_check.json`——每次 `verify_v44` 运行都重写（A10 已按 self-excluded 处理），钉住即永久漂移 → 按「清单只钉输入侧」移出该条，条目 251→250；C-08 投喂包 §3 返回体的 `action` 与说明文字为隐式字符串拼接（`action` 被污染为 `report_only（…）`）→ 拆为 `action` / `action_note` 两键
+**诚实偏离（feed_corrections）**：C-01 投喂包 §3 `main()` 的 `json` 导入位置移至模块顶部（原位置可用但不合卫生）；C-02 投喂包 §4 `make_repo` 的 `os.makedirs(os.path.dirname(p))` 对无目录文件会抛 FileNotFoundError，补空串守卫；C-03 `scripts/` 非包目录，测试按投喂包注释改用 importlib 加载；C-04 执行顺序微调：先完成全部元文件改动再重建清单（若按原序先重建后改 `check_dimension_lock.py`，清单会立即再漂移）；C-05 徽章采用实测 387（投喂包写 382 时未计入本批新增 5 例）；C-06 `check_sums.py` 句柄改 `with` 一次性读取（句柄泄漏清零纪律）；C-07 清单原钉 `reports/v44_model_gateway_check.json`——每次 `verify_v44` 运行都重写（A10 已按 self-excluded 处理），钉住即永久漂移 → 按「清单只钉输入侧」移出该条，条目 251→250；C-08 投喂包 §3 返回体的 `action` 与说明文字为隐式字符串拼接（`action` 被污染为 `report_only（…）`）→ 拆为 `action` / `action_note` 两键；C-09 另两条活体产物 `reports/b8_dual_sync_check.json`（每次 `build_b8_dual_sync` 运行重写）与 `data/dual_repo_sums.json`（C-09 自指）同批移出清单，事实此前只记在 `v39_receipt.json` 与灯塔，V40 补写回本段
 
 ### V37 · 神龟域编排闸门（`shengui_gate` 类生命前体形状蒸馏，领域编排环·第九环·双系统首桥）
 

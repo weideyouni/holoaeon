@@ -54,5 +54,6 @@
     "reports/v34_receipt.json",
     "reports/five_site_manifest.json",
     "reports/v44_model_gateway_check.json"
-  ]
+  ],
+  "files_committed_note": "`files_committed` 列 12 项，实际提交 11 文件（历批如实记录、未回补；V40 补做只加本注，不改原列表）"
 }
