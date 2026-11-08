@@ -1,0 +1,148 @@
+{
+  "receipt": "V45-TEACH-GATE",
+  "batch": "V45",
+  "date": "2026-11-08",
+  "feed_package": "AGENT_FEED_V45_TEACH_GATE_20261108.md",
+  "feed_bytes": 22608,
+  "feed_lines": 431,
+  "predecessor": "V44-TWIN-VERIFY (a646dae)",
+  "head": null,
+  "doc_version": "0.9.39",
+  "doc_version_prev": "0.9.38",
+  "ring": 13,
+  "domain": "教学域",
+  "extra_pack_order": 19,
+  "dimensions": 12,
+  "source": {
+    "repo": "Lordog/dive-into-llms",
+    "alias": "《动手学大模型》",
+    "team": "上海交大张倬胜团队（NIS8021/NIS3353 课程讲义拓展）",
+    "stars": "38.9k",
+    "license_note": "公益免费教程；本批零复制（课件 PDF/ipynb/正文均不入仓）",
+    "shape": "课件(Know)+手册(Do)+脚本(Run) 三件套 × 11 章",
+    "evidence_method": "完整克隆 41M 多次被网络掐断 → 改 raw README 单文件取证，11 章目录完整（指针纪律：形状已足，资产不入仓）"
+  },
+  "artifacts": [
+    {
+      "path": "holoaeon/teach_gate.py",
+      "action": "new",
+      "bytes": 10337,
+      "lines": 179,
+      "sha256_16": "b289fb0e9e27b7c2",
+      "apis": [
+        "CHAPTERS (11 章注册表，safety=neutral/defensive)",
+        "LESSON_STEPS",
+        "LessonUnit.create",
+        "SelfTest.concept_check",
+        "SelfTest.practice_check",
+        "Curriculum.start_lesson",
+        "Curriculum.finish_lesson",
+        "Curriculum.transcript",
+        "SafetyGate.admit",
+        "audit"
+      ],
+      "constants": ["SEAL", "CHAIN_POSITION", "_DEFENSE_ALLOWED", "_FORBIDDEN_MARKS"]
+    },
+    {
+      "path": "tests/test_teach_gate.py",
+      "action": "new",
+      "bytes": 5126,
+      "lines": 98,
+      "cases": 17,
+      "sha256_16": "99ccc194cb5b7c5f",
+      "first_run": "Ran 17 tests · OK（一次跑通，零修正）"
+    },
+    {
+      "path": "holoaeon/spec.py",
+      "action": "edit",
+      "detail": "DOC_VERSION 0.9.38 → 0.9.39（唯一升号点）"
+    },
+    {
+      "path": "tests/test_v22_eng_skills.py",
+      "action": "edit",
+      "detail": "升号断言 0.9.38 → 0.9.39"
+    },
+    {
+      "path": "README.zh-CN.md",
+      "action": "edit",
+      "bytes": 188647,
+      "detail": "徽章 tests-506%2B11%2B21 / 验收行 506 OK·538·127 / 最新批次前插 V45 段（V44 转「承」）/ 门禁行"
+    },
+    {
+      "path": "README.md",
+      "action": "edit",
+      "bytes": 227014,
+      "detail": "badge tests-506%2B11%2B21 / 最新批次前插 V45（V44 转 succeeded by）/ 门禁行 / Gates main suite 506 OK (**538** total)"
+    },
+    {
+      "path": "reports/five_site_manifest.json",
+      "action": "rebuild",
+      "detail": "package 28 / repo 171 / missing 0 / zip_sha16=a87fa921bf963fa1"
+    }
+  ],
+  "zero_weaponization": {
+    "decision": "P4 伦理红线：安全四章（越狱攻击/大模型隐写/模型水印/智能体安全）只代码化防御面",
+    "defensive_chapters": ["watermark", "jailbreak", "steganography", "agent_safety"],
+    "defense_faces": {
+      "watermark": "水印校验器（溯源）",
+      "jailbreak": "红线清单与拦截（DANGER_PATTERNS）",
+      "steganography": "隐写检测（可疑载荷审计）",
+      "agent_safety": "开放场景风险评测清单"
+    },
+    "zero_functions": ["攻击载荷生成", "隐写编码器", "越狱提示词生成", "规避术生成"],
+    "double_refusal": ["LessonUnit.create（_FORBIDDEN_MARKS 直接拒收）", "SafetyGate.admit（BLOCK 判定）"],
+    "pinned_by_tests": ["test_zero_weaponization_forbidden_mark", "test_defensive_requires_defense_content", "test_safety_gate_block_and_allow"]
+  },
+  "gates": {
+    "unittest_main": "506 OK (1.300s, +17 vs V44 489)",
+    "unittest_v3": "OK (11)",
+    "unittest_verax": "OK (21)",
+    "badge_total": 538,
+    "selftest": "25/25",
+    "v3_gate": "32/32 PASS (无参)",
+    "verify_v44": "13/13 PASS",
+    "dimension_lock": "PASS · 12 维 / 7 闸 / 0 violation",
+    "redline": "扫描 127 文件 · 干净（零违规）",
+    "check_sums": "ok=true / total=250 / mismatches=[]",
+    "diff0": "DIFF=0 6d119b2a9f2df687 · tampered 8f424d9ee3ebfb9b · 拦截 16/16=100% · 合法放行 4/4 · build 31.07ms / 峰值 1.69MiB / 25 agents 47 skills（跑后 git checkout -- benchmarks 还原）",
+    "py38": "parsed=302 / failures=0",
+    "readme_claims": "VERDICT: PASS | mismatch=0 stale_header=0",
+    "teach_gate_suite": "17/17 OK"
+  },
+  "feed_corrections": [
+    {
+      "id": "FC-45-01",
+      "where": "§4 teach_gate.py · 顶层三行 + SelfTest.practice_check 函数内一行",
+      "package": "from holoaeon.craft_gate import EvidenceLedger, Heartbeat / from holoaeon.hypervector import HypervectorConfig, HypervectorSpace / from holoaeon.phc_recall import embed / from holoaeon.craft_gate import similarity_score",
+      "landed": "对应四行全部改为 from .craft_gate / .hypervector / .phc_recall 相对形式",
+      "reason": "redline.py::visit_ImportFrom 遍历 AST 全树：node.level==0 且顶层非 stdlib → third_party_import。照抄会把「127 文件 0 违规」当场打红",
+      "scope": "仅这四行；其余模块与测试按包逐字落盘"
+    },
+    {
+      "id": "FC-45-02",
+      "where": "§3 交付物表「README.md 能力清单处 追加一行 teach_gate」",
+      "package": "要求在能力清单处新增独立一行",
+      "landed": "沿用 V43/V44 惯例：在两份 README 的「最新批次」巨表行内前插 V45 段（V44 转承/succeeded by），未新增独立清单行",
+      "reason": "仓内 README 无「模块能力清单」独立表结构；最新批次巨表行本身就是逐批能力列举处。新增孤立行会与既有表结构脱节，且历史批次从无此落法",
+      "scope": "纯文档落法，不涉代码"
+    }
+  ],
+  "honest_boundaries": [
+    "11 章映射是**语义对应**，不在代码里做跨模块调用：CHAPTERS[*]['maps'] 只是字符串落点（model_adapter/magic_lamp/titan_evolver/math_gate/academic_gate/guard/FeedEnvelope/butler_os/dehallucination），模块只真实 import craft_gate.Heartbeat、craft_gate.EvidenceLedger、craft_gate.similarity_score、phc_recall.embed —— 与 V43 的 ORGAN_MAP 同一克制口径",
+    "「零武器化」是**内容级关键词闸**，不是语义理解：_FORBIDDEN_MARKS 六个标记按字面匹配。它拦得住「越狱提示词」这类显式措辞，拦不住用同义改写或拆分表述绕过；真正的安全边界是「本模块不产出任何可执行攻击代码」这一结构性事实，关键词闸只是第二道",
+    "SelfTest.concept_check 用字符 3-gram 余弦，衡量字面重叠而非概念理解；阈值 0.60 是领域取值，不是标定过的心理测量学阈值；「相似度 1.0」只说明两段文本相同，不说明学习者掌握了概念",
+    "SelfTest.practice_check 要求 coverage ≥ 1.0（全步骤命中）才 passed，是「清单式合格」而非能力评估；漏传参数会退化成 0.0/False",
+    "Curriculum 的「节拍」复用 craft_gate.Heartbeat（单调递增计数 + uptime_s），uptime_s 非确定性、不参与任何哈希；学习台账复用 EvidenceLedger 的 SHA 链，链可复算但**只证明记录未被篡改**，不证明学习真的发生",
+    "CHAPTERS 的 11 章目录取自源 README 的章节标题（单文件取证），未逐章核对正文内容；章名与内容的一一对应关系按源仓库公开目录成立，本批未做逐章比对",
+    "指针纪律：课件 PDF/ipynb/教程正文、40M+ 克隆资产一律不入仓；本批未复制源仓库任何文件，仅登记章节结构与模块映射",
+    "不新增扩展包（EXTRA_PACK_ORDER=19 不动）；不碰冻结值（VERSION 0.9.1 / MATRIX_ID / RUNTIME_ID / PROTOCOL_ID / BUS_ID / PACK_ORDER=9）；neural=false、零网络、零模型调用；0.9.38→0.9.39 为唯一升号点"
+  ],
+  "pending_from_carbon": [
+    "V45 之后仓根已无待执行投喂包，须有新投喂包（领域第十四环或文档批次）",
+    "SAME_AS-06 维持碳基裁定 C=继续挂账：本批 Know-Do-Run 与 holo_forge 四态的子集同构仅记 lineage 关联，不计 SAME_AS、不自宣趋同",
+    "GitHub topics 需 PAT 才能读写，未提供则永久标 untested",
+    "「愿景 vs 已兑现」口径冲突（上千 Skill vs 实测 66 agents / 280 skills）待碳基决定是否另起公开文档",
+    "项目描述是否按投喂长文精简到 100 字（当前 Gitee description 约 60 字，未授权改文案）"
+  ],
+  "next_step": "V45 五地闭环后，仓根无待执行投喂包；等新投喂包再开工。"
+}
