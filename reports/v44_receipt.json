@@ -1,0 +1,120 @@
+{
+  "receipt": "V44-TWIN-VERIFY",
+  "batch": "V44",
+  "date": "2026-11-08",
+  "feed_package": "AGENT_FEED_V44_TWIN_VERIFY_20261108.md",
+  "feed_bytes": 22584,
+  "feed_lines": 460,
+  "predecessor": "V43-CRAFT-GATE (d65ae8b)",
+  "head": null,
+  "doc_version": "0.9.38",
+  "doc_version_prev": "0.9.37",
+  "ring": 12,
+  "layer": "verify（双轨核对层）",
+  "extra_pack_order": 19,
+  "dimensions": 12,
+  "artifacts": [
+    {
+      "path": "holoaeon/twin_verify.py",
+      "action": "new",
+      "bytes": 8890,
+      "lines": 165,
+      "sha256_16": "dde6d3ccf38676c4",
+      "apis": [
+        "fingerprint",
+        "exact_track",
+        "resemblance_track",
+        "twin_verdict",
+        "AuditTrail",
+        "verify_twin",
+        "audit"
+      ],
+      "constants": [
+        "SEAL",
+        "CHAIN_POSITION",
+        "TWIN_AXIOM",
+        "VERDICTS"
+      ]
+    },
+    {
+      "path": "tests/test_twin_verify.py",
+      "action": "new",
+      "bytes": 5668,
+      "lines": 114,
+      "cases": 21,
+      "sha256_16": "daffcf206b42d3db",
+      "first_run": "Ran 21 tests · OK（一次跑通，零修正）"
+    },
+    {
+      "path": "holoaeon/spec.py",
+      "action": "edit",
+      "detail": "DOC_VERSION 0.9.37 → 0.9.38（唯一升号点）"
+    },
+    {
+      "path": "tests/test_v22_eng_skills.py",
+      "action": "edit",
+      "detail": "升号断言 0.9.37 → 0.9.38"
+    },
+    {
+      "path": "README.zh-CN.md",
+      "action": "edit",
+      "bytes": 186860,
+      "detail": "徽章 tests-489%2B11%2B21 / 验收行 489 OK·521·126 / 最新批次前插 V44 段（V43 转「承」）/ 门禁行"
+    },
+    {
+      "path": "README.md",
+      "action": "edit",
+      "bytes": 225099,
+      "detail": "badge tests-489%2B11%2B21 / 最新批次前插 V44（V43 转 succeeded by）/ 门禁行 / Gates main suite 489 OK (**521** total)"
+    },
+    {
+      "path": "reports/five_site_manifest.json",
+      "action": "rebuild",
+      "detail": "package 28 / repo 171 / missing 0 / zip_sha16=a87fa921bf963fa1"
+    }
+  ],
+  "gates": {
+    "unittest_main": "489 OK (1.252s, +21 vs V43 468)",
+    "unittest_v3": "OK (11)",
+    "unittest_verax": "OK (21)",
+    "badge_total": 521,
+    "selftest": "25/25",
+    "v3_gate": "32/32 PASS (无参)",
+    "verify_v44": "13/13 PASS",
+    "dimension_lock": "PASS · 12 维 / 7 闸 / 0 violation",
+    "redline": "扫描 126 文件 · 干净（零违规）",
+    "check_sums": "ok=true / total=250 / mismatches=[]",
+    "diff0": "DIFF=0 6d119b2a9f2df687 · tampered 8f424d9ee3ebfb9b · 拦截 16/16=100% · 合法放行 4/4 · build 30.92ms / 峰值 1.69MiB / 25 agents 47 skills（跑后 git checkout -- benchmarks 还原）",
+    "py38": "parsed=300 / failures=0",
+    "readme_claims": "VERDICT: PASS | mismatch=0 stale_header=0",
+    "twin_verify_suite": "21/21 OK"
+  },
+  "feed_corrections": [
+    {
+      "id": "FC-44-01",
+      "where": "§5 twin_verify.py · resemblance_track 内两处函数级 import",
+      "package": "from holoaeon.phc_recall import embed / from holoaeon.craft_gate import similarity_score",
+      "landed": "from .phc_recall import embed / from .craft_gate import similarity_score",
+      "reason": "redline.py::visit_ImportFrom 遍历 AST 全树（含函数体内 import）：node.level==0 且顶层包名非 stdlib → third_party_import。照抄会把「126 文件 0 违规」当场打红",
+      "scope": "仅这两行；其余模块与测试按包逐字落盘"
+    }
+  ],
+  "honest_boundaries": [
+    "表层轨的 sim 是字符 3-gram 确定性嵌入余弦（phc_recall.embed），只对文本/清单特征有效；它衡量的是字面结构重叠，不等于感知相似，跨语种、超长文本或同义改写会显著漂移；本层不宣称能判「长得像」到人眼级别",
+    "like 取短板 min(sim, coverage)：若调用方传了 checklist 却漏传 matched，coverage 会退成 0.0，于是即便 sim=1.0 也一律判走样；两参数必须同给（此约束只在 twin_verdict 的 min 逻辑里隐含，未做参数校验）",
+    "fingerprint 只校验形状（count/size 为非负 int、digest 为 64 位 hex），不校验 digest 语义——它不比对任何真实数据；这正是「底层复算委托外部」的边界，模块本身不能证明数据算对了",
+    "exact_track 只比 results/bytes/digest 三字段，diffs 返回的是字段名而非具体数据行；定位粒度到「哪个字段不一致」，不到「哪一行算错」",
+    "AuditTrail 的 sha 只用 prev+event+detail 计算，ts 不参与哈希，因此链可跨机复算；但 entries 里的 ts 是本地时间串（非确定性字段）",
+    "零像素只在 resemblance_track 对两个顶层特征参数做 bytes 拒绝；嵌套 list 内混入 bytes 未被检查——纪律由调用方与测试共同守住，模块不做深度扫描",
+    "不重写两轨引擎：embed 与 similarity_score 均来自同仓既有模块，本层仅合成；为避免循环导入，二者以函数内相对导入方式使用，未在模块顶层 import",
+    "不新增扩展包（EXTRA_PACK_ORDER=19 不动）；不碰冻结值（VERSION 0.9.1 / MATRIX_ID / RUNTIME_ID / PROTOCOL_ID / BUS_ID / PACK_ORDER=9）；neural=false、零网络、零模型调用"
+  ],
+  "pending_from_carbon": [
+    "V44 之后的下一批须有新投喂包（仓根已无待执行 AGENT_FEED）",
+    "SAME_AS-06 维持碳基裁定 C=继续挂账：本批 TWIN_AXIOM / lineage_note 只作关联声明，不计 SAME_AS、不自宣趋同",
+    "GitHub topics 需 PAT 才能读写，未提供则永久标 untested",
+    "「愿景 vs 已兑现」口径冲突（上千 Skill vs 实测 66 agents / 280 skills）待碳基决定是否另起公开文档",
+    "项目描述是否按投喂长文精简到 100 字（当前 Gitee description 约 60 字，未授权改文案）"
+  ],
+  "next_step": "V44 五地闭环后，仓根无待执行投喂包；等新投喂包再开工。锚点 A（千问复评）维持 CLOSED（V43 已核销，外部说明页滞后）。"
+}
