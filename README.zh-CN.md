@@ -30,7 +30,7 @@ HoloAeon 是**纯标准库、全离线、确定性**的多智能体认知框架�
 
 ## 工程宣言
 
-> 版本 V3 ｜ 2026-11-07 ｜ 项目 DOC `0.9.33` ｜ HEAD `9ecbe28` ｜ 证据等级 `measured`（本仓本机实跑）｜ 仿真 ≠ 证明 ｜ 碳基终裁 ｜ 密令：潮起开门，潮落闭嘴
+> 版本 V3 ｜ 宣言发布 2026-11-07（V39 快照，已由回读取代）｜ 当前 DOC / HEAD 一律回读、不写死：`python -m holoaeon.selftest` · `git rev-parse --short HEAD` ｜ 证据等级 `measured`（本仓本机实跑）｜ 仿真 ≠ 证明 ｜ 碳基终裁 ｜ 密令：潮起开门，潮落闭嘴
 
 ## 一、项目宣言
 
@@ -255,24 +255,27 @@ HoloAeon 纯标准库、全离线、确定性。零依赖、零安装、零成�
 
 ## 附 · 数字—命令对照表（A1 合规 · README 内每个数字的复算入口）
 
-| README 中的数字 | 复算命令（仓根 cwd） | 本机实测 |
+**口径（重要）**：本表**不写死任何实测值**——用例数、红线文件数、清单条数、HEAD 每批必变，写死即过期（V41 收尾复算闸实测到的正是这一条）。左列是口径名，中列是复算命令，右列是判定方式。两份 README 的当前口径位由机器逐项对账：`python F:\doubaowork\holoaeon_lathe\readme_claims_check.py` → `VERDICT: PASS|FAIL`。
+
+| 口径 | 复算命令（仓根 cwd） | 判定方式（一律回读，不写死） |
 |---|---|---|
-| 主套 387 | `python -m unittest discover -s tests` | 387 OK |
-| v3 11 / verax 21 / 合计 419 | `python -m unittest discover -s tests\v3` / `-s tests\verax` | 11 OK / 21 OK |
-| selftest 25/25 | `python -m holoaeon.selftest` | 25/25 |
-| v3_gate 32/32 | `python scripts\v3_gate.py`（**无参**；`--json` 会 argparse 报错） | 32/32 |
-| v44 13/13 | `python scripts\verify_v44.py`（须先 `five_site_dna build`） | 13/13 |
-| 维度 12 / 0 violation | `PYTHONPATH=. python scripts\check_dimension_lock.py` | PASS（12 维 / 7 闸 / 0） |
-| 红线 121 文件 0 违规 | `python scripts\redline_scan.py` | 121 / 0 |
-| 清单 250 条 0 不匹配 | `python scripts\check_sums.py .` | `ok=true / 250` |
-| diff0 `6d119b2a9f2df687` | `python benchmarks\bench_public.py`（跑完 `git checkout --` 还原） | DIFF=0 |
-| py38 `parsed=290 / 0` | py38 语法解析 | 290 / 0 |
-| 25 agents / 47 skills | `python -c "from holoaeon.packs import EXTRA_PACK_ORDER"` + 装配面板 | 25 / 47 |
-| 五地同头 | S1 `git rev-parse HEAD`；S2/S3 `ls-remote`；S4 manifest；S5 `mirror_hf.py` 回读 | 全 `9ecbe28` |
+| 主套单测 | `python -m unittest discover -s tests` | 以 `Ran N tests … OK` 回读为准 |
+| v3 域 / verax 域 | `python -m unittest discover -s tests\v3` / `-s tests\verax` | 以各自 `Ran N tests … OK` 回读为准 |
+| 合计（主套 + v3 + verax） | 上两条计数之和 | 算术复算；徽章与本行必须同源 |
+| selftest | `python -m holoaeon.selftest` | 以**末行** `==> N/N` 回读为准（前面各 `[PASS]` 行是子包计数，勿取首个） |
+| v3_gate | `python scripts\v3_gate.py`（**无参**；`--json` 会 argparse 报错） | 以 `N/N PASS` 回读为准 |
+| v44 | `python scripts\verify_v44.py`（须先 `five_site_dna build`） | 以 `N/N` 与无 A10 假红回读为准 |
+| 维度锁 | `PYTHONPATH=. python scripts\check_dimension_lock.py` | 以 `PASS`（12 维 / 7 闸 / 0 violation）回读为准 |
+| 红线 | `python scripts\redline_scan.py` | 以「扫描文件数：N」+「结果： 干净（零违规）」回读为准 |
+| 清单 | `python scripts\check_sums.py .` | 以 `"ok": true` / `"total": N` / `"mismatches": []` 回读为准（闸只阻断不重建） |
+| diff0 | `python benchmarks\bench_public.py`（跑完 `git checkout -- benchmarks` 还原） | 以 `DIFF=0` 与判据 `6d119b2a9f2df687` 回读为准 |
+| py38 语法 | py38 解释器语法解析 | 以 `parsed=N / failures=0` 回读为准 |
+| 装配 | `python -c "from holoaeon.packs import EXTRA_PACK_ORDER"` + 装配面板 | 冻结口径以 25 agents / 47 skills 回读为准（全装配 66/280 非冻结） |
+| 五地同头 | S1 `git rev-parse HEAD`；S2/S3 `ls-remote`；S4 manifest；S5 `mirror_hf.py` 回读 | 五值一致即同头；**永不写死 sha** |
 
 ---
 
-## 当前工程状态（2026-11-05）
+## 当前工程状态（随批次更新；取数一律回读，不写死）
 
 | 项 | 实测值 |
 |---|---|

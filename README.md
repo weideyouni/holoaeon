@@ -844,7 +844,7 @@ quantities into a hashed trace.
 
 ## The HoloAeon Manifesto
 
-> Version V3 ｜ 2026-11-07 ｜ docs `0.9.33` ｜ HEAD `9ecbe28` ｜ evidence `measured`（run on this machine）｜ simulation is not proof ｜ carbon-based final authority
+> Version V3 ｜ manifesto published 2026-11-07 (V39 snapshot, superseded by readback) ｜ current docs / HEAD are read back, never hard-coded: `python -m holoaeon.selftest` · `git rev-parse --short HEAD` ｜ evidence `measured`（run on this machine）｜ simulation is not proof ｜ carbon-based final authority
 
 ## 1 · Declaration
 
