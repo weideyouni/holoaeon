@@ -1,0 +1,55 @@
+{
+ "feed": "V40_ACADEMIC_GATE",
+ "batch": "V40-ACADEMIC-GATE",
+ "seal": "潮起开门，潮落闭嘴",
+ "executed": true,
+ "evidence_class": "measured",
+ "doc_version": "0.9.34",
+ "doc_version_note": "唯一升号点；spec.VERSION=0.9.1 / MATRIX_ID / RUNTIME_ID 全部冻结不动",
+ "chain_position": "ring 10 · 学术域编排（academic_gate）——shengui_gate（ring 9）之后",
+ "source_distillation": "GitHub AIScientists-Dev/academic-humanizer（MIT v0.3.3 · 六层 SKILL）→ 只取三形状（图案目录/保全台账/断言-证据），六层提示词原文不入仓",
+ "p4_ruling": "上游自陈 not for evading AI-use disclosure，与本仓刚性 DNA（真实性、零虚构零模拟、处置权分离）同向 → 取学术诚实（claim ≤ evidence），弃检测规避（测试固化拒绝立场）",
+ "files_committed": [
+  "README.md",
+  "README.zh-CN.md",
+  "holoaeon/academic_gate.py",
+  "holoaeon/spec.py",
+  "tests/test_academic_gate.py",
+  "tests/test_v22_eng_skills.py",
+  "reports/five_site_manifest.json",
+  "reports/v40_receipt.json"
+ ],
+ "tests_academic_gate": "19/19 OK（tests/test_academic_gate.py，本机实跑，首跑即绿）",
+ "regression": {
+  "main_suite": "406 OK（skipped=0，1.180s；= 上批 387 + 本批 19）",
+  "v3_domain": "11 OK",
+  "verax_domain": "21 OK",
+  "selftest": "25/25",
+  "v3_gate": "32/32 PASS（无参跑）",
+  "v44": "13/13 PASS（A1–A13 全 PASS，先 five_site_dna build）",
+  "redline": "122 文件 0 违规",
+  "py38": "parsed=292 / failures=0"
+ },
+ "dimension_lock": "PASS（12 维度 + 7 闸 + 0 violation）",
+ "sums": "ok=true / total=250 / mismatches=[] / manifest_unchanged=true（新增两个 py 未入清单，与 V33–V37 口径一致：清单只钉 18 个核心 holoaeon 件）",
+ "sums_drift": 0,
+ "diff0": "未跑本批 bench（不碰 workload；上批实测 6d119b2a9f2df687 仍为判据）",
+ "five_site_manifest": "package 28 / repo 171 / missing 0 / zip_sha16 a87fa921bf963fa1（build 重写后纳入本批提交）",
+ "same_as_entry": "SAME_AS-06（待碳基终审裁定）· 医学→数学→茶→宇宙→教育→学术 第六次独立趋同",
+ "holographic_correspondence": "内容域引文不动点 ≈ 工程域 SHA 不动点（V38 check_sums）——同是「审计过的最小可信不变量」",
+ "feed_corrections": [
+  "C1 唯一代码级偏离：tests/test_v22_eng_skills.py:50 的版本同步断言 0.9.33→0.9.34（DOC 升号的必然伴随项，历史每批同做法；§4/§5 的模块与 19 例测试原样写入未改一字）",
+  "C2 README 双份同步：投喂包 §3 只点名 README.md，中文 README 按仓内双份纪律同步（能力清单/徽章/门禁行/最新批次/V40 小节）",
+  "C3 数字随实测同步（A1 口径）：徽章 tests-387→406、门禁行 387→406 与 419→438、redline 121→122；均为本批实测，非估算",
+  "C4 最新批次行以「前插 + 承」方式更新，未删改 V39/V38 历史描述"
+ ],
+ "honest_boundaries": [
+  "19 条测试是确定性断言，不构成对真实论文语料的外部复核；未做第三方盲评",
+  "图案目录 12 类是上游 tell 的确定性子集，不宣称覆盖全部学术写作瑕疵；未与上游 261 行 SKILL 做逐条覆盖率对齐",
+  "HEDGE_WHITELIST 目前作为语义登记常量存在，scan() 未按其做豁免过滤（豁免效果靠正则本身不命中实现；若未来把 tell 正则扩到对冲词，需补白名单短路逻辑）",
+  "SAME_AS-06 为待裁定条目，本批不宣称裁定结论；与 V37 神龟 LIN-E01 的同源认亲不同类，不可混记",
+  "redline 通过是仓内自扫描口径（122 文件 0 违规），不等于外部安全审计结论"
+ ],
+ "head_note": "回执不预写 head，避免 V37 式补正提交；真实 head 由提交后回读登记到台账与灯塔",
+ "notes": "纯模块级批次：1 模块 + 1 测试，不新增扩展包（EXTRA_PACK_ORDER 19 不变）、不碰 BUILTIN_LAYERS、不碰冻结值；Layer 5/6（声音匹配 / NSF-NIH 话术）不入仓，仅 docstring 记一笔"
+}
