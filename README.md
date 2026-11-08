@@ -948,6 +948,12 @@ An axiom here is not a slogan; it is a clause you can verify with a command. Eac
 
 ---
 
+## Deploying in Practice (institution-side engineer entry)
+
+- **Deployment guide**: `docs/DEPLOY_GUIDE.zh-CN.md` (install / debug / parameters / scenarios / upgrade — ten chapters, exhaustive)
+- **One-command self-check**: `python scripts/install_check.py` (7/7 PASS means ready)
+- **Vector baseline**: `python scripts/bench_vector_baseline.py` (literal 100% / paraphrase Top-5 ≈ 33%)
+
 ## 4 · How it came to be: nine years, two lines
 
 **2017 — the awakening was a medical view, not a technology.**

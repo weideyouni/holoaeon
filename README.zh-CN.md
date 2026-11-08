@@ -134,6 +134,12 @@ HoloAeon 纯标准库、全离线、确定性。零依赖、零安装、零成�
 
 ---
 
+## 实战部署（机构端工程师入口）
+
+- **部署手册**：`docs/DEPLOY_GUIDE.zh-CN.md`（安装/调试/参数/场景/升级，十章穷举）
+- **一键自检**：`python scripts/install_check.py`（7/7 PASS 即就绪）
+- **向量库基线**：`python scripts/bench_vector_baseline.py`（字面 100% / 同义 Top-5≈33%）
+
 ## 四、成型历程：九年双线，从手术刀到框架
 
 **2017 · 觉醒点是医学观，不是技术。**

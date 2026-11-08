@@ -1,0 +1,77 @@
+{
+  "feed": "V48_DEPLOY_GUIDE_INSTALL_CHECK",
+  "seal": "潮起开门，潮落闭嘴",
+  "executed": true,
+  "head": null,
+  "base_head": "205aabed6cb9d23bd90b772deff3128d3b543b6c",
+  "doc_version": "0.9.42",
+  "install_check": "7/7 PASS",
+  "regression": "550 OK（+ v3 11 + verax 21 = 582）",
+  "dimension_lock": "PASS",
+  "sums_drift": 0,
+  "redline": "129 文件 0 违规",
+  "py38": "parsed=310 / failures=0",
+  "diff0": "DIFF=0 6d119b2a9f2df687（tampered 8f424d9ee3ebfb9b 敏感 True；拦截 16/16；放行 4/4；冷装配 30.55ms / 峰值 1.69MiB）",
+  "claims": "PASS | mismatch=0 stale_header=0",
+  "selftest": "25/25",
+  "v3_gate": "32/32",
+  "verify_v44": "13/13",
+  "five_site_dna": "package 28 / repo 171 / missing 0 / zip a87fa921bf963fa1",
+  "deliverables": [
+    "docs/DEPLOY_GUIDE.zh-CN.md（11065 B / sha16 8168db2f156b27cc，十章穷举）",
+    "scripts/install_check.py（4751 B / sha16 8549770246fced72，7 项自检）",
+    "README.zh-CN.md / README.md 各追加「实战部署」入口节（+336 / +390 B）",
+    "holoaeon/spec.py DOC_VERSION 0.9.41→0.9.42",
+    "tests/test_v22_eng_skills.py 版本断言同步"
+  ],
+  "deviations": [
+    {
+      "id": "FC-48-01",
+      "type": "procedure",
+      "item": "§8-E 要求「新增 2 文件须按 V38 流程重建 SHA256SUMS」",
+      "actual": "未重建，复算闸保持 250 条 / 0 不匹配（零漂移）",
+      "reason": "沿用 V41 裁决：README·回执·新模块·新测试不入清单；scripts/build_b8_dual_sync.py 会全量重枚举（250→276）不可作对齐工具。零漂移优先于「重建」。"
+    },
+    {
+      "id": "FC-48-02",
+      "type": "content",
+      "item": "§6 只给中文入口节",
+      "actual": "中文按原文落盘；README.md 落同构英译节（6 行）",
+      "reason": "英文 README 不能嵌中文节；内容一一对应，不新增数字。"
+    },
+    {
+      "id": "FC-48-03",
+      "type": "scope",
+      "item": "README 巨表「最新批次」行仍为 V47",
+      "actual": "未改状态锚",
+      "reason": "包 §8-F 只列「追加 §6 节 + DOC 升号」；V48 无测试数字变化，claims 双闸 PASS(0,0)。下一批有数字变化时再刷新该行。"
+    },
+    {
+      "id": "FC-48-04",
+      "type": "extraction",
+      "item": "§4 手册围栏是四反引号 `````markdown``，且文件为 CRLF",
+      "actual": "抽包需四反引号匹配 + CRLF 归一化；三反引号或 `\\n```\\n` 收尾均命中 0",
+      "reason": "内含三反引号代码块必须用四反引号包裹，属包体结构不是缺陷；已按字节抽全（6847 chars）。"
+    },
+    {
+      "id": "FC-48-05",
+      "type": "regression",
+      "item": "首跑主套 524 FAILED(errors=1) / py38 failures=1",
+      "actual": "test_v22 版本断言行被补丁脚本重复缩进（16 空格），已修至 8 空格",
+      "reason": "补丁脚本对已带缩进的新文本又叠加一次原缩进；修后 550 OK / parsed=310 failures=0。已入机床教训。"
+    }
+  ],
+  "honest_boundaries": [
+    "install_check 只是冒烟不是验收：7 项证明环境/依赖/核心链路可跑，不替代 550 例全量回归。",
+    "c_deps 仅扫描 holoaeon/ 包内 import；bridges/、scripts/、tests/ 不在其扫描范围，「零依赖」判据范围有限（红线扫描同口径）。",
+    "c_diode 只验证 outbound 返回 BLOCK，不证明真实网络被阻断——网络二极管是 report-only，实际阻断由部署侧防火墙落地。",
+    "手册参数表指向源码常量；改常量后须自行重跑 bench 与回归，无自动校验。",
+    "手册第十节能力边界采信 V41–V47 既有实测结论，本批未新增任何实测。",
+    "手册「3-4 万人辖区」口径来自 V41 参数化推演，非真实人口学数据。",
+    "install_check 的向量冒烟只建 3 条并检索 1 次，不覆盖批量入库与持久化往返（load/save）全路径。",
+    "本批零新模块、零新依赖、维度不变；DOC 0.9.42 为唯一升号点，VERSION 仍 0.9.1 冻结。"
+  ],
+  "notes": "head 记为 null：提交前无法预知 SHA，真实 HEAD 见五地台账 V48 条目与 reports 回读（沿用 V47 同款诚实写法）。投喂包 AGENT_FEED_V48_DEPLOY_GUIDE_20261109.md 收工改名 _DONE 且字节不动。Gitee 开源核查仍挂账，本批未处置。",
+  "date": "2026-11-09",
+  "executor": "豆包程序员突击队（豆包工作 · 本地 Windows / WIN-PIB9JHIKQ43）"
+}
