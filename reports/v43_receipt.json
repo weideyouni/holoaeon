@@ -1,0 +1,75 @@
+{
+  "feed": "V43_CRAFT_GATE",
+  "seal": "潮起开门，潮落闭嘴",
+  "executed": true,
+  "head": null,
+  "head_note": "刻意不预写：回执先落盘、提交后才拿到真 SHA，避免占位值诱发补正提交；真实 HEAD 由台账/灯塔/记忆之王三处记录（7a721b6 -> V43 提交）",
+  "doc_version": "0.9.37",
+  "ring": 12,
+  "module": {
+    "path": "holoaeon/craft_gate.py",
+    "bytes": 13444,
+    "lines": 254,
+    "sha256_16": "31e2023df7d16c99"
+  },
+  "tests": {
+    "path": "tests/test_craft_gate.py",
+    "bytes": 4752,
+    "lines": 101,
+    "sha256_16": "000f27f5b758b1a9",
+    "cases": 19,
+    "result": "19/19 OK",
+    "first_run": "一次跑通（零修正）；包内记载的首跑 4 处 API 修正已在包内代码中预先吸收（AdaptiveGraphConfig(node_count=4) / map_agent 注册 / landfall 前缀 / dataclass 显式 config）"
+  },
+  "deliverables": [
+    "holoaeon/craft_gate.py（新增）",
+    "tests/test_craft_gate.py（新增，19 例）",
+    "README.md / README.zh-CN.md 能力清单各追加 V43 段（含徽章 468+11+21 / 验收 468·500 / 门禁 unittest 468 · redline 125）",
+    "DOC_VERSION 0.9.36 -> 0.9.37（spec.py:35 唯一升号点 + tests/test_v22_eng_skills.py:50 断言）",
+    "reports/five_site_manifest.json（build 重建：package 28 / repo 171 / missing 0 / zip a87fa921bf963fa1）"
+  ],
+  "regression": {
+    "unittest_main": "468 OK (1.293s)",
+    "unittest_v3": "11 OK",
+    "unittest_verax": "21 OK",
+    "badge_total": 500,
+    "selftest": "25/25",
+    "v3_gate": "32/32 PASS",
+    "verify_v44": "13/13 PASS",
+    "dimension_lock": "PASS 12 维 + 7 闸 + 0 violation（须 PYTHONPATH=仓根）",
+    "redline": "扫描 125 文件 · 干净（零违规）",
+    "check_sums": "ok=true / total=250 / mismatches=[]",
+    "diff0": "DIFF=0 6d119b2a9f2df687（tampered 8f424d9ee3ebfb9b · 拦截 16/16=100% · 冷装配 30.80ms / 峰值 1.69MiB）",
+    "py38": "parsed=298 / failures=0",
+    "readme_claims": "VERDICT PASS | mismatch=0 stale_header=0（14 项全 MATCH）"
+  },
+  "lineage_entry": "klein/神灯节拍同构：关联声明，不计SAME_AS",
+  "feed_corrections": [
+    {
+      "id": "FC-43-01",
+      "location": "§4 模块头部 import（2 行）",
+      "feed_text": "from holoaeon.graph import AdaptiveGraph；from holoaeon.spec import AdaptiveGraphConfig",
+      "landed": "from .graph import AdaptiveGraph；from .spec import AdaptiveGraphConfig",
+      "reason": "holoaeon/redline.py::visit_ImportFrom：node.level == 0 且顶层非 stdlib 即判 third_party_import。照抄会让 '125 文件 0 违规' 当场变 1 违规。包内跨模块导入必须相对导入（V41/V42 同一先例）",
+      "scope": "仅 import 两行，其余代码与测试按包落盘"
+    }
+  ],
+  "notes": "无计数偏差；六器官 ORGAN_MAP 全为落点声明，真实 import 只有 graph（AdaptiveGraph + AdaptiveGraphConfig），kernel/guard/bus/concept_anatomy 只声明不导入（避免为声明而引入耦合）",
+  "honest_boundaries": [
+    "build 步是委托声明（任务书），引擎本体不写目标代码——编码代理=豆包/外部，与 magic_lamp 缺口委托同构",
+    "similarity_score 的 matched 由调用方给出；CraftPipeline.run 内建的 matched 是 checks 自比（可视为「已核项数」），不是对原作的独立复检，故 score=1.0 不代表外部校验已通过",
+    "check 循环每轮 advance+complete，1 轮即达阈值时 beats=4；若 threshold>1.0 或 checks 为空，行为未定义（checks 为空时 similarity_score 返回 ok=False，run 会在取 score 处抛 KeyError）",
+    "Time 字段非确定性：Heartbeat.uptime_s 取 time.time，跨机跨次不同（不参与任何哈希判据）",
+    "deep 模式的真实深读由人类授权的外部代理执行，本模块只做准入判定，不做深读",
+    "Rust 资产 / 320 工具 / GUI 一律不入仓（指针纪律）；craft-anything 参考副本仅存在于仓外 F:\\doubaowork\\craft-anything-ref，未复制任何文件",
+    "cockpit 口径：neural=false、零网络零模型；六器官均为既有代码的落点声明 + graph 真实复用"
+  ],
+  "pending_from_carbon": {
+    "same_as_06": "碳基终审裁定 C（继续挂账）：只登记观测，不自宣成立，不宣布第七次趋同",
+    "open": [
+      "GitHub topics 是否提供 PAT（未提供则永久标 untested）",
+      "愿景与已兑现口径冲突（'上千 Skill' vs 实测 66 agents / 280 skills）是否另起公开文档",
+      "项目描述是否按投喂长文精简到 100 字"
+    ]
+  }
+}

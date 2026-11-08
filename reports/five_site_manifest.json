@@ -127,12 +127,12 @@
   },
   "repo": {
     "README.md": {
-      "bytes": 221543,
-      "sha256": "2139029244683fc4810bdf79c8ba6b5ac51e3bc82cb101f5876fef0a98339353"
+      "bytes": 223442,
+      "sha256": "94739e50b37631ced5dffbf2c312a69291bb577363bc4aa517e80a1248f7870c"
     },
     "README.zh-CN.md": {
-      "bytes": 183698,
-      "sha256": "15bf577ae4e26592862fd828124b1890dc2a12cd2a9c3bdc57b86e6b7d792e5c"
+      "bytes": 185365,
+      "sha256": "021ce048011209e8b292cd754ccb906cb000d8510c45f9f9e90f8483e83dc06d"
     },
     "README_FUSION_V4_20261102.md": {
       "bytes": 56256,
