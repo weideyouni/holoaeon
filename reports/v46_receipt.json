@@ -1,0 +1,69 @@
+{
+  "feed": "V46_PHARMA_GATE_LOCAL_PROBE",
+  "seal": "潮起开门，潮落闭嘴",
+  "executed": true,
+  "head": null,
+  "base_head": "4cbdf513275096347479191ffbb495262eaf5d84",
+  "doc_version": "0.9.40",
+  "tests_v46": "20/20 OK（一次跑通，零修正；含端口 refused→down 实测、GGUF 临时目录只读扫描实测、find_spec 只探测不导入实测）",
+  "regression": "main 526 OK（506+20）· v3 11 OK · verax 21 OK · 徽章口径 558 · selftest 25/25 · v3_gate 32/32 · verify_v44 13/13 · 维度锁 12 维 / 7 闸 / 0 violation · redline 128 文件 0 违规 · check_sums ok=true / total=250 / mismatches=[] · diff0 DIFF=0 6d119b2a9f2df687（tampered 8f424d9ee3ebfb9b / 拦截 16/16 / 合法放行 4/4 / build 30.74ms / 峰值 1.69MiB）· py38 parsed=305 / failures=0 · readme_claims_check PASS / mismatch=0 / stale_header=0",
+  "dimension_lock": "PASS（12 维度 + 7 闸 + 0 violation）",
+  "sums_drift": 0,
+  "lineage_entry": "千问两轮趋同（V42 弃向量库 / V46 登记表非向量）：关联声明不计 SAME_AS；非全息机制复现",
+  "deliverables": [
+    {"path": "holoaeon/pharma_gate.py", "bytes": 7895, "lines": 159, "sha256_16": "60849bd3acab48b2", "kind": "新增（ring14 药品域）"},
+    {"path": "bridges/local_model_probe.py", "bytes": 3479, "lines": 100, "sha256_16": "b580d692fbbe78e6", "kind": "新增（bridges 层，socket 不进核心包）"},
+    {"path": "tests/test_v46_pharma_probe.py", "bytes": 4963, "lines": 135, "sha256_16": "f4cb393573424bfd", "kind": "新增（20 例）"},
+    {"path": "holoaeon/spec.py", "kind": "修改（DOC_VERSION 0.9.39 → 0.9.40，唯一升号点）"},
+    {"path": "tests/test_v22_eng_skills.py", "kind": "修改（升号断言 0.9.40）"},
+    {"path": "README.zh-CN.md", "kind": "修改（徽章 526%2B11%2B21 / 最新批次表前插 V46（V45 转「承」）/ 门禁行 526·128 / 验收行 526·558·128 / V46-C·D 两条注记 / V42–V46 例数补齐）"},
+    {"path": "README.md", "kind": "修改（同款 4 类：徽章 / 巨表前插 V46（V45 转 succeeded by）/ 门禁行 / 验收行 redline 123→128 修正）"},
+    {"path": "reports/five_site_manifest.json", "bytes": 31395, "kind": "修改（five_site_dna build 重建；package 28 / repo 171 / missing 0 / zip_sha16=a87fa921bf963fa1）"}
+  ],
+  "deviations": [
+    {
+      "id": "FC-46-01",
+      "where": "§3 D 补丁（徽章纳入命令回读）原文措辞",
+      "feed_text": "tests 数以 `python -m pytest tests --collect-only -q` 实测为准",
+      "landed": "tests 数以 `python -m unittest discover -s tests` 实测为准",
+      "reason": "仓内零第三方依赖纪律，测试框架全程是 unittest（无 pytest 依赖）；照抄 pytest 命令会让注释指向一条本机跑不通的命令，违背「每个数字都能复算」。语义不变（都是「以实测为准」），仅换成本仓真实可复算的入口"
+    },
+    {
+      "id": "FC-46-02",
+      "where": "§3 C 补丁（机翼簇名实对齐注记）落点",
+      "feed_text": "README/README.zh-CN：追加机翼簇名实对齐注记（未指位置）",
+      "landed": "两份 README 均落在「最新批次 / 门禁」汇总表之后、「diff0 双哈希说明」段之前，新增两条 `> 注记（V46-C / V46-D）` 独立段",
+      "reason": "仓内无「七大机制」独立小节（grep「七大机制 / 机翼」两份 README 命中 0），无处可就近插入；表内插非表格行会破坏表结构，故落在表尾空行后作为独立注记段"
+    },
+    {
+      "id": "FC-46-03",
+      "where": "验收行历史遗漏",
+      "detail": "英文 README「Gates」小节红线数长期停留在 `123 files / 0 violations`（V41 时代值，V42–V45 四批均未同步），中文同段为 127。本批一并修正为 128（与本轮实跑 redline 128 文件 0 违规一致）——修正历史错值，非本批新增偏差"
+    },
+    {
+      "id": "FC-46-04",
+      "where": "门禁行例数列举",
+      "detail": "门禁行「含 … 例」清单此前只列到 V41（V42–V45 四批的例数缺失，但总数 506 已含）。本批补齐 V42 phc_recall 18 / V43 craft_gate 19 / V44 twin_verify 21 / V45 teach_gate 17 / V46 v46_pharma_probe 20 五项，使列表与总数可逐项相加核对"
+    }
+  ],
+  "honest_boundaries": [
+    "**登记表是精确查表，不是知识库**：`DrugRegistry.lookup` 做字典精确匹配（键=generic_name），不做同义词归一、不做品牌名→通用名映射、不做剂型/规格区分；输入必须是登记表里的原字符串，否则返回 unknown。'精确查表' 的价值是**不会错判**，代价是**召回窄**。",
+    "**示例条目是 simulated，不是官方目录**：`SAMPLE_ENTRIES` 三条（阿司匹林肠溶片/二甲双胍片/氨氯地平片）的 insurance_class 与 limited_scope 均为**演示值**，`source_doc` 明写「示例-…（部署侧替换）」。真实报销资格必须以国家医保局官方目录为准——本模块不承担、也不能承担报销判定责任。",
+    "**零剂量是 schema 级拒收，不是剂量建议**：`validate_entry` 对任何含 `dose` 的键直接拒收（含键名包含 dose 的变体），`CATALOG_FIELDS` 六字段无 dose 列。它只保证「本模块不存储、不输出剂量」，不保证「外部系统不用剂量」。",
+    "**保险四态的意义是防误判**：`unknown`（未登记）与「非医保」是两个不同结论。把未登记当非医保会造成「库没有=不报销」的错误告知；本模块强制返回 unknown 并附「以官方目录为准」。但 unknown 本身也**不是**「可报销」的证据。",
+    "**版本时点锁定是提示，不是自动校验**：`version_pin()` 汇总 catalog_years / sources 供人核对；模块**不会**自动判断某条是否过期，也不会拦截过期条目——过期检出仍靠人工比对 catalog_year 与当前目录年度。",
+    "**redline 四类是动作名拦截，不是意图识别**：`DisposalGate.check(action)` 按字符串比对四个动作名（dose_request / clinical_decision / emergency_override / physical_self_stimulation）。它拦得住显式传这四个名的调用，拦不住换了名字的同类请求——与 V45 关键词闸同型：字面闸只是第二道，结构性边界是「本模块不产出剂量、不做诊断、不发急救指令」。",
+    "**探测器的三态是网络语义，不是模型能力**：`probe_port` 只回答「这个端口此刻能不能建立 TCP 连接」（up/down）。up ≠ 模型可用、≠ 模型已加载、≠ 生成质量合格；down 也可能是服务在别的端口。它**不查询、不加载、不推理**任何模型。",
+    "**GGUF 扫描只读元数据**：`probe_gguf_files` 只取文件名与字节数，不解析 GGUF header、不读量化类型/参数量/上下文长度。'有哪些模型文件' 与 '哪些模型可用' 是两件事。",
+    "**bridges 层不是核心包的一部分**：核心包 `holoaeon/` 的零网络属性未被污染（测试断言 `hasattr(sys.modules['holoaeon'], 'local_model_probe')` 为 False）。但「核心包零网络」指的是核心包**不含网络 import**；整仓装了 bridges 后当然有网络能力——这是分层，不是免罪。",
+    "**pointer 纪律的代价**：本批没有联网取任何真实医保目录数据，也没有逐条核对示例条目与官方目录的一致性。11 章式的「结构完整、内容待填」在这里同样成立：schema 与引擎是真的，数据是占位的。",
+    "**千问趋同事件不计 SAME_AS**：'登记表而非向量库' 在两轮独立评估中收敛，只记 lineage 关联；这不是全息机制复现，不触碰 SAME_AS 裁定（SAME_AS-06 仍按碳基裁定 C 继续挂账）。",
+    "**冻结值与边界**：`VERSION 0.9.1` / `MATRIX_ID` / `RUNTIME_ID` / `PROTOCOL_ID` / `BUS_ID` / `PACK_ORDER=9` / `EXTRA_PACK_ORDER=19` / `BUILTIN_LAYERS` L1-L8 全未动；`neural=false`；不加扩展包；`0.9.39→0.9.40` 为唯一升号点。"
+  ],
+  "pending_from_carbon": [
+    "真实国家医保药品目录数据：需部署侧取得官方目录文件后按 `CATALOG_FIELDS` 填入，`evidence_class` 改 measured，并锁定当年 catalog_year / source_doc",
+    "本地模型探测的实机基线：本机三端口实测结果因环境而异（本机 ollama/lmstudio/vllm 端口状态见回执附录），接入方应以自身 `discover()` 输出为准",
+    "`unknown` 分支的对外话术：本模块只保证返回 unknown + 提示，具体告知文案（'请以当地医保局目录为准'）属部署侧责任"
+  ],
+  "notes": "5 处偏离/修正均已登记（FC-46-01/02 为主动最小偏离，FC-46-03/04 为历史遗漏补齐）。包内 20 例测试与 2 个模块一字未改（仅 D 补丁命令措辞与 C 补丁落点做了最小调整），首跑 20/20 零修正。"
+}
