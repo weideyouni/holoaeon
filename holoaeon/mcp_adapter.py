@@ -1,18 +1,32 @@
 # -*- coding: utf-8 -*-
 """
-mcp_adapter —— Model Context Protocol (MCP) stdio 桥接适配器（V12.1 · 未决项闭环）
+mcp_adapter —— Model Context Protocol (MCP) stdio 桥接适配器（V12.1 · 未决项闭环；V50 双版本）
 ================================================================================
 把 HoloAeon 确定性管家引擎暴露为 MCP 服务器（stdio 传输，JSON-RPC 2.0 信封），
 使任意 MCP 客户端（Claude Desktop / 豆包 / Cursor 等）可将管家引擎作为工具调用。
 
-实现最小可行协议子集（MCP 2024-11-05 规范）：
-  · initialize        —— 握手（protocolVersion / capabilities.tools / serverInfo）
+实现双版本协议子集（MCP **2024-11-05 与 2026-07-28 双规范**，V50 升级）：
+  · initialize        —— 握手（legacy 兼容分支，protocolVersion / capabilities / serverInfo）
+  · server/discover   —— 无状态能力发现（2026-07-28 新 RPC，客户端可选用，非必需）
   · ping              —— 心跳
   · tools/list        —— 暴露 3 个管家工具（task 通用提交 / status 状态快照 / quartet 四人组涌现）
   · tools/call        —— 转译参数 → frontend_adapter.handle_request（或直达便捷工具）→ JSON-RPC result
+  · notifications/*   —— 通知帧静默吞掉（不回响应，JSON-RPC 通知语义）
+
+V50 双版本依据（2026-11-09 官方核实：modelcontextprotocol.io SEP-2575）：
+  · 2026-07-28 规范转无状态核心：initialize/initialized 握手移除（SEP-2575）、
+    Mcp-Session-Id 移除（SEP-2567）、clientInfo/protocolVersion 走每请求 _meta、
+    新增 server/discover RPC；治理已移交 Linux Foundation 旗下 AAIF。
+  · 官方双版本路径（SEP-2575 原文）："a server that wishes to support both old and
+    new clients MAY do so — continue to implement the old initialize RPC to handle
+    legacy clients, while also exposing the new stateless RPCs for updated clients."
+  · 本实现本就逐行独立处理（无会话状态、无 session ID、`session` 字面量 0 次），
+    与新规范方向同构；V50 显式化：无握手直通 + server/discover + 通知帧静默。
+  · stdio 传输选型在新规范下依然正确（离线兼容，不破坏零网络特性）。
+  · _meta 中的 clientInfo 为纯登记信息，本实现不依赖、不解析（每请求自包含）。
 
 零依赖（纯标准库）、无网络、无 GPU；与 V12 butler_os 同构——同一契约，不同运输层
-（butler=本地菜单 / mcp=标准协议）。工程维度纪律不变（25/47/9，EXTRA_PACK_ORDER=13）。
+（butler=本地菜单 / mcp=标准协议）。工程维度纪律不变（25/47/9，EXTRA_PACK_ORDER 不变）。
 """
 from __future__ import annotations
 
@@ -22,7 +36,10 @@ import sys
 from .frontend_adapter import build_kernel, handle_request
 from .spec import VERSION, RUNTIME_ID, MODE_SIMULATED, DOC_VERSION
 
+# legacy 协商应答值（2024-11-05 客户端 initialize 握手用）
 PROTOCOL_VERSION = "2024-11-05"
+# 双版本支持声明（server/discover 返回；2026-07-28 为无状态规范）
+SUPPORTED_PROTOCOL_VERSIONS = ("2024-11-05", "2026-07-28")
 SERVER_NAME = "holoaeon-mcp"
 
 TOOL_SCHEMA = {
@@ -99,8 +116,8 @@ def _dispatch(method: str, params: dict) -> dict:
     return {"status": "error", "error": "unknown_tool", "detail": method}
 
 
-def _handle_line(raw: str) -> dict:
-    """单行 JSON-RPC 2.0 请求 → 响应。"""
+def _handle_line(raw: str):
+    """单行 JSON-RPC 2.0 请求 → 响应 dict；通知帧（无 id）返回 None（不写响应）。"""
     try:
         msg = json.loads(raw)
     except ValueError:
@@ -113,11 +130,24 @@ def _handle_line(raw: str) -> dict:
     msg_id = msg.get("id")
     params = msg.get("params") or {}
 
+    # JSON-RPC 通知帧（无 id）：静默吞掉，不回响应（含旧客户端 initialized 通知）
+    if msg_id is None and isinstance(method, str):
+        return None
+
     if method == "initialize":
+        # legacy 兼容分支（2024-11-05 客户端握手；SEP-2575 官方双版本路径 MAY 保留）
         return {"jsonrpc": "2.0", "id": msg_id, "result": {
             "protocolVersion": PROTOCOL_VERSION,
             "capabilities": {"tools": {}},
             "serverInfo": {"name": SERVER_NAME, "version": VERSION},
+        }}
+    if method == "server/discover":
+        # 2026-07-28 无状态规范新 RPC：能力发现（客户端可选用，非必需）
+        return {"jsonrpc": "2.0", "id": msg_id, "result": {
+            "protocolVersions": list(SUPPORTED_PROTOCOL_VERSIONS),
+            "capabilities": {"tools": {}},
+            "serverInfo": {"name": SERVER_NAME, "version": VERSION},
+            "stateless": True,
         }}
     if method == "ping":
         return {"jsonrpc": "2.0", "id": msg_id, "result": {}}
@@ -149,12 +179,16 @@ def _handle_line(raw: str) -> dict:
 
 
 def main(argv=None) -> int:
-    """stdio 传输：逐行读 stdin（每行一个 JSON-RPC 请求），逐行写 stdout。"""
+    """stdio 传输：逐行读 stdin（每行一个 JSON-RPC 请求），逐行写 stdout。
+    通知帧（无 id）不产生输出行（JSON-RPC 通知语义）。"""
     for line in sys.stdin:
         line = line.strip()
         if not line:
             continue
-        sys.stdout.write(json.dumps(_handle_line(line), ensure_ascii=False) + "\n")
+        resp = _handle_line(line)
+        if resp is None:
+            continue
+        sys.stdout.write(json.dumps(resp, ensure_ascii=False) + "\n")
         sys.stdout.flush()
     return 0
 

@@ -127,12 +127,12 @@
   },
   "repo": {
     "README.md": {
-      "bytes": 232294,
-      "sha256": "af40ece23cad9cc87cd34748d540695c3c81e7dd1950ac2b0a867b0b9983a66b"
+      "bytes": 192596,
+      "sha256": "b2a223d9989ad6033fd8b080188fd7a08ef7faf661f1df0f0449c5c1460b3331"
     },
     "README.zh-CN.md": {
-      "bytes": 193674,
-      "sha256": "82a1f5226dc05dd48882a1495895e91e0f28c344794208d36a5a8b0352239431"
+      "bytes": 156023,
+      "sha256": "7bdd288a49435db3b05ec35aeb643e66b7182d18687ad763b8ceed6af18ee212"
     },
     "README_FUSION_V4_20261102.md": {
       "bytes": 56256,
@@ -531,8 +531,8 @@
       "sha256": "134b1f70c3a3b4cff0750f445d599ca9261f2134067dd06455d975228b43249b"
     },
     "reports/v44_model_gateway_check.json": {
-      "bytes": 4041,
-      "sha256": "468d8a8251a38d0ce926054af6c63c431cdca3dbfd1dfce27ac4f2d54bdbc1bb"
+      "bytes": 3947,
+      "sha256": "0fa40c01ff01e9f6de045a4e238a1fc5551c03c5ec1dd57654f44a4344d2499e"
     },
     "reports/v45_live_probe.json": {
       "bytes": 1253,

@@ -33,6 +33,16 @@ from typing import Any, Dict, List, Optional, Tuple
 
 SEAL = "潮起开门，潮落闭嘴"
 
+# 领域编排环声明（V50 补齐，与 V43/V44/V45 同构；前 15 环均用此常量，自动化盘点不漏 ring16）
+CHAIN_POSITION = {
+    "ring": 16,
+    "layer": "assembly",
+    "domain": "装配（原创组装工厂）",
+    "batch": "V49",
+    "upstream": ["craft_gate(ring12 工艺轨·结构同源)", "titan_evolver(能力清单)",
+                 "deploy_gate(ring15 容量/分工上游)"],
+}
+
 # ---------------------------------------------------------------- 五段轨道
 STAGES: Tuple[str, ...] = ("philosophy", "math", "language", "module", "code")
 
@@ -202,7 +212,11 @@ class ModelSplitRules:
             return {"ok": False, "error": "unknown task_type: %r" % task_type, "seal": SEAL}
         if r["carrier"] == "platform_large" and not explicit_auth:
             return {"ok": False, "error": "platform_large requires explicit_auth",
-                    "task_type": task_type, "seal": SEAL}
+                    "task_type": task_type,
+                    "compliance_note": "耦合生成式模型后向境内公众提供服务者，"
+                                        "备案/登记义务由该服务提供者（部署方）承担"
+                                        "（《生成式人工智能服务管理暂行办法》第二条第三款边界）",
+                    "seal": SEAL}
         return {"ok": True, "task_type": task_type, **r,
                 "couple_hint": ("bridges.site_gateway.ModelAutoCouple"
                                 if r["carrier"] == "local_small"

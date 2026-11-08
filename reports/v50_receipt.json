@@ -1,0 +1,118 @@
+{
+ "batch": "V50-QIANWEN-P0-ADOPTION",
+ "seal": "潮起开门，潮落闭嘴",
+ "head": null,
+ "head_note": "单批单提交：本回执与主体同批落盘，提交时 HEAD 尚未产生，故 head 置 null（不以占位符冒充真值）。真值见仓外五地台账 history 末条 head_full、灯塔 as_of.head_short 与机床 engine_lathe.py 的 S1 常量。",
+ "doc_version": "0.9.44",
+ "qianwen_claims_verified": "7/7 属实（P0-1 / P0-2 / P1-2 / P1-3 / P2-1 / P2-2 / P2-4）",
+ "verification_evidence": [
+  "P0-1: README.zh-CN.md L131 「红线 **129 文件 0 违规**」实测在位（真值 130）；L291 门禁行末「；徽章口径=主套 431 + v3 11 + verax 21 = 463」在位；L289 最新批次栏=V47",
+  "P0-2: holoaeon/mcp_adapter.py docstring 原写「2024-11-05 规范」且 initialize 握手在位；本批按 SEP-2575 官方双版本 MAY 路径升级",
+  "P1-2: MLPS3 类 docstring 原为「三级等保要求检查表（本地安全能力映射，report-only）」单句，易被读成已认证",
+  "P1-3: ModelSplitRules 拒绝消息与 coupling_plan 均无 compliance 声明（grep 0 命中）",
+  "P2-1: forge_gate.py 内 CHAIN_POSITION 出现 0 次（craft_gate 等同构环均有）",
+  "P2-2: tests/test_v49_forge_gate.py 实测在位且非 unittest TestCase（平铺脚本）",
+  "P2-4: reports/five_site_sync.json 实测不存在（A8 判据缺仓内可复算入口）"
+ ],
+ "mcp_dual_version": "2024-11-05 legacy initialize（保留）+ 2026-07-28 无状态（server/discover 新 RPC / 无握手直通 / 通知帧静默 / _meta 直通；SEP-2575 原文 MAY 路径引用入 docstring）",
+ "files_landed": [
+  "holoaeon/mcp_adapter.py",
+  "holoaeon/forge_gate.py",
+  "bridges/model_base_registry.py",
+  "holoaeon/phc_chronic_engine.py",
+  "holoaeon/spec.py",
+  "docs/MLPS3_MAPPING.md",
+  "tests/test_v50_mcp_dual.py",
+  "tests/test_v22_eng_skills.py",
+  "README.zh-CN.md",
+  "README.md",
+  "reports/v50_receipt.json",
+  "reports/five_site_manifest.json",
+  "reports/v44_model_gateway_check.json"
+ ],
+ "file_moves": ["tests/test_v49_forge_gate.py -> scripts/exp_v49_forge_gate.py"],
+ "readme_fixes": [
+  "zh L131 工程验收行：主套 550->578、合计 582->610、红线 129 改为命令回读式",
+  "zh L291 门禁行：unittest 550->578、test_v49 口径改为 scripts/exp_v49_forge_gate.py、删除徽章口径 431/463 过时子句",
+  "zh L289 最新批次栏 V47->V50（本栏随批次更新，权威口径以 git log -1 --format=%s 回读）",
+  "zh L280 五地同头行判定列补「A8 判据回读入口」（该行已存在，不新增重复行）",
+  "zh L13 / en L27 徽章 tests-550 -> tests-578（与主套同源）",
+  "en 同步四处：L945 Gates 行红线改回读式、L70 门禁行同改、L68 最新批次栏 V50、徽章同源"
+ ],
+ "tests": "test_v50 28/28 OK；主套 578 OK（550+28）；scripts/exp_v49_forge_gate.py 66/66（移位后回归）",
+ "redline": "130 文件 0 违规",
+ "readme_claims": "PASS | mismatch=0 stale_header=0",
+ "five_site": {
+  "S1": "pending_after_commit：见台账 history 末条 head_full",
+  "S2": "pending_after_commit：Gitee 权威，ls-remote 回读",
+  "S3": "pending_after_commit：GitHub origin，ls-remote 回读",
+  "S4": "冻结区 195/195 自洽 + 批次增量归档（件数见台账）",
+  "S5": "pending_after_commit：mirror_hf 内容 sha256 判等，mismatch=[]"
+ },
+ "dimension_check": {
+  "VERSION": "0.9.1",
+  "BUILTIN_LAYERS": "未触碰",
+  "layers": 8,
+  "PACK_ORDER": 9,
+  "EXTRA_PACK_ORDER": 19,
+  "diff0": "6d119b2a9f2df687",
+  "tampered": "8f424d9ee3ebfb9b",
+  "zip_fixpoint": "a87fa921bf963fa1"
+ },
+ "deviations": [
+  {
+   "id": "D-01",
+   "what": "投喂包实测 35421 B，投喂页标注 35429 B（差 8 B）",
+   "why": "以仓内实测文件为准；三处围栏锚点全部命中、内容完整，未因字节差中断",
+   "impact": "无实质影响；仅登记字节差"
+  },
+  {
+   "id": "D-02",
+   "what": "mcp_adapter.py 落盘 9522 B / 197 行；包 §3 表称「163→196 行」",
+   "why": "包文行数口径与实况不符（原文件实测 148 行 / 7110 B）",
+   "impact": "正文严格按包被落盘，仅行数描述失真"
+  },
+  {
+   "id": "D-03",
+   "what": "README 修正扩面至英文 README.md",
+   "why": "包 §3 只点名 README.zh-CN.md，但英文侧同样存在 129 红线残留、中文「徽章口径=主套 431」残留与 V47 最新批次栏",
+   "impact": "按 A1「三处同源」同改；不扩面则英文侧仍对外宣称 129"
+  },
+  {
+   "id": "D-04",
+   "what": "包 §9-D-5「对照表补五地回读命令」改为在既有行补判据标记",
+   "why": "zh 数字—命令对照表已有等价行（S1 git rev-parse / S2-S3 ls-remote / S4 manifest / S5 mirror_hf）",
+   "impact": "不新增重复行，避免同一表内两条「五地同头」"
+  },
+  {
+   "id": "D-05",
+   "what": "最新批次栏整行替换，V47→V23 历史链移出该栏",
+   "why": "包给定替换文本即「本栏随批次更新 + 权威口径以 git log 回读」",
+   "impact": "README.zh-CN.md 193674→156023 B、README.md 232294→192596 B；历史仍可由 git log 回读"
+  },
+  {
+   "id": "D-06",
+   "what": "主套数字 550→578、合计 582→610、徽章 tests-550→tests-578",
+   "why": "包 §9-D-4 要求「同段主套数字更新为实测值」；且 readme_claims 闸以徽章/工程验收/门禁三处同源判定，不同步即 MISMATCH",
+   "impact": "三处数字均为实跑值（578 = 550+28；610 = 578+11+21）"
+  },
+  {
+   "id": "D-07",
+   "what": "phc_chronic_engine.py 原为 CRLF，改动后统一为 LF",
+   "why": "docstring 锚点跨行匹配需先归一化行尾；内容仅一处 docstring 变更",
+   "impact": "提交时 CRLF→LF 告警属既有通例，不影响内容复算"
+  }
+ ],
+ "honest_boundaries": [
+  "不申报信通院/BFCL（P0-3）：外部流程须碳基决断与材料准备，非机器可办",
+  "不生成 SBOM/SLSA（P1-1）：留 V51（生成脚本 + SPDX 3.0 Lite/CycloneDX 双格式 + AST 证据入 annotation）",
+  "不做语义三通道对照实验（P1-e）：留 V51",
+  "不做信创真机实测（P1-4）：无统信 UOS/麒麟 × 鲲鹏/飞腾/龙芯 真机",
+  "不声称「通过等保三级」：MLPS3 已改为设计对齐自查表，定级备案与年度测评责任=运营主体",
+  "不声称 MCP 已与新版客户端实测连通：本批为协议层双版本实现 + 本机 stdio 自测（legacy initialize 与 server/discover 均回读成功），与 Claude Desktop/Cursor 新客户端互通须机构端另行执行",
+  "红线数字改为命令回读式，但 A1 闸仍需可复算数字位：门禁行保留实跑值（578 / 130），工程验收行红线改回读式",
+  "回执 head=null：单批单提交纪律下真值在提交之后才存在",
+  "新增 3 件（docs/MLPS3_MAPPING.md、tests/test_v50_mcp_dual.py、reports/v50_receipt.json）不入 SHA256SUMS，清单仍 250 条 0 不匹配（闸只校清单内）",
+  "MCP 2026-07-28 规范细节依据官方博客与 SEP-2575（2026-11-09 核实），本仓未逐条复刻新版规范全文，仅实现 stdio 子集"
+ ]
+}
