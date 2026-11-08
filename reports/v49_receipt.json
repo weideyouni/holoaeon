@@ -1,0 +1,94 @@
+{
+  "schema": "holoaeon-batch-receipt-v1",
+  "batch": "V49-FORGE-GATE",
+  "title": "原创组装工厂 forge_gate + 大模型基座登记 model_base_registry",
+  "seal": "潮起开门，潮落闭嘴",
+  "head": null,
+  "head_note": "回执撰写时 HEAD 未产生（单批单提交纪律要求回执随主体同批落盘）。真值见仓外台账 F:\\doubaowork\\vector-sea\\_holoaeon_v4_five_site_receipt_20261102.json 的 V49-FORGE-GATE 条，以及 reports/five_site_manifest.json（提交后重建）。不以占位符冒充真值。",
+  "doc_version": "0.9.43",
+  "doc_version_prev": "0.9.42",
+  "files_landed": [
+    "holoaeon/forge_gate.py",
+    "bridges/model_base_registry.py",
+    "tests/test_v49_forge_gate.py"
+  ],
+  "files_landed_detail": {
+    "holoaeon/forge_gate.py": {"bytes": 22809, "lines": 478, "sha16": "9c24a3983730341d"},
+    "bridges/model_base_registry.py": {"bytes": 7753, "lines": 169, "sha16": "bcb693627eb25cb9"},
+    "tests/test_v49_forge_gate.py": {"bytes": 9737, "lines": 178, "sha16": "c374d6df399d9484"}
+  },
+  "import_smoke": "潮起开门，潮落闭嘴",
+  "tests": "66/66 OK",
+  "redline": "130 文件 0 违规",
+  "gates": {
+    "unittest_main": 550,
+    "unittest_v3": 11,
+    "unittest_verax": 21,
+    "unittest_total": 582,
+    "v49_lab_script": "66/66 PASS",
+    "py38": "parsed=313 failures=0",
+    "check_sums": {"ok": true, "total": 250, "mismatches": []},
+    "dimension_lock": "PASS 12 维度 + 7 闸 + 0 violation",
+    "selftest": "25/25",
+    "v3_gate": "32/32",
+    "verify_v44": "13/13",
+    "readme_claims": "PASS mismatch=0 stale_header=0",
+    "diff0": "DIFF=0 6d119b2a9f2df687 / 敏感性 8f424d9ee3ebfb9b / 拦截 16-16 / 放行 4-4 / 冷装配 30.91ms / 峰值 1.69MiB",
+    "install_check": "7/7"
+  },
+  "five_site": {
+    "status": "pending_after_commit",
+    "S1": "本地提交（本回执所在提交）",
+    "S2": "Gitee weideyouni/holoaeon",
+    "S3": "GitHub weideyouni/holoaeon",
+    "S4": "冻结区 195 件 + 归档 V49_forge_gate",
+    "S5": "HF weideyouni/holoaeon"
+  },
+  "dimension_check": {
+    "VERSION": "0.9.1",
+    "MATRIX_ID": "HOLOAEON-MATRIX-0.9.1",
+    "layers": 8,
+    "PACK_ORDER": 9,
+    "EXTRA_PACK_ORDER": 19,
+    "assembly": "66 agents / 280 skills",
+    "diff0": "6d119b2a9f2df687"
+  },
+  "deviations": [
+    {
+      "id": "FC-49-01",
+      "kind": "package_internal_path_conflict",
+      "detail": "§6 测试脚本以 os.path.join(dirname(__file__), 'bridges', 'model_base_registry.py') 按 tests/bridges/ 定位声明件；实验田（.tmp_v49 扁平结构）可跑，真实仓结构下 bridges 在仓根，首跑即 FileNotFoundError。",
+      "fix": "最小 token 修正：两处各加一层 os.path.dirname()，指向仓根 bridges/。不改任何断言。",
+      "impact": "零（判定逻辑未动）"
+    },
+    {
+      "id": "FC-49-02",
+      "kind": "unittest_discovery_pollution",
+      "detail": "§6 为平铺脚本 + 末尾 sys.exit()，unittest discover 导入 tests/test_*.py 时执行顶层检查并 SystemExit → 主套 551/errors=1（污染）。",
+      "fix": "函数化重构：检查体收进 main()，末尾改 __main__ 守卫；断言与检查项逐条不变，仅结构改动。",
+      "impact": "主套回 550 OK；66/66 仍可独立跑"
+    },
+    {
+      "id": "FC-49-03",
+      "kind": "readme_claim_sync",
+      "detail": "两份 README 门禁行 redline 129 → 130（新增 holoaeon/forge_gate.py 计入红线扫描），并在测试清单补注 V49 66 例（独立脚本、不进 discover）；巨表历史段 V47 条目的 129 为历史真值，未动。",
+      "impact": "readme_claims_check PASS mismatch=0"
+    },
+    {
+      "id": "FC-49-04",
+      "kind": "carried_open_item",
+      "detail": "README 巨表「最新批次」行仍停在 V47（V48 已登记 FC-48-03 未改）。本批延续挂账，未刷 V48/V49 两条长条目。",
+      "impact": "展示层口径滞后两个批次；不影响任何闸门判据"
+    }
+  ],
+  "honest_boundaries": [
+    "不做实时 API 连通测试：registry 零连接；「真实适配」=协议形状登记 + env 就绪检查；连通握手须机构端人工授权另行执行。",
+    "不做出站通道：平台大模型内容只经入站升级三重门（类型+SHA+审批+staging）进内网；出站白名单=空集，结构性零出站。",
+    "不做前端本体：本批产出前端设计需求卡（结构化意图表达包），前端本体由可执行端读卡另行创建。",
+    "不自动执行适配安装：主机轻量模型扫描/耦合走既有 local_model_probe + ModelAutoCouple（V46/V47 已在仓），本批只做分工路由与指针复用。",
+    "不触碰维度：kernel/BUILTIN_LAYERS/PACK_ORDER/扩展包零改动，纯模块级增量。",
+    "不虚构品牌能力：基座 14 条只登记公开事实（厂商/协议形状/开放权重有无），未声称任何连通测试结果。",
+    "包文 §1/§4 称组件索引「7 域 17 件」，按 COMPONENT_INDEX 逐条实数为 2+2+2+3+2+4+3 = 18 件；测试断言为 total>=15 与 domains==7，故不影响 66 全绿。此处登记为包文与代码的计数差，代码属实、文字偏差 1 件，未改代码亦未改包文。"
+  ],
+  "new_test_note": "tests/test_v49_forge_gate.py 为独立实验田脚本（自建 check 计数器 + __main__ 守卫），非 unittest TestCase，不进入主套 550 的计数；独立运行 66/66。"
+}
