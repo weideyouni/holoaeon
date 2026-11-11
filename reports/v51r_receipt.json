@@ -1,0 +1,85 @@
+{
+  "batch": "V51R-HARDWARE-NETLIST-FUSION",
+  "seal": "潮起开门，潮落闭嘴",
+  "head": null,
+  "head_note": "单批单提交：回执随提交落盘，提交时 HEAD 尚未生成，故记 null；真实 HEAD 见 `git log -1 --format=%H` 与仓外 version_history.history[69]",
+  "doc_version": "0.9.45",
+  "doc_version_note": "V51R 是 V51 的强化版（SUPERSEDE 同号），DOC 维持 0.9.45 不二次升号",
+  "prev_head": "cfafdbd",
+  "supersede": {
+    "replaces": "AGENT_FEED_V51_CIRCUIT_GATE_20261111.md (58730 B)",
+    "absorbed_deliverables": "全部（circuit_gate.py + test_v51_circuit_gate.py）",
+    "note": "原包留档不删；V51 已于本日 cfafdbd 落地，故本包实际只新增 V51R 两件"
+  },
+  "source": "电路学学科公理（V51）+ 仓内硬件范式检索复核（V51R：design_vocab/compile_modes 与 fusion_upgrade/contract 实测核对），非视频逐字稿",
+  "ring": 17,
+  "stages": ["elaborate", "simulate", "netlist"],
+  "mechanism": "meridian（网表化升级与「规则→通道边收敛」同构）",
+  "four_invariants": {
+    "思维模式": "蒸馏-扬弃-装配",
+    "维度": "不变（0.9.1 / layers 8 / PACK_ORDER 9）",
+    "工程方式": "实验田→逐字节→回执",
+    "张量向量耦合": "TensorCircuit 原件为载体"
+  },
+  "files_landed": [
+    "holoaeon/hardware_gate.py",
+    "tests/test_v51r_hardware_gate.py"
+  ],
+  "files_touched_existing": 3,
+  "files_touched_existing_list": [
+    "README.md",
+    "README.zh-CN.md",
+    "reports/v51r_receipt.json"
+  ],
+  "components": [
+    "NetlistElaborator",
+    "NetlistSimulator",
+    "NetlistSynthesizer",
+    "UpgradeContractCoupler",
+    "TensorCouple"
+  ],
+  "tests": "V51R 45/45 OK · V51+V51R 联跑 92/92（47+45）· 主套 670 OK（578+92，实跑回填）",
+  "cli_smoke": "hardware_gate probe/run/fingerprint 三命令 exit 0；fingerprint sha256=cc1ed3dd2871b40e3dbc572ab707f4f54c5cdf43775a4bcd3e4b28d83d43c090",
+  "redline": "132 文件 0 违规（实跑回读）",
+  "py38": "parsed=318 py38_syntax_failures=0",
+  "check_sums": "ok=true total=250 mismatches=[]",
+  "five_site": {
+    "S1": "本提交（见 git log -1）",
+    "S2": "pending-at-commit-time",
+    "S3": "pending-at-commit-time",
+    "S4": "pending-at-commit-time",
+    "S5": "pending-at-commit-time"
+  },
+  "five_site_note": "回执随提交落盘，此刻五地尚未推送；实测值记入仓外报告与仓外台账",
+  "dimension_check": {
+    "VERSION": "0.9.1",
+    "layers": 8,
+    "PACK_ORDER": 9,
+    "diff0": "6d119b2a9f2df687"
+  },
+  "deviations": [
+    {
+      "id": "D-51R-01",
+      "where": "holoaeon/hardware_gate.py:562",
+      "what": "__import__(\"sys\").argv[1:] → sys.argv[1:]",
+      "why": "redline 判 dangerous_call，零违规门禁必须过",
+      "impact": "行为等价"
+    },
+    {
+      "id": "D-51R-02",
+      "where": "holoaeon/hardware_gate.py:39",
+      "what": "顶部补 `import sys`",
+      "why": "原包正文在 usage 分支使用 sys.stderr，属隐式依赖；改直用后必须显式导入",
+      "impact": "补齐隐式依赖；三命令冒烟复归 exit 0"
+    }
+  ],
+  "byte_identity": {
+    "hardware_gate_as_packaged": "ea31943a0527dd53",
+    "hardware_gate_after_deviation": "5f980ee4c26c5c6d",
+    "test_v51r_as_packaged": "68cc4c6fc4eb0e9e",
+    "test_v51r_after_deviation": "68cc4c6fc4eb0e9e",
+    "note": "测试文件逐字节一致；模块文件因两处最小偏离变化（25843 → 25840 B），偏离已登记"
+  },
+  "v52_handover": "V50 遗留两条（SBOM/SLSA、语义三通道对照实验）+ 千问第七轮 P0 四条，顺延 V52，无悬账",
+  "verdict": "PASS"
+}
