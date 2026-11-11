@@ -1,0 +1,75 @@
+{
+  "batch": "V51-CIRCUIT-GATE",
+  "seal": "潮起开门，潮落闭嘴",
+  "head": null,
+  "head_note": "单批单提交：本回执随提交落盘，提交时 HEAD 尚不存在，故记 null；真实 HEAD 见 `git log -1 --format=%H` 与仓外 version_history.history[67]",
+  "doc_version": "0.9.45",
+  "prev_head": "9657456",
+  "source": "电路学标准学科公理（视频标题锁定域），非视频逐字稿（无 CC 字幕 + bot 拦截，2026-11-09 核实）",
+  "ring": 17,
+  "files_landed": [
+    "holoaeon/circuit_gate.py",
+    "tests/test_v51_circuit_gate.py"
+  ],
+  "files_touched_existing": 5,
+  "files_touched_existing_list": [
+    "holoaeon/spec.py",
+    "tests/test_v22_eng_skills.py",
+    "README.md",
+    "README.zh-CN.md",
+    "reports/v51_receipt.json"
+  ],
+  "components": [
+    "KirchhoffFlow",
+    "ResonatorNode",
+    "FeedbackAmp",
+    "MemristorSynapse",
+    "ImpedanceMatch",
+    "TensorCircuit"
+  ],
+  "tests": "test_v51 47/47 OK · 主套 625 OK（578+47，实跑回填）",
+  "cli_smoke": "probe/run/fingerprint 三命令 exit 0",
+  "redline": "131 文件 0 违规（实跑回读）",
+  "py38": "parsed=316 py38_syntax_failures=0",
+  "check_sums": "ok=true total=250 mismatches=[]",
+  "five_site": {
+    "S1": "本提交（见 git log -1）",
+    "S2": "pending-at-commit-time",
+    "S3": "pending-at-commit-time",
+    "S4": "pending-at-commit-time",
+    "S5": "pending-at-commit-time"
+  },
+  "five_site_note": "回执随提交落盘，此刻五地尚未推送；实测值记入仓外报告 V51_五地同步核查报告_20261111.md 与仓外台账",
+  "dimension_check": {
+    "VERSION": "0.9.1",
+    "layers": 8,
+    "PACK_ORDER": 9,
+    "EXTRA_PACK_ORDER": 19,
+    "diff0": "6d119b2a9f2df687"
+  },
+  "deviations": [
+    {
+      "id": "D-51-01",
+      "where": "holoaeon/circuit_gate.py:771",
+      "what": "__import__(\"sys\").argv[1:] → sys.argv[1:]",
+      "why": "redline 判 dangerous_call（__import__ 属危险调用），零违规门禁必须过",
+      "impact": "行为等价，无功能差异"
+    },
+    {
+      "id": "D-51-02",
+      "where": "holoaeon/circuit_gate.py:34",
+      "what": "顶部补 `import sys`",
+      "why": "原包正文多处使用 sys.stderr（仅在错误分支触发，故实验田与测试未暴露），__main__ 用 __import__ 规避，改直用后必须显式导入",
+      "impact": "补齐隐式依赖；三命令冒烟 exit 0 复验通过"
+    }
+  ],
+  "byte_identity": {
+    "gate_as_packaged": "d37cb80cd292d8e1",
+    "gate_after_deviation": "47940cf68060ed40",
+    "test_as_packaged": "d4d5d7198cb61297",
+    "test_after_deviation": "d4d5d7198cb61297",
+    "note": "测试文件逐字节一致；模块文件因两处最小偏离变化，偏离已在 deviations 登记"
+  },
+  "v52_handover": "V50 遗留两条（SBOM/SLSA、语义三通道对照实验）顺延 V52；另 V51R（hardware_gate 五件套）依赖本批 TensorCircuit，待本批封口后执行",
+  "verdict": "PASS"
+}
