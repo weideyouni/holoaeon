@@ -1,0 +1,131 @@
+{
+  "batch": "V54-PALETTE-AUX-VERSION-XCAT",
+  "seal": "潮起开门，潮落闭嘴",
+  "date": "2026-11-12",
+  "head": "fa3ae7c56782659a9ebeabe6a36a51266fef1aa2",
+  "head_short": "fa3ae7c",
+  "prev_head": "54ab73688720f22a517fe2712d517e3beb5f2778",
+  "doc_version": "0.9.48",
+  "ring": 18,
+  "themes": {
+    "aux": "200/200 辅助色块行（relation 121 duplicate_of_main / 62 supplementary / 17 mixed，OCR 优先 + 像素交叉）",
+    "version": "指纹 bundle sha256 版本轴（make('ver:' + sha16)，独立于检索主轴）",
+    "cat_weight": "跨类目检索权重（1.0 = V52 逐字节兼容；权重进 bundle 线性组合，非检索后处理）",
+    "name_fix": "主色名 v1→v2 覆盖（591 → 869/1200，V53 正则遗漏 % 号导致末覆盖）"
+  },
+  "files_landed": [
+    "holoaeon/palette_gate.py",
+    "holoaeon/cinema_gate.py",
+    "data/cinema_palettes.json",
+    "data/cinema_palette_aux.json",
+    "tests/test_v54_palette_enhance.py"
+  ],
+  "files_new": [
+    "data/cinema_palette_aux.json",
+    "tests/test_v54_palette_enhance.py"
+  ],
+  "byte_identity": {
+    "verdict": "5/5 逐字节命中（一次落盘全中）",
+    "entries": {
+      "holoaeon/palette_gate.py": {"bytes": 29128, "lines": 711, "sha16": "94b99153d62840e8", "kind": "modify"},
+      "holoaeon/cinema_gate.py": {"bytes": 20324, "lines": 472, "sha16": "d05201e434d7eb43", "kind": "modify"},
+      "data/cinema_palettes.json": {"bytes": 137482, "lines": 8212, "sha16": "837c8ec67babde79", "kind": "modify"},
+      "data/cinema_palette_aux.json": {"bytes": 93912, "lines": 5556, "sha16": "133a553036f6b0dc", "kind": "new"},
+      "tests/test_v54_palette_enhance.py": {"bytes": 13090, "lines": 317, "sha16": "99e07f0c7b13f988", "kind": "new"}
+    }
+  },
+  "compat": {
+    "v52_suite": "35 OK（4.136s）",
+    "v53_suite": "37 OK（0.807s）",
+    "cat_weight_1_regression": "cat_weight=1.0 走 encode_entry 缓存路径，与 V52 逐位一致（实测）"
+  },
+  "tests": {
+    "v54_suite": "33 OK（7.562s）",
+    "v52_suite": "35 OK",
+    "v53_suite": "37 OK",
+    "five_suites": "47+45+35+37+33 = 197",
+    "main_suite": "775 OK（16.523s）＝742 + 33",
+    "v3": "11 OK",
+    "verax": "21 OK",
+    "total": 807,
+    "selftest": "25/25 PASS",
+    "v3_gate": "32/32 PASS",
+    "redline": "134 文件 0 违规",
+    "py38": "parsed=323 py38_syntax_failures=0",
+    "check_sums": "ok=true total=250 mismatches=[]",
+    "readme_claims": "PASS mismatch=0 stale_header=0（MEASURED unittest_main=775）"
+  },
+  "cli_smoke": {
+    "palette_gate_probe": "exit 0 → {\"ok\": true, \"primary\": \"主灰\", \"primary_share\": 0.4}",
+    "palette_gate_version": "exit 0 → main_sha16=837c8ec67babde79 / aux_sha16=133a553036f6b0dc / version_axis=make('ver:'+sha16) / self_consistency=1.0",
+    "palette_gate_aux": "exit 0 → 200/200 三态（121/62/17，missing=0）",
+    "cinema_gate_probe": "exit 0 → {\"ok\": true, \"top\": \"样例乙\", \"score\": 0.3229}",
+    "cat_weight_four_step": {
+      "query": "霓虹 暗夜 城市 赛博 光污染",
+      "category": "霓虹黑色与赛博未来",
+      "k": 10,
+      "rows": [
+        {"cat_weight": 0.0, "top1": "阿贝尔·费拉拉", "score": 0.1791, "in_category": "3/10", "hit_rate": 0.3},
+        {"cat_weight": 0.5, "top1": "押井守", "score": 0.3001, "in_category": "10/10", "hit_rate": 1.0},
+        {"cat_weight": 1.0, "top1": "押井守", "score": 0.4254, "in_category": "10/10", "hit_rate": 1.0},
+        {"cat_weight": 2.0, "top1": "押井守", "score": 0.5855, "in_category": "10/10", "hit_rate": 1.0}
+      ],
+      "feed_match": "与包内 cw=0 Top=费拉拉 0.179 / cw>=0.5 Top=押井守 0.30→0.43→0.59 单调升完全吻合"
+    }
+  },
+  "bench_diff0": {
+    "di_f0": "DIFF=0",
+    "run1": "6d119b2a9f2df687",
+    "run2": "6d119b2a9f2df687",
+    "tampered": "8f424d9ee3ebfb9b",
+    "blocked": "16/16（合法放行 4/4）",
+    "assembly": "build=31.31ms peak=1.69MiB agents=25 skills=47",
+    "restored": "跑后已 git checkout -- benchmarks/README.md benchmarks/results-0.9.1.json，未入提交"
+  },
+  "feed_rename": "V51/V51R/V52/V53 四包 _DONE 补名已由投喂侧完成（58730/100385/108422/173703 B 回读核对）；V54 包保持原名未动，待本批收口后由投喂侧改名",
+  "dimension_check": {
+    "VERSION": "0.9.1（冻结未动）",
+    "MATRIX_ID": "HOLOAEON-MATRIX-0.9.1（未动）",
+    "RUNTIME_ID": "HOLOAEON-RUNTIME-0.9.1（未动）",
+    "layers": 8,
+    "PACK_ORDER": 9,
+    "extra_packs": "19（未动，不加扩展包）",
+    "dimension_lock": "12 维度 / 7 闸 / 0 violation（DOC 0.9.4→0.9.48 与 extra 9→19 均标演进正常）"
+  },
+  "v55_handover": "V50 遗留两条（SBOM/SLSA、语义三通道对照）+ 千问第七轮 P0 四条继续在队；SAME_AS-06 继续挂账（C）",
+  "deviations": [
+    "仓外 README 复算闸 readme_claims_check.py 原用 re.search 取首个 'Ran N tests'：V54 测试在组 5 内用 TextTestRunner 跑 V52/V53 兼容回归（设计如此），stdout 先出现 'Ran 35'/'Ran 37'，全局汇总 'Ran 775' 在最后 → 闸误读 MEASURED=35，连带两份 README 出现 6 处假红。已修为 re.findall 取最后一个（仓外工具修正，仓库字节零改动），修后 PASS mismatch=0",
+    "cat_weight 演示首跑因把 idx.categories 当成属性（实为方法）而回退到不存在的类目名 '霓虹与赛博'，得到同类 0/10 的假结果；改为 idx.categories() 取真实类目 '霓虹黑色与赛博未来' 后四档与包内完全吻合（调用侧错误，非代码问题）",
+    "投喂包 §3 声明 palette_gate.py 含 270 行 V54 增强段、cinema_gate.py 含 60 行 cat_weight 段：实测两件整文件行数 711/472 与包内一致，逐字节 sha16 命中，无需再拆段计数"
+  ],
+  "honest_boundaries": [
+    "辅助色块 hex 策略与主色带相反：浅色块（062 神圣与纯洁 #F0EDE6）与米色背景 RGB 距≈4 不可分，故 200 条中部分 hex 为 OCR 直取、像素交叉仅作校验，未虚构成纯像素结果",
+    "像素提取定稿＝滑窗列投影（列投影≥9/16 行连续、宽 8-30px）→ 段中心 5×5 邻域中值（不用段全像素中值，避免块边缘 JPEG 过渡带把 pstdev 拉到 28-86 误杀纯块）→ 纯度 sd<15 且距背景>25",
+    "relation 三态如实：duplicate_of_main 121 / supplementary 62 / mixed 17（共 200），不做辅助色角色分类",
+    "版本轴 make('ver:'+sha16) 为独立指纹，不混入检索相似度主轴",
+    "cat_weight 只做权重入编码，不做自动调参；1.0 为 V52 兼容线",
+    "主色名 v2 覆盖到 869/1200，未达 1200 的部分为 OCR 未识别或表格无占比行，如实保留不人工补全",
+    "redline 仍 134 文件：本批只改 2 个既有 .py，未新增 holoaeon/ 包文件（新增件落在 data/ 与 tests/，不在扫描范围）"
+  ],
+  "not_committed": [
+    "AGENT_FEED_V54_PALETTE_AUX_VERSION_XCAT_20261112.md（投喂包，DNA 约定不提交）",
+    "reports/daily_gate*.json",
+    "reports/*.log",
+    "reports/state_beacon.json",
+    "根目录 BASELINE_STATUS_* / COMMERCIAL_* / QUARTET_* / STANDARD_BASED_*"
+  ],
+  "commit": {
+    "main_batch": "fa3ae7c（9 files changed, 6998 insertions(+), 724 deletions(-)）",
+    "files": [
+      "README.md",
+      "README.zh-CN.md",
+      "holoaeon/palette_gate.py",
+      "holoaeon/cinema_gate.py",
+      "data/cinema_palettes.json",
+      "data/cinema_palette_aux.json",
+      "tests/test_v54_palette_enhance.py",
+      "holoaeon/spec.py",
+      "tests/test_v22_eng_skills.py"
+    ]
+  }
+}
