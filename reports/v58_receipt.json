@@ -1,0 +1,163 @@
+{
+  "batch": "V58-ORG-GATE",
+  "status": "closed",
+  "date": "2026-11-12",
+  "seal": "潮起开门，潮落闭嘴",
+  "head": "PENDING_COMMIT",
+  "prev_head_short": "f503ef6",
+  "prev_head_full": "f503ef6a4e8624170401d2a32b49c2820ebb7ae1",
+  "doc_version": "0.9.52",
+  "ring": 21,
+  "batch_kind": "code batch（新增 org_gate 两件；不动 VERSION=0.9.1 / layers=8 / PACK_ORDER=9 / EXTRA_PACK_ORDER=19）",
+  "source": "ORG-02 组织化推进包四人组扬弃后的可测子集：取五岗编制（仓主≠记录员）/ 任务卡 Schema（assignee≠acceptor）/ 资源调拨优先级公式与五规则 / 适配十态状态机 + 三边界 / C03 G-M 六判据三态 / 耗散五要件 + D1–D6 口径 / B0–B6 深化批次表；弃从零建仓叙事（18 仓已建成→深化批次口径，弃因留痕入 check_batches().note）/ 108641 共振带配额（数字挪用，RESOURCES_REJECTED 六元组留痕）/ git_batch_create.sh（建仓已由 create_repos_v55.py 完成）/ D1–D6 无流假报（compute_dissipation 无流返回 measured=False）",
+  "source_package": {
+    "file": "AGENT_FEED_V58_ORG_GATE_20261112.md",
+    "bytes": 52143,
+    "lines": 1087,
+    "structure": "两块 = 外层 ````markdown 围栏内嵌内层 ```python 代码围栏（双层围栏结构）"
+  },
+  "files_landed": [
+    "holoaeon/org_gate.py",
+    "tests/test_v58_org_gate.py",
+    "README.zh-CN.md",
+    "README.md",
+    "holoaeon/spec.py（仅 DOC_VERSION 0.9.51→0.9.52）",
+    "tests/test_v22_eng_skills.py（DOC 断言同步 0.9.52）",
+    "reports/v58_receipt.json"
+  ],
+  "byte_identity": {
+    "expect": "2/2",
+    "measured": "2/2 MATCH",
+    "block_a": {
+      "target": "holoaeon/org_gate.py",
+      "bytes": 30391,
+      "lines": 619,
+      "sha16": "39c2b94c16b5c5fb"
+    },
+    "block_b": {
+      "target": "tests/test_v58_org_gate.py",
+      "bytes": 13021,
+      "lines": 348,
+      "sha16": "5b771620c2db4300"
+    },
+    "basis": "围栏内容去掉内层 ```python 首行与末尾 ``` 行（as-is 30505/13035 与期望差 14 字节 2 行，差量恰为内层代码围栏标记；去掉后逐字节命中，写回不回加换行）",
+    "readback": "两文件写盘后重新读回重算 sha16，均与期望一致"
+  },
+  "tests": {
+    "v58_module": "56 OK",
+    "eight_suites": "354 = V51 47 + V51R 45 + V52 35 + V53 37 + V54 33 + V55 47 + V56 54 + V58 56",
+    "main_discover": 932,
+    "expect_main_discover": "932 = 876 + 56（实测一致）"
+  },
+  "org": {
+    "teams": 18,
+    "roles": 5,
+    "resources": 5,
+    "adapter_states": 10,
+    "dissipation_metrics": 6,
+    "batches": 7
+  },
+  "c03_gate": {
+    "states": "同构校验 PASS / 回滚 PASS / 12 通道 WAIT / 事件传播 WAIT / 阻塞机制 WAIT / 衰减与终止 WAIT",
+    "hard_rule": "C03 未过 G-M 前禁止启动任何深化批次（素材原文留痕）",
+    "verdict": "pass=False（三态诚实注册，未落地项不虚报）"
+  },
+  "cli_readback": {
+    "run": {
+      "exit": 0,
+      "self_check_pass": true,
+      "checks": "team/task_card/arbiter/adapter/batches 全 True",
+      "dissipation_measured": false
+    },
+    "probe": {
+      "exit": 0,
+      "note": "fingerprint: module=org_gate / ring=21 / adapter_states=10 / dissipation_metrics=6"
+    },
+    "teams": {
+      "exit": 0,
+      "note": "18 组逐行输出，owner=None（未实员指派即未上岗，零虚构）"
+    },
+    "batches": {
+      "exit": 0,
+      "note": "B0=C03 先行（单仓例外），B1–B6 各 2–3 仓，18 仓全覆盖一次"
+    },
+    "dissipation": {
+      "exit": 0,
+      "note": "耗散五要件 + D1–D6 指标口径输出"
+    }
+  },
+  "verification": {
+    "selftest": "25/25",
+    "v3_gate": "32/32 PASS",
+    "unittest_main": 932,
+    "unittest_v3": 11,
+    "unittest_verax": 21,
+    "total": 964,
+    "redline": {
+      "files": 137,
+      "violations": 0
+    },
+    "dimension_lock": "PASS（12 维度 + 7 闸 + 0 violation）",
+    "py38": {
+      "parsed": 329,
+      "failures": 0
+    },
+    "check_sums": {
+      "ok": true,
+      "total": 250,
+      "mismatches": []
+    },
+    "bench_diff0": {
+      "run1": "6d119b2a9f2df687",
+      "run2": "6d119b2a9f2df687",
+      "tampered": "8f424d9ee3ebfb9b",
+      "equal": true,
+      "sensitive": true,
+      "cold_build_ms": 31.93,
+      "peak_mib": 1.69
+    },
+    "readme_claims_gate": {
+      "verdict": "PASS",
+      "mismatch": 0,
+      "stale_header": 0,
+      "measured_unittest_main": 932,
+      "measured_redline_files": 137
+    }
+  },
+  "readme_sync": {
+    "zh": {
+      "badge": "tests-932%2B11%2B21",
+      "totals": "932 OK / 合计 964",
+      "gate_row": "unittest 932 OK / redline 137",
+      "section_title": "四件套 · 落地态对账",
+      "rows_added": "组织（ORG-02）ring21 一行（表 3 行→4 行）"
+    },
+    "en": {
+      "badge": "tests-932%2B11%2B21",
+      "totals": "932 OK / 964 total",
+      "gate_row": "unittest 932 OK / redline 137",
+      "section_title": "Quartet · landing-status ledger",
+      "rows_added": "Organization (ORG-02) ring21"
+    },
+    "note": "双 README 徽章 / 合计 / 门禁三处数字同批全改 + 巨表加 ring21 行 + 最新批次行换 V58；每处替换带 count==1 断言"
+  },
+  "honest_boundary": [
+    "包内块为双层围栏（外层 ````markdown + 内层 ```python）：实测 as-is 比期望多 14 字节 2 行，差量恰为内层代码围栏标记；以『去围栏标记后逐字节』为落盘口径，两块 sha16 命中（30391/619、13021/348），行数与包内声明完全一致。",
+    "C03 G-M 六判据中四项（12 通道 / 事件传播 / 阻塞机制 / 衰减与终止）仍 WAIT——依赖领域实现与连通件，本批只做组织件，不为未落地项签字。",
+    "compute_dissipation 在无真实输入流时返回 measured=False，D1/D2 只在给定 flows/edge_changes 时确定性可测——本批不产出耗散『实测数据』，避免零虚构。",
+    "B0–B6 只建表与全覆盖校验，不执行任何深化批次（C03 未过 G-M 硬约束）；18 小组 owner 全为 None（未实员指派）。",
+    "SHA256SUMS 250 条未覆盖本批新增两件（org_gate.py / test_v58_org_gate.py），V55 c18_cluster、V56 continuity_gate 同样不在清单内——属既有清单口径（清单只钉固定输入侧集），本批不重建清单；新增件的完整性以包内声明 sha16 + 落盘回读 sha16 双证。",
+    "bench 自跑改 benchmarks/README.md 与 results-0.9.1.json，已 git checkout -- 还原，不入本批提交。"
+  ],
+  "not_committed": [
+    "AGENT_FEED_V58_ORG_GATE_20261112.md（投喂包，DNA 约定不入库；_DONE 后缀由投喂侧补）",
+    "AGENT_FEED_V59_TENSOR_GATE_20261112.md（下一批包，同约定）",
+    "AGENT_FEED_V56_*.md / AGENT_FEED_V57_*.md（历史包，同约定）",
+    "reports/state_beacon.json（灯塔，untracked 惯例）",
+    "五地回执与门禁日志（仓外 holoaeon_lathe/）"
+  ],
+  "five_site": {
+    "status": "pending"
+  },
+  "verdict": "PASS"
+}
