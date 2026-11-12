@@ -1,0 +1,112 @@
+{
+ "batch": "V52-CINEMA-GATE",
+ "seal": "潮起开门，潮落闭嘴",
+ "date": "2026-11-12",
+ "head": null,
+ "head_note": "单批单提交：回执随提交落盘，提交时 HEAD 尚未生成，故记 null；真实 HEAD 见 `git log -1 --format=%H` 与 holoaeon_memory/version_history.json history[70]",
+ "prev_head": "fd31369",
+ "doc_version": "0.9.46",
+ "doc_version_note": "包内 §1 与 §8-G 声明 0.9.44→0.9.45，但同句括号注明「与 V51R 同目标——若 V51R 已先执行则 0.9.45→0.9.46，以实时 DOC 为准」；实测 V51R 已于 fd31369 落地、spec 当时为 0.9.45，故本批定口径 0.9.45→0.9.46",
+ "ring": 18,
+ "domain": "影像（导演视觉风格域）",
+ "mechanism": "meridian（风格轴与类轴分离检索＝经络分经别络的同构：类别定经、风格定脉、名轴独立不混流）",
+ "source": "《导演视觉风格色卡》第 3-4 期 整合版（全 200 位）.md（59798 B，导出自飞书文档 wvybc6v6ip/docx/HgcMdqGjMoIzpdxNAO2cy8Vgngc）；素材链路如实记录：飞书三条链路全阻（用户 OAuth 被组织安全策略拦截 / bot 被数据安全策略拦截 21001 / 匿名仅首屏）→ 碳基手动导出 zip 投喂 → 解析一次通过",
+ "four_invariants": {
+  "思维模式": "蒸馏-扬弃-装配",
+  "维度": "不变（VERSION 0.9.1 / BUILTIN_LAYERS L1-L8 / layers 8 / PACK_ORDER 9（25/47）/ EXTRA_PACK_ORDER 19 全未动）",
+  "工程方式": "实验田→逐字节→回执",
+  "张量向量耦合": "hypervector.HypervectorSpace 为载体 + semvec.tokenize 确定性分词"
+ },
+ "files_landed": [
+  "data/cinema_directors.json",
+  "holoaeon/cinema_gate.py",
+  "tests/test_v52_cinema_gate.py"
+ ],
+ "files_touched_existing": 4,
+ "files_touched_existing_list": [
+  "holoaeon/spec.py",
+  "tests/test_v22_eng_skills.py",
+  "README.md",
+  "README.zh-CN.md"
+ ],
+ "components": [
+  "DirectorEntry",
+  "DirectorIndex",
+  "StyleTensor",
+  "CinemaGate"
+ ],
+ "components_note": "DirectorIndex = 200 位结构化索引（id/name/category/style/works/tags + 源指针），类轴 by_category、名轴 by_name 独立，不混入风格打分；StyleTensor = 风格张量检索（HRR 绑定/叠加，确定性零随机）；CinemaGate = 总闸（probe/run/fingerprint 三命令）",
+ "pointer_discipline": {
+  "ASSET_POINTERS": "202 张图片不入仓，只登记指针（留外部素材目录 F:/doubaowork/.tmp_v52_in/）",
+  "prompts": "四套提示词文件碳基未提供，本批不含、不虚构",
+  "color_values": "逐色色值在图片色卡内，本批不 OCR"
+ },
+ "tests": "test_v52_cinema_gate 35/35 OK（4.071s；包内称 4.6s）· 主套 705 OK（670+35，与包内「V51R 已执行时 670+35=705」预期一致）· v3 11 OK · verax 21 OK · 合计 737",
+ "cli_smoke": "probe/run/fingerprint 三命令 exit 0；probe top=样例乙 0.3229；run「霓虹暗夜城市」self_check.ok=True、ring=18、五项检查全 True、Top1=006 雷弗恩 0.2246（次位 013 阿贝尔·费拉拉 0.2229、112 肯尼斯·安格 0.1488、026 迈克尔·曼 0.1284、028 押井守 0.1217），与包内「Top1 应为 006 雷弗恩」完全吻合；fingerprint categories=10、sha256=342cc8dfc31501a484971b5e29c787add03f195e5ba9c4efa582f863eb47ae30",
+ "redline": "133 文件 0 违规（实跑回读；130→133 = V51 +circuit_gate、V51R +hardware_gate、V52 +cinema_gate）",
+ "py38": "parsed=320 py38_syntax_failures=0",
+ "check_sums": "ok=true total=250 mismatches=[]",
+ "readme_claims": "PASS mismatch=0 stale_header=0（仓外复算闸 readme_claims_check.py 实跑回读：徽章 tests-705%2B11%2B21 · 工程验收 705 OK/合计 737 · 门禁 unittest 705 OK/redline 133 文件 0 违规 · 清单 250 条 0 不匹配 · 宣言头回读式）",
+ "selftest": "25/25 PASS",
+ "v3_gate": "32/32 PASS（无参跑；带 --json 会 argparse 报错）",
+ "five_site": {
+  "S1": "本提交（见 git log -1）",
+  "S2": "pending-at-commit-time",
+  "S3": "pending-at-commit-time",
+  "S4": "pending-at-commit-time",
+  "S5": "pending-at-commit-time"
+ },
+ "five_site_note": "回执随提交落盘，此刻五地尚未推送；实测值记入仓外报告 F:\\doubaowork\\holoaeon_lathe\\五地同步回执_V52_20261112.md 与仓外台账",
+ "dimension_check": {
+  "VERSION": "0.9.1",
+  "layers": 8,
+  "PACK_ORDER": 9,
+  "EXTRA_PACK_ORDER": 19,
+  "diff0": "6d119b2a9f2df687",
+  "verdict": "PASS（12 维度 / 7 闸 / 0 violation；SNAPSHOT 项 spec_doc_version 冻结=0.9.4 当前=0.9.46 ← 演进正常）"
+ },
+ "diff0_dual_caliber": {
+  "judge": "bench 16 步 run1=run2=6d119b2a9f2df687，拦截 16/16，冷装配 30.45ms / 峰值 1.69MiB",
+  "annotation": "2fc892cf9af6e755 是 V1 黄金注释值（写在 spec.py 与 D09），口径为「VERSION/RUNTIME_ID 不许动」，与 bench 判据不可互比",
+  "side_effect": "bench 自跑改 benchmarks/README.md 与 benchmarks/results-0.9.1.json，已 git checkout -- 还原，不进本批提交"
+ },
+ "deviations": [
+  {
+   "id": "D-52-01",
+   "where": "holoaeon/cinema_gate.py:419（原 418）",
+   "what": "__import__(\"sys\").argv[1:] → sys.argv[1:]",
+   "why": "redline 判 dangerous_call（首跑 133 文件 1 违规、exit 1），零违规门禁必须过",
+   "impact": "行为等价；复跑 redline 干净、35 例仍 OK、CLI probe 仍 exit 0"
+  },
+  {
+   "id": "D-52-02",
+   "where": "holoaeon/cinema_gate.py:32（import 区）",
+   "what": "顶部补 `import sys`",
+   "why": "原包正文仅在 _main 内局部 import sys；改用模块级 sys 后必须显式导入（局部 import 保留不动）",
+   "impact": "补齐显式依赖"
+  }
+ ],
+ "byte_identity": {
+  "cinema_gate_as_packaged": "e6cef39b3389c905",
+  "cinema_gate_after_deviation": "1B368E12C26432CE",
+  "test_v52_as_packaged": "24459DD483C390F0",
+  "test_v52_after_deviation": "24459DD483C390F0",
+  "json_as_packaged": "2CD462776C6DB1B6",
+  "json_after_deviation": "2CD462776C6DB1B6",
+  "note": "三件逐字节落盘（围栏提取 + 包行尾 LF），首轮 sha16 三指纹一次命中；模块件因两处最小偏离变化（17684 → 17681 B），测试件与数据件逐字节一致"
+ },
+ "honesty_boundaries": [
+  "data/cinema_directors.json 原样保留源 Markdown 残留转义（`让\\-皮埃尔·热内`、`WALL\\-E`、`1917\\(摄影\\)` 等），JSON 解析后字符串含反斜杠；为保 sha16 一致不清理，登记为已知锐边",
+  "156 号 name 原文残缺为「等」（源数据 bug），未修、原样保留",
+  "包内称 35 例耗时 4.6s，实测 4.071s；以实测为准",
+  "concept_anatomy.py::verify_doc_version token 停在 0.9.33、tests/test_v19_concept_anatomy.py:36 断言同为 0.9.33 —— 二者自洽且比当前 DOC 落后 12 个小版本，说明 V34 之后批次已改为「只改 spec.py + test_v22」口径；本批沿用，不动该 token（避免制造单套一红）",
+  "五地同步在回执落盘时尚未执行，S2/S3/S4/S5 记 pending，实测值另见仓外回执"
+ ],
+ "feed_corrections": [
+  "DOC_VERSION 口径：包内 §1/§8-G 主陈述为 0.9.45，依其自带条件分支（V51R 已先执行）改判 0.9.46 —— 按包内救济条款执行，非偏离",
+  "REDLINE：包内代码第 418 行 `__import__(\"sys\")` 违背仓内红线（dangerous_call），按「语义正确 + 门禁全绿」最小改动，登记 D-52-01/D-52-02，并接受模块件 sha16 偏离",
+  "包内未声明 V52 需补进 README 门禁行的用例清单，实际已补 `test_v52_cinema_gate` 35 例（两份 README 同步）"
+ ],
+ "v53_handover": "V53 候选：色卡色值层（主色 40% + 辅色 20-30% + 点缀 5%）——须新投喂包；另挂账 SAME_AS-06 = C 继续挂账、SBOM/SLSA + 语义三通道对照须新投喂包方可开工",
+ "verdict": "PASS"
+}
