@@ -1,0 +1,400 @@
+{
+  "batch": "V69",
+  "name": "prehistory-semantic-bridge",
+  "status": "closed",
+  "date": "2026-11-12",
+  "head": "",
+  "head_pre": "cc5b384be881cee610b500eb9cc7408b6685c9f1",
+  "doc_version": {
+    "from": "0.9.62",
+    "to": "0.9.63"
+  },
+  "frozen_dimensions": {
+    "VERSION": "0.9.1",
+    "MATRIX_ID": "HOLOAEON-MATRIX-0.9.1",
+    "RUNTIME_ID": "HOLOAEON-RUNTIME-0.9.1",
+    "PROTOCOL_ID": "HOLOAEON-DATAPROTO v1.0",
+    "BUS_ID": "HOLOAEON-BUS-v1.0",
+    "BUILTIN_LAYERS": "L1-L8",
+    "PACK_ORDER": 9,
+    "EXTRA_PACK_ORDER": 19,
+    "verify_false": [
+      "D02",
+      "D05",
+      "D06",
+      "D07"
+    ],
+    "diff0_comment": "2fc892cf9af6e755",
+    "tamper": "f42c8229ee5acd73",
+    "zip_sha16": "a87fa921bf963fa1"
+  },
+  "carbon_order": {
+    "source": "收口报告第 1 项下一批候选 = S3 语义桥（PL-3，领域语义卡与磁吸附修复器）",
+    "scope": "只做 PL-3，不动 PL-1/PL-2 已落模块，不动 forge_absorb 本体",
+    "product": "semantic_bridge（holoaeon/prehistory_semantic_bridge.py）+ 领域语义卡库 + 测试",
+    "fail_criteria": "15 样本零分退化数下降 / 同输入同吸附 / 不引入 LLM",
+    "home_cang": "C03 经络 / C11 意义（策划案标注的枢纽层）——本批按词表命中落到各仓，未强制集中到该两仓"
+  },
+  "patches": [
+    {
+      "file": "holoaeon/prehistory_semantic_bridge.py",
+      "new": true,
+      "role": "PL-3 语义桥：双侧显式词表桥接 + 桥前/桥后双列对照 + 四失败面 + 自摘要",
+      "read_only": true
+    },
+    {
+      "file": "tests/test_v69_semantic_bridge.py",
+      "new": true,
+      "role": "43 例：卡片识别 / 与旧口径同源 / 零分下降 / 四失败面各自可触发 / 固定 / 零副作用 / DOC 与维度"
+    },
+    {
+      "file": "holoaeon/spec.py",
+      "new": false,
+      "role": "DOC_VERSION 0.9.62 -> 0.9.63"
+    },
+    {
+      "file": "tests/test_v22_eng_skills.py",
+      "new": false,
+      "role": "DOC 断言 0.9.63（唯一精确权威点）"
+    },
+    {
+      "file": "tests/test_v64_hangover_zero.py",
+      "new": false,
+      "role": "DOC 断言 0.9.63"
+    },
+    {
+      "file": "tests/test_v68_prehistory_ledger.py",
+      "new": false,
+      "role": "V68 的 DOC 精确断言改为「不低于 0.9.62」下界，避免每批追加扫描"
+    },
+    {
+      "file": "README.md",
+      "new": false,
+      "role": "徽章 1573 / 最新批次 V69 / 门禁 1573·150 + V69 43 例 / 上一批次 V68"
+    },
+    {
+      "file": "README.zh-CN.md",
+      "new": false,
+      "role": "徽章 / 验收行 1573·1605 / 最新批次 V69 / 门禁 1573·150 / 上一批次 V68"
+    },
+    {
+      "file": "reports/five_site_manifest.json",
+      "new": false,
+      "role": "改文档与新增源码后重建 list"
+    }
+  ],
+  "measurements": {
+    "baseline_name_only": {
+      "samples": 15,
+      "zero": 13,
+      "zero_ratio": 0.8667,
+      "cang_distribution": "13 个零分全部平票兜底到 C01（仓名最小），仅 AI教育大师->C05 0.0800、潮起邮差->C18 0.0500",
+      "input": "仅项目名（description/tags 为空）"
+    },
+    "bridged": {
+      "zero": 1,
+      "zero_ratio": 0.0667,
+      "zero_after_max_cap": 1,
+      "known_vacuum": [
+        "SG-MASTER-SONGJIANG"
+      ],
+      "cang_changed": 12,
+      "no_card": 1,
+      "report_digest": "45f5cebf4f2f5a57"
+    },
+    "lexicon": {
+      "rules": 14,
+      "asset_terms_total": 90,
+      "cang_terms_total": 83,
+      "principle": "只收区分性词；1331/矩阵/runtime/SUPER-MAS 等通用尾巴一律不入表"
+    },
+    "rows": [
+      {
+        "asset": "总沙盘母体Arena1331x1331多智能体矩阵V3实战化_20261024",
+        "labels": [
+          "cosmos"
+        ],
+        "base_cang_score": [
+          "holoaeon-c01-source",
+          0.0
+        ],
+        "bridge_cang_score": [
+          "C18",
+          0.1463
+        ],
+        "delta": 0.1463,
+        "changed": true
+      },
+      {
+        "asset": "王静斋V3.0_runtime_独立验证与安全审计报告_20261018.md",
+        "labels": [
+          "risk_legal"
+        ],
+        "base_cang_score": [
+          "holoaeon-c01-source",
+          0.0
+        ],
+        "bridge_cang_score": [
+          "C15",
+          0.1538
+        ],
+        "delta": 0.1538,
+        "changed": true
+      },
+      {
+        "asset": "天元法务金刚1331x1331超级矩阵V3实战化_20261018",
+        "labels": [
+          "risk_legal"
+        ],
+        "base_cang_score": [
+          "holoaeon-c01-source",
+          0.0
+        ],
+        "bridge_cang_score": [
+          "C15",
+          0.0506
+        ],
+        "delta": 0.0506,
+        "changed": true
+      },
+      {
+        "asset": "超级办公之王1331x1331超级矩阵V3实战化_20261020",
+        "labels": [
+          "career"
+        ],
+        "base_cang_score": [
+          "holoaeon-c01-source",
+          0.0
+        ],
+        "bridge_cang_score": [
+          "C06",
+          0.0556
+        ],
+        "delta": 0.0556,
+        "changed": true
+      },
+      {
+        "asset": "隐私门控路由本地化1331x1331多智能体矩阵V3实战化_20261031",
+        "labels": [
+          "risk_legal"
+        ],
+        "base_cang_score": [
+          "holoaeon-c01-source",
+          0.0
+        ],
+        "bridge_cang_score": [
+          "C15",
+          0.092
+        ],
+        "delta": 0.092,
+        "changed": true
+      },
+      {
+        "asset": "AI教育大师每日课程",
+        "labels": [
+          "education"
+        ],
+        "base_cang_score": [
+          "holoaeon-c05-education",
+          0.08
+        ],
+        "bridge_cang_score": [
+          "C05",
+          0.2449
+        ],
+        "delta": 0.1649,
+        "changed": false
+      },
+      {
+        "asset": "认知主权1331x1331多智能体矩阵V3实战化_20261030",
+        "labels": [
+          "sovereign"
+        ],
+        "base_cang_score": [
+          "holoaeon-c01-source",
+          0.0
+        ],
+        "bridge_cang_score": [
+          "C01",
+          0.1096
+        ],
+        "delta": 0.1096,
+        "changed": false
+      },
+      {
+        "asset": "世界考古大师1331x1331超级矩阵V3实战化_20261020",
+        "labels": [
+          "time_arch"
+        ],
+        "base_cang_score": [
+          "holoaeon-c01-source",
+          0.0
+        ],
+        "bridge_cang_score": [
+          "C13",
+          0.0548
+        ],
+        "delta": 0.0548,
+        "changed": true
+      },
+      {
+        "asset": "潮起邮差_四重宇宙创作工坊_20261019",
+        "labels": [
+          "cosmos",
+          "creation"
+        ],
+        "base_cang_score": [
+          "holoaeon-c18-cosmos",
+          0.05
+        ],
+        "bridge_cang_score": [
+          "C08",
+          0.1791
+        ],
+        "delta": 0.1291,
+        "changed": true
+      },
+      {
+        "asset": "儒释道三教合一1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+        "labels": [
+          "meaning"
+        ],
+        "base_cang_score": [
+          "holoaeon-c01-source",
+          0.0
+        ],
+        "bridge_cang_score": [
+          "C11",
+          0.1042
+        ],
+        "delta": 0.1042,
+        "changed": true
+      },
+      {
+        "asset": "数学大师1331_数学史早课",
+        "labels": [
+          "education",
+          "craft_math"
+        ],
+        "base_cang_score": [
+          "holoaeon-c01-source",
+          0.0
+        ],
+        "bridge_cang_score": [
+          "C05",
+          0.1132
+        ],
+        "delta": 0.1132,
+        "changed": true
+      },
+      {
+        "asset": "海派中医全派1331x1331超级矩阵V3_runtime_v3.zip",
+        "labels": [
+          "meridian_med"
+        ],
+        "base_cang_score": [
+          "holoaeon-c01-source",
+          0.0
+        ],
+        "bridge_cang_score": [
+          "C03",
+          0.0253
+        ],
+        "delta": 0.0253,
+        "changed": true
+      },
+      {
+        "asset": "SG-MASTER-SONGJIANG-1331x1331-SUPER-MAS-V3.0_runtime_20261019.zip",
+        "labels": [],
+        "base_cang_score": [
+          "holoaeon-c01-source",
+          0.0
+        ],
+        "bridge_cang_score": [
+          "C01",
+          0.0
+        ],
+        "delta": 0.0,
+        "changed": false
+      },
+      {
+        "asset": "吴门医派1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+        "labels": [
+          "meridian_med"
+        ],
+        "base_cang_score": [
+          "holoaeon-c01-source",
+          0.0
+        ],
+        "bridge_cang_score": [
+          "C03",
+          0.0217
+        ],
+        "delta": 0.0217,
+        "changed": true
+      },
+      {
+        "asset": "张量拆解双王矩阵实战化_20261017",
+        "labels": [
+          "craft_math"
+        ],
+        "base_cang_score": [
+          "holoaeon-c01-source",
+          0.0
+        ],
+        "bridge_cang_score": [
+          "C14",
+          0.1
+        ],
+        "delta": 0.1,
+        "changed": true
+      }
+    ]
+  },
+  "verification": {
+    "selftest": "25/25",
+    "v3_gate": "32/32",
+    "unittest_main": 1573,
+    "unittest_v3": 11,
+    "unittest_verax": 21,
+    "v69_cases": 43,
+    "redline_files": 150,
+    "redline_violations": 0,
+    "dimension_lock": "PASS (12 dims / 7 gates / 0 violation; spec_doc_version 0.9.4 -> 0.9.63 演进正常)",
+    "diff0": {
+      "verdict": "DIFF=0",
+      "run1": "6d119b2a9f2df687",
+      "run2": "6d119b2a9f2df687",
+      "tampered": "8f424d9ee3ebfb9b",
+      "intercept": "16/16",
+      "release": "4/4",
+      "cold_build": "30.65ms",
+      "peak": "1.69MiB"
+    },
+    "five_site_dna_build": {
+      "package": 28,
+      "repo": 171,
+      "missing": 0,
+      "zip_sha16": "a87fa921bf963fa1"
+    },
+    "verify_v44": "13/13 (A1-A13 PASS)",
+    "readme_claims": "VERDICT PASS | mismatch=0 stale_header=0",
+    "check_sums": "ok=true total=250 mismatches=[]"
+  },
+  "not_committed": [
+    "AGENT_FEED_V68_DONE_PREHISTORY_LEDGER_20261112.md 等 AGENT_FEED_*.md（DNA 约定不提交）",
+    "reports/state_beacon.json（灯塔，untracked）",
+    "reports/daily_gate_*.json / daily_baseline_*.md（过程产物）",
+    "holoaeon_lathe 下全部证据（v69_probe.py / v69_baseline.json / v69_receipt.py / ANCHOR_*.md）"
+  ],
+  "honest_boundaries": [
+    "**基线口径冲突已如实登记，不挑好看的那个**：本机实测 name-only 口径 15 样本零分 13 个（86.7%）；策划案记 4 个（26.7%，覆盖 11/18 仓）是「带 description+tags」的另一输入口径。两个数都真、不可互比；本批判据以实测 13 为分母，一旦这个数变了即判 baseline_drift。",
+    "**词表是先验，不是理解**：桥不读资产内容、不做词干化、不做同义扩展、不做推理；命中是子串命中，未命中就是无证据。桥能救的是「名字里有线索但词面不匹配」，救不了「名字里根本没有领域信息」。",
+    "**维度真空不伪装修复**：SG-MASTER-SONGJIANG 桥后仍 0 分，登记 KNOWN_VACUUM。要救它必须引入「松江=海派中医」这类外部世界知识，那已经是 LLM 式推理，越过本批判据，故不做。",
+    "**零分降到 1 不等于归属正确**：桥给出的是「词汇最近」，不是「语义正确」。数学大师落 C05 教育 / C14 技艺，两者都比原来的 C09 关系更近，但哪个才对仍需碳基裁；本批不宣称修好了分类学。",
+    "**未改 forge_absorb 一行**：桥是并列口径（另一组分数与记录），旧语义零破坏；若日后要把桥接分并入 forge_absorb 主路，那是改既有 18 仓吸附结果的语义变更，须单独一批并重新评估全部既有下游。",
+    "**V68 的 DOC 断言由精确降为下界**：唯一精确权威点仍是 tests/test_v22_eng_skills.py；V68 断言改为「不低于 0.9.62」以避免每批追加扫描，属显式的判据弱化，记录在此备查。",
+    "桥的 43 例中含 4 例源码静态扫描（禁 write/subprocess/socket/eval/exec/compile），是「没有副作用」的静态证据，不是运行期证明。"
+  ],
+  "seal": "潮起开门，潮落闭嘴"
+}

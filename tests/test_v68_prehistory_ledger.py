@@ -416,9 +416,11 @@ class TestNoSideEffects(unittest.TestCase):
 class TestDocAndDimensions(unittest.TestCase):
     """组 6b：DOC 与冻结维度同源"""
 
-    def test_doc_version_is_v68(self):
+    def test_doc_version_at_or_past_v68(self):
+        # V69 起 DOC 继续前移；本断言只保证不倒退到 V68 之前
         from holoaeon import spec
-        self.assertEqual(spec.DOC_VERSION, "0.9.62")
+        parts = [int(x) for x in spec.DOC_VERSION.split(".")]
+        self.assertGreaterEqual(parts, [0, 9, 62])
 
     def test_version_frozen(self):
         from holoaeon import spec

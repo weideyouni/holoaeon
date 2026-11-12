@@ -32,7 +32,7 @@ VERSION = "0.9.1"
 # VERSION / RUNTIME_ID 会写进每条回执并参与 ReproHash，改动即等于让 DIFF=0 黄金值
 # （2fc892cf9af6e755）漂移，与"V1 黄金值不许漂移"的硬口径冲突。
 # 因此 V2 的版本号单独记在 DOC_VERSION，供文档/快照/徽章使用。
-DOC_VERSION = "0.9.62"  # V68 史前记忆打捞批（PL-1 指针总账：590 项顶层 / 第一批 304 项 10,174 文件 / 分类继承 V1 只改判 7 项活设施 · PL-2 骨架契约：22 实例 / 19 位同构 / 65 交集签名 / assert 0-96 合计 1410 且登记 1 个零断言实例 · 零搬动零网络）
+DOC_VERSION = "0.9.63"  # V69 领域语义桥批（PL-3 语义桥：15 样本零分兜底 13→1，仅剩 1 例已登记的维度真空；桥只加两侧显式词表，打分函数与 tie-break 一字未动；数学大师不再落 C09；四失败面可判 FAIL）
 MATRIX_ID = "HOLOAEON-MATRIX-0.9.1"
 RUNTIME_ID = "HOLOAEON-RUNTIME-0.9.1"
 PROTOCOL_ID = "HOLOAEON-DATAPROTO v1.0"
