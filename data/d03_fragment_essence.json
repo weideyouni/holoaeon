@@ -1,0 +1,130 @@
+{
+ "schema": "D03-FRAGMENT-ESSENCE-v1.0",
+ "batch": "V64-HANGOVER-ZERO",
+ "dom": "D03 经络维 10 碎片证据源（供 214 格 pending 复核）",
+ "note": "official_desc 为打捞回执落盘的官方仓库描述原文；不新增、不改写、不估算",
+ "fragments": 10,
+ "rows": [
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "leg": "编排",
+   "stars": 60807,
+   "language": "Python",
+   "license": "MIT",
+   "last_commit": "2026-11-12",
+   "official_desc": "Framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers agents to work together seamlessly, tackling complex tasks.",
+   "essence": null,
+   "source": "holoaeon_lathe/d03_salvage_D03_20261112.json（V60 打捞回执，V61/V62 入仓口径）"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "leg": "总线",
+   "stars": 34214,
+   "language": "Java",
+   "license": "Apache-2.0",
+   "last_commit": "2026-11-12",
+   "official_desc": "Apache Kafka - A distributed event streaming platform",
+   "essence": "分布式追加日志式事件平台。以分区日志承接生产与消费两端，解决高吞吐事件的持久化与多消费方解耦。",
+   "source": "holoaeon_lathe/d03_salvage_D03_20261112.json（V60 打捞回执，V61/V62 入仓口径）"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "leg": "编排",
+   "stars": 30031,
+   "language": "TypeScript",
+   "license": "NOASSERTION",
+   "last_commit": "2026-11-12",
+   "official_desc": "FastGPT is a knowledge-based platform built on the LLMs, offers a comprehensive suite of out-of-the-box capabilities such as data processing, RAG retrieval, and visual AI workflow orchestration, letting you easily develop and deploy complex question-answering systems without the need for extensive setup or configuration.",
+   "essence": null,
+   "source": "holoaeon_lathe/d03_salvage_D03_20261112.json（V60 打捞回执，V61/V62 入仓口径）"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "leg": "编排",
+   "stars": 30214,
+   "language": "Java",
+   "license": "Apache-2.0",
+   "last_commit": "2026-11-12",
+   "official_desc": "Orchestrate everything, everywhere. The open-source control plane for workflows across data, infrastructure, business processes and AI agents. Declarative YAML, event-driven, any language, Git-versioned, scalable to millions of executions.",
+   "essence": null,
+   "source": "holoaeon_lathe/d03_salvage_D03_20261112.json（V60 打捞回执，V61/V62 入仓口径）"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "leg": "编排",
+   "stars": 20058,
+   "language": "Python",
+   "license": "MIT",
+   "last_commit": "2026-11-12",
+   "official_desc": "High-performance AI pipeline engine with a C++ core and 50+ Python-extensible nodes. Build, debug, and scale LLM workflows with 13+ model providers, 8+ vector databases, and agent orchestration, all from your IDE. Includes VS Code extension, TypeScript/Python SDKs, and Docker deployment.",
+   "essence": null,
+   "source": "holoaeon_lathe/d03_salvage_D03_20261112.json（V60 打捞回执，V61/V62 入仓口径）"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "leg": "可观测",
+   "stars": 32598,
+   "language": "TypeScript",
+   "license": "NOASSERTION",
+   "last_commit": "2026-11-12",
+   "official_desc": "SigNoz is an open-source, OpenTelemetry-native observability platform for your team and their AI agents. Get logs, metrics, and traces in one tool with features like APM, distributed tracing, log management, infra monitoring, etc. Combined with SigNoz MCP and a native AI teammate (in SigNoz Cloud) it helps you build more resilient apps.",
+   "essence": null,
+   "source": "holoaeon_lathe/d03_salvage_D03_20261112.json（V60 打捞回执，V61/V62 入仓口径）"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "leg": "编排",
+   "stars": 26998,
+   "language": "Python",
+   "license": "Apache-2.0",
+   "last_commit": "2026-11-12",
+   "official_desc": "Open-source AI orchestration framework for building context-engineered, production-ready LLM applications. Design modular pipelines and agent workflows with explicit control over retrieval, routing, memory, and generation. Built for scalable agents, RAG, multimodal applications, semantic search, and conversational systems.",
+   "essence": null,
+   "source": "holoaeon_lathe/d03_salvage_D03_20261112.json（V60 打捞回执，V61/V62 入仓口径）"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "leg": "可观测",
+   "stars": 23403,
+   "language": "Go",
+   "license": "Apache-2.0",
+   "last_commit": "2026-11-11",
+   "official_desc": "CNCF Jaeger, a Distributed Tracing Platform",
+   "essence": null,
+   "source": "holoaeon_lathe/d03_salvage_D03_20261112.json（V60 打捞回执，V61/V62 入仓口径）"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "leg": "可观测",
+   "stars": 13877,
+   "language": "Java",
+   "license": "Apache-2.0",
+   "last_commit": "2026-11-12",
+   "official_desc": "APM, (Application Performance Management) tool for large-scale distributed systems. ",
+   "essence": null,
+   "source": "holoaeon_lathe/d03_salvage_D03_20261112.json（V60 打捞回执，V61/V62 入仓口径）"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "leg": "编排",
+   "stars": 14645,
+   "language": "Python",
+   "license": "MIT",
+   "last_commit": "2026-11-12",
+   "official_desc": "A framework for building, orchestrating and deploying AI agents and multi-agent workflows with support for Python and .NET.",
+   "essence": null,
+   "source": "holoaeon_lathe/d03_salvage_D03_20261112.json（V60 打捞回执，V61/V62 入仓口径）"
+  }
+ ],
+ "seal": "潮起开门，潮落闭嘴"
+}

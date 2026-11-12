@@ -1,0 +1,315 @@
+{
+ "schema": "PROTOCOL-GAP-ADAPTERS-v1.0",
+ "batch": "V64-HANGOVER-ZERO",
+ "dom": "12 协议缺口逐条落地（adapted/gap 两态）",
+ "hangover_origin": "V63 receipt：在册 12 / 缺口 12（回执 adapted_list 误填缺口清单，本批订正为两态明细）",
+ "catalog_source": "vector-sea/holoaeon-v4-cold-hot-plug/100_model_provider_catalog.json（SG-V44-MODEL-PROVIDER-CATALOG-V1，22 providers / 5 模型形状）",
+ "doc_sources": [
+  {
+   "platform": "xfyun",
+   "url": "https://www.xfyun.cn/doc/spark/HTTP调用文档.html",
+   "fetched_at": "2026-11-12"
+  },
+  {
+   "platform": "dify",
+   "url": "https://docs.dify.ai/zh-hans/guides/application-publishing/developing-with-apis",
+   "fetched_at": "2026-11-12"
+  },
+  {
+   "platform": "coze",
+   "url": "https://www.coze.cn/open/docs/developer_guides/chat_v3",
+   "fetched_at": "2026-11-12"
+  },
+  {
+   "platform": "n8n",
+   "url": "https://docs.n8n.io/api/api-reference/",
+   "fetched_at": "2026-11-12"
+  }
+ ],
+ "model_shapes": [
+  {
+   "id": "openai_chat",
+   "label": "OpenAI Chat Completions",
+   "shape": "messages[] + model"
+  },
+  {
+   "id": "anthropic_messages",
+   "label": "Anthropic Messages",
+   "shape": "system + messages[] + max_tokens"
+  },
+  {
+   "id": "google_gemini",
+   "label": "Google Gemini generateContent",
+   "shape": "contents[] + generationConfig"
+  },
+  {
+   "id": "bedrock_converse",
+   "label": "AWS Bedrock Converse",
+   "shape": "messages[] + inferenceConfig"
+  },
+  {
+   "id": "azure_openai",
+   "label": "Azure OpenAI (deployment)",
+   "shape": "deployment 替代 model + api-version"
+  }
+ ],
+ "platform_shapes": [
+  {
+   "id": "dify_chat",
+   "label": "Dify 对话应用",
+   "shape": "inputs + query + response_mode + conversation_id + user"
+  },
+  {
+   "id": "coze_chat",
+   "label": "Coze 发起对话 V3",
+   "shape": "bot_id + user_id + stream + additional_messages[]"
+  },
+  {
+   "id": "n8n_api",
+   "label": "n8n Public REST API",
+   "shape": "X-N8N-API-KEY + /api/v1 资源端点"
+  }
+ ],
+ "platforms": [
+  {
+   "id": "qwen",
+   "label": "阿里通义千问",
+   "kind": "大模型",
+   "provider_id": "qwen",
+   "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+   "base_url_env": "HOLOAEON_QWEN_BASE_URL",
+   "key_env": "HOLOAEON_QWEN_API_KEY",
+   "models": [
+    "qwen-max",
+    "qwen-plus",
+    "qwen-turbo"
+   ],
+   "status": "adapted",
+   "shape": "openai_chat",
+   "evidence": "provider 目录 qwen 条：DashScope 兼容模式即 OpenAI 形状",
+   "source_url": "vector-sea/holoaeon-v4-cold-hot-plug/100_model_provider_catalog.json"
+  },
+  {
+   "id": "doubao",
+   "label": "火山方舟 豆包",
+   "kind": "大模型",
+   "provider_id": "doubao",
+   "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+   "base_url_env": "HOLOAEON_DOUBAO_BASE_URL",
+   "key_env": "HOLOAEON_DOUBAO_API_KEY",
+   "models": [
+    "doubao-pro",
+    "doubao-lite",
+    "<endpoint id>"
+   ],
+   "status": "adapted",
+   "shape": "openai_chat",
+   "evidence": "provider 目录 doubao 条：方舟 v3 即 OpenAI 兼容端点",
+   "source_url": "vector-sea/holoaeon-v4-cold-hot-plug/100_model_provider_catalog.json"
+  },
+  {
+   "id": "volcengine",
+   "label": "火山引擎方舟（同源别名）",
+   "kind": "大模型",
+   "provider_id": "doubao",
+   "alias_of": "doubao",
+   "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+   "base_url_env": "HOLOAEON_DOUBAO_BASE_URL",
+   "key_env": "HOLOAEON_DOUBAO_API_KEY",
+   "models": [
+    "<endpoint id>"
+   ],
+   "status": "adapted",
+   "shape": "openai_chat",
+   "evidence": "volcengine 与 doubao 同属火山方舟同一端点族，复用 doubao 条目（别名登记，不另造凭据变量）",
+   "source_url": "vector-sea/holoaeon-v4-cold-hot-plug/100_model_provider_catalog.json"
+  },
+  {
+   "id": "wenxin",
+   "label": "百度文心千帆",
+   "kind": "大模型",
+   "provider_id": "baidu_qianfan",
+   "base_url": "https://qianfan.baidubce.com/v2",
+   "base_url_env": "HOLOAEON_QIANFAN_BASE_URL",
+   "key_env": "HOLOAEON_QIANFAN_API_KEY",
+   "models": [
+    "ernie",
+    "ernie-speed"
+   ],
+   "status": "adapted",
+   "shape": "openai_chat",
+   "evidence": "provider 目录 baidu_qianfan 条：v2 提供 OpenAI 兼容",
+   "source_url": "vector-sea/holoaeon-v4-cold-hot-plug/100_model_provider_catalog.json"
+  },
+  {
+   "id": "zhipu",
+   "label": "智谱 GLM",
+   "kind": "大模型",
+   "provider_id": "zhipu",
+   "base_url": "https://open.bigmodel.cn/api/paas/v4",
+   "base_url_env": "HOLOAEON_ZHIPU_BASE_URL",
+   "key_env": "HOLOAEON_ZHIPU_API_KEY",
+   "models": [
+    "glm-4",
+    "glm-4-flash"
+   ],
+   "status": "adapted",
+   "shape": "openai_chat",
+   "evidence": "provider 目录 zhipu 条：OpenAI 兼容",
+   "source_url": "vector-sea/holoaeon-v4-cold-hot-plug/100_model_provider_catalog.json"
+  },
+  {
+   "id": "ollama",
+   "label": "Ollama（本地运行时）",
+   "kind": "本地运行时",
+   "provider_id": "ollama",
+   "base_url": "http://localhost:11434/v1",
+   "base_url_env": "HOLOAEON_OLLAMA_BASE_URL",
+   "key_env": "HOLOAEON_OLLAMA_API_KEY",
+   "models": [
+    "llama3",
+    "qwen2.5",
+    "<本地已拉取模型>"
+   ],
+   "status": "adapted",
+   "shape": "openai_chat",
+   "evidence": "provider 目录 ollama 条：本地默认不需要 key（key_env 可留空）",
+   "source_url": "vector-sea/holoaeon-v4-cold-hot-plug/100_model_provider_catalog.json"
+  },
+  {
+   "id": "openai-compatible-generic",
+   "label": "通用 OpenAI 兼容网关",
+   "kind": "网关",
+   "provider_id": "custom",
+   "base_url": "https://<你的网关>/v1",
+   "base_url_env": "HOLOAEON_CUSTOM_BASE_URL",
+   "key_env": "HOLOAEON_CUSTOM_API_KEY",
+   "models": [
+    "<你的型号>"
+   ],
+   "status": "adapted",
+   "shape": "openai_chat",
+   "evidence": "provider 目录 custom 条：只要网关说 OpenAI 形状，本仓就能拼对请求",
+   "source_url": "vector-sea/holoaeon-v4-cold-hot-plug/100_model_provider_catalog.json"
+  },
+  {
+   "id": "xfyun",
+   "label": "讯飞星火",
+   "kind": "大模型",
+   "provider_id": null,
+   "base_url": "https://spark-api-open.xf-yun.com/v1",
+   "base_url_env": "HOLOAEON_XFYUN_BASE_URL",
+   "key_env": "HOLOAEON_XFYUN_API_KEY",
+   "models": [
+    "4.0Ultra",
+    "generalv3.5",
+    "max-32k",
+    "generalv3",
+    "pro-128k",
+    "lite"
+   ],
+   "status": "adapted",
+   "shape": "openai_chat",
+   "evidence": "讯飞官方 HTTP 文档：请求地址 https://spark-api-open.xf-yun.com/v1/chat/completions，请求头 Authorization: Bearer <APIPassword>，且明确「兼容 openAI SDK」（base_url 配 https://spark-api-open.xf-yun.com/v1/）",
+   "source_url": "https://www.xfyun.cn/doc/spark/HTTP调用文档.html"
+  },
+  {
+   "id": "dify",
+   "label": "Dify 应用平台",
+   "kind": "工作台",
+   "provider_id": null,
+   "base_url": "https://api.dify.ai/v1",
+   "base_url_env": "HOLOAEON_DIFY_BASE_URL",
+   "key_env": "HOLOAEON_DIFY_API_KEY",
+   "models": [
+    "<应用内配置>"
+   ],
+   "status": "adapted",
+   "shape": "dify_chat",
+   "endpoint": "/chat-messages",
+   "evidence": "Dify 官方《API 集成》：对话应用 POST /v1/chat-messages，body={inputs, query, response_mode, conversation_id, user}；文本生成 POST /v1/completion-messages；鉴权 Bearer <app key>",
+   "source_url": "https://docs.dify.ai/zh-hans/guides/application-publishing/developing-with-apis"
+  },
+  {
+   "id": "coze",
+   "label": "Coze 扣子平台",
+   "kind": "工作台",
+   "provider_id": null,
+   "base_url": "https://api.coze.cn/v3",
+   "base_url_env": "HOLOAEON_COZE_BASE_URL",
+   "key_env": "HOLOAEON_COZE_API_KEY",
+   "models": [
+    "<智能体内配置>"
+   ],
+   "status": "adapted",
+   "shape": "coze_chat",
+   "endpoint": "/chat",
+   "evidence": "Coze 官方《发起对话》V3：POST https://api.coze.cn/v3/chat（可带 conversation_id 查询参数），body={bot_id, user_id, stream, auto_save_history, additional_messages[]}；鉴权 Bearer pat_…",
+   "source_url": "https://www.coze.cn/open/docs/developer_guides/chat_v3"
+  },
+  {
+   "id": "n8n",
+   "label": "n8n 工作流",
+   "kind": "工作流",
+   "provider_id": null,
+   "base_url": "https://{instance}.app.n8n.cloud/api/v1",
+   "base_url_env": "HOLOAEON_N8N_BASE_URL",
+   "key_env": "HOLOAEON_N8N_API_KEY",
+   "models": [],
+   "status": "adapted",
+   "shape": "n8n_api",
+   "endpoint": "/workflows",
+   "evidence": "n8n 官方 Public REST API：Server https://{instance}.app.n8n.cloud/api/v1（自建为 <host>/api/v1），鉴权头 X-N8N-API-KEY，资源端点族 /workflows /executions /credentials 等；工作流触发侧走 webhook（POST <host>/webhook/<path>）",
+   "source_url": "https://docs.n8n.io/api/api-reference/"
+  },
+  {
+   "id": "dify-workflow",
+   "label": "Dify 工作流编排",
+   "kind": "工作流",
+   "provider_id": null,
+   "base_url": "https://api.dify.ai/v1",
+   "base_url_env": "HOLOAEON_DIFY_BASE_URL",
+   "key_env": "HOLOAEON_DIFY_API_KEY",
+   "models": [],
+   "status": "gap",
+   "shape": null,
+   "missing": "base_url/鉴权与 dify 同源已由官方文档确认，但 workflow run 的端点路径与请求体未在已取文档页中取证（docs.dify.ai 的 workflow API 页与 openapi spec 均取回失败）——不凭记忆写入；补齐只需一次官方 workflow API 页取证"
+  }
+ ],
+ "enable_rule": {
+  "env_switch": "HOLOAEON_REAL_MODELS",
+  "enable_value": "1",
+  "per_platform": "该平台 key_env 有值（本地运行时如 ollama 允许 key_env 为空）",
+  "default_state": "全部 disabled",
+  "no_network_in_repo": true,
+  "schema_verified": false,
+  "why_not_verified": "本仓零网络纪律：只做「请求拼得对」，不做联网握手可用性校验"
+ },
+ "check": {
+  "schema": "PROTOCOL-GAP-ADAPTERS-v1.0",
+  "total": 12,
+  "adapted": 11,
+  "gaps": 1,
+  "adapted_list": [
+   "qwen",
+   "doubao",
+   "volcengine",
+   "wenxin",
+   "zhipu",
+   "ollama",
+   "openai-compatible-generic",
+   "xfyun",
+   "dify",
+   "coze",
+   "n8n"
+  ],
+  "gap_list": [
+   "dify-workflow"
+  ],
+  "model_shapes": 5,
+  "platform_shapes": 3,
+  "problems": [],
+  "verdict": "PASS"
+ },
+ "seal": "潮起开门，潮落闭嘴"
+}

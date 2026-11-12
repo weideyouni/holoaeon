@@ -1,0 +1,180 @@
+{
+ "schema": "MECHANISM-BEARERS-v1.0",
+ "batch": "V64-HANGOVER-ZERO",
+ "dom": "25 位机制承载对账（7 位挂账真关闭）",
+ "hangover_origin": "V63 receipt honest_boundaries：直连 18/25、7 位未覆盖",
+ "root_cause": "7 位并非仓内无实现——topology_resonance_pack 实现了其中 6 位，topology_runtime 承载 C1；缺的是 V63 机床资产清单未登记这两位承载者",
+ "bearers": {
+  "schema": "MECHANISM-BEARERS-v1.0",
+  "bearers": 7,
+  "verified": 7,
+  "failed": [],
+  "verdict": "PASS",
+  "rows": [
+   {
+    "mech": "C1",
+    "name": "自组织耗散",
+    "layer": "耗散验证",
+    "module": "holoaeon.topology_runtime",
+    "symbol": "DissipationMonitor",
+    "kind": "class",
+    "why": "运行时的耗散监控器：状态归约/检查点/熔断/耗散四件套里专管耗散观测",
+    "doc_quote": "topology_runtime（StateReducer+Checkpoint+CircuitBreaker+DissipationMonitor）",
+    "extra_ok": true,
+    "ok": true,
+    "problems": []
+   },
+   {
+    "mech": "R2",
+    "name": "曼陀罗一拖八",
+    "layer": "经络子机制",
+    "module": "holoaeon.packs.topology_resonance_pack",
+    "symbol": "mandala_fanout",
+    "kind": "function",
+    "why": "1 中心 → 8 方位扩散并聚合（MANDALA_TOTAL=9 与之一致）",
+    "doc_quote": "曼陀罗一拖八：1 中心 → 8 方位扩散，结果聚合。",
+    "extra_ok": true,
+    "ok": true,
+    "problems": []
+   },
+   {
+    "mech": "R5",
+    "name": "卡尔曼滤波",
+    "layer": "经络子机制",
+    "module": "holoaeon.packs.topology_resonance_pack",
+    "symbol": "kalman_state",
+    "kind": "function",
+    "why": "多源状态估计 + 不确定性传播（卡尔曼状态融合）",
+    "doc_quote": "卡尔曼滤波状态融合：多源状态估计 + 不确定性传播。",
+    "extra_ok": null,
+    "ok": true,
+    "problems": []
+   },
+   {
+    "mech": "R6",
+    "name": "贝叶斯干涉",
+    "layer": "经络子机制",
+    "module": "holoaeon.packs.topology_resonance_pack",
+    "symbol": "bayesian_guard",
+    "kind": "function",
+    "why": "基于历史拦截率的概率拦截（同族异名：碳基称干涉，仓内实名守卫）",
+    "doc_quote": "贝叶斯推理守卫：基于历史拦截率的概率拦截。",
+    "extra_ok": null,
+    "ok": true,
+    "problems": []
+   },
+   {
+    "mech": "R7",
+    "name": "希尔伯特空间",
+    "layer": "经络子机制",
+    "module": "holoaeon.packs.topology_resonance_pack",
+    "symbol": "hilbert_project",
+    "kind": "function",
+    "why": "有限维 → 近似无限维的希尔伯特空间投影",
+    "doc_quote": "希尔伯特计算空间投影：有限维 → 近似无限维。",
+    "extra_ok": null,
+    "ok": true,
+    "problems": []
+   },
+   {
+    "mech": "R8",
+    "name": "耗散度量",
+    "layer": "经络子机制",
+    "module": "holoaeon.packs.topology_resonance_pack",
+    "symbol": "dissipation_measure",
+    "kind": "function",
+    "why": "系统熵 + 秩序/失序平衡的耗散结构度量",
+    "doc_quote": "耗散结构度量：系统熵 + 秩序/失序平衡。",
+    "extra_ok": true,
+    "ok": true,
+    "problems": []
+   },
+   {
+    "mech": "X2",
+    "name": "108641 活跃节点共振",
+    "layer": "矩阵",
+    "module": "holoaeon.packs.topology_resonance_pack",
+    "symbol": "ACTIVE_NODES",
+    "kind": "constant",
+    "why": "活跃节点与涌现阈值同值 108641（共振对数超阈值→涌现）",
+    "doc_quote": "ACTIVE_NODES=108641 / EMERGENCE_THRESHOLD=108641",
+    "extra_ok": true,
+    "ok": true,
+    "problems": []
+   }
+  ]
+ },
+ "coverage": {
+  "schema": "MECHANISM-BEARERS-v1.0",
+  "lathe_direct": {
+   "count": 18,
+   "mechanisms": [
+    "A1",
+    "A2",
+    "C2",
+    "M01",
+    "M02",
+    "M03",
+    "M04",
+    "M05",
+    "M06",
+    "M07",
+    "M08",
+    "M09",
+    "M10",
+    "M11",
+    "R1",
+    "R3",
+    "R4",
+    "X1"
+   ]
+  },
+  "bearer_only": {
+   "count": 7,
+   "mechanisms": [
+    "C1",
+    "R2",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "X2"
+   ]
+  },
+  "total_unique": {
+   "count": 25,
+   "mechanisms": [
+    "A1",
+    "A2",
+    "C1",
+    "C2",
+    "M01",
+    "M02",
+    "M03",
+    "M04",
+    "M05",
+    "M06",
+    "M07",
+    "M08",
+    "M09",
+    "M10",
+    "M11",
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "X1",
+    "X2"
+   ]
+  },
+  "full": true,
+  "verdict": "PASS",
+  "problems": [],
+  "note": "两口径分开报、不混：机床直连 与 机制侧承载 各自计数，并集=全机制有承载"
+ },
+ "seal": "潮起开门，潮落闭嘴"
+}

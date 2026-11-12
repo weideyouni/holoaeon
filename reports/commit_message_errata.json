@@ -1,0 +1,30 @@
+{
+ "schema": "COMMIT-MESSAGE-ERRATA-v1.0",
+ "batch": "V64-HANGOVER-ZERO",
+ "dom": "402e369 提交信息混入西里尔字符（挂账 ⑥）",
+ "measured_at": "2026-11-12",
+ "commit": "402e369e (V63 forge bureau: ring24 patch1)",
+ "field": "subject line 1 of 2",
+ "char_index": 410,
+ "char": "е",
+ "codepoint": "U+0435",
+ "unicode_name": "CYRILLIC SMALL LETTER IE",
+ "utf8_bytes": "D0 B5",
+ "latin_counterpart": "e (U+0065, utf-8 65)",
+ "context": "resonance-magnetic absorption into C14 holoaеon-c14-skill via ngram_dice",
+ "word": "holoaеon-c14-skill",
+ "impact_measured": {
+  "git_log_grep_cyrillic_hits": 1,
+  "git_log_grep_latin_hits": 0,
+  "note": "按拉丁 holoaeon-c14-skill 检索不命中该提交；按真实字节（西里尔 е）检索才命中——检索口径须按实际字节"
+ },
+ "discipline": {
+  "do": [
+   "不改写历史（不 amend、不 rebase、不 filter-branch）",
+   "以 errata 台账登记 + 后续提交主题扫描防复发"
+  ],
+  "why": "改写历史会改变全部下游 sha，破坏五地对齐与既有回执的可复算性；一个字符的排版瑕疵不值得付这个代价"
+ },
+ "fix_forward": "本批（V64）提交主题在提交前用 U+0400-U+04FF 扫描，命中即阻断",
+ "seal": "潮起开门，潮落闭嘴"
+}

@@ -1,0 +1,3422 @@
+{
+ "schema": "MERIDIAN-RECHECK-v1.0",
+ "batch": "V64-HANGOVER-ZERO",
+ "dom": "D03 经络维 214 格 pending-evidence 复核",
+ "source_ledger": "data/searchnet_d03_meridian.json",
+ "evidence_source": "data/d03_fragment_essence.json",
+ "cells": [
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "collaborat",
+      "crew",
+      "role-playing"
+     ],
+     "snippet": "Framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "编排",
+     "leg"
+    ]
+   ],
+   "origin": "V62",
+   "evidence_kind": "v62_original"
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "agents"
+     ],
+     "snippet": "Framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "总线",
+     "leg"
+    ],
+    [
+     "事件",
+     "essence"
+    ]
+   ],
+   "origin": "V62",
+   "evidence_kind": "v62_original"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "event streaming"
+     ],
+     "snippet": "Apache Kafka - A distributed event streaming platform",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "日志",
+     "essence"
+    ]
+   ],
+   "origin": "V62",
+   "evidence_kind": "v62_original"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "rag"
+     ],
+     "snippet": "FastGPT is a knowledge-based platform built on the LLMs, offers a comprehensive suite of out-of-the-box capabilities suc",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "编排",
+     "leg"
+    ]
+   ],
+   "origin": "V62",
+   "evidence_kind": "v62_original"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "workflow",
+      "flow"
+     ],
+     "snippet": "FastGPT is a knowledge-based platform built on the LLMs, offers a comprehensive suite of out-of-the-box capabilities suc",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "retrieval",
+      "knowledge-based",
+      "rag"
+     ],
+     "snippet": "FastGPT is a knowledge-based platform built on the LLMs, offers a comprehensive suite of out-of-the-box capabilities suc",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "everything"
+     ],
+     "snippet": "Orchestrate everything, everywhere. The open-source control plane for workflows across data, infrastructure, business pr",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "bus"
+     ],
+     "snippet": "Orchestrate everything, everywhere. The open-source control plane for workflows across data, infrastructure, business pr",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "编排",
+     "leg"
+    ]
+   ],
+   "origin": "V62",
+   "evidence_kind": "v62_original"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "workflow",
+      "flow"
+     ],
+     "snippet": "Orchestrate everything, everywhere. The open-source control plane for workflows across data, infrastructure, business pr",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "agents"
+     ],
+     "snippet": "Orchestrate everything, everywhere. The open-source control plane for workflows across data, infrastructure, business pr",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "scale"
+     ],
+     "snippet": "High-performance AI pipeline engine with a C++ core and 50+ Python-extensible nodes. Build, debug, and scale LLM workflo",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "sdk"
+     ],
+     "snippet": "High-performance AI pipeline engine with a C++ core and 50+ Python-extensible nodes. Build, debug, and scale LLM workflo",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "pipeline"
+     ],
+     "snippet": "High-performance AI pipeline engine with a C++ core and 50+ Python-extensible nodes. Build, debug, and scale LLM workflo",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "vector"
+     ],
+     "snippet": "High-performance AI pipeline engine with a C++ core and 50+ Python-extensible nodes. Build, debug, and scale LLM workflo",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "编排",
+     "leg"
+    ]
+   ],
+   "origin": "V62",
+   "evidence_kind": "v62_original"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "workflow",
+      "flow",
+      "node"
+     ],
+     "snippet": "High-performance AI pipeline engine with a C++ core and 50+ Python-extensible nodes. Build, debug, and scale LLM workflo",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "node"
+     ],
+     "snippet": "High-performance AI pipeline engine with a C++ core and 50+ Python-extensible nodes. Build, debug, and scale LLM workflo",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "可观测",
+     "leg"
+    ]
+   ],
+   "origin": "V62",
+   "evidence_kind": "v62_original"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "agents"
+     ],
+     "snippet": "SigNoz is an open-source, OpenTelemetry-native observability platform for your team and their AI agents. Get logs, metri",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "metric",
+      "observability"
+     ],
+     "snippet": "SigNoz is an open-source, OpenTelemetry-native observability platform for your team and their AI agents. Get logs, metri",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "pipeline"
+     ],
+     "snippet": "Open-source AI orchestration framework for building context-engineered, production-ready LLM applications. Design modula",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "semantic"
+     ],
+     "snippet": "Open-source AI orchestration framework for building context-engineered, production-ready LLM applications. Design modula",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "rag"
+     ],
+     "snippet": "Open-source AI orchestration framework for building context-engineered, production-ready LLM applications. Design modula",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "编排",
+     "leg"
+    ]
+   ],
+   "origin": "V62",
+   "evidence_kind": "v62_original"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "workflow",
+      "flow"
+     ],
+     "snippet": "Open-source AI orchestration framework for building context-engineered, production-ready LLM applications. Design modula",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "agents"
+     ],
+     "snippet": "Open-source AI orchestration framework for building context-engineered, production-ready LLM applications. Design modula",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "retrieval",
+      "rag"
+     ],
+     "snippet": "Open-source AI orchestration framework for building context-engineered, production-ready LLM applications. Design modula",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "可观测",
+     "leg"
+    ]
+   ],
+   "origin": "V62",
+   "evidence_kind": "v62_original"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "trac",
+     "name"
+    ]
+   ],
+   "origin": "V62",
+   "evidence_kind": "v62_original"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "scale"
+     ],
+     "snippet": "APM, (Application Performance Management) tool for large-scale distributed systems. ",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "可观测",
+     "leg"
+    ],
+    [
+     "apm",
+     "name"
+    ]
+   ],
+   "origin": "V62",
+   "evidence_kind": "v62_original"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "agent",
+     "name"
+    ]
+   ],
+   "origin": "V62",
+   "evidence_kind": "v62_original"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "multi-agent"
+     ],
+     "snippet": "A framework for building, orchestrating and deploying AI agents and multi-agent workflows with support for Python and .N",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "编排",
+     "leg"
+    ]
+   ],
+   "origin": "V62",
+   "evidence_kind": "v62_original"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "workflow",
+      "flow"
+     ],
+     "snippet": "A framework for building, orchestrating and deploying AI agents and multi-agent workflows with support for Python and .N",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    {
+     "kind": "desc_keyword",
+     "hits": [
+      "agents"
+     ],
+     "snippet": "A framework for building, orchestrating and deploying AI agents and multi-agent workflows with support for Python and .N",
+     "source": "data/d03_fragment_essence.json（V60 打捞回执 official_desc）"
+    }
+   ],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "desc_keyword"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": [],
+   "origin": "V64-RECHECK",
+   "evidence_kind": "no_hit",
+   "note": "碎片文本面（repo/official_desc/essence/language/leg）对本机制判定词零命中——判定为未链接，不是空证据位"
+  }
+ ],
+ "summary": {
+  "linked": 41,
+  "unlinked": 209,
+  "pending_original": 214,
+  "kept_v62": 13,
+  "pending_after": 0,
+  "by_state": {
+   "linked": 41,
+   "unlinked": 209
+  },
+  "by_mechanism": {
+   "A1": {
+    "linked": 0,
+    "unlinked": 10
+   },
+   "A2": {
+    "linked": 1,
+    "unlinked": 9
+   },
+   "X1": {
+    "linked": 0,
+    "unlinked": 10
+   },
+   "X2": {
+    "linked": 2,
+    "unlinked": 8
+   },
+   "M01": {
+    "linked": 3,
+    "unlinked": 7
+   },
+   "M02": {
+    "linked": 1,
+    "unlinked": 9
+   },
+   "M03": {
+    "linked": 1,
+    "unlinked": 9
+   },
+   "M04": {
+    "linked": 5,
+    "unlinked": 5
+   },
+   "M05": {
+    "linked": 2,
+    "unlinked": 8
+   },
+   "M06": {
+    "linked": 2,
+    "unlinked": 8
+   },
+   "M07": {
+    "linked": 3,
+    "unlinked": 7
+   },
+   "M08": {
+    "linked": 6,
+    "unlinked": 4
+   },
+   "M09": {
+    "linked": 5,
+    "unlinked": 5
+   },
+   "M10": {
+    "linked": 5,
+    "unlinked": 5
+   },
+   "M11": {
+    "linked": 1,
+    "unlinked": 9
+   },
+   "C1": {
+    "linked": 0,
+    "unlinked": 10
+   },
+   "C2": {
+    "linked": 2,
+    "unlinked": 8
+   },
+   "R1": {
+    "linked": 1,
+    "unlinked": 9
+   },
+   "R2": {
+    "linked": 0,
+    "unlinked": 10
+   },
+   "R3": {
+    "linked": 0,
+    "unlinked": 10
+   },
+   "R4": {
+    "linked": 0,
+    "unlinked": 10
+   },
+   "R5": {
+    "linked": 0,
+    "unlinked": 10
+   },
+   "R6": {
+    "linked": 0,
+    "unlinked": 10
+   },
+   "R7": {
+    "linked": 0,
+    "unlinked": 10
+   },
+   "R8": {
+    "linked": 1,
+    "unlinked": 9
+   }
+  }
+ },
+ "vocab_disclaimer": "MATCH_VOCAB 是本批人工映射的复核用词表，用于在碎片文本面做确定性命中判定；它不是各机制的官方定义，命中也不等于「该仓库实现了该机制」——证据等级如实标为 desc_keyword（描述关键词级）。",
+ "problems": [],
+ "verdict": "PASS",
+ "seal": "潮起开门，潮落闭嘴"
+}

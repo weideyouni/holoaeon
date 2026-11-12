@@ -1,0 +1,69 @@
+{
+ "schema": "RECEIPT-ERRATA-v1.0",
+ "batch": "V64-HANGOVER-ZERO",
+ "dom": "V63 回执 protocols 段口径错位（挂账 ② 的账务侧订正）",
+ "source": "reports/v63_receipt.json :: protocols",
+ "observed_issue": "V63 回执把「12 缺口平台」写进 adapted_list 字段，与 CLI protocols 在册的 12 协议不一致",
+ "v63_protocols_raw": {
+  "adapted": 12,
+  "gaps": 12,
+  "adapted_list": [
+   "dify",
+   "coze",
+   "qwen",
+   "doubao",
+   "wenxin",
+   "zhipu",
+   "xfyun",
+   "volcengine",
+   "openai-compatible-generic",
+   "ollama",
+   "n8n",
+   "dify-workflow"
+  ],
+  "gap_note": "12 缺口真列举未适配——真适配须各平台真实 schema 素材投喂后逐批落地，不虚构适配器"
+ },
+ "correct_semantics": {
+  "registered_12_protocols": [
+   "a2a",
+   "acp",
+   "anthropic_tool",
+   "autogen_tool",
+   "bedrock_converse",
+   "crewai_tool",
+   "envelope",
+   "gemini_function",
+   "langchain_tool",
+   "llamaindex_tool",
+   "mcp",
+   "openai_function"
+  ],
+  "registered_count": 12,
+  "gap_platforms_12": [
+   "qwen",
+   "doubao",
+   "volcengine",
+   "wenxin",
+   "zhipu",
+   "ollama",
+   "openai-compatible-generic",
+   "xfyun",
+   "dify",
+   "coze",
+   "n8n",
+   "dify-workflow"
+  ],
+  "gap_count": 12,
+  "verdict": "两套 12 不同域：在册 12 = 协议形状（模型/工具调用协议），缺口 12 = 平台适配位（工作台/工作流/厂商端点）"
+ },
+ "v64_resolution": {
+  "platform_adapters_ledger": "data/protocol_gap_adapters.json",
+  "adapted": 11,
+  "gaps": 1,
+  "remaining_gap": [
+   "dify-workflow"
+  ]
+ },
+ "discipline": "历史回执与历史提交不改写；以本 errata 作后续引用口径，回执字段名今后固定为 adapted_list（平台适配）/ registered_protocols（在册协议）两个字段，不再共用一个名字",
+ "seal": "潮起开门，潮落闭嘴"
+}

@@ -32,7 +32,7 @@ VERSION = "0.9.1"
 # VERSION / RUNTIME_ID 会写进每条回执并参与 ReproHash，改动即等于让 DIFF=0 黄金值
 # （2fc892cf9af6e755）漂移，与"V1 黄金值不许漂移"的硬口径冲突。
 # 因此 V2 的版本号单独记在 DOC_VERSION，供文档/快照/徽章使用。
-DOC_VERSION = "0.9.57"  # V63 制造局批（ring24 制造域 · 14 位机床资产 import 对账 + 350 格机床经络联通 + 八步打造流水线）
+DOC_VERSION = "0.9.58"  # V64 挂账清零批（G-M 门禁实测驱动 + 12 平台缺口两态 + P4 小程序提示词 + 214 格复核 + 7 位承载登记 + 提交信息勘误）
 MATRIX_ID = "HOLOAEON-MATRIX-0.9.1"
 RUNTIME_ID = "HOLOAEON-RUNTIME-0.9.1"
 PROTOCOL_ID = "HOLOAEON-DATAPROTO v1.0"

@@ -1,0 +1,297 @@
+{
+ "schema": "BUS-CHANNEL-v1.0",
+ "batch": "V64-HANGOVER-ZERO",
+ "dom": "C03 总线仓（G-M 门禁通关件）",
+ "channels": 12,
+ "groups": {
+  "气": 5,
+  "血": 4,
+  "神": 3
+ },
+ "rows": [
+  {
+   "lc": "LC01",
+   "name": "气1",
+   "group": "气",
+   "budget": 100,
+   "floor": 40,
+   "ceil": 100,
+   "load": 9,
+   "patency": 91,
+   "blocked": false
+  },
+  {
+   "lc": "LC02",
+   "name": "气2",
+   "group": "气",
+   "budget": 100,
+   "floor": 40,
+   "ceil": 100,
+   "load": 8,
+   "patency": 92,
+   "blocked": false
+  },
+  {
+   "lc": "LC03",
+   "name": "气3",
+   "group": "气",
+   "budget": 100,
+   "floor": 40,
+   "ceil": 100,
+   "load": 5,
+   "patency": 95,
+   "blocked": false
+  },
+  {
+   "lc": "LC04",
+   "name": "气4",
+   "group": "气",
+   "budget": 100,
+   "floor": 40,
+   "ceil": 100,
+   "load": 1,
+   "patency": 99,
+   "blocked": false
+  },
+  {
+   "lc": "LC05",
+   "name": "气5",
+   "group": "气",
+   "budget": 100,
+   "floor": 40,
+   "ceil": 100,
+   "load": 1,
+   "patency": 99,
+   "blocked": false
+  },
+  {
+   "lc": "LC06",
+   "name": "血1",
+   "group": "血",
+   "budget": 100,
+   "floor": 40,
+   "ceil": 100,
+   "load": 0,
+   "patency": 100,
+   "blocked": false
+  },
+  {
+   "lc": "LC07",
+   "name": "血2",
+   "group": "血",
+   "budget": 100,
+   "floor": 40,
+   "ceil": 100,
+   "load": 0,
+   "patency": 100,
+   "blocked": false
+  },
+  {
+   "lc": "LC08",
+   "name": "血3",
+   "group": "血",
+   "budget": 100,
+   "floor": 40,
+   "ceil": 100,
+   "load": 0,
+   "patency": 100,
+   "blocked": false
+  },
+  {
+   "lc": "LC09",
+   "name": "血4",
+   "group": "血",
+   "budget": 100,
+   "floor": 40,
+   "ceil": 100,
+   "load": 0,
+   "patency": 100,
+   "blocked": false
+  },
+  {
+   "lc": "LC10",
+   "name": "神1",
+   "group": "神",
+   "budget": 100,
+   "floor": 40,
+   "ceil": 100,
+   "load": 0,
+   "patency": 100,
+   "blocked": false
+  },
+  {
+   "lc": "LC11",
+   "name": "神2",
+   "group": "神",
+   "budget": 100,
+   "floor": 40,
+   "ceil": 100,
+   "load": 0,
+   "patency": 100,
+   "blocked": false
+  },
+  {
+   "lc": "LC12",
+   "name": "神3",
+   "group": "神",
+   "budget": 100,
+   "floor": 40,
+   "ceil": 100,
+   "load": 0,
+   "patency": 100,
+   "blocked": false
+  }
+ ],
+ "unmapped_targets": [
+  {
+   "target": "神4",
+   "why": "ivsa 侧 17 通道之神 4 条，本仓 12 通道只到神 3"
+  },
+  {
+   "target": "淋巴1",
+   "why": "淋巴 4 条属 B2b 待办，配额未分配"
+  },
+  {
+   "target": "淋巴2",
+   "why": "同上"
+  },
+  {
+   "target": "淋巴3",
+   "why": "同上"
+  },
+  {
+   "target": "淋巴4",
+   "why": "同上"
+  }
+ ],
+ "demo_chains": [
+  {
+   "id": "C02-C03-C10",
+   "path": [
+    "LC02",
+    "LC03",
+    "LC10"
+   ]
+  },
+  {
+   "id": "C01-C05-C11",
+   "path": [
+    "LC01",
+    "LC05",
+    "LC11"
+   ]
+  },
+  {
+   "id": "C06-C08-C12",
+   "path": [
+    "LC06",
+    "LC08",
+    "LC12"
+   ]
+  }
+ ],
+ "provenance": {
+  "channels": "vector-sea/holoaeon-v4-cold-hot-plug/26_通道映射表.csv",
+  "quota": "vector-sea/holoaeon-v4-cold-hot-plug/47_channel_quota.csv",
+  "semantics": "data_六机制对照与通道映射.csv（六机制 meridian 行）"
+ },
+ "check": {
+  "schema": "BUS-CHANNEL-v1.0",
+  "criteria": 4,
+  "passed": 4,
+  "failed": [],
+  "verdict": "PASS",
+  "items": {
+   "12 通道": {
+    "pass": true,
+    "problems": [],
+    "detail": {
+     "channels": 12,
+     "groups": {
+      "气": 5,
+      "血": 4,
+      "神": 3
+     },
+     "sample": [
+      "LC03",
+      95,
+      45,
+      95
+     ]
+    }
+   },
+   "事件传播": {
+    "pass": true,
+    "problems": [],
+    "detail": {
+     "chains": [
+      {
+       "id": "C02-C03-C10",
+       "hops": 3,
+       "reason": "completed",
+       "tau": 2.782416,
+       "reproducible": true
+      },
+      {
+       "id": "C01-C05-C11",
+       "hops": 3,
+       "reason": "completed",
+       "tau": 2.810816,
+       "reproducible": true
+      },
+      {
+       "id": "C06-C08-C12",
+       "hops": 3,
+       "reason": "completed",
+       "tau": 2.910416,
+       "reproducible": true
+      }
+     ]
+    }
+   },
+   "阻塞机制": {
+    "pass": true,
+    "problems": [],
+    "detail": {
+     "blocked_at": "LC03",
+     "reason": "blocked",
+     "top1": "LC03",
+     "posterior_top": [
+      {
+       "lc": "LC03",
+       "posterior": 0.8,
+       "patency": 0
+      },
+      {
+       "lc": "LC02",
+       "posterior": 0.112,
+       "patency": 86
+      },
+      {
+       "lc": "LC01",
+       "posterior": 0.072,
+       "patency": 91
+      }
+     ],
+     "rolled_back": true
+    }
+   },
+   "衰减与终止": {
+    "pass": true,
+    "problems": [],
+    "detail": {
+     "gain_floor": "gain_floor",
+     "max_hops": "max_hops",
+     "closed_loop": "closed_loop",
+     "blocked": "blocked"
+    }
+   }
+  },
+  "provenance": {
+   "channels": "vector-sea/holoaeon-v4-cold-hot-plug/26_通道映射表.csv",
+   "quota": "vector-sea/holoaeon-v4-cold-hot-plug/47_channel_quota.csv",
+   "semantics": "data_六机制对照与通道映射.csv（六机制 meridian 行）"
+  }
+ },
+ "seal": "潮起开门，潮落闭嘴"
+}

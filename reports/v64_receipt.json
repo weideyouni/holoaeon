@@ -1,0 +1,139 @@
+{
+ "batch": "V64 挂账清零批",
+ "batch_id": "V64-HANGOVER-ZERO",
+ "status": "ready_for_commit",
+ "date": "2026-11-12",
+ "doc_version": "0.9.58",
+ "previous_doc_version": "0.9.57",
+ "head": "PENDING（提交后由补正提交回填 full sha）",
+ "baseline_head": "db2bad5fd864a0453d942586273a690d171b58c2",
+ "seal": "潮起开门，潮落闭嘴",
+ "intent": "把 V63 遗留的六条挂账逐条真关闭；资料优先取自本地向量海与仓外机床，不足处如实登记，不凭空编造",
+ "hangovers": [
+  {
+   "id": "①",
+   "item": "G-M 门禁 4 项 WAIT",
+   "before": "c03_gate_report 恒返回 4 WAIT，门禁无法被证据推动",
+   "after": "bus_channel.py 落 12 通道 + 通畅度模型 + 三条示范链路 + 阻塞反演 + 四类终止；c03_gate_report(evidence=None) 可吃证据，c03_gate_report_live() 实跑 6/6 PASS，无证据路径仍如实 4 WAIT",
+   "files": ["holoaeon/bus_channel.py", "holoaeon/org_gate.py", "data/bus_channel_table.json"],
+   "measured": {
+    "bus_channel_self_check": "passed=4 failed=[] verdict=PASS",
+    "channels": 12,
+    "groups": {"气": 5, "血": 4, "神": 3},
+    "demo_chains": [{"id": "C02-C03-C10", "tau": 2.782416}, {"id": "C01-C05-C11", "tau": 2.810816}, {"id": "C06-C08-C12", "tau": 2.910416}],
+    "blocking_drill": {"blocked_at": "LC03", "top1": "LC03", "rolled_back": true},
+    "terminations": ["gain_floor", "max_hops", "closed_loop", "blocked"],
+    "c03_default": "pass=false / WAIT=4 / evidence_supplied=false",
+    "c03_live": "pass=true / WAIT=0 / FAIL=0 / evidence_supplied=true"
+   },
+   "closed": true
+  },
+  {
+   "id": "②",
+   "item": "12 协议缺口",
+   "before": "12 平台全部登记为缺口，且 V63 回执把缺口清单写进了 adapted_list 字段（口径错位）",
+   "after": "11 adapted + 1 如实缺口（dify-workflow：workflow-run 端点未取证，不凭记忆写）；模型形状 5 种与平台形状 3 种严格分开；V63 回执口径错位另出 errata 不改正史",
+   "files": ["holoaeon/gap_adapters.py", "data/protocol_gap_adapters.json", "reports/v63_receipt_errata.json"],
+   "measured": {
+    "total": 12,
+    "adapted": 11,
+    "gaps": 1,
+    "adapted_list": ["qwen", "doubao", "volcengine", "wenxin", "zhipu", "ollama", "openai-compatible-generic", "xfyun", "dify", "coze", "n8n"],
+    "gap_list": ["dify-workflow"],
+    "doc_evidence": [
+     {"platform": "xfyun", "url": "https://www.xfyun.cn/doc/spark/HTTP调用文档.html", "key": "POST https://spark-api-open.xf-yun.com/v1/chat/completions + Bearer <APIPassword> + 明示兼容 openAI SDK"},
+     {"platform": "dify", "url": "https://docs.dify.ai/zh-hans/guides/application-publishing/developing-with-apis", "key": "POST https://api.dify.ai/v1/chat-messages, body={inputs,query,response_mode,conversation_id,user}"},
+     {"platform": "coze", "url": "https://www.coze.cn/open/docs/developer_guides/chat_v3", "key": "POST https://api.coze.cn/v3/chat, body={bot_id,user_id,stream,auto_save_history,additional_messages[]}"},
+     {"platform": "n8n", "url": "https://docs.n8n.io/api/api-reference/", "key": "Server https://{instance}.app.n8n.cloud/api/v1, header X-N8N-API-KEY, /workflows 等资源端点族"}
+    ],
+    "request_build_proof": {
+     "xfyun": "https://spark-api-open.xf-yun.com/v1/chat/completions",
+     "dify": "https://api.dify.ai/v1/chat-messages",
+     "coze": "https://api.coze.cn/v3/chat",
+     "n8n": "https://{instance}.app.n8n.cloud/api/v1/workflows",
+     "dify-workflow": "抛 ValueError（不假拼）"
+    }
+   },
+   "closed": true
+  },
+  {
+   "id": "③",
+   "item": "P4 小程序提示词未造",
+   "before": "V63 product_lines：10 条中 9 锚定、P4 待造位，锚未落",
+   "after": "miniapp_prompt.py 确定性工厂：3 套配方 × 五页法 P0-P4 + 域扩展页，每页列组件/字段/事件，附接口约定、审核合规、交付验收、禁止项；医疗配方强制写明不得诊断、不得处方",
+   "files": ["holoaeon/miniapp_prompt.py", "data/miniapp_prompt_recipes.json"],
+   "measured": {"recipes": 3, "recipe_ids": ["rehab-followup", "farm-ledger", "course-checkin"], "pages_per_recipe": "5 基础 + 域扩展（康复 7 页 / 农业 7 页 / 课程 7 页）", "check": "verdict=PASS problems=[]", "render_length": "> 800 字符（自检下限已过）"},
+   "closed": true
+  },
+  {
+   "id": "④",
+   "item": "V62 214 格 pending-evidence",
+   "before": "250 格 = linked 13 / pending-evidence 214 / unlinked 23（pending 格 evidence 为空）",
+   "after": "重算为两态：linked 41 / unlinked 209，pending 归零；V62 原有 13 格证据原样保留；证据来自 V60 打捞回执 official_desc 原文，等级标 desc_keyword",
+   "files": ["holoaeon/meridian_recheck.py", "data/searchnet_d03_meridian_recheck.json", "data/d03_fragment_essence.json"],
+   "measured": {"cells": 250, "linked": 41, "unlinked": 209, "pending_original": 214, "pending_after": 0, "kept_v62": 13, "verdict": "PASS"},
+   "closed": true
+  },
+  {
+   "id": "⑤",
+   "item": "V63 未覆盖 7 位机制",
+   "before": "机床直连 18/25，C1/R2/R5/R6/R7/R8/X2 报未覆盖；真实根因是 V63 资产表未登记承载者",
+   "after": "mechanism_bearers.py 登记 7 位真实承载并符号级验证：C1→topology_runtime.DissipationMonitor、R2→mandala_fanout、R5→kalman_state、R6→bayesian_guard、R7→hilbert_project、R8→dissipation_measure、X2→ACTIVE_NODES=108641；双口径 18 + 7 = 25 全有承载",
+   "files": ["holoaeon/mechanism_bearers.py", "data/mechanism_bearers.json"],
+   "measured": {"bearers": 7, "verified": 7, "failed": [], "lathe_direct": 18, "bearer_only": 7, "total_unique": 25, "full": true, "verdict": "PASS"},
+   "closed": true
+  },
+  {
+   "id": "⑥",
+   "item": "402e369 提交信息混入西里尔字符",
+   "before": "口头挂账，未取证、未定位",
+   "after": "实测定位：主题第 410 位、词 holoaеon-c14-skill 内的第二 e 为 U+0435（UTF-8 D0 B5）；实测拉丁检索命中 0 / 西里尔检索命中 1；登记 errata，不改写历史，并把提交主题 U+0400-U+04FF 扫描列为后续提交前置",
+   "files": ["reports/commit_message_errata.json"],
+   "measured": {"char_index": 410, "codepoint": "U+0435", "utf8": "D0 B5", "grep_latin_hits": 0, "grep_cyrillic_hits": 1},
+   "closed": true
+  }
+ ],
+ "patches": {
+  "new_modules": ["holoaeon/bus_channel.py", "holoaeon/mechanism_bearers.py", "holoaeon/gap_adapters.py", "holoaeon/meridian_recheck.py", "holoaeon/miniapp_prompt.py"],
+  "modified": ["holoaeon/org_gate.py", "holoaeon/spec.py", "tests/test_v22_eng_skills.py", "README.md", "README.zh-CN.md", "reports/five_site_manifest.json"],
+  "new_tests": ["tests/test_v64_hangover_zero.py"],
+  "new_ledgers": ["data/bus_channel_table.json", "data/mechanism_bearers.json", "data/protocol_gap_adapters.json", "data/searchnet_d03_meridian_recheck.json", "data/d03_fragment_essence.json", "data/miniapp_prompt_recipes.json"],
+  "new_reports": ["reports/commit_message_errata.json", "reports/v63_receipt_errata.json"]
+ },
+ "verification": {
+  "selftest": "25/25 PASS",
+  "v3_gate": "32/32 PASS",
+  "unittest_main": "1339 OK（前批 1295 + 本批 44；test_v64_hangover_zero 44 例全绿）",
+  "unittest_v3": "11 OK",
+  "unittest_verax": "21 OK",
+  "redline": "146 文件 0 违规（141 + 本批 5 个新模块）",
+  "dimension_lock": "PASS（12 维 / 7 闸 / 0 violation；spec_doc_version 0.9.4→0.9.58 属演进）",
+  "diff0": {"bench": "DIFF=0 6d119b2a9f2df687", "comment_value": "2fc892cf9af6e755（V1 黄金注释值，另一 workload，不可互比）", "assembly": "冷装配 31.06ms / 峰值 1.69MiB", "intercept": "100%"},
+  "readme_claims": "PASS | mismatch=0 stale_header=0（徽章 / 验收行 / 门禁行 / 清单条数 四项 MATCH）",
+  "verify_v44": "全 PASS（含 A10 repo:changed 已由 five_site_dna build 前置消解）",
+  "module_self_checks": {
+   "bus_channel": "check 4/4 PASS；table 12 通道已写",
+   "c03_gate_live": "6/6 PASS",
+   "mechanism_bearers": "check 7/7 PASS；coverage 18/7/25 full=true",
+   "gap_adapters": "12 total / 11 adapted / 1 gap / verdict PASS",
+   "meridian_recheck": "250 格 / pending_after=0 / verdict PASS",
+   "miniapp_prompt": "3 配方 / verdict PASS"
+  }
+ },
+ "not_committed": [
+  "AGENT_FEED_*.md（投喂包与过程文档，仓根 untracked 惯例）",
+  "reports/state_beacon.json（运行期生成物，按 DNA 不入提交）",
+  "F:\\doubaowork\\holoaeon_lathe\\v64_readme.py（仓外机床脚本，零侵入）"
+ ],
+ "honest_boundaries": [
+  "dify-workflow 仍是缺口：base_url 与 Bearer 鉴权与 dify 同源已由官方文档确认，但 workflow run 端点路径与请求体未在已取文档页取证（docs.dify.ai 的 workflow API 页与 openapi spec 多次取回失败），不凭记忆写入；补齐成本为一次官方页取证",
+  "11 条 adapted 的 schema_verified 全为 false：本仓零网络纪律只保证「请求拼得对」，不做联网握手可用性校验，可用性须在真实联调批验证",
+  "214 格复核的证据等级为 desc_keyword（碎片官方描述关键词级），不等于「该仓库实现了该机制」；MATCH_VOCAB 是本批人工映射的复核用词表，不是机制官方定义",
+  "unlinked 209 格不是缺陷掩盖：每格都写明「文本面零命中」的判定依据，pending 归零才是本批目标（不追求 linked 数好看）",
+  "P4 小程序提示词是确定性骨架工厂，不是「一键生成可上线小程序」；上线仍须资质、类目与审核",
+  "402e369 的西里尔字符不做历史改写（不 amend / 不 rebase / 不 filter-branch），只登记 errata 并前置扫描防复发；改写会使全部下游 sha 与既有回执失去可复算性",
+  "V63 回执 protocols 口径错位（缺口清单写进 adapted_list）以 errata 订正，不修改历史回执与历史提交",
+  "7 位机制承载登记为符号级验证（模块+符号真实存在且可调用/值匹配），不等于端到端行为验证"
+ ],
+ "next_batch_hint": "补齐 dify-workflow 一次官方取证即可把平台适配推进到 12/12；联调批（真实握手）另立，不在零网络批内做"
+}

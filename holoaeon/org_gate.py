@@ -234,25 +234,49 @@ C03_GM_CRITERIA: Tuple[Dict[str, str], ...] = (
 )
 
 
-def c03_gate_report() -> Dict[str, Any]:
-    """G-M 门禁报告：六判据三态（同构/回滚两项 PASS——已在仓机制承载；
-    通道/传播/阻塞/衰减四项 WAIT——依赖 C03 领域实现与连通件，未落不虚报）。
+def c03_gate_report(evidence: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    """G-M 门禁报告：六判据三态（同构/回滚两项 PASS——已在仓机制承载）。
+
+    通道/传播/阻塞/衰减四项：**默认 WAIT**（无实测证据时不虚报），
+    若传入 `evidence`（结构 = bus_channel.self_check() 返回值），则按四项的
+    `pass` 实测转 PASS/FAIL——门禁只认实测，不认口头。
 
     硬约束（素材原文采信）：C03 未通过 G-M 前，禁止启动任何领域深化批次。
     通过 G-M 后 C03 升级为"总线仓"，其通道成为后续批次的公共基础设施。
     """
-    states = {c["item"]: c["status"] for c in C03_GM_CRITERIA}
+    items = (evidence or {}).get("items") or {}
+    states: Dict[str, str] = {}
+    for c in C03_GM_CRITERIA:
+        base = c["status"]
+        if base == "WAIT" and c["item"] in items:
+            states[c["item"]] = "PASS" if items[c["item"]].get("pass") else "FAIL"
+        else:
+            states[c["item"]] = base
     wait = sum(1 for s in states.values() if s == "WAIT")
+    fail = sum(1 for s in states.values() if s == "FAIL")
+    if evidence:
+        note = ("实测驱动：WAIT={} / FAIL={}（证据源 {}；四项按 bus_channel 自检结果转态）"
+                .format(wait, fail, (evidence.get("schema") or "evidence")))
+    else:
+        note = ("WAIT={} 项依赖 C03 领域实现与连通件（12 通道表/传播链路/阻塞反演/衰减观测）"
+                "——门禁不替未来签字（无 evidence 时保持 WAIT）".format(wait))
     return {
         "cang": "C03",
         "gate": "G-M",
         "criteria": len(C03_GM_CRITERIA),
         "states": states,
-        "pass": wait == 0,
-        "note": "WAIT={} 项依赖 C03 领域实现与连通件（12 通道表/传播链路/阻塞反演/衰减观测）——门禁不替未来签字".format(wait),
+        "pass": wait == 0 and fail == 0,
+        "note": note,
+        "evidence_supplied": bool(evidence),
         "hard_rule": "C03 未过 G-M 前禁止启动任何领域深化批次（素材硬约束原文）",
         "upgrade": "过 G-M 后 C03 升级总线仓，通道固化为公共基础设施",
     }
+
+
+def c03_gate_report_live() -> Dict[str, Any]:
+    """门禁实测态：仓内 bus_channel 自检四判据后出报告（C03 总线仓已落地）。"""
+    from . import bus_channel  # 延迟导入：避免包初始化期循环
+    return c03_gate_report(bus_channel.self_check())
 
 
 # ---------------------------------------------------------------------------
