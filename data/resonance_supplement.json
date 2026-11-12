@@ -1,0 +1,322 @@
+{
+ "check": {
+  "items": [
+   {
+    "impl": "entropy_production",
+    "mechanism": "C1",
+    "metric": "sigma=2.550000",
+    "ok": true
+   },
+   {
+    "impl": "mandala_wht",
+    "mechanism": "R2",
+    "metric": "err=0.00e+00",
+    "ok": true
+   },
+   {
+    "impl": "kalman_fuse",
+    "mechanism": "R5",
+    "metric": "x=10.371429 P=0.190476",
+    "ok": true
+   },
+   {
+    "impl": "sprt_gate",
+    "mechanism": "R6",
+    "metric": "decision=H1 n=5",
+    "ok": true
+   },
+   {
+    "impl": "rff_kernel",
+    "mechanism": "R7",
+    "metric": "mae_trends_down=True",
+    "ok": true
+   },
+   {
+    "impl": "entropy_production",
+    "mechanism": "R8",
+    "metric": "minors=[2.0, 1.91]",
+    "ok": true
+   },
+   {
+    "impl": "kuramoto_order+kuramoto_sweep",
+    "mechanism": "X2",
+    "metric": "Kc=0.7979 emp=0.8 factors=[13, 61, 137]",
+    "ok": true
+   }
+  ],
+  "literature": 9,
+  "mechanisms": 7,
+  "passed": 7,
+  "schema": "RESONANCE-SUPPLEMENT-v1.0",
+  "upstream": 12,
+  "verdict": "PASS"
+ },
+ "literature": [
+  {
+   "author": "Ilya Prigogine",
+   "claim": "非平衡可成为有序之源；耗散结构靠持续的物质能量交换维持低熵。",
+   "id": "L-C1",
+   "mechanisms": [
+    "C1",
+    "R8"
+   ],
+   "source": "Nobel Foundation 官方演讲全文",
+   "title": "Time, Structure and Fluctuations（诺贝尔化学奖演讲）",
+   "url": "https://www.nobelprize.org/uploads/2018/06/prigogine-lecture.pdf",
+   "usable": "熵产率 σ=ΣJ·X 与最小熵产定理的线性区判据",
+   "year": 1977
+  },
+  {
+   "author": "Royal Society Philosophical Transactions A, 376(2124)",
+   "claim": "线性区演化受熵产这一势函数支配，趋向与约束相容的最小熵产稳态。",
+   "id": "L-C1b",
+   "mechanisms": [
+    "C1"
+   ],
+   "source": "Royal Society 期刊",
+   "title": "The rehabilitation of irreversible processes and dissipative structures 50th anniversary",
+   "url": "https://royalsocietypublishing.org/rsta/article/376/2124/20170365/115575/The-rehabilitation-of-irreversible-processes-and",
+   "usable": "最小熵产定理的可判定表述：给定力 X，稳态使 X^T L X 最小",
+   "year": 2018
+  },
+  {
+   "author": "Hadamard (1893) / Walsh (1923) 正交基（教科书口径）",
+   "claim": "8 顶点立方体上的正交变换把 8 方位压成 1 直流 + 7 交流，变换自逆。",
+   "id": "L-R2",
+   "mechanisms": [
+    "R2"
+   ],
+   "source": "数学基础：H_n H_n = n I 的自逆正交构造",
+   "title": "Hadamard / Walsh 正交变换与立方体八顶点编码",
+   "url": "",
+   "usable": "一拖八的 fan-out/fan-in 用该正交变换实现，聚合无损（可逆）",
+   "year": 1893
+  },
+  {
+   "author": "Bak, Tang, Wiesenfeld",
+   "claim": "开放耗散系统在慢驱动下自组织到临界态，雪崩尺度分布呈幂律。",
+   "id": "L-R2b",
+   "mechanisms": [
+    "R2"
+   ],
+   "source": "Physical Review Letters 59, 381（arXiv 综述版）",
+   "title": "Self-organized criticality: an explanation of 1/f noise",
+   "url": "https://arxiv.org/pdf/cond-mat/9908316",
+   "usable": "分形/曼陀罗结构不是装饰，是临界态的几何快照",
+   "year": 1987
+  },
+  {
+   "author": "R. E. Kalman",
+   "claim": "状态估计 = 预测（协方差增长）+ 更新（卡尔曼增益加权观测）。",
+   "id": "L-R5",
+   "mechanisms": [
+    "R5"
+   ],
+   "source": "Journal of Basic Engineering 82(1):35-45（教科书级开源讲义对照）",
+   "title": "A New Approach to Linear Filtering and Prediction Problems",
+   "url": "https://github.com/rlabbe/Kalman-and-Bayesian-Filters-in-Python",
+   "usable": "多源融合的信息式等价形式：P^-1 = Σ R_i^-1，x = P Σ z_i/R_i",
+   "year": 1960
+  },
+  {
+   "author": "Bar-Shalom 等（跟踪理论通用判据）",
+   "claim": "NIS = ν^T S^-1 ν 服从 χ²(m)，可用于判定观测是否与滤波一致。",
+   "id": "L-R5b",
+   "mechanisms": [
+    "R5"
+   ],
+   "source": "Estimation with Applications to Tracking and Navigation",
+   "title": "Normalized Innovation Squared（NIS）一致性检验",
+   "url": "https://github.com/rlabbe/filterpy",
+   "usable": "融合质量的客观判据，而非主观的看起来收敛",
+   "year": 1988
+  },
+  {
+   "author": "Abraham Wald",
+   "claim": "累积对数似然比越过 A=log((1-β)/α) 或 B=log(β/(1-α)) 即停止，平均样本数最少。",
+   "id": "L-R6",
+   "mechanisms": [
+    "R6"
+   ],
+   "source": "Annals of Mathematical Statistics 16(2):117-186",
+   "title": "Sequential tests of statistical hypotheses（SPRT）",
+   "url": "",
+   "usable": "门禁不必等固定窗口，序贯判定可省样本且错误率可控",
+   "year": 1945
+  },
+  {
+   "author": "Rahimi, Recht",
+   "claim": "对核的谱测度采样 ω，z(x)=√(2/D)cos(ω·x+b) 使 E[z(x)z(y)]=k(x,y)。",
+   "id": "L-R7",
+   "mechanisms": [
+    "R7"
+   ],
+   "source": "NeurIPS 2007 论文全文",
+   "title": "Random Features for Large-Scale Kernel Machines（Bochner 定理）",
+   "url": "https://people.eecs.berkeley.edu/~brecht/papers/07.rah.rec.nips.pdf",
+   "usable": "有限维显式映射逼近无限维 RKHS 内积，误差随 D 下降",
+   "year": 2007
+  },
+  {
+   "author": "Y. Kuramoto",
+   "claim": "r = |⟨e^{iθ}⟩| 从 0 相变到 1；临界耦合 K_c = 2/(π g(0))。",
+   "id": "L-X2",
+   "mechanisms": [
+    "X2"
+   ],
+   "source": "Lecture Notes in Physics 39",
+   "title": "Kuramoto 相位振子模型：平均场序参量与临界耦合",
+   "url": "",
+   "usable": "共振有可测序参量，不再靠常数硬编码",
+   "year": 1975
+  }
+ ],
+ "mechanism_links": {
+  "C1": {
+   "impl": "entropy_production",
+   "judge": "σ=ΣJ·X 正定且对称",
+   "name": "自组织耗散"
+  },
+  "R2": {
+   "impl": "mandala_wht",
+   "judge": "H8·H8=8I，往返误差 < 1e-12",
+   "name": "曼陀罗一拖八"
+  },
+  "R5": {
+   "impl": "kalman_fuse",
+   "judge": "NIS < 3.841 判一致",
+   "name": "卡尔曼多源"
+  },
+  "R6": {
+   "impl": "sprt_gate",
+   "judge": "LLR 越 A/B 门限即停",
+   "name": "贝叶斯守卫"
+  },
+  "R7": {
+   "impl": "rff_kernel",
+   "judge": "RFF 内积≈高斯核，误差随 D 降",
+   "name": "希尔伯特投影"
+  },
+  "R8": {
+   "impl": "entropy_production",
+   "judge": "熵产率与秩序度同源",
+   "name": "耗散度量"
+  },
+  "X2": {
+   "impl": "kuramoto_order",
+   "judge": "r 随 K 相变，K_c 可算",
+   "name": "108641 共振"
+  }
+ },
+ "schema": "RESONANCE-SUPPLEMENT-v1.0",
+ "upstream": [
+  {
+   "absorb": "预测-更新两段式的直觉化拆解；NIS 一致性检验的工程用法",
+   "full_name": "rlabbe/Kalman-and-Bayesian-Filters-in-Python",
+   "lang": "Jupyter Notebook",
+   "role": "卡尔曼/贝叶斯滤波开源讲义 + 可跑 notebook",
+   "stars": 19480,
+   "target": "R5",
+   "usage": "method_only"
+  },
+  {
+   "absorb": "多源融合的协方差记账顺序；不复制实现",
+   "full_name": "rlabbe/filterpy",
+   "lang": "Python",
+   "role": "KF/EKF/UKF/粒子滤波/平滑器实现库",
+   "stars": 3899,
+   "target": "R5",
+   "usage": "method_only"
+  },
+  {
+   "absorb": "超向量绑定/捆绑/置换三算子语义；不运行、不并入",
+   "full_name": "hyperdimensional-computing/torchhd",
+   "lang": "Python",
+   "role": "HDC/VSA 主流库（本仓 14 只读源之一）",
+   "stars": 394,
+   "target": "R7",
+   "usage": "readonly_reference"
+  },
+  {
+   "absorb": "类向量与查询向量的相似度检索路径",
+   "full_name": "cumbof/hdlib",
+   "lang": "Python",
+   "role": "轻量 HDC/VSA 库",
+   "stars": 44,
+   "target": "R7",
+   "usage": "method_only"
+  },
+  {
+   "absorb": "阈值崩塌 → 邻居重分配的自动机结构",
+   "full_name": "delpapa/sandpilemodel",
+   "lang": "Python",
+   "role": "BTW 沙堆最小实现",
+   "stars": 7,
+   "target": "C1",
+   "usage": "method_only"
+  },
+  {
+   "absorb": "雪崩尺度分布作为临界性证据的呈现口径",
+   "full_name": "flrs/visual_sandpile",
+   "lang": "Matlab",
+   "role": "BTW 雪崩/幂律可视化",
+   "stars": 6,
+   "target": "C1",
+   "usage": "method_only"
+  },
+  {
+   "absorb": "拓扑特征要有持久性才可信的判据思想",
+   "full_name": "scikit-tda/ripser.py",
+   "lang": "C++",
+   "role": "持久同调（拓扑特征稳定性度量）",
+   "stars": 347,
+   "target": "R2",
+   "usage": "method_only"
+  },
+  {
+   "absorb": "把拓扑特征转成可优化特征的接口分层",
+   "full_name": "bruel-gabrielsson/TopologyLayer",
+   "lang": "Python",
+   "role": "持久同调 + 特征层",
+   "stars": 431,
+   "target": "R2",
+   "usage": "method_only"
+  },
+  {
+   "absorb": "局部/平均场两种耦合的数值积分写法",
+   "full_name": "adrianfessel/kuramoto",
+   "lang": "Python",
+   "role": "Kuramoto 网络同步实现",
+   "stars": 9,
+   "target": "X2",
+   "usage": "method_only"
+  },
+  {
+   "absorb": "噪声非单调增强信号的 SNR 峰形（共振的另一种证法）",
+   "full_name": "HarikrishnanNB/stochastic_resonance_and_nl",
+   "lang": "Python",
+   "role": "随机共振 + 神经混沌",
+   "stars": 19,
+   "target": "X2",
+   "usage": "method_only"
+  },
+  {
+   "absorb": "SNR 随噪声先升后降的实验口径",
+   "full_name": "mahajananshul/Stochastic_Resonance_in_Neural_Systems",
+   "lang": "Python",
+   "role": "加噪提升可检测性的最小示范",
+   "stars": 7,
+   "target": "X2",
+   "usage": "method_only"
+  },
+  {
+   "absorb": "不确定性自身被耗散优化的自指表述（仅概念，未采信其结论）",
+   "full_name": "lcaraffa/Bayesian_Emergent_Dissipative_Structures",
+   "lang": "",
+   "role": "贝叶斯涌现耗散结构",
+   "stars": 7,
+   "target": "C1/R6",
+   "usage": "method_only"
+  }
+ ]
+}
