@@ -1,0 +1,156 @@
+{
+  "batch": "V53-PALETTE-GATE",
+  "seal": "潮起开门，潮落闭嘴",
+  "head": "4d1b3a0e7c292d930aaded401926b3440abe951f",
+  "head_short": "4d1b3a0",
+  "head_note": "主批提交 = 4d1b3a0（7 文件：三件新增 + spec/断言 + README×2）。本回执因 head 自指须在提交后写，故以补正提交并入；五地推送与灯塔以补正提交后的最终 HEAD 为准，避免「回执→HEAD 变→五地重确认」循环。",
+  "prev_head": "4a1d2d8b14e5e7c560cceb1bbaecb3c56f828d5f",
+  "prev_head_short": "4a1d2d8",
+  "doc_version": "0.9.47",
+  "doc_version_note": "0.9.46（V52 4a1d2d8）→ 0.9.47；仅改 spec.py + test_v22 断言，concept_anatomy/test_v19 的 0.9.33 token 按既有口径不动",
+  "ring": 18,
+  "chain_position": "ring18 姊妹件：DirectorIndex（V52 索引层）→ PaletteIndex（本批色值层）→ PaletteTensor（占比加权 bundle）→ PaletteGate 总闸；机制 meridian（色相轴与占比轴分离＝分经别络同构）",
+  "source": "《导演视觉风格色卡》第 3-4 期 200 张色卡图（V52 已登记索引层）的可执行派生：像素采样 hex + 宽度占比 × mineru advanced OCR 色名",
+  "files_landed": [
+    "holoaeon/palette_gate.py",
+    "tests/test_v53_palette_gate.py",
+    "data/cinema_palettes.json"
+  ],
+  "files_touched_existing": [
+    "holoaeon/spec.py",
+    "tests/test_v22_eng_skills.py",
+    "README.md",
+    "README.zh-CN.md"
+  ],
+  "files_touched_note": "投喂包 §0/§3 声明「零改动既有文件」，但 §8-G 同时要求「README 门禁行补 V53 口径 + DOC_VERSION 顺延」——按 §8-G 执行，实质改动 4 件既有文件。此为包内两处声明的自相矛盾，按「照包内救济条款办事」处理并如实登记。",
+  "byte_identity": {
+    "holoaeon/palette_gate.py": {
+      "bytes": 17845,
+      "sha16": "F0CE464F1F7A14E2",
+      "expect": "f0ce464f1f7a14e2",
+      "match": true
+    },
+    "tests/test_v53_palette_gate.py": {
+      "bytes": 10639,
+      "sha16": "A9D82748A9EB814D",
+      "expect": "a9d82748a9eb814d",
+      "match": true
+    },
+    "data/cinema_palettes.json": {
+      "bytes": 133502,
+      "sha16": "26B06F9B5DBC5E4F",
+      "expect": "26b06f9b5dbc5e4f",
+      "match": true
+    },
+    "verdict": "3/3 逐字节命中，零偏离，无手动改动"
+  },
+  "components": {
+    "COLOR_AXIOM": {
+      "primary": "min_share 0.30 / 定调",
+      "secondary": "share_range 0.10-0.30 / max_count 2 / 撑层次",
+      "accent": "max_share 0.10 / 提亮"
+    },
+    "PaletteTensor": "占比加权 bundle：Σ share_i × make('hex:'+hex_i) 归一；同一性 encode 确定性可复现",
+    "PaletteIndex": "load/by_id/validate（6 色 + 占比合计 0.9-1.1 + hex 合法）/similar_by_hexes/similar_by_palette",
+    "PaletteGate": "self_check 四项（data 200 / axiom 主色=最大占比 / tensor 自相似 1.0 且 mono_dominance 0.5-0.999 / retrieval top>0.5）"
+  },
+  "data_facts": {
+    "count": 200,
+    "ids": "001-200 连续且唯一",
+    "colors_per_entry": 6,
+    "categories": 10,
+    "per_category": 20,
+    "validate": "ok=true problems=[]",
+    "name_source_honesty": "实色名 591/1200 色 · 占位 609 色 · 含占位条目 122/200（色名覆盖率约半，OCR 三态如实）",
+    "ocr_rows_zero": "90/200"
+  },
+  "tests": {
+    "v53": "37 OK（0.821s）",
+    "main_suite": "742 OK（8.933s）",
+    "v3": "11 OK",
+    "verax": "21 OK",
+    "total": 774,
+    "four_suite_note": "37 + 705(V52 基线) = 742 主套；四套联跑 47+45+35+37=164 与包内声明一致"
+  },
+  "cli_smoke": {
+    "probe": "exit 0（ok=true primary=主灰 0.4）",
+    "run": "exit 0；self_check 四项全 true；检索 Top1=001 希区柯克 0.4530，次名 099 侯孝贤 0.0913（与包内 0.453/0.091 吻合）",
+    "fingerprint": "exit 0；ring=18 batch=V53 axiom=主40%+辅20-30%+点缀5%；sha256=c592cf1d7d65f6ce82fc59ad70208fc623cb4a158812aa5c06c05ff1d9c95ef1"
+  },
+  "redline": {
+    "files": 134,
+    "violations": 0,
+    "note": "较 V52 的 133 增 1（新增 palette_gate.py）；本批代码零 __import__ / zero eval-exec，首跑即绿（V52 的 dangerous_call 教训已内化）"
+  },
+  "py38": {
+    "parsed": 322,
+    "failures": 0
+  },
+  "check_sums": {
+    "ok": true,
+    "total": 250,
+    "mismatches": [],
+    "note": "清单只钉输入侧既有件，新增 3 件不入清单（V38 口径），故 total 仍 250"
+  },
+  "readme_claims": {
+    "verdict": "PASS",
+    "mismatch": 0,
+    "stale_header": 0,
+    "changes": [
+      "徽章 705→742（×2）",
+      "工程验收 705 OK/737→742 OK/774（×2）",
+      "门禁行 unittest 705→742、redline 133→134（×2）",
+      "门禁行补 V53 37 例（×2）"
+    ]
+  },
+  "dimension_check": {
+    "VERSION": "0.9.1",
+    "layers": 8,
+    "PACK_ORDER": 9,
+    "EXTRA_PACK_ORDER": 19,
+    "dims": 12,
+    "verify_false": [
+      "D02",
+      "D05",
+      "D06",
+      "D07"
+    ],
+    "violations": 0,
+    "verdict": "PASS"
+  },
+  "diff0": {
+    "value": "6d119b2a9f2df687",
+    "intercept": "16/16 = 100%",
+    "pass_through": "4/4",
+    "assembly_ms": 31.97,
+    "peak_mib": 1.69,
+    "dual_caliber_note": "注释值 2fc892cf9af6e755 是 V1 黄金注释值（不同 workload），与 bench 判据不可互比"
+  },
+  "selftest": "25/25 PASS",
+  "v3_gate": "32/32 PASS（无参跑；--json 会 argparse 报错，历次踩坑）",
+  "five_site": {
+    "status": "PENDING_BY_DESIGN",
+    "note": "五地在补正提交后逐地回读，真值落仓外 five_site_confirm_V53_20261112.json；本条不写预期值，避免自指假绿"
+  },
+  "deviations": [
+    "D-53-01（口径）投喂包 §0/§3 称「零改动既有文件」，§8-G 又要求 README 门禁行 + DOC 顺延 → 按 §8-G 执行，改 4 件既有文件并登记",
+    "D-53-02（流程）回执 head 自指：主批 7 文件提交后写回执，再以补正提交并入（回执不计入主批 7 件统计）",
+    "D-53-03（数据）色名覆盖率约半（实 591/1200），占位 609 色 / 122 条目——源 OCR 三态质量所致，按零虚构纪律置占位不补猜"
+  ],
+  "honesty_boundaries": [
+    "hex 为像素采样主源，与印刷标注 ±3-10 RGB 漂移（JPEG 压缩），非印刷值抄录",
+    "share 为色带段宽度归一（物理测量），印刷占比仅作交叉参考不入主数据",
+    "001 锚点色名为占位『色1』（OCR 零行三态），hex 保真 #1A2332、占比 0.4144 为物理真值",
+    "141 今敏主色『樱花粉』#FBE4EA 0.2137 为 OCR 色名对齐锚点（该图 OCR 全出）",
+    "早期条目 009/013 等处存在 OCR 双写色名（如『深棕黑\\n\\n深棕黑』），原样保留不清理，保字节一致",
+    "底部辅助色块行 / 提示词四套文件 / 图片本体均不在本批（显式边界）",
+    "neural=false · network=false · new_dependencies=0（PIL/mineru 只在投喂侧）"
+  ],
+  "feed_corrections": [
+    "包内 §3 写 palette_gate.py 441 行，实落 17845 B 与该 sha16 一致（行数声明仅作参考）",
+    "包内称 37 例，实测 Ran 37 OK 一致；四套联跑 164 与包内一致",
+    "包内 run 锚 0.453 / 次名 0.091 与实测 0.4530 / 0.0913 一致，无需修正"
+  ],
+  "v54_handover": "V54 候选 = 底部辅助色块行（可选）+ V50 遗留两条 + 千问第七轮 P0 四条；均须新投喂包",
+  "verdict": "PASS"
+}
