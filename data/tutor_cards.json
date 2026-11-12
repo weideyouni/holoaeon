@@ -1,0 +1,820 @@
+{
+  "schema": "PREHISTORY-TUTOR-v1",
+  "version": "1.0",
+  "material_root_label": "doubaowork",
+  "sections": [
+    "导学大典",
+    "计算机语言通史",
+    "周易",
+    "道藏"
+  ],
+  "batch": "V73-PL6-TUTOR",
+  "cards": [
+    {
+      "id": "TUTOR-DX-01",
+      "source_pointer": "Agent_Native_导学大典_V1.0.md#L11",
+      "sha16": "3de23fc84b8eb12d",
+      "段落锚": {
+        "line": 11,
+        "heading": "0.0 导学缘起与资产对齐"
+      },
+      "领域": "agent-native",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": null,
+        "next": "TUTOR-DX-02"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "导学大典",
+      "summary": "本讲义的诞生不是泛AI科普文本，而是定向服务于本地F盘 doubaowork 文件夹内已经沉淀的一百余套智能体矩阵工程资产。在前期的工程台账梳理中，我们统计该目录下的资产谱系：包含独立Agent runtime包、专项分身矩阵、技能包、协议测试包、拓扑仿真包、RAG知识库配套智能体、投研量化矩阵、中医数字分身矩阵、数学大师矩阵、舌诊矩阵等，总量落在100多套区间，属于中等规模、具备集群化潜力，但…"
+    },
+    {
+      "id": "TUTOR-DX-02",
+      "source_pointer": "Agent_Native_导学大典_V1.0.md#L19",
+      "sha16": "3de23fc84b8eb12d",
+      "段落锚": {
+        "line": 19,
+        "heading": "0.1 底层学科交叉架构（总纲学科定位）"
+      },
+      "领域": "agent-native",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-DX-01",
+        "next": "TUTOR-DX-03"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "导学大典",
+      "summary": "Agent原生架构是典型交叉学科，它的根脉分布在五个母学科："
+    },
+    {
+      "id": "TUTOR-DX-03",
+      "source_pointer": "Agent_Native_导学大典_V1.0.md#L31",
+      "sha16": "3de23fc84b8eb12d",
+      "段落锚": {
+        "line": 31,
+        "heading": "0.2 本讲义的九维分析范式（继承知藏全息六维分析法，面向计算机学科扩展）"
+      },
+      "领域": "agent-native",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-DX-02",
+        "next": "TUTOR-DX-04"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "导学大典",
+      "summary": "每一个核心术语，都强制使用下面这套固定导学维度展开，也就是向量海扩写技能所使用的Prompt骨架："
+    },
+    {
+      "id": "TUTOR-DX-04",
+      "source_pointer": "Agent_Native_导学大典_V1.0.md#L46",
+      "sha16": "3de23fc84b8eb12d",
+      "段落锚": {
+        "line": 46,
+        "heading": "0.3 四态转化、三大产线兼容说明（承接全域升级包）"
+      },
+      "领域": "agent-native",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-DX-03",
+        "next": "TUTOR-DX-05"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "导学大典",
+      "summary": "本文档原生支持四态引擎自动转换："
+    },
+    {
+      "id": "TUTOR-DX-05",
+      "source_pointer": "Agent_Native_导学大典_V1.0.md#L57",
+      "sha16": "3de23fc84b8eb12d",
+      "段落锚": {
+        "line": 57,
+        "heading": "0.4 工程台账约定（写入F盘归档规范）"
+      },
+      "领域": "agent-native",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-DX-04",
+        "next": "TUTOR-DX-06"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "导学大典",
+      "summary": "本讲义定稿之后，在F盘建立配套台账："
+    },
+    {
+      "id": "TUTOR-DX-06",
+      "source_pointer": "Agent_Native_导学大典_V1.0.md#L76",
+      "sha16": "3de23fc84b8eb12d",
+      "段落锚": {
+        "line": 76,
+        "heading": "模块1：基础主体单元"
+      },
+      "领域": "agent-native",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-DX-05",
+        "next": "TUTOR-DX-07"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "导学大典",
+      "summary": "Agent（智能体），一句话标准定义：能够感知环境状态、基于内部目标做任务规划、调用外部工具、在“推理-行动-观测”循环中持续迭代、可以自主推进长周期目标，并支持复盘状态的自主软件单元；通俗比喻：一个会自己干活、会复盘、能交接任务的数字员工。"
+    },
+    {
+      "id": "TUTOR-DX-07",
+      "source_pointer": "Agent_Native_导学大典_V1.0.md#L1614",
+      "sha16": "3de23fc84b8eb12d",
+      "段落锚": {
+        "line": 1614,
+        "heading": "模块2：高级内生机制篇"
+      },
+      "领域": "agent-native",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-DX-06",
+        "next": "TUTOR-DX-08"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "导学大典",
+      "summary": "普通心跳 = 二元健康标记（存活/失联）；全息心跳 = 携带全息观测切片的周期性状态脉冲。"
+    },
+    {
+      "id": "TUTOR-DX-08",
+      "source_pointer": "Agent_Native_导学大典_V1.0.md#L1866",
+      "sha16": "3de23fc84b8eb12d",
+      "段落锚": {
+        "line": 1866,
+        "heading": "模块2：高级内生机制篇"
+      },
+      "领域": "agent-native",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-DX-07",
+        "next": "TUTOR-DX-09"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "导学大典",
+      "summary": "标准定义：细胞骨架机制，是一套依托全息心跳张量流动态维护矩阵节点间连接权重、通路拓扑、信号传导带宽、路由优先级的内生拓扑调节系统。类比生物细胞骨架——微管、微丝、中间丝共同支撑细胞形态、介导胞内物质转运、随细胞形变重构骨架网络；在1331×1331矩阵内部，细胞骨架不承载业务推理、不做Harness规约判定，只负责维护节点之间“可连通、可传递、可衰减、可断连”的动态通信骨架，决定心跳信号、记忆碎…"
+    },
+    {
+      "id": "TUTOR-DX-09",
+      "source_pointer": "Agent_Native_导学大典_V1.0.md#L2119",
+      "sha16": "3de23fc84b8eb12d",
+      "段落锚": {
+        "line": 2119,
+        "heading": "模块2：高级内生机制篇"
+      },
+      "领域": "agent-native",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-DX-08",
+        "next": "TUTOR-DX-10"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "导学大典",
+      "summary": "标准定义：神经胚胎发育赋能机制，是依托全息心跳张量作为时序激励、细胞骨架纤维网络作为信号传导基质，在均质初始分身池之上，通过诱导因子、分化抑制因子、形态发生素的梯度扩散，驱动无差别原始分身发生功能分化、角色特化、分区定型、谱系固化的内生形态发生系统。"
+    },
+    {
+      "id": "TUTOR-DX-10",
+      "source_pointer": "Agent_Native_导学大典_V1.0.md#L2369",
+      "sha16": "3de23fc84b8eb12d",
+      "段落锚": {
+        "line": 2369,
+        "heading": "模块2：高级内生机制篇"
+      },
+      "领域": "agent-native",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-DX-09",
+        "next": null
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "导学大典",
+      "summary": "标准定义：皮肤机制V6，是依托神经胚胎发育形成的外胚层边界分身集群为载体、以细胞骨架跨胚层衰减通路为隔离屏障、全息心跳边界谱作为状态感知锚点，为1331×1331矩阵建立内外域分离、出入流管控、边界过滤、交互塑形、损伤修复、边界稳态维持的自适应界面系统。类比生物皮肤：隔绝体内内环境与外界环境，控制物质进出、感知外部刺激、屏障防御、创伤修复、体温稳态调节；在矩阵体系之中，皮肤就是整个智能体矩阵与外…"
+    },
+    {
+      "id": "TUTOR-DXB-01",
+      "source_pointer": "Agent_Native_导学大典_V1.0_完整正文.md#L6248",
+      "sha16": "b15672e9f3551960",
+      "段落锚": {
+        "line": 6248,
+        "heading": "PowerShell配套脚本（放在00_root_ledger\\ps_scheduler）"
+      },
+      "领域": "agent-native",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": null,
+        "next": "TUTOR-DXB-02"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "导学大典",
+      "summary": "├── daily_fs_scan.ps1 # 每日自动巡检、输出巡检报告"
+    },
+    {
+      "id": "TUTOR-DXB-02",
+      "source_pointer": "Agent_Native_导学大典_V1.0_完整正文.md#L6543",
+      "sha16": "b15672e9f3551960",
+      "段落锚": {
+        "line": 6543,
+        "heading": "GPU调度与队列脚本 05_tools_bin"
+      },
+      "领域": "agent-native",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-DXB-01",
+        "next": "TUTOR-DXB-03"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "导学大典",
+      "summary": "├── mineru_gpu_scheduler.py # 显存监控、并发控制、任务优先级排队、和OAC显存预留联动"
+    },
+    {
+      "id": "TUTOR-DXB-03",
+      "source_pointer": "Agent_Native_导学大典_V1.0_完整正文.md#L6872",
+      "sha16": "b15672e9f3551960",
+      "段落锚": {
+        "line": 6872,
+        "heading": "骨架配套工具脚本 05_tools_bin"
+      },
+      "领域": "agent-native",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-DXB-02",
+        "next": "TUTOR-DXB-04"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "导学大典",
+      "summary": "├── cyto_batch_run.ps1 # PowerShell批量任务：遍历md_structured目录，批量抽取骨架"
+    },
+    {
+      "id": "TUTOR-DXB-04",
+      "source_pointer": "Agent_Native_导学大典_V1.0_完整正文.md#L7248",
+      "sha16": "b15672e9f3551960",
+      "段落锚": {
+        "line": 7248,
+        "heading": "配套工具脚本 05_tools_bin"
+      },
+      "领域": "agent-native",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-DXB-03",
+        "next": null
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "导学大典",
+      "summary": "├── spectral_batch_run.ps1 # PowerShell批量调度：遍历csv_primitive骨架包，批量嵌入+谱分析"
+    },
+    {
+      "id": "TUTOR-CL-01",
+      "source_pointer": "计算机语言通史3000万字/01_正文/卷01_史前到高级语言诞生/V1P1C01S01.md#L1",
+      "sha16": "1284b118f8b8ec0c",
+      "段落锚": {
+        "line": 1,
+        "heading": "第一卷 · 第一编 · 第一章 · 第一节 计数、位值制与算术工具的文明起源"
+      },
+      "领域": "computer-history",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": null,
+        "next": "TUTOR-CL-02"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "计算机语言通史",
+      "summary": "本书讲的是“计算机语言”，但语言不是从键盘和编译器开始的。要理解人类怎样一步步把“想事情”交给机器去做，必须先回到最朴素的问题：人是怎样记数的，又是怎样把数写下来、摆出来、算出来的。本节从计数的起源讲起，经过位值制（place-value system）这一被严重低估的伟大发明，落到算筹、算盘这类最早的“算术硬件”上。对零基础读者，这是整条时间轴的起点；对硬核读者，这里隐藏着后来一切数据表示、寄…"
+    },
+    {
+      "id": "TUTOR-CL-02",
+      "source_pointer": "计算机语言通史3000万字/01_正文/卷01_史前到高级语言诞生/V1P1C01S02.md#L1",
+      "sha16": "d775f9a4becc1667",
+      "段落锚": {
+        "line": 1,
+        "heading": "第一卷 · 第一编 · 第一章 · 第二节 纳皮尔算筹、计算尺与对数：把乘除化为加减"
+      },
+      "领域": "computer-history",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-CL-01",
+        "next": "TUTOR-CL-03"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "计算机语言通史",
+      "summary": "位值制解决了“怎么写数”，但没有解决“怎么算得快”。在没有电、没有齿轮计算器普及的年代，乘法和除法，尤其是天文与航海所需的大数乘除，是吞噬数学家生命的苦役。17 世纪初，苏格兰人约翰·纳皮尔（John Napier）给出了两件影响深远的工具：对数（logarithm）和一套被称为“纳皮尔算筹”（Napier's bones）的算具。前者把乘除化为加减，后者把乘法拆成查表与相加。再加上奥特雷德（W…"
+    },
+    {
+      "id": "TUTOR-CL-03",
+      "source_pointer": "计算机语言通史3000万字/01_正文/卷01_史前到高级语言诞生/V1P1C01S03.md#L1",
+      "sha16": "9263c307591f51ce",
+      "段落锚": {
+        "line": 1,
+        "heading": "第一卷 · 第一编 · 第一章 · 第三节 帕斯卡加法器与莱布尼茨乘法器"
+      },
+      "领域": "computer-history",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-CL-02",
+        "next": "TUTOR-CL-04"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "计算机语言通史",
+      "summary": "对数和计算尺把计算变快了，但它们仍然要人来“做动作”：查表、滑动、读数。17 世纪的两位巨人——帕斯卡（Blaise Pascal）与莱布尼茨（Gottfried Wilhelm Leibniz）——想得更远：能不能让齿轮自己完成运算？帕斯卡造出了能自动进位的加法器，莱布尼茨则用“阶梯轴”把乘法也交给机器，并在同一时期给出了二进制算术和“让推理可计算”的宏大构想。这一节是“硬件自动化”与“符号可…"
+    },
+    {
+      "id": "TUTOR-CL-04",
+      "source_pointer": "计算机语言通史3000万字/01_正文/卷01_史前到高级语言诞生/V1P1C01S04.md#L1",
+      "sha16": "d5173cd95610c63a",
+      "段落锚": {
+        "line": 1,
+        "heading": "第一卷 · 第一编 · 第一章 · 第四节 机械计算的思想遗产：进位、自动与通用性"
+      },
+      "领域": "computer-history",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-CL-03",
+        "next": "TUTOR-CL-05"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "计算机语言通史",
+      "summary": "走完算筹、对数、帕斯卡与莱布尼茨，我们先不急着进入下一台机器，而是停下来做一次“思想盘点”。本节回答一个贯穿全书的问题：计算器（calculator）和计算机（computer）到底差在哪里？ 17—19 世纪的机械计算器已经能自动做加减乘除，却为什么没有直接长成计算机？答案不在运算速度，而在三样缺失的东西：自动顺序控制、条件判断、以及“换任务不用换机器”的通用性。把这三样讲清楚，后面雅卡尔织机…"
+    },
+    {
+      "id": "TUTOR-CL-05",
+      "source_pointer": "计算机语言通史3000万字/01_正文/卷01_史前到高级语言诞生/V1P1C01S06.md#L1",
+      "sha16": "9928dc91a89daf57",
+      "段落锚": {
+        "line": 1,
+        "heading": "第一卷 · 第一编 · 第一章 · 第六节 名词卡与跨学科关联：机械、数学与认知"
+      },
+      "领域": "computer-history",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-CL-04",
+        "next": null
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "计算机语言通史",
+      "summary": "本节是第一章的“收口与索引”。前几节按时间线讲了计数、位值制、对数、计算尺、帕斯卡与莱布尼茨，这一节把全章的关键术语统一沉淀为名词卡（部分术语在前文已出卡，此处做补全与互见），再拉通一条最重要的跨学科关联链路：机械怎样变成数学，数学怎样变成逻辑，逻辑又怎样被当作认知模型。这条链路从齿轮一直延伸到今天的人工智能。零基础读者可把本节当作“本章概念地图”；硬核读者请关注末尾对“计算主义（computa…"
+    },
+    {
+      "id": "TUTOR-ZY-01",
+      "source_pointer": "周易300万字逐字稿_450合集_最终包_20261009/02_合一全文_第001-450篇_约180万字.md#L3",
+      "sha16": "b7b250863c4ad4de",
+      "段落锚": {
+        "line": 3,
+        "heading": "乾宫第二卦・天风姤 五维全解"
+      },
+      "领域": "zhouyi",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": null,
+        "next": "TUTOR-ZY-02"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "周易",
+      "summary": "我们先来想一个问题：一片森林，什么时候最危险？"
+    },
+    {
+      "id": "TUTOR-ZY-02",
+      "source_pointer": "周易300万字逐字稿_450合集_最终包_20261009/02_合一全文_第001-450篇_约180万字.md#L417",
+      "sha16": "b7b250863c4ad4de",
+      "段落锚": {
+        "line": 417,
+        "heading": "卷一·第2章 六十四卦的生成逻辑（上）：从阴阳到八卦"
+      },
+      "领域": "zhouyi",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-ZY-01",
+        "next": "TUTOR-ZY-03"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "周易",
+      "summary": "我们先不急着讲八卦。大家先想一个问题：如果把世间万物——山川河流、花鸟虫鱼、春夏秋冬、喜怒哀乐——全都拆解到最底层，剩下的最基本的\"零件\"会是什么？"
+    },
+    {
+      "id": "TUTOR-ZY-03",
+      "source_pointer": "周易300万字逐字稿_450合集_最终包_20261009/02_合一全文_第001-450篇_约180万字.md#L604",
+      "sha16": "b7b250863c4ad4de",
+      "段落锚": {
+        "line": 604,
+        "heading": "卷一·第2章 六十四卦的生成逻辑（下）：从八卦到六十四卦"
+      },
+      "领域": "zhouyi",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-ZY-02",
+        "next": "TUTOR-ZY-04"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "周易",
+      "summary": "上一节我们讲到了八卦——乾坤震巽坎离艮兑，八种功能模式。但八种模式还不够用。世界太复杂了，光靠八种\"APP\"处理不了所有场景。怎么办？"
+    },
+    {
+      "id": "TUTOR-ZY-04",
+      "source_pointer": "周易300万字逐字稿_450合集_最终包_20261009/02_合一全文_第001-450篇_约180万字.md#L733",
+      "sha16": "b7b250863c4ad4de",
+      "段落锚": {
+        "line": 733,
+        "heading": "卷一·第3章 京房八宫卦序体系（上）：京房与八宫卦序的由来"
+      },
+      "领域": "zhouyi",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-ZY-03",
+        "next": "TUTOR-ZY-05"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "周易",
+      "summary": "我们这套300万字的逐字稿，六十四卦的排列顺序不是大家最熟悉的\"乾坤屯蒙……\"（序卦传序），而是\"乾坎艮震巽离坤兑\"的八宫序。为什么要做这个选择？"
+    },
+    {
+      "id": "TUTOR-ZY-05",
+      "source_pointer": "周易300万字逐字稿_450合集_最终包_20261009/02_合一全文_第001-450篇_约180万字.md#L836",
+      "sha16": "b7b250863c4ad4de",
+      "段落锚": {
+        "line": 836,
+        "heading": "卷一·第3章 京房八宫卦序体系（下）：世应、纳甲与占筮应用"
+      },
+      "领域": "zhouyi",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-ZY-04",
+        "next": "TUTOR-ZY-06"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "周易",
+      "summary": "八宫体系里有一个非常重要的概念——世应。"
+    },
+    {
+      "id": "TUTOR-ZY-06",
+      "source_pointer": "周易300万字逐字稿_450合集_最终包_20261009/02_合一全文_第001-450篇_约180万字.md#L956",
+      "sha16": "b7b250863c4ad4de",
+      "段落锚": {
+        "line": 956,
+        "heading": "卷一·第4章 五维解读法说明：底层逻辑/概念/梳理原型/频率改变/落地场景"
+      },
+      "领域": "zhouyi",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-ZY-05",
+        "next": "TUTOR-ZY-07"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "周易",
+      "summary": "传统解易有三大流派，各有各的长处，也各有各的盲区："
+    },
+    {
+      "id": "TUTOR-ZY-07",
+      "source_pointer": "周易300万字逐字稿_450合集_最终包_20261009/02_合一全文_第001-450篇_约180万字.md#L1092",
+      "sha16": "b7b250863c4ad4de",
+      "段落锚": {
+        "line": 1092,
+        "heading": "卷一·第5章 易学研究的纵向时间轴总览"
+      },
+      "领域": "zhouyi",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-ZY-06",
+        "next": "TUTOR-ZY-08"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "周易",
+      "summary": "学周易，如果只盯着经文和注疏看，很容易\"只见树木不见森林\"。你会觉得王弼的\"扫象言理\"和朱熹的\"易学本义\"好像在各说各话，来知德的\"错综卦\"和焦循的\"旁通\"好像是两套完全不同的语言。"
+    },
+    {
+      "id": "TUTOR-ZY-08",
+      "source_pointer": "周易300万字逐字稿_450合集_最终包_20261009/02_合一全文_第001-450篇_约180万字.md#L1242",
+      "sha16": "b7b250863c4ad4de",
+      "段落锚": {
+        "line": 1242,
+        "heading": "卷二·乾宫第2卦 天风姤 · 五维全解"
+      },
+      "领域": "zhouyi",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-ZY-07",
+        "next": "TUTOR-ZY-09"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "周易",
+      "summary": "我们先看卦象。天风姤，上卦是乾（天，☰），下卦是巽（风，☴）。六个爻里，五个是阳爻，只有最下面的初爻是阴爻。"
+    },
+    {
+      "id": "TUTOR-ZY-09",
+      "source_pointer": "周易300万字逐字稿_450合集_最终包_20261009/02_合一全文_第001-450篇_约180万字.md#L1390",
+      "sha16": "b7b250863c4ad4de",
+      "段落锚": {
+        "line": 1390,
+        "heading": "卷二·乾宫第3卦 天山遁 · 五维全解"
+      },
+      "领域": "zhouyi",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-ZY-08",
+        "next": "TUTOR-ZY-10"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "周易",
+      "summary": "天山遁，上卦是乾（天，☰），下卦是艮（山，☶）。六个爻里，下面两个是阴爻，上面四个是阳爻。"
+    },
+    {
+      "id": "TUTOR-ZY-10",
+      "source_pointer": "周易300万字逐字稿_450合集_最终包_20261009/02_合一全文_第001-450篇_约180万字.md#L1529",
+      "sha16": "b7b250863c4ad4de",
+      "段落锚": {
+        "line": 1529,
+        "heading": "卷二·乾宫第4卦 天地否 · 五维全解"
+      },
+      "领域": "zhouyi",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-ZY-09",
+        "next": null
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "周易",
+      "summary": "天地否，上卦是乾（天，☰），下卦是坤（地，☷）。三个阳爻在上，三个阴爻在下。"
+    },
+    {
+      "id": "TUTOR-DZ-01",
+      "source_pointer": "道藏讲习录_三年全息工程/综合合集/道藏讲习录_综合报告合集_第001-032天_20261016.md#L59",
+      "sha16": "754f3c69aff7f724",
+      "段落锚": {
+        "line": 59,
+        "heading": "道藏讲习录·第1年筑基篇·第1月·第001天"
+      },
+      "领域": "daozang",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": null,
+        "next": "TUTOR-DZ-02"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "道藏",
+      "summary": "从今天起，我们将用整整三年的时间，走完一部完整的《道藏》。不是泛泛而谈的介绍，不是碎片化的鸡汤摘取，而是一部经典、一部经典地走进去，逐章逐句地读，一层一层地解，最终把这五千四百八十五卷的道家宝藏，变成你我可以随身携带、可以日用践行的生命智慧。"
+    },
+    {
+      "id": "TUTOR-DZ-02",
+      "source_pointer": "道藏讲习录_三年全息工程/综合合集/道藏讲习录_综合报告合集_第001-032天_20261016.md#L458",
+      "sha16": "754f3c69aff7f724",
+      "段落锚": {
+        "line": 458,
+        "heading": "道藏讲习录·第1年筑基篇·第1月·第001天"
+      },
+      "领域": "daozang",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-DZ-01",
+        "next": "TUTOR-DZ-03"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "道藏",
+      "summary": "上一篇我们做了第一章的原文导读，把文本的来龙去脉、逐句含义、历代注疏都过了一遍。今天这第二篇，我们要往深处走——专门拆解第一章最核心的哲学问题：有与无。"
+    },
+    {
+      "id": "TUTOR-DZ-03",
+      "source_pointer": "道藏讲习录_三年全息工程/综合合集/道藏讲习录_综合报告合集_第001-032天_20261016.md#L851",
+      "sha16": "754f3c69aff7f724",
+      "段落锚": {
+        "line": 851,
+        "heading": "道藏讲习录·第1年筑基篇·第1月·第001天"
+      },
+      "领域": "daozang",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-DZ-02",
+        "next": "TUTOR-DZ-04"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "道藏",
+      "summary": "前两篇，我们从文本到义理，把《道德经》第一章的五十九个字翻来覆去地讲了两遍。但老子的学问，从来不是书斋里的学问，不是用来谈玄说妙的，而是用来修证的——修是修身，证是证悟，是要在你的生命中实实在在地体证出来的。"
+    },
+    {
+      "id": "TUTOR-DZ-04",
+      "source_pointer": "道藏讲习录_三年全息工程/综合合集/道藏讲习录_综合报告合集_第001-032天_20261016.md#L1225",
+      "sha16": "754f3c69aff7f724",
+      "段落锚": {
+        "line": 1225,
+        "heading": "道藏讲习录·第1年筑基篇·第1月·第002天"
+      },
+      "领域": "daozang",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-DZ-03",
+        "next": "TUTOR-DZ-05"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "道藏",
+      "summary": "昨天我们走完了《道德经》第一章，那是全书的总纲——\"道可道非常道\"，一句话打掉了我们对语言和概念的执着。如果说第一章是在\"破\"，破掉我们对确定性的迷恋，那么今天的第二章，就是在\"立\"——立起一个全新的看世界的方式。"
+    },
+    {
+      "id": "TUTOR-DZ-05",
+      "source_pointer": "道藏讲习录_三年全息工程/综合合集/道藏讲习录_综合报告合集_第001-032天_20261016.md#L1642",
+      "sha16": "754f3c69aff7f724",
+      "段落锚": {
+        "line": 1642,
+        "heading": "道藏讲习录·第1年筑基篇·第1月·第002天"
+      },
+      "领域": "daozang",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-DZ-04",
+        "next": "TUTOR-DZ-06"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "道藏",
+      "summary": "上一篇我们做了第二章的原文导读，把\"天下皆知美之为美\"到\"夫唯弗居是以不去\"逐句过了一遍。今天这第二篇，我们要往深处钻——专门拆解第二章最核心、也最容易被误解的一个概念：无为。"
+    },
+    {
+      "id": "TUTOR-DZ-06",
+      "source_pointer": "道藏讲习录_三年全息工程/综合合集/道藏讲习录_综合报告合集_第001-032天_20261016.md#L2109",
+      "sha16": "754f3c69aff7f724",
+      "段落锚": {
+        "line": 2109,
+        "heading": "道藏讲习录·第1年筑基篇·第1月·第002天"
+      },
+      "领域": "daozang",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-DZ-05",
+        "next": "TUTOR-DZ-07"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "道藏",
+      "summary": "前两篇，我们从文本到义理，把第二章的\"价值相对\"\"对立统一\"\"无为不言\"\"功成不居\"翻来覆去地讲了两遍。但老子的学问，从来不是书斋里的学问，不是用来谈玄说妙的，而是要在你的生命中实实在在地体证出来的。"
+    },
+    {
+      "id": "TUTOR-DZ-07",
+      "source_pointer": "道藏讲习录_三年全息工程/综合合集/道藏讲习录_综合报告合集_第001-032天_20261016.md#L2514",
+      "sha16": "754f3c69aff7f724",
+      "段落锚": {
+        "line": 2514,
+        "heading": "道藏讲习录·第1年筑基篇·第1月·第003天"
+      },
+      "领域": "daozang",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-DZ-06",
+        "next": null
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "道藏",
+      "summary": "前两天我们走完了第一章和第二章。第一章是总纲——\"道可道非常道\"，打掉我们对语言和概念的执着；第二章是展开——\"天下皆知美之为美，斯恶已\"，揭示一切价值判断的相对性，并第一次提出了\"无为\"。"
+    },
+    {
+      "id": "TUTOR-DZA-01",
+      "source_pointer": "道藏讲习录_三年全息工程/artifacts/道藏讲习录_第1年_第1月_第027天_第3篇_道德经第27章_修证应用.md#L3",
+      "sha16": "bd8d3555a08db2ba",
+      "段落锚": {
+        "line": 3,
+        "heading": "道藏讲习录·三年全息导学工程"
+      },
+      "领域": "daozang",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": null,
+        "next": "TUTOR-DZA-02"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "道藏",
+      "summary": "你注意听这开头的排比：善行无辙迹，善言无瑕谪，善数不用筹策，善闭无关楗而不可开，善结无绳约而不可解。"
+    },
+    {
+      "id": "TUTOR-DZA-02",
+      "source_pointer": "道藏讲习录_三年全息工程/artifacts/道藏讲习录_第1年_第1月_第028天_第3篇_道德经第28章_修证应用.md#L5",
+      "sha16": "2eb730391bf5d3b9",
+      "段落锚": {
+        "line": 5,
+        "heading": "第028天 · 第3篇·修证应用 · 《道德经》第28章「知其雄，守其雌」"
+      },
+      "领域": "daozang",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-DZA-01",
+        "next": "TUTOR-DZA-03"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "道藏",
+      "summary": "今天这一章，是《道德经》里最容易被读成\"退缩\"的一章，也是最容易被读成\"权谋\"的一章——第28章，「知其雄，守其雌，为天下溪」。"
+    },
+    {
+      "id": "TUTOR-DZA-03",
+      "source_pointer": "道藏讲习录_三年全息工程/artifacts/道藏讲习录_第1年_第1月_第029天_第3篇_道德经第29章_修证应用.md#L5",
+      "sha16": "5818a5caab7e5d7c",
+      "段落锚": {
+        "line": 5,
+        "heading": "第029天 · 第3篇·修证应用 · 《道德经》第29章「将欲取天下而为之，吾见其不得已」"
+      },
+      "领域": "daozang",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-DZA-02",
+        "next": "TUTOR-DZA-04"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "道藏",
+      "summary": "今天这一章，可能是《道德经》里最\"泼冷水\"的一章，也是送给所有\"想掌控一切的人\"的一章——第29章，「将欲取天下而为之，吾见其不得已」。"
+    },
+    {
+      "id": "TUTOR-DZA-04",
+      "source_pointer": "道藏讲习录_三年全息工程/artifacts/道藏讲习录_第1年_第1月_第030天_第3篇_道德经第30章_修证应用.md#L5",
+      "sha16": "987e553f77a52534",
+      "段落锚": {
+        "line": 5,
+        "heading": "第030天 · 第3篇·修证应用 · 《道德经》第30章「以道佐人主者，不以兵强天下」"
+      },
+      "领域": "daozang",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-DZA-03",
+        "next": "TUTOR-DZA-05"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "道藏",
+      "summary": "今天这一章，讲的是\"不战而胜\"的智慧，也是《道德经》里最清醒的\"止战\"宣言——第30章，「以道佐人主者，不以兵强天下」。"
+    },
+    {
+      "id": "TUTOR-DZA-05",
+      "source_pointer": "道藏讲习录_三年全息工程/artifacts/道藏讲习录_第1年_第2月_第031天_第3篇_道德经第31章_修证应用.md#L5",
+      "sha16": "bf519660faab8488",
+      "段落锚": {
+        "line": 5,
+        "heading": "第031天 · 第3篇·修证应用 · 《道德经》第31章「夫兵者，不祥之器，物或恶之，故有道者不处」"
+      },
+      "领域": "daozang",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-DZA-04",
+        "next": "TUTOR-DZA-06"
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "道藏",
+      "summary": "欢迎回到道藏讲习录。昨天我们修了第30章「不以兵强天下」，讲了\"其事好还\"和\"善有果而已\"——那是老子的\"止战宣言\"。今天这一章，是它的续篇，也是整个《道德经》里对\"兵器\"最决绝的一章——第31章，「夫兵者，不祥之器，物或恶之，故有道者不处」。"
+    },
+    {
+      "id": "TUTOR-DZA-06",
+      "source_pointer": "道藏讲习录_三年全息工程/artifacts/道藏讲习录_第1年_第2月_第032天_第3篇_道德经第32章_修证应用.md#L5",
+      "sha16": "a4374e7ffd2f62f2",
+      "段落锚": {
+        "line": 5,
+        "heading": "第032天 · 第3篇·修证应用 · 《道德经》第32章「道常无名，朴虽小，天下莫能臣也」"
+      },
+      "领域": "daozang",
+      "归属仓": "C05",
+      "导学路径": {
+        "prev": "TUTOR-DZA-05",
+        "next": null
+      },
+      "evidence_level": "L2",
+      "zero_prescription": true,
+      "section": "道藏",
+      "summary": "欢迎回到道藏讲习录。昨天我们修了第31章「夫兵者，不祥之器」，讲了\"兵者不祥、恬淡为上、战胜以丧礼处之\"——那是老子的\"力量伦理\"，教我们怎么对待手里的凶器。今天这一章，是《道德经》里极特殊的一章——它短，全章不过七八十字；但它美，美得像一段关于\"朴\"的告白。这一章就是第32章，「道常无名，朴虽小，天下莫能臣也」。"
+    }
+  ],
+  "counters": {
+    "cards": 42,
+    "sections": 4,
+    "max_summary_chars": 200,
+    "zero_prescription": true
+  },
+  "note": "只存指针与 ≤200 字短摘要，不复制全文；每卡可回溯原文件行号与段落锚；零诊断零处方。",
+  "digest": "ad57eecb6d0884ac"
+}
