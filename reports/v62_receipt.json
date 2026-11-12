@@ -1,0 +1,146 @@
+{
+ "batch": "V62-MERIDIAN-LINK",
+ "status": "closed",
+ "date": "2026-11-12",
+ "seal": "潮起开门，潮落闭嘴",
+ "head": "PENDING_COMMIT",
+ "head_short": "PENDING",
+ "prev_head_short": "16c57b1",
+ "doc_version": "0.9.56",
+ "version_frozen": "0.9.1",
+ "ring": 23,
+ "patch": 2,
+ "source": "碳基三轮指令（①建立经络链接：全息性/自组织相似性/耗散结构/共振态等全部机制，完全匹配基座所有已存机制，遍历穷举细致链接 ②纠偏：查询向量海文件架构、把本项目内核机制穷举列为信息补充 ③手工三轮点名 17 条）：机制轴 25 位五源 import 对账（公理 2 + 矩阵 2 + 核心 M01–M11 + 耗散验证 2 + 经络子机制 8）；三态细致链接（linked / pending-evidence / unlinked）+ 证据逐格留痕可复算；10 碎片 × 25 机制 = 250 格穷举无缺格；C03 链接台账无墙钟确定性；G-M 门禁 4 WAIT 如实携带",
+ "files_landed": [
+  "holoaeon/meridian_link.py",
+  "tests/test_v62_meridian_link.py",
+  "data/searchnet_d03_meridian.json",
+  "holoaeon/spec.py",
+  "tests/test_v22_eng_skills.py",
+  "README.md",
+  "README.zh-CN.md",
+  "reports/five_site_manifest.json"
+ ],
+ "byte_identity": {
+  "expect": "3/3",
+  "measured": "3/3 MATCH",
+  "detail": {
+   "holoaeon/meridian_link.py": {
+    "bytes": 38497,
+    "sha16": "0af48ac1f7849ee0",
+    "lines": 693
+   },
+   "tests/test_v62_meridian_link.py": {
+    "bytes": 15851,
+    "sha16": "b296cc9d956a9f9a",
+    "lines": 379
+   },
+   "data/searchnet_d03_meridian.json": {
+    "bytes": 52394,
+    "sha16": "9f40b083f507c15a"
+   }
+  },
+  "extraction": "锚点=节标题 `### 块 X · …`（唯一锚点防错位，执行步骤行内文字先于节标题出现故不以正文首次命中为锚——V61 教训固化），基准=外层 ````markdown` 内 ```python / ```json 围栏正文逐字节；块 C 末尾无换行（落盘 -1 字节修正后 sha16 才命中，实测记录在案）"
+ },
+ "tests": {
+  "v62": "58 OK",
+  "v61_regression": "66 OK",
+  "v60_regression": "98 OK",
+  "main_discover": "1238 OK",
+  "total_three_domains": "1238 + v3 11 + verax 21 = 1270",
+  "ledger_determinism": "ledger 重写后 bytes=52394 sha16=9f40b083f507c15a（一致，无墙钟）"
+ },
+ "mechanism_axis": {
+  "total": 25,
+  "layers": {
+   "公理": 2,
+   "矩阵": 2,
+   "核心机制": 11,
+   "耗散验证": 2,
+   "经络子机制": 8
+  },
+  "named_by_carbon": 17,
+  "named_rounds": "4 + 10 + 3",
+  "import_reconciled": true,
+  "sources": [
+   "klein_projection.MECHANISMS",
+   "titan_evolver.MECHANISMS",
+   "holo_forge.HOLO_MECHANISMS",
+   "concept_anatomy.CONCEPT_MAP",
+   "packs.topology_resonance_pack（八函数 + 常量）"
+  ],
+  "drift_guard": "基座注册表新增/改名/删减 → check_registry FAIL → 链接表显形为过期"
+ },
+ "linkage": {
+  "fragments": 10,
+  "mechanisms": 25,
+  "cells": 250,
+  "linked": 13,
+  "pending": 214,
+  "unlinked": 23,
+  "by_mechanism_linked": {
+   "M01": 3,
+   "M02": 1,
+   "M04": 2,
+   "M08": 6,
+   "M11": 1
+  },
+  "evidence_sources": [
+   "name（repo 名，英文键）",
+   "leg（中文键）",
+   "essence（中文键，仅 kafka 在案）"
+  ],
+  "pending_note": "214 格 pending 全部来自 essence 为 null 的 9 条碎片——证据不足不下定论（V56 WAIT 三态先例）",
+  "unlinked_note": "23 格 unlinked 全部是 kafka（essence 在案）的全证据实测无链接"
+ },
+ "gates": {
+  "selftest": "25/25",
+  "v3_gate": "32/32",
+  "redline": "140 文件 0 违规",
+  "dimension_lock": "PASS（12 维 / 7 闸 / 0 violation；DOC 0.9.55→0.9.56 演进态）",
+  "check_sums": "ok=true / total=250 / mismatches=[]",
+  "bench_diff0": "DIFF=0 6d119b2a9f2df687 / tampered 8f424d9ee3ebfb9b / 拦截 16/16 / 冷装配 32.54ms·1.69MiB",
+  "verify_v44": "13/13 PASS",
+  "five_site_manifest": "package 28 / repo 171 / missing 0 / zip_sha16 a87fa921bf963fa1",
+  "readme_claims_check": "PASS / mismatch=0 / stale_header=0"
+ },
+ "cli": {
+  "check": "rc=0（registry / named / linkage 三检查全 PASS）",
+  "table": "rc=0",
+  "summary": "rc=0（linked=13 · gm_gate pass=False wait=4）",
+  "ledger": "rc=0",
+  "noarg": "rc=1",
+  "unknown": "rc=1",
+  "ledger_missing_out": "rc=1"
+ },
+ "gm_gate": {
+  "gate": "G-M",
+  "pass": false,
+  "wait_items": [
+   "G-M-1",
+   "G-M-2",
+   "G-M-3",
+   "G-M-4"
+  ],
+  "hard_rule": "C03 未过 G-M 前禁止启动任何领域深化批次（org_gate 原文）",
+  "note": "链接表是经络先行的一部分，不替门禁签字（4 WAIT 如实携带）"
+ },
+ "chain_position": "搜索网与打捞域 · 经络链接（打捞局 V60/V61 之后：碎片入仓 → 接进经络）",
+ "honest_boundaries": [
+  "机制轴是「可测子集」不是「穷举宇宙」：25 位取自五个仓内基座注册表的 import 对账；碳基三轮点名 17 条是校验子集，余 8 位（万物互联/皮肤/runtime/graph/类社会组合体/城邦架构/去幻觉/耗散度量）由 import 兜底",
+  "键匹配是确定性字符串子串判定，不是语义理解——换措辞即漏检；扩展键禁含碎片名（只有能力词，每条附语义出处注记）",
+  "214 格 pending-evidence 是诚实挂起不是失败：B 榜落盘字段无 desc/topics、essence 9/10 为 null；补采后判定可能翻转（判定函数已就绪）",
+  "「贝叶斯干涉」在仓实名贝叶斯守卫（bayesian_guard）/guard L10/org_gate 贝叶斯衍射反演——同族异名如实登记，不合并词条",
+  "「108641 共振带配额」不采（V55 数字挪用弃裁决维持），本轴按 ACTIVE_NODES / EMERGENCE_THRESHOLD 常量口径注册",
+  "本批零网络：台账是 B 榜落盘数据的确定性加工，不含实际抓取",
+  "G-M 门禁 4 WAIT 未填绿：依赖 C03 领域实现与连通件，非本批可实现"
+ ],
+ "not_committed": [
+  "AGENT_FEED_V62_MERIDIAN_LINK_20261112.md（投喂包，DNA 约定不提交）",
+  "benchmarks/README.md、benchmarks/results-0.9.1.json（bench 噪声，跑完已 checkout 还原）"
+ ],
+ "rollback": {
+  "files": "三件纯新增，git rm 即回滚；spec/README/test_v22 由本批内改动，git revert 即可",
+  "data": "data/searchnet_d03_meridian.json 可由 python -m holoaeon.meridian_link ledger 重建（确定性）"
+ }
+}

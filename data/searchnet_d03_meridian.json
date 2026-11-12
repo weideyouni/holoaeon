@@ -1,0 +1,2624 @@
+{
+ "project": "HoloAeon SEARCHNET-01 D03 MERIDIAN-LINK",
+ "dim_id": "D03",
+ "cang": "holoaeon-c03-meridian",
+ "batch": "V62-MERIDIAN-LINK",
+ "date": "2026-11-12",
+ "schema": "MERIDIAN-LINK-v1.0",
+ "source": "碳基三轮指令（建立经络链接/内核机制穷举信息补充/手工补充 17 条点名）+ B 榜 10 条（V61 落盘 data/searchnet_d03_b.json，全员 unverified）",
+ "fragments": 10,
+ "mechanisms": 25,
+ "cells": 250,
+ "mechanism_axis": [
+  {
+   "id": "A1",
+   "layer": "公理",
+   "name": "全息",
+   "en": "holography"
+  },
+  {
+   "id": "A2",
+   "layer": "公理",
+   "name": "万物互联",
+   "en": "universal_linkage"
+  },
+  {
+   "id": "X1",
+   "layer": "矩阵",
+   "name": "1331×1331 节点矩阵",
+   "en": "node_matrix"
+  },
+  {
+   "id": "X2",
+   "layer": "矩阵",
+   "name": "108641 活跃节点共振",
+   "en": "active_resonance"
+  },
+  {
+   "id": "M01",
+   "layer": "核心机制",
+   "name": "心跳",
+   "en": "heartbeat"
+  },
+  {
+   "id": "M02",
+   "layer": "核心机制",
+   "name": "细胞骨架",
+   "en": "cytoskeleton"
+  },
+  {
+   "id": "M03",
+   "layer": "核心机制",
+   "name": "皮肤",
+   "en": "skin"
+  },
+  {
+   "id": "M04",
+   "layer": "核心机制",
+   "name": "经络",
+   "en": "meridian"
+  },
+  {
+   "id": "M05",
+   "layer": "核心机制",
+   "name": "赫布协作场",
+   "en": "hebbian"
+  },
+  {
+   "id": "M06",
+   "layer": "核心机制",
+   "name": "语义通信基座",
+   "en": "semantic_bus"
+  },
+  {
+   "id": "M07",
+   "layer": "核心机制",
+   "name": "自组织相似性",
+   "en": "similarity"
+  },
+  {
+   "id": "M08",
+   "layer": "核心机制",
+   "name": "runtime",
+   "en": "runtime"
+  },
+  {
+   "id": "M09",
+   "layer": "核心机制",
+   "name": "graph",
+   "en": "graph"
+  },
+  {
+   "id": "M10",
+   "layer": "核心机制",
+   "name": "类社会组合体",
+   "en": "society"
+  },
+  {
+   "id": "M11",
+   "layer": "核心机制",
+   "name": "城邦架构",
+   "en": "citystate"
+  },
+  {
+   "id": "C1",
+   "layer": "耗散验证",
+   "name": "自组织耗散",
+   "en": "selforg_dissipation"
+  },
+  {
+   "id": "C2",
+   "layer": "耗散验证",
+   "name": "去幻觉",
+   "en": "dehallucination"
+  },
+  {
+   "id": "R1",
+   "layer": "经络子机制",
+   "name": "共振节点",
+   "en": "resonance_node"
+  },
+  {
+   "id": "R2",
+   "layer": "经络子机制",
+   "name": "曼陀罗一拖八",
+   "en": "mandala_fanout"
+  },
+  {
+   "id": "R3",
+   "layer": "经络子机制",
+   "name": "莫比乌斯扩张",
+   "en": "mobius_edge"
+  },
+  {
+   "id": "R4",
+   "layer": "经络子机制",
+   "name": "克莱因收敛",
+   "en": "klein_convergence"
+  },
+  {
+   "id": "R5",
+   "layer": "经络子机制",
+   "name": "卡尔曼滤波",
+   "en": "kalman_state"
+  },
+  {
+   "id": "R6",
+   "layer": "经络子机制",
+   "name": "贝叶斯干涉",
+   "en": "bayesian_guard"
+  },
+  {
+   "id": "R7",
+   "layer": "经络子机制",
+   "name": "希尔伯特空间",
+   "en": "hilbert_project"
+  },
+  {
+   "id": "R8",
+   "layer": "经络子机制",
+   "name": "耗散度量",
+   "en": "dissipation_measure"
+  }
+ ],
+ "table": [
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "编排",
+     "leg"
+    ]
+   ]
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "crewAIInc/crewAI",
+   "rank": 1,
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "总线",
+     "leg"
+    ],
+    [
+     "事件",
+     "essence"
+    ]
+   ]
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "日志",
+     "essence"
+    ]
+   ]
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "repo": "apache/kafka",
+   "rank": 2,
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "编排",
+     "leg"
+    ]
+   ]
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "labring/FastGPT",
+   "rank": 3,
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "编排",
+     "leg"
+    ]
+   ]
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "kestra-io/kestra",
+   "rank": 4,
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "编排",
+     "leg"
+    ]
+   ]
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "rocketride-org/rocketride-server",
+   "rank": 5,
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "可观测",
+     "leg"
+    ]
+   ]
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "SigNoz/signoz",
+   "rank": 6,
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "编排",
+     "leg"
+    ]
+   ]
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "deepset-ai/haystack",
+   "rank": 7,
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "可观测",
+     "leg"
+    ]
+   ]
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "trac",
+     "name"
+    ]
+   ]
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "jaegertracing/jaeger",
+   "rank": 8,
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "可观测",
+     "leg"
+    ],
+    [
+     "apm",
+     "name"
+    ]
+   ]
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "pinpoint-apm/pinpoint",
+   "rank": 9,
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "agent",
+     "name"
+    ]
+   ]
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "编排",
+     "leg"
+    ]
+   ]
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  },
+  {
+   "repo": "microsoft/agent-framework",
+   "rank": 10,
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "pending-evidence",
+   "evidence": []
+  }
+ ],
+ "summary": {
+  "cang": "holoaeon-c03-meridian",
+  "dim": "D03",
+  "fragments": 10,
+  "mechanisms": 25,
+  "cells": 250,
+  "linked_total": 13,
+  "by_mechanism": {
+   "A1": {
+    "name": "全息",
+    "linked": 0
+   },
+   "A2": {
+    "name": "万物互联",
+    "linked": 0
+   },
+   "X1": {
+    "name": "1331×1331 节点矩阵",
+    "linked": 0
+   },
+   "X2": {
+    "name": "108641 活跃节点共振",
+    "linked": 0
+   },
+   "M01": {
+    "name": "心跳",
+    "linked": 3
+   },
+   "M02": {
+    "name": "细胞骨架",
+    "linked": 1
+   },
+   "M03": {
+    "name": "皮肤",
+    "linked": 0
+   },
+   "M04": {
+    "name": "经络",
+    "linked": 2
+   },
+   "M05": {
+    "name": "赫布协作场",
+    "linked": 0
+   },
+   "M06": {
+    "name": "语义通信基座",
+    "linked": 0
+   },
+   "M07": {
+    "name": "自组织相似性",
+    "linked": 0
+   },
+   "M08": {
+    "name": "runtime",
+    "linked": 6
+   },
+   "M09": {
+    "name": "graph",
+    "linked": 0
+   },
+   "M10": {
+    "name": "类社会组合体",
+    "linked": 0
+   },
+   "M11": {
+    "name": "城邦架构",
+    "linked": 1
+   },
+   "C1": {
+    "name": "自组织耗散",
+    "linked": 0
+   },
+   "C2": {
+    "name": "去幻觉",
+    "linked": 0
+   },
+   "R1": {
+    "name": "共振节点",
+    "linked": 0
+   },
+   "R2": {
+    "name": "曼陀罗一拖八",
+    "linked": 0
+   },
+   "R3": {
+    "name": "莫比乌斯扩张",
+    "linked": 0
+   },
+   "R4": {
+    "name": "克莱因收敛",
+    "linked": 0
+   },
+   "R5": {
+    "name": "卡尔曼滤波",
+    "linked": 0
+   },
+   "R6": {
+    "name": "贝叶斯干涉",
+    "linked": 0
+   },
+   "R7": {
+    "name": "希尔伯特空间",
+    "linked": 0
+   },
+   "R8": {
+    "name": "耗散度量",
+    "linked": 0
+   }
+  },
+  "by_fragment": {
+   "crewAIInc/crewAI": 1,
+   "apache/kafka": 2,
+   "labring/FastGPT": 1,
+   "kestra-io/kestra": 1,
+   "rocketride-org/rocketride-server": 1,
+   "SigNoz/signoz": 1,
+   "deepset-ai/haystack": 1,
+   "jaegertracing/jaeger": 2,
+   "pinpoint-apm/pinpoint": 1,
+   "microsoft/agent-framework": 2
+  },
+  "gm_gate": {
+   "gate": "G-M",
+   "pass": false,
+   "wait_items": [
+    "12 通道",
+    "事件传播",
+    "阻塞机制",
+    "衰减与终止"
+   ],
+   "hard_rule": "C03 未过 G-M 前禁止启动任何领域深化批次（素材硬约束原文）"
+  },
+  "note": "经络先行：链接表落 C03 总线仓台账；C03 未过 G-M 前禁止启动任何领域深化批次（org_gate 硬约束如实携带）"
+ },
+ "seal": "潮起开门，潮落闭嘴"
+}
