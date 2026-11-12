@@ -29,6 +29,7 @@ from __future__ import annotations
 import hashlib
 import io
 import json
+import math
 import os
 import sys
 from dataclasses import dataclass, field
@@ -210,23 +211,75 @@ class StyleTensor:
     def encode_name(self, entry: DirectorEntry) -> List[float]:
         return self.space.make("name:" + entry.name)
 
-    def encode_query(self, text: str, category: str = "") -> List[float]:
+    def encode_query(self, text: str, category: str = "",
+                     cat_weight: float = 1.0) -> List[float]:
+        """查询编码（V54 增强参数 cat_weight，默认 1.0 = V52 原行为）。
+
+        cat_weight 语义（跨类目检索权重）：
+          1.0  类轴等权入查询（V52 原行为，逐字节兼容）
+          0.0  纯风格轴（跨类目自由探索——"像这种风格，不限门类"）
+          >1.0 类目加权 boost（同类别优先，2.0 = 类轴贡献加倍）
+        实现：normalize(Σ tok 轴 + cat_weight × cat 轴)——加权成分入
+        bundle 线性组合（bundle 本义=归一化求和），与 V53 "占比入权重"
+        同族：权重在数学结构里，不在检索后处理里。
+        """
         toks = tokenize(text or "")
-        parts = [self.space.make("tok:" + t) for t in toks]
-        if category:
-            parts.append(self.space.make("cat:" + category))
-        if not parts:
+        style_terms = [self.space.make("tok:" + t) for t in toks]
+        cat_axis = self.space.make("cat:" + category) if category else None
+        if not style_terms and cat_axis is None:
             return [0.0] * self.space.dim
-        return self.space.bundle(parts)
+        acc = [0.0] * self.space.dim
+        for v in style_terms:
+            for i, x in enumerate(v):
+                acc[i] += x
+        if cat_axis is not None:
+            for i, x in enumerate(cat_axis):
+                acc[i] += cat_weight * x
+        norm = math.sqrt(sum(x * x for x in acc))
+        if norm:
+            acc = [x / norm for x in acc]
+        return acc
+
+    def encode_entry_weighted(self, entry: DirectorEntry,
+                              cat_weight: float = 1.0) -> List[float]:
+        """条目查询向量（by_director 场景的 cat_weight 版）。
+
+        库内向量 encode_entry 不动（cache 里的原始等权版）；仅查询侧重加权。
+        cat_weight=1.0 时与 encode_entry 完全一致（含缓存路径）。
+        """
+        if cat_weight == 1.0:
+            return self.encode_entry(entry)
+        toks = tokenize(entry.text_for_encoding())
+        style_axis = self.space.bundle(
+            [self.space.make("tok:" + t) for t in toks]) if toks \
+            else [0.0] * self.space.dim
+        cat_axis = self.space.make("cat:" + entry.category)
+        acc = [s + cat_weight * c for s, c in zip(style_axis, cat_axis)]
+        norm = math.sqrt(sum(x * x for x in acc))
+        return [x / norm for x in acc] if norm else acc
 
     def similar_by_text(self, text: str, category: str = "",
-                        k: int = 5) -> List[Tuple[DirectorEntry, float]]:
-        q = self.encode_query(text, category)
+                        k: int = 5,
+                        cat_weight: float = 1.0
+                        ) -> List[Tuple[DirectorEntry, float]]:
+        q = self.encode_query(text, category, cat_weight)
         return self._rank(q, k)
 
     def similar_by_director(self, entry: DirectorEntry,
-                            k: int = 5) -> List[Tuple[DirectorEntry, float]]:
-        return self._rank(self.encode_entry(entry), k)
+                            k: int = 5,
+                            cat_weight: float = 1.0
+                            ) -> List[Tuple[DirectorEntry, float]]:
+        """V54 增强参数 cat_weight（默认 1.0 = V52 原行为）。"""
+        q = self.encode_entry_weighted(entry, cat_weight)
+        return self._rank(q, k)
+
+    def category_hit_rate(self, hits: List[Tuple["DirectorEntry", float]],
+                         category: str) -> float:
+        """Top 命中里同类别占比（cat_weight 效果的量化观察窗）。"""
+        if not hits or not category:
+            return 0.0
+        n = sum(1 for d, _ in hits if d.category == category)
+        return round(n / len(hits), 4)
 
     def _rank(self, query: List[float],
               k: int) -> List[Tuple[DirectorEntry, float]]:

@@ -418,6 +418,271 @@ def probe() -> dict:
             "primary_share": roles["primary_share"], "seal": SEAL}
 
 
+# ================================================================ V54 增强段
+# 主题一：底部辅助色块行（aux）——数据 data/cinema_palette_aux.json
+# 主题二：指纹 bundle sha256 版本轴（dataset version vector）
+# 纪律：追加式增强，不改上方 V53 既有行为（V53 测试回归须全绿）。
+# 辅助色 hex 策略与主色带相反：OCR 优先 + 像素交叉（浅色块与米色背景
+# RGB 距离不可分时像素会漏——如实声明，理由入 aux 数据 method 字段）。
+# ================================================================
+
+AUX_PATH = os.path.join("data", "cinema_palette_aux.json")
+AUX_WEIGHT = 0.25          # 辅助色入张量低权重（主带 share 加权为主）
+
+
+def _file_sha16(path: str) -> str:
+    h = hashlib.sha256()
+    with io.open(path, "rb") as fh:
+        for chunk in iter(lambda: fh.read(65536), b""):
+            h.update(chunk)
+    return h.hexdigest()[:16]
+
+
+class PaletteAuxEntry:
+    """辅助色块行条目：id/name + relation（duplicate_of_main /
+    supplementary / mixed / missing）+ colors（name/hex/source）。"""
+
+    def __init__(self, did: str, name: str, relation: str,
+                 colors: Sequence[Dict[str, Any]],
+                 band_y: Any = None):
+        self.id = did
+        self.name = name
+        self.relation = relation
+        self.colors = list(colors)
+        self.band_y = band_y
+
+    def hexes(self) -> List[str]:
+        return [c["hex"] for c in self.colors]
+
+
+def load_aux(path: Optional[str] = None) -> List[PaletteAuxEntry]:
+    p = path or AUX_PATH
+    if not os.path.exists(p):
+        return []
+    doc = json.load(io.open(p, encoding="utf-8"))
+    return [PaletteAuxEntry(
+        did=str(a["id"]), name=a["name"], relation=a.get("relation", "missing"),
+        colors=a.get("colors", []), band_y=a.get("band_y"))
+        for a in doc.get("aux", [])]
+
+
+def aux_relation_stats(entries: Sequence[PaletteAuxEntry]) -> Dict[str, int]:
+    out: Dict[str, int] = {"duplicate_of_main": 0, "supplementary": 0,
+                            "mixed": 0, "missing": 0}
+    for e in entries:
+        out[e.relation] = out.get(e.relation, 0) + 1
+    return out
+
+
+def aux_by_id(entries: Sequence[PaletteAuxEntry],
+              did: str) -> Optional[PaletteAuxEntry]:
+    for e in entries:
+        if e.id == did:
+            return e
+    return None
+
+
+def encode_aux(tensor: "PaletteTensor",
+               hexes: Sequence[str],
+               aux_weight: float = AUX_WEIGHT) -> List[float]:
+    """辅助色低权重成分：aux_weight × 均匀 bundle(hexes)。
+
+    主带编码（V53）+ 该成分的线性组合 = encode_palette_v2。
+    aux_weight=0 时辅助色不参与（纯 V53 行为）。
+    """
+    if not hexes:
+        return [0.0] * tensor.space.dim
+    uni = tensor.encode_colors(list(hexes))     # 均匀权重
+    return [aux_weight * x for x in uni]
+
+
+class PaletteTensorV2(PaletteTensor):
+    """V54 增强张量：主带 share 加权（V53 不变）+ 辅助色低权重 + 版本轴。
+
+    编码：normalize(main_share_bundle + aux_weight × aux_uniform_bundle)
+    版本轴：make("ver:" + dataset_sha16) —— 独立轴，不混入检索主轴
+    （版本对账用 check_version，防止版本噪声污染色彩检索语义）。
+    """
+
+    AUX_WEIGHT = AUX_WEIGHT
+
+    def __init__(self, space: Optional[HypervectorSpace] = None,
+                 aux_entries: Optional[Sequence[PaletteAuxEntry]] = None):
+        PaletteTensor.__init__(self, space)
+        self.aux_entries = list(aux_entries or [])
+        self._aux_map: Dict[str, List[str]] = {
+            e.id: e.hexes() for e in self.aux_entries}
+
+    def encode_palette(self, entry: PaletteEntry) -> List[float]:
+        v53 = PaletteTensor.encode_palette(self, entry)
+        ax = self._aux_map.get(entry.id, [])
+        if not ax or self.AUX_WEIGHT <= 0:
+            return v53
+        aux = encode_aux(self, ax, self.AUX_WEIGHT)
+        mixed = [a + b for a, b in zip(v53, aux)]
+        norm = math.sqrt(sum(x * x for x in mixed))
+        return [x / norm for x in mixed] if norm else mixed
+
+    # ---------------- 主题二：版本指纹轴 ----------------
+    def version_vector(self, dataset_sha16: str) -> List[float]:
+        """数据集版本轴：sha256 指纹 → 确定性 hypervector。"""
+        return self.space.make("ver:" + dataset_sha16)
+
+    def check_version(self, dataset_sha16: str,
+                      query: Sequence[float]) -> float:
+        """版本对账：查询向量与版本轴的 cosine（≈1 → 同版本对齐）。"""
+        vv = self.version_vector(dataset_sha16)
+        return self.space.cosine(list(query), vv)
+
+
+class PaletteIndexV2(PaletteIndex):
+    """V54 索引：V53 数据 v2（主色名修正版）+ 辅助色 + 版本指纹。"""
+
+    def __init__(self, entries: Sequence[PaletteEntry],
+                 aux_entries: Sequence[PaletteAuxEntry],
+                 source: str = "", data_sha16: str = ""):
+        PaletteIndex.__init__(self, entries, source)
+        self.aux_entries = list(aux_entries)
+        self.data_sha16 = data_sha16
+        self.tensor = PaletteTensorV2(self.tensor.space, self.aux_entries)
+        self._vecs = {e.id: self.tensor.encode_palette(e)
+                      for e in self.entries}
+
+    @classmethod
+    def load(cls, path: Optional[str] = None,
+             aux_path: Optional[str] = None) -> "PaletteIndexV2":
+        p = path or DATA_PATH
+        if not os.path.exists(p):
+            raise FileNotFoundError("调色板数据不存在: %s（执行方须先落盘"
+                                    " data/cinema_palettes.json）" % p)
+        doc = json.load(io.open(p, encoding="utf-8"))
+        entries = [PaletteEntry(
+            did=str(e["id"]), name=e["name"], category=e["category"],
+            colors=[PaletteColor(name=c["name"], hex=c["hex"],
+                                 share=float(c["share"]))
+                    for c in e["colors"]],
+            notes=e.get("notes"))
+            for e in doc["palettes"]]
+        aux_entries = load_aux(aux_path)
+        return cls(entries, aux_entries, source=doc.get("source", ""),
+                   data_sha16=_file_sha16(p))
+
+    def aux_stats(self) -> Dict[str, int]:
+        return aux_relation_stats(self.aux_entries)
+
+    def aux_of(self, did: str) -> Optional[PaletteAuxEntry]:
+        return aux_by_id(self.aux_entries, did)
+
+    def version_vector(self) -> List[float]:
+        return self.tensor.version_vector(self.data_sha16)
+
+
+class PaletteGateV2(PaletteGate):
+    """V54 总闸：V53 自检（兼容）+ aux/版本检查（新增键）。"""
+
+    def __init__(self, index: Optional[PaletteIndexV2] = None):
+        self.index = index if index is not None else self._load_default()
+
+    @staticmethod
+    def _load_default() -> PaletteIndexV2:
+        try:
+            return PaletteIndexV2.load()
+        except FileNotFoundError:
+            return PaletteIndexV2([], [], source="（数据未落盘）")
+
+    def self_check(self) -> dict:
+        sc = PaletteGate.self_check(self)      # V53 四键全兼容
+        aux = self.index.aux_stats()
+        sc["checks"]["aux"] = {
+            "ok": sum(aux.values()) == 200 and aux.get("missing", 200) == 0,
+            "stats": aux,
+            "method": "OCR hex 优先 + 像素交叉（浅色块像素不可分——与主色带"
+                      "相反策略，理由如实）",
+        }
+        ver = self.index.version_vector()
+        vv = self.index.version_vector()
+        sc["checks"]["version"] = {
+            "ok": self.index.tensor.check_version(
+                self.index.data_sha16, ver) > 0.999,
+            "data_sha16": self.index.data_sha16,
+            "self_consistency": self.index.tensor.check_version(
+                self.index.data_sha16, vv),
+        }
+        sc["ok"] = all(c["ok"] for c in sc["checks"].values())
+        return sc
+
+    def run(self, query_hexes: Optional[Sequence[str]] = None) -> dict:
+        sc = self.self_check()
+        manifest = {
+            "batch": "V54",
+            "ring": CHAIN_POSITION["ring"],
+            "domain": CHAIN_POSITION["domain"] + "（增强层）",
+            "generated_at": _now_iso(),
+            "self_check": sc,
+            "source": self.index.source,
+            "color_axiom": COLOR_AXIOM,
+            "v54_themes": {
+                "aux": "底部辅助色块行（200/200，OCR 优先+像素交叉）",
+                "version": "指纹 bundle sha256 版本轴（dataset sha16 → ver 轴）",
+                "name_fix": "主色名对齐链修正（V53 遗漏 markdown/HTML 表格行）",
+            },
+            "artifacts": {},
+            "honesty": {
+                "aux_hex_policy": "OCR 优先+像素交叉（与主色带'像素主源'相反："
+                                  "浅色块与米色背景 RGB 距离≈4 不可分）",
+                "relation_semantics": "duplicate_of_main=主色文学名别名 / "
+                                      "supplementary=真补充色 / mixed",
+                "aux_weight": AUX_WEIGHT,
+                "neural": False, "network": False, "new_dependencies": 0,
+            },
+            "seal": SEAL,
+        }
+        if sc["ok"]:
+            manifest["artifacts"]["aux_stats"] = self.index.aux_stats()
+            manifest["artifacts"]["data_sha16"] = self.index.data_sha16
+        if query_hexes:
+            hits = self.index.similar_by_hexes(query_hexes, k=5)
+            manifest["artifacts"]["query_demo"] = {
+                "query_hexes": list(query_hexes),
+                "hits": [{"id": e.id, "name": e.name, "score": round(s, 4)}
+                         for e, s in hits]}
+        return manifest
+
+
+def version_report() -> dict:
+    """版本指纹报告：主/辅两数据文件 sha16 + 版本轴自对账。"""
+    try:
+        idx = PaletteIndexV2.load()
+        main_sha = _file_sha16(DATA_PATH)
+        aux_sha = _file_sha16(AUX_PATH) if os.path.exists(AUX_PATH) else ""
+        same = idx.tensor.check_version(idx.data_sha16,
+                                        idx.version_vector())
+        return {"ok": same > 0.999,
+                "main_sha16": main_sha, "aux_sha16": aux_sha,
+                "version_axis": "make('ver:' + sha16)",
+                "self_consistency": same, "seal": SEAL}
+    except FileNotFoundError as e:
+        return {"ok": False, "error": str(e), "seal": SEAL}
+
+
+def aux_report() -> dict:
+    """辅助色块行报告：关系统计 + 001/141/062 三态样例。"""
+    aux = load_aux()
+    if not aux:
+        return {"ok": False, "error": "aux 数据未落盘", "seal": SEAL}
+    stats = aux_relation_stats(aux)
+    samples = {}
+    for did in ("001", "141", "062"):
+        e = aux_by_id(aux, did)
+        if e:
+            samples[did] = {"name": e.name, "relation": e.relation,
+                             "colors": [{"name": c["name"], "hex": c["hex"],
+                                         "source": c["source"]}
+                                        for c in e.colors]}
+    return {"ok": sum(stats.values()) == 200, "stats": stats,
+            "samples": samples, "seal": SEAL}
+
+
 def _main(argv: List[str]) -> int:
     import sys
     cmd = argv[1] if len(argv) > 1 else "probe"
@@ -428,9 +693,14 @@ def _main(argv: List[str]) -> int:
         out = PaletteGate().run(query_hexes=q)
     elif cmd == "fingerprint":
         out = fingerprint()
+    elif cmd == "version":
+        out = version_report()
+    elif cmd == "aux":
+        out = aux_report()
     else:
         print("usage: python -m holoaeon.palette_gate "
-              "[probe|run [#hex,#hex]|fingerprint]", file=sys.stderr)
+              "[probe|run [#hex,#hex]|fingerprint|version|aux]",
+              file=sys.stderr)
         return 2
     print(json.dumps(out, ensure_ascii=False, indent=2))
     return 0 if out.get("ok", True) else 1

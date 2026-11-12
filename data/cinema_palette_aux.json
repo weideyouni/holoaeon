@@ -1,0 +1,5556 @@
+{
+ "source": "《导演视觉风格色卡》底部辅助色块行（200 张图，每图 4 块左右）",
+ "method": {
+  "hex": "OCR 优先 + 像素交叉（浅色块与米色背景 RGB 距离不可分时像素会漏——与主色带'像素主源'相反，理由：辅助块小、浅色块占比高）",
+  "pixel": "辅助带自动定位（滑窗列投影+块中心 5×5 中值+纯度sd<15+距背景>25）",
+  "relation": "辅助 hex 与主带匹配(±24)≥2=duplicate_of_main（主色文学名别名）/全不匹配=supplementary"
+ },
+ "count": 200,
+ "aux": [
+  {
+   "id": "001",
+   "name": "希区柯克",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#762922",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#F5DC70",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#2B3645",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#F4B397",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "002",
+   "name": "大卫·芬奇",
+   "band_y": 303,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#4A6B57",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#D2C64B",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#2C3E4F",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#7B241A",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "003",
+   "name": "迈克尔·哈内克",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#FFFEFC",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#5F6E78",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#8F2E22",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "004",
+   "name": "德·帕尔玛",
+   "band_y": 303,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#C72038",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FED800",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#072465",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "005",
+   "name": "维伦纽瓦",
+   "band_y": 303,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#E77E1F",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#304A5C",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#D3AE6D",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#152228",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "006",
+   "name": "雷弗恩",
+   "band_y": 303,
+   "relation": "mixed",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#00B4D6",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#E63948",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#9D4DDC",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#FDD906",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "007",
+   "name": "约翰·卡朋特",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "警灯橙",
+     "hex": "#FF6B35",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "合成器蓝",
+     "hex": "#1E90FF",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "暗血红",
+     "hex": "#8B0000",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "手电黄",
+     "hex": "#FFFF99",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "008",
+   "name": "柯南伯格",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#FF6D69",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#6C8D23",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#4682B6",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#DDBB88",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "009",
+   "name": "波兰斯基",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "古金黄",
+     "hex": "#B8860B",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "深紫蓝",
+     "hex": "#483D8B",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "暗红棕",
+     "hex": "#8B0000",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "幽灵白",
+     "hex": "#E6E6FA",
+     "source": "ocr"
+    }
+   ]
+  },
+  {
+   "id": "010",
+   "name": "夏布洛尔",
+   "band_y": 301,
+   "relation": "mixed",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#B42423",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#70808F",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#DEBA87",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#30514C",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "011",
+   "name": "克鲁佐",
+   "band_y": 301,
+   "relation": "mixed",
+   "colors": [
+    {
+     "name": "刺眼白",
+     "hex": "#FFFFFF",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "无底灰黑",
+     "hex": "#333333",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "迷雾灰",
+     "hex": "#999999",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "钢铁灰",
+     "hex": "#555555",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "012",
+   "name": "柯蒂斯·汉森",
+   "band_y": 217,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#1C2932",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#2E4152",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "013",
+   "name": "阿贝尔·费拉拉",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "罪血红红",
+     "hex": "#FF1744",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "迷幻青",
+     "hex": "#00E5FF",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "圣像金",
+     "hex": "#FFD54F",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "灰烬灰",
+     "hex": "#9E9E9E",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "014",
+   "name": "格雷泽",
+   "band_y": 303,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#000100",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#E74D3D",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#84949D",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "015",
+   "name": "大卫·林奇",
+   "band_y": 303,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#903225",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#5AAEE0",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#F8DE6B",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#7D3C97",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "016",
+   "name": "阿伦诺夫斯基",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#FC3F00",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#7B1FA1",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#03BDD2",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#FED750",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "017",
+   "name": "朴赞郁",
+   "band_y": 303,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#9B58B7",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#EB4C3E",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#17BD9E",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#F2C50D",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "018",
+   "name": "保罗·施拉德",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#C03B2D",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#2981B8",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#F39C11",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#7F8D8B",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "019",
+   "name": "德瑞克森",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "恶魔红",
+     "hex": "#FF0000",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "幽灵蓝",
+     "hex": "#85C1E9",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "圣光金",
+     "hex": "#FFD700",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "腐生绿",
+     "hex": "#27AE60",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "020",
+   "name": "索利马",
+   "band_y": 302,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "行动红",
+     "hex": "#C0392B",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "战术蓝",
+     "hex": "#2E86C1",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "沙尘金",
+     "hex": "#B7950B",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "道德灰",
+     "hex": "#616A6B",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "021",
+   "name": "雷德利·斯科特",
+   "band_y": 303,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#FB6B34",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#00CFD2",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FED800",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#4A0F0C",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "022",
+   "name": "王家卫",
+   "band_y": 303,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "霓虹粉",
+     "hex": "#FF1493",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "电子青",
+     "hex": "#00FFFF",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "回忆金",
+     "hex": "#FFD700",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "暗血红",
+     "hex": "#8B0000",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "023",
+   "name": "加斯帕·诺埃",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#FD1491",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#02FFFF",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FE4500",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#9400D4",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "024",
+   "name": "毕格罗",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "夜视绿",
+     "hex": "#00FF00",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "爆炸橙",
+     "hex": "#FF4500",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "战术灰",
+     "hex": "#708090",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "沙漠金",
+     "hex": "#DAA520",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "025",
+   "name": "托尼·斯科特",
+   "band_y": 302,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "速度橙",
+     "hex": "#FF4500",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "高空蓝",
+     "hex": "#00BFFF",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "英雄金",
+     "hex": "#FFD700",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "激情红",
+     "hex": "#DC143C",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "026",
+   "name": "迈克尔·曼",
+   "band_y": 303,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#1F92FC",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FF6B30",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#6F8091",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#D8A71F",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "027",
+   "name": "吕克·贝松",
+   "band_y": 301,
+   "relation": "mixed",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#FD1491",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#00BFFB",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FFD600",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#8C0101",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "028",
+   "name": "押井守",
+   "band_y": 303,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#FF1743",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#73FF00",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#5D69BD",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#FDD74A",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "029",
+   "name": "大友克洋",
+   "band_y": 303,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#FEED3B",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#B91D17",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#671D9A",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#B77531",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "030",
+   "name": "亚历克斯·加兰",
+   "band_y": 302,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "幽蓝",
+     "hex": "#29B6F6",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "变异幻彩",
+     "hex": "#E040FB",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "原始血色",
+     "hex": "#D32F2F",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "觉醒金光",
+     "hex": "#FFCA28",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "031",
+   "name": "詹姆斯·卡梅隆",
+   "band_y": 303,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#F04334",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#14FFFF",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#D600F7",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#2979FA",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "032",
+   "name": "乔治·米勒",
+   "band_y": 303,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "火焰橙黄",
+     "hex": "#FFAB00",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "夜幕靛蓝",
+     "hex": "#1A237E",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "毒雾绿",
+     "hex": "#76FF03",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "锈渴decay",
+     "hex": "#795548",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "033",
+   "name": "罗德里格兹",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#FFE202",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#1A237E",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FD6F00",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "034",
+   "name": "扎克·施奈德",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "闪电白",
+     "hex": "#E0E0E0",
+     "source": "ocr"
+    },
+    {
+     "name": "曼哈顿蓝",
+     "hex": "#1565C0",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "烈焰橙",
+     "hex": "#FF5722",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "荒漠金",
+     "hex": "#D4A017",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "035",
+   "name": "邓肯·琼斯",
+   "band_y": 302,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "警报红",
+     "hex": "#B8302A",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "全息蓝",
+     "hex": "#5AA0C8",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "记忆暖金",
+     "hex": "#D4A868",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "太空虚空黑",
+     "hex": "#0B0E14",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "036",
+   "name": "普罗亚斯",
+   "band_y": 302,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "乌鸦血红",
+     "hex": "#B01E2E",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "霓虹雨蓝",
+     "hex": "#3A7AA5",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "灾变火焰橙",
+     "hex": "#D47A28",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "哥特烛金",
+     "hex": "#A07B3C",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "037",
+   "name": "布洛姆坎普",
+   "band_y": 302,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "暴力警红",
+     "hex": "#C83020",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "霓虹警蓝",
+     "hex": "#3A6A9A",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "爆炸火橙",
+     "hex": "#D89030",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "外星银",
+     "hex": "#708888",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "038",
+   "name": "诺兰",
+   "band_y": 301,
+   "relation": "mixed",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#D17B32",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#0E1416",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#B4884C",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#A2A9AD",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "039",
+   "name": "丹尼·博伊尔",
+   "band_y": 302,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "末日冷绿",
+     "hex": "#507050",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "孟买红粉",
+     "hex": "#C84060",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "狂喜金黄",
+     "hex": "#E8C830",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "病毒血红",
+     "hex": "#8B1A1A",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "040",
+   "name": "麦克蒂尔南",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "热成像红",
+     "hex": "#D04020",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "警灯蓝",
+     "hex": "#2048B0",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "潜艇暗红",
+     "hex": "#5A2020",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "丛林湿绿",
+     "hex": "#2A4A2A",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "041",
+   "name": "泰伦斯·马力克",
+   "band_y": 303,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#FFC957",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#7CA158",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#8C391E",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#B6D5E1",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "042",
+   "name": "伊纳里图",
+   "band_y": 303,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#C13A27",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#F0D03B",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#546770",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#6D2E00",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "043",
+   "name": "阿方索·卡隆",
+   "band_y": 303,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#F7C430",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#4971A6",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#A0522E",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "044",
+   "name": "德尔·托罗",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "暗金神话",
+     "hex": "#B8860B",
+     "source": "ocr"
+    },
+    {
+     "name": "暗金神话",
+     "hex": "#1C1C1C",
+     "source": "ocr"
+    },
+    {
+     "name": "暗金神话",
+     "hex": "#1C1C1C",
+     "source": "ocr"
+    },
+    {
+     "name": "暗金神话",
+     "hex": "#1C1C1C",
+     "source": "ocr"
+    },
+    {
+     "name": "暗金神话",
+     "hex": "#1C1C1C",
+     "source": "ocr"
+    },
+    {
+     "name": "暗金神话",
+     "hex": "#1C1C1C",
+     "source": "ocr"
+    },
+    {
+     "name": "暗金神话",
+     "hex": "#1C1C1C",
+     "source": "ocr"
+    },
+    {
+     "name": "暗金神话",
+     "hex": "#1C1C1C",
+     "source": "ocr"
+    }
+   ]
+  },
+  {
+   "id": "045",
+   "name": "李安",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#9DD7C6",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#F2A75F",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#1E3C58",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#DBB989",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "046",
+   "name": "巴里·詹金斯",
+   "band_y": 303,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#FE8D46",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#7A69EB",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#F3E68A",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#4A0F0C",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "047",
+   "name": "史蒂夫·麦奎因",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "赭红愤怒",
+     "hex": "#A0522D",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "橄榄军绿",
+     "hex": "#556B2F",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "暖金温柔",
+     "hex": "#DEB887",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "冷钢灰",
+     "hex": "#2F4F4F",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "048",
+   "name": "安德烈·阿诺德",
+   "band_y": 302,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "暖麦金",
+     "hex": "#F5DEB3",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "旧木褐",
+     "hex": "#6B5D4E",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "琥珀火",
+     "hex": "#B5651D",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "苔原绿",
+     "hex": "#2F3A2A",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "049",
+   "name": "赵婷",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "晨光米",
+     "hex": "#F2E6CC",
+     "source": "ocr"
+    },
+    {
+     "name": "旧铁灰",
+     "hex": "#70685A",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "落日砂",
+     "hex": "#B8956A",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "苔原青",
+     "hex": "#4A5145",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "050",
+   "name": "肖恩·贝克",
+   "band_y": 303,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "蜜罐黄",
+     "hex": "#FFB347",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "暮色紫",
+     "hex": "#5D4E6D",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "霓虹珊瑚",
+     "hex": "#FF6B6B",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "旧填灰",
+     "hex": "#A8A39D",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "051",
+   "name": "肯·洛奇",
+   "band_y": 302,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "雾霭蓝",
+     "hex": "#A9B2B8",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "麦浪金",
+     "hex": "#E5D8BE",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "焦土褐",
+     "hex": "#6B5344",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "苔原青",
+     "hex": "#9DB0A0",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "052",
+   "name": "沃尔特·塞勒斯",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#EFD39B",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#463825",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#D67D3D",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#798D6B",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "053",
+   "name": "斯皮尔伯格",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "圣光白",
+     "hex": "#FFF5E0",
+     "source": "ocr"
+    },
+    {
+     "name": "硝烟灰",
+     "hex": "#6B6054",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "落日橙",
+     "hex": "#E8915A",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "深夜蓝黑",
+     "hex": "#1A1A24",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "054",
+   "name": "乔治·卢卡斯",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "双日辉光",
+     "hex": "#FFE6B3",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "星夜蓝黑",
+     "hex": "#1A2430",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "熔岩橙",
+     "hex": "#E07030",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "旧共和国金",
+     "hex": "#B8A67C",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "055",
+   "name": "徐克",
+   "band_y": 303,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#FE4500",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#D7A71C",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#480184",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "056",
+   "name": "乔·赖特",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "黄金时刻",
+     "hex": "#FFD700",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "暗红血渍",
+     "hex": "#8B0000",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "薰衣草紫",
+     "hex": "#E6E6FA",
+     "source": "ocr"
+    },
+    {
+     "name": "暗松绿",
+     "hex": "#2F4F4F",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "057",
+   "name": "凯瑞·福永",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "战场血橙",
+     "hex": "#FF6347",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "非洲金",
+     "hex": "#DAA520",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "沼泽蓝灰",
+     "hex": "#2F4F4F",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "柔光回忆",
+     "hex": "#FFDAB9",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "058",
+   "name": "罗杰·迪金斯",
+   "band_y": 301,
+   "relation": "mixed",
+   "colors": [
+    {
+     "name": "窗光金",
+     "hex": "#D4AF37",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "赛博蓝",
+     "hex": "#00BFFF",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "雾都灰",
+     "hex": "#708090",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "落日铜",
+     "hex": "#CD853F",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "059",
+   "name": "卢贝兹基",
+   "band_y": 307,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "日出火",
+     "hex": "#FF7F50",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "极光紫",
+     "hex": "#9370DB",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "霜雾白",
+     "hex": "#E0FFFF",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "土地棕",
+     "hex": "#8B4513",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "060",
+   "name": "安东尼·明格拉",
+   "band_y": 302,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "沙漠橙",
+     "hex": "#FF8C00",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "战争灰",
+     "hex": "#708090",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "梅香紫",
+     "hex": "#DDA0DD",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "深林绿",
+     "hex": "#006400",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "061",
+   "name": "塔可夫斯基",
+   "band_y": 301,
+   "relation": "mixed",
+   "colors": [
+    {
+     "name": "神圣与冥想",
+     "hex": "#D4CFBE",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "存在与沉思",
+     "hex": "#3D4F46",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "自然与永恒",
+     "hex": "#8BA395",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "时间与消逝",
+     "hex": "#1F2825",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "062",
+   "name": "罗伯特·布列松",
+   "band_y": 301,
+   "relation": "mixed",
+   "colors": [
+    {
+     "name": "神圣与纯洁",
+     "hex": "#F0EDE6",
+     "source": "ocr"
+    },
+    {
+     "name": "存在困境",
+     "hex": "#6B6863",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "克制与隐忍",
+     "hex": "#9E9A91",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "苦难与超越",
+     "hex": "#2A2825",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "063",
+   "name": "安哲罗普洛斯",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "历史苍茫",
+     "hex": "#BFC7CB",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "流亡孤寂",
+     "hex": "#3E484B",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "时间流逝",
+     "hex": "#8D989C",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "记忆微光",
+     "hex": "#D4D0C5",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "064",
+   "name": "贝拉·塔尔",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "存在虚无",
+     "hex": "#404040",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "苦难隐忍",
+     "hex": "#707070",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "时间停滞",
+     "hex": "#A0A0A0",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "绝望深渊",
+     "hex": "#0A0A0A",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "065",
+   "name": "蔡明亮",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#6D7B7D",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#A1A6AC",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#4A595E",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#1F2829",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "066",
+   "name": "安东尼奥尼",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "深钢蓝",
+     "hex": "#3A424C",
+     "source": "ocr"
+    },
+    {
+     "name": "工业灰",
+     "hex": "#8A9098",
+     "source": "ocr"
+    },
+    {
+     "name": "工业灰",
+     "hex": "#5C6672",
+     "source": "ocr"
+    },
+    {
+     "name": "工业灰",
+     "hex": "#E84A5F",
+     "source": "ocr"
+    },
+    {
+     "name": "工业灰",
+     "hex": "#B4B0A8",
+     "source": "ocr"
+    },
+    {
+     "name": "工业灰",
+     "hex": "#D4CFC4",
+     "source": "ocr"
+    },
+    {
+     "name": "工业灰",
+     "hex": "#3A424C",
+     "source": "ocr"
+    },
+    {
+     "name": "工业灰",
+     "hex": "#C8C4BC",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "067",
+   "name": "考里斯马基",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#5E7D9A",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#B4A982",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#7B8B95",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#1F3A51",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "068",
+   "name": "布鲁诺·杜蒙",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#6D787C",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#4C5357",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#90979D",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#2C3439",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "069",
+   "name": "菲利普·加瑞尔",
+   "band_y": 217,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#303030",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#707070",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "070",
+   "name": "凯莉·雷查德",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#818E7D",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#596B58",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#AFA995",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#2C3A2A",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "071",
+   "name": "拉夫·迪亚兹",
+   "band_y": 301,
+   "relation": "mixed",
+   "colors": [
+    {
+     "name": "历史创伤",
+     "hex": "#333333",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "时间沉重",
+     "hex": "#666666",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "苦难记忆",
+     "hex": "#999999",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "黑暗深处",
+     "hex": "#050505",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "072",
+   "name": "沙鲁纳斯·巴塔斯",
+   "band_y": 302,
+   "relation": "mixed",
+   "colors": [
+    {
+     "name": "孤寂存在",
+     "hex": "#6D7A84",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "历史沉默",
+     "hex": "#4A5660",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "时间凝固",
+     "hex": "#889098",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "寒冷深渊",
+     "hex": "#2A3440",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "073",
+   "name": "贾樟柯",
+   "band_y": 301,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#7D8997",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#C5923D",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#5C656D",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#28363B",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "074",
+   "name": "达内兄弟",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "生存坚韧",
+     "hex": "#7A8A7A",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "道德困境",
+     "hex": "#5A6258",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "底层尊严",
+     "hex": "#908A7A",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "绝望边缘",
+     "hex": "#2A3A2A",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "075",
+   "name": "拉斯·冯·提尔",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#708979",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#4C6A5A",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#887B6A",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#1C3B29",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "076",
+   "name": "温特伯格",
+   "band_y": 302,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "压抑愤怒",
+     "hex": "#6A7A8A",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "家庭温暖",
+     "hex": "#A89888",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "群体暴力",
+     "hex": "#8A7A6A",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "正义孤独",
+     "hex": "#2A3A4A",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "077",
+   "name": "罗伊·安德森",
+   "band_y": 301,
+   "relation": "mixed",
+   "colors": [
+    {
+     "name": "荒诞存在",
+     "hex": "#7A9A8A",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "生活平庸",
+     "hex": "#9AACA2",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "死亡阴影",
+     "hex": "#4A6858",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#B1AA98",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "078",
+   "name": "王兵",
+   "band_y": 301,
+   "relation": "mixed",
+   "colors": [
+    {
+     "name": "历史沉重",
+     "hex": "#5A5A50",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "工人苦难",
+     "hex": "#8A806A",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "时间重量",
+     "hex": "#707068",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "时代遗忘",
+     "hex": "#2A2A22",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "079",
+   "name": "雷加达斯",
+   "band_y": 301,
+   "relation": "mixed",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#8D9A88",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#685B4A",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#A6987D",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#2D3828",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "080",
+   "name": "格斯·范·桑特",
+   "band_y": 302,
+   "relation": "mixed",
+   "colors": [
+    {
+     "name": "青春迷茫",
+     "hex": "#6A7A7A",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "死亡诗意",
+     "hex": "#8A8A7A",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "疏离孤独",
+     "hex": "#A0A090",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "存在虚无",
+     "hex": "#2A3A3A",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "081",
+   "name": "彼得·格林纳威",
+   "band_y": 303,
+   "relation": "mixed",
+   "colors": [
+    {
+     "name": "欲望与死亡",
+     "hex": "#DC143C",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "自然与生机",
+     "hex": "#228B22",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "黑暗与深渊",
+     "hex": "#000000",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#FCD900",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "082",
+   "name": "费里尼",
+   "band_y": 305,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "梦幻回忆",
+     "hex": "#F5E6C8",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "热情与欲望",
+     "hex": "#B22222",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "怀旧温暖",
+     "hex": "#D2B48C",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "荒诞与迷思",
+     "hex": "#2C2C2C",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "083",
+   "name": "维斯康蒂",
+   "band_y": 301,
+   "relation": "mixed",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#B4880B",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#800002",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#556D2F",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#2F2F2F",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "084",
+   "name": "贝托鲁奇",
+   "band_y": 303,
+   "relation": "supplementary",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#DCA720",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#A42C2B",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#897652",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#1C1C1B",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "085",
+   "name": "科波拉",
+   "band_y": 303,
+   "relation": "mixed",
+   "colors": [
+    {
+     "name": "权力与荣耀",
+     "hex": "#D4AF37",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "暴力与死亡",
+     "hex": "#8B0000",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "家族温暖",
+     "hex": "#CD853F",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "黑暗阴谋",
+     "hex": "#0F0F0F",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "086",
+   "name": "张艺谋",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#E01639",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FCD900",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#258B25",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#000000",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "087",
+   "name": "巴兹·鲁赫曼",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#FED400",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FF138F",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#D7183A",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#000080",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "088",
+   "name": "阿莫多瓦",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#E40511",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FFB344",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#406BDD",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#FD6BB5",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "089",
+   "name": "兰斯莫斯",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "炭黑",
+     "hex": "#0F0F0F",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "炭黑",
+     "hex": "#0F0F0F",
+     "source": "ocr"
+    },
+    {
+     "name": "炭黑",
+     "hex": "#0F0F0F",
+     "source": "ocr"
+    },
+    {
+     "name": "炭黑",
+     "hex": "#0F0F0F",
+     "source": "ocr"
+    },
+    {
+     "name": "炭黑",
+     "hex": "#0F0F0F",
+     "source": "ocr"
+    },
+    {
+     "name": "炭黑",
+     "hex": "#0F0F0F",
+     "source": "ocr"
+    },
+    {
+     "name": "炭黑",
+     "hex": "#0F0F0F",
+     "source": "ocr"
+    },
+    {
+     "name": "炭黑",
+     "hex": "#0F0F0F",
+     "source": "ocr"
+    }
+   ]
+  },
+  {
+   "id": "090",
+   "name": "P·T·安德森",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "野心与梦想",
+     "hex": "#DAA520",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "怀旧与失落",
+     "hex": "#8B4513",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "自然与救赎",
+     "hex": "#556B2F",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "黑暗与挣扎",
+     "hex": "#0F0F0F",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "091",
+   "name": "保罗·范霍文",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#8B0203",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FED800",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FD1491",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#01027F",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "092",
+   "name": "德里克·贾曼",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#0101FC",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FD0000",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FED800",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#228C22",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "093",
+   "name": "特伦斯·戴维斯",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "记忆温暖",
+     "hex": "#B8860B",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "自然宁静",
+     "hex": "#556B2F",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "压抑痛苦",
+     "hex": "#2F2F2F",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#897554",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "094",
+   "name": "卢克雷西亚·马特尔",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "潮湿压抑",
+     "hex": "#6B8E23",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "殖民腐朽",
+     "hex": "#B8860B",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "欲望秘密",
+     "hex": "#8B4513",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#2E302F",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "095",
+   "name": "汤姆·霍珀",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "荣耀辉煌",
+     "hex": "#DAA520",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "克制内敛",
+     "hex": "#4682B4",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "历史厚重",
+     "hex": "#8B4513",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "自然宁静",
+     "hex": "#556B2F",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "096",
+   "name": "陈凯歌",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#C52138",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FED800",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#18196F",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#1E8F21",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "097",
+   "name": "张叔平",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "欲望压抑",
+     "hex": "#8B0000",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "秘密与嫉妒",
+     "hex": "#2E4A3E",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "记忆温暖",
+     "hex": "#DAA520",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "神秘浪漫",
+     "hex": "#4A2C5A",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "098",
+   "name": "塞尔乔·莱昂内",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#D9A61E",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#8A4715",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#CB863F",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#0F0F0F",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "099",
+   "name": "侯孝贤",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#627C6B",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#897558",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#A89F8D",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#2D3930",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "100",
+   "name": "萨姆·门德斯",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "疏离冷漠",
+     "hex": "#2C3E50",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "回忆温暖",
+     "hex": "#DAA520",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "存在虚无",
+     "hex": "#7F8C8D",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "家庭压抑",
+     "hex": "#8B4513",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "101",
+   "name": "库布里克",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#1D257B",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#B81A17",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FBD64F",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#21211F",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "102",
+   "name": "特瑞·吉列姆",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "荒诞狂想",
+     "hex": "#FF6F00",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "脏乱现实",
+     "hex": "#5D4037",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#4B148B",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#37484C",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "103",
+   "name": "让\\-皮埃尔·热内",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "温暖童话",
+     "hex": "#FF8F00",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "自然生机",
+     "hex": "#33691E",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "怀旧忧伤",
+     "hex": "#8D6E63",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "幸福微光",
+     "hex": "#F57F17",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "104",
+   "name": "米歇尔·冈瑞",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#66B5F3",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FECC82",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#F390AF",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#A08A80",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "105",
+   "name": "佐杜洛夫斯基",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#D40000",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FFD700",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#4A158B",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#1A5E21",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "106",
+   "name": "杨凡",
+   "band_y": 217,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#870F4D",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FDCCBB",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "107",
+   "name": "科斯马托斯",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#78219F",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#C01A59",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#0E47A0",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#FD7103",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "108",
+   "name": "阿里·艾斯特",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#FBB300",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#8B6E64",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#B71B1A",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#316A1D",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "109",
+   "name": "查理·考夫曼",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "存在焦虑",
+     "hex": "#546E7A",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "自我怀疑",
+     "hex": "#8D6E63",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "温暖回忆",
+     "hex": "#FFCC80",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "意识深渊",
+     "hex": "#37474F",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "110",
+   "name": "杨·史云梅耶",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "物质记忆",
+     "hex": "#6D4C41",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "肉身焦虑",
+     "hex": "#BF360C",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "自然荒诞",
+     "hex": "#827717",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "暗黑童话",
+     "hex": "#37474F",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "111",
+   "name": "库斯图里卡",
+   "band_y": 217,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "狂欢热烈",
+     "hex": "#FFB300",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "生命激情",
+     "hex": "#E65100",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "忧伤怀旧",
+     "hex": "#5D4037",
+     "source": "ocr"
+    },
+    {
+     "name": "土地家园",
+     "hex": "#2E7D32",
+     "source": "ocr"
+    }
+   ]
+  },
+  {
+   "id": "112",
+   "name": "肯尼斯·安格",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#FE1A44",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#00B1FE",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#EA82FB",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#FFEA02",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "113",
+   "name": "玛雅·德伦",
+   "band_y": 217,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "梦境诗意",
+     "hex": "#808080",
+     "source": "ocr"
+    },
+    {
+     "name": "神秘深渊",
+     "hex": "#000000",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "灵性升华",
+     "hex": "#FFFFFF",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "内在焦虑",
+     "hex": "#404040",
+     "source": "ocr"
+    }
+   ]
+  },
+  {
+   "id": "114",
+   "name": "马修·巴尼",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "身体越界",
+     "hex": "#E91E63",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "临床冷漠",
+     "hex": "#00BCD4",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "神话仪式",
+     "hex": "#FFD600",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "肉体凡胎",
+     "hex": "#795548",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "115",
+   "name": "蒂姆·伯顿",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#471589",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#E85300",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#1A237E",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#1D5F20",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "116",
+   "name": "布兰登·柯南伯格",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "临床冷漠",
+     "hex": "#00BCD4",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "肉体迷恋",
+     "hex": "#E91E63",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "科技恐惧",
+     "hex": "#37474F",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "身体恐怖",
+     "hex": "#B71C1C",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "117",
+   "name": "毕赣",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "爱情执念",
+     "hex": "#E91E63",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#00BDD1",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#F9D74B",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#38464E",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "118",
+   "name": "大岛渚",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "禁忌情欲",
+     "hex": "#B71C1C",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "社会压抑",
+     "hex": "#0D47A1",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "仪式温暖",
+     "hex": "#FFD54F",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "肉身沉重",
+     "hex": "#5D4037",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "119",
+   "name": "哈蒙尼·科林",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#FE1A44",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#00E5FE",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FE9200",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#EA80FB",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "120",
+   "name": "里芬施塔尔",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#CFB034",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#0E47A0",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FFFFFF",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#5C4136",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "121",
+   "name": "罗兰·艾默里奇",
+   "band_y": 217,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "末日恐惧",
+     "hex": "#0D47A1",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FE6E00",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "122",
+   "name": "吴宇森",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#B51B1D",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FED74E",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#0C47A2",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#FEFFFF",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "123",
+   "name": "姜文",
+   "band_y": 217,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#C42927",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FE8F00",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "124",
+   "name": "黑泽明",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "命运沉重",
+     "hex": "#000000",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "正义希望",
+     "hex": "#FFFFFF",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "人性灰色",
+     "hex": "#808080",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#BFC0C0",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "125",
+   "name": "约翰·布尔曼",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#1B5E1F",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FED64E",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#0F499F",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#B61D1C",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "126",
+   "name": "宫崎骏",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#4EC5F1",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#64BB6A",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FFCD7F",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#FAAD90",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "127",
+   "name": "彼得·杰克逊",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "魔幻荣耀",
+     "hex": "#FFD54F",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "自然希望",
+     "hex": "#2E7D32",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "黑暗威胁",
+     "hex": "#B71C1C",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "史诗厚重",
+     "hex": "#5D4037",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "128",
+   "name": "泽米吉斯",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#FD9002",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FED64F",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#1565C1",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#5B4237",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "129",
+   "name": "伦·怀斯曼",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#0E479D",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#C42828",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#37464D",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#1A237E",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "130",
+   "name": "查德·斯塔赫斯基",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "杀手美学",
+     "hex": "#D500F9",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "复仇怒火",
+     "hex": "#FF1744",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "冷酷精准",
+     "hex": "#00E5FF",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "荣耀规则",
+     "hex": "#FFD600",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "131",
+   "name": "大卫·雷奇",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "毒绿",
+     "hex": "#00E676",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FB6D00",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#00B1FE",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#D304F7",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "132",
+   "name": "安东尼·福奎阿",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "硬汉冷酷",
+     "hex": "#1565C0",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "街头暴力",
+     "hex": "#C62828",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "日落终局",
+     "hex": "#FF8F00",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "道德灰色",
+     "hex": "#455A64",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "133",
+   "name": "迈克尔·贝",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "爆炸快感",
+     "hex": "#FF6D00",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "英雄主义",
+     "hex": "#1565C0",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "黄金时刻",
+     "hex": "#FFD54F",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "肾上腺素",
+     "hex": "#B71C1C",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "134",
+   "name": "加雷斯·埃文斯",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#C1282A",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#37484C",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FD8F00",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#445B63",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "135",
+   "name": "里安·约翰逊",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "复古怀旧",
+     "hex": "#FF8F00",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "悬疑迷雾",
+     "hex": "#6A1B9A",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "罪案血色",
+     "hex": "#C62828",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "庄园秘密",
+     "hex": "#2E7D32",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "136",
+   "name": "马修·沃恩",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "绅上风度",
+     "hex": "#0D47A1",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "暴力优雅",
+     "hex": "#C62828",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "金士荣耀",
+     "hex": "#FFD600",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "酷感神秘",
+     "hex": "#4A148C",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "137",
+   "name": "塔森·辛格",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "松石绿",
+     "hex": "#00695C",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "黄金色",
+     "hex": "#FFD600",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FB6D00",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#691C99",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "138",
+   "name": "山姆·雷米",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#1B5E1F",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#B51D1B",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#0E479F",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#FED64E",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "139",
+   "name": "奉俊昊",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#2D7E33",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#594134",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#7C8F98",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#C4292A",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "140",
+   "name": "李沧东",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#2F7E33",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FECD7E",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#7A929B",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#C52926",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "141",
+   "name": "今敏",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "欲望痴迷",
+     "hex": "#E91E63",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "都市疏离",
+     "hex": "#00BCD4",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "梦境迷离",
+     "hex": "#7B1FA2",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "舞台光芒",
+     "hex": "#FFC107",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "142",
+   "name": "韦斯·安德森",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#EF91AE",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#F8CF7D",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#81C687",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#68B5F1",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "143",
+   "name": "高畑勋",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#887163",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#A7D5A7",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FDCE82",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#96CAF4",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "144",
+   "name": "新海诚",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#4EC6F1",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FF8C62",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#B869C5",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#7788CB",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "145",
+   "name": "汤浅政明",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "狂想激情",
+     "hex": "#FF1744",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "流动自由",
+     "hex": "#00E5FF",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "青春能量",
+     "hex": "#FFEA00",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "迷幻梦境",
+     "hex": "#D500F9",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "146",
+   "name": "亨利·塞利克",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#FB6D00",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#49168C",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#1B5F21",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#B41C1B",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "147",
+   "name": "希尔万·肖梅",
+   "band_y": 217,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "老城棕",
+     "hex": "#8D6E63",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "雨空蓝",
+     "hex": "#90CAF9",
+     "source": "ocr"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FECD80",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "148",
+   "name": "汤姆·摩尔",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "神圣之光",
+     "hex": "#FFD54F",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "海洋神秘",
+     "hex": "#0D47A1",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "牺牲奉献",
+     "hex": "#C62828",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#195E1E",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "149",
+   "name": "米歇尔·欧斯洛",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#FB6D00",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#7B1FA1",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#1B5F21",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#FED64F",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "150",
+   "name": "塔塔科夫斯基",
+   "band_y": 217,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#1A237E",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#BE370A",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "151",
+   "name": "特拉维斯·奈特",
+   "band_y": 217,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "魔法奇幻",
+     "hex": "#4A148C",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "自然神秘",
+     "hex": "#2E7D32",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "手工温度",
+     "hex": "#5D4037",
+     "source": "ocr"
+    },
+    {
+     "name": "金色希望",
+     "hex": "#FFD54F",
+     "source": "ocr"
+    }
+   ]
+  },
+  {
+   "id": "152",
+   "name": "彼特·道格特",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#4DC3FA",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FFD083",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#CE94D5",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#82C783",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "153",
+   "name": "安德鲁·斯坦顿",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "深海冒险",
+     "hex": "#006064",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "荒原希望",
+     "hex": "#FF8F00",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "父子情深",
+     "hex": "#FFD54F",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "太空孤独",
+     "hex": "#78909C",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "154",
+   "name": "布拉德·伯德",
+   "band_y": 217,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "英雄正义",
+     "hex": "#E53935",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "责任担当",
+     "hex": "#1565C0",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "机械美学",
+     "hex": "#78909C",
+     "source": "ocr"
+    }
+   ]
+  },
+  {
+   "id": "155",
+   "name": "石之予",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "青春躁动",
+     "hex": "#E91E63",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "少女心事",
+     "hex": "#F8BBD0",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "家庭温暖",
+     "hex": "#FFCC80",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "成长蜕变",
+     "hex": "#81C784",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "156",
+   "name": "等",
+   "band_y": 217,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "漫画黄",
+     "hex": "#FFD600",
+     "source": "ocr"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#E81F63",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#00BDD3",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "157",
+   "name": "唐·布鲁斯",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#7821A1",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#2F7D34",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FDA202",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#006A5B",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "158",
+   "name": "伊日·特尔恩卡",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "木偶诗意",
+     "hex": "#5D4037",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "东欧忧郁",
+     "hex": "#78909C",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "童话光芒",
+     "hex": "#FFD54F",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "暗黑命运",
+     "hex": "#B71C1C",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "159",
+   "name": "米林宏昌",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#68BA6A",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FECD7F",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#82D4F9",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#9F897F",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "160",
+   "name": "细田守",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#00B1FD",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FFA524",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#61BC6C",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#AA49B9",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "161",
+   "name": "埃里克·侯麦",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#84C685",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FDCD81",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#8FCAF9",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#EC9A99",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "162",
+   "name": "特吕弗",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#010002",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FECD7F",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#C5292A",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#7A909D",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "163",
+   "name": "让\\-吕克·戈达尔",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#C72A2A",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#0D459F",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FDD400",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#010100",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "164",
+   "name": "岩井俊二",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#F6BECF",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FDCE7F",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#90CBF7",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#D5CFC8",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "165",
+   "name": "关锦鹏",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "怀旧追忆",
+     "hex": "#FFCC80",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "岁月沧桑",
+     "hex": "#5D4037",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "温柔女性",
+     "hex": "#FFAB91",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#C7292A",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "166",
+   "name": "托德·海恩斯",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "酷儿身份",
+     "hex": "#4A148C",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "年代迷狂",
+     "hex": "#E65100",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "禁忌爱情",
+     "hex": "#F48FB1",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "压抑忧郁",
+     "hex": "#0D47A1",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "167",
+   "name": "大卫·洛韦里",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "大地棕",
+     "hex": "#5D4037",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "幽灵灰",
+     "hex": "#78909C",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FD9002",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#2D7E30",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "168",
+   "name": "塔伊加·维迪提",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#FF8F00",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#2C7F30",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#E52265",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#681A9A",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "169",
+   "name": "埃德加·赖特",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "热血喜剧",
+     "hex": "#E53935",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "悬疑推理",
+     "hex": "#0D47A1",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "英式幽默",
+     "hex": "#FFD600",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "科幻迷幻",
+     "hex": "#6A1B9A",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "170",
+   "name": "诺亚·鲍姆巴赫",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#7A909C",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FFCD85",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#5E4137",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#010000",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "171",
+   "name": "鲁本·奥斯特伦德",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#79909D",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FFFEFE",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#0388D2",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#556F7A",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "172",
+   "name": "乔安娜·霍格",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "记忆厚重",
+     "hex": "#6D4C41",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#877163",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FECD7F",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#93A5A9",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "173",
+   "name": "米娅·汉森\\-洛夫",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#92CDF3",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#A7D6A7",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FCD07D",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#7C9097",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "174",
+   "name": "索菲亚·科波拉",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#EF91AE",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#798F9C",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FECE81",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#B969C4",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "175",
+   "name": "瑟琳·席安玛",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#52C1F3",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#ABD2A6",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FDCE84",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#F4BECE",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "176",
+   "name": "雅克·德米",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "浪漫梦幻",
+     "hex": "#F48FB1",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "雨伞忧伤",
+     "hex": "#64B5F6",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "港口温情",
+     "hex": "#FFD54F",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "初恋甜蜜",
+     "hex": "#FFAB91",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "177",
+   "name": "是枝裕和",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#83C589",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FCD07D",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#BAACA4",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#93C9F5",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "178",
+   "name": "滨口龙介",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#93CCF5",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#A7D6A7",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FCD07D",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#F3C0CF",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "179",
+   "name": "约阿希姆·特里尔",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "北欧忧郁",
+     "hex": "#607D8B",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "内心清澈",
+     "hex": "#0288D1",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "青春温暖",
+     "hex": "#FFCC80",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "回忆厚重",
+     "hex": "#8D6E63",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "180",
+   "name": "琳恩·拉姆塞",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#C5292C",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#374548",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FED552",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#594134",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "181",
+   "name": "小津安二郎",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#8A6F63",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#BCACA5",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#7790A0",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#FEF9C6",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "182",
+   "name": "沟口健二",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "历史厚重",
+     "hex": "#5D4037",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "女性悲剧",
+     "hex": "#B71C1C",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "人性微光",
+     "hex": "#FFD54F",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "命运无常",
+     "hex": "#78909C",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "183",
+   "name": "黑泽清",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "诡异不安",
+     "hex": "#2E7D32",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "都市异化",
+     "hex": "#37474F",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "冰冷恐惧",
+     "hex": "#00838F",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "压抑沉闷",
+     "hex": "#5D4037",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "184",
+   "name": "北野武",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#0089D0",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#C72927",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FED650",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#364751",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "185",
+   "name": "河濑直美",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#2F7D35",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FBD54E",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#8B6E61",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#A5D8A3",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "186",
+   "name": "杨德昌",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#52707A",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#8B6E64",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#FDD74A",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#008AD2",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "187",
+   "name": "许鞍华",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#8A6F63",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#F9CF7D",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#7C9097",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#FFAA92",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "188",
+   "name": "金基德",
+   "band_y": 217,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#006164",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#5D4136",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "189",
+   "name": "洪常秀",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "酒后微醺",
+     "hex": "#8D6E63",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "日常疏离",
+     "hex": "#78909C",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "暖味温暖",
+     "hex": "#FFCC80",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "存在空虚",
+     "hex": "#000000",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "190",
+   "name": "阿彼察邦",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#185F22",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FBD64E",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#6B4D42",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#005F62",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "191",
+   "name": "陈英雄",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#2C8031",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#FDD54D",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#8C6F64",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#A6D7A6",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "192",
+   "name": "门多萨",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#37464C",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#C52926",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#5C4136",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#FCD64E",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "193",
+   "name": "萨蒂亚吉特·雷伊",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "大地厚重",
+     "hex": "#8D6E63",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "人性光辉",
+     "hex": "#FFD54F",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "命运沉思",
+     "hex": "#808080",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "贫困沉重",
+     "hex": "#000000",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "194",
+   "name": "阿巴斯",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#FED74C",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#8A6F61",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#799199",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#A7D7A6",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "195",
+   "name": "阿斯哈·法哈蒂",
+   "band_y": 301,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "道德困境",
+     "hex": "#8D6E63",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "社会压抑",
+     "hex": "#78909C",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "家庭温暖",
+     "hex": "#FFCC80",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "秘密沉重",
+     "hex": "#5D4037",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "196",
+   "name": "莫森·玛克玛尔巴夫",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "革命激情",
+     "hex": "#C62828",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "生命坚韧",
+     "hex": "#FFD54F",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "自由渴望",
+     "hex": "#1565C0",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "希望绿意",
+     "hex": "#2E7D32",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "197",
+   "name": "巴赫曼·戈巴迪",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "土地热爱",
+     "hex": "#FF8F00",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "音乐生命力",
+     "hex": "#2E7D32",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "苦难纯洁",
+     "hex": "#FFFFFF",
+     "source": "ocr+pixel"
+    },
+    {
+     "name": "库尔德身份",
+     "hex": "#8D6E63",
+     "source": "ocr+pixel"
+    }
+   ]
+  },
+  {
+   "id": "198",
+   "name": "姆里纳尔·森",
+   "band_y": 217,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "城市苦难",
+     "hex": "#5D4037",
+     "source": "ocr"
+    },
+    {
+     "name": "革命激情",
+     "hex": "#C62828",
+     "source": "ocr"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#000000",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#FFFFFF",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "199",
+   "name": "潘礼德",
+   "band_y": 302,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#5E4136",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#C32827",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#2F7D31",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#FED750",
+     "source": "pixel"
+    }
+   ]
+  },
+  {
+   "id": "200",
+   "name": "克莱尔·德尼",
+   "band_y": 303,
+   "relation": "duplicate_of_main",
+   "colors": [
+    {
+     "name": "辅色1",
+     "hex": "#FD8F00",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色2",
+     "hex": "#704D44",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色3",
+     "hex": "#2D7E33",
+     "source": "pixel"
+    },
+    {
+     "name": "辅色4",
+     "hex": "#7690A0",
+     "source": "pixel"
+    }
+   ]
+  }
+ ]
+}

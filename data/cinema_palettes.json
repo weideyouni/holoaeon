@@ -1,9 +1,9 @@
 {
- "source": "《导演视觉风格色卡》第 3-4 期 200 张色卡图（V53 色值层：像素采样 hex+宽度占比 × OCR 色名）",
+ "source": "《导演视觉风格色卡》第 3-4 期 200 张色卡图（V54 主色名修正版 v2：V53 遗漏的 markdown/HTML 表格行对齐）",
  "method": {
-  "hex": "色带段内多点中值 RGB（JPEG 压缩 ±10 RGB 内）",
-  "share": "色带段宽度归一（物理宽度比）",
-  "name": "mineru advanced OCR 色名（hex 匹配优先/占比贪心兜底/缺失置占位并在 notes 标记）",
+  "hex": "色带段内多点中值 RGB（像素主源不变）",
+  "share": "色带段宽度归一（不变）",
+  "name": "OCR 三层对齐链：hex 匹配(±24) → share 匹配(±5) → 行序对齐（修正 V53 只认带 % 行的遗漏）",
   "axiom": "主色 1 个 40%+ / 辅色 1-2 个 20-30% / 点缀 5%"
  },
  "count": 200,
@@ -14,39 +14,39 @@
    "category": "黑色悬疑与冷调惊悚",
    "colors": [
     {
-     "name": "色1",
+     "name": "深夜暗蓝",
      "hex": "#1A2332",
      "share": 0.4144
     },
     {
-     "name": "色2",
+     "name": "雾霭钢蓝",
      "hex": "#3D5A6A",
      "share": 0.2072
     },
     {
-     "name": "色3",
+     "name": "暗金琥珀",
      "hex": "#896912",
      "share": 0.1509
     },
     {
-     "name": "色4",
+     "name": "深墨绿",
      "hex": "#2E4B37",
      "share": 0.1182
     },
     {
-     "name": "色5",
+     "name": "恐惧猩红",
      "hex": "#C31F38",
      "share": 0.08
     },
     {
-     "name": "色6",
+     "name": "暖米肤",
      "hex": "#D3C5A8",
      "share": 0.0293
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -137,27 +137,27 @@
    "category": "黑色悬疑与冷调惊悚",
    "colors": [
     {
-     "name": "色1",
+     "name": "深夜暗紫红",
      "hex": "#191516",
      "share": 0.3619
     },
     {
-     "name": "色2",
+     "name": "歌剧深红",
      "hex": "#8B0100",
      "share": 0.2074
     },
     {
-     "name": "色3",
+     "name": "土豪金",
      "hex": "#C9A328",
      "share": 0.1545
     },
     {
-     "name": "色4",
+     "name": "宝蓝暗青",
      "hex": "#D3AF35",
      "share": 0.0981
     },
     {
-     "name": "色5",
+     "name": "象牙肤",
      "hex": "#1D3B5D",
      "share": 0.0947
     },
@@ -168,8 +168,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 5,
+    "name_source": "placeholder×1"
    }
   },
   {
@@ -178,39 +178,39 @@
    "category": "黑色悬疑与冷调惊悚",
    "colors": [
     {
-     "name": "色1",
+     "name": "尘土灰褐",
      "hex": "#6A6756",
      "share": 0.3975
     },
     {
-     "name": "色2",
+     "name": "铁灰蓝黑",
      "hex": "#2C363F",
      "share": 0.2072
     },
     {
-     "name": "色3",
+     "name": "尘土橙黄",
      "hex": "#C79C58",
      "share": 0.1509
     },
     {
-     "name": "色4",
+     "name": "雾霾灰蓝",
      "hex": "#8EA1A7",
      "share": 0.0923
     },
     {
-     "name": "色5",
+     "name": "军绿橄榄",
      "hex": "#4A5340",
      "share": 0.0923
     },
     {
-     "name": "色6",
+     "name": "沙漠肤",
      "hex": "#D8C8A6",
      "share": 0.0597
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -219,39 +219,39 @@
    "category": "黑色悬疑与冷调惊悚",
    "colors": [
     {
-     "name": "色1",
+     "name": "深海暗蓝",
      "hex": "#0C1C29",
      "share": 0.4294
     },
     {
-     "name": "色2",
+     "name": "晓虹冷蓝",
      "hex": "#1A4963",
      "share": 0.2072
     },
     {
-     "name": "色3",
+     "name": "猩红警示",
      "hex": "#E53945",
      "share": 0.1192
     },
     {
-     "name": "色4",
+     "name": "电幻金",
      "hex": "#FEB801",
      "share": 0.1065
     },
     {
-     "name": "色5",
+     "name": "洋红深紫",
      "hex": "#5E0F3F",
      "share": 0.0764
     },
     {
-     "name": "色6",
+     "name": "冷白肤",
      "hex": "#F0FBED",
      "share": 0.0613
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -260,39 +260,39 @@
    "category": "黑色悬疑与冷调惊悚",
    "colors": [
     {
-     "name": "色1",
+     "name": "深海暗蓝黑",
      "hex": "#0B1E2D",
      "share": 0.3974
     },
     {
-     "name": "色2",
+     "name": "深海暗蓝黑",
      "hex": "#19405D",
      "share": 0.2019
     },
     {
-     "name": "色3",
+     "name": "暗金琥珀",
      "hex": "#B7870B",
      "share": 0.1307
     },
     {
-     "name": "色4",
+     "name": "暗金琥珀",
      "hex": "#6A2321",
      "share": 0.0994
     },
     {
-     "name": "色5",
+     "name": "暗金琥珀",
      "hex": "#2C4B3C",
      "share": 0.0907
     },
     {
-     "name": "色6",
+     "name": "暗金琥珀",
      "hex": "#C7B795",
      "share": 0.0799
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 459,
+    "name_source": "ocr"
    }
   },
   {
@@ -301,32 +301,32 @@
    "category": "黑色悬疑与冷调惊悚",
    "colors": [
     {
-     "name": "色1",
+     "name": "临床灰绿",
      "hex": "#2B3638",
      "share": 0.3825
     },
     {
-     "name": "色2",
+     "name": "冷灰绿",
      "hex": "#6A8073",
      "share": 0.2015
     },
     {
-     "name": "色3",
+     "name": "血肉暗红",
      "hex": "#8A3A39",
      "share": 0.1304
     },
     {
-     "name": "色4",
+     "name": "羊皮纸棕",
      "hex": "#B8A181",
      "share": 0.0991
     },
     {
-     "name": "色5",
+     "name": "肉肤色",
      "hex": "#D3A573",
      "share": 0.0959
     },
     {
-     "name": "色6",
+     "name": "血肉暗红",
      "hex": "#3C5A4E",
      "share": 0.0905
     }
@@ -347,7 +347,7 @@
      "share": 0.3821
     },
     {
-     "name": "暗橄榄绿",
+     "name": "暗金棕\n\n暗金棕",
      "hex": "#695028",
      "share": 0.2013
     },
@@ -357,7 +357,7 @@
      "share": 0.1195
     },
     {
-     "name": "暗金棕\n\n暗金棕",
+     "name": "暗橄榄绿",
      "hex": "#546C2E",
      "share": 0.1023
     },
@@ -373,7 +373,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -382,39 +383,39 @@
    "category": "黑色悬疑与冷调惊悚",
    "colors": [
     {
-     "name": "色1",
+     "name": "冷灰蓝绿",
      "hex": "#394A51",
      "share": 0.3502
     },
     {
-     "name": "色2",
+     "name": "哑灰棕",
      "hex": "#8A8478",
      "share": 0.2202
     },
     {
-     "name": "色3",
+     "name": "深棕木色",
      "hex": "#644320",
      "share": 0.13
     },
     {
-     "name": "色4",
+     "name": "暗苔绿",
      "hex": "#49683F",
      "share": 0.102
     },
     {
-     "name": "色5",
+     "name": "驼色棕",
      "hex": "#A0795A",
      "share": 0.0988
     },
     {
-     "name": "色6",
+     "name": "奶白肤",
      "hex": "#E7DCC6",
      "share": 0.0988
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -454,7 +455,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -463,39 +465,39 @@
    "category": "黑色悬疑与冷调惊悚",
    "colors": [
     {
-     "name": "色1",
+     "name": "夜色深靛",
      "hex": "#1C2932",
      "share": 0.3843
     },
     {
-     "name": "色2",
+     "name": "藏青蓝",
      "hex": "#2E4152",
      "share": 0.1982
     },
     {
-     "name": "色3",
+     "name": "暗金琥珀",
      "hex": "#B6950A",
      "share": 0.134
     },
     {
-     "name": "色4",
+     "name": "冷钢灰",
      "hex": "#556572",
      "share": 0.1019
     },
     {
-     "name": "色5",
+     "name": "深红棕",
      "hex": "#922C20",
      "share": 0.0908
     },
     {
-     "name": "色6",
+     "name": "柔粉肤",
      "hex": "#D6BEE2",
      "share": 0.0908
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -504,38 +506,39 @@
    "category": "黑色悬疑与冷调惊悚",
    "colors": [
     {
-     "name": "沥青黑",
+     "name": "色1",
      "hex": "#141414",
      "share": 0.4244
     },
     {
-     "name": "深紫红黑",
+     "name": "色2",
      "hex": "#291B2A",
      "share": 0.1867
     },
     {
-     "name": "肮脏红",
+     "name": "色3",
      "hex": "#E64D3B",
      "share": 0.1344
     },
     {
-     "name": "水泥灰",
+     "name": "色4",
      "hex": "#93A5A5",
      "share": 0.0967
     },
     {
-     "name": "脏党虹橙",
+     "name": "色5",
      "hex": "#F29C11",
      "share": 0.0878
     },
     {
-     "name": "惮悴肤",
+     "name": "色6",
      "hex": "#D7BFA5",
      "share": 0.07
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 0,
+    "name_source": "placeholder×6"
    }
   },
   {
@@ -585,39 +588,39 @@
    "category": "黑色悬疑与冷调惊悚",
    "colors": [
     {
-     "name": "色1",
+     "name": "天鹅绒紫黑",
      "hex": "#180B14",
      "share": 0.3881
     },
     {
-     "name": "色2",
+     "name": "深酒红",
      "hex": "#631F16",
      "share": 0.2047
     },
     {
-     "name": "色3",
+     "name": "深海蓝",
      "hex": "#1E3D59",
      "share": 0.1327
     },
     {
-     "name": "色4",
+     "name": "墨绿森林",
      "hex": "#21501C",
      "share": 0.1001
     },
     {
-     "name": "色5",
+     "name": "暖杏肤",
      "hex": "#B6950A",
      "share": 0.0979
     },
     {
-     "name": "色6",
+     "name": "复古金",
      "hex": "#F3CCA5",
      "share": 0.0765
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 7,
+    "name_source": "ocr"
    }
   },
   {
@@ -626,32 +629,32 @@
    "category": "黑色悬疑与冷调惊悚",
    "colors": [
     {
-     "name": "色1",
+     "name": "暗渊黑",
      "hex": "#181818",
      "share": 0.4038
     },
     {
-     "name": "色2",
+     "name": "深紫红",
      "hex": "#4A2358",
      "share": 0.1869
     },
     {
-     "name": "色3",
+     "name": "深血红",
      "hex": "#AF3B2E",
      "share": 0.1313
     },
     {
-     "name": "色4",
+     "name": "暗金",
      "hex": "#D3AD0C",
      "share": 0.1023
     },
     {
-     "name": "色5",
+     "name": "苍白粉红肤",
      "hex": "#F1958A",
      "share": 0.0912
     },
     {
-     "name": "色6",
+     "name": "深海冷蓝",
      "hex": "#1A5275",
      "share": 0.0845
     }
@@ -667,39 +670,39 @@
    "category": "黑色悬疑与冷调惊悚",
    "colors": [
     {
-     "name": "色1",
+     "name": "深翡绿黑",
      "hex": "#0D2B23",
      "share": 0.3989
     },
     {
-     "name": "色2",
+     "name": "深紫丝绒",
      "hex": "#3D205A",
      "share": 0.2079
     },
     {
-     "name": "色3",
+     "name": "华丽金",
      "hex": "#C9A328",
      "share": 0.1311
     },
     {
-     "name": "色4",
+     "name": "孔雀蓝绿",
      "hex": "#79251B",
      "share": 0.0927
     },
     {
-     "name": "色5",
+     "name": "深紫丝绒",
      "hex": "#F7DD6E",
      "share": 0.0927
     },
     {
-     "name": "色6",
+     "name": "深红丝绒",
      "hex": "#1E4F5E",
      "share": 0.0768
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 7,
+    "name_source": "ocr"
    }
   },
   {
@@ -708,39 +711,39 @@
    "category": "黑色悬疑与冷调惊悚",
    "colors": [
     {
-     "name": "色1",
+     "name": "午夜深蓝",
      "hex": "#1A2B3D",
      "share": 0.4039
     },
     {
-     "name": "色2",
+     "name": "石板蓝灰",
      "hex": "#33495E",
      "share": 0.1987
     },
     {
-     "name": "色3",
+     "name": "鞍棕木色",
      "hex": "#8B4512",
      "share": 0.1307
     },
     {
-     "name": "色4",
+     "name": "暗金棕",
      "hex": "#7D6608",
      "share": 0.0994
     },
     {
-     "name": "色5",
+     "name": "暗红西装",
      "hex": "#A83224",
      "share": 0.0961
     },
     {
-     "name": "色6",
+     "name": "冷白肤",
      "hex": "#D6DBDE",
      "share": 0.0713
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -749,38 +752,39 @@
    "category": "黑色悬疑与冷调惊悚",
    "colors": [
     {
-     "name": "深夜蓝黑",
+     "name": "色1",
      "hex": "#0F1C2D",
      "share": 0.4056
     },
     {
-     "name": "石板蓝灰",
+     "name": "色2",
      "hex": "#273746",
      "share": 0.1941
     },
     {
-     "name": "暗红血棕",
+     "name": "色3",
      "hex": "#6A2E2D",
      "share": 0.1171
     },
     {
-     "name": "深苔绿",
+     "name": "色4",
      "hex": "#B7870B",
      "share": 0.103
     },
     {
-     "name": "暗金烛黄",
+     "name": "色5",
      "hex": "#3C5B49",
      "share": 0.0998
     },
     {
-     "name": "苍白冷肤",
+     "name": "色6",
      "hex": "#D3DCDB",
      "share": 0.0803
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 0,
+    "name_source": "placeholder×6"
    }
   },
   {
@@ -820,7 +824,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -829,39 +834,39 @@
    "category": "霓虹黑色与赛博未来",
    "colors": [
     {
-     "name": "色1",
+     "name": "深空夜黑",
      "hex": "#09101A",
      "share": 0.3549
     },
     {
-     "name": "色2",
+     "name": "雨夜钢蓝",
      "hex": "#193A5B",
      "share": 0.2015
     },
     {
-     "name": "色3",
+     "name": "霓虹暗金",
      "hex": "#C7A84B",
      "share": 0.1501
     },
     {
-     "name": "色4",
+     "name": "暗红血锈",
      "hex": "#2D4F4E",
      "share": 0.115
     },
     {
-     "name": "色5",
+     "name": "肤色暖金",
      "hex": "#8B0100",
      "share": 0.1008
     },
     {
-     "name": "色6",
+     "name": "暗青绿",
      "hex": "#D3A573",
      "share": 0.0778
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -901,7 +906,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -910,39 +916,39 @@
    "category": "霓虹黑色与赛博未来",
    "colors": [
     {
-     "name": "色1",
+     "name": "迷幻深黑",
      "hex": "#09010E",
      "share": 0.3033
     },
     {
-     "name": "色2",
+     "name": "频闪纯红",
      "hex": "#FE0000",
      "share": 0.1826
     },
     {
-     "name": "色3",
+     "name": "电音深蓝",
      "hex": "#0000FE",
      "share": 0.1511
     },
     {
-     "name": "色4",
+     "name": "夜店洋红",
      "hex": "#E7BEAA",
      "share": 0.1402
     },
     {
-     "name": "色5",
+     "name": "裸肤",
      "hex": "#FE00FE",
      "share": 0.1228
     },
     {
-     "name": "色6",
+     "name": "迷幻金",
      "hex": "#FED700",
      "share": 0.1
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 7,
+    "name_source": "ocr"
    }
   },
   {
@@ -951,39 +957,39 @@
    "category": "霓虹黑色与赛博未来",
    "colors": [
     {
-     "name": "色1",
+     "name": "夜视深绿",
      "hex": "#0E1C0F",
      "share": 0.3023
     },
     {
-     "name": "色2",
+     "name": "军绿橄榄",
      "hex": "#4A5E23",
      "share": 0.2026
     },
     {
-     "name": "色3",
+     "name": "沙漠土黄",
      "hex": "#C4A459",
      "share": 0.1506
     },
     {
-     "name": "色4",
+     "name": "沙尘肤",
      "hex": "#B7A889",
      "share": 0.1278
     },
     {
-     "name": "色5",
+     "name": "战术冷蓝",
      "hex": "#1D3B5F",
      "share": 0.117
     },
     {
-     "name": "色6",
+     "name": "暗红血锈",
      "hex": "#8B0100",
      "share": 0.0997
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -1023,7 +1029,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -1032,32 +1039,32 @@
    "category": "霓虹黑色与赛博未来",
    "colors": [
     {
-     "name": "色1",
+     "name": "数码深蓝",
      "hex": "#091627",
      "share": 0.3503
     },
     {
-     "name": "色2",
+     "name": "城市钢灰",
      "hex": "#2C3F50",
      "share": 0.204
     },
     {
-     "name": "色3",
+     "name": "都市暖钨",
      "hex": "#C4A459",
      "share": 0.1197
     },
     {
-     "name": "色4",
+     "name": "电子冷蓝",
      "hex": "#4A90D8",
      "share": 0.1164
     },
     {
-     "name": "色5",
+     "name": "皮革棕",
      "hex": "#8B4512",
      "share": 0.1109
     },
     {
-     "name": "色6",
+     "name": "冷钢肤",
      "hex": "#AFC5DD",
      "share": 0.0987
     }
@@ -1073,39 +1080,39 @@
    "category": "霓虹黑色与赛博未来",
    "colors": [
     {
-     "name": "色1",
+     "name": "巴黎深蓝",
      "hex": "#0C1C29",
      "share": 0.2524
     },
     {
-     "name": "色2",
+     "name": "法式橙",
      "hex": "#FD8C00",
      "share": 0.1791
     },
     {
-     "name": "色3",
+     "name": "未来青",
      "hex": "#F4DFB2",
      "share": 0.1791
     },
     {
-     "name": "色4",
+     "name": "少女肤",
      "hex": "#00CFD1",
      "share": 0.1532
     },
     {
-     "name": "色5",
+     "name": "法式红",
      "hex": "#DB143B",
      "share": 0.1197
     },
     {
-     "name": "色6",
+     "name": "黄金光",
      "hex": "#FED700",
      "share": 0.1165
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 8,
+    "name_source": "ocr"
    }
   },
   {
@@ -1155,39 +1162,39 @@
    "category": "霓虹黑色与赛博未来",
    "colors": [
     {
-     "name": "色1",
+     "name": "末日深黑",
      "hex": "#0C0E0B",
      "share": 0.3017
     },
     {
-     "name": "色2",
+     "name": "爆炸橙红",
      "hex": "#FE3E00",
      "share": 0.2127
     },
     {
-     "name": "色3",
+     "name": "废墟灰棕",
      "hex": "#5D4136",
      "share": 0.1584
     },
     {
-     "name": "色4",
+     "name": "烟尘金",
      "hex": "#BE903B",
      "share": 0.1214
     },
     {
-     "name": "色5",
+     "name": "新东京红",
      "hex": "#D2302E",
      "share": 0.1029
     },
     {
-     "name": "色6",
+     "name": "能量蓝",
      "hex": "#1465BE",
      "share": 0.1029
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -1227,7 +1234,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -1267,7 +1275,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 0,
+    "name_source": "placeholder×6"
    }
   },
   {
@@ -1307,7 +1316,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -1388,7 +1398,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -1428,7 +1439,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -1468,7 +1480,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -1508,7 +1521,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -1517,27 +1531,27 @@
    "category": "霓虹黑色与赛博未来",
    "colors": [
     {
-     "name": "色1",
+     "name": "冷钢蓝",
      "hex": "#0B151F",
      "share": 0.304
     },
     {
-     "name": "色2",
+     "name": "冷钢蓝",
      "hex": "#29405F",
      "share": 0.2115
     },
     {
-     "name": "色3",
+     "name": "建筑灰",
      "hex": "#6D767F",
      "share": 0.1564
     },
     {
-     "name": "色4",
+     "name": "玉米金",
      "hex": "#C8A54B",
      "share": 0.1222
     },
     {
-     "name": "色5",
+     "name": "虚空墨黑",
      "hex": "#7A5D3D",
      "share": 0.1134
     },
@@ -1548,8 +1562,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 4,
+    "name_source": "placeholder×1"
    }
   },
   {
@@ -1589,7 +1603,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -1598,39 +1613,39 @@
    "category": "霓虹黑色与赛博未来",
    "colors": [
     {
-     "name": "色1",
+     "name": "潜艇钢蓝",
      "hex": "#1D303F",
      "share": 0.2472
     },
     {
-     "name": "色2",
+     "name": "丛林暗绿",
      "hex": "#1D2F19",
      "share": 0.2031
     },
     {
-     "name": "色3",
+     "name": "烟雾影黑",
      "hex": "#292A2C",
      "share": 0.2009
     },
     {
-     "name": "色4",
+     "name": "爆炸暖橙",
      "hex": "#C3511F",
      "share": 0.1534
     },
     {
-     "name": "色5",
+     "name": "硬汉汗肤",
      "hex": "#9B795E",
      "share": 0.1225
     },
     {
-     "name": "色6",
+     "name": "军事卡其",
      "hex": "#6A6547",
      "share": 0.0728
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -1639,39 +1654,39 @@
    "category": "大地暖调与自然光诗意",
    "colors": [
     {
-     "name": "色1",
+     "name": "麦田金",
      "hex": "#D3A573",
      "share": 0.2275
     },
     {
-     "name": "色2",
+     "name": "大地褐",
      "hex": "#F4E7C7",
      "share": 0.1889
     },
     {
-     "name": "色3",
+     "name": "大地褐",
      "hex": "#8B6F47",
      "share": 0.1797
     },
     {
-     "name": "色4",
+     "name": "大地褐",
      "hex": "#E6D6B5",
      "share": 0.1581
     },
     {
-     "name": "色5",
+     "name": "深林绿",
      "hex": "#2E4630",
      "share": 0.132
     },
     {
-     "name": "色6",
+     "name": "大地褐",
      "hex": "#C15B2A",
      "share": 0.1138
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 200,
+    "name_source": "ocr"
    }
   },
   {
@@ -1711,7 +1726,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -1720,7 +1736,7 @@
    "category": "大地暖调与自然光诗意",
    "colors": [
     {
-     "name": "色1",
+     "name": "暖金回忆",
      "hex": "#D3A573",
      "share": 0.2204
     },
@@ -1751,8 +1767,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 1,
+    "name_source": "placeholder×5"
    }
   },
   {
@@ -1761,17 +1777,17 @@
    "category": "大地暖调与自然光诗意",
    "colors": [
     {
-     "name": "色1",
+     "name": "深棕琥珀",
      "hex": "#39230E",
      "share": 0.2569
     },
     {
-     "name": "色2",
+     "name": "暗金神话",
      "hex": "#B78709",
      "share": 0.202
     },
     {
-     "name": "色3",
+     "name": "暗金神话",
      "hex": "#1B1D1A",
      "share": 0.1789
     },
@@ -1802,39 +1818,39 @@
    "category": "大地暖调与自然光诗意",
    "colors": [
     {
-     "name": "色1",
+     "name": "温润玉黄",
      "hex": "#C1A774",
      "share": 0.1907
     },
     {
-     "name": "色2",
+     "name": "大地赭棕",
      "hex": "#8B7454",
      "share": 0.1793
     },
     {
-     "name": "色3",
+     "name": "竹林青灰",
      "hex": "#5A6B49",
      "share": 0.1737
     },
     {
-     "name": "色4",
+     "name": "暖沙米白",
      "hex": "#E6D6B5",
      "share": 0.1578
     },
     {
-     "name": "色5",
+     "name": "深松绿",
      "hex": "#3D503D",
      "share": 0.1578
     },
     {
-     "name": "色6",
+     "name": "暖阳橙",
      "hex": "#D58D43",
      "share": 0.1407
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -1843,39 +1859,39 @@
    "category": "大地暖调与自然光诗意",
    "colors": [
     {
-     "name": "色1",
+     "name": "暖金褐肤",
      "hex": "#C58641",
      "share": 0.2241
     },
     {
-     "name": "色2",
+     "name": "暮光紫蓝",
      "hex": "#382F5E",
      "share": 0.1921
     },
     {
-     "name": "色3",
+     "name": "阳光金棕",
      "hex": "#D3A573",
      "share": 0.1534
     },
     {
-     "name": "色4",
+     "name": "深棕暖肤",
      "hex": "#8A5A29",
      "share": 0.1512
     },
     {
-     "name": "色5",
+     "name": "暖沙金",
      "hex": "#E6CA9A",
      "share": 0.1424
     },
     {
-     "name": "色6",
+     "name": "墨绿青蓝",
      "hex": "#2E5E4E",
      "share": 0.1369
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -1884,39 +1900,39 @@
    "category": "大地暖调与自然光诗意",
    "colors": [
     {
-     "name": "色1",
+     "name": "深棕油画",
      "hex": "#3B2915",
      "share": 0.2544
     },
     {
-     "name": "色2",
+     "name": "赭石暖肤",
      "hex": "#8A6338",
      "share": 0.2018
     },
     {
-     "name": "色3",
+     "name": "泥土红棕",
      "hex": "#6B4521",
      "share": 0.1524
     },
     {
-     "name": "色4",
+     "name": "暗金历史",
      "hex": "#B7870B",
      "share": 0.1524
     },
     {
-     "name": "色5",
+     "name": "暖棕墨黑",
      "hex": "#2B2517",
      "share": 0.1382
     },
     {
-     "name": "色6",
+     "name": "暖土金",
      "hex": "#D3A573",
      "share": 0.1009
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -1956,7 +1972,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -1965,39 +1982,39 @@
    "category": "大地暖调与自然光诗意",
    "colors": [
     {
-     "name": "色1",
+     "name": "大地金灰",
      "hex": "#C3AE77",
      "share": 0.2352
     },
     {
-     "name": "色2",
+     "name": "枯石褐",
      "hex": "#897F64",
      "share": 0.1851
     },
     {
-     "name": "色3",
+     "name": "薄暮肤",
      "hex": "#E7DDC2",
      "share": 0.155
     },
     {
-     "name": "色4",
+     "name": "荒原棕",
      "hex": "#A58D69",
      "share": 0.155
     },
     {
-     "name": "色5",
+     "name": "枯草黄",
      "hex": "#D8C99E",
      "share": 0.1494
     },
     {
-     "name": "色6",
+     "name": "旷野灰绿",
      "hex": "#697464",
      "share": 0.1204
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -2037,7 +2054,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -2061,12 +2079,12 @@
      "share": 0.1544
     },
     {
-     "name": "旧木黄",
+     "name": "阴天肤",
      "hex": "#D3C5A8",
      "share": 0.1489
     },
     {
-     "name": "阴天肤",
+     "name": "旧木黄",
      "hex": "#C8B896",
      "share": 0.1344
     },
@@ -2077,7 +2095,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -2086,39 +2105,39 @@
    "category": "大地暖调与自然光诗意",
    "colors": [
     {
-     "name": "色1",
+     "name": "南美赭黄",
      "hex": "#C38B38",
      "share": 0.2221
     },
     {
-     "name": "色2",
+     "name": "红土褐",
      "hex": "#8A5A29",
      "share": 0.1816
     },
     {
-     "name": "色3",
+     "name": "旧皮褐",
      "hex": "#6A4B39",
      "share": 0.1608
     },
     {
-     "name": "色4",
+     "name": "公路金黄",
      "hex": "#D3A955",
      "share": 0.1586
     },
     {
-     "name": "色5",
+     "name": "焦糖肤",
      "hex": "#E6C689",
      "share": 0.1586
     },
     {
-     "name": "色6",
+     "name": "塞拉多绿",
      "hex": "#596B39",
      "share": 0.1182
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -2127,39 +2146,39 @@
    "category": "大地暖调与自然光诗意",
    "colors": [
     {
-     "name": "色1",
+     "name": "神圣晨光金",
      "hex": "#FFD07E",
      "share": 0.2029
     },
     {
-     "name": "色2",
+     "name": "暗影褐",
      "hex": "#494539",
      "share": 0.2029
     },
     {
-     "name": "色3",
+     "name": "暗影褐",
      "hex": "#B75D28",
      "share": 0.1797
     },
     {
-     "name": "色4",
+     "name": "战火灰土",
      "hex": "#2A3F54",
      "share": 0.1477
     },
     {
-     "name": "色5",
+     "name": "柔焦肤",
      "hex": "#E7D5A7",
      "share": 0.1477
     },
     {
-     "name": "色6",
+     "name": "战火灰土",
      "hex": "#897A5B",
      "share": 0.1191
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 5,
+    "name_source": "ocr"
    }
   },
   {
@@ -2168,39 +2187,39 @@
    "category": "大地暖调与自然光诗意",
    "colors": [
     {
-     "name": "色1",
+     "name": "塔图因砂金",
      "hex": "#E7A952",
      "share": 0.2233
     },
     {
-     "name": "色2",
+     "name": "双日落橙",
      "hex": "#C15B2A",
      "share": 0.1808
     },
     {
-     "name": "色3",
+     "name": "绝地褐",
      "hex": "#494134",
      "share": 0.1808
     },
     {
-     "name": "色4",
+     "name": "沙粒肤",
      "hex": "#D3C39F",
      "share": 0.1547
     },
     {
-     "name": "色5",
+     "name": "深空蓝灰",
      "hex": "#293A4A",
      "share": 0.146
     },
     {
-     "name": "色6",
+     "name": "沙堡褐",
      "hex": "#796447",
      "share": 0.1144
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -2240,7 +2259,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -2249,39 +2269,39 @@
    "category": "大地暖调与自然光诗意",
    "colors": [
     {
-     "name": "色1",
+     "name": "落日暖金",
      "hex": "#D3A573",
      "share": 0.2207
     },
     {
-     "name": "色2",
+     "name": "田园草绿",
      "hex": "#6A8F4C",
      "share": 0.175
     },
     {
-     "name": "色3",
+     "name": "胡桃木棕",
      "hex": "#8B4512",
      "share": 0.1511
     },
     {
-     "name": "色4",
+     "name": "奶油米色",
      "hex": "#C8B896",
      "share": 0.1511
     },
     {
-     "name": "色5",
+     "name": "松柏深绿",
      "hex": "#49683F",
      "share": 0.1511
     },
     {
-     "name": "色6",
+     "name": "陶土砖红",
      "hex": "#9D7C5D",
      "share": 0.1511
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -2290,39 +2310,39 @@
    "category": "大地暖调与自然光诗意",
    "colors": [
     {
-     "name": "色1",
+     "name": "沙漠土黄",
      "hex": "#B78749",
      "share": 0.2169
     },
     {
-     "name": "色2",
+     "name": "焦土棕褐",
      "hex": "#8A5A2A",
      "share": 0.1822
     },
     {
-     "name": "色3",
+     "name": "暖沙肤色",
      "hex": "#D2B895",
      "share": 0.1508
     },
     {
-     "name": "色4",
+     "name": "深棕暗影",
      "hex": "#5C4032",
      "share": 0.1508
     },
     {
-     "name": "色5",
+     "name": "金晖夕照",
      "hex": "#C9A269",
      "share": 0.1508
     },
     {
-     "name": "色6",
+     "name": "沼泽深绿",
      "hex": "#3C5B3C",
      "share": 0.1486
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -2331,39 +2351,39 @@
    "category": "大地暖调与自然光诗意",
    "colors": [
     {
-     "name": "色1",
+     "name": "雾霭蓝灰",
      "hex": "#6A7B8B",
      "share": 0.2199
     },
     {
-     "name": "色2",
+     "name": "琥珀暖黄",
      "hex": "#C39A5A",
      "share": 0.1875
     },
     {
-     "name": "色3",
+     "name": "钢蓝冷调",
      "hex": "#495667",
      "share": 0.1551
     },
     {
-     "name": "色4",
+     "name": "羊皮纸米",
      "hex": "#D8CDB7",
      "share": 0.1529
     },
     {
-     "name": "色5",
+     "name": "深炭暗影",
      "hex": "#292E32",
      "share": 0.144
     },
     {
-     "name": "色6",
+     "name": "沙土金棕",
      "hex": "#8B6F47",
      "share": 0.1406
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -2382,7 +2402,7 @@
      "share": 0.1773
     },
     {
-     "name": "色3",
+     "name": "黎明深灰",
      "hex": "#D9C2A0",
      "share": 0.1531
     },
@@ -2404,7 +2424,7 @@
    ],
    "notes": {
     "ocr_rows": 5,
-    "name_source": "placeholder×1"
+    "name_source": "ocr"
    }
   },
   {
@@ -2444,7 +2464,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -2484,7 +2505,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -2493,39 +2515,39 @@
    "category": "极简冷构与静观长镜",
    "colors": [
     {
-     "name": "色1",
+     "name": "冷灰白",
      "hex": "#E7E7DF",
      "share": 0.2416
     },
     {
-     "name": "色2",
+     "name": "石灰",
      "hex": "#B6B6AC",
      "share": 0.2017
     },
     {
-     "name": "色3",
+     "name": "暗灰",
      "hex": "#88887E",
      "share": 0.1618
     },
     {
-     "name": "色4",
+     "name": "铁灰褐",
      "hex": "#5B5B53",
      "share": 0.1392
     },
     {
-     "name": "色5",
+     "name": "深炭灰",
      "hex": "#393833",
      "share": 0.1359
     },
     {
-     "name": "色6",
+     "name": "旧米灰",
      "hex": "#C8C3B0",
      "share": 0.1197
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -2534,39 +2556,39 @@
    "category": "极简冷构与静观长镜",
    "colors": [
     {
-     "name": "色1",
+     "name": "雾灰蓝",
      "hex": "#7D8B8E",
      "share": 0.2174
     },
     {
-     "name": "色2",
+     "name": "深海灰蓝",
      "hex": "#5C6B6E",
      "share": 0.1826
     },
     {
-     "name": "色3",
+     "name": "银雾灰",
      "hex": "#9DA8AA",
      "share": 0.1598
     },
     {
-     "name": "色4",
+     "name": "废墟米灰",
      "hex": "#B7B09D",
      "share": 0.1543
     },
     {
-     "name": "色5",
+     "name": "暗石青",
      "hex": "#4A5557",
      "share": 0.1457
     },
     {
-     "name": "色6",
+     "name": "旧石米",
      "hex": "#C8C5B4",
      "share": 0.1402
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -2575,39 +2597,39 @@
    "category": "极简冷构与静观长镜",
    "colors": [
     {
-     "name": "色1",
+     "name": "炭黑",
      "hex": "#292B28",
      "share": 0.2597
     },
     {
-     "name": "色2",
+     "name": "中灰",
      "hex": "#595B58",
      "share": 0.2006
     },
     {
-     "name": "色3",
+     "name": "浅灰",
      "hex": "#898B88",
      "share": 0.1609
     },
     {
-     "name": "色4",
+     "name": "银灰",
      "hex": "#B4B6B3",
      "share": 0.1384
     },
     {
-     "name": "色5",
+     "name": "灰白",
      "hex": "#D5D7D4",
      "share": 0.1212
     },
     {
-     "name": "色6",
+     "name": "漆黑暗",
      "hex": "#141613",
      "share": 0.1191
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -2647,7 +2669,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -2656,32 +2679,32 @@
    "category": "极简冷构与静观长镜",
    "colors": [
     {
-     "name": "色1",
+     "name": "工业灰",
      "hex": "#899096",
      "share": 0.2252
     },
     {
-     "name": "色2",
+     "name": "水泥灰",
      "hex": "#B3B0A7",
      "share": 0.1732
     },
     {
-     "name": "色3",
+     "name": "工业灰",
      "hex": "#5A6770",
      "share": 0.1697
     },
     {
-     "name": "色4",
+     "name": "深钢蓝",
      "hex": "#39434C",
      "share": 0.1674
     },
     {
-     "name": "色5",
+     "name": "尘灰白",
      "hex": "#D3CFC3",
      "share": 0.1432
     },
     {
-     "name": "色6",
+     "name": "工业灰",
      "hex": "#E84B5E",
      "share": 0.1212
     }
@@ -2728,7 +2751,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -2768,7 +2792,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -2777,39 +2802,39 @@
    "category": "极简冷构与静观长镜",
    "colors": [
     {
-     "name": "色1",
+     "name": "深炭灰",
      "hex": "#303030",
      "share": 0.235
     },
     {
-     "name": "色2",
+     "name": "中灰",
      "hex": "#707070",
      "share": 0.2035
     },
     {
-     "name": "色3",
+     "name": "银灰",
      "hex": "#A0A0A0",
      "share": 0.1632
     },
     {
-     "name": "色4",
+     "name": "暗灰",
      "hex": "#505050",
      "share": 0.1436
     },
     {
-     "name": "色5",
+     "name": "浅灰白",
      "hex": "#D0D0D0",
      "share": 0.1404
     },
     {
-     "name": "色6",
+     "name": "漆黑暗",
      "hex": "#181818",
      "share": 0.1143
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -2828,7 +2853,7 @@
      "share": 0.1919
     },
     {
-     "name": "深林绿",
+     "name": "暗松绿",
      "hex": "#394A38",
      "share": 0.1699
     },
@@ -2838,7 +2863,7 @@
      "share": 0.1491
     },
     {
-     "name": "暗松绿",
+     "name": "深林绿",
      "hex": "#495A48",
      "share": 0.1306
     },
@@ -2849,7 +2874,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -2858,39 +2884,39 @@
    "category": "极简冷构与静观长镜",
    "colors": [
     {
-     "name": "色1",
+     "name": "深黑",
      "hex": "#191B18",
      "share": 0.2595
     },
     {
-     "name": "色2",
+     "name": "暗灰",
      "hex": "#494B48",
      "share": 0.1998
     },
     {
-     "name": "色3",
+     "name": "中灰",
      "hex": "#797B78",
      "share": 0.1629
     },
     {
-     "name": "色4",
+     "name": "灰白",
      "hex": "#A9ABA8",
      "share": 0.1346
     },
     {
-     "name": "色5",
+     "name": "灰白",
      "hex": "#D3D5D2",
      "share": 0.1227
     },
     {
-     "name": "色6",
+     "name": "漆黑暗",
      "hex": "#090B08",
      "share": 0.1205
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 5,
+    "name_source": "ocr"
    }
   },
   {
@@ -2930,7 +2956,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -2985,7 +3012,7 @@
      "share": 0.2214
     },
     {
-     "name": "色2",
+     "name": "深绿灰",
      "hex": "#8A8478",
      "share": 0.1793
     },
@@ -3012,7 +3039,7 @@
    ],
    "notes": {
     "ocr_rows": 3,
-    "name_source": "placeholder×3"
+    "name_source": "placeholder×2"
    }
   },
   {
@@ -3093,7 +3120,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -3122,7 +3150,7 @@
      "share": 0.1414
     },
     {
-     "name": "色5",
+     "name": "温情默默",
      "hex": "#B8A898",
      "share": 0.1266
     },
@@ -3174,7 +3202,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -3203,7 +3232,7 @@
      "share": 0.1694
     },
     {
-     "name": "色5",
+     "name": "阳光麦",
      "hex": "#D3C9A6",
      "share": 0.1279
     },
@@ -3214,8 +3243,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 5,
-    "name_source": "placeholder×1"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -3255,7 +3284,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -3289,7 +3319,7 @@
      "share": 0.143
     },
     {
-     "name": "色6",
+     "name": "奢华与神圣",
      "hex": "#FED700",
      "share": 0.1317
     }
@@ -3305,39 +3335,39 @@
    "category": "巴洛克华丽与浓墨重彩",
    "colors": [
     {
-     "name": "色1",
+     "name": "银灰白",
      "hex": "#E8E1CF",
      "share": 0.2055
     },
     {
-     "name": "色2",
+     "name": "暖金",
      "hex": "#D2A057",
      "share": 0.1791
     },
     {
-     "name": "色3",
+     "name": "炭黑",
      "hex": "#1B1D1A",
      "share": 0.1769
     },
     {
-     "name": "色4",
+     "name": "深红",
      "hex": "#8B0100",
      "share": 0.1615
     },
     {
-     "name": "色5",
+     "name": "暗青灰",
      "hex": "#2D4F4E",
      "share": 0.1385
     },
     {
-     "name": "色6",
+     "name": "金菊黄",
      "hex": "#DAA61F",
      "share": 0.1385
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -3377,7 +3407,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -3417,7 +3448,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -3431,7 +3463,7 @@
      "share": 0.2063
     },
     {
-     "name": "色2",
+     "name": "暗橄榄",
      "hex": "#1B1D1A",
      "share": 0.1887
     },
@@ -3446,7 +3478,7 @@
      "share": 0.1477
     },
     {
-     "name": "色5",
+     "name": "暗橄榄",
      "hex": "#2E302D",
      "share": 0.1454
     },
@@ -3457,8 +3489,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 4,
-    "name_source": "placeholder×2"
+    "ocr_rows": 5,
+    "name_source": "ocr"
    }
   },
   {
@@ -3467,27 +3499,27 @@
    "category": "巴洛克华丽与浓墨重彩",
    "colors": [
     {
-     "name": "色1",
+     "name": "中国红",
      "hex": "#C31F38",
      "share": 0.2445
     },
     {
-     "name": "色2",
+     "name": "帝王黄",
      "hex": "#FED700",
      "share": 0.1925
     },
     {
-     "name": "色3",
+     "name": "翠绿",
      "hex": "#218C22",
      "share": 0.1604
     },
     {
-     "name": "色4",
+     "name": "墨黑",
      "hex": "#000100",
      "share": 0.1427
     },
     {
-     "name": "色5",
+     "name": "土棕",
      "hex": "#8B4512",
      "share": 0.1372
     },
@@ -3498,8 +3530,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 5,
+    "name_source": "placeholder×1"
    }
   },
   {
@@ -3549,22 +3581,22 @@
    "category": "巴洛克华丽与浓墨重彩",
    "colors": [
     {
-     "name": "色1",
+     "name": "热情欲望",
      "hex": "#E30713",
      "share": 0.2241
     },
     {
-     "name": "色2",
+     "name": "温暖亲情",
      "hex": "#FDB346",
      "share": 0.1706
     },
     {
-     "name": "色3",
+     "name": "忧郁秘密",
      "hex": "#416AE0",
      "share": 0.165
     },
     {
-     "name": "色4",
+     "name": "木棕",
      "hex": "#8B4512",
      "share": 0.165
     },
@@ -3574,7 +3606,7 @@
      "share": 0.1433
     },
     {
-     "name": "色6",
+     "name": "酸橙绿",
      "hex": "#30CE31",
      "share": 0.132
     }
@@ -3610,7 +3642,7 @@
      "share": 0.1638
     },
     {
-     "name": "色5",
+     "name": "深红",
      "hex": "#8B0100",
      "share": 0.1401
     },
@@ -3621,8 +3653,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 5,
-    "name_source": "placeholder×1"
+    "ocr_rows": 439,
+    "name_source": "ocr"
    }
   },
   {
@@ -3662,7 +3694,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -3702,7 +3735,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -3742,7 +3776,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 0,
+    "name_source": "placeholder×6"
    }
   },
   {
@@ -3751,7 +3786,7 @@
    "category": "巴洛克华丽与浓墨重彩",
    "colors": [
     {
-     "name": "色1",
+     "name": "暗金",
      "hex": "#8B7454",
      "share": 0.203
     },
@@ -3783,7 +3818,7 @@
    ],
    "notes": {
     "ocr_rows": 5,
-    "name_source": "placeholder×1"
+    "name_source": "ocr"
    }
   },
   {
@@ -3797,12 +3832,12 @@
      "share": 0.2033
     },
     {
-     "name": "色2",
+     "name": "暗企",
      "hex": "#8B4512",
      "share": 0.1801
     },
     {
-     "name": "色3",
+     "name": "棕绸色",
      "hex": "#1B1D1A",
      "share": 0.1779
     },
@@ -3824,7 +3859,7 @@
    ],
    "notes": {
     "ocr_rows": 3,
-    "name_source": "placeholder×3"
+    "name_source": "placeholder×1"
    }
   },
   {
@@ -3864,7 +3899,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -3873,39 +3909,39 @@
    "category": "巴洛克华丽与浓墨重彩",
    "colors": [
     {
-     "name": "色1",
+     "name": "中国红",
      "hex": "#C31F38",
      "share": 0.2278
     },
     {
-     "name": "色2",
+     "name": "帝王金",
      "hex": "#FED700",
      "share": 0.2043
     },
     {
-     "name": "色3",
+     "name": "午夜蓝",
      "hex": "#2E302D",
      "share": 0.2009
     },
     {
-     "name": "色4",
+     "name": "雪白",
      "hex": "#FEFFFD",
      "share": 0.1246
     },
     {
-     "name": "色5",
+     "name": "翠绿",
      "hex": "#181A6F",
      "share": 0.1212
     },
     {
-     "name": "色6",
+     "name": "翠绿",
      "hex": "#218C22",
      "share": 0.1212
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 7,
+    "name_source": "ocr"
    }
   },
   {
@@ -3945,7 +3981,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -3954,39 +3991,39 @@
    "category": "巴洛克华丽与浓墨重彩",
    "colors": [
     {
-     "name": "色1",
+     "name": "沙漠金",
      "hex": "#DAA61F",
      "share": 0.2204
     },
     {
-     "name": "色2",
+     "name": "马鞍棕",
      "hex": "#8B4512",
      "share": 0.203
     },
     {
-     "name": "色3",
+     "name": "秘鲁棕",
      "hex": "#CC863E",
      "share": 0.1629
     },
     {
-     "name": "色4",
+     "name": "深黑",
      "hex": "#1C1C1C",
      "share": 0.1596
     },
     {
-     "name": "色5",
+     "name": "灰棕",
      "hex": "#8B7454",
      "share": 0.1401
     },
     {
-     "name": "色6",
+     "name": "暗橄榄",
      "hex": "#546C2E",
      "share": 0.114
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -3995,39 +4032,39 @@
    "category": "巴洛克华丽与浓墨重彩",
    "colors": [
     {
-     "name": "色1",
+     "name": "青绿山水",
      "hex": "#5E7D6B",
      "share": 0.2063
     },
     {
-     "name": "色2",
+     "name": "旧木棕",
      "hex": "#8B7454",
      "share": 0.1861
     },
     {
-     "name": "色3",
+     "name": "暗松绿",
      "hex": "#2B3B31",
      "share": 0.1771
     },
     {
-     "name": "色4",
+     "name": "灰米白",
      "hex": "#A79F88",
      "share": 0.1446
     },
     {
-     "name": "色5",
+     "name": "深青绿",
      "hex": "#495D51",
      "share": 0.1446
     },
     {
-     "name": "色6",
+     "name": "琥珀棕",
      "hex": "#CC863E",
      "share": 0.1413
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -4067,7 +4104,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -4148,7 +4186,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -4188,7 +4227,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -4269,7 +4309,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 7,
+    "name_source": "ocr"
    }
   },
   {
@@ -4278,39 +4319,39 @@
    "category": "超现实梦幻与心理畸变",
    "colors": [
     {
-     "name": "色1",
+     "name": "樱花粉",
      "hex": "#FBE4EA",
      "share": 0.2088
     },
     {
-     "name": "色2",
+     "name": "胭脂红",
      "hex": "#870F4D",
      "share": 0.1952
     },
     {
-     "name": "色3",
+     "name": "肤色粉",
      "hex": "#FDCCBB",
      "share": 0.1754
     },
     {
-     "name": "色4",
+     "name": "藏青蓝",
      "hex": "#1A237E",
      "share": 0.1534
     },
     {
-     "name": "色5",
+     "name": "暖金",
      "hex": "#FDD64D",
      "share": 0.1378
     },
     {
-     "name": "色6",
+     "name": "暗紫",
      "hex": "#4A158B",
      "share": 0.1294
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -4324,7 +4365,7 @@
      "share": 0.217
     },
     {
-     "name": "色2",
+     "name": "电蓝",
      "hex": "#C11859",
      "share": 0.1971
     },
@@ -4351,7 +4392,7 @@
    ],
    "notes": {
     "ocr_rows": 3,
-    "name_source": "placeholder×3"
+    "name_source": "placeholder×2"
    }
   },
   {
@@ -4391,7 +4432,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -4431,7 +4473,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -4471,7 +4514,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -4480,39 +4524,39 @@
    "category": "超现实梦幻与心理畸变",
    "colors": [
     {
-     "name": "色1",
+     "name": "火焰橙",
      "hex": "#E65100",
      "share": 0.2037
     },
     {
-     "name": "色2",
+     "name": "金盏黄",
      "hex": "#FEB300",
      "share": 0.2037
     },
     {
-     "name": "色3",
+     "name": "深棕木",
      "hex": "#3C2722",
      "share": 0.1601
     },
     {
-     "name": "色4",
+     "name": "烟熏棕",
      "hex": "#5D4136",
      "share": 0.1547
     },
     {
-     "name": "色5",
+     "name": "草原绿",
      "hex": "#2D7E31",
      "share": 0.1405
     },
     {
-     "name": "色6",
+     "name": "血红",
      "hex": "#B61C1A",
      "share": 0.1373
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -4552,7 +4596,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -4561,39 +4606,39 @@
    "category": "超现实梦幻与心理畸变",
    "colors": [
     {
-     "name": "色1",
+     "name": "纯白",
      "hex": "#FFFFFF",
      "share": 0.2233
     },
     {
-     "name": "色2",
+     "name": "纯黑",
      "hex": "#000000",
      "share": 0.2233
     },
     {
-     "name": "色3",
+     "name": "中灰",
      "hex": "#808080",
      "share": 0.183
     },
     {
-     "name": "色4",
+     "name": "银灰",
      "hex": "#C0C0C0",
      "share": 0.1264
     },
     {
-     "name": "色5",
+     "name": "深灰",
      "hex": "#404040",
      "share": 0.1231
     },
     {
-     "name": "色6",
+     "name": "浅灰",
      "hex": "#E0E0E0",
      "share": 0.1209
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -4617,7 +4662,7 @@
      "share": 0.1793
     },
     {
-     "name": "色4",
+     "name": "皮肤棕",
      "hex": "#FED700",
      "share": 0.1587
     },
@@ -4634,7 +4679,7 @@
    ],
    "notes": {
     "ocr_rows": 4,
-    "name_source": "placeholder×2"
+    "name_source": "placeholder×1"
    }
   },
   {
@@ -4653,7 +4698,7 @@
      "share": 0.1818
     },
     {
-     "name": "毒物绿",
+     "name": "血红",
      "hex": "#212121",
      "share": 0.1797
     },
@@ -4663,19 +4708,19 @@
      "share": 0.1591
     },
     {
-     "name": "色5",
+     "name": "血红",
      "hex": "#B61C1A",
      "share": 0.1429
     },
     {
-     "name": "血红",
+     "name": "毒物绿",
      "hex": "#1A5F20",
      "share": 0.1396
     }
    ],
    "notes": {
     "ocr_rows": 5,
-    "name_source": "placeholder×1"
+    "name_source": "ocr"
    }
   },
   {
@@ -4694,12 +4739,12 @@
      "share": 0.1824
     },
     {
-     "name": "暗青灰",
+     "name": "深蓝灰",
      "hex": "#253238",
      "share": 0.1802
     },
     {
-     "name": "深蓝灰",
+     "name": "暗青灰",
      "hex": "#36474E",
      "share": 0.1596
     },
@@ -4715,7 +4760,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -4729,12 +4775,12 @@
      "share": 0.2044
     },
     {
-     "name": "色2",
+     "name": "温暖回忆",
      "hex": "#253336",
      "share": 0.1844
     },
     {
-     "name": "色3",
+     "name": "深绿",
      "hex": "#E81F63",
      "share": 0.1811
     },
@@ -4756,7 +4802,7 @@
    ],
    "notes": {
     "ocr_rows": 3,
-    "name_source": "placeholder×3"
+    "name_source": "placeholder×1"
    }
   },
   {
@@ -4780,7 +4826,7 @@
      "share": 0.161
     },
     {
-     "name": "竹林绿",
+     "name": "墨黑",
      "hex": "#212121",
      "share": 0.161
     },
@@ -4790,13 +4836,14 @@
      "share": 0.1446
     },
     {
-     "name": "墨黑",
+     "name": "竹林绿",
      "hex": "#1A5F20",
      "share": 0.1358
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -4820,7 +4867,7 @@
      "share": 0.1797
     },
     {
-     "name": "色4",
+     "name": "深黑",
      "hex": "#FE9200",
      "share": 0.1591
     },
@@ -4830,14 +4877,14 @@
      "share": 0.1429
     },
     {
-     "name": "色6",
+     "name": "电青",
      "hex": "#74FF02",
      "share": 0.1429
     }
    ],
    "notes": {
-    "ocr_rows": 4,
-    "name_source": "placeholder×2"
+    "ocr_rows": 531,
+    "name_source": "ocr"
    }
   },
   {
@@ -4877,7 +4924,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -4917,7 +4965,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -4926,39 +4975,39 @@
    "category": "动作史诗与高饱和色彩",
    "colors": [
     {
-     "name": "色1",
+     "name": "英雄血",
      "hex": "#B61C1A",
      "share": 0.2253
     },
     {
-     "name": "色2",
+     "name": "深夜蓝",
      "hex": "#0C48A0",
      "share": 0.172
     },
     {
-     "name": "色3",
+     "name": "圣光金",
      "hex": "#FDD64D",
      "share": 0.1609
     },
     {
-     "name": "色4",
+     "name": "白鸽白",
      "hex": "#20221F",
      "share": 0.1609
     },
     {
-     "name": "色5",
+     "name": "夜紫",
      "hex": "#FEFFFD",
      "share": 0.1432
     },
     {
-     "name": "色6",
+     "name": "暗黑",
      "hex": "#4A158B",
      "share": 0.1376
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -4998,7 +5047,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -5012,7 +5062,7 @@
      "share": 0.2207
     },
     {
-     "name": "色2",
+     "name": "中灰",
      "hex": "#FEFFFD",
      "share": 0.2013
     },
@@ -5032,14 +5082,14 @@
      "share": 0.1389
     },
     {
-     "name": "色6",
+     "name": "武士荣耀",
      "hex": "#BFC1BE",
      "share": 0.1356
     }
    ],
    "notes": {
     "ocr_rows": 3,
-    "name_source": "placeholder×3"
+    "name_source": "placeholder×2"
    }
   },
   {
@@ -5048,17 +5098,17 @@
    "category": "动作史诗与高饱和色彩",
    "colors": [
     {
-     "name": "色1",
+     "name": "自然原力",
      "hex": "#1A5F20",
      "share": 0.217
     },
     {
-     "name": "色2",
+     "name": "神话荣光",
      "hex": "#FDD64D",
      "share": 0.2059
     },
     {
-     "name": "色3",
+     "name": "神秘湖水",
      "hex": "#0C48A0",
      "share": 0.1509
     },
@@ -5068,7 +5118,7 @@
      "share": 0.1421
     },
     {
-     "name": "色5",
+     "name": "暴力血腥",
      "hex": "#B61C1A",
      "share": 0.1421
     },
@@ -5089,7 +5139,7 @@
    "category": "动作史诗与高饱和色彩",
    "colors": [
     {
-     "name": "色1",
+     "name": "自由飞翔",
      "hex": "#4EC4F6",
      "share": 0.2056
     },
@@ -5099,12 +5149,12 @@
      "share": 0.2056
     },
     {
-     "name": "色3",
+     "name": "自然治愈",
      "hex": "#64BC68",
      "share": 0.1821
     },
     {
-     "name": "色4",
+     "name": "温暖回忆",
      "hex": "#FECD80",
      "share": 0.162
     },
@@ -5114,7 +5164,7 @@
      "share": 0.124
     },
     {
-     "name": "色6",
+     "name": "勇气成长",
      "hex": "#FDAC8F",
      "share": 0.1207
     }
@@ -5161,7 +5211,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -5201,7 +5252,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -5241,7 +5293,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -5291,12 +5344,12 @@
    "category": "动作史诗与高饱和色彩",
    "colors": [
     {
-     "name": "色1",
+     "name": "爆裂动作",
      "hex": "#FE6E00",
      "share": 0.2013
     },
     {
-     "name": "色2",
+     "name": "冷测精准",
      "hex": "#00B0FE",
      "share": 0.1808
     },
@@ -5306,12 +5359,12 @@
      "share": 0.1787
     },
     {
-     "name": "毒绿",
+     "name": "毒笑幽默",
      "hex": "#00E674",
      "share": 0.1582
     },
     {
-     "name": "色5",
+     "name": "迷幻快感",
      "hex": "#D500F8",
      "share": 0.1421
     },
@@ -5322,8 +5375,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 3,
-    "name_source": "placeholder×3"
+    "ocr_rows": 0,
+    "name_source": "placeholder×6"
    }
   },
   {
@@ -5363,7 +5416,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -5403,7 +5457,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -5443,7 +5498,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -5483,7 +5539,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -5523,7 +5580,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -5532,32 +5590,32 @@
    "category": "动作史诗与高饱和色彩",
    "colors": [
     {
-     "name": "色1",
+     "name": "异域迷幻",
      "hex": "#FE6E00",
      "share": 0.2006
     },
     {
-     "name": "色2",
+     "name": "王宝紫",
      "hex": "#6A1B9A",
      "share": 0.1803
     },
     {
-     "name": "色3",
+     "name": "深夜蓝",
      "hex": "#1A237E",
      "share": 0.1781
     },
     {
-     "name": "色4",
+     "name": "异国情调",
      "hex": "#00695B",
      "share": 0.1577
     },
     {
-     "name": "色5",
+     "name": "童话梦境",
      "hex": "#FED700",
      "share": 0.1416
     },
     {
-     "name": "色6",
+     "name": "血红色",
      "hex": "#C42927",
      "share": 0.1416
     }
@@ -5573,17 +5631,17 @@
    "category": "动作史诗与高饱和色彩",
    "colors": [
     {
-     "name": "色1",
+     "name": "血腥恐怖",
      "hex": "#B61C1A",
      "share": 0.203
     },
     {
-     "name": "色2",
+     "name": "森林恐惧",
      "hex": "#1A5F20",
      "share": 0.1976
     },
     {
-     "name": "色3",
+     "name": "超自然恶",
      "hex": "#0C48A0",
      "share": 0.1596
     },
@@ -5593,7 +5651,7 @@
      "share": 0.1596
     },
     {
-     "name": "色5",
+     "name": "木屋棕",
      "hex": "#5D4136",
      "share": 0.1433
     },
@@ -5645,7 +5703,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 7,
+    "name_source": "ocr"
    }
   },
   {
@@ -5654,27 +5713,27 @@
    "category": "动作史诗与高饱和色彩",
    "colors": [
     {
-     "name": "色1",
+     "name": "诗意生命力",
      "hex": "#2D7E31",
      "share": 0.1962
     },
     {
-     "name": "色2",
+     "name": "温暖悲悯",
      "hex": "#FECD80",
      "share": 0.1838
     },
     {
-     "name": "色3",
+     "name": "隐忍红",
      "hex": "#C42927",
      "share": 0.1838
     },
     {
-     "name": "色4",
+     "name": "存在压抑",
      "hex": "#78909A",
      "share": 0.1454
     },
     {
-     "name": "色5",
+     "name": "土地棕",
      "hex": "#8C6E63",
      "share": 0.1454
     },
@@ -5715,7 +5774,7 @@
      "share": 0.1549
     },
     {
-     "name": "色5",
+     "name": "樱花粉",
      "hex": "#445B63",
      "share": 0.1346
     },
@@ -5727,7 +5786,7 @@
    ],
    "notes": {
     "ocr_rows": 5,
-    "name_source": "placeholder×1"
+    "name_source": "ocr"
    }
   },
   {
@@ -5736,7 +5795,7 @@
    "category": "动画奇幻与异想视觉",
    "colors": [
     {
-     "name": "色1",
+     "name": "温暖怀旧",
      "hex": "#FECD80",
      "share": 0.1878
     },
@@ -5746,12 +5805,12 @@
      "share": 0.1878
     },
     {
-     "name": "色3",
+     "name": "童贞优伤",
      "hex": "#F390AF",
      "share": 0.1697
     },
     {
-     "name": "色4",
+     "name": "自然治愈",
      "hex": "#80C783",
      "share": 0.1663
     },
@@ -5761,7 +5820,7 @@
      "share": 0.1459
     },
     {
-     "name": "色6",
+     "name": "幻想飞翔",
      "hex": "#64B5F4",
      "share": 0.1425
     }
@@ -5808,7 +5867,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -5848,7 +5908,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -5888,7 +5949,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -5902,7 +5964,7 @@
      "share": 0.2059
     },
     {
-     "name": "毒物绿",
+     "name": "炭黑",
      "hex": "#212121",
      "share": 0.1828
     },
@@ -5912,7 +5974,7 @@
      "share": 0.1773
     },
     {
-     "name": "炭黑",
+     "name": "毒物绿",
      "hex": "#1A5F20",
      "share": 0.1619
     },
@@ -5928,7 +5990,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -5937,7 +6000,7 @@
    "category": "动画奇幻与异想视觉",
    "colors": [
     {
-     "name": "色1",
+     "name": "怀旧温情",
      "hex": "#FECD80",
      "share": 0.2046
     },
@@ -5947,17 +6010,17 @@
      "share": 0.1816
     },
     {
-     "name": "老城棕",
+     "name": "老城记忆",
      "hex": "#8C6E63",
      "share": 0.1729
     },
     {
-     "name": "雨空蓝",
+     "name": "雨中忧伤",
      "hex": "#90CAF8",
      "share": 0.1608
     },
     {
-     "name": "色5",
+     "name": "温柔爱情",
      "hex": "#EE9A98",
      "share": 0.1444
     },
@@ -5968,8 +6031,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 4,
-    "name_source": "placeholder×2"
+    "ocr_rows": 0,
+    "name_source": "placeholder×6"
    }
   },
   {
@@ -5993,7 +6056,7 @@
      "share": 0.1589
     },
     {
-     "name": "色4",
+     "name": "羊皮纸黄",
      "hex": "#0C48A0",
      "share": 0.1568
     },
@@ -6010,7 +6073,7 @@
    ],
    "notes": {
     "ocr_rows": 4,
-    "name_source": "placeholder×2"
+    "name_source": "placeholder×1"
    }
   },
   {
@@ -6050,7 +6113,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 0,
+    "name_source": "placeholder×6"
    }
   },
   {
@@ -6064,7 +6128,7 @@
      "share": 0.2059
     },
     {
-     "name": "色2",
+     "name": "剪影黑",
      "hex": "#BE370A",
      "share": 0.185
     },
@@ -6091,7 +6155,7 @@
    ],
    "notes": {
     "ocr_rows": 3,
-    "name_source": "placeholder×3"
+    "name_source": "placeholder×2"
    }
   },
   {
@@ -6100,39 +6164,39 @@
    "category": "动画奇幻与异想视觉",
    "colors": [
     {
-     "name": "色1",
+     "name": "魔法紫",
      "hex": "#4A158B",
      "share": 0.1978
     },
     {
-     "name": "色2",
+     "name": "深黑",
      "hex": "#212121",
      "share": 0.1804
     },
     {
-     "name": "色3",
+     "name": "森林绿",
      "hex": "#2D7E31",
      "share": 0.175
     },
     {
-     "name": "色4",
+     "name": "木质棕",
      "hex": "#5D4136",
      "share": 0.1598
     },
     {
-     "name": "色5",
+     "name": "魔金光",
      "hex": "#FDD64D",
      "share": 0.1435
     },
     {
-     "name": "色6",
+     "name": "血红",
      "hex": "#B61C1A",
      "share": 0.1435
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -6151,7 +6215,7 @@
      "share": 0.184
     },
     {
-     "name": "色3",
+     "name": "梦幻紫",
      "hex": "#90CAF8",
      "share": 0.1731
     },
@@ -6173,7 +6237,7 @@
    ],
    "notes": {
     "ocr_rows": 4,
-    "name_source": "placeholder×2"
+    "name_source": "placeholder×1"
    }
   },
   {
@@ -6213,7 +6277,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -6242,7 +6307,7 @@
      "share": 0.161
     },
     {
-     "name": "色5",
+     "name": "暖黄",
      "hex": "#2D7E31",
      "share": 0.1413
     },
@@ -6254,7 +6319,7 @@
    ],
    "notes": {
     "ocr_rows": 5,
-    "name_source": "placeholder×1"
+    "name_source": "ocr"
    }
   },
   {
@@ -6294,7 +6359,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -6303,12 +6369,12 @@
    "category": "动画奇幻与异想视觉",
    "colors": [
     {
-     "name": "色1",
+     "name": "少年英雄",
      "hex": "#E81F63",
      "share": 0.2024
     },
     {
-     "name": "色2",
+     "name": "未来都市",
      "hex": "#00BDD3",
      "share": 0.1818
     },
@@ -6318,12 +6384,12 @@
      "share": 0.1797
     },
     {
-     "name": "漫画黄",
+     "name": "漫画活力",
      "hex": "#FED700",
      "share": 0.1591
     },
     {
-     "name": "色5",
+     "name": "无限可能",
      "hex": "#7C4DFF",
      "share": 0.1429
     },
@@ -6334,8 +6400,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 2,
-    "name_source": "placeholder×4"
+    "ocr_rows": 0,
+    "name_source": "placeholder×6"
    }
   },
   {
@@ -6359,7 +6425,7 @@
      "share": 0.1744
     },
     {
-     "name": "色4",
+     "name": "橙",
      "hex": "#FEA100",
      "share": 0.1623
     },
@@ -6375,8 +6441,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 5,
-    "name_source": "placeholder×1"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -6416,7 +6482,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -6466,7 +6533,7 @@
    "category": "动画奇幻与异想视觉",
    "colors": [
     {
-     "name": "色1",
+     "name": "数码世界",
      "hex": "#00B0FE",
      "share": 0.2067
     },
@@ -6476,12 +6543,12 @@
      "share": 0.1865
     },
     {
-     "name": "色3",
+     "name": "夏日青春",
      "hex": "#FFA825",
      "share": 0.1719
     },
     {
-     "name": "色4",
+     "name": "家庭温暖",
      "hex": "#64BC68",
      "share": 0.1629
     },
@@ -6491,7 +6558,7 @@
      "share": 0.1449
     },
     {
-     "name": "色6",
+     "name": "奇幻成长",
      "hex": "#AA47BB",
      "share": 0.127
     }
@@ -6507,7 +6574,7 @@
    "category": "浪漫柔光与复古色调",
    "colors": [
     {
-     "name": "色1",
+     "name": "春夏绿",
      "hex": "#A5D7A6",
      "share": 0.2026
     },
@@ -6539,7 +6606,7 @@
    ],
    "notes": {
     "ocr_rows": 1,
-    "name_source": "placeholder×5"
+    "name_source": "placeholder×4"
    }
   },
   {
@@ -6548,39 +6615,39 @@
    "category": "浪漫柔光与复古色调",
    "colors": [
     {
-     "name": "色1",
+     "name": "新浪潮黑",
      "hex": "#000000",
      "share": 0.203
     },
     {
-     "name": "色2",
+     "name": "电影白",
      "hex": "#FFFFFF",
      "share": 0.1802
     },
     {
-     "name": "色3",
+     "name": "巴黎棕",
      "hex": "#8C6E63",
      "share": 0.177
     },
     {
-     "name": "色4",
+     "name": "怀旧黄",
      "hex": "#FECD80",
      "share": 0.1596
     },
     {
-     "name": "色5",
+     "name": "朱尔红",
      "hex": "#C42927",
      "share": 0.1433
     },
     {
-     "name": "色6",
+     "name": "巴黎灰",
      "hex": "#78909C",
      "share": 0.1368
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -6620,7 +6687,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 0,
+    "name_source": "placeholder×6"
    }
   },
   {
@@ -6680,7 +6748,7 @@
      "share": 0.1832
     },
     {
-     "name": "色3",
+     "name": "腊脂粉",
      "hex": "#3C2722",
      "share": 0.1832
     },
@@ -6702,7 +6770,7 @@
    ],
    "notes": {
     "ocr_rows": 4,
-    "name_source": "placeholder×2"
+    "name_source": "placeholder×1"
    }
   },
   {
@@ -6711,39 +6779,39 @@
    "category": "浪漫柔光与复古色调",
    "colors": [
     {
-     "name": "色1",
+     "name": "橙",
      "hex": "#E65100",
      "share": 0.2019
     },
     {
-     "name": "色2",
+     "name": "酷儿紫",
      "hex": "#4A158B",
      "share": 0.1814
     },
     {
-     "name": "色3",
+     "name": "卡罗尔粉",
      "hex": "#F390AF",
      "share": 0.176
     },
     {
-     "name": "色4",
+     "name": "复古金",
      "hex": "#FDD64D",
      "share": 0.1587
     },
     {
-     "name": "色5",
+     "name": "忧郁蓝",
      "hex": "#0C48A0",
      "share": 0.1425
     },
     {
-     "name": "色6",
+     "name": "棕",
      "hex": "#8C6E63",
      "share": 0.1393
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -6752,12 +6820,12 @@
    "category": "浪漫柔光与复古色调",
    "colors": [
     {
-     "name": "色1",
+     "name": "温暖怀旧",
      "hex": "#FE8F00",
      "share": 0.1967
     },
     {
-     "name": "大地棕",
+     "name": "大地厚重",
      "hex": "#5D4136",
      "share": 0.1846
     },
@@ -6767,12 +6835,12 @@
      "share": 0.1824
     },
     {
-     "name": "幽灵灰",
+     "name": "幽灵忧郁",
      "hex": "#78909C",
      "share": 0.1615
     },
     {
-     "name": "色5",
+     "name": "自然生命",
      "hex": "#2D7E31",
      "share": 0.1385
     },
@@ -6783,8 +6851,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 4,
-    "name_source": "placeholder×2"
+    "ocr_rows": 0,
+    "name_source": "placeholder×6"
    }
   },
   {
@@ -6793,39 +6861,39 @@
    "category": "浪漫柔光与复古色调",
    "colors": [
     {
-     "name": "色1",
+     "name": "新西兰橙",
      "hex": "#FE8F00",
      "share": 0.2018
     },
     {
-     "name": "色2",
+     "name": "雷神紫",
      "hex": "#6A1B98",
      "share": 0.1838
     },
     {
-     "name": "色3",
+     "name": "毛利绿",
      "hex": "#2D7E31",
      "share": 0.1781
     },
     {
-     "name": "色4",
+     "name": "阳光金",
      "hex": "#FDD64D",
      "share": 0.1635
     },
     {
-     "name": "色5",
+     "name": "海洋青",
      "hex": "#00BDD3",
      "share": 0.1421
     },
     {
-     "name": "色6",
+     "name": "幽默粉",
      "hex": "#E81F63",
      "share": 0.1308
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -6834,39 +6902,39 @@
    "category": "浪漫柔光与复古色调",
    "colors": [
     {
-     "name": "色1",
+     "name": "血与冰淇淋红",
      "hex": "#E53A33",
      "share": 0.2041
     },
     {
-     "name": "色2",
+     "name": "动作橙",
      "hex": "#FE6E00",
      "share": 0.1812
     },
     {
-     "name": "色3",
+     "name": "警探蓝",
      "hex": "#0C48A0",
      "share": 0.1725
     },
     {
-     "name": "色4",
+     "name": "喜剧黄",
      "hex": "#FED700",
      "share": 0.1605
     },
     {
-     "name": "色5",
+     "name": "科幻紫",
      "hex": "#6A1B9A",
      "share": 0.1441
     },
     {
-     "name": "色6",
+     "name": "僵尸绿",
      "hex": "#2D7E31",
      "share": 0.1376
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -6916,39 +6984,39 @@
    "category": "浪漫柔光与复古色调",
    "colors": [
     {
-     "name": "色1",
+     "name": "北欧灰",
      "hex": "#78909C",
      "share": 0.2004
     },
     {
-     "name": "色2",
+     "name": "雪闰白",
      "hex": "#FFFFFF",
      "share": 0.185
     },
     {
-     "name": "色3",
+     "name": "冷蓝灰",
      "hex": "#546F7A",
      "share": 0.1828
     },
     {
-     "name": "色4",
+     "name": "峡湾蓝",
      "hex": "#0288D1",
      "share": 0.1619
     },
     {
-     "name": "色5",
+     "name": "木棕",
      "hex": "#8C6E63",
      "share": 0.1421
     },
     {
-     "name": "色6",
+     "name": "冷杉绿",
      "hex": "#2D7E31",
      "share": 0.1278
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -6957,12 +7025,12 @@
    "category": "浪漫柔光与复古色调",
    "colors": [
     {
-     "name": "色1",
+     "name": "中产阶级压抑",
      "hex": "#8C6E63",
      "share": 0.2032
     },
     {
-     "name": "色2",
+     "name": "英伦米",
      "hex": "#BCABA3",
      "share": 0.185
     },
@@ -6972,12 +7040,12 @@
      "share": 0.1759
     },
     {
-     "name": "色4",
+     "name": "家庭温情",
      "hex": "#FECD80",
      "share": 0.1669
     },
     {
-     "name": "色5",
+     "name": "家具棕",
      "hex": "#6D4D40",
      "share": 0.1464
     },
@@ -7070,7 +7138,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 8
+    "ocr_rows": 8,
+    "name_source": "ocr"
    }
   },
   {
@@ -7110,7 +7179,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -7160,22 +7230,22 @@
    "category": "浪漫柔光与复古色调",
    "colors": [
     {
-     "name": "色1",
+     "name": "家庭温暖",
      "hex": "#80C783",
      "share": 0.2038
     },
     {
-     "name": "色2",
+     "name": "阳光黄",
      "hex": "#FFFAC3",
      "share": 0.1838
     },
     {
-     "name": "色3",
+     "name": "记忆微光",
      "hex": "#FECD80",
      "share": 0.1805
     },
     {
-     "name": "色4",
+     "name": "日常平静",
      "hex": "#BCABA3",
      "share": 0.1606
     },
@@ -7185,7 +7255,7 @@
      "share": 0.1429
     },
     {
-     "name": "色6",
+     "name": "夏日蓝",
      "hex": "#90CBF7",
      "share": 0.1285
     }
@@ -7201,39 +7271,39 @@
    "category": "浪漫柔光与复古色调",
    "colors": [
     {
-     "name": "色1",
+     "name": "车中灰",
      "hex": "#78909A",
      "share": 0.1907
     },
     {
-     "name": "色2",
+     "name": "偶然绿",
      "hex": "#A5D7A6",
      "share": 0.1793
     },
     {
-     "name": "色3",
+     "name": "日常蓝",
      "hex": "#90CBF7",
      "share": 0.1759
     },
     {
-     "name": "色4",
+     "name": "暖黄",
      "hex": "#FECD80",
      "share": 0.1669
     },
     {
-     "name": "色5",
+     "name": "想象粉",
      "hex": "#F7BCD0",
      "share": 0.1464
     },
     {
-     "name": "色6",
+     "name": "生活米",
      "hex": "#BCABA3",
      "share": 0.1407
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -7242,12 +7312,12 @@
    "category": "浪漫柔光与复古色调",
    "colors": [
     {
-     "name": "色1",
+     "name": "森林绿",
      "hex": "#607E89",
      "share": 0.2017
     },
     {
-     "name": "色2",
+     "name": "暖黄",
      "hex": "#0288D1",
      "share": 0.1812
     },
@@ -7274,7 +7344,7 @@
    ],
    "notes": {
     "ocr_rows": 3,
-    "name_source": "placeholder×3"
+    "name_source": "placeholder×1"
    }
   },
   {
@@ -7283,12 +7353,12 @@
    "category": "浪漫柔光与复古色调",
    "colors": [
     {
-     "name": "色1",
+     "name": "暴力创伤",
      "hex": "#C42927",
      "share": 0.2228
     },
     {
-     "name": "色2",
+     "name": "压抑抑郁",
      "hex": "#36474E",
      "share": 0.1998
     },
@@ -7303,7 +7373,7 @@
      "share": 0.1416
     },
     {
-     "name": "色5",
+     "name": "黑暗棕",
      "hex": "#5D4136",
      "share": 0.1383
     },
@@ -7365,39 +7435,39 @@
    "category": "东方美学与留白意境",
    "colors": [
     {
-     "name": "色1",
+     "name": "卷轴棕",
      "hex": "#5D4136",
      "share": 0.2096
     },
     {
-     "name": "色2",
+     "name": "绢米",
      "hex": "#D6CDC6",
      "share": 0.1827
     },
     {
-     "name": "色3",
+     "name": "雨雾灰",
      "hex": "#78909A",
      "share": 0.1648
     },
     {
-     "name": "色4",
+     "name": "纸灯金",
      "hex": "#FDD64D",
      "share": 0.1626
     },
     {
-     "name": "色5",
+     "name": "悲壮红",
      "hex": "#B61C1A",
      "share": 0.1413
     },
     {
-     "name": "色6",
+     "name": "墨黑",
      "hex": "#191B18",
      "share": 0.139
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -7426,7 +7496,7 @@
      "share": 0.1457
     },
     {
-     "name": "色5",
+     "name": "街灯黄",
      "hex": "#FDD64D",
      "share": 0.1457
     },
@@ -7438,7 +7508,7 @@
    ],
    "notes": {
     "ocr_rows": 5,
-    "name_source": "placeholder×1"
+    "name_source": "ocr"
    }
   },
   {
@@ -7488,38 +7558,39 @@
    "category": "东方美学与留白意境",
    "colors": [
     {
-     "name": "奈良绿",
+     "name": "色1",
      "hex": "#2D7E31",
      "share": 0.2105
     },
     {
-     "name": "晨光金",
+     "name": "色2",
      "hex": "#FDD64D",
      "share": 0.2027
     },
     {
-     "name": "土地棕",
+     "name": "色3",
      "hex": "#8C6E63",
      "share": 0.1581
     },
     {
-     "name": "米白",
+     "name": "色4",
      "hex": "#BCABA3",
      "share": 0.147
     },
     {
-     "name": "新芽绿",
+     "name": "色5",
      "hex": "#FFFAC3",
      "share": 0.1437
     },
     {
-     "name": "暖黄",
+     "name": "色6",
      "hex": "#A5D7A6",
      "share": 0.1381
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 0,
+    "name_source": "placeholder×6"
    }
   },
   {
@@ -7559,7 +7630,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -7568,7 +7640,7 @@
    "category": "东方美学与留白意境",
    "colors": [
     {
-     "name": "暖黄",
+     "name": "温情橙",
      "hex": "#FDAC8F",
      "share": 0.1895
     },
@@ -7583,7 +7655,7 @@
      "share": 0.1678
     },
     {
-     "name": "温情橙",
+     "name": "暖黄",
      "hex": "#FECD80",
      "share": 0.1678
     },
@@ -7599,7 +7671,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 9
+    "ocr_rows": 11,
+    "name_source": "ocr"
    }
   },
   {
@@ -7639,7 +7712,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -7679,7 +7753,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -7729,7 +7804,7 @@
    "category": "东方美学与留白意境",
    "colors": [
     {
-     "name": "色1",
+     "name": "越南绿意",
      "hex": "#2D7E31",
      "share": 0.2195
     },
@@ -7770,27 +7845,27 @@
    "category": "东方美学与留白意境",
    "colors": [
     {
-     "name": "色1",
+     "name": "都市压抑",
      "hex": "#36474E",
      "share": 0.2004
     },
     {
-     "name": "色2",
+     "name": "暗黑夜",
      "hex": "#1A1A1A",
      "share": 0.1828
     },
     {
-     "name": "色3",
+     "name": "贫穷沉重",
      "hex": "#5D4136",
      "share": 0.1795
     },
     {
-     "name": "色4",
+     "name": "暴力恐惧",
      "hex": "#C42927",
      "share": 0.1619
     },
     {
-     "name": "色5",
+     "name": "街灯黄",
      "hex": "#FDD64D",
      "share": 0.1454
     },
@@ -7811,39 +7886,39 @@
    "category": "东方美学与留白意境",
    "colors": [
     {
-     "name": "色1",
+     "name": "墨黑",
      "hex": "#000100",
      "share": 0.2037
     },
     {
-     "name": "色2",
+     "name": "恒河白",
      "hex": "#FEFFFD",
      "share": 0.2037
     },
     {
-     "name": "色3",
+     "name": "泥土棕",
      "hex": "#8C6E63",
      "share": 0.1601
     },
     {
-     "name": "色4",
+     "name": "土米",
      "hex": "#BCABA3",
      "share": 0.1601
     },
     {
-     "name": "色5",
+     "name": "中灰",
      "hex": "#7F817E",
      "share": 0.1405
     },
     {
-     "name": "色6",
+     "name": "金辉",
      "hex": "#FDD64D",
      "share": 0.1318
     }
    ],
    "notes": {
-    "ocr_rows": 0,
-    "name_source": "placeholder×6"
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -7852,22 +7927,22 @@
    "category": "东方美学与留白意境",
    "colors": [
     {
-     "name": "色1",
+     "name": "生命温暖",
      "hex": "#FDD64D",
      "share": 0.2067
     },
     {
-     "name": "色2",
+     "name": "阳光黄",
      "hex": "#FFFAC3",
      "share": 0.1865
     },
     {
-     "name": "色3",
+     "name": "土地厚重",
      "hex": "#8C6E63",
      "share": 0.1775
     },
     {
-     "name": "色4",
+     "name": "存在哲思",
      "hex": "#78909A",
      "share": 0.1483
     },
@@ -7877,7 +7952,7 @@
      "share": 0.1483
     },
     {
-     "name": "色6",
+     "name": "橄榄诗意",
      "hex": "#A5D7A6",
      "share": 0.1326
     }
@@ -7908,7 +7983,7 @@
      "share": 0.1665
     },
     {
-     "name": "色4",
+     "name": "暗棕",
      "hex": "#FECD80",
      "share": 0.1609
     },
@@ -7925,7 +8000,7 @@
    ],
    "notes": {
     "ocr_rows": 4,
-    "name_source": "placeholder×2"
+    "name_source": "placeholder×1"
    }
   },
   {
@@ -7965,7 +8040,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -8005,7 +8081,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 6,
+    "name_source": "ocr"
    }
   },
   {
@@ -8045,7 +8122,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 6
+    "ocr_rows": 8,
+    "name_source": "ocr"
    }
   },
   {
@@ -8059,12 +8137,12 @@
      "share": 0.2028
     },
     {
-     "name": "色2",
+     "name": "雨季灰",
      "hex": "#BCABA3",
      "share": 0.18
     },
     {
-     "name": "色3",
+     "name": "烛火金",
      "hex": "#2D7E31",
      "share": 0.1714
     },
@@ -8086,7 +8164,7 @@
    ],
    "notes": {
     "ocr_rows": 3,
-    "name_source": "placeholder×3"
+    "name_source": "placeholder×1"
    }
   },
   {
@@ -8095,17 +8173,17 @@
    "category": "东方美学与留白意境",
    "colors": [
     {
-     "name": "色1",
+     "name": "非洲记忆",
      "hex": "#FE8F00",
      "share": 0.2094
     },
     {
-     "name": "色2",
+     "name": "身体感官",
      "hex": "#6D4D40",
      "share": 0.1906
     },
     {
-     "name": "色3",
+     "name": "深黑",
      "hex": "#191B18",
      "share": 0.1696
     },
@@ -8115,7 +8193,7 @@
      "share": 0.1602
     },
     {
-     "name": "色5",
+     "name": "血与肉",
      "hex": "#C42927",
      "share": 0.1474
     },
@@ -8126,8 +8204,8 @@
     }
    ],
    "notes": {
-    "ocr_rows": 2,
-    "name_source": "placeholder×4"
+    "ocr_rows": 0,
+    "name_source": "placeholder×6"
    }
   }
  ]
