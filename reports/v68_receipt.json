@@ -3,7 +3,7 @@
   "name": "prehistory-ledger-and-skeleton-contract",
   "status": "closed",
   "date": "2026-11-12",
-  "head": "",
+  "head": "20e7e864776dcc1b235871d325f0ca7c9f47fbd5",
   "head_pre": "c32a44f63e2ee86d6310cb5dece412a8f8c23056",
   "doc_version": {"from": "0.9.61", "to": "0.9.62"},
   "frozen_dimensions": {
