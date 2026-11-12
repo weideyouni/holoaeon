@@ -283,10 +283,17 @@ class TestScoring(unittest.TestCase):
         self.assertIsNone(recency_score(-1))
 
     def test_composite_sample(self):
+        # V61 P3 修订：归一化后加权（对数归一+线性截断+二值），综合分落 [0,1]
+        from holoaeon.salvage_gate import norm_value
         s = composite_score({"stars": 100, "forks": 10, "contributors": 5,
                               "citation": 1, "last_commit_months": 6})
         self.assertIsNotNone(s)
-        expected = round(0.40 * 100 + 0.15 * 10 + 0.20 * 0.75 + 0.15 * 5 + 0.10 * 1, 4)
+        self.assertTrue(0.0 <= s <= 1.0)
+        expected = round(0.40 * norm_value("stars", 100)
+                         + 0.15 * norm_value("forks", 10)
+                         + 0.20 * 0.75
+                         + 0.15 * norm_value("contributors", 5)
+                         + 0.10 * 1.0, 4)
         self.assertEqual(s, expected)
 
     def test_composite_deterministic(self):
@@ -611,11 +618,12 @@ class TestGateCLI(unittest.TestCase):
     def tearDownClass(cls):
         shutil.rmtree(cls.root, ignore_errors=True)
 
-    def test_self_check_seven_checks_pass(self):
+    def test_self_check_nine_checks_pass(self):
+        # V61 修订：七检查→九检查（新增 d03_b 数据检查+patch 修订清单检查）
         g = SalvageGate(self.root)
         sc = g.self_check()
         self.assertTrue(sc["pass"], sc["problems"])
-        self.assertEqual(len(sc["checks"]), 7)
+        self.assertEqual(len(sc["checks"]), 9)
         self.assertTrue(all(sc["checks"].values()))
 
     def test_summary_report_ring23(self):

@@ -1,0 +1,30 @@
+{
+  "project": "HoloAeon SEARCHNET-01 D03",
+  "dim_id": "D03",
+  "cang": "holoaeon-c03-meridian",
+  "batch": "V60-D03-VALIDATION",
+  "snapshot_time": "2026-11-12T18:53:00",
+  "source": "豆包端打捞局工程回执（打捞回执_D03经络维_20261112.md + d03_salvage_D03_20261112.json）——验证批实录，V61 正式入仓",
+  "b_rationale": "A 榜按热度排序被证伪（第一名 stablyai/orca 122903★ 为编码智能体 IDE 偏题，且综合分五分量全空排不了序）；B 榜=豆包端人工混合判序的可交付 10 条（编排/总线/可观测三条腿）——rank 序=回执原序如实保留",
+  "off_topic_a_rank1": {"repo": "stablyai/orca", "stars": 122903, "desc": "coding agent IDE for autonomous software development", "verdict": "偏题被拦（V61 relevance_gate 固化测试）"},
+  "results": [
+    {"rank": 1, "repo": "crewAIInc/crewAI", "stars": 60807, "forks": null, "contributors": null, "license": "MIT", "leg": "编排", "essence": null, "verify_status": "unverified"},
+    {"rank": 2, "repo": "apache/kafka", "stars": 34214, "forks": null, "contributors": null, "license": "Apache-2.0", "leg": "总线", "essence": "分布式追加日志式事件平台。以分区日志承接生产与消费两端，解决高吞吐事件的持久化与多消费方解耦。", "verify_status": "unverified"},
+    {"rank": 3, "repo": "labring/FastGPT", "stars": 30031, "forks": null, "contributors": null, "license": "NOASSERTION", "leg": "编排", "essence": null, "verify_status": "unverified"},
+    {"rank": 4, "repo": "kestra-io/kestra", "stars": 30214, "forks": null, "contributors": null, "license": "Apache-2.0", "leg": "编排", "essence": null, "verify_status": "unverified"},
+    {"rank": 5, "repo": "rocketride-org/rocketride-server", "stars": 20058, "forks": null, "contributors": null, "license": "MIT", "leg": "编排", "essence": null, "verify_status": "unverified"},
+    {"rank": 6, "repo": "SigNoz/signoz", "stars": 32598, "forks": null, "contributors": null, "license": "NOASSERTION", "leg": "可观测", "essence": null, "verify_status": "unverified"},
+    {"rank": 7, "repo": "deepset-ai/haystack", "stars": 26998, "forks": null, "contributors": null, "license": "Apache-2.0", "leg": "编排", "essence": null, "verify_status": "unverified"},
+    {"rank": 8, "repo": "jaegertracing/jaeger", "stars": 23403, "forks": null, "contributors": null, "license": "Apache-2.0", "leg": "可观测", "essence": null, "verify_status": "unverified"},
+    {"rank": 9, "repo": "pinpoint-apm/pinpoint", "stars": 13877, "forks": null, "contributors": null, "license": "Apache-2.0", "leg": "可观测", "essence": null, "verify_status": "unverified"},
+    {"rank": 10, "repo": "microsoft/agent-framework", "stars": 14645, "forks": null, "contributors": null, "license": "MIT", "leg": "编排", "essence": null, "verify_status": "unverified"}
+  ],
+  "shortfall": null,
+  "honesty": {
+    "contributors": "全员 null——匿名 REST 34/34 全 403 实测，未估算未编造（豆包端原话：'不确定填 null 禁估算这条真的拦住了我编数的手'）",
+    "essence": "仅 kafka 一条随回执全文给出实录；其余 9 条在豆包端 d03_salvage JSON 中已通过模板硬约束自检（每句<=40 汉字/2 句内/零营销词/未抄 README），但全文未随投喂给出——本文件如实置 null 零虚构",
+    "forks_last_commit": "回执表格未给全量值，如实置 null；完整字段在豆包端 JSON"
+  },
+  "template_verdict": "当说明书合格，当评分尺不合格——七处毛病 V61 修补（P1 查询句法/P2 扩展词双类/P3 归一化公式/P4 贡献者数据源/P5 引用采集方式/P6 语义门槛/P7 CLI）；立住四条不动：反幻觉五条/压缩规则/硬门槛二进制/输出 schema",
+  "seal": "潮起开门，潮落闭嘴"
+}

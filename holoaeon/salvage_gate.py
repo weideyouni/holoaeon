@@ -52,10 +52,32 @@ see-also 不重复计数）/验收清单口径/每天打捞日程（D03 经络�
 约束同源）/选择性吸纳复用 V59 search_record 强制 schema 与同化三形态+能力
 槽充实（无 search_record 的能力槽不得进入实现——V59 纪律原文）。
 
-与工程纪律的同构照（升维句，见投喂包第 4 节）：
+从工程纪律的同构照（升维句，见投喂包第 4 节）：
     打捞第一次成为有口径的日常——"每天捞什么、捞多少、捞上来怎么吸收"
     全部成为确定性函数；打捞之王的历史资产（600万/600/记忆打捞）第一次
     与 18 仓集群的搜索网对上账，指针登记不复制。
+
+V61 修订声明（打捞局工程回执·D03 真跑七毛病修补批，2026-11-12）：
+  源=豆包端 D03 经络维真跑回执（打捞回执_D03经络维_20261112.md +
+  d03_salvage_D03_20261112.json）——"模板当说明书合格，当评分尺不合格"。
+  七处毛病七处修补（PATCH_SEVEN_FIXES 留痕）：
+  · P3 归一化公式补齐（致命）——stars/forks 对数归一 + contributors 上限
+    归一 + citation 二值化，综合分落 [0,1] 确定可复算；
+  · P4 贡献者数据源口径补齐（致命）——匿名 REST 403 实测，tokened REST
+    Link-header 计数为唯一可得口径，不可得即 null+unverified（禁估算已拦）；
+  · P6 语义门槛两段式（致命，治本——碳基裁定采 B）——先语义后热度：
+    relevance_gate 意图关键词命中门槛，不过门槛直接 OUT（A 榜偏题案例
+    stablyai/orca 122903★ 编码 IDE 被拦，固化测试）；
+  · P5 榜单引用采集方式定义——白名单源（awesome-*/trending/官方生态文档）
+    URL 检索确认+来源登记+二值化；
+  · P1 查询句法规则——主查询禁整句 AND 压死，2-3 词 OR 组+引号短语；
+  · P2 扩展词双类口径——品类词+能力词（D03 扩容至 6-8 条示范维）；
+  · P7 CLI 修正——--root 挂全部子命令，prompt 加 --dim 去 D03 硬编码。
+  B 榜 10 条真跑结果入仓（data/searchnet_d03_b.json——验证批成果正式
+  落盘，10 条 verify_status=unverified 全员如实：contributors 缺、未估算
+  未编造——豆包端原话"反幻觉五条真的拦住了编数的手"）。
+  立住的四条不动：反幻觉五条/压缩规则/硬门槛二进制/输出 schema（回执
+  实证"管住了嘴"）。
 """
 
 from __future__ import annotations
@@ -288,8 +310,11 @@ DIMENSIONS: Tuple[Dict[str, Any], ...] = (
      "exclude": ("medical device cert",)},
     {"dim": "D03", "cang": "C03", "intent": "消息路由、编排、链路可观测（含基座元层）",
      "main": "agent orchestration framework routing observability",
-     "expand": ("message bus", "distributed tracing", "workflow engine"),
-     "exclude": ("closed-source",)},
+     "expand": ("message bus", "distributed tracing", "workflow engine",
+                "pub/sub", "event-driven architecture", "state checkpoint",
+                "queue broker", "trace propagation"),
+     "exclude": ("closed-source",)},  # V61 P2：品类词+能力词双类扩容（真跑回执：
+     # "message bus"字面零召回实证——补 pub/sub、event-driven 等能力词 6-8 条）
     {"dim": "D04", "cang": "C04", "intent": "亲缘结构与代际关系建模",
      "main": "genealogy family tree software open source",
      "expand": ("relationship graph", "kinship", "ancestry data"),
@@ -390,6 +415,57 @@ SCORE_WEIGHTS: Dict[str, float] = {
 }
 RECENCY_DECAY_MONTHS = 24  # 超过视为衰减
 
+# ---------------------------------------------------------------------------
+# 四·甲 V61 P3：归一化公式（量纲统一——修"stars 一家说了算"）
+# ---------------------------------------------------------------------------
+
+# 归一化基准（确定性常量，不依赖同批候选集——独立可复算）
+NORM_REFS: Dict[str, int] = {
+    "stars": 100000,        # log10(1+100000)≈5：十万星满格
+    "forks": 10000,         # 万 fork 满格
+    "contributors": 500,    # 线性上限截断
+}
+
+# P4 贡献者数据源口径（真跑回执：匿名 REST 34/34 全 403——唯一可得路径）
+CONTRIBUTOR_SOURCE: Dict[str, str] = {
+    "primary": "tokened REST GET /repos/{owner}/{repo}/contributors?per_page=1"
+               " 读 Link header 页数（有 token 时唯一可靠口径）",
+    "unavailable": "无 token / 403 时置 null 并 verify_status=unverified"
+                   "（禁估算纪律已拦——豆包端原话'真的拦住了我编数的手'）",
+    "rejected": "README 徽章目测/网页近似值——非结构化不可复算，一律不采",
+}
+
+# P5 榜单引用白名单源（采集方式定义——修"私下从未被定义"）
+CITATION_SOURCES: Tuple[str, ...] = (
+    "awesome-* 列表（awesome-selfhosted 等在册条目）",
+    "GitHub Trending 历史可见（trending 收录即计）",
+    "官方生态文档/框架官方推荐页引用",
+)
+CITATION_COLLECTION = "URL 检索确认+来源 URL 登记进 citation_sources 字段，二值化（>=1 白名单源=1）"
+
+
+def norm_value(kind: str, value: Optional[float]) -> Optional[float]:
+    """单指标归一化到 [0,1]（确定性：只依赖候选自身，不依赖同批集合）。
+
+    stars/forks：对数归一 log10(1+v)/log10(1+ref)（量纲压平——修 P3）；
+    contributors：线性上限截断 min(v,ref)/ref；
+    citation：白名单源二值化（0/1）。
+    """
+    if value is None or value < 0:
+        return None
+    v = float(value)
+    if kind in ("stars", "forks"):
+        ref = NORM_REFS[kind]
+        import math as _m
+        n = _m.log10(1.0 + v) / _m.log10(1.0 + ref)
+        return round(min(n, 1.0), 4)
+    if kind == "contributors":
+        ref = NORM_REFS["contributors"]
+        return round(min(v, ref) / ref, 4)
+    if kind == "citation":
+        return 1.0 if v >= 1 else 0.0
+    raise ValueError("未知指标：{}".format(kind))
+
 
 def recency_score(months: Optional[float]) -> Optional[float]:
     """近期活跃度：越近越高，线性衰减至 24 个月归零；未知返回 None（禁估算）。"""
@@ -401,17 +477,19 @@ def recency_score(months: Optional[float]) -> Optional[float]:
 
 
 def composite_score(candidate: Dict[str, Any]) -> Optional[float]:
-    """综合分 = 0.40*stars + 0.15*forks + 0.20*近期活跃度 + 0.15*贡献者数 + 0.10*榜单引用。
+    """综合分 = Σ w_i * norm_i ∈ [0,1]（V61 P3 修订：归一化后加权）。
 
-    反幻觉纪律：任一指标未知（None）即整体返回 None（无法确认的数值填 null
-    并标 unverified——素材硬约束原文），禁止估算填数。
+    0.40*norm(stars) + 0.15*norm(forks) + 0.20*recency
+    + 0.15*norm(contributors) + 0.10*citation。
+    反幻觉纪律不变：任一指标未知（None）即整体返回 None（无法确认的数值
+    填 null 并标 unverified——素材硬约束原文），禁止估算填数。
     """
     parts = {}
     for key in ("stars", "forks", "contributors", "citation"):
-        v = candidate.get(key)
-        if v is None:
+        n = norm_value(key, candidate.get(key))
+        if n is None:
             return None
-        parts[key] = float(v)
+        parts[key] = n
     r = recency_score(candidate.get("last_commit_months"))
     if r is None:
         return None
@@ -421,6 +499,102 @@ def composite_score(candidate: Dict[str, Any]) -> Optional[float]:
              + SCORE_WEIGHTS["contributors"] * parts["contributors"]
              + SCORE_WEIGHTS["citation"] * parts["citation"])
     return round(score, 4)
+
+
+# ---------------------------------------------------------------------------
+# 四·乙 V61 P6：语义门槛两段式（先语义后热度——治本，碳基裁定采 B）
+# ---------------------------------------------------------------------------
+
+REL_MIN_HITS = 2  # 意图关键词最低命中数（不过门槛直接 OUT）
+
+# 真跑偏题案例（A 榜第一 122903★ 编码智能体 IDE——压过所有真相关项目）
+OFF_TOPIC_CASE = {"repo": "stablyai/orca", "stars": 122903,
+                  "desc": "coding agent IDE for autonomous software development"}
+
+
+def dim_keywords(dim_id: str) -> Tuple[str, ...]:
+    """维度意图关键词表（确定性派生：主查询分词+扩展词+意图词，去停用词）。
+
+    机制：打分只在"和本维相关"的候选内排序（修 P6——评分只有热度没有
+    相关性，A 榜第一名偏题的根因）。
+    """
+    d = next((x for x in DIMENSIONS if x["dim"] == dim_id), None)
+    if d is None:
+        raise ValueError("未知维度：{}".format(dim_id))
+    stop = {"for", "and", "the", "a", "of", "with", "to", "in", "on",
+            "open", "source", "software"}
+    words = set()
+    for w in d["main"].lower().replace("-", " ").split():
+        if len(w) >= 3 and w not in stop:
+            words.add(w)
+    for e in d["expand"]:
+        for w in e.lower().replace("/", " ").replace("-", " ").split():
+            if len(w) >= 3 and w not in stop:
+                words.add(w)
+    return tuple(sorted(words))
+
+
+def relevance_hits(candidate_or_text: Any, dim_id: str) -> int:
+    """候选对维度关键词的命中数（确定性：描述+仓名+topics 三源合并文本）。
+
+    匹配口径：大小写不敏感子串；长词（>=8 字符）追加 6 字符词干前缀匹配
+    （orchestration↔orchestrating/observability↔observing 类形态变体）。
+    """
+    d = next((x for x in DIMENSIONS if x["dim"] == dim_id), None)
+    if d is None:
+        raise ValueError("未知维度：{}".format(dim_id))
+    if isinstance(candidate_or_text, str):
+        text = candidate_or_text.lower()
+    else:
+        c = candidate_or_text
+        desc = c.get("desc") or c.get("official_desc") or ""
+        repo = c.get("repo") or ""
+        topics = c.get("topics") or []
+        text = " ".join([repo, desc] + list(topics)).lower()
+    hits = 0
+    for k in dim_keywords(dim_id):
+        if k in text or (len(k) >= 8 and k[:6] in text):
+            hits += 1
+    return hits
+
+
+def relevance_gate(candidate: Dict[str, Any], dim_id: str) -> Dict[str, Any]:
+    """语义门槛：hits >= REL_MIN_HITS 放行，否则 OUT（热度再高也拦）。
+
+    匹配面=描述+仓名+topics 三源（真跑 B 榜项目实证：仅描述一面过严，
+    编排/可观测类项目常把意图词放 topics）。
+    """
+    hits = relevance_hits(candidate, dim_id)
+    return {"verdict": "IN" if hits >= REL_MIN_HITS else "OUT",
+            "hits": hits, "min_hits": REL_MIN_HITS,
+            "note": "先语义后热度——不过语义门槛的候选不进入综合分排序（修 P6 偏题）"}
+
+
+def rank_candidates(candidates: List[Dict[str, Any]],
+                    dim_id: str) -> Dict[str, Any]:
+    """两段式排名：①relevance 门槛（OUT 直接出局留痕）②综合分降序。
+
+    综合分 None（指标未知）者沉底保留不淘汰（honest——unverified 不冒充
+    可排序）；平分按 repo 名排序（确定性）。
+    """
+    gate_log: List[Dict[str, Any]] = []
+    passed: List[Dict[str, Any]] = []
+    for c in candidates:
+        g = relevance_gate(c, dim_id)
+        entry = {"repo": c.get("repo"), "verdict": g["verdict"], "hits": g["hits"]}
+        gate_log.append(entry)
+        if g["verdict"] == "IN":
+            passed.append(c)
+    scored = []
+    for c in passed:
+        s = composite_score(c)
+        scored.append((s if s is not None else -1.0, c, s))
+    scored.sort(key=lambda t: (-t[0], t[1].get("repo", "")))
+    return {"ranked": [c for _, c, _ in scored],
+            "scores": [s for _, _, s in scored],
+            "gate_log": gate_log,
+            "passed": len(passed), "rejected": len(candidates) - len(passed),
+            "note": "先语义后热度；None 分沉底保留（unverified 不冒充可排序）"}
 
 
 def hard_gate(candidate: Dict[str, Any]) -> Dict[str, Any]:
@@ -446,21 +620,31 @@ def hard_gate(candidate: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def check_scoring() -> Dict[str, Any]:
-    """判定口径校验：五权重和=1/衰减口径/确定性（同输入同输出）。"""
+    """判定口径校验（V61 修订）：五权重和=1/衰减口径/归一化界/禁估算/偏题拦截。"""
     problems: List[str] = []
     total = round(sum(SCORE_WEIGHTS.values()), 6)
     if total != 1.0:
         problems.append("权重和!=1（实 {}）".format(total))
     if recency_score(24.0) != 0.0 or recency_score(0.0) != 1.0:
         problems.append("衰减口径错误")
-    c = {"stars": 100, "forks": 10, "contributors": 5, "citation": 1,
+    c = {"stars": 60807, "forks": 8000, "contributors": 300, "citation": 1,
          "last_commit_months": 6}
+    s = composite_score(c)
+    if s is None or not (0.0 <= s <= 1.0):
+        problems.append("综合分不在 [0,1]（归一化失效）")
     if composite_score(c) != composite_score(c):
         problems.append("综合分非确定性")
     if composite_score({"stars": None}) is not None:
         problems.append("未知指标未返回 None（违反禁估算）")
+    # P6 偏题案例固化：A 榜第一 stablyai/orca（编码 IDE）必须被语义门槛拦下
+    g = relevance_gate(OFF_TOPIC_CASE, "D03")
+    if g["verdict"] != "OUT":
+        problems.append("偏题案例未拦截（stablyai/orca 应 OUT，实 hits={}）".format(g["hits"]))
     return {"pass": not problems, "problems": problems,
-            "weights": dict(SCORE_WEIGHTS), "decay_months": RECENCY_DECAY_MONTHS}
+            "weights": dict(SCORE_WEIGHTS), "decay_months": RECENCY_DECAY_MONTHS,
+            "norm_refs": dict(NORM_REFS), "rel_min_hits": REL_MIN_HITS,
+            "contributor_source": CONTRIBUTOR_SOURCE["primary"],
+            "citation_sources": len(CITATION_SOURCES)}
 
 
 # ---------------------------------------------------------------------------
@@ -485,6 +669,14 @@ _PROMPT_TEMPLATE = """# 角色
 
 # 执行步骤（严格按序，不得跳步）
 1. 用主查询 + 扩展查询在 GitHub 检索，合并去重（按仓库全名 owner/repo 去重）。
+   查询句法（V61 P1 规则——主查询整句禁直接使用）：
+   - 整句七词会被 AND 分词压死（真跑实测 total_count=1）——禁整句单查；
+   - 拆成 2-3 个引号短语组 + OR 连接（如 "agent orchestration" OR
+     "workflow engine" OR "message bus"）；
+   - 每组词数<=3，组内词从主查询与扩展词取；
+   - 扩展词分双类：品类词（message bus 类——描述里少见，召回弱）与
+     能力词（pub/sub、tracing、checkpoint 类——描述里常见，召回强），
+     优先用能力词组。
 2. 对每个候选采集：repo 全名、URL、stars、forks、最近提交日期、贡献者数、
    许可证、主要语言、一句话官方描述（原文）。
 3. 应用硬门槛淘汰：不可访问、无 README、archived、纯镜像/fork、纯教程清单
@@ -574,7 +766,7 @@ def check_essence(essence: str) -> Dict[str, Any]:
 
 
 def check_template() -> Dict[str, Any]:
-    """模板校验：确定性（同维同时间两次全同）/反幻觉约束齐/18 维可注入。"""
+    """模板校验（V61 修订）：确定性/反幻觉约束齐/18 维可注入/查询句法规则在。"""
     problems: List[str] = []
     p1 = build_prompt("D03", "2026-11-12T09:00:00")
     p2 = build_prompt("D03", "2026-11-12T09:00:00")
@@ -590,7 +782,58 @@ def check_template() -> Dict[str, Any]:
             problems.append("注入失败 {}：{}".format(d["dim"], e))
     if "holoaeon-c03-meridian" not in p1:
         problems.append("D03 注入未含真实仓名")
+    for marker in ("禁整句单查", "OR 连接", "能力词"):
+        if marker not in p1:
+            problems.append("V61 查询句法规则缺失：{}".format(marker))
     return {"pass": not problems, "problems": problems}
+
+
+# ---------------------------------------------------------------------------
+# 五·乙 V61：B 榜真跑结果入仓（data/searchnet_d03_b.json——验证批成果落盘）
+# ---------------------------------------------------------------------------
+
+D03_B_PATH = ("data", "searchnet_d03_b.json")
+
+
+def load_d03_b() -> Dict[str, Any]:
+    """加载 D03 经络维 B 榜真跑数据（豆包端 2026-11-12 验证批——10 条）。"""
+    import json as _json
+    import os as _os
+    path = _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))),
+                         *D03_B_PATH)
+    with open(path, "r", encoding="utf-8") as fh:
+        return _json.load(fh)
+
+
+def check_d03_b() -> Dict[str, Any]:
+    """B 榜校验：10 条齐/全员 unverified 诚实（contributors 缺不冒充 verified）/
+    许可证三态含 NOASSERTION 降权口径/偏题案例不在榜（A 榜第一被语义门槛证伪）。"""
+    problems: List[str] = []
+    try:
+        data = load_d03_b()
+    except (OSError, ValueError) as e:
+        return {"pass": False, "problems": ["B 榜数据加载失败：{}".format(e)]}
+    results = data.get("results", [])
+    if len(results) != 10:
+        problems.append("B 榜!=10 条（实 {}）".format(len(results)))
+    for r in results:
+        if not r.get("repo") or r.get("stars") is None:
+            problems.append("条目缺 repo/stars：{}".format(r.get("repo")))
+        if r.get("verify_status") != "unverified":
+            problems.append("verify_status 应全 unverified：{}".format(r.get("repo")))
+        if r.get("contributors") is not None:
+            problems.append("contributors 应全 null（403 实测未估算）：{}".format(r.get("repo")))
+    repos = [r.get("repo") for r in results]
+    if "stablyai/orca" in repos:
+        problems.append("偏题案例 stablyai/orca 不得入 B 榜")
+    if len(set(repos)) != len(repos):
+        problems.append("B 榜跨条目重复")
+    legs = {r.get("leg") for r in results}
+    if not legs <= {"编排", "总线", "可观测"}:
+        problems.append("腿分类非法：{}".format(sorted(legs)))
+    return {"pass": not problems, "problems": problems, "count": len(results),
+            "legs": sorted(legs), "snapshot": data.get("snapshot_time"),
+            "note": "B 榜=豆包端真跑回执实录（rank 序=回执原序——人工混合判序如实保留）；essence 仅 kafka 一条随回执全文给出，其余 null 零虚构"}
 
 
 # ---------------------------------------------------------------------------
@@ -778,17 +1021,30 @@ def check_assimilation() -> Dict[str, Any]:
 
 
 # ---------------------------------------------------------------------------
-# 九、总闸（SalvageGate：六检查 + 指纹/探针/CLI）
+# 九、总闸（SalvageGate：九检查 + 指纹/探针/CLI）
 # ---------------------------------------------------------------------------
+
+# V61 修订改动清单（七毛病七修补+两新检查——回执逐条对应，如实留痕）
+PATCH_SEVEN_FIXES: Tuple[Tuple[str, str], ...] = (
+    ("P3 归一化公式", "stars/forks 对数归一+contributors 上限截断+citation 二值——综合分落 [0,1] 确定可复算"),
+    ("P4 贡献者数据源", "tokened REST Link-header 唯一可得口径；403 时 null+unverified 禁估算"),
+    ("P5 榜单引用采集方式", "白名单源（awesome-*/trending/官方生态文档）URL 确认+来源登记+二值化"),
+    ("P6 语义门槛", "两段式先语义后热度：relevance_gate 命中门槛，stablyai/orca 偏题案例固化拦截"),
+    ("P1 查询句法", "主查询禁整句 AND 压死——2-3 词引号短语组+OR 连接+品类词/能力词双类"),
+    ("P2 扩展词扩容", "D03 扩至 8 条双类口径（pub/sub、event-driven 等能力词——真跑零召回实证）"),
+    ("P7 CLI 修正", "--root 挂全部子命令+prompt 加 --dim 去 D03 硬编码"),
+)
 
 
 class SalvageGate:
-    """打捞局总闸：资产基座/名词穷举/搜索网/判定口径/模板/日程/吸纳检查。"""
+    """打捞局总闸（V61 修订后九检查）：资产/名词/搜索网/判定口径（含归一化+
+    语义门槛）/模板（含查询句法）/日程/吸纳/B 榜数据/修订清单。"""
 
     def __init__(self, root: Optional[str] = None) -> None:
         self.root = root
         self.checks = ("assets", "nouns", "dimensions", "scoring",
-                       "template", "schedule", "assimilation")
+                       "template", "schedule", "assimilation",
+                       "d03_b", "patch")
 
     def check_assets(self) -> Dict[str, Any]:
         return check_assets(self.root)
@@ -811,6 +1067,24 @@ class SalvageGate:
     def check_assimilation(self) -> Dict[str, Any]:
         return check_assimilation()
 
+    def check_d03_b(self) -> Dict[str, Any]:
+        return check_d03_b()
+
+    def check_patch(self) -> Dict[str, Any]:
+        problems: List[str] = []
+        if len(PATCH_SEVEN_FIXES) != 7:
+            problems.append("修订清单!=7 处")
+        if len(CITATION_SOURCES) < 3:
+            problems.append("榜单引用白名单源不足")
+        if not CONTRIBUTOR_SOURCE.get("primary") or "Link header" not in CONTRIBUTOR_SOURCE["primary"]:
+            problems.append("贡献者数据源口径缺失")
+        if len(DIMENSIONS[2]["expand"]) < 6:
+            problems.append("D03 扩展词未扩容至 6-8 条")
+        if relevance_gate(OFF_TOPIC_CASE, "D03")["verdict"] != "OUT":
+            problems.append("偏题拦截失效")
+        return {"pass": not problems, "problems": problems,
+                "fixes": [f[0] for f in PATCH_SEVEN_FIXES]}
+
     def self_check(self) -> Dict[str, Any]:
         results = {
             "assets": self.check_assets(),
@@ -820,6 +1094,8 @@ class SalvageGate:
             "template": self.check_template(),
             "schedule": self.check_schedule(),
             "assimilation": self.check_assimilation(),
+            "d03_b": self.check_d03_b(),
+            "patch": self.check_patch(),
         }
         return {
             "pass": all(r["pass"] for r in results.values()),
@@ -832,6 +1108,7 @@ class SalvageGate:
         return {
             "ring": 23,
             "module": "salvage_gate",
+            "patch": 1,
             "self_check": sc,
             "salvage_assets": len(SALVAGE_ASSETS),
             "noun_slots": NOUN_SLOTS_MEASURED,
@@ -839,6 +1116,11 @@ class SalvageGate:
             "per_dim": PER_DIM_TARGETS,
             "total_expected": TOTAL_EXPECTED,
         }
+
+
+def check_patch() -> Dict[str, Any]:
+    """修订清单检查（模块级便捷入口）。"""
+    return SalvageGate().check_patch()
 
 
 def _now_iso() -> str:
@@ -853,6 +1135,7 @@ def fingerprint() -> dict:
     return {
         "module": "salvage_gate",
         "ring": 23,
+        "patch": 1,
         "salvage_assets": len(SALVAGE_ASSETS),
         "noun_slots": NOUN_SLOTS_MEASURED,
         "dims": len(DIMENSIONS),
@@ -871,9 +1154,11 @@ def probe(root: Optional[str] = None) -> dict:
         "self_check": g.self_check(),
         "day1_plan": day_plan(1),
         "d03_prompt_head": build_prompt("D03", "T0").splitlines()[6:9],
-        "sample_score": composite_score({"stars": 100, "forks": 10,
-                                        "contributors": 5, "citation": 1,
+        "sample_score": composite_score({"stars": 60807, "forks": 8000,
+                                        "contributors": 300, "citation": 1,
                                         "last_commit_months": 6}),
+        "off_topic_gate": relevance_gate(OFF_TOPIC_CASE, "D03")["verdict"],
+        "d03_b_count": check_d03_b().get("count", -1),
         "dedup_sample": resolve_duplicates([
             {"repo": "o/r", "dim_id": "D03", "stars": 100, "forks": 10,
              "contributors": 5, "citation": 1, "last_commit_months": 6},
@@ -887,17 +1172,23 @@ def _main(argv: List[str]) -> int:
     import argparse
 
     parser = argparse.ArgumentParser(prog="salvage_gate",
-                                     description="打捞之王仓库端模块·打捞局（V60 ring23）")
+                                     description="打捞之王仓库端模块·打捞局（V60 ring23 + V61 修补批）")
     sub = parser.add_subparsers(dest="cmd")
-    p_run = sub.add_parser("run", help="自检七检查+摘要（须 --root 实测资产）")
+    p_run = sub.add_parser("run", help="自检九检查+摘要（须 --root 实测资产）")
     p_run.add_argument("--root", default=None, help="打捞之王资产扫描根目录（必显式）")
-    p_probe = sub.add_parser("probe", help="指纹+探针（日程/注入/评分/去重样例）")
+    p_probe = sub.add_parser("probe", help="指纹+探针（日程/注入/评分/门槛/B 榜样例）")
     p_probe.add_argument("--root", default=None, help="资产扫描根目录（可选）")
     p_assets = sub.add_parser("assets", help="打捞之王资产自动匹配（须 --root）")
     p_assets.add_argument("--root", default=None, help="资产扫描根目录（必显式）")
-    sub.add_parser("dims", help="18 维搜索网一览")
-    sub.add_parser("schedule", help="每天打捞日程（18 天一轮）")
-    sub.add_parser("prompt", help="输出 D03 提示词模板样例")
+    p_dims = sub.add_parser("dims", help="18 维搜索网一览")
+    p_dims.add_argument("--root", default=None, help="资产扫描根目录（兼容位）")
+    p_sched = sub.add_parser("schedule", help="每天打捞日程（18 天一轮）")
+    p_sched.add_argument("--root", default=None, help="资产扫描根目录（兼容位）")
+    p_prompt = sub.add_parser("prompt", help="输出指定维度的提示词模板（--dim）")
+    p_prompt.add_argument("--dim", default="D03", help="维度编号（默认 D03）")
+    p_prompt.add_argument("--root", default=None, help="资产扫描根目录（兼容位）")
+    p_b = sub.add_parser("d03b", help="B 榜真跑数据一览（10 条）")
+    p_b.add_argument("--root", default=None, help="资产扫描根目录（兼容位）")
     args = parser.parse_args(argv[1:] if len(argv) > 1 else ["run"])
     cmd = args.cmd or "run"
     ok = True
@@ -925,8 +1216,19 @@ def _main(argv: List[str]) -> int:
         for p in schedule_report(18):
             print("  day {:>2} | {} | {} | round {}".format(
                 p["day"], p["dim"], p["cang"], p["cycle_round"]))
-    else:  # prompt
-        print(build_prompt("D03", "2026-11-12T09:00:00"))
+    elif cmd == "d03b":
+        data = load_d03_b()
+        for r in data.get("results", []):
+            print("  {:>2} | {:<38} | {:>6} | {:<12} | {}".format(
+                r.get("rank"), r.get("repo"), r.get("stars"),
+                r.get("license"), r.get("leg")))
+        ok = check_d03_b()["pass"]
+    else:  # prompt（V61 P7：--dim 可换维度，去 D03 硬编码）
+        try:
+            print(build_prompt(getattr(args, "dim", "D03"), "2026-11-12T09:00:00"))
+        except ValueError as e:
+            print("{}".format(e))
+            return 1
     return 0 if ok else 1
 
 
