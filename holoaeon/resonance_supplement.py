@@ -206,6 +206,7 @@ def entropy_production(forces=None, onsager=None):
         "model": "linear_irreversible_thermodynamics",
         "forces": [round(x, 6) for x in X],
         "flows": [round(x, 6) for x in J],
+        "onsager": [[round(v, 6) for v in row] for row in L],
         "sigma": round(sigma, 6),
         "symmetric_onsager": asym <= 1e-12,
         "onsager_asymmetry": round(asym, 12),
@@ -263,36 +264,119 @@ def mandala_wht(spokes=None):
 CHI2_1DOF_95 = 3.841
 
 
-def kalman_fuse(sensors=None):
-    """信息式融合：P^-1 = Σ R_i^-1，x = P Σ z_i/R_i；NIS 判一致性。"""
-    S = list(sensors) if sensors else [(10.0, 1.0), (10.5, 0.25), (9.8, 4.0)]
-    info = sum(1.0 / r for _, r in S)
-    fused = sum(z / r for z, r in S) / info
-    P = 1.0 / info
-    rows = []
-    for z, r in S:
-        nis = (z - fused) ** 2 / (r + P)
-        rows.append({"z": z, "R": round(r, 6), "weight": round((1.0 / r) / info, 6),
-                     "nis": round(nis, 6), "consistent": nis <= CHI2_1DOF_95})
+# 无信息先验：1e12 使第 1 源等价于"从首源起步"，从而序贯结果与批量信息式融合一致
+NO_INFO_P = 1.0e12
 
-    x_seq, p_seq = S[0][0], S[0][1]
-    for z, r in S[1:]:
-        k = p_seq / (p_seq + r)
-        x_seq = x_seq + k * (z - x_seq)
-        p_seq = (1 - k) * p_seq
-    seq_matches_batch = abs(x_seq - fused) <= 1e-9 and abs(p_seq - P) <= 1e-9
+
+def kalman_fuse(sensors=None, process_noise=0.0, gate=True, prior=None):
+    """序贯卡尔曼融合（带预测步）：标准 NIS = (z - x_pred)^2 / (P_pred + R)。
+
+    与「融合值-观测」的简化口径的关键区别：
+      预测步先把状态推到 x_pred / P_pred，NIS 拿**预测值**比观测，
+      再更新。于是某个源的离群与否，在它被并入融合**之前**就判完了，
+      不会因为融合值已被它拉偏而把其它干净源一起判成不一致。
+    gate=True 时 NIS 超 χ²(1) 95% 的源只做预测、不做更新（innovation gating），
+    融合状态保持干净；被拒的源登记在 rejected 里，不静默丢弃。
+    """
+    S = list(sensors) if sensors else [(10.0, 1.0), (10.5, 0.25), (9.8, 4.0)]
+    q = float(process_noise)
+
+    info_batch = sum(1.0 / r for _, r in S)
+    batch_state = sum(z / r for z, r in S) / info_batch
+    batch_P = 1.0 / info_batch
+
+    # 信息量表示：Y = 1/P（Y=0 即无信息先验），y = Y·x。
+    # 用信息量而非大数 P，可让 q=0 时序贯结果与批量逆方差加权**精确**相等。
+    Y, y_info = 0.0, 0.0
+    anchor = "no_info"
+    if prior is not None:
+        x0, P0 = float(prior[0]), float(prior[1])
+        Y, y_info = 1.0 / P0, x0 / P0
+        anchor = "external_prior"
+
+    rows: list = []
+    rejected: list = []
+    for i, (z, r) in enumerate(S):
+        # ---- 预测步：P_pred = P + q  =>  Y_pred = Y / (1 + q·Y)
+        if Y > 0.0:
+            Y_pred = Y / (1.0 + q * Y)
+            x_pred = (y_info / Y) if Y else z
+        else:
+            Y_pred, x_pred = 0.0, None          # 无信息：无预测可言
+        P_pred = (1.0 / Y_pred) if Y_pred > 0.0 else None
+        is_anchor = P_pred is None
+        S_i = ((P_pred if P_pred is not None else 0.0) + r)
+        innov = 0.0 if is_anchor else (z - x_pred)
+        nis = 0.0 if is_anchor else (innov * innov) / S_i
+        k = 0.0 if is_anchor else (P_pred / S_i)
+        pass_gate = is_anchor or nis <= CHI2_1DOF_95
+
+        if gate and not pass_gate:
+            rejected.append(i)
+            rows.append({
+                "z": z, "R": round(r, 6),
+                "predicted_state": round(x_pred, 6),
+                "predicted_variance": round(P_pred, 6),
+                "innovation": round(innov, 6),
+                "gain": round(k, 6),
+                "nis": round(nis, 6),
+                "consistent": False,
+                "applied": False,
+                "role": "rejected_outlier",
+            })
+            # 只推进预测：信息量按过程噪声衰减，不吸收该观测
+            Y, y_info = Y_pred, (x_pred * Y_pred if Y_pred > 0 else 0.0)
+            continue
+
+        # ---- 更新步（信息式加和）
+        Y_new = Y_pred + 1.0 / r
+        y_new = (x_pred * Y_pred if Y_pred > 0 else 0.0) + z / r
+        x = y_new / Y_new
+        P = 1.0 / Y_new
+        Y, y_info = Y_new, y_new
+        rows.append({
+            "z": z, "R": round(r, 6),
+            "predicted_state": None if is_anchor else round(x_pred, 6),
+            "predicted_variance": None if is_anchor else round(P_pred, 6),
+            "innovation": round(innov, 6),
+            "gain": None if is_anchor else round(k, 6),
+            "nis": round(nis, 6),
+            "consistent": None if is_anchor else True,
+            "applied": True,
+            "role": "anchor" if is_anchor else "applied",
+            "state_estimate": round(x, 6),
+            "uncertainty": round(P, 6),
+            "weight": round((1.0 / r) / info_batch, 6),
+        })
+
+        x_final, P_final = x, P
+
+    if not rows or not any(r["applied"] for r in rows):
+        x_final, P_final = batch_state, batch_P
+
+    judged = [r for r in rows if r["consistent"] is not None]
+    seq_matches_batch = abs(x_final - batch_state) <= 1e-9 and abs(P_final - batch_P) <= 1e-9
 
     return {
-        "model": "information_form_fusion",
-        "fused_state": round(fused, 6),
-        "fused_variance": round(P, 6),
+        "model": "sequential_kalman_with_predict_step",
+        "nis_mode": "standard_predict_versus_observation",
+        "anchor": anchor,
+        "process_noise": q,
+        "gate_enabled": bool(gate),
+        "fused_state": round(x_final, 6),
+        "fused_variance": round(P_final, 6),
+        "batch_fused_state": round(batch_state, 6),
+        "batch_fused_variance": round(batch_P, 6),
         "sources": rows,
-        "all_consistent": all(r["consistent"] for r in rows),
-        "outliers": [i for i, r in enumerate(rows) if not r["consistent"]],
+        "all_consistent": all(r["consistent"] for r in judged) if judged else True,
+        "judged_sources": len(judged),
+        "rejected": rejected,
+        "outliers": rejected,
         "sequential_matches_batch": seq_matches_batch,
-        "sequential_state": round(x_seq, 6),
+        "sequential_state": round(x_final, 6),
         "chi2_threshold": CHI2_1DOF_95,
-        "note": "信息式融合 = 逆方差加权；NIS 超 χ²(1) 95% 门限判该源离群",
+        "note": ("标准 NIS = (z-x_pred)^2/(P_pred+R)，超 χ²(1) 95% 门限判离群；"
+                 "gate=True 时离群源只预测不吸收，融合值不被拉偏"),
     }
 
 
@@ -359,6 +443,33 @@ def rff_kernel(samples=None, gamma=1.0, dims=(16, 64, 256), seed=1331):
         "dims": results,
         "mae_trends_down": trending_down,
         "note": "显式有限维映射逼近无限维 RKHS 内积；误差随 D 下降即证据",
+    }
+
+
+def rff_features(x, dims=40, gamma=1.0, seed=1331):
+    """单点随机傅里叶特征：与 rff_kernel 同一公式、同一 seed 约定。
+
+    z(x) = √(2/D) · cos(ω·x + b)，ω~N(0, 2γI)，b~U(0,2π)。
+    关键性质：E[‖z‖²] = 1（因为 cos² 的均值是 1/2），
+    于是"投影后范数随维数膨胀"这种伪现象不会再出现。
+    """
+    xv = [float(v) for v in x]
+    d = len(xv)
+    D = int(dims) if dims and int(dims) > 0 else max(1, d * 10)
+    g = random.Random(seed)
+    omega = [[g.gauss(0.0, math.sqrt(2 * gamma)) for _ in range(d)] for _ in range(D)]
+    bias = [g.uniform(0, 2 * math.pi) for _ in range(D)]
+    z = [math.sqrt(2.0 / D) * math.cos(sum(omega[k][t] * xv[t] for t in range(d)) + bias[k])
+         for k in range(D)]
+    norm_sq = sum(v * v for v in z)
+    return {
+        "model": "random_fourier_features_single",
+        "dim": D,
+        "gamma": gamma,
+        "seed": seed,
+        "feature": [round(v, 6) for v in z],
+        "feature_norm_sq": round(norm_sq, 6),
+        "note": "E[‖z‖²]=1；范数不再随维数膨胀，这是真核近似的可检验特征",
     }
 
 

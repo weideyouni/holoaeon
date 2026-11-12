@@ -8,20 +8,23 @@ langchain_tool / llamaindex_tool / mcp / openai_function），
 缺口 12：dify / coze / qwen / doubao / wenxin / zhipu / xfyun / volcengine /
           openai-compatible-generic / ollama / n8n / dify-workflow。
 
-本批结果（**11 adapted + 1 gap**，不是 12 全adapted 也不是 12 全gap）：
+本批结果（V66 收口后 **12 adapted + 0 gap**，V64 时点为 11 adapted + 1 gap）：
   · 7 条凭本地向量海素材 100_model_provider_catalog.json 直接落地
     （qwen / doubao / volcengine〔同源别名〕/ wenxin / zhipu / ollama /
      openai-compatible-generic）；
   · 4 条凭官方文档落地（xfyun / dify / coze / n8n）——文档 URL 逐条登记在
     evidence 里，抓取时点 2026-11-12；全部标 schema_verified=False（未联网握手）；
-  · 1 条如实保留缺口：dify-workflow —— base_url/鉴权与 dify 同源已证，
-    但 workflow run 端点路径与请求体未在已取文档中取证，**不凭记忆写入**。
+  · 1 条（dify-workflow）由 V66 补齐：V64 时 docs.dify.ai 的 workflow API 页
+    与 openapi spec 均取回失败，故如实留 gap；V66 改为直读 Dify 主仓源码
+    api/controllers/service_api/app/workflow.py，拿到端点 /workflows/run、
+    请求体 {inputs, response_mode, user}、响应模型与错误码，证据等级
+    source_code_read。缺口清零，**不是**靠推断补的。
 
 关键区分（这是本批的口径要点）：
   · 「模型形状」5 种（provider 目录原文）：openai_chat / anthropic_messages /
     google_gemini / bedrock_converse / azure_openai；
-  · 「平台形状」3 种（工作台/工作流自有，与模型形状不同族）：
-    dify_chat / coze_chat / n8n_api。
+  · 「平台形状」4 种（工作台/工作流自有，与模型形状不同族）：
+    dify_chat / dify_workflow / coze_chat / n8n_api。
   所以 xfyun 属模型形状（OpenAI 兼容），dify/coze/n8n 属平台形状——
   不能把工作台硬塞进 openai_chat 就算「适配了」。
 
@@ -49,9 +52,11 @@ MODEL_SHAPES: tuple = (
     {"id": "azure_openai", "label": "Azure OpenAI (deployment)", "shape": "deployment 替代 model + api-version"},
 )
 
-# 平台形状 3 种（工作台/工作流自有形状，本批按官方文档登记）
+# 平台形状 4 种（工作台/工作流自有形状，本批按官方文档/源码登记）
 PLATFORM_SHAPES: tuple = (
     {"id": "dify_chat", "label": "Dify 对话应用", "shape": "inputs + query + response_mode + conversation_id + user"},
+    {"id": "dify_workflow", "label": "Dify 工作流编排",
+     "shape": "inputs + response_mode(省略=blocking) + user → /workflows/run"},
     {"id": "coze_chat", "label": "Coze 发起对话 V3", "shape": "bot_id + user_id + stream + additional_messages[]"},
     {"id": "n8n_api", "label": "n8n Public REST API", "shape": "X-N8N-API-KEY + /api/v1 资源端点"},
 )
@@ -164,10 +169,40 @@ GAPS: tuple = (
         "id": "dify-workflow", "label": "Dify 工作流编排", "kind": "工作流", "provider_id": None,
         "base_url": "https://api.dify.ai/v1",
         "base_url_env": "HOLOAEON_DIFY_BASE_URL", "key_env": "HOLOAEON_DIFY_API_KEY",
-        "models": [], "status": "gap", "shape": None,
-        "missing": ("base_url/鉴权与 dify 同源已由官方文档确认，但 workflow run 的端点路径与请求体"
-                    "未在已取文档页中取证（docs.dify.ai 的 workflow API 页与 openapi spec 均取回失败）——"
-                    "不凭记忆写入；补齐只需一次官方 workflow API 页取证"),
+        "models": [], "status": "adapted", "shape": "dify_workflow",
+        "endpoint": "/workflows/run",
+        "request_body": {
+            "inputs": "object，键名映射到开始节点声明的字段",
+            "response_mode": "blocking | streaming；省略时按 blocking 跑",
+            "user": "string，终端用户标识（服务端 required=True，缺失即 400）",
+            "files": "可选，多模态输入（先走 /files/upload 再引用）",
+        },
+        "response_fields": ["id", "workflow_id", "status", "inputs", "outputs", "error",
+                            "total_steps", "total_tokens", "created_at", "finished_at",
+                            "elapsed_time"],
+        "error_codes": {
+            "400": ["not_workflow_app", "provider_not_initialize", "provider_quota_exceeded",
+                    "model_currently_not_support", "completion_request_error", "invalid_param"],
+            "403": ["forbidden", "trigger_workflow_service_mode_unavailable"],
+            "429": ["too_many_requests", "rate_limit_error"],
+            "500": ["internal_server_error"],
+        },
+        "precondition": ("app_mode 必须为 WORKFLOW（否则 NotWorkflowAppError）；"
+                         "Trigger 入口类工作流禁止经 Web App / Service API / OpenAPI / MCP 调用；"
+                         "工作流必须已发布"),
+        "evidence": (
+            "Dify 主仓源码取证（非二手博客）：api/controllers/service_api/app/workflow.py 中 "
+            "@service_api_ns.route('/workflows/run') → class WorkflowRunApi(Resource).post，"
+            "并另有 @service_api_ns.route('/workflows/<string:workflow_id>/run')；"
+            "请求体 WorkflowRunPayload 继承 WorkflowRunPayloadBase，response_mode 为 "
+            "Literal['blocking','streaming'] | None（省略即 blocking）；"
+            "响应模型 WorkflowRunResponse（status 为 PAUSED 时 outputs 被清空）；"
+            "装饰器链 validate_app_token + expect_with_user 决定鉴权与 user 必填；"
+            "'Cannot be executed without a published workflow'"
+        ),
+        "source_url": ("https://raw.githubusercontent.com/langgenius/dify/main/"
+                       "api/controllers/service_api/app/workflow.py"),
+        "verification": "source_code_read",
     },
 )
 
@@ -232,6 +267,25 @@ def build_request(pid: str, model: str = "", messages: Optional[List[Dict[str, s
                     "headers_hint": {"Authorization": "Bearer ${}".format(p["key_env"])},
                     "body": body})
         return out
+    if shape == "dify_workflow":
+        inputs = dict((extra or {}).get("inputs") or {})
+        mode = (extra or {}).get("response_mode")
+        if mode is None:
+            mode = "streaming" if stream else "blocking"
+        if mode not in ("blocking", "streaming"):
+            raise ValueError("dify_workflow 的 response_mode 只能是 blocking/streaming")
+        body: Dict[str, Any] = {"inputs": inputs, "response_mode": mode,
+                                "user": (extra or {}).get("user", "holoaeon")}
+        files = list((extra or {}).get("files") or [])
+        if files:
+            body["files"] = files   # 先经 POST /files/upload 拿到的 file 对象
+        out.update({"method": "POST", "url": base + p["endpoint"],
+                    "headers_hint": {"Authorization": "Bearer ${}".format(p["key_env"])},
+                    "stream": mode == "streaming",
+                    "body": body,
+                    "note": ("Service API 只服务已发布的 Workflow 类型应用；"
+                             "Trigger 入口工作流会被 403 trigger_workflow_service_mode_unavailable 拒绝")})
+        return out
     if shape == "coze_chat":
         msg = list((extra or {}).get("additional_messages") or [])
         if not msg:
@@ -283,7 +337,7 @@ def check_gaps() -> Dict[str, Any]:
         if not g.get("base_url") or not g.get("key_env") or not g.get("base_url_env"):
             problems.append("adapted 项 {} 缺 base_url/key_env/base_url_env".format(g["id"]))
         if g.get("shape") not in shape_ids:
-            problems.append("adapted 项 {} 形状不在 8 形状内".format(g["id"]))
+            problems.append("adapted 项 {} 形状不在在册形状内".format(g["id"]))
         if not g.get("evidence") or not g.get("source_url"):
             problems.append("adapted 项 {} 无证据或来源 URL".format(g["id"]))
         if g["kind"] in ("大模型", "本地运行时", "网关") and g.get("shape") != "openai_chat":
@@ -312,9 +366,10 @@ def check_gaps() -> Dict[str, Any]:
 def build_ledger() -> Dict[str, Any]:
     return {
         "schema": SCHEMA_VERSION,
-        "batch": "V64-HANGOVER-ZERO",
-        "dom": "12 协议缺口逐条落地（adapted/gap 两态）",
-        "hangover_origin": "V63 receipt：在册 12 / 缺口 12（回执 adapted_list 误填缺口清单，本批订正为两态明细）",
+        "batch": "V66-RESONANCE-PACK-BODYWORK",
+        "dom": "12 协议缺口逐条落地（V66 起 12 adapted / 0 gap）",
+        "hangover_origin": ("V63 receipt：在册 12 / 缺口 12（回执 adapted_list 误填缺口清单）；"
+                            "V64 落 11 adapted + 1 gap；V66 读 Dify 主仓源码补齐最后 1 条"),
         "catalog_source": ("vector-sea/holoaeon-v4-cold-hot-plug/100_model_provider_catalog.json"
                            "（SG-V44-MODEL-PROVIDER-CATALOG-V1，22 providers / 5 模型形状）"),
         "doc_sources": [{"platform": g["id"], "url": g.get("source_url"),

@@ -22,6 +22,20 @@ import math
 from typing import Any, Dict, List, Optional, Tuple
 
 from .base import DomainPack, RoleSpec, SkillSpec, WorkflowSpec
+# V66：把 V65 的 7 把可实测尺子搬进本体，替掉原软内核。
+# 数学实现单一真源放在 holoaeon/resonance_supplement.py（同包内、纯标准库、离线确定性），
+# 本包只做「包装 + 城邦语义映射」，不再各自维护一份近似算法。
+from ..resonance_supplement import (  # noqa: E402
+    CHI2_1DOF_95,
+    decompose_active_nodes,
+    entropy_production,
+    kalman_fuse,
+    kuramoto_order,
+    mandala_wht,
+    rff_kernel,
+    rff_features,
+    sprt_gate,
+)
 
 # ============================================================ 数学常量
 # 1331 = 11³，1331×1331 = 11⁶ = 1,771,561（逻辑位置）
@@ -29,8 +43,11 @@ MATRIX_ROWS = 1331
 MATRIX_COLS = 1331
 LOGICAL_POSITIONS = MATRIX_ROWS * MATRIX_COLS  # 1,771,561
 # 108641：实际活跃节点（稀疏实例化率 ≈ 6.13%）
+# V66：不再是裸魔数——108641 = 13 × 61 × 137（13×61=793，793×137=108641），
+#      占 1,771,561 的 6.1325%，且 1,771,561 = 1331×81 + 830。
 ACTIVE_NODES = 108641
-# 曼陀罗：1 中心 + 8 方位 = 9（九宫/八卦）
+ACTIVE_NODE_FACTORS = (13, 61, 137)
+# 曼陀罗：1 中心 + 8 方位 = 9（九宫/八卦 / Q3 立方体顶点集）
 MANDALA_DIRECTIONS = 8
 MANDALA_TOTAL = 9
 # 共振阈值：余弦相似度超过此值则共振
@@ -39,6 +56,9 @@ RESONANCE_THRESHOLD = 0.75
 EMERGENCE_THRESHOLD = 108641
 # 耗散熵阈值：系统熵超过此值则触发自组织重组
 DISSIPATION_ENTROPY_MAX = 0.95
+# V66：χ²(1) 95% 一致性门限（标准 NIS 判据），与 resonance_supplement 同源
+NIS_CHI2_95 = CHI2_1DOF_95
+
 
 
 # ============================================================ 1. 共振节点
@@ -89,6 +109,13 @@ def resonance_node(node_states: str = "", **_: Any) -> dict:
     emergence = len(resonance_pairs) > 0
     emergence_ratio = len(resonance_pairs) / max(1, n * (n - 1) // 2)
 
+    # V66：X2 不再只有「相似对计数」，补一个真正的序参量
+    # r = |⟨e^{iθ}⟩|，θ 取每个节点状态向量在 (v0,v1) 平面上的相位。
+    # r→1 表示全体同相（宏观相干），r→0 表示相位散开（无相干）。
+    phases = [math.atan2(nd[1], nd[0]) if len(nd) >= 2 else 0.0 for nd in nodes]
+    ko = kuramoto_order(phases)
+    active_split = decompose_active_nodes(ACTIVE_NODES)
+
     return {
         "matrix": f"{MATRIX_ROWS}×{MATRIX_COLS} = {LOGICAL_POSITIONS}",
         "active_nodes": ACTIVE_NODES,
@@ -99,53 +126,83 @@ def resonance_node(node_states: str = "", **_: Any) -> dict:
         "resonance_threshold": RESONANCE_THRESHOLD,
         "emergence": emergence,
         "emergence_ratio": round(emergence_ratio, 4),
-        "note": "共振 = 余弦相似度 ≥ 阈值；涌现 = 共振对 > 0",
+        "order_parameter": round(ko["r"], 6),
+        "phase_coherence": "synchronized" if ko["synchronized"] else "incoherent",
+        "active_nodes_factors": list(ACTIVE_NODE_FACTORS),
+        "active_nodes_factorization": active_split["factorization"],
+        "matrix_quotient": {"quotient": ACTIVE_NODES // MATRIX_ROWS,
+                            "remainder": ACTIVE_NODES % MATRIX_ROWS,
+                            "form": f"{ACTIVE_NODES} = {MATRIX_ROWS}×{ACTIVE_NODES // MATRIX_ROWS} + {ACTIVE_NODES % MATRIX_ROWS}"},
+        "note": "共振 = 余弦相似度 ≥ 阈值；涌现 = 共振对 > 0；序参量 r = |⟨e^{iθ}⟩|",
     }
 
 
 # ============================================================ 2. 曼陀罗扩散
-def mandala_fanout(task: str = "", center: str = "", **_: Any) -> dict:
-    """曼陀罗一拖八：1 中心 → 8 方位扩散，结果聚合。
+def mandala_fanout(task: str = "", center: str = "", loads: str = "",
+                   **_: Any) -> dict:
+    """曼陀罗一拖八：中心分发 → 8 方位，聚合改为**正交变换 + 逆变换**。
 
-    数学内核：
-      曼陀罗结构 = 1 中心 + 8 方位（N/NE/E/SE/S/SW/W/NW）= 9 节点
-      Fan-out：中心向 8 方位发送任务
-      Fan-in：8 方位返回结果 → 中心聚合
+    数学内核（V66 换芯）：
+      原实现用 `_det_hash(...) % 10 > 2` 掷出「70% 确定性成功」——那不是拓扑，
+      是披着确定性外衣的骰子，且永远无法判错。
+      现改为 Q3 立方体八方位上的 Hadamard 正交变换 H8（H8·H8ᵀ = 8I）：
+        fan-out = 正变换（把中心载荷分解到 8 条正交通道）
+        fan-in  = 逆变换（8 条通道无损重建，自逆）
+      判据可失败：正交偏差须为 0、往返误差须为 0、Parseval 比须为 1。
+      八方位齐步（载荷全等）时谱只剩直流项 —— 没有分化就没有真正的扇出，
+      这正是拓扑该有的行为，而非"八条都成功"。
 
     城邦映射：Fan-out/Fan-in + Orchestrator-Worker
     """
     directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"]
 
-    # 中心节点任务分发
+    # 载荷：8 个方位的承载量；缺省 1..8（逐级递增，保证谱非退化）
+    if loads:
+        ld = [float(x) for x in loads.split(",") if x.strip()]
+        if len(ld) != MANDALA_DIRECTIONS:
+            ld = [float(i + 1) for i in range(MANDALA_DIRECTIONS)]
+    else:
+        ld = [float(i + 1) for i in range(MANDALA_DIRECTIONS)]
+
+    wht = mandala_wht(ld)
+    spectrum = wht["spectrum"]
+    dc = wht["center_dc"]
+
+    # 中心节点任务分发（正变换的输入侧）
     fan_out = []
-    for d in directions:
+    for i, d in enumerate(directions):
         fan_out.append({
             "direction": d,
             "task": task or "默认扩散任务",
             "center": center or "N00",
             "status": "dispatched",
+            "load": ld[i],
         })
 
-    # 确定性模拟 8 方位执行（非真实调用，确定性哈希模拟结果）
+    # fan-in：各正交通道的谱幅（通道 0 = 直流/中心，其余 = 各阶差分）
     fan_in = []
     for i, d in enumerate(directions):
-        # 确定性"执行结果"：基于方向索引的确定性哈希
-        result_hash = _det_hash(f"{task}:{d}:{i}")
-        success = result_hash % 10 > 2  # 70% 确定性成功
+        amp = spectrum[i]
+        has_content = abs(amp) > 1e-12
         fan_in.append({
             "direction": d,
-            "result": f"output_{d}_{result_hash % 1000}",
-            "status": "ok" if success else "partial",
+            "channel": i,
+            "amplitude": amp,
+            "status": "ok" if has_content else "partial",
+            "meaning": "DC(中心整体)" if i == 0 else f"差分阶{i}",
         })
 
-    # 中心聚合
     successes = sum(1 for r in fan_in if r["status"] == "ok")
     all_ok = successes == MANDALA_DIRECTIONS
+    # 有效扇出通道：携带独立信息量的非直流通道数
+    effective_fanout = sum(1 for i in range(1, MANDALA_DIRECTIONS)
+                           if abs(spectrum[i]) > 1e-12)
 
     return {
         "topology": "mandala",
-        "structure": f"1中心 + {MANDALA_DIRECTIONS}方位 = {MANDALA_TOTAL}节点",
+        "structure": f"1中心 + {MANDALA_DIRECTIONS}方位 = {MANDALA_TOTAL}节点（Q3 顶点集）",
         "task": task or "默认扩散任务",
+        "loads": ld,
         "fan_out": fan_out,
         "fan_in": fan_in,
         "aggregation": {
@@ -154,8 +211,19 @@ def mandala_fanout(task: str = "", center: str = "", **_: Any) -> dict:
             "total": MANDALA_DIRECTIONS,
             "all_ok": all_ok,
             "quorum": successes >= MANDALA_DIRECTIONS // 2 + 1,
+            "effective_fanout": effective_fanout,
         },
-        "note": "曼陀罗一拖八：中心分发 → 8方位执行 → 中心聚合",
+        "orthogonal_transform": {
+            "spectrum": spectrum,
+            "center_dc": dc,
+            "center_equals_mean": wht["center_is_mean"],
+            "reconstruction_error": wht["reconstruction_error"],
+            "orthogonality_max_dev": wht["orthogonality_max_dev"],
+            "parseval_ratio": wht["parseval_ratio"],
+            "perfect": wht["perfect"],
+        },
+        "note": ("曼陀罗一拖八 = 八方位正交变换：分发是正变换、聚合是逆变换；"
+                 "齐步载荷只剩直流项，说明无分化即无扇出"),
     }
 
 
@@ -291,14 +359,17 @@ def klein_convergence(paths: str = "", **_: Any) -> dict:
 
 
 # ============================================================ 5. 卡尔曼状态
-def kalman_state(observations: str = "", **_: Any) -> dict:
-    """卡尔曼滤波状态融合：多源状态估计 + 不确定性传播。
+def kalman_state(observations: str = "", observation_noise: str = "",
+                 process_noise: float = 0.01, **_: Any) -> dict:
+    """卡尔曼滤波状态融合：预测步 + 标准 NIS 一致性检验。
 
-    数学内核：
-      状态：x (均值) + P (方差)
-      预测：x' = x, P' = P + Q（过程噪声）
-      更新：K = P/(P+R), x = x + K·(z-x), P = (1-K)·P
-      多次观测 → 状态收敛 + 不确定性降低
+    数学内核（V66 换芯）：
+      原实现是单源标量 KF，Q=0.01 / R=0.1 全硬编码，且**没有一致性判据**——
+      它只负责"把数算出来"，不负责"判断这次观测该不该信"。
+      现改为：每源先走预测步（P⁻ = P + Q），用**预测值**而非融合值算标准 NIS：
+        NIS = (z − x⁻)² / (P⁻ + R)，超 χ²(1) 95%（3.841）判该源离群；
+      离群源只推进预测、不吸收（innovation gating），融合值不被拉偏。
+      q=0 时序贯结果与批量逆方差加权精确相等，可交叉验证。
 
     城邦映射：State Reducer + Checkpoint + Shared State
     """
@@ -309,55 +380,75 @@ def kalman_state(observations: str = "", **_: Any) -> dict:
         # 默认：5次观测，真实值约1.0
         obs = [1.0, 0.9, 1.1, 0.95, 1.05]
 
-    # 卡尔曼滤波（标量版）
-    x = obs[0]  # 初始状态估计
-    P = 1.0     # 初始方差（大 = 不确定）
-    Q = 0.01    # 过程噪声
-    R = 0.1     # 观测噪声
+    if observation_noise:
+        rs = [float(x) for x in observation_noise.split(",") if x.strip()]
+        if len(rs) != len(obs):
+            rs = [0.1] * len(obs)
+    else:
+        rs = [0.1] * len(obs)
+
+    q = float(process_noise)
+    res = kalman_fuse(list(zip(obs, rs)), process_noise=q, gate=True)
 
     steps = []
-    for i, z in enumerate(obs):
-        # 预测
-        x_pred = x
-        P_pred = P + Q
-        # 更新
-        K = P_pred / (P_pred + R)
-        x = x_pred + K * (z - x_pred)
-        P = (1 - K) * P_pred
+    for i, row in enumerate(res["sources"]):
         steps.append({
             "step": i,
-            "observation": z,
-            "kalman_gain": round(K, 6),
-            "state_estimate": round(x, 6),
-            "uncertainty": round(P, 6),
+            "observation": row["z"],
+            "measurement_variance": row["R"],
+            "predicted_state": row["predicted_state"],
+            "innovation": row["innovation"],
+            "kalman_gain": row["gain"],
+            "state_estimate": row.get("state_estimate", row["predicted_state"]),
+            "uncertainty": row.get("uncertainty", row["predicted_variance"]),
+            "nis": row["nis"],
+            "consistent": row["consistent"],
+            "applied": row["applied"],
         })
 
+    nis_max = max((s["nis"] for s in steps), default=0.0)
     # 状态快照（Checkpoint）
     checkpoint = {
-        "final_state": round(x, 6),
-        "final_uncertainty": round(P, 6),
-        "convergence": P < 0.01,  # 不确定性收敛
+        "final_state": res["fused_state"],
+        "final_uncertainty": res["fused_variance"],
+        "convergence": res["fused_variance"] < 0.01,  # 不确定性收敛
         "observations": len(obs),
+        "all_consistent": res["all_consistent"],
+        "nis_max": round(nis_max, 6),
+        "rejected_sources": res["rejected"],
     }
 
     return {
-        "filter": "kalman_scalar",
-        "parameters": {"Q": Q, "R": R, "initial_P": 1.0},
+        "filter": "kalman_scalar_with_predict_step",
+        "nis_mode": res["nis_mode"],
+        "parameters": {"Q": q, "R": rs[0] if rs else 0.1, "initial_P": None},
+        "R_per_source": rs,
         "steps": steps,
         "checkpoint": checkpoint,
-        "note": "卡尔曼滤波：多源观测 → 状态融合 → 不确定性收敛 → 快照",
+        "consistency_gate": {
+            "chi2_1dof_95": NIS_CHI2_95,
+            "nis_max": round(nis_max, 6),
+            "all_consistent": res["all_consistent"],
+            "sequential_matches_batch": res["sequential_matches_batch"],
+        },
+        "note": ("卡尔曼滤波：预测步 → 标准 NIS（预测 vs 观测）→ 一致性门 → "
+                 "状态融合 → 不确定性收敛 → 快照"),
     }
 
 
 # ============================================================ 6. 贝叶斯守卫
-def bayesian_guard(feature: str = "", history: str = "", **_: Any) -> dict:
-    """贝叶斯推理守卫：基于历史拦截率的概率拦截。
+def bayesian_guard(feature: str = "", history: str = "", evidence: str = "",
+                   cost_fn: float = 10.0, cost_fp: float = 1.0,
+                   alpha: float = 0.05, beta: float = 0.10, **_: Any) -> dict:
+    """贝叶斯推理守卫：代价敏感判定 + Wald 序贯检验（双门限）。
 
-    数学内核：
-      先验：P(block) = 历史拦截率
-      似然：P(feature|block) / P(feature|allow)
-      后验：P(block|feature) = P(feature|block)·P(block) / P(feature)
-      后验 > 阈值 → BLOCK
+    数学内核（V66 换芯）：
+      原实现把阈值写死成 0.5——但 0.5 只在外罚与内罚代价相等时才最优。
+      误放（漏掉一次该拦的）的代价远高于误拦（多拦一次可人工复核），
+      所以判定阈值应是 Bayes 风险最优的 C_fp/(C_fp+C_fn)，
+      默认 1/(1+10) ≈ 0.0909，而不是拍出来的 0.5。
+      另加 Wald SPRT：给定一批 0/1 证据时，累积对数似然比越 A 判危险、
+      越 B 判安全，证据够了就停，不再"攒满固定窗口再拍板"。
 
     城邦映射：Guardrail + Permission/Policy + Retry Policy
     """
@@ -371,7 +462,7 @@ def bayesian_guard(feature: str = "", history: str = "", **_: Any) -> dict:
 
     prior_allow = 1.0 - prior_block
 
-    # 特征似然表（确定性，基于工程经验）
+    # 特征似然表（确定性，基于工程经验；这是先验知识，不是"软内核"）
     likelihood_table = {
         "write": {"block": 0.70, "allow": 0.20},
         "delete": {"block": 0.85, "allow": 0.05},
@@ -397,9 +488,34 @@ def bayesian_guard(feature: str = "", history: str = "", **_: Any) -> dict:
     else:
         posterior_block = prior_block
 
-    # 决策
-    threshold = 0.5
-    decision = "BLOCK" if posterior_block > threshold else "ALLOW"
+    # 代价敏感阈值（替代原硬编码 0.5）
+    threshold = cost_fp / (cost_fp + cost_fn)
+
+    # 序贯检验（有证据序列时才启用）
+    sprt = None
+    if evidence:
+        ev = [1 if x.strip() in ("1", "true", "True", "hit", "risk") else 0
+              for x in evidence.split(",") if x.strip()]
+        if ev:
+            sp = sprt_gate(ev, p0=prior_block if 0 < prior_block < 1 else 0.15,
+                           p1=0.45, alpha=alpha, beta=beta)
+            sprt = {
+                "threshold_A": sp["threshold_A"],
+                "threshold_B": sp["threshold_B"],
+                "llr_path": sp["llr_path"],
+                "decision": sp["decision"],
+                "stopped_at": sp["stopped_at"],
+                "evidence_length": sp["observation_length"],
+                "evidence_saved": sp["evidence_saved"],
+            }
+
+    # 决策：序贯已定则听序贯，未定（CONTINUE）则回落后验
+    if sprt and sprt["decision"] in ("H0", "H1"):
+        decision = "BLOCK" if sprt["decision"] == "H1" else "ALLOW"
+        decided_by = "sprt"
+    else:
+        decision = "BLOCK" if posterior_block > threshold else "ALLOW"
+        decided_by = "posterior_cost_threshold"
 
     # 重试策略（如果 BLOCK）
     retry_policy = {
@@ -415,22 +531,30 @@ def bayesian_guard(feature: str = "", history: str = "", **_: Any) -> dict:
         "likelihood": ll,
         "posterior": {"block": round(posterior_block, 6),
                       "allow": round(1 - posterior_block, 6)},
-        "threshold": threshold,
+        "threshold": round(threshold, 6),
+        "threshold_rule": f"cost_fp/(cost_fp+cost_fn) = {cost_fp}/{cost_fp + cost_fn}",
         "decision": decision,
+        "decided_by": decided_by,
+        "sprt": sprt,
         "retry_policy": retry_policy,
-        "note": "贝叶斯守卫：先验(历史) + 似然(特征) → 后验(概率) → 决策",
+        "note": ("贝叶斯守卫：先验(历史) + 似然(特征) → 后验；"
+                 "判定用代价敏感阈值或 Wald 双门限 SPRT，不再写死 0.5"),
     }
 
 
 # ============================================================ 7. 希尔伯特投影（辅助）
-def hilbert_project(vector: str = "", dimensions: int = 0, **_: Any) -> dict:
-    """希尔伯特计算空间投影：有限维 → 近似无限维。
+def hilbert_project(vector: str = "", dimensions: int = 0,
+                    gamma: float = 1.0, **_: Any) -> dict:
+    """希尔伯特计算空间投影：有限维 → 无限维 RKHS 的显式近似。
 
-    数学内核：
-      希尔伯特空间：完备内积空间，可无限维
-      有限向量 v ∈ R^n → 希尔伯特投影 v_h ∈ R^N (N >> n)
-      基函数：φ_k(x) = x^k / sqrt(k!)（归一化多项式基）
-      投影：v_h[k] = v[k % n] · φ_k(k)
+    数学内核（V66 换芯）：
+      原实现 φ_k = 1/√(k+1)、v_h[k] = v[k % n] · φ_k 是**假的**：
+      它既不正交、也不是任何核的特征映射，且范数随 N 单调膨胀（
+      Σ 1/(k+1) 发散），所以 `norm_preservation` 只是个随维数变大的数字。
+      现改为 Bochner 定理给出的随机傅里叶特征：平移不变核的傅里叶变换
+      是一个概率分布，抽 ω 即可写出有限维特征 z(x)，使
+        E[z(x)·z(y)] = exp(−γ‖x−y‖²)
+      这才是"用有限维逼近无限维 RKHS 内积"的可检验版本。
 
     城邦映射：Memory + Context + Observability
     """
@@ -441,26 +565,21 @@ def hilbert_project(vector: str = "", dimensions: int = 0, **_: Any) -> dict:
         v = [1.0, 0.5, -0.3, 0.8]
 
     n = len(v)
-    # 投影维度（默认 10 倍原维度，模拟"更高维空间"）
+    # 投影维度（默认 10 倍原维度）
     N = dimensions if dimensions > 0 else n * 10
 
-    # 希尔伯特投影
-    projection = []
-    for k in range(N):
-        # 归一化多项式基 φ_k = 1/sqrt(k+1)（简化版，避免大数溢出）
-        phi_k = 1.0 / math.sqrt(k + 1)
-        v_h_k = v[k % n] * phi_k
-        projection.append(round(v_h_k, 6))
-
-    # 内积（希尔伯特空间度量）
-    inner_product = sum(v_h ** 2 for v_h in projection)
-    hilbert_norm = math.sqrt(inner_product)
-
-    # 原空间 vs 希尔伯特空间范数比较
+    rff = rff_features(v, dims=N, gamma=gamma)
+    projection = rff["feature"]
+    hilbert_norm_sq = rff["feature_norm_sq"]
+    hilbert_norm = math.sqrt(hilbert_norm_sq)
     orig_norm = math.sqrt(sum(x ** 2 for x in v))
+    # 核自相似：z(x)·z(x) 应逼近 k(x,x)=1
+    kernel_self = hilbert_norm_sq
 
     return {
         "space": "hilbert",
+        "map": "random_fourier_features",
+        "kernel": f"exp(-{gamma}·||x-y||²)",
         "original_dim": n,
         "projected_dim": N,
         "expansion_ratio": round(N / n, 2),
@@ -469,20 +588,26 @@ def hilbert_project(vector: str = "", dimensions: int = 0, **_: Any) -> dict:
         "projection_full_length": len(projection),
         "hilbert_norm": round(hilbert_norm, 6),
         "original_norm": round(orig_norm, 6),
-        "norm_preservation": round(hilbert_norm / orig_norm, 6) if orig_norm else 0,
-        "note": "希尔伯特投影：有限维→高维近似，保持内积结构",
+        "norm_preservation": round(kernel_self, 6),
+        "kernel_self_estimate": round(kernel_self, 6),
+        "note": ("随机傅里叶特征：E[‖z‖²]=1 逼近 k(x,x)；"
+                 "投影范数不随维数膨胀，误差随 D 下降"),
     }
 
 
 # ============================================================ 8. 耗散度量（辅助）
-def dissipation_measure(task_flow: str = "", **_: Any) -> dict:
-    """耗散结构度量：系统熵 + 秩序/失序平衡。
+def dissipation_measure(task_flow: str = "", sigma_min: float = 1.0,
+                        **_: Any) -> dict:
+    """耗散结构度量：Shannon 熵 + **熵产率 σ（热力学力/流）**。
 
-    数学内核：
-      耗散结构（Prigogine）：开放系统通过能量流入维持低熵秩序
-      Shannon 熵：H = -Σ p_i · log2(p_i)
-      秩序度：O = 1 - H/H_max
-      耗散率：能量输入 - 有效功
+    数学内核（V66 换芯）：
+      原实现只有 Shannon 熵 + "失败率当耗散率"，缺了耗散结构理论的核心量：
+      熵产率 σ = Σ J_i X_i（流 × 力）。耗散结构讲的不是"熵多高"，
+      而是"开放系统靠持续耗散维持低熵秩序"——所以必须能算出**耗散了多少、
+      以及这个耗散是否足够支撑秩序**。
+      现以 [p_ok, p_fail] 为热力学力 X，经 Onsager 线性唯象关系 J = L·X 得流 J，
+      σ = XᵀLX，并用 Onsager 对称 + Sylvester 正定双闸判其物理可解释性。
+      力与流的内积为负（负定 L）时如实返回 positive_definite=false，不硬掰成正。
 
     城邦映射：Observability + Traceability + Audit
     """
@@ -519,8 +644,14 @@ def dissipation_measure(task_flow: str = "", **_: Any) -> dict:
     dissipation = energy_in - work_done  # 耗散 = 失败数
     dissipation_rate = dissipation / energy_in if energy_in else 0
 
-    # 自组织触发判断
+    # 自组织触发判断（原判据保留）
     needs_reorganization = entropy > DISSIPATION_ENTROPY_MAX or order < 0.3
+
+    # V66：熵产率 σ = Σ J_i X_i（力 = [p_ok, p_fail]，J = L·X）
+    ep = entropy_production(forces=[p_ok, p_fail])
+    sigma = ep["sigma"]
+    # 耗散不足 = 系统不流动（σ 低于下界），与"太乱要重组"是相反方向的病
+    dissipation_sufficient = sigma >= sigma_min
 
     return {
         "structure": "dissipative",
@@ -539,9 +670,21 @@ def dissipation_measure(task_flow: str = "", **_: Any) -> dict:
             "dissipated": dissipation,
             "dissipation_rate": round(dissipation_rate, 4),
         },
+        "entropy_production": {
+            "sigma": sigma,
+            "forces": ep["forces"],
+            "flows": ep["flows"],
+            "onsager": ep["onsager"],
+            "symmetric_onsager": ep["symmetric_onsager"],
+            "positive_definite": ep["positive_definite"],
+            "leading_principal_minors": ep["leading_principal_minors"],
+            "dissipation_sufficient": dissipation_sufficient,
+            "sigma_min": sigma_min,
+        },
         "needs_reorganization": needs_reorganization,
         "emergence_condition": "熵 > 0.95 或 秩序 < 0.3 → 触发自组织重组",
-        "note": "耗散度量：能量流入 → 熵减 → 秩序涌现；失序超阈 → 自组织重组",
+        "note": ("耗散度量：能量流入 → 熵产率 σ 量化耗散强度 → 秩序涌现；"
+                 "失序超阈 或 σ 低于下界 → 触发自组织重组"),
     }
 
 

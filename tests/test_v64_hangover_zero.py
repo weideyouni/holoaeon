@@ -167,25 +167,25 @@ class TestMechanismBearers(unittest.TestCase):
 
 
 class TestGapAdapters(unittest.TestCase):
-    """挂账 ②：12 平台缺口两态（11 adapted / 1 gap）。"""
+    """挂账 ②：12 平台缺口两态（V66 起 12 adapted / 0 gap）。"""
 
     def setUp(self):
         from holoaeon import gap_adapters
         self.ga = gap_adapters
 
-    def test_twelve_total_eleven_adapted_one_gap(self):
+    def test_twelve_total_twelve_adapted_zero_gap(self):
         rep = self.ga.check_gaps()
         self.assertEqual(rep["total"], 12)
-        self.assertEqual(rep["adapted"], 11)
-        self.assertEqual(rep["gaps"], 1)
-        self.assertEqual(rep["gap_list"], ["dify-workflow"])
+        self.assertEqual(rep["adapted"], 12)
+        self.assertEqual(rep["gaps"], 0)
+        self.assertEqual(rep["gap_list"], [])
         self.assertEqual(rep["verdict"], "PASS")
 
     def test_platform_shapes_not_forced_into_openai(self):
         rep = self.ga.check_gaps()
         self.assertEqual(rep["model_shapes"], 5)
-        self.assertEqual(rep["platform_shapes"], 3)
-        for pid in ("dify", "coze", "n8n"):
+        self.assertEqual(rep["platform_shapes"], 4)
+        for pid in ("dify", "dify-workflow", "coze", "n8n"):
             self.assertNotEqual(self.ga.get_platform(pid)["shape"], "openai_chat")
 
     def test_xfyun_is_openai_compatible(self):
@@ -210,11 +210,32 @@ class TestGapAdapters(unittest.TestCase):
         self.assertTrue(n["url"].endswith("/api/v1/workflows"))
         self.assertIn("X-N8N-API-KEY", n["headers_hint"])
 
-    def test_gap_raises_not_fake(self):
-        with self.assertRaises(ValueError):
-            self.ga.build_request("dify-workflow")
+    def test_dify_workflow_adapted_from_source_code(self):
+        """V66：dify-workflow 由源码取证补齐，端点/请求体/鉴权全部有据。"""
         p = self.ga.get_platform("dify-workflow")
-        self.assertIn("不凭记忆", p["missing"])
+        self.assertEqual(p["status"], "adapted")
+        self.assertEqual(p["shape"], "dify_workflow")
+        self.assertEqual(p["verification"], "source_code_read")
+        self.assertIn("service_api/app/workflow.py", p["source_url"])
+        self.assertIn("/workflows/run", p["evidence"])
+        r = self.ga.build_request("dify-workflow", extra={"inputs": {"q": "x"}})
+        self.assertEqual(r["url"], "https://api.dify.ai/v1/workflows/run")
+        self.assertIn("user", r["body"])          # Service API 强制 user
+        self.assertEqual(r["body"]["response_mode"], "blocking")
+        s = self.ga.build_request("dify-workflow", extra={"inputs": {}}, stream=True)
+        self.assertEqual(s["body"]["response_mode"], "streaming")
+        self.assertTrue(s["stream"])
+
+    def test_gap_raises_not_fake(self):
+        """机制守卫：仍为 gap 的条目不得被假拼成请求（临时置 gap 验证）。"""
+        p = self.ga.get_platform("dify-workflow")
+        saved = (p["status"], p.get("missing"))
+        try:
+            p["status"], p["missing"] = "gap", "测试用临时缺口"
+            with self.assertRaises(ValueError):
+                self.ga.build_request("dify-workflow")
+        finally:
+            p["status"], p["missing"] = saved
 
     def test_every_adapted_has_source_url(self):
         for g in self.ga.GAPS:
@@ -371,7 +392,7 @@ class TestBatchSurface(unittest.TestCase):
 
     def test_doc_version_bumped(self):
         from holoaeon import spec
-        self.assertEqual(spec.DOC_VERSION, "0.9.59")
+        self.assertEqual(spec.DOC_VERSION, "0.9.60")
         self.assertEqual(spec.VERSION, "0.9.1")
 
 
