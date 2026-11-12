@@ -1,0 +1,149 @@
+{
+  "batch": "V73-PL6-TUTOR",
+  "line": "PL-6 史前大部头导学产品（PL-4 / PL-5 / PL-6 单独成批，本批只做 PL-6）",
+  "status": "closed",
+  "date": "2026-11-13",
+  "head": "50871c55c03339210971608f6c0875760f6283b9",
+  "head_short": "50871c5",
+  "prev_head": "56168ec1dbe90c406f60ef83606bdac1e4e3c1c6",
+  "doc_version": "0.9.67",
+  "patches": [
+    {
+      "file": "holoaeon/prehistory_tutor.py",
+      "kind": "A",
+      "note": "新源码 284 行量级；六面逐卡判据 + 部头覆盖 + 路径 DFS 判环 + digest/self_digest + CLI verify|report；结构上只读，无搬运函数"
+    },
+    {
+      "file": "data/tutor_cards.json",
+      "kind": "A",
+      "note": "指针卡片库 42 张 / 26,014 B；schema PREHISTORY-TUTOR-v1；分部头 14/5/10/13；payload digest ad57eecb6d0884ac"
+    },
+    {
+      "file": "tests/test_v73_prehistory_tutor.py",
+      "kind": "A",
+      "note": "40 例，九组：正向 / 指针与复制 / 零诊断零处方 / 部头 / 路径 / 确定性与报告 / 字段与加载 / 真实站点 / CLI"
+    },
+    {
+      "file": "holoaeon/spec.py",
+      "kind": "M",
+      "note": "DOC_VERSION 0.9.66→0.9.67（唯一权威升号点，第 35 行）"
+    },
+    {
+      "file": "tests/test_v22_eng_skills.py, tests/test_v64_hangover_zero.py, tests/test_v70_prehistory_criteria.py",
+      "kind": "M",
+      "note": "三处写死版本断言同步到 0.9.67；V40 教训「升号必扫旧断言」，本批四处耦合齐改"
+    },
+    {
+      "file": "README.md, README.zh-CN.md",
+      "kind": "M",
+      "note": "三处同源：徽章 tests-1743+11+21 / 门禁行 unittest 1743 OK + redline 154 / 验收行 1743+11+21=1775；两份 README 各插入 V73 批次行并把 V72 降为上一批次"
+    },
+    {
+      "file": "reports/five_site_manifest.json",
+      "kind": "M",
+      "note": "改 README 后重建：package 28 / repo 171 / missing 0 / zip_sha16 a87fa921bf963fa1；verify PASS drift []"
+    }
+  ],
+  "tutor_library": {
+    "schema": "PREHISTORY-TUTOR-v1",
+    "version": "1.0",
+    "cards": 42,
+    "bytes": 26014,
+    "sections": {
+      "导学大典": 14,
+      "计算机语言通史": 5,
+      "周易": 10,
+      "道藏": 13
+    },
+    "min_cards_per_section": 3,
+    "max_summary_chars": 200,
+    "card_fields": ["id", "source_pointer", "sha16", "段落锚", "领域", "归属仓", "导学路径", "evidence_level", "zero_prescription"],
+    "payload_digest": "ad57eecb6d0884ac",
+    "report_digest": "9850bb6644a0954c",
+    "self_digest": "db8d370fe15a8048",
+    "material_surface": {
+      "artefacts": 5,
+      "files": 440,
+      "bytes_mb": 45.57,
+      "read_only": true,
+      "copied_full_text": 0
+    },
+    "corpus_notes": {
+      "导学大典": "2 件（0.77 MB + 1.56 MB），按 ###/#### 分段抽卡，摘要取标题下正文首段",
+      "计算机语言通史": "01_正文\\卷01_史前到高级语言诞生\\ 下 317 个 V1P1C01S%02d.md，逐文件 1 卡",
+      "周易": "02_合一全文_第001-450篇_约180万字.md，44,440 行 / 451 个 #，按 ^# 分篇，一篇一卡，保证跨篇",
+      "道藏": "综合合集最新一版 001-003 天 7 卡 + artifacts 6 件 6 卡；artifacts 实测仅 027/028/029/030 四篇正文 + 2 构建脚本"
+    }
+  },
+  "falsifiability_canary": {
+    "cases": [
+      "pointer_reachable",
+      "no_full_copy",
+      "zero_prescription",
+      "section_coverage",
+      "path_acyclic",
+      "determinism_self_digest"
+    ],
+    "red": "6/6",
+    "baseline_green": true,
+    "verdict": "PASS",
+    "evidence": "F:\\doubaowork\\holoaeon_lathe\\pl6_canary.json",
+    "evidence_detail": {
+      "pointer_reachable": "指针改指不存在文件 → pointer_reachable 连带 sha_mismatch / anchor_out_of_range 同时红",
+      "no_full_copy": "摘要拉长到 240 字 → no_full_copy 单独红",
+      "zero_prescription": "摘要追加「建议按疗程服用」→ zero_prescription 单独红，其余面不红",
+      "section_coverage": "删掉道藏全部 13 卡 → section_missing，剩 29 卡",
+      "path_acyclic": "周易首尾互指成环 → path_cycle",
+      "determinism_self_digest": "改 totals 后 self_digest 红；同时 two_runs_same=true、clean_report_ok=true，证明篡改被抓住而非判据崩"
+    },
+    "method": "复制真实卡片库到 tempfile 做 6 份篡改副本 + 1 份基准，逐份 verify；仓内 data/tutor_cards.json 全程未被改写"
+  },
+  "verification": {
+    "unittest_main": "1743 OK (skip=0)",
+    "v73_cases": 40,
+    "selftest": "25/25",
+    "v3_gate": "32/32",
+    "unittest_v3": "11 OK",
+    "unittest_verax": "21 OK",
+    "redline": "154 文件 0 违规",
+    "package_py_files": 154,
+    "dimension_lock": "PASS 12 维度 / 7 闸 / 0 violation",
+    "diff0": "DIFF=0 run1=run2=6d119b2a9f2df687 tampered=8f424d9ee3ebfb9b 冷装配 32.92ms",
+    "five_site_manifest": "package 28 / repo 171 / missing 0；verify PASS drift []",
+    "readme_claims_check": "PASS mismatch=0（两份 README：1743 / 1775 / 154 三处均 MATCH）",
+    "check_sums": "ok=true 250 条 0 不匹配"
+  },
+  "five_site": {
+    "S1_local": "50871c55c03339210971608f6c0875760f6283b9",
+    "S2_gitee": "50871c55c03339210971608f6c0875760f6283b9（56168ec..50871c5）",
+    "S3_github": "50871c55c03339210971608f6c0875760f6283b9（56168ec..50871c5）",
+    "S4_vector_sea": "195/195 dir_files；missing/extra/bad_sha256/bad_bytes 四项空",
+    "S5_hf": {
+      "sha": "e398908f86db0857bc9a7c8814cd31397e6e6d3b",
+      "remote_files": 703,
+      "uploaded": 10,
+      "mismatch": []
+    }
+  },
+  "honest_boundaries": [
+    "「42 张卡」与「每部头 ≥3 张」是本批自定阈值，不是策划案原文；它们是可失败判据（低于即红），但阈值本身由执行侧选定，后续批次可调。",
+    "道藏 artifacts 磁盘实测只有 027/028/029/030 四篇正文 + 2 个构建脚本，第 032 天不在 artifacts；四人组账面与磁盘不一致，抽卡按磁盘真实枚举，本回执登记该差异。",
+    "摘要为抽取式（取段落首句/前文截断到 200 字），不是模型改写或人工提要；evidence_level 一律 L2（原文可回溯），不宣称「已理解」。",
+    "「零实现复制」沿用团队既有解释口径（V72 回执已登记），本批实现为「只存指针 + 摘要上限 200 字 + 禁词表」，未做逐字节与全文比对；sha16 只证明源文件身份，不证明内容未被曲解。",
+    "四部头覆盖是「每部头至少 3 张」，不是按素材规模等比例抽样：通史有 317 个文件只抽 5 卡，道藏 22 文件抽 13 卡，比例不对称是有意为之（通史单文件高度同构，抽多只会重复）。"
+  ],
+  "not_committed": [
+    "AGENT_FEED_V73_PL6_TUTOR_20261113.md（投喂包，untracked，收口后加 _DONE）",
+    "F:\\doubaowork\\holoaeon_lathe\\v73_build_cards.py（卡片库生成器）",
+    "F:\\doubaowork\\holoaeon_lathe\\pl6_canary.py / pl6_canary.json（六面金丝雀与留证）",
+    "F:\\doubaowork\\holoaeon_lathe\\v73_readme_patch.py（补丁脚本）",
+    "reports/state_beacon.json 及备份、reports/daily_gate*.json、reports/daily_baseline_*.md",
+    "根目录 BASELINE_STATUS_* / COMMERCIAL_* / QUARTET_* / STANDARD_BASED_* 过程文档"
+  ],
+  "lessons": [
+    "报告字段如果写死常量而不读 payload，对应的「schema 漂移」「note 混入泄漏」两条判据会恒绿——判据必须建立在被检对象的真实值上，否则测的是自己的常量。",
+    "金丝雀「按预期失败」的语义要按面分别定义：基准面看 ok=true，篡改面看 ok=false；六面里若有一面是「报告被改即红」，它与其它面方向相反，混用一套判定会把 6/6 红读成 FAIL。",
+    "全角括号与半角括号在中文 README 里混用会让锚点 count=0；本批补齐三处同源时只用不带收尾括号的前缀锚，逐处 count==1 断言。"
+  ],
+  "seal": "潮起开门，潮落闭嘴"
+}
