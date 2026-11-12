@@ -3,8 +3,8 @@
  "status": "closed",
  "date": "2026-11-12",
  "seal": "潮起开门，潮落闭嘴",
- "head": "PENDING_COMMIT",
- "head_short": "PENDING",
+ "head": "54539a856ab22f382db8a52b4fb6e0558451298c",
+ "head_short": "54539a8",
  "prev_head_short": "16c57b1",
  "doc_version": "0.9.56",
  "version_frozen": "0.9.1",
@@ -142,5 +142,6 @@
  "rollback": {
   "files": "三件纯新增，git rm 即回滚；spec/README/test_v22 由本批内改动，git revert 即可",
   "data": "data/searchnet_d03_meridian.json 可由 python -m holoaeon.meridian_link ledger 重建（确定性）"
- }
+ },
+ "main_commit_stat": "9 files / +3856 / -14"
 }
