@@ -1,0 +1,122 @@
+{
+ "batch": "V61-SALVAGE-PATCH",
+ "status": "closed",
+ "date": "2026-11-12",
+ "seal": "潮起开门，潮落闭嘴",
+ "head": "046da3d4cffbf0f6be622264f992b3deb6741ac5",
+ "head_short": "046da3d",
+ "prev_head_short": "5edc01d",
+ "doc_version": "0.9.55",
+ "version_frozen": "0.9.1",
+ "ring": 23,
+ "patch": 1,
+ "source": "豆包端打捞局工程回执·D03 经络维真跑七毛病四人组修补（碳基裁定采 B：语义门槛优先）：P3 归一化公式（stars/forks 对数归一 + contributors 线性截断 + citation 二值化，综合分落 [0,1] 且只依赖候选自身、独立可复算）/ P4 贡献者数据源（tokened REST Link-header 为唯一可靠口径，匿名 34/34 全 403 实测留痕，403 即 null + unverified 禁估算）/ P5 榜单引用白名单三源 + 二值化采集口径/P6 语义门槛两段式（先语义后热度，122903★ 偏题仓 stablyai/orca 固化为永久回归、判 OUT）/ P1 查询句法（整句 AND 压死实证 total_count=1 → 2–3 引号短语组 OR 连接，品类词/能力词双类）/ P2 D03 扩展词扩容至 8 条 / P7 CLI（--root 挂全部子命令 + prompt --dim 去硬编码 + 新增 d03b 命令）；B 榜 10 条真跑数据入仓（全员 unverified、contributors 全 null——诚实的不确定成为可入库资产）；立住四条不动：反幻觉五条/压缩规则/硬门槛二进制/输出 schema",
+ "files_landed": [
+  "holoaeon/salvage_gate.py",
+  "tests/test_v61_salvage_patch.py",
+  "data/searchnet_d03_b.json",
+  "tests/test_v60_salvage_gate.py",
+  "holoaeon/spec.py",
+  "tests/test_v22_eng_skills.py",
+  "README.md",
+  "README.zh-CN.md",
+  "reports/five_site_manifest.json"
+ ],
+ "byte_identity": {
+  "expect": "4/4",
+  "measured": "4/4 MATCH",
+  "detail": {
+   "holoaeon/salvage_gate.py": {
+    "bytes": 64852,
+    "lines": 1237,
+    "sha16": "180de29534f2fde6"
+   },
+   "tests/test_v61_salvage_patch.py": {
+    "bytes": 18644,
+    "lines": 449,
+    "sha16": "39ae9d4850ea6c07"
+   },
+   "data/searchnet_d03_b.json": {
+    "bytes": 3826,
+    "lines": 31,
+    "sha16": "be754566557e70a9"
+   },
+   "tests/test_v60_salvage_gate.py": {
+    "bytes": 27847,
+    "lines": 677,
+    "sha16": "936696a1ae847040"
+   }
+  },
+  "extraction": "锚点=节标题 `### 块 X · …`（唯一断言防错位），基准=外层 ````markdown` 内 ```python/```json 围栏内容逐字节，落盘后回读字节与 sha16 双比对（四块写盘与回读逐字节一致）"
+ },
+ "tests": {
+  "v61": "66 OK",
+  "v60_regression": "98 OK",
+  "main_discover": "1180 OK",
+  "v3": "11 OK",
+  "verax": "21 OK",
+  "py_compile": "3/3 OK (salvage_gate + test_v61 + test_v60)；data JSON json.load OK"
+ },
+ "gates": {
+  "selftest": "25/25 PASS",
+  "v3_gate": "32/32 PASS",
+  "redline": "139 文件 0 违规",
+  "dimension_lock": "PASS（DOC 0.9.55 演进态，冻结维度不变）",
+  "check_sums": "ok=true / total=250 / mismatches=[]",
+  "diff0": "6d119b2a9f2df687（run1=run2，tampered=8f424d9ee3ebfb9b，拦截 16/16，冷装配 31.54ms）",
+  "v44": "13/13 PASS",
+  "readme_claims": "VERDICT PASS / mismatch=0 / stale_header=0"
+ },
+ "cli_seven": {
+  "run --root <真根>": "rc=0（九检查全 True：assets/nouns/dimensions/scoring/template/schedule/assimilation/d03_b/patch）",
+  "probe": "rc=0",
+  "dims": "rc=0",
+  "schedule": "rc=0",
+  "prompt --dim D03": "rc=0",
+  "prompt --dim D11": "rc=0（去 D03 硬编码实证）",
+  "prompt --dim D99": "rc=1（拦截实证）",
+  "d03b": "rc=0（B 榜 10 条一览）",
+  "assets 无 root": "rc=1（不在默认路径猜测）",
+  "assets --root": "rc=0"
+ },
+ "semantic_gate": {
+  "off_topic_case": "stablyai/orca 122903★",
+  "verdict": "OUT",
+  "hits": 1,
+  "min_hits": 2,
+  "note": "真跑证伪的 A 榜第一名固化为永久回归——热度再也冒充不了相关"
+ },
+ "patch_detail": {
+  "fixes": 7,
+  "fix_list": [
+   "P1 查询句法",
+   "P2 扩展词双类",
+   "P3 归一化公式",
+   "P4 贡献者数据源",
+   "P5 榜单引用采集方式",
+   "P6 语义门槛",
+   "P7 CLI 修正"
+  ],
+  "off_topic_blocked": true,
+  "b_list_count": 10,
+  "composite_range": "[0,1]",
+  "master_gate": "七检查 → 九检查（新增 d03_b / patch）"
+ },
+ "not_committed": [
+  "AGENT_FEED_V61_SALVAGE_PATCH_20261112.md（投喂包 126706 B，DNA 约定不提交）",
+  "AGENT_FEED_V60_SALVAGE_GATE_20261112.md（88000+ B，同上）",
+  "reports/state_beacon.json(.bak_*) / reports/daily_gate*.json / reports/daily_baseline_*.md（过程件）",
+  "benchmarks/README.md、benchmarks/results-0.9.1.json（bench 自跑耗时噪声，已 checkout 还原）"
+ ],
+ "honest_boundaries": [
+  "其余 17 维扩展词扩容不在本批（素材未给各维词表，不越权一次改全）",
+  "B 榜 forks/last_commit 全量值、其余 9 条 essence 未随投喂全文给出，按块 C 原文如实 null（零虚构）",
+  "contributors 全员 null——匿名 REST 34/34 全 403 实测，未估算",
+  "concept_anatomy.py::verify_doc_version 陈旧 token（0.9.33）不在校验链，本批不动（V60 先例同）"
+ ],
+ "five_site": {
+  "state": "pending",
+  "note": "提交后逐地回读，结果落仓外回执（避免回执自指提交）"
+ },
+ "verdict": "PASS"
+}
