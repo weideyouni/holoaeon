@@ -3,7 +3,7 @@
   "status": "closed",
   "date": "2026-11-12",
   "seal": "潮起开门，潮落闭嘴",
-  "head": "pending（主批提交后补正填）",
+  "head": "d6d896e",
   "prev_head_short": "d648c6d",
   "prev_head_full": "d648c6d783b7ce2151e344812b963b9d66254576",
   "doc_version": "0.9.53",
@@ -203,5 +203,7 @@
     "status": "pending"
   },
   "verdict": "PASS",
-  "head_note": "主批提交后本回执补正填 head（V37 惯例：回执 head 只能在提交后取得）"
+  "head_note": "主批 d6d896e（7 files changed, 1339 insertions(+), 15 deletions(-)）；本回执为该批同批补正提交（回执 head 只能在提交后取得，V37 惯例）",
+  "head_full": "d6d896e40fc8b8402d0218e6d6a5e91280bda59a",
+  "commit_stat": "7 files changed, 1339 insertions(+), 15 deletions(-)"
 }
