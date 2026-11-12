@@ -5,9 +5,9 @@
  "date": "2026-11-12",
  "doc_version": "0.9.59",
  "previous_doc_version": "0.9.58",
- "head": "pending",
- "head_short": "pending",
- "head_note": "回执在提交后回填（V37 教训：head 只能提交后取得），故本批产生一次回执补正提交",
+ "head": "8040f0571203a282b2cf0150b79ed444cb7ca18d",
+ "head_short": "8040f05",
+ "head_note": "主批已提交于 8040f05；本文件由随后的回执补正提交带入，故最终 HEAD 为本补正提交",
  "baseline_head": "e6c6255845a9b4ae6d137df46fd0b04e1bbf6933",
  "baseline_head_short": "e6c6255",
  "seal": "潮起开门，潮落闭嘴",
@@ -36,7 +36,10 @@
   "anchors": [
    {
     "id": "L01",
-    "mechanisms": ["C1", "R8"],
+    "mechanisms": [
+     "C1",
+     "R8"
+    ],
     "title": "Time, Structure and Fluctuations (Nobel Lecture)",
     "author": "Ilya Prigogine",
     "year": 1977,
@@ -46,7 +49,10 @@
    },
    {
     "id": "L02",
-    "mechanisms": ["C1", "R8"],
+    "mechanisms": [
+     "C1",
+     "R8"
+    ],
     "title": "The rehabilitation of irreversible processes and self-organization in 50 years of minimum entropy production",
     "author": "Royal Society Philosophical Transactions A",
     "year": 2018,
@@ -56,7 +62,10 @@
    },
    {
     "id": "L03",
-    "mechanisms": ["X2", "R2"],
+    "mechanisms": [
+     "X2",
+     "R2"
+    ],
     "title": "Self-organized criticality: an explanation of 1/f noise",
     "author": "Bak, Tang, Wiesenfeld",
     "year": 1987,
@@ -66,7 +75,9 @@
    },
    {
     "id": "L04",
-    "mechanisms": ["X2"],
+    "mechanisms": [
+     "X2"
+    ],
     "title": "Sandpile models (review)",
     "author": "Dhar",
     "year": 1999,
@@ -76,7 +87,9 @@
    },
    {
     "id": "L05",
-    "mechanisms": ["R5"],
+    "mechanisms": [
+     "R5"
+    ],
     "title": "A New Approach to Linear Filtering and Prediction Problems",
     "author": "R. E. Kalman",
     "year": 1960,
@@ -86,7 +99,9 @@
    },
    {
     "id": "L06",
-    "mechanisms": ["R5"],
+    "mechanisms": [
+     "R5"
+    ],
     "title": "Normalized Innovation Squared (NIS) consistency testing",
     "author": "Kalman filter consistency literature",
     "year": 1990,
@@ -96,7 +111,9 @@
    },
    {
     "id": "L07",
-    "mechanisms": ["R6"],
+    "mechanisms": [
+     "R6"
+    ],
     "title": "Sequential Analysis",
     "author": "Abraham Wald",
     "year": 1945,
@@ -106,7 +123,9 @@
    },
    {
     "id": "L08",
-    "mechanisms": ["R7"],
+    "mechanisms": [
+     "R7"
+    ],
     "title": "Random Features for Large-Scale Kernel Machines",
     "author": "Rahimi, Recht",
     "year": 2007,
@@ -116,7 +135,9 @@
    },
    {
     "id": "L09",
-    "mechanisms": ["X2"],
+    "mechanisms": [
+     "X2"
+    ],
     "title": "Self-entrainment of a population of coupled non-linear oscillators",
     "author": "Y. Kuramoto",
     "year": 1975,
@@ -131,18 +152,102 @@
   "discipline": "全部 usage=method_only 或 readonly_reference，一行代码未复制；AGPL/GPL 只读不并入，无许可不复制",
   "measured_at": "2026-11-12",
   "items": [
-   {"full_name": "rlabbe/Kalman-and-Bayesian-Filters-in-Python", "stars": 19480, "target": "R5", "role": "卡尔曼与贝叶斯滤波教科书级讲义 + 可运行 notebook", "usage": "method_only", "absorb": "信息式融合、NIS 一致性检验的工程写法"},
-   {"full_name": "rlabbe/filterpy", "stars": 3899, "target": "R5", "role": "纯 Python 滤波库（KF/EKF/UKF）", "usage": "method_only", "absorb": "多源异构 R 的组合方式与协方差更新次序"},
-   {"full_name": "balzer82/Kalman", "stars": 1146, "target": "R5", "role": "Kalman 教程与示例集", "usage": "readonly_reference", "absorb": "三维示例的组织方式，作为对照而非依赖"},
-   {"full_name": "TopologyLayer/TopologyLayer", "stars": 431, "target": "R2", "role": "PyTorch 拓扑层（持久同调可微化）", "usage": "method_only", "absorb": "「拓扑特征要可微、可回传」的设计取向"},
-   {"full_name": "scikit-tda/ripser.py", "stars": 347, "target": "R2", "role": "Ripser 的 Python 封装（Vietoris-Rips 持久同调）", "usage": "readonly_reference", "absorb": "以距离矩阵为输入的拓扑计算范式"},
-   {"full_name": "javaplex/javaplex", "stars": 209, "target": "R2", "role": "Java/Plex 持久同调与拓扑数据分析套件", "usage": "readonly_reference", "absorb": "八方位复合体（cube complex）的邻接组织方式"},
-   {"full_name": "mrzv/dionysus", "stars": 163, "target": "R2", "role": "持久同调计算库", "usage": "readonly_reference", "absorb": "单纯复形过滤器的构造思路"},
-   {"full_name": "HyperdimensionalComputing/torchhd", "stars": 394, "target": "R7", "role": "超维计算 / 向量符号架构库", "usage": "method_only", "absorb": "正交基绑定与近似正交编码；解释为何 R2 要用正交变换而非哈希"},
-   {"full_name": "hyperdimensional-computing/hdlib", "stars": 44, "target": "R7", "role": "HDC/VSA 轻量实现", "usage": "method_only", "absorb": "编码-绑定-捆绑三段式的极简组织"},
-   {"full_name": "adrianfessel/kuramoto", "stars": 9, "target": "X2", "role": "Kuramoto 模型仿真示例", "usage": "method_only", "absorb": "耦合强度扫描与序参量采样的写法"},
-   {"full_name": "HarikrishnanNB/stochastic_resonance_and_nl", "stars": 19, "target": "C1", "role": "随机共振与非线性动力学示例", "usage": "readonly_reference", "absorb": "「噪声非单调增益信号」的对照现象，用于说明耗散的双面性"},
-   {"full_name": "mahajananshul/stochastic-resonance", "stars": 7, "target": "C1", "role": "随机共振最小示例", "usage": "readonly_reference", "absorb": "SNR 随噪声先升后降的最小可复现实验"}
+   {
+    "full_name": "rlabbe/Kalman-and-Bayesian-Filters-in-Python",
+    "stars": 19480,
+    "target": "R5",
+    "role": "卡尔曼与贝叶斯滤波教科书级讲义 + 可运行 notebook",
+    "usage": "method_only",
+    "absorb": "信息式融合、NIS 一致性检验的工程写法"
+   },
+   {
+    "full_name": "rlabbe/filterpy",
+    "stars": 3899,
+    "target": "R5",
+    "role": "纯 Python 滤波库（KF/EKF/UKF）",
+    "usage": "method_only",
+    "absorb": "多源异构 R 的组合方式与协方差更新次序"
+   },
+   {
+    "full_name": "balzer82/Kalman",
+    "stars": 1146,
+    "target": "R5",
+    "role": "Kalman 教程与示例集",
+    "usage": "readonly_reference",
+    "absorb": "三维示例的组织方式，作为对照而非依赖"
+   },
+   {
+    "full_name": "TopologyLayer/TopologyLayer",
+    "stars": 431,
+    "target": "R2",
+    "role": "PyTorch 拓扑层（持久同调可微化）",
+    "usage": "method_only",
+    "absorb": "「拓扑特征要可微、可回传」的设计取向"
+   },
+   {
+    "full_name": "scikit-tda/ripser.py",
+    "stars": 347,
+    "target": "R2",
+    "role": "Ripser 的 Python 封装（Vietoris-Rips 持久同调）",
+    "usage": "readonly_reference",
+    "absorb": "以距离矩阵为输入的拓扑计算范式"
+   },
+   {
+    "full_name": "javaplex/javaplex",
+    "stars": 209,
+    "target": "R2",
+    "role": "Java/Plex 持久同调与拓扑数据分析套件",
+    "usage": "readonly_reference",
+    "absorb": "八方位复合体（cube complex）的邻接组织方式"
+   },
+   {
+    "full_name": "mrzv/dionysus",
+    "stars": 163,
+    "target": "R2",
+    "role": "持久同调计算库",
+    "usage": "readonly_reference",
+    "absorb": "单纯复形过滤器的构造思路"
+   },
+   {
+    "full_name": "HyperdimensionalComputing/torchhd",
+    "stars": 394,
+    "target": "R7",
+    "role": "超维计算 / 向量符号架构库",
+    "usage": "method_only",
+    "absorb": "正交基绑定与近似正交编码；解释为何 R2 要用正交变换而非哈希"
+   },
+   {
+    "full_name": "hyperdimensional-computing/hdlib",
+    "stars": 44,
+    "target": "R7",
+    "role": "HDC/VSA 轻量实现",
+    "usage": "method_only",
+    "absorb": "编码-绑定-捆绑三段式的极简组织"
+   },
+   {
+    "full_name": "adrianfessel/kuramoto",
+    "stars": 9,
+    "target": "X2",
+    "role": "Kuramoto 模型仿真示例",
+    "usage": "method_only",
+    "absorb": "耦合强度扫描与序参量采样的写法"
+   },
+   {
+    "full_name": "HarikrishnanNB/stochastic_resonance_and_nl",
+    "stars": 19,
+    "target": "C1",
+    "role": "随机共振与非线性动力学示例",
+    "usage": "readonly_reference",
+    "absorb": "「噪声非单调增益信号」的对照现象，用于说明耗散的双面性"
+   },
+   {
+    "full_name": "mahajananshul/stochastic-resonance",
+    "stars": 7,
+    "target": "C1",
+    "role": "随机共振最小示例",
+    "usage": "readonly_reference",
+    "absorb": "SNR 随噪声先升后降的最小可复现实验"
+   }
   ],
   "star_table_note": "星标为 2026-11-12 实测值，会漂移；台账只作横向对比，不作为质量背书",
   "known_thin_areas": {
@@ -159,14 +264,32 @@
    "judge": "σ = Σ J_i X_i，Onsager 对称 + Sylvester 正定 + 凸性 σ(tX)=t^2σ(X)",
    "measured": {
     "sigma": 2.55,
-    "flows": [2.15, 0.8],
-    "leading_principal_minors": [2.0, 1.91],
+    "flows": [
+     2.15,
+     0.8
+    ],
+    "leading_principal_minors": [
+     2.0,
+     1.91
+    ],
     "symmetric_onsager": true,
     "positive_definite": true,
     "convex_scaling": [
-     {"t": 0.5, "sigma": 0.6375, "ratio_to_t2": 1.0},
-     {"t": 2.0, "sigma": 10.2, "ratio_to_t2": 1.0},
-     {"t": 3.0, "sigma": 22.95, "ratio_to_t2": 1.0}
+     {
+      "t": 0.5,
+      "sigma": 0.6375,
+      "ratio_to_t2": 1.0
+     },
+     {
+      "t": 2.0,
+      "sigma": 10.2,
+      "ratio_to_t2": 1.0
+     },
+     {
+      "t": 3.0,
+      "sigma": 22.95,
+      "ratio_to_t2": 1.0
+     }
     ],
     "negative_definite_rejected": "onsager=[[2,0.3],[0.3,-1]] → positive_definite=false（定理前提不满足时如实判负）"
    },
@@ -178,13 +301,31 @@
    "impl": "mandala_wht",
    "judge": "八方位上的 Hadamard 正交变换：往返可逆、基正交、中心等于均值、齐步只剩直流",
    "measured": {
-    "spectrum_loads_1_to_8": [4.5, -0.5, -1.0, 0.0, -2.0, 0.0, 0.0, 0.0],
+    "spectrum_loads_1_to_8": [
+     4.5,
+     -0.5,
+     -1.0,
+     0.0,
+     -2.0,
+     0.0,
+     0.0,
+     0.0
+    ],
     "center_dc": 4.5,
     "center_is_mean": true,
     "reconstruction_error": 0.0,
     "orthogonality_max_dev": 0.0,
     "parseval_ratio": 1.0,
-    "uniform_loads_3x8": [3.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+    "uniform_loads_3x8": [
+     3.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
     "requires_eight": "非 8 抛出 ValueError（不静默补齐）"
    },
    "closed": true
@@ -197,16 +338,51 @@
    "measured": {
     "fused_state": 10.371429,
     "fused_variance": 0.190476,
-    "weights": [0.190476, 0.761905, 0.047619],
-    "nis": [0.115886, 0.037529, 0.077922],
+    "weights": [
+     0.190476,
+     0.761905,
+     0.047619
+    ],
+    "nis": [
+     0.115886,
+     0.037529,
+     0.077922
+    ],
     "chi2_1dof_95": 3.841,
     "all_consistent_clean": true,
     "sequential_matches_batch": true,
     "outlier_case": {
-     "sources": [[10.0, 1.0], [10.5, 0.25], [9.8, 4.0], [30.0, 0.5]],
+     "sources": [
+      [
+       10.0,
+       1.0
+      ],
+      [
+       10.5,
+       0.25
+      ],
+      [
+       9.8,
+       4.0
+      ],
+      [
+       30.0,
+       0.5
+      ]
+     ],
      "fused_state": 15.786207,
-     "nis": [29.421985, 72.033379, 8.660046, 316.698677],
-     "flagged": [0, 1, 2, 3],
+     "nis": [
+      29.421985,
+      72.033379,
+      8.660046,
+      316.698677
+     ],
+     "flagged": [
+      0,
+      1,
+      2,
+      3
+     ],
      "verdict": "四源全被判不一致——判据工作，但也暴露简化口径的副作用（见 honest_boundaries ③）"
     }
    },
@@ -222,9 +398,25 @@
     "threshold_B": -2.251292,
     "p0": 0.15,
     "p1": 0.45,
-    "H1_path": [1.098612, 2.197225, 1.761907, 2.860519, 3.959131],
+    "H1_path": [
+     1.098612,
+     2.197225,
+     1.761907,
+     2.860519,
+     3.959131
+    ],
     "H1_decision": "H1 at step 5",
-    "H0_path": [-0.435318, -0.870636, -1.305954, -0.207342, -0.64266, -1.077978, -1.513296, -1.948614, -2.383932],
+    "H0_path": [
+     -0.435318,
+     -0.870636,
+     -1.305954,
+     -0.207342,
+     -0.64266,
+     -1.077978,
+     -1.513296,
+     -1.948614,
+     -2.383932
+    ],
     "H0_decision": "H0 at step 9",
     "short_observation": "[0] → CONTINUE（不硬判）"
    },
@@ -237,19 +429,55 @@
    "judge": "Bochner 采样逼近高斯核，MAE 随维数下降，固定种子可复现",
    "measured": {
     "short_dims": [
-     {"D": 16, "mae": 0.198497, "max_err": 0.708701},
-     {"D": 64, "mae": 0.104993, "max_err": 0.303451},
-     {"D": 256, "mae": 0.034768, "max_err": 0.109388}
+     {
+      "D": 16,
+      "mae": 0.198497,
+      "max_err": 0.708701
+     },
+     {
+      "D": 64,
+      "mae": 0.104993,
+      "max_err": 0.303451
+     },
+     {
+      "D": 256,
+      "mae": 0.034768,
+      "max_err": 0.109388
+     }
     ],
     "long_chain": [
-     {"D": 4, "mae": 0.275031},
-     {"D": 8, "mae": 0.254364},
-     {"D": 16, "mae": 0.198497},
-     {"D": 32, "mae": 0.154525},
-     {"D": 64, "mae": 0.104993},
-     {"D": 128, "mae": 0.047917},
-     {"D": 256, "mae": 0.034768},
-     {"D": 512, "mae": 0.038423}
+     {
+      "D": 4,
+      "mae": 0.275031
+     },
+     {
+      "D": 8,
+      "mae": 0.254364
+     },
+     {
+      "D": 16,
+      "mae": 0.198497
+     },
+     {
+      "D": 32,
+      "mae": 0.154525
+     },
+     {
+      "D": 64,
+      "mae": 0.104993
+     },
+     {
+      "D": 128,
+      "mae": 0.047917
+     },
+     {
+      "D": 256,
+      "mae": 0.034768
+     },
+     {
+      "D": 512,
+      "mae": 0.038423
+     }
     ],
     "pairs": 36,
     "deterministic": true
@@ -261,7 +489,13 @@
    "name": "耗散度量 · 与 C1 共用口径",
    "impl": "entropy_production",
    "judge": "耗散不再是「熵+失败率」的哑指标，而是与 C1 同一热力学口径的 σ",
-   "measured": {"sigma": 2.55, "leading_principal_minors": [2.0, 1.91]},
+   "measured": {
+    "sigma": 2.55,
+    "leading_principal_minors": [
+     2.0,
+     1.91
+    ]
+   },
    "closed": true
   },
   {
@@ -273,23 +507,54 @@
     "kc_theory": 0.797885,
     "kc_empirical": 0.8,
     "curve": [
-     {"K": 0.2, "r": 0.323463},
-     {"K": 0.4, "r": 0.633037},
-     {"K": 0.6, "r": 0.461548},
-     {"K": 0.8, "r": 0.802062},
-     {"K": 1.0, "r": 0.90617},
-     {"K": 1.5, "r": 0.966358},
-     {"K": 2.0, "r": 0.982033},
-     {"K": 3.0, "r": 0.992275}
+     {
+      "K": 0.2,
+      "r": 0.323463
+     },
+     {
+      "K": 0.4,
+      "r": 0.633037
+     },
+     {
+      "K": 0.6,
+      "r": 0.461548
+     },
+     {
+      "K": 0.8,
+      "r": 0.802062
+     },
+     {
+      "K": 1.0,
+      "r": 0.90617
+     },
+     {
+      "K": 1.5,
+      "r": 0.966358
+     },
+     {
+      "K": 2.0,
+      "r": 0.982033
+     },
+     {
+      "K": 3.0,
+      "r": 0.992275
+     }
     ],
     "fully_synchronized_r": 0.999972,
     "random_phase_r": 0.045773,
     "active_nodes": 108641,
-    "factorization": [13, 61, 137],
+    "factorization": [
+     13,
+     61,
+     137
+    ],
     "product_check": true,
     "is_prime": false,
     "relative_to_matrix": 0.061325,
-    "matrix_quotient": {"q": 81, "r": 830}
+    "matrix_quotient": {
+     "q": 81,
+     "r": 830
+    }
    },
    "closed": true
   }
