@@ -3,7 +3,7 @@
   "status": "closed",
   "date": "2026-11-12",
   "seal": "潮起开门，潮落闭嘴",
-  "head": "PENDING_COMMIT",
+  "head": "1df506c",
   "prev_head_short": "f503ef6",
   "prev_head_full": "f503ef6a4e8624170401d2a32b49c2820ebb7ae1",
   "doc_version": "0.9.52",
@@ -159,5 +159,8 @@
   "five_site": {
     "status": "pending"
   },
-  "verdict": "PASS"
+  "verdict": "PASS",
+  "head_full": "1df506c55ff2fc92f308156acbf22b0f56dcd6c2",
+  "commit_stat": "7 files changed, 1147 insertions(+), 15 deletions(-)",
+  "head_note": "主批 1df506c；本回执为其同批补正提交（回执 head 只能在提交后取得，V37 惯例）"
 }
