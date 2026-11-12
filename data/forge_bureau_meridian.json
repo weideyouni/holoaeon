@@ -1,0 +1,3950 @@
+{
+ "project": "HoloAeon FORGE-BUREAU MERIDIAN",
+ "batch": "V63-FORGE-BUREAU",
+ "date": "2026-11-12",
+ "schema": "FORGE-BUREAU-v1.0",
+ "source": "碳基 2026-11-12 制造局需求（V14 README 机床素材+打捞局范式镜像）——四人组可测子集",
+ "lathe_modules": [
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "family": "机床",
+   "mech_anchors": [
+    "M02"
+   ]
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "family": "加载",
+   "mech_anchors": [
+    "M08"
+   ]
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "family": "校验",
+   "mech_anchors": [
+    "M03"
+   ]
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "family": "矩阵",
+   "mech_anchors": [
+    "M11"
+   ]
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "family": "总装",
+   "mech_anchors": [
+    "M08",
+    "M11"
+   ]
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "family": "勘探",
+   "mech_anchors": [
+    "M08"
+   ]
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "family": "适配",
+   "mech_anchors": [
+    "M06"
+   ]
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "family": "工艺",
+   "mech_anchors": [
+    "M01",
+    "M02",
+    "M03",
+    "M04",
+    "M05",
+    "M06"
+   ]
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "family": "装配",
+   "mech_anchors": [
+    "M02",
+    "M04"
+   ]
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "family": "熔炼",
+   "mech_anchors": [
+    "A1",
+    "A2"
+   ]
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "family": "神灯",
+   "mech_anchors": [
+    "M10"
+   ]
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "family": "漩涡",
+   "mech_anchors": [
+    "R3"
+   ]
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "family": "进化",
+   "mech_anchors": [
+    "M01",
+    "M02",
+    "M03",
+    "M04",
+    "M05",
+    "M06",
+    "M07",
+    "M08",
+    "M09",
+    "M10",
+    "M11"
+   ]
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "family": "逆向",
+   "mech_anchors": [
+    "M04"
+   ]
+  }
+ ],
+ "mechanism_axis": 25,
+ "lathe_meridian": {
+  "cells": 350,
+  "linked": 79,
+  "mech_covered": 18,
+  "mech_uncovered": [
+   "C1",
+   "R2",
+   "R5",
+   "R6",
+   "R7",
+   "R8",
+   "X2"
+  ]
+ },
+ "table": [
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "linked",
+   "evidence": [
+    [
+     "holo",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M02",
+     "anchors"
+    ]
+   ]
+  },
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "过滤",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "protocol",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_lathe",
+   "zh": "技能机床",
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "路由",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M08",
+     "anchors"
+    ]
+   ]
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_loader",
+   "zh": "渐进式技能加载",
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M03",
+     "anchors"
+    ],
+    [
+     "schema",
+     "name"
+    ],
+    [
+     "校验",
+     "leg"
+    ]
+   ]
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_schema",
+   "zh": "结构化 schema 校验",
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "linked",
+   "evidence": [
+    [
+     "matrix",
+     "name"
+    ]
+   ]
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M11",
+     "anchors"
+    ]
+   ]
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "skill_matrix",
+   "zh": "全量技能矩阵",
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "linked",
+   "evidence": [
+    [
+     "holo",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "tick",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "校验",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "pipeline",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "json",
+     "docstring"
+    ],
+    [
+     "协议",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M08",
+     "anchors"
+    ]
+   ]
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M11",
+     "anchors"
+    ],
+    [
+     "台账",
+     "docstring"
+    ],
+    [
+     "登记",
+     "docstring"
+    ],
+    [
+     "归档",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "涌现",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "machine_tool",
+   "zh": "工程机床",
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "protocol",
+     "docstring"
+    ],
+    [
+     "协议",
+     "leg"
+    ]
+   ]
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "vector",
+     "name"
+    ]
+   ]
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M08",
+     "anchors"
+    ]
+   ]
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "vector_sea_explorer",
+   "zh": "向量海勘探加工分发平台",
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "linked",
+   "evidence": [
+    [
+     "holo",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M06",
+     "anchors"
+    ],
+    [
+     "envelope",
+     "docstring"
+    ],
+    [
+     "protocol",
+     "name"
+    ],
+    [
+     "json",
+     "docstring"
+    ],
+    [
+     "协议",
+     "leg"
+    ]
+   ]
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "registry",
+     "docstring"
+    ],
+    [
+     "index",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "protocol_plugins",
+   "zh": "插件化协议适配器",
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "linked",
+   "evidence": [
+    [
+     "holo",
+     "docstring"
+    ],
+    [
+     "全息",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M01",
+     "anchors"
+    ],
+    [
+     "heartbeat",
+     "docstring"
+    ],
+    [
+     "节拍",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M02",
+     "anchors"
+    ],
+    [
+     "骨架",
+     "docstring"
+    ],
+    [
+     "装配",
+     "leg"
+    ]
+   ]
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M03",
+     "anchors"
+    ],
+    [
+     "guard",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M04",
+     "anchors"
+    ],
+    [
+     "bus",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M05",
+     "anchors"
+    ]
+   ]
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M06",
+     "anchors"
+    ],
+    [
+     "envelope",
+     "docstring"
+    ],
+    [
+     "语义",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "resonance",
+     "docstring"
+    ],
+    [
+     "相似",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "scheduler",
+     "docstring"
+    ],
+    [
+     "编排",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "graph",
+     "docstring"
+    ],
+    [
+     "edge",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "ledger",
+     "docstring"
+    ],
+    [
+     "台账",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "resonance",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "收敛",
+     "docstring"
+    ],
+    [
+     "蒸馏",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "craft_gate",
+   "zh": "工艺域闸门",
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "linked",
+   "evidence": [
+    [
+     "holo",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M02",
+     "anchors"
+    ],
+    [
+     "装配",
+     "leg"
+    ]
+   ]
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "校验",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M04",
+     "anchors"
+    ]
+   ]
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "编排",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "forge_gate",
+   "zh": "装配域闸门",
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:A1",
+     "anchors"
+    ],
+    [
+     "holo",
+     "name"
+    ],
+    [
+     "全息",
+     "leg"
+    ]
+   ]
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:A2",
+     "anchors"
+    ],
+    [
+     "万物互联",
+     "leg"
+    ]
+   ]
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "回流",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "holo_forge",
+   "zh": "全息熔炉",
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "装配",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "envelope",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "编排",
+     "leg"
+    ]
+   ]
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M10",
+     "anchors"
+    ]
+   ]
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "台账",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "magic_lamp",
+   "zh": "神灯模式",
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "schema",
+     "docstring"
+    ],
+    [
+     "校验",
+     "leg"
+    ]
+   ]
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "json",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "vector",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "scheduler",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "graph",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "linked",
+   "evidence": [
+    [
+     "幻觉",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:R3",
+     "anchors"
+    ],
+    [
+     "mobius",
+     "name"
+    ],
+    [
+     "回流",
+     "leg"
+    ]
+   ]
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "mobius_vortex",
+   "zh": "莫比乌斯漩涡",
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "linked",
+   "evidence": [
+    [
+     "holo",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M01",
+     "anchors"
+    ],
+    [
+     "巡检",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M02",
+     "anchors"
+    ]
+   ]
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M03",
+     "anchors"
+    ]
+   ]
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M04",
+     "anchors"
+    ]
+   ]
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M05",
+     "anchors"
+    ]
+   ]
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M06",
+     "anchors"
+    ],
+    [
+     "json",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M07",
+     "anchors"
+    ]
+   ]
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M08",
+     "anchors"
+    ],
+    [
+     "编排",
+     "docstring"
+    ],
+    [
+     "调度",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M09",
+     "anchors"
+    ]
+   ]
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M10",
+     "anchors"
+    ]
+   ]
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M11",
+     "anchors"
+    ],
+    [
+     "index",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "mobius",
+     "docstring"
+    ],
+    [
+     "回流",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "titan_evolver",
+   "zh": "泰坦进化模块",
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "A1",
+   "mech_name": "全息",
+   "layer": "公理",
+   "state": "linked",
+   "evidence": [
+    [
+     "holo",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "A2",
+   "mech_name": "万物互联",
+   "layer": "公理",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "X1",
+   "mech_name": "1331×1331 节点矩阵",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "X2",
+   "mech_name": "108641 活跃节点共振",
+   "layer": "矩阵",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "M01",
+   "mech_name": "心跳",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "M02",
+   "mech_name": "细胞骨架",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "骨架",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "M03",
+   "mech_name": "皮肤",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "filter",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "M04",
+   "mech_name": "经络",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "锚点对账:M04",
+     "anchors"
+    ],
+    [
+     "trac",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "M05",
+   "mech_name": "赫布协作场",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "M06",
+   "mech_name": "语义通信基座",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "json",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "M07",
+   "mech_name": "自组织相似性",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "vector",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "M08",
+   "mech_name": "runtime",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "scheduler",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "M09",
+   "mech_name": "graph",
+   "layer": "核心机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "graph",
+     "docstring"
+    ],
+    [
+     "entity",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "M10",
+   "mech_name": "类社会组合体",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "M11",
+   "mech_name": "城邦架构",
+   "layer": "核心机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "C1",
+   "mech_name": "自组织耗散",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "C2",
+   "mech_name": "去幻觉",
+   "layer": "耗散验证",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "R1",
+   "mech_name": "共振节点",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "R2",
+   "mech_name": "曼陀罗一拖八",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "R3",
+   "mech_name": "莫比乌斯扩张",
+   "layer": "经络子机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "mobius",
+     "docstring"
+    ],
+    [
+     "回流",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "R4",
+   "mech_name": "克莱因收敛",
+   "layer": "经络子机制",
+   "state": "linked",
+   "evidence": [
+    [
+     "蒸馏",
+     "docstring"
+    ]
+   ]
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "R5",
+   "mech_name": "卡尔曼滤波",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "R6",
+   "mech_name": "贝叶斯干涉",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "R7",
+   "mech_name": "希尔伯特空间",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  },
+  {
+   "module": "doc_anatomy",
+   "zh": "文档解剖器",
+   "mech": "R8",
+   "mech_name": "耗散度量",
+   "layer": "经络子机制",
+   "state": "unlinked",
+   "evidence": []
+  }
+ ],
+ "product_lines": [
+  {
+   "id": "P1",
+   "name": "需求 APP 设计",
+   "status": "anchored"
+  },
+  {
+   "id": "P2",
+   "name": "虚拟测试",
+   "status": "anchored"
+  },
+  {
+   "id": "P3",
+   "name": "虚拟前端后端架构测试",
+   "status": "anchored"
+  },
+  {
+   "id": "P4",
+   "name": "小程序工程端系统提示词编写",
+   "status": "待造"
+  },
+  {
+   "id": "P5",
+   "name": "独立智能体引擎架构一键成型",
+   "status": "anchored"
+  },
+  {
+   "id": "P6",
+   "name": "白皮书编写",
+   "status": "anchored"
+  },
+  {
+   "id": "P7",
+   "name": "士农工商技术实质数字分身",
+   "status": "anchored"
+  },
+  {
+   "id": "P8",
+   "name": "书籍数字分身融合打造",
+   "status": "anchored"
+  },
+  {
+   "id": "P9",
+   "name": "神龟神马双系统+类硅基 V2.0 适配",
+   "status": "anchored"
+  },
+  {
+   "id": "P10",
+   "name": "脱离基座运行",
+   "status": "anchored"
+  }
+ ],
+ "protocols": [
+  "a2a",
+  "acp",
+  "anthropic_tool",
+  "autogen_tool",
+  "bedrock_converse",
+  "crewai_tool",
+  "envelope",
+  "gemini_function",
+  "langchain_tool",
+  "llamaindex_tool",
+  "mcp",
+  "openai_function"
+ ],
+ "platform_gaps": [
+  "dify",
+  "coze（扣子）",
+  "qwen（通义千问 openai-compatible）",
+  "doubao（豆包）",
+  "wenxin（文心）",
+  "zhipu（智谱 GLM）",
+  "xfyun（讯飞星火）",
+  "volcengine（火山方舟）",
+  "openai-compatible-generic",
+  "ollama（本地）",
+  "n8n",
+  "dify-workflow"
+ ],
+ "seal": "潮起开门，潮落闭嘴"
+}

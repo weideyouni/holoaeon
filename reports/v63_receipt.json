@@ -1,0 +1,149 @@
+{
+ "batch": "V63-FORGE-BUREAU",
+ "status": "closed",
+ "date": "2026-11-12",
+ "seal": "潮起开门，潮落闭嘴",
+ "head": "PENDING_COMMIT",
+ "head_short": "PENDING_COMMIT",
+ "prev_head_short": "63f8b37",
+ "doc_version": "0.9.57",
+ "version_frozen": "0.9.1",
+ "ring": 24,
+ "patch": 1,
+ "chain_position": "ring24 制造域（打捞局 ring23 的姊妹域）：打捞管『进来』（吸入→筛选→评分→入库），制造管『出去』（需求→打造→成型→吸附入库）",
+ "source": "碳基 2026-11-12 投喂（项目 README V14 节 + 制造局需求原文 + 指令『交由四人组先评估策划规划然后执行 维度不变』）：机床资产 14 位 import 对账 + 双注册表锚点对账；机床经络 14×25=350 格；打造八步状态机 ForgeRail；产品线穷举 10 条；平台适配 12 协议 + 12 缺口；共振磁吸附入库 + 基座留根三件套；自然语言确定性调度",
+ "files_landed": [
+  "holoaeon/forge_bureau.py",
+  "tests/test_v63_forge_bureau.py",
+  "data/forge_bureau_meridian.json",
+  "holoaeon/spec.py",
+  "tests/test_v22_eng_skills.py",
+  "README.md",
+  "README.zh-CN.md",
+  "reports/five_site_manifest.json"
+ ],
+ "byte_identity": {
+  "expect": "3/3",
+  "measured": "3/3 MATCH",
+  "detail": {
+   "holoaeon/forge_bureau.py": {
+    "bytes": 42281,
+    "sha16": "cf19e0b748e44cbc",
+    "lines": 742
+   },
+   "tests/test_v63_forge_bureau.py": {
+    "bytes": 16372,
+    "sha16": "da6800d5e0ae69ee",
+    "lines": 410
+   },
+   "data/forge_bureau_meridian.json": {
+    "bytes": 76105,
+    "sha16": "3c3682d50671f39d"
+   }
+  },
+  "extraction": "锚点=节标题 `### 块 X · …`（唯一锚点）；三块实测口径统一为 strip_tail=False append_nl=False（投喂包三块正文末尾均已带换行，统一补 \\n 会多出字节——V62 的『末尾换行变体枚举』经验在本批直接生效，四变体一次全部 MATCH）"
+ },
+ "tests": {
+  "v63": "57 OK（八组）",
+  "v62_regression": "58 OK",
+  "v61_regression": "66 OK",
+  "v60_regression": "98 OK",
+  "main_discover": "1295 OK（真仓全绿，无实验田预期失败）",
+  "total_three_domains": "1295 + v3 11 + verax 21 = 1327",
+  "ledger_determinism": "ledger 重写后 bytes=76105 sha16=3c3682d50671f39d；PYTHONHASHSEED 默认/7/99 三次重写逐字节一致（无墙钟）"
+ },
+ "machine_tool_assets": {
+  "total": 14,
+  "list": [
+   "skill_lathe", "skill_loader", "skill_schema", "skill_matrix", "machine_tool",
+   "vector_sea_explorer", "protocol_plugins", "craft_gate", "forge_gate", "holo_forge",
+   "magic_lamp", "mobius_vortex", "titan_evolver", "doc_anatomy"
+  ],
+  "import_reconciled": true,
+  "double_registry_anchor": "craft ORGAN_MAP 六器官 / titan_evolver MECHANISMS 全 11 位（锚点对账先于关键词证据）"
+ },
+ "lathe_meridian": {
+  "cells": 350,
+  "grid": "14 机床资产 × 25 V62 机制轴",
+  "linked": 79,
+  "unlinked": 271,
+  "no_skipped_cell": true,
+  "direct_cover": "18/25（诚实计数）",
+  "uncovered_7": ["C1 自组织耗散", "R2 曼陀罗一拖八", "R5 卡尔曼滤波", "R6 贝叶斯干涉",
+                  "R7 希尔伯特空间", "R8 耗散度量", "X2 108641 活跃节点共振"],
+  "uncovered_note": "未覆盖 7 位属拓扑共振与耗散验证域模块，非机床家族职能——机制轴 25 位仍全表穷举在场，350 格无跳格"
+ },
+ "forge_rail": {
+  "steps": 8,
+  "sequence": ["F1 需求解析", "F2 技能创造", "F3 测试试错", "F4 调试回炉",
+               "F5 神灯联动", "F6 漩涡联动", "F7 双模块（逆向=doc_anatomy / 代码=forge_gate·holo_forge）",
+               "F8 适配成型（protocol_plugins.export_skill_to_protocol）"],
+  "reforge_rule": "回炉退回 F2，不跳步只回步",
+  "same_as_note": "与 craft_gate StepRail 同构属关联声明，不计 SAME_AS"
+ },
+ "product_lines": {
+  "total": 10,
+  "anchored": 9,
+  "pending": 1,
+  "pending_item": "P4 小程序提示词（待造位，锚未落，如实声明）",
+  "list": ["P1 APP 设计", "P2 虚拟测试", "P3 架构测试", "P4 小程序提示词（待造）",
+           "P5 独立智能体引擎一键成型", "P6 白皮书编写", "P7 士农工商技术数字分身",
+           "P8 书籍数字分身融合", "P9 神龟神马双系统 + 类硅基 V2.0 适配", "P10 脱离基座运行"]
+ },
+ "protocols": {
+  "adapted": 12,
+  "gaps": 12,
+  "adapted_list": ["dify", "coze", "qwen", "doubao", "wenxin", "zhipu", "xfyun",
+                   "volcengine", "openai-compatible-generic", "ollama", "n8n", "dify-workflow"],
+  "gap_note": "12 缺口真列举未适配——真适配须各平台真实 schema 素材投喂后逐批落地，不虚构适配器"
+ },
+ "absorb": {
+  "probe": "forge_probe_skill（forge/meridian/lathe 三标签 spec）",
+  "metric": "ngram_dice（skill.py 在仓 import 直用，字符二元组 Dice）",
+  "corpus": "18 仓全量相似度",
+  "absorbed_into": "C14/holoaeon-c14-skill/技艺",
+  "score": 0.0274,
+  "runner_up": "holoaeon-c17-society 0.027",
+  "tie_break": "平分取编号小仓（V60 先例）",
+  "base_root_triple": ["module: holoaeon/forge_bureau.py", "ledger: data/forge_bureau_meridian.json",
+                       "cross_thread: from holoaeon.forge_bureau import forge_absorb"],
+  "direction_note": "技艺=制造的本位仓，吸附方向正确"
+ },
+ "cli": {
+  "commands": "check|rail|products|protocols|absorb|ledger [--out PATH]",
+  "ok_paths": "六命令全 rc=0（check 六检查 PASS：lathe_modules / lathe_meridian / rail / product_lines / protocols / absorb）",
+  "error_paths": "无参 rc=1 / 未知命令 rc=1 / ledger --out 缺路径 rc=1"
+ },
+ "gates": {
+  "selftest": "25/25",
+  "v3_gate": "32/32（无参跑；--json 仍 argparse 报错）",
+  "redline": "141 文件 0 违规（V62 140 → 新增 forge_bureau.py +1）",
+  "dimension_lock": "PASS（12 维 / 7 闸 / 0 violation；DOC 0.9.57 演进态）",
+  "check_sums": "ok=true / 250 entries / 0 mismatches",
+  "diff0": "6d119b2a9f2df687（DIFF=0，敏感性 sensitive=True，拦截 100%，冷装配 31.35ms / 峰值 1.69MiB）",
+  "v44": "13/13 PASS（先 five_site_dna build：package 28 / repo 171 / missing 0 / zip_sha16 a87fa921bf963fa1）",
+  "readme_claims_check": "PASS / mismatch=0 / stale_header=0"
+ },
+ "not_committed": [
+  "reports/state_beacon.json（灯塔，untracked 惯例）",
+  "AGENT_FEED_V63_FORGE_BUREAU_20261112.md（收口后改 _DONE 后缀，字节不变）",
+  "F:\\doubaowork\\holoaeon_lathe\\*（仓外机床，零侵入）"
+ ],
+ "honest_boundaries": [
+  "12 缺口平台未适配（真适配须各平台真实 schema 素材投喂后逐批落），不虚构适配器",
+  "P4 小程序提示词为唯一待造位，真成品未落，锚未落如实声明",
+  "机床家族直连 18/25，未覆盖 7 位（C1/R2/R5/R6/R7/R8/X2）属拓扑共振与耗散验证域，不虚报 25 全连通",
+  "不内置 LLM：intent 解析纯确定性关键词，LLM 以 callback 注入",
+  "吸附入库记录为 ADAPTATION_REQUIRED 五字段骨架，槽/吸收形态由后续 search_record 八字段批次补齐（不替吸纳批越权）",
+  "零网络：不执行实际抓取/真联网",
+  "产品线穷举只登记类型+锚点+待造，不虚构产品成品",
+  "forge_rail 与 craft_gate StepRail 同构属关联声明，不计 SAME_AS（形状层面独立复现）"
+ ],
+ "rollback": {
+  "steps": [
+   "git reset --hard 63f8b37fcfcdcd17a92c0a8ee2991c2b8302ab1a",
+   "删除新增三件（holoaeon/forge_bureau.py、tests/test_v63_forge_bureau.py、data/forge_bureau_meridian.json）",
+   "投喂包由 _DONE 改回原名即可重跑（字节未变）"
+  ]
+ }
+}
