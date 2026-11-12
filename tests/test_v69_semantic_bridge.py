@@ -40,6 +40,10 @@ def _src():
         return fh.read()
 
 
+def _doc_tuple(text):
+    return tuple(int(x) for x in str(text).split("."))
+
+
 class TestCard(unittest.TestCase):
     def test_medical_card_hits(self):
         card = card_for("吴门医派1331x1331_SUPER-MAS-V3.0_runtime")
@@ -276,8 +280,10 @@ class TestNoSideEffects(unittest.TestCase):
 
 
 class TestDocAndDimensions(unittest.TestCase):
-    def test_doc_version_is_0_9_63(self):
-        self.assertEqual(DOC_VERSION, "0.9.63")
+    def test_doc_version_not_below_0_9_63(self):
+        # V69 自身写的是精确 0.9.63；升号批次会把它打红（V40 教训的又一次复现），
+        # 故降为下界断言：唯一精确权威点保留在 tests/test_v22_eng_skills.py。
+        self.assertGreaterEqual(_doc_tuple(DOC_VERSION), _doc_tuple("0.9.63"))
 
     def test_pack_orders_untouched(self):
         self.assertEqual(len(packs.PACK_ORDER), 9)

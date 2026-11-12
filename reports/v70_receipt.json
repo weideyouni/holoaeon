@@ -1,0 +1,242 @@
+{
+  "batch": "V70",
+  "name": "discharge-plan-execution",
+  "status": "PASS",
+  "date": "2026-11-12",
+  "head": "PENDING",
+  "head_pre": "5f706f0664fd626d4dc3cac05d9875adfccce18d",
+  "doc_version": {
+    "from": "0.9.63",
+    "to": "0.9.64"
+  },
+  "frozen_dimensions": {
+    "VERSION": "0.9.1",
+    "MATRIX_ID": "HOLOAEON-MATRIX-0.9.1",
+    "RUNTIME_ID": "HOLOAEON-RUNTIME-0.9.1",
+    "PROTOCOL_ID": "HOLOAEON-DATAPROTO v1.0",
+    "BUS_ID": "HOLOAEON-BUS-v1.0",
+    "BUILTIN_LAYERS": "L1-L8",
+    "PACK_ORDER": 9,
+    "EXTRA_PACK_ORDER": 19,
+    "verify_false": [
+      "D02",
+      "D05",
+      "D06",
+      "D07"
+    ],
+    "diff0_comment": "2fc892cf9af6e755",
+    "tamper": "f42c8229ee5acd73",
+    "zip_sha16": "a87fa921bf963fa1"
+  },
+  "carbon_order": {
+    "source": "四人组《挂账解题方案 V1》投喂包（AGENT_FEED_V70_DISCHARGE_PLAN_20261112.md），四项点单全部选「建议项」",
+    "scope": "只做零风险两件 + 点单闸门：判据入账、证据入回执、B4 九项只出三态表、S4 不动",
+    "product": "prehistory_criteria.py（判据三档 + selftest 三层 + B4 闸门）+ test_v70（51 例）+ 回执 + README 双份 + DOC 0.9.64",
+    "fail_criteria": "判据漂移 / 集合漂移 / 差集漂移 / 层级越权 / 未授权触碰 / 自摘要，六面各可判 FAIL",
+    "home_cang": "C11 意义（这件事对我意味着什么）——挂账不是要全做完，是要给每条装一个合法的停止态",
+    "point_order": {
+      "criteria": "194 核心 + 201 全集并列（199 仅作对照）",
+      "evidence": "H2/H3 证据并入 V70 台账与回执",
+      "b4": "剩余 9 项全部继续挂起（SUSPENDED，不扫描不搬运）",
+      "s4": "18 仓本地产物阶段暂不启动（not_started）"
+    }
+  },
+  "patches": [
+    {
+      "file": "holoaeon/prehistory_criteria.py",
+      "new": true,
+      "role": "判据三档 + 集合指纹 + selftest 三层 + B4 点单闸门（无搬运函数）",
+      "read_only": true
+    },
+    {
+      "file": "tests/test_v70_prehistory_criteria.py",
+      "new": true,
+      "role": "51 例：现场真值 + 合成失败面 + 源码纪律 + DOC/维度",
+      "read_only": false
+    },
+    {
+      "file": "holoaeon/spec.py",
+      "new": false,
+      "role": "DOC_VERSION 0.9.63 -> 0.9.64（版本注释同步改成本批口径）",
+      "read_only": false
+    },
+    {
+      "file": "tests/test_v22_eng_skills.py",
+      "new": false,
+      "role": "DOC 断言 0.9.63 -> 0.9.64（唯一精确权威点）",
+      "read_only": false
+    },
+    {
+      "file": "tests/test_v64_hangover_zero.py",
+      "new": false,
+      "role": "DOC 断言 0.9.63 -> 0.9.64",
+      "read_only": false
+    },
+    {
+      "file": "tests/test_v69_semantic_bridge.py",
+      "new": false,
+      "role": "V69 自写的精确 0.9.63 断言降为下界（升号批次的第 N 次复现，避免自己打红自己）",
+      "read_only": false
+    },
+    {
+      "file": "README.md",
+      "new": false,
+      "role": "徽章 1624 / 门禁行 1624·151 / 验收行 1656 / 最新批次插 V70（V69 降为链条）",
+      "read_only": false
+    },
+    {
+      "file": "README.zh-CN.md",
+      "new": false,
+      "role": "同英文侧四处同源",
+      "read_only": false
+    },
+    {
+      "file": "reports/five_site_manifest.json",
+      "new": false,
+      "role": "改文档后重建（five_site_dna build）",
+      "read_only": false
+    },
+    {
+      "file": "reports/v70_receipt.json",
+      "new": true,
+      "role": "本批回执（15 顶层键）",
+      "read_only": false
+    }
+  ],
+  "measurements": {
+    "criteria": {
+      "v1": 194,
+      "v68": 199,
+      "union": 201,
+      "intersection": 192,
+      "only_in_199": 7,
+      "only_in_194": 2,
+      "set_sha16": "aae1c8aea9199ee7"
+    },
+    "criteria_convention": "sha256(\"\\n\".join(sorted(names)))[:16] —— 11 种序列化穷举，join_nl 与 sorted_updated 两个命名同值命中；带尾换行 a097dce7、竖线 c54513ae 均不命中",
+    "criteria_rosters": {
+      "only_in_199": [
+        "_universe1331_build",
+        "hermes_1331_bridge_20261026",
+        "坍缩矩阵1331_WorkBuddy模拟端口",
+        "坍缩矩阵1331通道_跨线程有机模块_20261023",
+        "数学大师1331_数学史早课",
+        "昭明文选1331矩阵升级包_20261016",
+        "类硅基生命V2.0_1331x131基座_20261017"
+      ],
+      "only_in_194": [
+        "人类疾病图谱融合矩阵V3实战化_20261019",
+        "昭明文选数字分身_超级矩阵V3实战化_20261018"
+      ]
+    },
+    "selftest_layers": {
+      "total": 22,
+      "L1": 22,
+      "L2": 22,
+      "L3": 21,
+      "asserts_sum": 1410,
+      "asserts_min": 0,
+      "asserts_max": 96,
+      "zero_assert": [
+        "北京瑶医医院项目管理1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip"
+      ],
+      "sec_range": "0.33 - 18.40"
+    },
+    "b4": {
+      "count": 9,
+      "files": 119157,
+      "mb": 10166.9,
+      "by_state": {
+        "SUSPENDED": 9
+      },
+      "first_batch_true": [],
+      "items": [
+        [
+          "_历史工程归档_20261017",
+          53848,
+          7746.8
+        ],
+        [
+          "本地养分摄入重构_20261011",
+          44077,
+          1519.0
+        ],
+        [
+          "向量海_财富流NLP",
+          20,
+          523.8
+        ],
+        [
+          "G盘吞噬_20261011",
+          3454,
+          223.7
+        ],
+        [
+          "_doubao_replica_20261010",
+          10495,
+          125.1
+        ],
+        [
+          "skills_harvest",
+          7188,
+          26.1
+        ],
+        [
+          "归档工程_有机化",
+          69,
+          2.3
+        ],
+        [
+          "瑶医V3飞书合集与向量海同步包_20261018.zip",
+          1,
+          0.2
+        ],
+        [
+          "向量海中枢_轻扫_20261012",
+          5,
+          0.0
+        ]
+      ],
+      "policy": "九项逐项三态；未点单一律 SUSPENDED；不整包裁决、不重扫 10 GB"
+    },
+    "scan": {
+      "top_dirs": 409,
+      "note": "V68 台账时点为 590 项（含文件+目录），与本批只数顶层目录的口径不同，不可互比"
+    },
+    "digest": "b8a4bf689e2c047e（note=\"V70 real-site probe\" 时的现场摘要；note 进 payload，改 note 即改摘要）"
+  },
+  "verification": {
+    "selftest": "25/25 PASS",
+    "v3_gate": "32/32 PASS",
+    "unittest_main": 1624,
+    "unittest_v3": 11,
+    "unittest_verax": 21,
+    "v70_cases": 51,
+    "v69_cases": 43,
+    "redline_files": 151,
+    "redline_violations": 0,
+    "dimension_lock": "PASS (12 dims / 7 gates / 0 violation)",
+    "diff0": "DIFF=0 6d119b2a9f2df687 | 拦截 16/16 | 放行 4/4 | 冷装配 32.03ms 峰值 1.69MiB",
+    "five_site_dna_build": "package 28 / repo 171 / missing 0 / zip_sha16 a87fa921bf963fa1",
+    "verify_v44": "13/13 (A6-A13 PASS)",
+    "readme_claims": "VERDICT PASS | mismatch=0 | stale_header=0",
+    "check_sums": "ok=true total=250 mismatches=[]"
+  },
+  "not_committed": [
+    "AGENT_FEED_V70_DISCHARGE_PLAN_20261112.md（投喂包，收口后改名 _DONE，untracked 不提交）",
+    "holoaeon_lathe/v70_probe.py · v70_probe.json · v70_probe2.py · v70_receipt.py（机床件，仓外）",
+    "reports/state_beacon.json（活体产物，untracked）",
+    "benchmarks/*（diff0 跑完已 git checkout -- 还原）"
+  ],
+  "honest_boundaries": [
+    "set_sha16 的口径是**反推**得来的，不是策划案给出的：11 种序列化试过、2 个命名同值命中 aae1c8aea9199ee7。因此「这个数能复算」成立，「这就是策划案原口径」不成立——除非策划案日后补上算法。",
+    "集合指纹只证名单逐字未变，不证这些目录里内容未变（与 V68 的 meta_sha16 同一条边界，字段名分开写就是为了不被混用）。",
+    "B4 的 119,157 文件 / 10,166.9 MB 取自 V68 台账时点；本批按点单**不重扫**，故它们是历史快照而非当日实测。要当日实测必须重新点单。",
+    "顶层目录 409 与台账 590 是两个口径（台账含文件+目录，且是 V68 时点）。本批只数顶层目录名，不递归、不读内容。",
+    "selftest 的 L3 = 21 而不是 22：北京瑶医那一例 assert 为 0，登记为已知例外。它不是「漏跑」——跑了、rc=0，但没有可失败的断言，所以只到 L2。",
+    "S4（18 仓本地产物）本批未启动，H4_S4 仍是 not_started；B4 九项全部 SUSPENDED，未重新点单前不扫描、不搬运。",
+    "v68 档（199）从此仅作对照留档，不再作为任何场合的唯一口径——这一点已由碳基点单固化，写进模块的 TIER_LABEL 而不是只写在文档里。",
+    "DOC 升号必然打红上一批自写的精确断言（V69 的 0.9.63 就是这么红的）。本批把它降为下界，唯一精确权威点保留在 tests/test_v22_eng_skills.py —— 这不是绕过，是把「谁负责精确」收敛到一处。"
+  ],
+  "seal": "潮起开门，潮落闭嘴 · 桃花庵出品"
+}
