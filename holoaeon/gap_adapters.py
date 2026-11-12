@@ -202,7 +202,27 @@ GAPS: tuple = (
         ),
         "source_url": ("https://raw.githubusercontent.com/langgenius/dify/main/"
                        "api/controllers/service_api/app/workflow.py"),
-        "verification": "source_code_read",
+        # V67：契约由「读到的」推进到「本机回环跑通的」——
+        # 仍不是 Dify 官方实例（无实例无 token），故 verification 同时标两段。
+        "verification": "source_code_read+local_contract_loopback",
+        "loopback": {
+            "verified_at": "2026-11-12",
+            "scope": "local_contract_loopback（本机 http.server 模拟，非 Dify 官方实例）",
+            "checks": 15,
+            "passed": 15,
+            "what_it_proves": [
+                "POST /v1/workflows/run 路径与 Bearer 鉴权头形式正确",
+                "请求体恰为 inputs/response_mode/user 三键，缺省 response_mode=blocking",
+                "响应 11 字段齐全且 status=succeeded、outputs 可解析",
+                "缺 user → 400 invalid_param（对应源码 expect_with_user(required=True)）",
+                "stream=True 时 body 的 response_mode 变为 streaming",
+            ],
+            "what_it_does_not_prove": (
+                "Dify 官方服务可用性、真实工作流编排结果、真实配额与错误码触发——"
+                "需真实例与 app token，本仓零网络纪律下不验"
+            ),
+            "reproduce": "python F:\\doubaowork\\holoaeon_lathe\\v67_dify_loopback.py（仓外，不入库）",
+        },
     },
 )
 

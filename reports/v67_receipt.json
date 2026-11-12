@@ -1,0 +1,234 @@
+{
+ "batch": "V67 契约对账与仲裁批",
+ "batch_id": "V67-CONTRACT-ARBITRATION",
+ "status": "closed",
+ "date": "2026-11-12",
+ "doc_version": "0.9.61",
+ "previous_doc_version": "0.9.60",
+ "head": "pending_commit",
+ "head_short": "pending",
+ "head_note": "主批提交后由回执补正提交带入实际 sha，故最终 HEAD 为补正提交；本字段在补正时回填",
+ "baseline_head": "9423ff705e7898b473afbc0bde55a3c0ba57d903",
+ "baseline_head_short": "9423ff7",
+ "seal": "潮起开门，潮落闭嘴",
+ "intent": "V66 收口时留了四条后续，逐条落地：① 清理 NO_INFO_P 死常量 + 给被原包消费的函数做「返回键白名单对账」；② 耗散充分性 vs 重组判据做优先级仲裁（用户标注「需您定口径」）；③ 让 emergence_chain 也消费 consistency_gate 与 entropy_production（用户标注「会改语义，需评估」）；④ dify-workflow 若日后有实例补一条真实调用回执，把「契约」升级为「通」。",
+ "asks_answer": {
+  "Q1_dead_constant_and_key_whitelist": "answered_landed_as_code",
+  "Q2_arbitration_priority": "answered_landed_as_code_with_explicit_ruling",
+  "Q3_emergence_consumes_gate_and_entropy": "answered_landed_as_read_only_side_channel",
+  "Q4_dify_contract_to_run": "answered_partially_by_local_loopback_not_official_instance",
+  "note": "①②③在代码里关掉并带可失败判据；④在本机条件内做到「真 HTTP 往返 15/15」，但 Dify 官方实例仍不可得，边界写进包内 loopback 字段与本文 honest_boundaries。"
+ },
+ "design_decisions": [
+  {
+   "n": 1,
+   "title": "死常量：删而不是留",
+   "why": "V66 用信息量表示 Y=1/P 取代了「大到近似无信息」的有限大数，Y=0 本身就是真·无信息先验；1e12 会磨掉有效位数（V66 实测序贯 vs 批量差 2e-6）。留着它等于留一个陷阱——后来者会以为无信息就该取 1e12。",
+   "how": "删除常量 + 原位留 5 行 `# V67 清理` 注释说明原因；测试只断言「没有该常量的定义行」（正则 `^NO_INFO_P\\s*=`），不禁止注释里出现历史字样，避免断言与解释互斥。"
+  },
+  {
+   "n": 2,
+   "title": "白名单范围修正：用户说 7 个，实测 8 个",
+   "why": "被原包实际消费的是 entropy_production / mandala_wht / kalman_fuse / sprt_gate / rff_kernel / rff_features / kuramoto_order / decompose_active_nodes。多出来的 rff_features 是 V66 新增的单点版，原包 hilbert_project 直接依赖它，漏掉就等于漏锁一个真依赖。",
+   "how": "8 个函数逐个用「返回键集合 == 白名单」的精确集合断言（assertEqual 而非 assertLessEqual），任何键的增删都必须显式改测试。"
+  },
+  {
+   "n": 3,
+   "title": "耗散仲裁：口径从「σ<sigma_min 即僵死」改为「僵死需时间窗证据」",
+   "why": "初版按物理直觉实现，探针立刻暴露矛盾：task_flow=ok,fail,ok,fail（order=0、熵=1.0，最混乱）算出 σ=0.9 < 1.0 被判「僵死」。根因是把归一化后的概率当热力学力，σ 随分布均匀化而缩小，与物理直觉相反；更关键的是单点快照根本分不开「高效稳定」与「僵死」——全成功 σ=2.0、熵=0，真僵死系统长得一样。",
+   "how": "新增可选入参 streak；只有 streak≥STAGNATION_STREAK_MIN(5) 且 entropy≤STAGNATION_ENTROPY_MAX(0.10) 才判僵死成立；未传 streak 则 stagnation_side=None（未评估，不假装评估过）；σ<sigma_min 降级为 weak_flow_signal/dissipation_sufficient 弱信号。默认 REORGANIZATION_PRIORITY=\"stagnation_first\"，可一键切 disorder_first / all。",
+   "rationale_for_priority": "耗散结构的前提是「有流」：零流量下自组织不可能发生（无能量物质交换即无耗散结构）；而混乱侧至少还有噪声可被结构捕获。故僵死一旦成立，优先于混乱。"
+  },
+  {
+   "n": 4,
+   "title": "emergence_chain 只读不判：拒绝给涌现开第二真源",
+   "why": "主判据只有 quartet 一个真源（P2×P3≥0.7 / P1≥0.6 / P4≤0.4 / order>0.30）。若把一致性门与熵产率也接进布尔判定，等于给「涌现」开第二、第三真源，口径一分歧就互斥——同一个系统会因为卡尔曼离群判据而推翻 quartet 结论。",
+   "how": "只做「读取并展示」：新增 dissipation_view / consistency_view / advisories，主判据一行不改；测试用 test_main_judgement_untouched 对比 quartet_tensor 的 emergence 值锁死。"
+  },
+  {
+   "n": 5,
+   "title": "dify「契约→通」：做本机回环，不做假调",
+   "why": "本机探测 127.0.0.1 的 5001/3000/8080/80/8000 全 False、docker 不存在、无 dify 目录、无 token；仓内 ENABLE_RULE 明写 no_network_in_repo。真调在物理上不可能，编一个回执就是造假。",
+   "how": "仓外起一个 http.server（本项目自建，非 Dify 实例），用仓内 build_request 造的真实请求体真发 HTTP，按源码契约校验 15 项（路径/Bearer/三键 body/缺省 blocking/11 响应字段/status/缺 user 400 invalid_param/非法 mode 400/streaming 开关）。包内 verification 改为 source_code_read+local_contract_loopback，并附 what_it_proves 与 what_it_does_not_prove 两段明文。"
+  }
+ ],
+ "pack_changes": [
+  {
+   "n": 1,
+   "target": "holoaeon/resonance_supplement.py",
+   "change": "删除 NO_INFO_P = 1.0e12，原位留 5 行 V67 清理注释（说明信息量表示 Y=1/P 与 2e-6 精度损失）",
+   "judge": "hasattr(RS, 'NO_INFO_P') 为 False；源文件无 `^NO_INFO_P\\s*=`；kalman_fuse 的 sequential_matches_batch 仍 True"
+  },
+  {
+   "n": 2,
+   "target": "holoaeon/packs/topology_resonance_pack.py::常量区",
+   "change": "新增 REORGANIZATION_PRIORITY=\"stagnation_first\"、STAGNATION_STREAK_MIN=5、STAGNATION_ENTROPY_MAX=0.10，注释写明两病方向相反与「有流才有耗散结构」的理由",
+   "judge": "default verdict 由常量决定；priority 切换后同一数据给出不同裁决"
+  },
+  {
+   "n": 3,
+   "target": "topology_resonance_pack.py::dissipation_measure",
+   "change": "签名加 streak=None；新增 weak_flow_signal / stagnation_evaluated / stagnation / 4 分支 verdict（3 种 priority）/ reorganization 子块（priority, disorder_side, stagnation_side, stagnation_evaluated, stagnation_evidence, weak_flow_signal, verdict, action, sigma, sigma_min）/ needs_reorganization_any；needs_reorganization 旧语义不动",
+   "measured": {
+    "default_10step": {"order": 0.278072, "sigma": 1.416, "entropy": 0.721928, "stagnation_side": null, "verdict": "reorganize_disorder"},
+    "ok4": {"sigma": 2.0, "verdict": "hold"},
+    "fail4": {"sigma": 1.0, "verdict": "hold"},
+    "ok_fail_ok_fail": {"order": 0.0, "sigma": 0.9, "entropy": 1.0, "verdict": "reorganize_disorder"},
+    "ok6_with_streak6": {"sigma": 2.0, "entropy": 0.0, "stagnation": true, "verdict": "reorganize_stagnation"}
+   },
+   "judge": "最混乱情形不再被误判僵死；僵硬死证据（streak≥5 且熵≤0.10）成立时才出 reorganize_stagnation"
+  },
+  {
+   "n": 4,
+   "target": "topology_resonance_pack.py::emergence_chain",
+   "change": "新增 kons=kalman_state(observations=\"10.0,10.5,30.0\", observation_noise=\"1.0,0.25,0.5\")、diss=dissipation_measure(task_flow=\"ok,fail,ok,fail\")、advisories（字符串列表），以及 dissipation_view / consistency_view 两个只读快照；主判据（quartet）未动",
+   "measured": {
+    "emergence": true,
+    "advisories": 2,
+    "nis_max": 540.724389,
+    "dissipation_view": {"priority": "stagnation_first", "sigma": 0.9, "order": 0.0, "entropy": 1.0, "verdict": "reorganize_disorder"}
+   },
+   "judge": "emergence 与 quartet_tensor 完全一致；advisories 为非空字符串且带具体数值"
+  },
+  {
+   "n": 5,
+   "target": "holoaeon/gap_adapters.py::dify-workflow 条目",
+   "change": "verification 改为 source_code_read+local_contract_loopback；新增 loopback 块（verified_at/scope/checks/passed/what_it_proves/what_it_does_not_prove/reproduce）",
+   "measured": {"checks": 15, "passed": 15, "verdict": "PASS"},
+   "judge": "缺 user 必 400 invalid_param；响应 11 字段齐全；streaming 开关改变 body"
+  },
+  {
+   "n": 6,
+   "target": "holoaeon/spec.py::DOC_VERSION",
+   "change": "0.9.60 → 0.9.61（注释写本批四件事）",
+   "judge": "dimension_lock 记 spec_doc_version 为演进（正常）"
+  }
+ ],
+ "dify_loopback": {
+  "device": "client:1044603:1976275916818668（本机 WIN-PIB9JHIKQ43）",
+  "why_not_official": "127.0.0.1 的 5001/3000/8080/80/8000 五次探测全 False；docker 不存在；F:\\doubaowork 与 C:\\ 下无 dify 目录；无 app token。仓内 ENABLE_RULE.no_network_in_repo=True。",
+  "method": "仓外 python 起 http.server（端口 0 自动分配，本次 55288），按 Dify 主仓源码契约实现 POST /v1/workflows/run；用仓内 gap_adapters.build_request 造真实 body，urllib 真发 HTTP 往返",
+  "checks_passed": [
+   "HTTP 200",
+   "路径 /v1/workflows/run",
+   "Authorization: Bearer 头",
+   "body 恰三键 inputs/response_mode/user",
+   "response_mode 缺省 blocking",
+   "user 携带为 holoaeon",
+   "响应 11 字段齐全",
+   "status=succeeded",
+   "outputs 为 dict 且可解析",
+   "缺 user → 400",
+   "缺 user → code=invalid_param",
+   "非法 response_mode → 400",
+   "streaming 请求 200",
+   "build_request stream=True 的 stream 标志",
+   "build_request stream=True 的 body.response_mode=streaming"
+  ],
+  "result": "15/15 PASS",
+  "artifact": "F:\\doubaowork\\holoaeon_lathe\\dify_loopback_V67.json（仓外，不入库）",
+  "honest_boundary": "本机回环只证明「我们发的形状 + 我们解析的字段」自洽，不证明 Dify 官方可用性、真实工作流编排结果、真实配额与错误码触发。"
+ },
+ "tests": {
+  "new_file": "tests/test_v67_contract_and_arbitration.py",
+  "cases": 43,
+  "groups": {
+   "TestSupplementKeyWhitelist": 8,
+   "TestKalmanRowContracts": 3,
+   "TestPackWrapperKeySubsets": 6,
+   "TestReorganizationArbitration": 9,
+   "TestEmergenceChainSideChannel": 5,
+   "TestDeadConstantRemoved": 3,
+   "TestDifyContractStatic": 9,
+   "note": "分组按最终文件实测；总 43 例全绿"
+  },
+  "first_run": "42 例首跑 FAILED(failures=1, errors=8)：8 个 ERROR 同源 ga.PLATFORMS 不存在（注册表实名 GAPS / PLATFORM_SHAPES 是 dict 列表非 id 元组）；1 个 FAIL 是 test_marker_comment_kept 的 assertNotIn 与新注释互斥 → 改为断言定义行正则 + PLATFORM_SHAPES 取 id 列表；补 loopback 断言后 43 例",
+  "modified_assertions": [
+   "tests/test_v64_hangover_zero.py::test_dify_workflow_adapted_from_source_code：verification 精确等于 source_code_read → startswith + 含 local_contract_loopback（V67 升级）",
+   "tests/test_v64_hangover_zero.py::test_doc_version_bumped：0.9.60 → 0.9.61",
+   "tests/test_v22_eng_skills.py::test_version_sync：0.9.60 → 0.9.61"
+  ],
+  "main_suite_after": "1476 OK"
+ },
+ "verification": {
+  "selftest": "25/25 PASS",
+  "unittest_main": "1476 OK（1433 + V67 43）",
+  "unittest_v3": "11 OK",
+  "unittest_verax": "21 OK",
+  "v3_gate": "32/32 PASS（无参跑）",
+  "redline": "147 文件 0 违规（本批未新增包内 .py）",
+  "dimension_lock": "PASS（12 维度 / 7 闸 / 0 violation；spec_doc_version 0.9.61 记演进正常）",
+  "check_sums": "ok=true total=250 mismatches=[]",
+  "mechanism_bearers": "PASS（problems []、extra_ok true；承载台账无需改）",
+  "resonance_supplement_check": "passed=7 verdict=PASS",
+  "gap_adapters_check": "total 12 / adapted 12 / gaps 0 / problems [] / PASS（model_shapes 5 / platform_shapes 4）",
+  "diff0": "DIFF=0 run1=run2=6d119b2a9f2df687 tampered=8f424d9ee3ebfb9b 拦截 16/16 放行 4/4；冷装配 30.87ms / 峰值 1.69MiB；跑完已 git checkout -- benchmarks",
+  "readme_claims": "VERDICT PASS | mismatch=0 stale_header=0",
+  "five_site_dna_build": "package 28 / repo 171 / missing 0 / zip_sha16 a87fa921bf963fa1",
+  "verify_v44": "13/13 PASS",
+  "dify_loopback": "15/15 PASS"
+ },
+ "files": {
+  "added": [
+   "tests/test_v67_contract_and_arbitration.py",
+   "reports/v67_receipt.json"
+  ],
+  "modified": [
+   "holoaeon/resonance_supplement.py",
+   "holoaeon/packs/topology_resonance_pack.py",
+   "holoaeon/gap_adapters.py",
+   "holoaeon/spec.py",
+   "tests/test_v64_hangover_zero.py",
+   "tests/test_v22_eng_skills.py",
+   "README.md",
+   "README.zh-CN.md",
+   "reports/five_site_manifest.json"
+  ]
+ },
+ "not_committed": [
+  "F:\\doubaowork\\holoaeon_lathe\\v67_probe_keys.py（探针：8 函数键、行键、仲裁与 emergence 实况）",
+  "F:\\doubaowork\\holoaeon_lathe\\v67_dify_loopback.py（本机回环验证器，起 http.server）",
+  "F:\\doubaowork\\holoaeon_lathe\\dify_loopback_V67.json（回环回执）",
+  "F:\\doubaowork\\holoaeon_lathe\\v67_readme.py（双 README 定点替换脚本）",
+  "F:\\doubaowork\\holoaeon_lathe\\_v67_*.log（门禁日志）",
+  "reports/state_beacon.json 及其 .bak_*（untracked 常态）",
+  "AGENT_FEED_*.md / reports/daily_* / BASELINE_STATUS_* 等 DNA 约定不提交件"
+ ],
+ "honest_boundaries": [
+  {
+   "id": "①",
+   "item": "仲裁口径是本 Agent 代定，用户原话标注「需您定口径」",
+   "detail": "定为 stagnation_first，依据写进模块注释（有流才有耗散结构），并做成可一键切换常量（disorder_first / all）。若碳基不同意，改一个字符串即可，测试 test_priority_switch_is_effective 已证明常量真被读到。"
+  },
+  {
+   "id": "②",
+   "item": "僵死判据依赖调用方传 streak，当前调用点都没传",
+   "detail": "emergence_chain 内部调用 dissipation_measure 时也未传 streak，故其 dissipation_view 永远是 stagnation 未评估。这是有意的诚实：没有时间窗就不假装评估过。要真正用起来，需上游按步序传入连续同结果步数。"
+  },
+  {
+   "id": "③",
+   "item": "冒烟数据集下 σ 落在 σ_min 附近，fail×4 恰为 1.0 判 hold",
+   "detail": "fail,fail,fail,fail 算出 σ=1.0，恰等于 sigma_min=1.0，按 >= 判足够 → hold。这不是 bug 而是边界值：全失败也是「稳定失败」，属高效稳定的一种退化形态。测试以 hold 锁定该行为，避免后来者误以为是漏判。"
+  },
+  {
+   "id": "④",
+   "item": "dify 的「通」是本机回环，不是官方实调",
+   "detail": "15/15 证明请求形状与响应解析自洽；不证明 Dify 官方可用性、真实工作流输出、真实配额与错误码触发。包内 verification 同时保留 source_code_read 前缀，不把「回环通过」冒称「线上可用」。"
+  },
+  {
+   "id": "⑤",
+   "item": "8 函数白名单是「当前真值」，不是永久契约",
+   "detail": "锁集合意味着任何键增删都会红，红本身不是问题——问题是必须显式改测试并登记语义变更。若上游要新增字段，应先改测试再改代码，防止静默漂移。"
+  },
+  {
+   "id": "⑥",
+   "item": "数值判据不等于物理论证",
+   "detail": "σ=1.416、熵=0.721928、order=0.278072、NIS 540.724389 都是本机可复现的数值事实，不构成「系统已处于临界态/已实现耗散结构/涌现已成真」的结论；机制与物理量之间的映射仍是建模假设，碳基终审。"
+  }
+ ],
+ "open_items": [
+  "★ 上游若需要「僵死」真正可判，须在编排层按步序累计 streak 传入 dissipation_measure（当前所有调用点均未传）",
+  "★ dify-workflow 若日后有真实例与 app token，可把 verification 升级为官方实调回执，届时 loopback 字段保留作为离线可复现证据",
+  "concept_anatomy.py 的 verify_doc_version token 停在 0.9.33，属历史冻结项、不参与主套判定；本批未动且全绿"
+ ]
+}

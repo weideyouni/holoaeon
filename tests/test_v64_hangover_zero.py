@@ -211,11 +211,12 @@ class TestGapAdapters(unittest.TestCase):
         self.assertIn("X-N8N-API-KEY", n["headers_hint"])
 
     def test_dify_workflow_adapted_from_source_code(self):
-        """V66：dify-workflow 由源码取证补齐，端点/请求体/鉴权全部有据。"""
+        """V66：dify-workflow 由源码取证补齐；V67 追加本机回环，verification 变成两段。"""
         p = self.ga.get_platform("dify-workflow")
         self.assertEqual(p["status"], "adapted")
         self.assertEqual(p["shape"], "dify_workflow")
-        self.assertEqual(p["verification"], "source_code_read")
+        self.assertTrue(p["verification"].startswith("source_code_read"))
+        self.assertIn("local_contract_loopback", p["verification"])
         self.assertIn("service_api/app/workflow.py", p["source_url"])
         self.assertIn("/workflows/run", p["evidence"])
         r = self.ga.build_request("dify-workflow", extra={"inputs": {"q": "x"}})
@@ -392,7 +393,7 @@ class TestBatchSurface(unittest.TestCase):
 
     def test_doc_version_bumped(self):
         from holoaeon import spec
-        self.assertEqual(spec.DOC_VERSION, "0.9.60")
+        self.assertEqual(spec.DOC_VERSION, "0.9.61")  # V67 起
         self.assertEqual(spec.VERSION, "0.9.1")
 
 

@@ -56,6 +56,18 @@ RESONANCE_THRESHOLD = 0.75
 EMERGENCE_THRESHOLD = 108641
 # 耗散熵阈值：系统熵超过此值则触发自组织重组
 DISSIPATION_ENTROPY_MAX = 0.95
+# V67 重组口径仲裁：两种"病"方向相反，必须显式定优先级，不能含糊共存。
+#   disorder 侧（旧判据）：熵 > 0.95 或 秩序 < 0.3 → 系统太乱，靠重整出结构。
+#   stagnation 侧（V67 证据化）：**单点快照无法**区分「高效稳定」与「僵死」——
+#     全成功时 σ 高、熵低，真正的僵死系统也可能长得一样。故僵死必须靠时间窗证据：
+#     连续 STAGNATION_STREAK_MIN 步同一结果，且熵 ≤ STAGNATION_ENTROPY_MAX。
+#     σ < sigma_min 只作弱信号（dissipation_sufficient），不单独判僵死。
+# 默认口径 stagnation_first（先破僵）：耗散结构的前提是"有流"，
+# 零流量时任何自组织都不可能发生（没有能量/物质流就没有耗散结构）；
+# 而混乱侧仍有噪声可被结构捕获。故一旦僵死成立，优先于混乱。
+REORGANIZATION_PRIORITY = "stagnation_first"
+STAGNATION_STREAK_MIN = 5
+STAGNATION_ENTROPY_MAX = 0.10
 # V66：χ²(1) 95% 一致性门限（标准 NIS 判据），与 resonance_supplement 同源
 NIS_CHI2_95 = CHI2_1DOF_95
 
@@ -597,7 +609,7 @@ def hilbert_project(vector: str = "", dimensions: int = 0,
 
 # ============================================================ 8. 耗散度量（辅助）
 def dissipation_measure(task_flow: str = "", sigma_min: float = 1.0,
-                        **_: Any) -> dict:
+                        streak: int = None, **_: Any) -> dict:
     """耗散结构度量：Shannon 熵 + **熵产率 σ（热力学力/流）**。
 
     数学内核（V66 换芯）：
@@ -608,6 +620,18 @@ def dissipation_measure(task_flow: str = "", sigma_min: float = 1.0,
       现以 [p_ok, p_fail] 为热力学力 X，经 Onsager 线性唯象关系 J = L·X 得流 J，
       σ = XᵀLX，并用 Onsager 对称 + Sylvester 正定双闸判其物理可解释性。
       力与流的内积为负（负定 L）时如实返回 positive_definite=false，不硬掰成正。
+
+    口径仲裁（V67）：
+      混乱侧（熵 > 0.95 或 秩序 < 0.3）与僵死侧是两种方向相反的病。
+      但僵死**不能由单点快照判定**：全成功时熵低、σ 高，真正的僵死系统同样低熵，
+      快照分不开「高效稳定」与「僵死」。故僵死必须靠时间窗证据 ——
+      调用方传入 streak（连续同一结果的步数），且 entropy ≤ STAGNATION_ENTROPY_MAX
+      且 streak ≥ STAGNATION_STREAK_MIN 时才判成立；未传 streak 则输出
+      stagnation_side=None（未评估），只报混乱侧结论。
+      一旦僵死成立，按 REORGANIZATION_PRIORITY（默认 stagnation_first）优先于混乱：
+      耗散结构的前提是"有流"，零流量下自组织不可能发生。
+      注意：needs_reorganization 的旧语义（混乱侧）保持不变，供既有下游兼容；
+      需要"两侧任一"的下游请用 needs_reorganization_any。
 
     城邦映射：Observability + Traceability + Audit
     """
@@ -644,14 +668,57 @@ def dissipation_measure(task_flow: str = "", sigma_min: float = 1.0,
     dissipation = energy_in - work_done  # 耗散 = 失败数
     dissipation_rate = dissipation / energy_in if energy_in else 0
 
-    # 自组织触发判断（原判据保留）
+    # 自组织触发判断（原判据保留：混乱侧，不改语义）
     needs_reorganization = entropy > DISSIPATION_ENTROPY_MAX or order < 0.3
 
     # V66：熵产率 σ = Σ J_i X_i（力 = [p_ok, p_fail]，J = L·X）
     ep = entropy_production(forces=[p_ok, p_fail])
     sigma = ep["sigma"]
-    # 耗散不足 = 系统不流动（σ 低于下界），与"太乱要重组"是相反方向的病
+    # 耗散不足 = 系统不流动的**弱信号**（σ 低）。单凭它不判僵死，只登记。
     dissipation_sufficient = sigma >= sigma_min
+    weak_flow_signal = not dissipation_sufficient
+    # V67：僵死需要时间窗证据（streak），否则快照分不开"高效稳定"与"僵死"
+    stagnation_evaluated = streak is not None
+    try:
+        streak_v = int(streak) if stagnation_evaluated else 0
+    except (TypeError, ValueError):
+        streak_v, stagnation_evaluated = 0, False
+    stagnation = bool(stagnation_evaluated
+                      and streak_v >= STAGNATION_STREAK_MIN
+                      and entropy <= STAGNATION_ENTROPY_MAX)
+
+    # V67 仲裁：两病方向相反，按 REORGANIZATION_PRIORITY 给出唯一下一步动作。
+    # 保留 needs_reorganization 的旧语义（混乱侧），另给 needs_reorganization_any 便于下游一次判。
+    if REORGANIZATION_PRIORITY == "stagnation_first":
+        if stagnation:
+            verdict = "reorganize_both" if needs_reorganization else "reorganize_stagnation"
+        elif needs_reorganization:
+            verdict = "reorganize_disorder"
+        else:
+            verdict = "hold"
+    elif REORGANIZATION_PRIORITY == "disorder_first":
+        if needs_reorganization:
+            verdict = "reorganize_both" if stagnation else "reorganize_disorder"
+        elif stagnation:
+            verdict = "reorganize_stagnation"
+        else:
+            verdict = "hold"
+    else:  # "all"：两侧并列，不排优先级
+        if needs_reorganization and stagnation:
+            verdict = "reorganize_both"
+        elif stagnation:
+            verdict = "reorganize_stagnation"
+        elif needs_reorganization:
+            verdict = "reorganize_disorder"
+        else:
+            verdict = "hold"
+
+    actions = {
+        "reorganize_stagnation": "先恢复流量（开放边界/加扰动/提高周转），再谈秩序——零流量下自组织不可能发生",
+        "reorganize_disorder": "重整约束与分工，压低熵、抬高秩序；此时流量是够的，缺的是结构",
+        "reorganize_both": "两病并发：先恢复流量（僵死侧），流量起来后再重整约束（混乱侧）",
+        "hold": "秩序与流量都在界内，维持现状并继续观测",
+    }
 
     return {
         "structure": "dissipative",
@@ -682,9 +749,31 @@ def dissipation_measure(task_flow: str = "", sigma_min: float = 1.0,
             "sigma_min": sigma_min,
         },
         "needs_reorganization": needs_reorganization,
-        "emergence_condition": "熵 > 0.95 或 秩序 < 0.3 → 触发自组织重组",
+        "needs_reorganization_any": bool(needs_reorganization or stagnation),
+        "reorganization": {
+            "priority": REORGANIZATION_PRIORITY,
+            "disorder_side": needs_reorganization,
+            "stagnation_side": stagnation if stagnation_evaluated else None,
+            "stagnation_evaluated": stagnation_evaluated,
+            "stagnation_evidence": {
+                "streak": streak_v if stagnation_evaluated else None,
+                "streak_min": STAGNATION_STREAK_MIN,
+                "entropy": round(entropy, 6),
+                "entropy_max": STAGNATION_ENTROPY_MAX,
+            },
+            "weak_flow_signal": weak_flow_signal,
+            "verdict": verdict,
+            "action": actions[verdict],
+            "sigma": sigma,
+            "sigma_min": sigma_min,
+        },
+        "emergence_condition": (
+            "熵 > 0.95 或 秩序 < 0.3 → 重组（混乱侧）；"
+            "streak ≥ %d 且熵 ≤ %.2f → 先破僵（僵死侧，需时间窗证据）"
+            % (STAGNATION_STREAK_MIN, STAGNATION_ENTROPY_MAX)),
         "note": ("耗散度量：能量流入 → 熵产率 σ 量化耗散强度 → 秩序涌现；"
-                 "失序超阈 或 σ 低于下界 → 触发自组织重组"),
+                 "混乱侧（熵/秩序）与僵死侧（σ 不足）方向相反，"
+                 "V67 按 REORGANIZATION_PRIORITY 给出唯一下一步动作"),
     }
 
 
@@ -963,6 +1052,25 @@ def emergence_chain(input_concept: str = "", **_: Any) -> dict:
     qt = quartet_tensor(p1="0.85", p2="0.85", p3="0.85", p4="0.30")
     emergence = qt.get("emergence", False)
 
+    # V67 旁路消费（评估结论：不改主判据，只加只读视图）
+    # 为什么不动 emergence：主判据只有 quartet 一个真源（P2×P3≥0.7 / P1≥0.6 / P4≤0.4 / order>0.30）。
+    # 若把一致性门与熵产率也接进布尔判定，等于给"涌现"开第二、第三个真源，
+    # 一旦两处口径不同就会互相打架。故本批只做"消费（读取并展示）"，不做"参与判定"。
+    kons = kalman_state(observations="10.0,10.5,30.0",
+                        observation_noise="1.0,0.25,0.5")
+    diss = dissipation_measure(task_flow="ok,fail,ok,fail")
+    advisories = []
+    if kons["checkpoint"]["rejected_sources"]:
+        advisories.append(
+            "一致性门：%d 个源被判离群（NIS 最大 %.6f > %.3f），融合值未吸收它们"
+            % (len(kons["checkpoint"]["rejected_sources"]),
+               kons["consistency_gate"]["nis_max"],
+               kons["consistency_gate"]["chi2_1dof_95"]))
+    if diss["reorganization"]["verdict"] != "hold":
+        advisories.append("耗散仲裁（%s）：%s"
+                          % (diss["reorganization"]["priority"],
+                             diss["reorganization"]["action"]))
+
     return {
         "chain": "emergence",
         "input_concept": concept,
@@ -990,7 +1098,19 @@ def emergence_chain(input_concept: str = "", **_: Any) -> dict:
                     "order": qt["order"]},
         "emergence": emergence,
         "emergence_conditions": qt["emergence_conditions"],
-        "note": "涌现链：道→法→术→器→升维→共振→涌现（完整闭环）",
+        "dissipation_view": {
+            "priority": diss["reorganization"]["priority"],
+            "sigma": diss["entropy_production"]["sigma"],
+            "order": diss["order"],
+            "entropy": diss["shannon_entropy"],
+            "verdict": diss["reorganization"]["verdict"],
+            "action": diss["reorganization"]["action"],
+            "needs_reorganization_any": diss["needs_reorganization_any"],
+        },
+        "consistency_view": dict(kons["consistency_gate"]),
+        "advisories": advisories,
+        "note": ("涌现链：道→法→术→器→升维→共振→涌现（完整闭环）；"
+                 "V67 起旁路消费一致性与熵产率，只展示不参与主判据"),
     }
 
 

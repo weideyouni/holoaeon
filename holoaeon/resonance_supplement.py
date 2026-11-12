@@ -264,8 +264,11 @@ def mandala_wht(spokes=None):
 CHI2_1DOF_95 = 3.841
 
 
-# 无信息先验：1e12 使第 1 源等价于"从首源起步"，从而序贯结果与批量信息式融合一致
-NO_INFO_P = 1.0e12
+# V67 清理：原 NO_INFO_P = 1.0e12 已删除。
+# V66 起改用信息量表示（Y = 1/P，Y = 0 即「无信息先验」），
+# 不再需要"大到近似无信息"的有限大数——1e12 会把有效位数磨掉
+# （V66 实测序贯 vs 批量差 2e-6，直接判 sequential_matches_batch=false）。
+# 删掉而不是留着，是为了避免后来者再用它做"无信息"近似。
 
 
 def kalman_fuse(sensors=None, process_noise=0.0, gate=True, prior=None):
