@@ -1,0 +1,302 @@
+{
+ "batch": "V66 判据回写原包批",
+ "batch_id": "V66-RESONANCE-PACK-BODYWORK",
+ "status": "closed",
+ "date": "2026-11-12",
+ "doc_version": "0.9.60",
+ "previous_doc_version": "0.9.59",
+ "head": "784d34c551ff4ad4a13e7617ae5a68b813ec59f2",
+ "head_short": "784d34c",
+ "head_note": "主批提交于 784d34c；本文件由随后的回执补正提交带入，故最终 HEAD 为本补正提交",
+ "baseline_head": "009dcea75a2ff015ac624c323a4ebaa8f5331976",
+ "baseline_head_short": "009dcea",
+ "seal": "潮起开门，潮落闭嘴",
+ "intent": "V65 留下三条挂账，逐条修正：① 判据回写原包——把 V65 的 7 把尺子搬进 holoaeon/packs/topology_resonance_pack.py 本体，替掉软内核（用户已知此步会动 selftest 与承载台账，接受单独一批）；② 给 R5 加预测步，把简化 NIS（融合值−观测）改成标准 NIS（预测−观测）；③ dify-workflow 端点缺口（V64 遗留、与本域无直接关系）修正。",
+ "asks_answer": {
+  "Q1_rulers_into_pack": "answered_landed_as_code",
+  "Q2_r5_predict_step_standard_nis": "answered_landed_as_code",
+  "Q3_dify_workflow_gap": "answered_landed_as_code",
+  "note": "三条挂账全部在代码里关掉，不是改口径过关；每条都带可失败的判据与实测值。"
+ },
+ "design_decision": {
+  "single_source_of_truth": "原包不复制第二份数学，改为 from ..resonance_supplement import (CHI2_1DOF_95, decompose_active_nodes, entropy_production, kalman_fuse, kuramoto_order, mandala_wht, rff_kernel, rff_features, sprt_gate)。同包内、纯标准库、无副作用；原包只做「包装 + 城邦语义映射」。测试 TestSingleSourceOfTruth 用 assertIs 锁住同一对象，防止两份漂移。",
+  "frozen_values_kept": "ACTIVE_NODES 保持 108641（tests/test_v62_meridian_link.py 断言 (ACTIVE_NODES, EMERGENCE_THRESHOLD) == (108641, 108641)），只在旁边补 ACTIVE_NODE_FACTORS=(13,61,137) 与 NIS_CHI2_95，把分解/占比/商写进注释消掉裸魔数。",
+  "scope_kept": "原包头声明只进 EXTRA_PACK_REGISTRY、不进 PACK_ORDER，本批未动装配口径；verify_v44 A1 仍 25/47/9 PASS 即为证据。"
+ },
+ "pack_changes": [
+  {
+   "n": 1,
+   "target": "import 段",
+   "change": "从 ..resonance_supplement 导入 9 个符号，附注释说明「数学只许有一份」",
+   "judge": "P.kalman_fuse is rs.kalman_fuse 等 6 条 assertIs 全通"
+  },
+  {
+   "n": 2,
+   "target": "常量段",
+   "change": "新增 ACTIVE_NODE_FACTORS=(13,61,137)、NIS_CHI2_95=CHI2_1DOF_95；ACTIVE_NODES 保持 108641 不动",
+   "judge": "ACTIVE_NODES == prod(ACTIVE_NODE_FACTORS) == 108641；NIS_CHI2_95 ≈ 3.841"
+  },
+  {
+   "n": 3,
+   "target": "resonance_node",
+   "change": "保留全部原键，新增 order_parameter（对每节点 atan2(v1,v0) 算 Kuramoto r）、phase_coherence（>=0.75 判 synchronized）、active_nodes_factors、active_nodes_factorization、matrix_quotient（108641 // 1331 = 81、余 830）",
+   "measured": {
+    "order_parameter": 0.966189,
+    "active_nodes_factorization": [13, 61, 137],
+    "matrix_quotient": {"quotient": 81, "remainder": 830}
+   },
+   "judge": "r 落在 [0,1] 且 phase_coherence 由 r 判定（不是写死标签）"
+  },
+  {
+   "n": 4,
+   "target": "mandala_fanout",
+   "change": "整段删除 _det_hash 骰子（result_hash % 10 > 2 的「70% 确定性成功」），改 mandala_wht(ld)；fan_in 每条给 amplitude/channel/status/meaning（channel 0 为 DC(中心整体)、其余为差分阶 i）；aggregation 新增 effective_fanout；新增 orthogonal_transform 子块；loads 非 8 个时回退默认 1..8 而不抛错（包接口不抛）",
+   "measured": {
+    "spectrum_loads_1_to_8": [4.5, -0.5, -1.0, 0.0, -2.0, 0.0, 0.0, 0.0],
+    "center_dc": 4.5,
+    "center_equals_mean": true,
+    "reconstruction_error": 0.0,
+    "orthogonality_max_dev": 0.0,
+    "parseval_ratio": 1.0,
+    "uniform_loads_effective_fanout": 0
+   },
+   "judge": "往返 0 / 正交偏差 0 / Parseval 1.0 / 齐步只剩直流且有效扇出 0 —— 判据可失败"
+  },
+  {
+   "n": 5,
+   "target": "kalman_state",
+   "change": "内部改调 kalman_fuse(list(zip(obs, rs)), process_noise=q, gate=True)；steps 新增 measurement_variance/predicted_state/innovation/nis/consistent/applied（被拒行无 state_estimate/uncertainty，一律 .get 兜底）；checkpoint 新增 all_consistent/nis_max/rejected_sources；新增 consistency_gate（chi2_1dof_95/nis_max/all_consistent/sequential_matches_batch）；parameters 保留 Q/R/initial_P 键形并加 R_per_source",
+   "measured": {
+    "clean_fused_state": 10.371429,
+    "outlier_case_fused_state": 10.371429,
+    "outlier_nis": 557.992906,
+    "rejected_sources": [3],
+    "legacy_gate_off_fused_state": 15.786207
+   },
+   "judge": "离群被拒、融合不被拉偏；关掉门控精确复现旧口径 → 证明差距来自缺预测步与缺门控"
+  },
+  {
+   "n": 6,
+   "target": "bayesian_guard",
+   "change": "似然表保留（先验知识非软内核）；threshold=0.5 硬编码换成代价敏感阈值 cost_fp/(cost_fp+cost_fn)=1/11≈0.090909；新增 evidence 走 sprt_gate 序贯路径（p0=prior_block、p1=0.45），SPRT 已定则听 SPRT，CONTINUE 回落后验；新增 threshold_rule/decided_by/sprt",
+   "measured": {
+    "threshold": 0.090909,
+    "network_posterior": 0.613636,
+    "network_decision": "BLOCK",
+    "read_posterior": 0.014493,
+    "read_decision": "ALLOW",
+    "sprt_A": 2.890372,
+    "sprt_B": -2.251292,
+    "sprt_stopped_at": 5,
+    "history_prior_block": 0.75
+   },
+   "judge": "同一后验在 0.5 阈值下是 ALLOW、在代价敏感阈值下是 BLOCK —— 阈值真的在起作用"
+  },
+  {
+   "n": 7,
+   "target": "hilbert_project",
+   "change": "假投影（phi_k=1/√(k+1) + v[k%n]）换成 rff_features（Bochner，z(x)=√(2/D)cos(ω·x+b)，与 rff_kernel 同公式同 seed）；保留 projected_dim（emergence_chain 只消费它）+ projection_full_length/hilbert_norm/original_norm/norm_preservation/kernel_self_estimate 与 map/kernel",
+   "measured": {
+    "projected_dim": 40,
+    "hilbert_norm": 1.03408,
+    "original_norm": 1.407125,
+    "kernel_self_estimate": 1.069322
+   },
+   "judge": "自核 ≈1（E[‖z‖²]=1），范数不再随维数膨胀（D 从 40 到 400 不翻倍）"
+  },
+  {
+   "n": 8,
+   "target": "dissipation_measure",
+   "change": "Shannon 熵保留，新增 entropy_production 子块——力 X=[p_ok,p_fail]、J=L·X、σ=XᵀLX，带 symmetric_onsager/positive_definite/leading_principal_minors 与 dissipation_sufficient（σ≥sigma_min）",
+   "measured": {
+    "shannon_entropy": 0.721928,
+    "order": 0.278072,
+    "sigma": 1.416,
+    "leading_principal_minors": [2.0, 1.91],
+    "symmetric_onsager": true,
+    "positive_definite": true,
+    "dissipation_sufficient": true,
+    "needs_reorganization": true
+   },
+   "judge": "σ 与 C1 同一口径；补上「耗散不足=系统僵死」这个与原「太乱要重组」相反方向的病"
+  },
+  {
+   "n": 9,
+   "target": "未改（锚点回归）",
+   "change": "mobius_edge / klein_convergence / dao_define_problem / fa_gradient_analysis / shu_constraint_handling / qi_algorithm_selection / quartet_tensor / emergence_chain / TopologyResonancePack / pack_summary / graph_* / _det_hash（已无人调用但保留）/ _cosine 全部不动",
+   "judge": "TestOtherFunctionsUntouched + TestEmergenceChainStillWorks 锁住原语义"
+  }
+ ],
+ "r5_rewrite": {
+  "title": "R5 从「融合值−观测」的简化 NIS 改成「预测−观测」的标准 NIS",
+  "iterations": [
+   {
+    "try": 1,
+    "problem": "P0=1e12 近似无信息先验 + 标量 P → 融合 10.371427 vs 批量 10.371429，差 2e-6，sequential_matches_batch=false，check() 掉 6/7 FAIL",
+    "lesson": "大数近似在小 R 源上会吃掉有效位数"
+   },
+   {
+    "try": 2,
+    "problem": "抛 UnboundLocalError: anchor —— anchor 只在 prior 分支赋值",
+    "fix": "补 anchor = no_info 默认"
+   },
+   {
+    "try": 3,
+    "result": "改用信息量表示 Y=1/P、y=Y·x：预测步 Y_pred = Y/(1+q·Y)（等价 P_pred=P+q）；更新步 Y_new=Y_pred+1/r、y_new=y_pred+z/r、x=y_new/Y_new。大数被彻底消掉，q=0 时序贯与批量精确相等（容差 1e-9）"
+   }
+  ],
+  "anchor_rule": "Y_pred==0（无信息）→ role=anchor、nis=0、consistent=None，不参与一致性判定，predicted_state/predicted_variance/gain 置 None",
+  "gate_rule": "gate=True 默认，nis > CHI2_1DOF_95(3.841) 的源入 rejected，只推进预测不吸收观测；被拒行没有 state_estimate/uncertainty 键（原包 kalman_state 必须 .get 兜底）",
+  "new_keys": ["model=sequential_kalman_with_predict_step", "nis_mode=standard_predict_versus_observation", "anchor", "process_noise", "gate_enabled", "batch_fused_state", "batch_fused_variance", "judged_sources", "rejected", "outliers"],
+  "measured": {
+   "clean_fused": 10.371429,
+   "clean_p": 0.190476,
+   "sequential_matches_batch": true,
+   "clean_nis": [0.2, 0.085714],
+   "outlier_nis": 557.992906,
+   "outlier_rejected": true,
+   "gate_off_fused": 15.786207,
+   "check": "7/7 PASS"
+  },
+  "side_fix": "entropy_production 返回补 onsager 键（原包 dissipation_measure 需要它，否则 KeyError）；新增 rff_features(x, dims=40, gamma=1.0, seed=1331) 单点版（与 rff_kernel 同公式同 seed），原包 hilbert_project 依赖它",
+  "dead_constant": "NO_INFO_P=1.0e12 已成死常量（信息量表示替代了大数 P），登记为可清理项，本批未清"
+ },
+ "dify_workflow": {
+  "previous_state": "V64 试过 6 个官方 docs URL 全失败（developing-workflow-with-apis / developing-with-apis / api-reference/workflow/run-workflow / api-reference/workflow / openapi_workflow.json / zh-hans/api-reference/workflow/run-workflow），https://docs.dify.ai/llms.txt 只有索引无 body；因此如实留 gap、不硬塞",
+  "this_batch": "改读 Dify 主仓源码取证：https://raw.githubusercontent.com/langgenius/dify/main/api/controllers/service_api/app/workflow.py",
+  "evidence": {
+   "route": "@service_api_ns.route(/workflows/run) → class WorkflowRunApi(Resource).post(session, app_model, end_user)",
+   "request": "WorkflowRunPayload：inputs + response_mode: Literal[blocking,streaming] | None（省略即 blocking）+ user + files + trace_session_id",
+   "response": "WorkflowRunResponse：id/workflow_id/status/inputs/outputs/error/total_steps/total_tokens/created_at/finished_at/elapsed_time；status==PAUSED 时 outputs 清空",
+   "auth": "validate_app_token + expect_with_user(fetch_from=JSON, required=True) → 必须在 body 带 user",
+   "hard_constraints": ["app_mode != AppMode.WORKFLOW → NotWorkflowAppError", "Trigger 入口工作流不能经 Service API → 403 trigger_workflow_service_mode_unavailable"],
+   "error_codes": {"400": ["not_workflow_app", "provider_not_initialize", "provider_quota_exceeded", "model_currently_not_support", "completion_request_error", "invalid_param"], "403": ["forbidden", "trigger_workflow_service_mode_unavailable"], "429": ["too_many_requests", "rate_limit_error"], "500": ["internal_server_error"]},
+   "verification": "source_code_read（旁证 dify-hosting.com / deepwiki / 腾讯云社区 / CSDN / 华为云 / 阿里云 一致，但未作主证据）"
+  },
+  "code_change": "gap_adapters.py 条目改 status=adapted、shape=dify_workflow、endpoint=/workflows/run，新增 request_body/response_fields/error_codes/precondition；PLATFORM_SHAPES 3→4；build_request 加 dify_workflow 分支（mode 缺省 blocking、stream=True 变 streaming、files 可选、附 Trigger 403 提示）；check_gaps 文案改「在册形状」；docstring 改 12 adapted + 0 gap",
+  "measured": {
+   "total": 12,
+   "adapted": 12,
+   "gaps": 0,
+   "problems": [],
+   "verdict": "PASS",
+   "model_shapes": 5,
+   "platform_shapes": 4,
+   "sample_url": "https://api.dify.ai/v1/workflows/run",
+   "sample_body_keys": ["inputs", "response_mode", "user"],
+   "sample_response_mode": "blocking",
+   "streaming_body": "response_mode=streaming, stream=true"
+  }
+ },
+ "tests": {
+  "new_file": "tests/test_v66_resonance_pack_body.py",
+  "cases": 46,
+  "groups": {
+   "TestSingleSourceOfTruth": 3,
+   "TestResonanceNodeOrderParameter": 4,
+   "TestMandalaOrthogonal": 6,
+   "TestKalmanStandardNis": 6,
+   "TestKalmanStatePack": 4,
+   "TestBayesianCostSensitive": 6,
+   "TestHilbertRff": 4,
+   "TestDissipationEntropyProduction": 5,
+   "TestEmergenceChainStillWorks": 2,
+   "TestOtherFunctionsUntouched": 3,
+   "TestDifyWorkflowGap": 3,
+   "note": "分组计数按最终文件实测；总 46 例全绿"
+  },
+  "modified_assertions": [
+   "tests/test_v64_hangover_zero.py：test_twelve_total_eleven_adapted_one_gap → test_twelve_total_twelve_adapted_zero_gap（12/0，gap_list==[]）",
+   "tests/test_v64_hangover_zero.py：test_platform_shapes_not_forced_into_openai 3→4（dify / dify-workflow / coze / n8n 均非 openai_chat）",
+   "tests/test_v64_hangover_zero.py：test_gap_raises_not_fake 改为机制守卫（临时置 gap → 断言抛 ValueError → finally 还原）",
+   "tests/test_v64_hangover_zero.py：新增 test_dify_workflow_adapted_from_source_code（status/shape/verification/source_url 含 service_api/app/workflow.py、evidence 含 /workflows/run、url、user；blocking/streaming 切换）",
+   "两处 DOC 断言 0.9.59 → 0.9.60"
+  ],
+  "main_suite_first_run": "1386 tests，3 失败，全部是 V64 旧口径；原包换芯零破坏",
+  "main_suite_after": "1433 OK"
+ },
+ "verification": {
+  "selftest": "25/25 PASS",
+  "unittest_main": "1433 OK（1386 + V66 46 + V64 45−44）",
+  "unittest_v3": "11 OK",
+  "unittest_verax": "21 OK",
+  "v3_gate": "32/32 PASS",
+  "redline": "147 文件 0 违规（本批未新增包内 .py；tests/ 不计入）",
+  "dimension_lock": "PASS（12 维度 / 7 闸 / 0 violation）",
+  "check_sums": "ok=true total=250 mismatches=[]",
+  "mechanism_bearers": "PASS（problems []、extra_ok true、symbol 映射 7/7 未变；data/mechanism_bearers.json 无需改动）",
+  "resonance_supplement_check": "passed=7 verdict=PASS",
+  "gap_adapters_check": "total 12 / adapted 12 / gaps 0 / problems [] / PASS",
+  "diff0": "DIFF=0 run1=run2=6d119b2a9f2df687 tampered=8f424d9ee3ebfb9b 拦截 16/16 放行 4/4；冷装配 33.74ms / 峰值 1.69MiB；跑完已 git checkout -- benchmarks",
+  "readme_claims": "VERDICT PASS | mismatch=0 stale_header=0",
+  "five_site_dna_build": "package 28 / repo 171 / missing 0 / zip_sha16 a87fa921bf963fa1",
+  "verify_v44": "13/13 PASS（A1 25/47/9 未受影响）"
+ },
+ "mechanism_bearer_note": {
+  "symbols_unchanged": true,
+  "why": "换芯只改函数体与返回键，符号名全部未变（mandala_fanout / kalman_state / bayesian_guard / hilbert_project / dissipation_measure / resonance_node / ACTIVE_NODES）；因此 data/mechanism_bearers.json 不需要改，mechanism_bearers check 仍 PASS",
+  "detail": "用户预先接受「会动 selftest 与承载台账」；实测承载台账无需改，属于比预期更小的改动面，如实登记"
+ },
+ "honest_boundaries": [
+  {
+   "id": "①",
+   "item": "RFF 单次采样的自核偏差是固有波动，不是 bug",
+   "detail": "hilbert_project 默认 4→40 维时 kernel_self_estimate=1.069322（E[‖z‖²]=1，单次采样约 6.9% 偏差）。测试只断言 |self−1|<0.2 与范数不随 D 膨胀，不断言精确等于 1"
+  },
+  {
+   "id": "②",
+   "item": "原包接口约定「不抛错」与 supplement 约定「非法入参抛 ValueError」不一致",
+   "detail": "mandala_wht 对非 8 载荷抛 ValueError，而原包 mandala_fanout 是包接口、按约定不抛，故在包内回退默认 1..8 并在 orthogonal_transform 里如实反映；两处口径差异已在测试 test_bad_loads_fall_back_instead_of_raising 锁定"
+  },
+  {
+   "id": "③",
+   "item": "耗散充分性（dissipation_sufficient）是新增的反向判据，尚未接入上层编排",
+   "detail": "原判据是 order<0.3 → needs_reorganization（太乱要重组）；新增 σ<sigma_min → 耗散不足（系统僵死）。两者方向相反、当前并行输出，谁优先由上层决定，本批不做仲裁逻辑，避免擅自改语义"
+  },
+  {
+   "id": "④",
+   "item": "NO_INFO_P=1.0e12 成死常量",
+   "detail": "信息量表示取代了大数 P，该常量已无人引用；保留不删以免影响其他模块的 import，登记为可清理项"
+  },
+  {
+   "id": "⑤",
+   "item": "dify-workflow 的取证是源码阅读，不是线上实调",
+   "detail": "没有真实 Dify 实例与 app token，因此 verification=source_code_read；请求体/响应体/错误码/前置约束均来自主仓源文件，属「读到的契约」而非「跑通的调用」"
+  },
+  {
+   "id": "⑥",
+   "item": "数值判据不等于物理论证",
+   "detail": "σ=1.416、r=0.966189、NIS 557.99 都是本机可复现的数值事实，不构成「系统已处于临界态/已实现耗散结构」的结论；机制与物理量之间的映射仍是建模假设，碳基终审"
+  }
+ ],
+ "files": {
+  "added": [
+   "tests/test_v66_resonance_pack_body.py",
+   "reports/v66_receipt.json"
+  ],
+  "modified": [
+   "holoaeon/resonance_supplement.py",
+   "holoaeon/packs/topology_resonance_pack.py",
+   "holoaeon/gap_adapters.py",
+   "holoaeon/spec.py",
+   "tests/test_v64_hangover_zero.py",
+   "tests/test_v22_eng_skills.py",
+   "README.md",
+   "README.zh-CN.md",
+   "reports/five_site_manifest.json"
+  ]
+ },
+ "not_committed": [
+  "F:\\doubaowork\\holoaeon_lathe\\v66_probe_kf.py（仓外探针：R5 clean/outlier/no-gate + check）",
+  "F:\\doubaowork\\holoaeon_lathe\\v66_probe_pack.py（仓外探针：原包 6 函数 + emergence_chain 冒烟）",
+  "F:\\doubaowork\\holoaeon_lathe\\v66_readme.py（双 README 定点替换脚本）",
+  "F:\\doubaowork\\holoaeon_lathe\\v66_commit_msg.txt（提交主题）",
+  "reports/state_beacon.json 及其 .bak_*（untracked 常态）",
+  "AGENT_FEED_*.md / reports/daily_* / BASELINE_STATUS_* 等 DNA 约定不提交件"
+ ],
+ "open_items": [
+  "resonance_supplement 的 NO_INFO_P 死常量可清理（不影响行为）",
+  "耗散充分性与重组判据的优先级仲裁留给上层",
+  "concept_anatomy.py 的 verify_doc_version token 停在 0.9.33，属冻结快照项、不参与主套判定；本批未动且全绿"
+ ]
+}
