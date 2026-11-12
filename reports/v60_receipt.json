@@ -3,7 +3,7 @@
  "status": "closed",
  "date": "2026-11-12",
  "seal": "潮起开门，潮落闭嘴",
- "head": "pending-post-commit",
+ "head": "5e80dbbf03238720bd51bfe4605358f974ab1f11",
  "prev_head_short": "0b629b3",
  "prev_head_full": "0b629b395007ba393cea8a4126e2a0b52ab6b9f0",
  "head_note": "包内基线写 bfb16ce；实际开工基线 0b629b3（V59-DOCFIX 在包交付后已收口，见 honest_boundary）",
@@ -88,5 +88,12 @@
   "不新建 cron/调度器；每天打捞由确定性日程函数承载（18 天一轮 D03 先行）。",
   "reports/v60_receipt.json 的 five_site 字段按纪律保持 pending，真实五地结论在仓外回执。"
  ],
- "verdict": "PASS"
+ "verdict": "PASS",
+ "head_short": "5e80dbb",
+ "receipt_id": "V60-20261112-5e80dbb",
+ "commits": {
+  "main": "5e80dbbf03238720bd51bfe4605358f974ab1f11",
+  "correction": "本回执补正提交（receipt head 回填）"
+ },
+ "five_site": "pending（按纪律不随状态入仓；真实五地结论见仓外回执 five_site_confirm_V60_20261112.json）"
 }
