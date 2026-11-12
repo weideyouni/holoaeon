@@ -60,12 +60,104 @@ self-organizing search** layer (see [ALGORITHM.md](ALGORITHM.md)).
 
 ---
 
+## The C18 Repository Cluster (C01–C18 + N19 · structure → connectivity → continuity)
+
+> Design sources = the cluster trilogy feeds (structure pack · connectivity pack · continuity pack),
+> adjudicated by the quartet from first principles. Landing status is stated honestly in three
+> tiers — **landed / spec-on-record / not yet built** — with no overstatement. This section
+> hardcodes no measured numbers: cluster existence and health are read back via
+> `python -m holoaeon.c18_cluster probe`, and each remote repo via
+> `git ls-remote https://github.com/weideyouni/holoaeon-cXX-... refs/heads/main`.
+
+**In one sentence**: this repository is Node 19 (N19, the earth-phase zeroing base and the only
+global observer); the cluster = 18 isomorphic domain repositories + the N19 base. It is not 19
+copies — it is **the orthogonal projection of one mechanism**: the 18 repositories share all of
+N19's machinery (heartbeat / bus / tensors / gates / contracts) while each carries the
+first-principles question of one life domain.
+
+### Trilogy · landing-status ledger
+
+| Pack | One-line thesis | Status | Carrier |
+|---|---|---|---|
+| Structure (V3) | how repos are built, numbered, shaped | **landed** | `holoaeon/c18_cluster.py` (ring19): 18-repo registry + five-phase map + edge schema + 19×19 coupling matrix; 18 GitHub repos created and verified repo-by-repo via `ls-remote` |
+| Connectivity (LINK-01) | how repos connect and co-evolve | **partially landed** | phase engender/overcome, four legal edge types, 12 required fields, ttl·decay·rollback hard constraints on record; five-layer stack / event-propagation four steps / operators O1–O5 **await future batches** |
+| Continuity (CONT-01) | an organism can only grow one step at a time | **landed** | `holoaeon/continuity_gate.py` (ring20): three continuity axes (temporal / structural / evidential) + B1–B10 breakpoint ledger + G0–G7 tri-state gates (honest WAIT for what is not yet built) |
+
+### The 18 repositories (numbering frozen)
+
+Each repo = one domain's first-principles question + self-organization mechanism + dual-system
+split (turtle = persist / baseline / snapshots; horse = explore / generate / transitions).
+
+| ID | Repo | Domain | Main phase | First-principles question |
+|---|---|---|---|---|
+| C01 | holoaeon-c01-source | origin | earth | who am I, how do I zero out |
+| C02 | holoaeon-c02-body | body | water | how the body is sensed and regulated |
+| C03 | holoaeon-c03-meridian | meridian | wood (conduction hub) | how signals propagate, how blockage is found |
+| C04 | holoaeon-c04-family | family | earth | how kinship shapes individual homeostasis |
+| C05 | holoaeon-c05-education | education | wood | how knowledge internalizes and converts |
+| C06 | holoaeon-c06-career | career | fire | how capability grows and monetizes |
+| C07 | holoaeon-c07-wealth | wealth | metal | how resources flow and allocate |
+| C08 | holoaeon-c08-creation | creation | wood | how creativity ignites and settles |
+| C09 | holoaeon-c09-relation | relation | fire | how social networks evolve |
+| C10 | holoaeon-c10-emotion | emotion | fire | how emotion is recognized and transformed |
+| C11 | holoaeon-c11-meaning | meaning | fire-into-earth (meaning hub) | what does this mean to me |
+| C12 | holoaeon-c12-space | space | earth | how environment shapes body and mind |
+| C13 | holoaeon-c13-time | time | water | how rhythm and history act on the present |
+| C14 | holoaeon-c14-skill | craft | metal | how skills are mastered and reused |
+| C15 | holoaeon-c15-risk | risk | water | how trauma and risk are detected and repaired |
+| C16 | holoaeon-c16-spirit | spirit | wood | how practice and awakening are understood |
+| C17 | holoaeon-c17-society | society | metal | how the individual meets institutions and culture |
+| C18 | holoaeon-c18-cosmos | cosmos | master hub (holo-mirror root) | how the individual reads the macro order |
+| N19 | holoaeon | base | earth (zeroing · all phases) | the sole earth-phase zeroing base; extend-only, never refactor |
+
+Main-phase spread (structural constants): wood 3 · fire 3 · earth 3 · metal 3 · water 3, plus
+the conduction / meaning / master hubs spanning phases — all 19 nodes covered, none left over.
+Inter-repo action follows deterministic five-phase routing (engender 0.8 / same-qi 0.6 /
+overcome 0.4 / hub 1.0, N19 row fully connected at 1.0); directed gain tiers (engendered 1.2 /
+engendering 1.2 / same-qi 1.0 / overcoming 0.6 / counter-overcome 0.3) are reserved for event
+propagation.
+
+### Edge schema (the minimal unit of connectivity · landed)
+
+Cross-repo connections travel only through **four legal edge types**: `skeleton` (fixed at
+repo creation) / `resonance` (heartbeat-activated) / `semantic` (route-established) / `event`
+(transient, one-shot). Every edge carries 12 required fields (`edge_id / source / target /
+edge_type / layer / phase_relation / resonance_strength / turtle_state / horse_state /
+ttl_ticks / decay_rate / rollback_token`) under three hard constraints: `ttl_ticks ≥ 12`,
+`decay_rate ∈ (0,1)`, `rollback_token` non-empty — **connections decay, can break, can roll
+back; permanent links are never assumed**. Validate any edge via
+`python -m holoaeon.c18_cluster probe`.
+
+### Honest boundaries (what this cluster section does not overstate)
+
+- **Five-layer stack** (skeleton / resonance / conduction / semantic / collaboration-field),
+  **event-propagation four steps** (gain / decay / blockage / termination), and **co-evolution
+  operators O1–O5** (phase coupling / gradient transfer / gene drift / differential selection /
+  holo mirror): specs are on record here and in the feed packages, **code awaits future
+  connectivity batches** — gates G2–G7 honestly WAIT (read back via
+  `python -m holoaeon.continuity_gate gates`).
+- The source packs' "78 Metatron edges" and "108641 resonance-band index" were **not** adopted:
+  the former is unverified geometry, the latter is a "current language-mode" digit in this
+  system's context, not a resonance index — **misappropriated digits are dishonest**; dropped
+  (quartet adjudication on record).
+- Anti-homogenization is measured: pairwise cosine over the 18 domain-question vectors meets
+  the bar (isomorphic yet heterogeneous — the S5 inverse indicator); the live value is read
+  back via `python -m holoaeon.c18_cluster probe`, never hardcoded.
+- Each cluster skeleton (README + isomorphic package + domain gate + tests + `.gitignore`)
+  runs independently repo-by-repo; remote repo creation is an irreversible external action —
+  it was carbon-confirmed and executed by the run agent (creation receipt in
+  `reports/v55_receipt.json` under `github_create`, per-repo HEADs, `ls-remote` 18/18).
+
+
+
+---
+
 ## 当前工程状态（2026-11-05）
 
 | 项 | 实测值 |
 |---|---|
 | 产出维度（锁死） | **25 智能体 / 47 技能 / 9 域包**；`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73` 未变 |
-| 最新批次 | **V56 continuity gate batch (ring20 continuity domain: three continuity axes (temporal/structural/evidential) + B1-B10 breakpoint table + M0 contract reverse-extracted from repo + G0-G7 tri-state gates (PASS/WAIT/FAIL, zero fabrication) + nine-field handover schema; two new files only, DOC raised to `0.9.50`)** — this cell tracks the current batch; authoritative wording comes from `git log -1 --format=%s` |
+| 最新批次 | **V57 README manifesto V4 (cluster-connectivity chapter: new "The C18 Repository Cluster" section — trilogy landing-status ledger / the 18 repositories / five-phase spread and coupling / edge schema / honest boundaries; docs-only batch, zero code change, ring=null, DOC raised to `0.9.51`)** — this cell tracks the current batch; authoritative wording comes from `git log -1 --format=%s` |
 | 扩展卡槽 | **12 个**：occupied 6 / open 1 / reserved 4 / blocked 1（只声明不接线；本批**不新增、不占用**槽位） |
 | 门禁 | `v3_gate 32/32` · `selftest 25/25` · `unittest 876 OK` (skipped=0; main tests, incl. V24 `test_swarm_intel` 8 cases + V25 `test_machine_tool` 15 cases + V26 `test_mobius_vortex` 12 cases + V27 `test_klein_projection` 19 cases + V28 `test_holo_forge` 13 cases + V31 `test_titan_evolver` 29 cases + V32 `test_gap_bridge` 11 cases + V33 `test_math_gate` 11 cases + V34 `test_tea_gate` 11 cases + V35 `test_cosmo_gate` 12 cases + V36 `test_edu_gate` 13 cases + V37 `test_shengui_gate` 19 cases + V38 `test_check_sums` 5 cases + V40 `test_academic_gate` 19 cases + V41 `test_phc_chronic_engine` 25 cases+ V42 `test_phc_recall` 18 cases + V43 `test_craft_gate` 19 cases + V44 `test_twin_verify` 21 cases + V45 `test_teach_gate` 17 cases + V46 `test_v46_pharma_probe` 20 cases + V47 `test_v47_deploy_gateway` 24 cases · V49 `scripts/exp_v49_forge_gate.py` 66 cases (standalone lab script, moved out of tests/ in V50 to prevent accidental discovery) + V51 `test_v51_circuit_gate` 47 cases + V51R `test_v51r_hardware_gate` 45 cases + V52 `test_v52_cinema_gate` 35 cases + V53 `test_v53_palette_gate` 37 cases + V54 `test_v54_palette_enhance` 33 cases + V55 `test_v55_c18_cluster` 47 cases + V56 `test_v56_continuity_gate` 54 cases) + `v3 11 OK` + `verax 21 OK` · `sidecar 184 OK`（`tests_contract` `test_10_no_new_pack` now asserts lower bound `>=11`, no longer stale since V12） · `v44 13/13` · `v45 7/7` · `v46 9/9` · `v5 11/11` · `dv 8/8` · `redline 136 文件 0 违规` · `check_sums ok=true` (V38 recompute gate: 250 entries, 0 mismatches, blocks-only) · `drift []` |
 | 五地同步 | 本地 · Gitee · GitHub · Hugging Face · 向量海 —— 见文末 [附录 A](#附录-a--五地同步v11) |

@@ -184,6 +184,68 @@ HoloAeon 纯标准库、全离线、确定性。零依赖、零安装、零成�
 
 ---
 
+## 仓集群（C01–C18 + N19 · 结构 → 连通 → 贯续三件套）
+
+> 设计理念源 = 仓集群三件套投喂（结构包 · 连通包 · 贯续包）四人组第一性原理扬弃；
+> 落地态如实标注：**已落地 / 口径在案 / 待产** 三档，不虚报。本节不写死任何实测数字
+> ——集群存在性与健康度一律回读：`python -m holoaeon.c18_cluster probe` ｜ GitHub 侧
+> `git ls-remote https://github.com/weideyouni/holoaeon-cXX-... refs/heads/main` 逐仓核验。
+
+**一句话**：HoloAeon 本仓是第 19 号仓（N19，土相归零基座，唯一全局观测者）；仓集群 =
+18 个同构域仓 + N19 基座。它不是 19 份拷贝，是**一个机制的正交投影**——18 仓共享 N19
+的全部机制（心跳 / 总线 / 张量 / 闸门 / 契约），各自承载一个生命领域的第一性问题。
+
+### 三件套 · 落地态对账
+
+| 件 | 理念一句话 | 落地态 | 承载 |
+|---|---|---|---|
+| 结构（V3） | 仓怎么建、编号怎么定、形状长什么样 | **已落地** | `holoaeon/c18_cluster.py`（ring19）：18 仓注册表 + 五行相位 + 边 Schema + 19×19 耦合矩阵；GitHub 18 仓已建成并逐仓 `ls-remote` 核验 |
+| 连通（LINK-01） | 仓与仓怎么连、怎么一起进化 | **部分落地** | 相位生克 / 四类合法边 / 12 必填字段 / ttl·decay·rollback 硬约束在案；五层连接栈 / 事件传播四步 / 共演化算子 O1–O5 **待后续批次** |
+| 贯续（CONT-01） | 有机体只能一次一次长出来 | **已落地** | `holoaeon/continuity_gate.py`（ring20）：三贯续轴（时间 / 结构 / 证据）+ B1–B10 断裂点 + G0–G7 门禁三态（未落地诚实 WAIT） |
+
+### 18 仓一览（编号固定不可变更）
+
+每仓 = 领域第一性问题 + 自组织机制 + 双系统分工（神龟=保存/基线/快照；神马=推演/生成/跃迁）。
+
+| 编号 | 仓名 | 领域 | 主相位 | 第一性问题 |
+|---|---|---|---|---|
+| C01 | holoaeon-c01-source | 本源 | 土 | 我是谁、如何归零 |
+| C02 | holoaeon-c02-body | 身体 | 水 | 身体如何被感知与调节 |
+| C03 | holoaeon-c03-meridian | 经络 | 木（传导枢纽） | 信息如何传导、阻塞如何发现 |
+| C04 | holoaeon-c04-family | 家庭 | 土 | 亲缘如何影响个体稳态 |
+| C05 | holoaeon-c05-education | 教育 | 木 | 知识如何内化与转化 |
+| C06 | holoaeon-c06-career | 职业 | 火 | 能力如何发展与变现 |
+| C07 | holoaeon-c07-wealth | 财富 | 金 | 资源如何流动与配置 |
+| C08 | holoaeon-c08-creation | 创造 | 木 | 创造如何被激发与沉淀 |
+| C09 | holoaeon-c09-relation | 关系 | 火 | 人际网络如何演化 |
+| C10 | holoaeon-c10-emotion | 情感 | 火 | 情绪如何被识别与转化 |
+| C11 | holoaeon-c11-meaning | 意义 | 火生土（意义枢纽） | 这件事对我意味着什么 |
+| C12 | holoaeon-c12-space | 空间 | 土 | 环境如何影响身心 |
+| C13 | holoaeon-c13-time | 时间 | 水 | 节律与历史如何影响当下 |
+| C14 | holoaeon-c14-skill | 技艺 | 金 | 技能如何被掌握与复用 |
+| C15 | holoaeon-c15-risk | 风险 | 水 | 创伤与风险如何识别修复 |
+| C16 | holoaeon-c16-spirit | 灵性 | 木 | 修行与觉悟如何被理解 |
+| C17 | holoaeon-c17-society | 社会 | 金 | 个体如何与制度文化互动 |
+| C18 | holoaeon-c18-cosmos | 宇宙 | 总枢（全息镜像根） | 个体如何理解宏观秩序 |
+| N19 | holoaeon | 基座 | 土（归零 · 全相位） | 唯一土相归零基座，只扩展不重构 |
+
+主相位分布（结构性常量）：木 3 · 火 3 · 土 3 · 金 3 · 水 3，另传导 / 意义 / 总枢三枢纽跨相位专职连接——19 节点全覆盖无遗漏。仓间作用按五行生克给确定性路由系数（相生 0.8 / 同气 0.6 / 相克 0.4 / 枢纽 1.0，N19 行全连 1.0），有向增益档（相生 1.2 / 被生 1.2 / 同气 1.0 / 相克 0.6 / 反克 0.3）预留给事件传播。
+
+### 边 Schema（连通的最小单元 · 已落地口径）
+
+跨仓连接只走**四类合法边**：`skeleton`（骨架 · 建仓时固定）/ `resonance`（共振 · 心跳激活）/ `semantic`（语义 · 路由建立）/ `event`（事件 · 瞬时一次性）。每条边 12 必填字段（`edge_id / source / target / edge_type / layer / phase_relation / resonance_strength / turtle_state / horse_state / ttl_ticks / decay_rate / rollback_token`），三条硬约束：`ttl_ticks ≥ 12`、`decay_rate ∈ (0,1)`、`rollback_token` 非空——**连接可衰减、可断开、可回滚，永不假设永久连接**。逐条校验：`python -m holoaeon.c18_cluster probe`。
+
+### 诚实边界（本集群篇不虚报什么）
+
+- **五层连接栈**（骨架 / 共振 / 传导 / 语义 / 协作场）、**事件传播四步**（增益 / 衰减 / 阻塞 / 终止）、**共演化算子 O1–O5**（相位耦合 / 梯度传递 / 基因漂移 / 差异选择 / 全息镜像）：口径在本节与投喂包在案，**代码待后续连通批次**——G2–G7 门禁对此诚实 WAIT（`python -m holoaeon.continuity_gate gates` 回读）。
+- 素材原文的「78 梅塔特隆主干边 / 108641 共振带索引」未采用：前者未经实测几何，后者在该体系语境中是「当前语言模式」数字而非共振带索引——**挪用数字不诚实**，弃（四人组扬弃裁决留痕）。
+- 反同质化实测：18 仓领域问题向量两两余弦均值实测达标（同构而不同质——S5 反向指标口径）；当前实测值由 `python -m holoaeon.c18_cluster probe` 回读，不写死。
+- 集群骨架（每仓 README + 同构包 + 域闸门 + 测试 + `.gitignore`）逐仓独立可运行；远端建仓为外部不可逆动作——已经碳基确认并由执行端完成（建成回执在 `reports/v55_receipt.json` 的 `github_create` 字段，逐仓 HEAD 可查，`ls-remote` 18/18 核验）。
+
+
+
+---
+
 ## 七、愿景与路线（方向声明，不计入已兑现能力）
 
 按 A4 公理，本节是**地图不是脚印**：以下目标均未宣称已实现，逐条由未来批次验收。
@@ -286,7 +348,7 @@ HoloAeon 纯标准库、全离线、确定性。零依赖、零安装、零成�
 | 项 | 实测值 |
 |---|---|
 | 产出维度（锁死） | **25 智能体 / 47 技能 / 9 域包**；`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73` 未变 |
-| 最新批次 | **V56 贯续性门禁批（ring20 贯续域：三条贯续轴（时间/结构/证据）+ B1-B10 断裂点清单 + M0 契约反向提取自仓 + G0-G7 门禁三态（PASS/WAIT/FAIL，零虚构）+ 九字段交接单 Schema；纯新增两件，DOC 提升 `0.9.50`）** —— 本栏随批次更新，权威口径以 `git log -1 --format=%s` 回读为准 |
+| 最新批次 | **V57 README 工程宣言 V4（集群连通篇：新增「仓集群」节——三件套落地态对账 / 18 仓一览 / 五行相位与耦合系数 / 边 Schema / 诚实边界；文档批次零代码变更 · ring=null · DOC 提升 `0.9.51`）** —— 本栏随批次更新，权威口径以 `git log -1 --format=%s` 回读为准 |
 | 扩展卡槽 | **12 个**：occupied 6 / open 1 / reserved 4 / blocked 1（只声明不接线；本批**不新增、不占用**槽位） |
 | 门禁 | `v3_gate 32/32` · `selftest 25/25` · `unittest 876 OK`（skipped=0；主 tests，含 V24 `test_swarm_intel` 8 例 + V25 `test_machine_tool` 15 例 + V26 `test_mobius_vortex` 12 例 + V27 `test_klein_projection` 19 例 + V28 `test_holo_forge` 13 例 + V31 `test_titan_evolver` 29 例 + V32 `test_gap_bridge` 11 例 + V33 `test_math_gate` 11 例 + V34 `test_tea_gate` 11 例 + V35 `test_cosmo_gate` 12 例 + V36 `test_edu_gate` 13 例 + V37 `test_shengui_gate` 19 例 + V38 `test_check_sums` 5 例 + V40 `test_academic_gate` 19 例 + V41 `test_phc_chronic_engine` 25 例+ V42 `test_phc_recall` 18 例 + V43 `test_craft_gate` 19 例 + V44 `test_twin_verify` 21 例 + V45 `test_teach_gate` 17 例 + V46 `test_v46_pharma_probe` 20 例 + V47 `test_v47_deploy_gateway` 24 例 · V49 `scripts/exp_v49_forge_gate.py` 66 例（独立实验田脚本，V50 已移出 tests/ 防误 discover）+ V51 `test_v51_circuit_gate` 47 例 + V51R `test_v51r_hardware_gate` 45 例 + V52 `test_v52_cinema_gate` 35 例 + V53 `test_v53_palette_gate` 37 例 + V54 `test_v54_palette_enhance` 33 例 + V55 `test_v55_c18_cluster` 47 例 + V56 `test_v56_continuity_gate` 54 例）+ `v3 11 OK` + `verax 21 OK` · `旁挂 184 OK`（`tests_contract` 的 `test_10_no_new_pack` 已改下界 `>=11`，V12 起不再过期） · `v44 13/13` · `v45 7/7` · `v46 9/9` · `v5 11/11` · `dv 8/8` · `redline 136 文件 0 违规` · `check_sums ok=true`（V38 复算闸：SHA256SUMS 250 条复算 0 不匹配，闸只阻断不重建） · `drift []` |
 | 五地同步 | 本地 · Gitee · GitHub · Hugging Face · 向量海 —— 见文末 [附录 A](#附录-a--五地同步v11) |
