@@ -1,0 +1,155 @@
+{
+  "batch": "V72-PREHISTORY-INJECTION",
+  "line": "PL-5 18 仓判据注入包（PL-4 / PL-5 / PL-6 单独成批，本批只做 PL-5）",
+  "status": "closed",
+  "date": "2026-11-13",
+  "head": "378df33380ac33cf045a8a40024d96da2614fe44",
+  "head_short": "378df33",
+  "prev_head": "fe1cd75713a0a2a18f5e50e6c566bf40737e2171",
+  "doc_version": "0.9.66",
+  "patches": [
+    {
+      "file": "holoaeon/prehistory_injection.py",
+      "kind": "A",
+      "note": "新源码；18 仓聚合 + 同契约独立复算；只读、零搬运"
+    },
+    {
+      "file": "tests/test_v72_prehistory_injection.py",
+      "kind": "A",
+      "note": "38 例；含真实站点组（目录不存在则 skip）"
+    },
+    {
+      "file": "holoaeon/spec.py",
+      "kind": "M",
+      "note": "DOC 0.9.65 -> 0.9.66"
+    },
+    {
+      "file": "tests/test_v22_eng_skills.py",
+      "kind": "M",
+      "note": "DOC 精确断言同步"
+    },
+    {
+      "file": "tests/test_v64_hangover_zero.py",
+      "kind": "M",
+      "note": "DOC 精确断言同步"
+    },
+    {
+      "file": "tests/test_v70_prehistory_criteria.py",
+      "kind": "M",
+      "note": "DOC 精确断言同步"
+    },
+    {
+      "file": "README.md",
+      "kind": "M",
+      "note": "徽章 1703 / 门禁行 1703+153 / V72 38 cases / 验收行 1703+1735 / 最新批次前插"
+    },
+    {
+      "file": "README.zh-CN.md",
+      "kind": "M",
+      "note": "同上中文侧"
+    },
+    {
+      "file": "reports/five_site_manifest.json",
+      "kind": "M",
+      "note": "改文档后重建（28/171/0）"
+    },
+    {
+      "file": "reports/v72_receipt.json",
+      "kind": "A",
+      "note": "本回执（第二笔提交）"
+    }
+  ],
+  "repo_injection": {
+    "scope": "18 个派生仓 F:\\doubaowork\\.tmp_v55_cluster\\holoaeon-c01-source … c18-cosmos",
+    "per_repo_files": [
+      "holoaeon_cXX_<domain>/ledger.json",
+      "holoaeon_cXX_<domain>/prehistory_check.py",
+      "tests/test_cXX_prehistory.py"
+    ],
+    "per_repo_modify": "holoaeon_cXX_<domain>/cXX_<domain>_gate.py：新增 _prehistory_snapshot()，self_check() 追加 prehistory 键（旧键与旧 ok 语义不动）",
+    "criteria_per_repo": 6,
+    "mechanism_pointers_per_repo": 11,
+    "baseline_tests": 108,
+    "after_tests": 252,
+    "repos_green": 18,
+    "criteria_total_pass": "108/108",
+    "pointers_total": 198,
+    "aggregate_digest": "9265369717e254d5",
+    "push": "commit + push Gitee（用户本轮明确授权；18 仓公开可读，已告知可见性后果）",
+    "push_result": "18/18 push 成功，18/18 本地与远端 sha 一致",
+    "repo_heads_after": {
+      "holoaeon-c01-source": "388bb94c",
+      "holoaeon-c02-body": "ee9d6300",
+      "holoaeon-c03-meridian": "c4c1de99",
+      "holoaeon-c04-family": "570f7ed4",
+      "holoaeon-c05-education": "bbfd66a1",
+      "holoaeon-c06-career": "dd215bf6",
+      "holoaeon-c07-wealth": "a804d802",
+      "holoaeon-c08-creation": "8c94f02a",
+      "holoaeon-c09-relation": "ce6f7f73",
+      "holoaeon-c10-emotion": "5f187e7b",
+      "holoaeon-c11-meaning": "24d16b0a",
+      "holoaeon-c12-space": "fae454f0",
+      "holoaeon-c13-time": "35be43ed",
+      "holoaeon-c14-skill": "13e8802b",
+      "holoaeon-c15-risk": "1d79d9c4",
+      "holoaeon-c16-spirit": "4f1354f3",
+      "holoaeon-c17-society": "782cca49",
+      "holoaeon-c18-cosmos": "3d55a2e5"
+    }
+  },
+  "falsifiability_canary": {
+    "cases": [
+      "identity_missing",
+      "cang_repo_mismatch",
+      "ring_not_19",
+      "seal_tampered",
+      "pointer_missing",
+      "zero_copy_violation"
+    ],
+    "red": "6/6",
+    "evidence": "F:\\doubaowork\\holoaeon_lathe\\pl5_canary.json"
+  },
+  "verification": {
+    "unittest_main": "1703 OK (skip=0)",
+    "v72_cases": 38,
+    "selftest": "25/25",
+    "v3_gate": "32/32",
+    "unittest_v3": "11 OK",
+    "unittest_verax": "21 OK",
+    "redline": "153 文件 0 违规",
+    "dimension_lock": "PASS 12 维度 / 7 闸 / 0 violation",
+    "diff0": "6d119b2a9f2df687（run1=run2，tampered 8f424d9ee3ebfb9b，拦截 100%）",
+    "five_site_dna": "28 package / 171 repo / 0 missing / zip a87fa921bf963fa1",
+    "verify_v44": "13/13",
+    "check_sums": "250 条 / 0 不匹配",
+    "readme_claims": "PASS / mismatch=0"
+  },
+  "five_site": {
+    "S1_local": "378df33380ac33cf045a8a40024d96da2614fe44",
+    "S2_gitee": "378df33380ac33cf045a8a40024d96da2614fe44（fe1cd75..378df33）",
+    "S3_github": "378df33380ac33cf045a8a40024d96da2614fe44（fe1cd75..378df33）",
+    "S4_vector_sea": "195/195，missing/extra/bad_sha256/bad_bytes 四项空",
+    "S5_hf": "sha cc90065a15c269443d243d4fccd42dc2954b0393 / remote_files 699 / uploaded 9 / mismatch []"
+  },
+  "honest_boundaries": [
+    "「零实现复制」是本团队对策划案口径的解释，不是策划案原话：本批实现为「同构模板 + 数据驱动 + 扫描禁止 import 主仓/禁止 sys.path 指向 N19」，判据落点是 AST 扫描（仓内）与语句扫描（主仓），未做逐字节比对。",
+    "主仓 prehistory_injection.py 复刻了与仓内 prehistory_check.py 同构的六条判据判定逻辑——这是**契约双端验证**（同一契约两端各写一遍、互不 import），不是实现复制；若判为「复制」则须承认，故在此明写。",
+    "18 仓为公开仓，push 即对外可见；可见性已在执行前告知用户，用户明确选择 commit + push。",
+    "18 仓新增的三件包与 gate 修改本身是「向仓内写入」的外部动作，已按用户本轮授权执行，不由策划侧代签。",
+    "仓内检查器第一版用全文正则判零实现复制，被自身 pattern 字面量自匹配导致 check 恒 false；改为 AST 后修复，此 bug 记入本批教训而非隐去。",
+    "aggregate digest 覆盖 (cang_id, ledger_sha16, passed) 三元组与 totals；ledger_sha16 含 injected_at 等字段，故 digest 只证「18 仓账未在聚合后被改」，不证历史稳定。",
+    "S4 台账 history 仍停 V55（79 条），按既有惯例不补，只更新顶层活字段与 confirmations 计数。"
+  ],
+  "not_committed": [
+    "AGENT_FEED_*.md（投喂包，untracked）",
+    "reports/state_beacon.json 及其备份、reports/daily_gate*.json、reports/daily_baseline_*.md",
+    "根目录 BASELINE_STATUS_* / COMMERCIAL_* / QUARTET_* / STANDARD_BASED_* 过程文档",
+    "仓外机床件：holoaeon_lathe\\pl5_*.py / pl5_canary.json / pl5_inject_summary.json / pl5_push_result.json / pl5_push18.ps1"
+  ],
+  "lessons": [
+    "用全文正则判「禁止 import 主仓」会撞上检查器自身的 pattern 字面量，导致恒 false —— 自扫描类判据必须走 AST，别走文本。",
+    "18 仓同构 ≠ 可无脑套模板：包名在测试文件里出现两次（import + gate 模块路径），只替换一次的断言要按「至少一次」写，否则误 ABORT 或漏替。"
+  ],
+  "seal": "潮起开门，潮落闭嘴"
+}
