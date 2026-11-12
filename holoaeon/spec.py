@@ -32,7 +32,7 @@ VERSION = "0.9.1"
 # VERSION / RUNTIME_ID 会写进每条回执并参与 ReproHash，改动即等于让 DIFF=0 黄金值
 # （2fc892cf9af6e755）漂移，与"V1 黄金值不许漂移"的硬口径冲突。
 # 因此 V2 的版本号单独记在 DOC_VERSION，供文档/快照/徽章使用。
-DOC_VERSION = "0.9.61"  # V67 契约对账与仲裁批（NO_INFO_P 死常量清理 · 8 函数返回键白名单 · 耗散充分性 vs 重组判据 arbitration（stagnation_first，僵死需 streak 时间窗证据）· emergence_chain 旁路消费 consistency_gate/entropy_production（不改主判据）· dify-workflow 本机回环 15/15 把契约推进到通）
+DOC_VERSION = "0.9.62"  # V68 史前记忆打捞批（PL-1 指针总账：590 项顶层 / 第一批 304 项 10,174 文件 / 分类继承 V1 只改判 7 项活设施 · PL-2 骨架契约：22 实例 / 19 位同构 / 65 交集签名 / assert 0-96 合计 1410 且登记 1 个零断言实例 · 零搬动零网络）
 MATRIX_ID = "HOLOAEON-MATRIX-0.9.1"
 RUNTIME_ID = "HOLOAEON-RUNTIME-0.9.1"
 PROTOCOL_ID = "HOLOAEON-DATAPROTO v1.0"

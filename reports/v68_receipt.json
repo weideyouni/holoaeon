@@ -1,0 +1,136 @@
+{
+  "batch": "V68",
+  "name": "prehistory-ledger-and-skeleton-contract",
+  "status": "closed",
+  "date": "2026-11-12",
+  "head": "",
+  "head_pre": "c32a44f63e2ee86d6310cb5dece412a8f8c23056",
+  "doc_version": {"from": "0.9.61", "to": "0.9.62"},
+  "frozen_dimensions": {
+    "VERSION": "0.9.1",
+    "MATRIX_ID": "HOLOAEON-MATRIX-0.9.1",
+    "RUNTIME_ID": "HOLOAEON-RUNTIME-0.9.1",
+    "PROTOCOL_ID": "HOLOAEON-DATAPROTO v1.0",
+    "BUS_ID": "HOLOAEON-BUS-v1.0",
+    "BUILTIN_LAYERS": "L1-L8",
+    "PACK_ORDER": 9,
+    "EXTRA_PACK_ORDER": 19,
+    "verify_false": ["D02", "D05", "D06", "D07"]
+  },
+  "carbon_order": {
+    "first_batch": "PL-1 + PL-2",
+    "b4": "整包挂起，并剔除活设施",
+    "landing": "落仓 + 五地同步",
+    "lathe_state": "回填到 c32a44f / 0.9.61"
+  },
+  "patches": [
+    {
+      "file": "holoaeon/prehistory_ledger.py",
+      "new": true,
+      "role": "PL-1 指针总账：顶层 590 项登记、分类原样继承 V1、仅授权改判 7 项活体设施、第一批 304 项 meta_sha16、四失败面校验 + 自摘要",
+      "read_only": true
+    },
+    {
+      "file": "holoaeon/prehistory_contract.py",
+      "new": true,
+      "role": "PL-2 骨架契约：22 实例 / 19 位同构 / 65 交集签名 / assert 0-96 合计 1410 / 零断言实例登记，ast 解析不执行",
+      "read_only": true
+    },
+    {
+      "file": "tests/test_v68_prehistory_ledger.py",
+      "new": true,
+      "role": "54 例 / 8 组：判据、指纹、建账继承、篡改检测、契约机制、真盘冒烟、零副作用、DOC 与维度"
+    },
+    {
+      "file": "holoaeon/spec.py",
+      "role": "DOC_VERSION 0.9.61 -> 0.9.62（唯一升号点）"
+    },
+    {
+      "file": "tests/test_v22_eng_skills.py",
+      "role": "DOC 同源断言 0.9.62"
+    },
+    {
+      "file": "tests/test_v64_hangover_zero.py",
+      "role": "DOC 同源断言 0.9.62"
+    },
+    {
+      "file": "README.md",
+      "role": "徽章 tests-1530+11+21 / 门禁行 unittest 1530 OK + redline 149 + V68 54 cases / 验收行 1530+11+21=1562 / 最新批次行前插 V68"
+    },
+    {
+      "file": "README.zh-CN.md",
+      "role": "同源四处"
+    },
+    {
+      "file": "reports/five_site_manifest.json",
+      "role": "改文档后重建（package 28 / repo 171 / missing 0 / zip_sha16 a87fa921bf963fa1）"
+    }
+  ],
+  "measurements": {
+    "ledger": {
+      "top_level_items": 590,
+      "by_cls": {"A": 168, "B": 313, "C": 109},
+      "first_batch": {"items": 304, "files": 10174, "mb": 1943.964},
+      "reclassified": 7,
+      "reclassified_list": ["vector-sea", "向量海云端镜像", "向量海·阿赖耶识", "向量海同步", "向量海_本地库", ".sync_state", "snapshots"],
+      "verdict": "PASS"
+    },
+    "contract": {
+      "instances": 22,
+      "entries": 591,
+      "py": 481,
+      "shared_files_with_defs": 16,
+      "shared_defs_total": 65,
+      "assert_min": 0,
+      "assert_max": 96,
+      "assert_sum": 1410,
+      "zero_assert_instances": ["北京瑶医医院项目管理1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip"],
+      "unknown_zero_assert": [],
+      "verdict": "PASS"
+    },
+    "feed_corrections": [
+      {
+        "claim": "共同函数签名 21（_base 6 / threadbus 6 / spec 4 / heartbeat 4 / main 1）",
+        "measured": "65（分布在 16 个文件）",
+        "reason": "策划案的 21 是五个文件的抽样口径，不是 22 实例的全集交集"
+      },
+      {
+        "claim": "每实例 101 个 assert",
+        "measured": "min 0 / max 96 / 合计 1410；北京瑶医医院项目管理实例 selftest 198 行但 assert=0",
+        "reason": "101 为单样本静态计数；空转实例已被契约登记为已知例外，新增零断言实例将 FAIL"
+      }
+    ]
+  },
+  "verification": {
+    "selftest": "25/25",
+    "v3_gate": "32/32",
+    "unittest_main": 1530,
+    "unittest_v3": 11,
+    "unittest_verax": 21,
+    "v68_cases": 54,
+    "redline_files": 149,
+    "redline_violations": 0,
+    "dimension_lock": "PASS (12 dims / 7 gates / 0 violation)",
+    "diff0": "DIFF=0 6d119b2a9f2df687, tampered 8f424d9ee3ebfb9b, 拦截 16/16, 放行 4/4",
+    "readme_claims_check": "PASS mismatch=0 stale_header=0",
+    "check_sums": "ok=true total=250 mismatches=[]",
+    "verify_v44": "A1-A13 PASS",
+    "five_site_dna": "package 28 / repo 171 / missing 0 / zip_sha16 a87fa921bf963fa1"
+  },
+  "not_committed": [
+    "AGENT_FEED_V68_PREHISTORY_LEDGER_20261112.md（投喂包，DNA 约定不提交）",
+    "reports/state_beacon.json（灯塔，untracked）",
+    "reports/daily_gate_20261112.json（每日闸产物）",
+    "holoaeon_lathe 下全部证据（prehistory_ledger_V68.json / prehistory_contract_V68.json / v68_*_probe.*）——机床在仓外，零侵入"
+  ],
+  "honest_boundaries": [
+    "分类是名称+类型初判，不是内容鉴定；本批不重写分类体系，原样继承 V1 清单，只改判 7 项活体设施（碳基授权范围）。",
+    "矩阵目录 194（V1 判据）vs 199（含 SUPER-MAS 判据）的口径争议本批未解，台账按 V1 继承口径记录，criteria 已入账以便后续一次对齐。",
+    "未运行任何史前 runtime 的 selftest；assert 数是 ast 静态计数，不等于跑绿。",
+    "目录指纹是 meta_sha16（相对路径+字节数），只能证明清单未变，不能证明字节未变；字段名与文件内容 sha16 分开写。",
+    "B4 整包挂起（16 项 / 19,143.7 MB），其中 7 项活体设施剔除出史前账；碳基未授权纳入其余 9 项归档。",
+    "S3 语义桥、S4 18 仓入库、S6 导学本批均未开工；S4 属写远端动作，需另行授权。",
+    "台账与契约的真实产物落仓外 holoaeon_lathe，仓内只提交可复算的模块、契约判据与测试。"
+  ],
+  "seal": "潮起开门，潮落闭嘴"
+}
