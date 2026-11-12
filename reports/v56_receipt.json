@@ -1,0 +1,173 @@
+{
+ "batch": "V56-CONTINUITY-GATE",
+ "status": "closed",
+ "date": "2026-11-12",
+ "seal": "潮起开门，潮落闭嘴",
+ "head": "840c8d49d5e9189664f65f567d723bc031241e0b",
+ "head_short": "840c8d4",
+ "head_note": "主提交 840c8d4（6 文件 +1082/-10，含两件纯新增）为本批代码与口径批；本回执随补正提交入库，最终 HEAD 以 git rev-parse 回读为准",
+ "prev_head_short": "eac0843",
+ "doc_version": "0.9.50",
+ "ring": 20,
+ "source": "碳基 CONT-01《HoloAeon 全息基座建设·贯续性总控指南》四人组扬弃后的可测子集：取三贯续判据 / 四问一句话判据 / B1-B10 断裂点 / G0-G7 门禁三态（PASS-WAIT-FAIL 零虚构）/ M0 契约反向提取自仓 / 交接单九字段 Schema / 八期 M0-M7 次序；弃建议工期 / git_batch_create.sh(bash) / 心跳三段式调度器（scheduler.py 属 untouchable 四模块）/ 78 梅塔特隆边·108641·每仓20项（维持 V55 弃裁决）/ 选项1 纯文档合并（无机器可测物）",
+ "upgrade_sentence": "贯续性从『工程习惯』变成『可执行门禁』——检查器替人记住，而不是替未来签字",
+ "files_landed": [
+  "holoaeon/continuity_gate.py",
+  "tests/test_v56_continuity_gate.py"
+ ],
+ "byte_identity": {
+  "expect": "2/2",
+  "measured": "2/2 ALL MATCH",
+  "continuity_gate": {
+   "bytes": 30534,
+   "lines": 688,
+   "sha16": "02dc803bd445219d"
+  },
+  "test_v56": {
+   "bytes": 14330,
+   "lines": 384,
+   "sha16": "6c8dd6897043f128"
+  },
+  "probe_note": "投喂包 python 围栏提取后内容本身已带行尾换行（as-is 即 MATCH）；再加一换行会多 1 字节 1 行致 sha16 全偏，已用四写法探针定位"
+ },
+ "continuity_model": {
+  "axes": 3,
+  "axis_list": ["temporal", "structural", "evidential"],
+  "phases": 8,
+  "phase_order": "M0-M7",
+  "breakpoints": 10,
+  "breakpoint_ids": "B1-B10（每条 id/symptom/fix/precedent，precedent 全映射仓内先例）",
+  "gates": 8,
+  "handover_fields": 9,
+  "four_questions": 4,
+  "untouchable_modules": ["graph", "scheduler", "hypervector", "kernel.submit"],
+  "dimension_freeze": {
+   "VERSION": "0.9.1",
+   "MATRIX_ID": "HOLOAEON-MATRIX-0.9.1",
+   "BUILTIN_LAYERS": "L1-L8",
+   "PACK_ORDER": 9,
+   "EXTRA_PACK_ORDER": 19,
+   "dimensions": 12
+  }
+ },
+ "contract": {
+  "version": "contract-v1.0",
+  "frozen": true,
+  "provenance": "反向提取自仓（非新定契约）",
+  "numbering": 19,
+  "fields": 9,
+  "wuxing_pairs": 25,
+  "edge_schema_required": 12
+ },
+ "gate_report": {
+  "G0": "PASS（四要素已成文件并冻结：编号 19 / 相位 8 / 边Schema 12 / 维度）",
+  "G1": "PASS（c18_cluster 注册表 18+1 完好；远端 18 仓 ls-remote 复核 18/18 SAME）",
+  "G2-G7": "WAIT（诚实三态：连通件 event_propagator / 五层痕迹 / 单向连接清理 / 五指标脚本化 / 断仓降级演练 / 陌生人30分钟 均未产件——门禁不替未来签字）",
+  "G2": "WAIT（连通件待产，V57 候选）",
+  "G3": "WAIT（L3-L5 连通件未落）",
+  "G4": "WAIT（双向硬规则属共演化件）",
+  "G5": "WAIT（S5 已实测 cosine 0.0603；S1-S4 全息验证件未落）",
+  "G6": "WAIT（免疫压测件未产，M6 属后期批次）",
+  "G7": "WAIT（install_check 7/7 在档；一仓+跨仓调用全链路待连通件）",
+  "self_check": {
+   "pass": true,
+   "checks": {"contract": true, "temporal": true, "structural": true, "handover": true},
+   "problems": []
+  },
+  "fingerprint": {
+   "module": "continuity_gate",
+   "ring": 20,
+   "axes": 3,
+   "phases": 8,
+   "breakpoints": 10,
+   "gates": 8,
+   "handover_fields": 9,
+   "contract_version": "contract-v1.0",
+   "sha16": "e8d9fbb62f8849bc"
+  }
+ },
+ "real_batch_chain": {
+  "entries": 6,
+  "chain": "V51 9657456→cfafdbd / V51R cfafdbd→fd31369 / V52 fd31369→4a1d2d8 / V53 4a1d2d8→54ab736 / V54 54ab736→32ee152 / V55 32ee152→6e1752e",
+  "rule": "相邻 base_head == 上批 receipt_head（时间轴判据机器可验）"
+ },
+ "tests": {
+  "v56": "54 OK (0.010s)",
+  "seven_suites": "298 = V51 47 + V51R 45 + V52 35 + V53 37 + V54 33 + V55 47 + V56 54",
+  "main_discover": "876 OK (18.224s) = 822 + 54",
+  "v3": "11 OK",
+  "verax": "21 OK",
+  "total": 908
+ },
+ "gates": {
+  "selftest": "25/25 PASS",
+  "v3_gate": "32/32 PASS",
+  "redline": "136 文件 0 违规（新增 continuity_gate.py 使 135→136）",
+  "py38_syntax": "parsed=327 failures=0（325→327）",
+  "check_sums": "ok=true total=250 mismatches=[] unreadable=[]（action=report_only）",
+  "dimension_lock": "PASS 12 维度 / 7 闸 / 0 violation（spec_doc_version 冻结 0.9.4 → 当前 0.9.50 标记演进正常）",
+  "diff0": "6d119b2a9f2df687（run1=run2；tampered 8f424d9ee3ebfb9b；拦截 16/16 = 100%；冷装配 30.76ms / 1.69MiB）",
+  "readme_claims": "PASS mismatch=0 stale_header=0（876 / 908 / 136 全 MATCH，双 README 各 8 项）",
+  "cli": "run / contract / gates / probe / breakpoints 五命令 exit=0"
+ },
+ "cli_evidence": {
+  "run": "self_check pass=True，G0-G7 八行三态输出",
+  "contract": "export_m0_contract JSON（contract-v1.0 / frozen=True）",
+  "gates": "G0/G1 PASS + G2-G7 WAIT 逐条理由",
+  "probe": "fingerprint + self_check + gate_states 三段 JSON",
+  "breakpoints": "B1-B10 十条 sypmtom/fix/precedent"
+ },
+ "restore_point": {
+  "kind": "建仓前镜像截止点",
+  "path": "F:\\doubaowork\\holoaeon_restore_points\\V56_PREREPO_20261112_164935",
+  "zip": "V56_PREREPO_20261112_164935.zip",
+  "files": 634,
+  "bytes": 14082368,
+  "zip_bytes": 8840160,
+  "zip_entries": 636,
+  "zip_sha256": "6e0ad7102157da236476212790f7415cb2c9b654e701a41fdda59f957eb4d9a9",
+  "testzip": "OK",
+  "missing": 0,
+  "note": "git ls-files 须带 core.quotepath=false，否则 43 个中文名路径被八进制转义成伪路径而漏拷（首次生成 INCOMPLETE，已删重建）"
+ },
+ "github_create": {
+  "status": "verified-existing",
+  "action": "V56 幂等复核（18 仓已于 V55 G 步建成；本次逐一 ls-remote 回读，无新建动作）",
+  "verified": "18 / 18 SAME",
+  "drift": 0,
+  "absent": 0,
+  "verification_method": "git ls-remote https://github.com/weideyouni/<repo>.git refs/heads/main，与 V55 回执 main_full 逐仓比对",
+  "evidence": "F:\\doubaowork\\holoaeon_lathe\\repo_recheck_V56_20261112.json",
+  "account": "weideyouni",
+  "n19_repo": "holoaeon",
+  "files_per_repo": 6,
+  "credential_hygiene": "只读 ls-remote，未写任何凭据；V55 已复扫 18 仓 .git/config residue=0"
+ },
+ "dimension_check": {
+  "VERSION": "0.9.1",
+  "BUILTIN_LAYERS": "L1-L8",
+  "layers": 8,
+  "PACK_ORDER": 9,
+  "extra_pack": "本批未新增（仍 19）",
+  "concept_anatomy_verify_doc_version": "0.9.33 不动（旧口径已被实测推翻）"
+ },
+ "feed_corrections": [
+  "D-56-01 逐字节口径：包内围栏内容本身已带行尾换行，as-is 直接写盘才 MATCH；按惯例再加一个换行会多 1 字节 1 行，sha16 全偏（四写法探针定位）。",
+  "D-56-02 七套联跑命令形态：python -m unittest 后接多个模块名在本机 PowerShell 传参失败（Ran 1 test/errors=1），已改用显式 loader 脚本按模块 loadTestsFromModule 汇总，得 298。",
+  "D-56-03 README 闸依赖 git PATH：readme_claims_check.py 内部 subprocess.run(['git',...])，未补 PATH 时抛 FileNotFoundError 使 measured 缺失、假 FAIL（mismatch=5）；补 PATH 后 PASS mismatch=0。",
+  "D-56-04 徽章侧漏改：zh-CN README 徽章 tests-822 首轮未替换，闸判 MISMATCH；双 README 的徽章、合计、redline 三处数字须同批全改（822→876 / 854→908 / 135→136）。",
+  "D-56-05 还原点路径转义：git ls-files 默认 core.quotepath=true，中文名路径被八进制转义，按字面拷文件会漏 43 件致 INCOMPLETE；须 -c core.quotepath=false。"
+ ],
+ "not_committed": [
+  "AGENT_FEED_V56_CONTINUITY_GATE_20261112.md（投喂包 53621 B / 1195 行，DNA 约定不入库，仍待投喂侧补 _DONE）",
+  "reports/state_beacon.json（动态灯塔）",
+  "holoaeon_lathe/repo_recheck_V56_20261112.json（仓外复核证据）"
+ ],
+ "user_directive_compliance": {
+  "没干完的先挂着，等条件成熟后再搞定": "落实为 G2-G7 诚实 WAIT（回执与 CLI gates 输出同口径，全无虚报 PASS），并把翻绿条件写进 v57_handover",
+  "建仓前 创建 镜像截止还原点": "已拍 V56_PREREPO_20261112_164935（634 文件 / zip 636 条目 / sha256 6e0ad710… / testzip OK / missing=0）",
+  "然后建仓 必须建": "18 仓已于 V55 G 步建成并推送骨架首提交；本批按字面做幂等复核，18/18 SAME、drift=0、absent=0——无需补建，建仓事实已锁死"
+ },
+ "v57_handover": "G2 翻绿条件：event_propagator 事件传播四步实测化（连通件）；G3：五层痕迹 L3-L5 落件；G4：双向共演化退化判据；G5：S1-S4 全息验证脚本化；G6：免疫压测件（M6）；G7：一仓+跨仓调用全链路；另 V50 遗留两条（SBOM/SLSA、语义三通道对照）+ 千问 P0 四条继续在队；待碳决断：信通院申报 / 信创真机 / 工程论文",
+ "verdict": "PASS"
+}
