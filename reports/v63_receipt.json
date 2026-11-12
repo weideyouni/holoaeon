@@ -3,13 +3,13 @@
  "status": "closed",
  "date": "2026-11-12",
  "seal": "潮起开门，潮落闭嘴",
- "head": "PENDING_COMMIT",
- "head_short": "PENDING_COMMIT",
+ "head": "402e369eb51d21f7040cfccc9d06860812493dea",
+ "head_short": "402e369",
  "prev_head_short": "63f8b37",
  "doc_version": "0.9.57",
  "version_frozen": "0.9.1",
  "ring": 24,
- "patch": 1,
+ "patch": 2,
  "chain_position": "ring24 制造域（打捞局 ring23 的姊妹域）：打捞管『进来』（吸入→筛选→评分→入库），制造管『出去』（需求→打造→成型→吸附入库）",
  "source": "碳基 2026-11-12 投喂（项目 README V14 节 + 制造局需求原文 + 指令『交由四人组先评估策划规划然后执行 维度不变』）：机床资产 14 位 import 对账 + 双注册表锚点对账；机床经络 14×25=350 格；打造八步状态机 ForgeRail；产品线穷举 10 条；平台适配 12 协议 + 12 缺口；共振磁吸附入库 + 基座留根三件套；自然语言确定性调度",
  "files_landed": [
@@ -55,9 +55,20 @@
  "machine_tool_assets": {
   "total": 14,
   "list": [
-   "skill_lathe", "skill_loader", "skill_schema", "skill_matrix", "machine_tool",
-   "vector_sea_explorer", "protocol_plugins", "craft_gate", "forge_gate", "holo_forge",
-   "magic_lamp", "mobius_vortex", "titan_evolver", "doc_anatomy"
+   "skill_lathe",
+   "skill_loader",
+   "skill_schema",
+   "skill_matrix",
+   "machine_tool",
+   "vector_sea_explorer",
+   "protocol_plugins",
+   "craft_gate",
+   "forge_gate",
+   "holo_forge",
+   "magic_lamp",
+   "mobius_vortex",
+   "titan_evolver",
+   "doc_anatomy"
   ],
   "import_reconciled": true,
   "double_registry_anchor": "craft ORGAN_MAP 六器官 / titan_evolver MECHANISMS 全 11 位（锚点对账先于关键词证据）"
@@ -69,15 +80,29 @@
   "unlinked": 271,
   "no_skipped_cell": true,
   "direct_cover": "18/25（诚实计数）",
-  "uncovered_7": ["C1 自组织耗散", "R2 曼陀罗一拖八", "R5 卡尔曼滤波", "R6 贝叶斯干涉",
-                  "R7 希尔伯特空间", "R8 耗散度量", "X2 108641 活跃节点共振"],
+  "uncovered_7": [
+   "C1 自组织耗散",
+   "R2 曼陀罗一拖八",
+   "R5 卡尔曼滤波",
+   "R6 贝叶斯干涉",
+   "R7 希尔伯特空间",
+   "R8 耗散度量",
+   "X2 108641 活跃节点共振"
+  ],
   "uncovered_note": "未覆盖 7 位属拓扑共振与耗散验证域模块，非机床家族职能——机制轴 25 位仍全表穷举在场，350 格无跳格"
  },
  "forge_rail": {
   "steps": 8,
-  "sequence": ["F1 需求解析", "F2 技能创造", "F3 测试试错", "F4 调试回炉",
-               "F5 神灯联动", "F6 漩涡联动", "F7 双模块（逆向=doc_anatomy / 代码=forge_gate·holo_forge）",
-               "F8 适配成型（protocol_plugins.export_skill_to_protocol）"],
+  "sequence": [
+   "F1 需求解析",
+   "F2 技能创造",
+   "F3 测试试错",
+   "F4 调试回炉",
+   "F5 神灯联动",
+   "F6 漩涡联动",
+   "F7 双模块（逆向=doc_anatomy / 代码=forge_gate·holo_forge）",
+   "F8 适配成型（protocol_plugins.export_skill_to_protocol）"
+  ],
   "reforge_rule": "回炉退回 F2，不跳步只回步",
   "same_as_note": "与 craft_gate StepRail 同构属关联声明，不计 SAME_AS"
  },
@@ -86,15 +111,36 @@
   "anchored": 9,
   "pending": 1,
   "pending_item": "P4 小程序提示词（待造位，锚未落，如实声明）",
-  "list": ["P1 APP 设计", "P2 虚拟测试", "P3 架构测试", "P4 小程序提示词（待造）",
-           "P5 独立智能体引擎一键成型", "P6 白皮书编写", "P7 士农工商技术数字分身",
-           "P8 书籍数字分身融合", "P9 神龟神马双系统 + 类硅基 V2.0 适配", "P10 脱离基座运行"]
+  "list": [
+   "P1 APP 设计",
+   "P2 虚拟测试",
+   "P3 架构测试",
+   "P4 小程序提示词（待造）",
+   "P5 独立智能体引擎一键成型",
+   "P6 白皮书编写",
+   "P7 士农工商技术数字分身",
+   "P8 书籍数字分身融合",
+   "P9 神龟神马双系统 + 类硅基 V2.0 适配",
+   "P10 脱离基座运行"
+  ]
  },
  "protocols": {
   "adapted": 12,
   "gaps": 12,
-  "adapted_list": ["dify", "coze", "qwen", "doubao", "wenxin", "zhipu", "xfyun",
-                   "volcengine", "openai-compatible-generic", "ollama", "n8n", "dify-workflow"],
+  "adapted_list": [
+   "dify",
+   "coze",
+   "qwen",
+   "doubao",
+   "wenxin",
+   "zhipu",
+   "xfyun",
+   "volcengine",
+   "openai-compatible-generic",
+   "ollama",
+   "n8n",
+   "dify-workflow"
+  ],
   "gap_note": "12 缺口真列举未适配——真适配须各平台真实 schema 素材投喂后逐批落地，不虚构适配器"
  },
  "absorb": {
@@ -105,8 +151,11 @@
   "score": 0.0274,
   "runner_up": "holoaeon-c17-society 0.027",
   "tie_break": "平分取编号小仓（V60 先例）",
-  "base_root_triple": ["module: holoaeon/forge_bureau.py", "ledger: data/forge_bureau_meridian.json",
-                       "cross_thread: from holoaeon.forge_bureau import forge_absorb"],
+  "base_root_triple": [
+   "module: holoaeon/forge_bureau.py",
+   "ledger: data/forge_bureau_meridian.json",
+   "cross_thread: from holoaeon.forge_bureau import forge_absorb"
+  ],
   "direction_note": "技艺=制造的本位仓，吸附方向正确"
  },
  "cli": {
@@ -145,5 +194,6 @@
    "删除新增三件（holoaeon/forge_bureau.py、tests/test_v63_forge_bureau.py、data/forge_bureau_meridian.json）",
    "投喂包由 _DONE 改回原名即可重跑（字节未变）"
   ]
- }
+ },
+ "main_commit_stat": "9 files changed, 5265 insertions(+), 14 deletions(-)"
 }
