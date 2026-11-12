@@ -3,7 +3,7 @@
   "status": "closed",
   "date": "2026-11-12",
   "seal": "潮起开门，潮落闭嘴",
-  "head": "7b9abd6abcc712f9cc59a490d3d682e2d4079c21",
+  "head": "6e1752e02f4004d8e6641a8d018bf65f35fb24c2",
   "head_short": "7b9abd6",
   "head_note": "主提交 7b9abd6（6 文件 +811/-10）为本批代码与口径批；本回执与台账随补正提交入库，最终 HEAD 以 git rev-parse 回读为准",
   "prev_head_short": "32ee152",
@@ -17,8 +17,16 @@
   "byte_identity": {
     "expect": "2/2",
     "measured": "2/2 MATCH",
-    "c18_cluster": {"bytes": 21518, "lines": 451, "sha16": "15e42bc50083b23b"},
-    "test_v55": {"bytes": 13497, "lines": 350, "sha16": "ba2d9f7f015a9b08"}
+    "c18_cluster": {
+      "bytes": 21518,
+      "lines": 451,
+      "sha16": "15e42bc50083b23b"
+    },
+    "test_v55": {
+      "bytes": 13497,
+      "lines": 350,
+      "sha16": "ba2d9f7f015a9b08"
+    }
   },
   "cang_registry": {
     "count": 18,
@@ -34,7 +42,12 @@
   },
   "edge_schema": {
     "types": 4,
-    "type_list": ["skeleton", "resonance", "semantic", "event"],
+    "type_list": [
+      "skeleton",
+      "resonance",
+      "semantic",
+      "event"
+    ],
     "required_fields": 12,
     "hard_constraints": "ttl>=12 + decay in (0,1) + rollback non-empty"
   },
@@ -56,9 +69,126 @@
     "location": "F:\\doubaowork\\.tmp_v55_cluster\\（仓外，不入库）"
   },
   "github_create": {
-    "status": "dry-run 已跑（18 仓全『将创建』，均不存在）——执行侧复验通过；--apply 为外部不可逆动作，待碳基明确确认，本批挂起",
-    "repos": "github.com/weideyouni/holoaeon-c01-source … holoaeon-c18-cosmos 共 18 个",
-    "script": "F:\\doubaowork\\.tmp_v55_in\\create_repos_v55.py（幂等：已存在跳过；可回滚 --rollback）"
+    "status": "created",
+    "verified": "18 / 18",
+    "verification_method": "git ls-remote 回读 refs/heads/main（18 仓逐一）",
+    "account": "weideyouni",
+    "n19_repo": "holoaeon",
+    "repos": [
+      {
+        "name": "holoaeon-c01-source",
+        "url": "https://github.com/weideyouni/holoaeon-c01-source",
+        "main": "a77d736",
+        "main_full": "a77d7361d75f7ebdf092340cdd5f138c9daae336"
+      },
+      {
+        "name": "holoaeon-c02-body",
+        "url": "https://github.com/weideyouni/holoaeon-c02-body",
+        "main": "b07d32a",
+        "main_full": "b07d32a19e762729613497d19db9552df3dd28da"
+      },
+      {
+        "name": "holoaeon-c03-meridian",
+        "url": "https://github.com/weideyouni/holoaeon-c03-meridian",
+        "main": "692cff0",
+        "main_full": "692cff0509d33ce1fd7ea58108793ea1b5d6c381"
+      },
+      {
+        "name": "holoaeon-c04-family",
+        "url": "https://github.com/weideyouni/holoaeon-c04-family",
+        "main": "6dcb538",
+        "main_full": "6dcb5385d492a7c939213158e0f9c7d1b342cdc1"
+      },
+      {
+        "name": "holoaeon-c05-education",
+        "url": "https://github.com/weideyouni/holoaeon-c05-education",
+        "main": "1ef9854",
+        "main_full": "1ef9854204093527c73b4b0302a18ad863fa117a"
+      },
+      {
+        "name": "holoaeon-c06-career",
+        "url": "https://github.com/weideyouni/holoaeon-c06-career",
+        "main": "56f6e8d",
+        "main_full": "56f6e8dd79ad3998cd9cff88e7e69167ba143cb4"
+      },
+      {
+        "name": "holoaeon-c07-wealth",
+        "url": "https://github.com/weideyouni/holoaeon-c07-wealth",
+        "main": "9c814cc",
+        "main_full": "9c814cca28289fda56872dff799ae036dda85e27"
+      },
+      {
+        "name": "holoaeon-c08-creation",
+        "url": "https://github.com/weideyouni/holoaeon-c08-creation",
+        "main": "93dadec",
+        "main_full": "93dadec3a69ffaf9c7552f42e7a010d9b66902c1"
+      },
+      {
+        "name": "holoaeon-c09-relation",
+        "url": "https://github.com/weideyouni/holoaeon-c09-relation",
+        "main": "dc9bf57",
+        "main_full": "dc9bf57950e6eded3dd805a356a58e7d500fb3b7"
+      },
+      {
+        "name": "holoaeon-c10-emotion",
+        "url": "https://github.com/weideyouni/holoaeon-c10-emotion",
+        "main": "06bd5d8",
+        "main_full": "06bd5d860a2ada1fe2dc155cd4d52b0db9909d38"
+      },
+      {
+        "name": "holoaeon-c11-meaning",
+        "url": "https://github.com/weideyouni/holoaeon-c11-meaning",
+        "main": "513075a",
+        "main_full": "513075a51185270d046f1aa273eed9b13aa2f5b9"
+      },
+      {
+        "name": "holoaeon-c12-space",
+        "url": "https://github.com/weideyouni/holoaeon-c12-space",
+        "main": "d6735d9",
+        "main_full": "d6735d968e0603e0d1d37fe775219b22b8a4b3ce"
+      },
+      {
+        "name": "holoaeon-c13-time",
+        "url": "https://github.com/weideyouni/holoaeon-c13-time",
+        "main": "47f5eb5",
+        "main_full": "47f5eb56e9da45b572ad1abee60a07efb8d36f09"
+      },
+      {
+        "name": "holoaeon-c14-skill",
+        "url": "https://github.com/weideyouni/holoaeon-c14-skill",
+        "main": "af0641a",
+        "main_full": "af0641a513965b3a617628111ebcc5447b4b62ec"
+      },
+      {
+        "name": "holoaeon-c15-risk",
+        "url": "https://github.com/weideyouni/holoaeon-c15-risk",
+        "main": "988b551",
+        "main_full": "988b55181424f19f834c8715f581c3a236c3c7d2"
+      },
+      {
+        "name": "holoaeon-c16-spirit",
+        "url": "https://github.com/weideyouni/holoaeon-c16-spirit",
+        "main": "b42d1b3",
+        "main_full": "b42d1b3d39997e2fbe3f6f309316ba91889b1281"
+      },
+      {
+        "name": "holoaeon-c17-society",
+        "url": "https://github.com/weideyouni/holoaeon-c17-society",
+        "main": "0a74c39",
+        "main_full": "0a74c3987d71fbf42c9f96a983ea8491a7fd5458"
+      },
+      {
+        "name": "holoaeon-c18-cosmos",
+        "url": "https://github.com/weideyouni/holoaeon-c18-cosmos",
+        "main": "4d7962e",
+        "main_full": "4d7962e946234f3d529e7f98c09ee6fab9674eb6"
+      }
+    ],
+    "files_per_repo": 6,
+    "timeline": "2026-11-12T07:41Z ~ 08:3xZ（c01-c10 首批，c11 网页复核，c11-c18 窗口重置后续建）",
+    "rate_limit_note": "GitHub 建仓频次限制（secondary rate limit / content creation）在 c11 触发；网页端同报『You have created too many repositories, too quickly』——属账号级冷却。窗口重置后 c11-c18 一次建成，全程 0 失败。",
+    "credential_hygiene": "18 仓本地 .git/config 的 remote url 已去除 token（复扫 residue=0），token 未写入任何仓配置",
+    "rollback_entry": "F:\\doubaowork\\holoaeon_restore_points\\V55_PREREPO_20261112_154450（建仓前还原点）"
   },
   "tests": {
     "v55": "47 OK (0.272s)",
@@ -80,8 +210,16 @@
     "cli": "probe / fingerprint / repos / run 四命令 exit 0"
   },
   "cli_evidence": {
-    "probe": {"ok": true, "cang_count": 18, "matrix_size": 19, "mean_similarity": 0.0603},
-    "fingerprint": {"ring": 19, "sha256": "79ae09f334702b0c39033b28d24152e182cd0b0ff2109ec564498fdbb1ff56ef"},
+    "probe": {
+      "ok": true,
+      "cang_count": 18,
+      "matrix_size": 19,
+      "mean_similarity": 0.0603
+    },
+    "fingerprint": {
+      "ring": 19,
+      "sha256": "79ae09f334702b0c39033b28d24152e182cd0b0ff2109ec564498fdbb1ff56ef"
+    },
     "repos": "19 个 URL（C01-C18 + N19=holoaeon）"
   },
   "dimension_check": {
@@ -102,5 +240,6 @@
     "reports/state_beacon.json（动态灯塔）"
   ],
   "v56_handover": "连通件候选：event_propagator（事件传播四步实测化）/ 双向共演化退化判据 / 骨架 git submodule 引入 N19 ；另 V50 遗留两条（SBOM/SLSA、语义三通道对照）+ 千问第七轮 P0 四条继续在队；待碳决断：GitHub 18 仓 --apply / 信通院申报 / 信创真机 / 工程论文",
-  "verdict": "PASS"
+  "verdict": "PASS",
+  "g_step_note": "G 步已执行：18 仓建成并按仓推送骨架首提交，逐仓 ls-remote 回读核验 18/18；建仓前已拍还原点 V55_PREREPO_20261112_154450（303 文件 / zip sha256 ee245dce…）"
 }
