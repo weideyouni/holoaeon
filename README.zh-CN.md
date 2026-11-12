@@ -10,7 +10,7 @@
 
 ![Dependencies](https://img.shields.io/badge/dependencies-0-success.svg)
 
-![Tests](https://img.shields.io/badge/tests-1016%2B11%2B21%20passed-success.svg)
+![Tests](https://img.shields.io/badge/tests-1114%2B11%2B21%20passed-success.svg)
 
 ![SelfTest](https://img.shields.io/badge/selftest-25%2F25-success.svg)
 
@@ -128,7 +128,7 @@ HoloAeon 纯标准库、全离线、确定性。零依赖、零安装、零成�
 - **公共卫生慢病引擎（`phc_chronic_engine`，领域编排环·第十一环·实战1号）**：A/B/C/D 四级病种登记册（A 类 3 病种高血压 / 2 型糖尿病 / 慢阻肺病，≥4 次随访每年 + 年检）+ 六系统图谱（神经 / 心脑血管 / 内分泌 / 免疫 / 肿瘤 / 骨伤 → 科室·技能路由）+ 7 模态信封（影像只存 SHA256 指针 + 结构化自述，零像素进入引擎态）+ 危险度 R01–R12 十二条可复算规则（急性事件直通 IV 级红档，危急不被分数稀释）+ MDT 意见槽留白·执业医师终审 + 随访调度（≥4 次/年·2 周复访·转诊 2 周追踪回流）+ 端口池 ≤10 + 等保三级 MLPS3 七项 + 审计 SHA 链 + 3 万人口容量估算；零诊断零处方零像素零网络
 - **安全与诚实**：红线扫描（禁网络 / 禁密钥 / 禁句柄泄漏）· 去幻觉八阶段流水线 · 急症双熔断 · 零剂量不称疗效
 - **进化机制**：神灯（愿望→方案编译）· 泰坦进化（清单→缺口→提案→人审→合入）· 缺口进化桥——**全自动只有提案权，合入权在人**
-- **工程验收（本机实跑口径）**：主套单测 **1016 OK** + v3 域 **11** + verax 域 **21**（合计 **1048**）· selftest **25/25** · `v3_gate` **32/32** · `v44` **13/13** · 维度锁 12 维 **PASS** · 红线扫描回读为准：``python scripts/redline_scan.py``（实测值见该批回执；核心包 .py 实数以 ``ls holoaeon/*.py | wc -l`` 回读） · 复算闸 **250 条 0 不匹配**，每批全绿才封口
+- **工程验收（本机实跑口径）**：主套单测 **1114 OK** + v3 域 **11** + verax 域 **21**（合计 **1146**）· selftest **25/25** · `v3_gate` **32/32** · `v44` **13/13** · 维度锁 12 维 **PASS** · 红线扫描回读为准：``python scripts/redline_scan.py``（实测值见该批回执；核心包 .py 实数以 ``ls holoaeon/*.py | wc -l`` 回读） · 复算闸 **250 条 0 不匹配**，每批全绿才封口
 - **五地同步**：本地 → Gitee（权威）→ GitHub → HuggingFace → 向量海，对象摘要哈希逐条验收，**五地同头才收口**
 - **领域资产（自述口径）**：462 项医疗康复知识库（肿瘤康复 / 慢病管理方向）· 1331×1331 多智能体矩阵实战化方法论 —— 均为作者资产登记，**未宣称第三方复核**
 
@@ -156,7 +156,7 @@ HoloAeon 纯标准库、全离线、确定性。零依赖、零安装、零成�
 人工智能浪潮到来，他把多维数据查询的专家系统，进化为自然语言驱动的多智能体架构；1331×1331 矩阵方法论在数十个领域实战演练——"装配→自检→验收→归档"锤炼成肌肉记忆。
 
 **2026-10 → 今 · HoloAeon V0.1 → V38。**
-九年沉淀蒸馏为零依赖框架：V0.1 起步，至今 V59；**批次数不写死**，一律以台账 `history` 回读为准（当前 77 条，差额为补正提交与跨批事件，逐条可回读）；每批"投喂包→执行→十项门禁→单批单提交→五地同步→记忆回填"，diff0 黄金值自第一天锁死至今**零漂移**。"早晚能成"被翻译成"这一批能验收"。
+九年沉淀蒸馏为零依赖框架：V0.1 起步，至今 V60；**批次数不写死**，一律以台账 `history` 回读为准（当前 77 条，差额为补正提交与跨批事件，逐条可回读）；每批"投喂包→执行→十项门禁→单批单提交→五地同步→记忆回填"，diff0 黄金值自第一天锁死至今**零漂移**。"早晚能成"被翻译成"这一批能验收"。
 
 ---
 
@@ -204,6 +204,7 @@ HoloAeon 纯标准库、全离线、确定性。零依赖、零安装、零成�
 | 贯续（CONT-01） | 有机体只能一次一次长出来 | **已落地** | `holoaeon/continuity_gate.py`（ring20）：三贯续轴（时间 / 结构 / 证据）+ B1–B10 断裂点 + G0–G7 门禁三态（未落地诚实 WAIT） |
 | 组织（ORG-02） | 谁来干、资源怎么分、怎么复制不失真、怎么算活着 | **已落地（编制骨架）** | `holoaeon/org_gate.py`（ring21）：18 小组五岗编制（仓主≠记录员）+ 任务卡 Schema + 调拨优先级公式 + 适配十态状态机 + 耗散 D1–D6 口径 + B0–B6 深化批次表；C03 G-M 六判据三态（同构/回滚 PASS，12 通道/传播/阻塞/衰减 WAIT） |
 | 语义与吸收（SEM-01） | 名字是什么、生态怎么吸收、搜索怎么被引导 | **已落地（张量骨架）** | `holoaeon/tensor_gate.py`（ring22）：四语素命名校验（76 语素位=4×19 穷举，缺语素即命名非法）/ RepoTensor 四模态 ⟨S,M,P,A⟩（S sha256 派生 · M 确定性生成 · P one-hot 相位+枢纽标记 · A 32 槽位图）+ 同输入两次全同的确定性机器证明 / 耦合 C(i,j)=w_phase·cosine 361 全量穷举（19 自耦 + 342 有向，无向 171 为对称视图不重复计数）/ 八层开源分类 L0–L7 + 32 槽位框架 + 18 仓认领 / 取六舍五 + 同化三形态（禁 vendoring）+ 四段台账 / 搜索五维 D1–D5 + search_record 强制 schema（无记录不进实现）→ 90 任务卡 |
+| 打捞与搜索网（SALV-01） | 历史资产怎么对上账、每天捞什么、捞上来怎么吸收 | **已落地（打捞局）** | `holoaeon/salvage_gate.py`（ring23）：打捞资产十项身份注册表 + 模式扫描（跳 `_`/`.` 前缀，显式 `--root`，未指定=WAIT 三态不虚构） / 名词四层 65 位穷举 + 无孤立校验（18 位领域词由 D01–D18 一仓一维全覆盖，结构/相位/机制 37 词显式映射） / 18 维搜索网（一仓一维，N19 基座元层并入不占维；与 V59 D1–D5 五问双编号并存） / 头部判定综合分 0.40 stars + 0.15 forks + 0.20 近期活跃 + 0.15 贡献者 + 0.10 榜单引用（24 个月线性衰减归零，**任一指标未知即整体 None 禁估算**） + 硬门槛四淘汰 + 清单数据集最多 2 席 KEEP-CAPPED / 提示词模板（变量注入 + 反幻觉五条原文 + 实质定义压缩规则 + 严格 JSON 输出） / 180 目标汇总跨维去重（综合分最高为主记录，其余 see-also 不重复计数，平分按维号小者） / 每天打捞日程 18 天一轮 D03 首日先行（ORG-02 经络先行同源）/ 选择性吸纳与本地化适配（search_record 八字段 + 能力槽，**无 search_record 不得进实现**；适配五字段含本地化改造说明）→ 总闸七检查 + 指纹 + CLI 六命令 |
 
 ### 18 仓一览（编号固定不可变更）
 
@@ -350,9 +351,9 @@ HoloAeon 纯标准库、全离线、确定性。零依赖、零安装、零成�
 | 项 | 实测值 |
 |---|---|
 | 产出维度（锁死） | **25 智能体 / 47 技能 / 9 域包**；`diff0_hash=2fc892cf9af6e755`、`tamper=f42c8229ee5acd73` 未变 |
-| 最新批次 | **V59 张量与吸收件（ring22 · 五件套终章：新增 `tensor_gate.py`——四语素命名校验（76 语素位，缺语素即命名非法）/ RepoTensor 四模态 ⟨S,M,P,A⟩（S sha256 派生 · M 确定性生成 · P one-hot 相位 + 枢纽标记 · A 32 槽位图）+ 同输入两次全同的确定性机器证明 / 耦合 C(i,j)=w_phase·cosine 361 全量穷举（19 自耦 + 342 有向，无向 171 视图另列不重复计数）/ 八层开源分类 L0–L7 + 32 槽位框架 + 18 仓认领 / 取六舍五 + 同化三形态（禁 vendoring）+ 四段台账 / 搜索五维 D1–D5 + search_record 强制 schema（无记录不进实现）→ B0–B6×五维 90 任务卡；代码批次 · 主套 1016 · redline 138 · DOC 提升 `0.9.53`）** —— 本栏随批次更新，权威口径以 `git log -1 --format=%s` 回读为准 |
+| 最新批次 | **V60 打捞局（ring23 · 搜索网与打捞域：新增 `salvage_gate.py`——打捞资产十项身份注册表 + 模式扫描（跳 `_`/`.` 前缀，显式 `--root`，未指定=WAIT 三态）/ 名词四层 65 位穷举 + 无孤立校验（18 位领域词由 D01–D18 一仓一维全覆盖） / 18 维搜索网一仓一维（N19 元层并入不占维，与 V59 D1–D5 双编号并存）/ 头部判定 0.40 stars + 0.15 forks + 0.20 活跃 + 0.15 贡献者 + 0.10 榜单引用（24 个月线性衰减，**任一指标未知即整体 None 禁估算**）+ 四道硬门槛（archived/镜像/fork/无 README 淘汰，无 license 降权） / 提示词模板反幻觉五条原文 + 压缩规则 / 180 目标跨维去重（平分按维号小者）/ 18 天一轮日程 D03 首日先行 / 选择性吸纳（search_record 八字段，**无记录不进实现**）+ 本地化适配五字段 → 总闸七检查 + CLI 六命令；代码批次 · 主套 1114 · redline 139 · DOC 提升 `0.9.54`）** —— 本栏随批次更新，权威口径以 `git log -1 --format=%s` 回读为准 |
 | 扩展卡槽 | **12 个**：occupied 6 / open 1 / reserved 4 / blocked 1（只声明不接线；本批**不新增、不占用**槽位） |
-| 门禁 | `v3_gate 32/32` · `selftest 25/25` · `unittest 1016 OK`（skipped=0；主 tests，含 V24 `test_swarm_intel` 8 例 + V25 `test_machine_tool` 15 例 + V26 `test_mobius_vortex` 12 例 + V27 `test_klein_projection` 19 例 + V28 `test_holo_forge` 13 例 + V31 `test_titan_evolver` 29 例 + V32 `test_gap_bridge` 11 例 + V33 `test_math_gate` 11 例 + V34 `test_tea_gate` 11 例 + V35 `test_cosmo_gate` 12 例 + V36 `test_edu_gate` 13 例 + V37 `test_shengui_gate` 19 例 + V38 `test_check_sums` 5 例 + V40 `test_academic_gate` 19 例 + V41 `test_phc_chronic_engine` 25 例+ V42 `test_phc_recall` 18 例 + V43 `test_craft_gate` 19 例 + V44 `test_twin_verify` 21 例 + V45 `test_teach_gate` 17 例 + V46 `test_v46_pharma_probe` 20 例 + V47 `test_v47_deploy_gateway` 24 例 · V49 `scripts/exp_v49_forge_gate.py` 66 例（独立实验田脚本，V50 已移出 tests/ 防误 discover）+ V51 `test_v51_circuit_gate` 47 例 + V51R `test_v51r_hardware_gate` 45 例 + V52 `test_v52_cinema_gate` 35 例 + V53 `test_v53_palette_gate` 37 例 + V54 `test_v54_palette_enhance` 33 例 + V55 `test_v55_c18_cluster` 47 例 + V56 `test_v56_continuity_gate` 54 例 + V58 `test_v58_org_gate` 56 例 + V59 `test_v59_tensor_gate` 84 例）+ `v3 11 OK` + `verax 21 OK` · `旁挂 184 OK`（`tests_contract` 的 `test_10_no_new_pack` 已改下界 `>=11`，V12 起不再过期） · `v44 13/13` · `v45 7/7` · `v46 9/9` · `v5 11/11` · `dv 8/8` · `redline 138 文件 0 违规` · `check_sums ok=true`（V38 复算闸：SHA256SUMS 250 条复算 0 不匹配，闸只阻断不重建） · `drift []` |
+| 门禁 | `v3_gate 32/32` · `selftest 25/25` · `unittest 1114 OK`（skipped=0；主 tests，含 V24 `test_swarm_intel` 8 例 + V25 `test_machine_tool` 15 例 + V26 `test_mobius_vortex` 12 例 + V27 `test_klein_projection` 19 例 + V28 `test_holo_forge` 13 例 + V31 `test_titan_evolver` 29 例 + V32 `test_gap_bridge` 11 例 + V33 `test_math_gate` 11 例 + V34 `test_tea_gate` 11 例 + V35 `test_cosmo_gate` 12 例 + V36 `test_edu_gate` 13 例 + V37 `test_shengui_gate` 19 例 + V38 `test_check_sums` 5 例 + V40 `test_academic_gate` 19 例 + V41 `test_phc_chronic_engine` 25 例+ V42 `test_phc_recall` 18 例 + V43 `test_craft_gate` 19 例 + V44 `test_twin_verify` 21 例 + V45 `test_teach_gate` 17 例 + V46 `test_v46_pharma_probe` 20 例 + V47 `test_v47_deploy_gateway` 24 例 · V49 `scripts/exp_v49_forge_gate.py` 66 例（独立实验田脚本，V50 已移出 tests/ 防误 discover）+ V51 `test_v51_circuit_gate` 47 例 + V51R `test_v51r_hardware_gate` 45 例 + V52 `test_v52_cinema_gate` 35 例 + V53 `test_v53_palette_gate` 37 例 + V54 `test_v54_palette_enhance` 33 例 + V55 `test_v55_c18_cluster` 47 例 + V56 `test_v56_continuity_gate` 54 例 + V58 `test_v58_org_gate` 56 例 + V59 `test_v59_tensor_gate` 84 例 + V60 `test_v60_salvage_gate` 98 例）+ `v3 11 OK` + `verax 21 OK` · `旁挂 184 OK`（`tests_contract` 的 `test_10_no_new_pack` 已改下界 `>=11`，V12 起不再过期） · `v44 13/13` · `v45 7/7` · `v46 9/9` · `v5 11/11` · `dv 8/8` · `redline 139 文件 0 违规` · `check_sums ok=true`（V38 复算闸：SHA256SUMS 250 条复算 0 不匹配，闸只阻断不重建） · `drift []` |
 | 五地同步 | 本地 · Gitee · GitHub · Hugging Face · 向量海 —— 见文末 [附录 A](#附录-a--五地同步v11) |
 | 版本脉络 | V4.0 → V6.1 → V11 → V12 逐提交回溯 —— 见文末 [附录 B](#附录-b--版本升级说明v3--v11) |
 | V4 主文档 | [`README_FUSION_V4_20261102.md`](README_FUSION_V4_20261102.md) · 同步规则 [`data/FIVE_SITE_SYNC_DNA.md`](data/FIVE_SITE_SYNC_DNA.md) |

@@ -1,0 +1,92 @@
+{
+ "batch": "V60-SALVAGE-GATE",
+ "status": "closed",
+ "date": "2026-11-12",
+ "seal": "潮起开门，潮落闭嘴",
+ "head": "pending-post-commit",
+ "prev_head_short": "0b629b3",
+ "prev_head_full": "0b629b395007ba393cea8a4126e2a0b52ab6b9f0",
+ "head_note": "包内基线写 bfb16ce；实际开工基线 0b629b3（V59-DOCFIX 在包交付后已收口，见 honest_boundary）",
+ "doc_version": "0.9.54",
+ "ring": 23,
+ "source": "SEARCHNET-01 搜索维度网与抓取提示词模板 + 碳基打捞之王仓库端模块指令（600万/600/记忆打捞资产整合）四人组扬弃后的可测子集：取名词 65 位穷举 / 18 维一仓一维搜索网 / 头部判定四指标+硬门槛 / 提示词模板+反幻觉 / 180 汇总跨维去重 / 每天打捞日程 D03 先行 / 选择性吸纳 search_record+能力槽；弃实际抓取（零网络）/180 承诺口径（上限非承诺）/新建 cron（日程函数承载）/本机路径硬编码（显式 root WAIT 三态）",
+ "files_landed": [
+  "holoaeon/salvage_gate.py",
+  "tests/test_v60_salvage_gate.py"
+ ],
+ "byte_identity": {
+  "expect": "2/2",
+  "measured": "2/2 MATCH",
+  "detail": {
+   "A": {
+    "path": "holoaeon/salvage_gate.py",
+    "lines": 934,
+    "bytes": 48675,
+    "sha16": "8fc6a05fc87b6e5f"
+   },
+   "B": {
+    "path": "tests/test_v60_salvage_gate.py",
+    "lines": 668,
+    "bytes": 27377,
+    "sha16": "bbb7dea866c623ee"
+   }
+  },
+  "extraction": "V60 口径：外 4 反引号 ````markdown、内 3 反引号 ```python；取内层内容、末尾不加换行 → 零差量命中。与 V57（围栏内容+末尾 1 换行）、V58（去标记后差 14B/2行）、V59（去标记零差量）构成四包四口径，再次印证『每包必须探针实测反推』不可省。"
+ },
+ "tests": {
+  "v60": "98 OK（0.028s）",
+  "main_discover": "1114 OK（17.585s）",
+  "composition": "1016 + 98"
+ },
+ "cli": {
+  "run_root": "exit=0 七检查全 True（assets/nouns/dimensions/scoring/template/schedule/assimilation）",
+  "assets_root": "exit=0 pass=true（10 项注册，600万 9 处 / 缺陷600 29 处 / knowledge_600 authorized-landed）",
+  "assets_no_root": "exit=1 WAIT 三态诚实",
+  "probe_dims_schedule_prompt": "exit=0（dims 18 维；schedule day1=D03 首日先行）"
+ },
+ "salvage": {
+  "assets_registered": 10,
+  "assets_found_real_root": "10/10 定位（F:/doubaowork 实测）",
+  "noun_slots": 65,
+  "noun_note": "素材声称 62（11+18+9+25），实测四层列举 11+18+10+26=65；『全息镜像根』双层重复列举如实留痕豁免",
+  "dims": 18,
+  "per_dim": 10,
+  "total_expected": 180,
+  "cycle_days": 18,
+  "dual_numbering": "V59 D1–D5 每仓五问（问什么）与 SEARCHNET-01 D01–D18 一仓一维（每维取哪 10 个头部）并存，语义不同不冲突"
+ },
+ "authorization": "知识更新600（SG-UPGRADE-KNOWLEDGE-SALVAGE-KING-600AGENT-20260517）2026-09-21 missing 待授权——碳基 2026-11-12 指令授权落地为打捞局仓库端实体",
+ "gates": {
+  "selftest": "25/25",
+  "v3_gate": "32/32",
+  "dimension_lock": "PASS（12 维度 / 7 闸 / 0 violation）",
+  "unittest_main": 1114,
+  "unittest_v3": 11,
+  "unittest_verax": 21,
+  "total": 1146,
+  "redline_files": 139,
+  "redline_violations": 0,
+  "py38": "parsed=333 / failures=0",
+  "check_sums": "250/0",
+  "diff0": "6d119b2a9f2df687",
+  "v44": "13/13",
+  "readme_claims": "PASS mismatch=0 stale_header=0",
+  "five_site_manifest": "28/171/0"
+ },
+ "not_committed": [
+  "AGENT_FEED_*.md（投喂包不提交）",
+  "reports/daily_gate*.json 等过程件"
+ ],
+ "honest_boundary": [
+  "包内基线 HEAD 写 bfb16ce，实际开工基线为 0b629b3 —— 因 V59-DOCFIX（文档修正批）在包交付之后已收口，属正常推进而非偏离。",
+  "包内声明名词位 62，实测 65（11+18+10+26）—— 按实测 65 位穷举注册，素材声称数与列举数不等已留痕。",
+  "包内声明『180 个目标』为设计上限，非承诺值；实际 total_actual 可小于 180，coverage_report 如实说明（采信素材诚实口径）。",
+  "主套 1114 = 1016 + 98；包内『唯 2 例真仓 git 探针属实验田预期』指实验田无 .git 场景，本主仓两次实跑均 OK，无需豁免。",
+  "redline 由 138 → 139（+holoaeon/salvage_gate.py；tests/ 不在扫描范围）。",
+  "py38 由 331 → 333（+2 新增件）。",
+  "零网络纪律：本模块只产模板与校验器，不执行实际抓取；检索工具不可用即返回 error 不伪造。",
+  "不新建 cron/调度器；每天打捞由确定性日程函数承载（18 天一轮 D03 先行）。",
+  "reports/v60_receipt.json 的 five_site 字段按纪律保持 pending，真实五地结论在仓外回执。"
+ ],
+ "verdict": "PASS"
+}
