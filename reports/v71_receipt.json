@@ -1,0 +1,188 @@
+{
+  "batch": "V71",
+  "name": "prehistory-family-tree",
+  "status": "PASS",
+  "date": "2026-11-13",
+  "head": "56d389433915f28b0d85fe32e38e9bb101116dd1",
+  "head_pre": "3ad70fc2ac2bf16e352b09a11b2e9ddca0e92807",
+  "doc_version": {
+    "from": "0.9.64",
+    "to": "0.9.65"
+  },
+  "frozen_dimensions": {
+    "VERSION": "0.9.1",
+    "MATRIX_ID": "HOLOAEON-MATRIX-0.9.1",
+    "RUNTIME_ID": "HOLOAEON-RUNTIME-0.9.1",
+    "PROTOCOL_ID": "HOLOAEON-DATAPROTO v1.0",
+    "BUS_ID": "HOLOAEON-BUS-v1.0",
+    "BUILTIN_LAYERS": "L1-L8",
+    "PACK_ORDER": 9,
+    "EXTRA_PACK_ORDER": 19,
+    "verify_false": [
+      "D02",
+      "D05",
+      "D06",
+      "D07"
+    ],
+    "diff0_comment": "2fc892cf9af6e755",
+    "tamper": "f42c8229ee5acd73",
+    "zip_sha16": "a87fa921bf963fa1"
+  },
+  "carbon_order": {
+    "source": "碳基点单：PL-4 史前矩阵族谱（按建议先做）；同批规则 PL-4 / PL-5 / PL-6 单独一批，不混做",
+    "scope": "只做 PL-4：194 目录 + 22 runtime zip 的骨架签名聚族、母版判定、差异矩阵；只读零搬运，不动 B4 九项、不碰 18 仓（PL-5 属外部动作须另签）、不做 PL-6 导学",
+    "product": "prehistory_family.py（两层族谱 + 差异矩阵 + 九失败面）+ test_v71（41 例）+ 回执 + README 双份 + DOC 0.9.65",
+    "fail_criteria": "四项总数漂移 / 精确族数与单点数漂移 / 虚构血缘 / 母版缺失 / 母版违约 / 孤儿差异 / 差异不可复算 / 近亲证据缺失或 content_verified 被翻成 true / 绝对路径漏进签名，外加自摘要",
+    "home_cang": "C13 时间（先后能否判）· C18 宇宙（同构从何而来）——族谱写得出形状，写不出血缘",
+    "point_order": "PL-4 先行，PL-5 / PL-6 各另开一批"
+  },
+  "patches": [
+    {
+      "file": "holoaeon/prehistory_family.py",
+      "new": true,
+      "role": "骨架签名（sha256(排序后的相对路径+字节数)[:16]）+ L1 精确族 + L2 近亲族（Jaccard>=0.50）+ 母版四级规则 + 差异矩阵 + 九失败面；无任何搬运/写入函数",
+      "read_only": true
+    },
+    {
+      "file": "tests/test_v71_prehistory_family.py",
+      "new": true,
+      "role": "41 例，七组：签名原语 / 泄漏面 / L1 / L2 / 差异矩阵 / 九失败面 / 真实现场（skipUnless F 盘在场）",
+      "read_only": false
+    },
+    {
+      "file": "holoaeon/spec.py",
+      "new": false,
+      "role": "DOC_VERSION 0.9.64 -> 0.9.65（版本注释改成本批口径）",
+      "read_only": false
+    },
+    {
+      "file": "tests/test_v22_eng_skills.py",
+      "new": false,
+      "role": "DOC 断言 0.9.64 -> 0.9.65（唯一精确权威点）",
+      "read_only": false
+    },
+    {
+      "file": "tests/test_v64_hangover_zero.py",
+      "new": false,
+      "role": "DOC 断言 0.9.64 -> 0.9.65",
+      "read_only": false
+    },
+    {
+      "file": "tests/test_v70_prehistory_criteria.py",
+      "new": false,
+      "role": "DOC 断言 0.9.64 -> 0.9.65（V70 自写的精确断言，升号必红，属 V40 教训第 N 次复现）",
+      "read_only": false
+    },
+    {
+      "file": "README.md",
+      "new": false,
+      "role": "徽章 1665 / 门禁行 1665·152并追加 V71 41 cases / 验收行 1665·1697 / 最新批次插 V71（V70 降为链条）",
+      "read_only": false
+    },
+    {
+      "file": "README.zh-CN.md",
+      "new": false,
+      "role": "同英文侧六处同源（徽章 / 验收行 1665·1697 / 门禁行 / V71 41 例 / 最新批次）",
+      "read_only": false
+    },
+    {
+      "file": "reports/five_site_manifest.json",
+      "new": false,
+      "role": "改文档后重建（five_site_dna build：package 28 / repo 171 / missing 0）",
+      "read_only": false
+    }
+  ],
+  "measurements": {
+    "counts": {
+      "dirs": 194,
+      "runtime_zips": 22,
+      "objects": 216,
+      "files": 8277,
+      "bytes": 98484518,
+      "excludes_hidden": true,
+      "hidden_sample": "薛立斋1331x1331超级矩阵V3实战化_20261017/logs/.gitkeep (5 B) —— 唯一隐藏件",
+      "note": "含隐藏件口径为 8278 文件 / 98,484,523 B；正式口径排除隐藏件，两数差异 1 文件 5 字节已对账"
+    },
+    "L1_exact": {
+      "families": 14,
+      "singletons": 188,
+      "largest": 2,
+      "kind": "twin",
+      "scopes": [
+        "dir",
+        "zip"
+      ],
+      "finding": "216 个对象两两骨架签名不同，域内同骨架族为 0；14 个精确族全部是同一资产的目录态与 runtime zip 态，判 twin 不判父子"
+    },
+    "L2_near": {
+      "families": 4,
+      "largest": 2,
+      "evidence": "name_jaccard>=0.50",
+      "content_verified": false,
+      "jaccard_min": 0.5,
+      "pairs": [
+        [
+          "燕京医派1331x1331超级矩阵V3实战化_20261019",
+          "颜德馨1331x1331超级矩阵V3实战化_20261019",
+          0.95
+        ],
+        [
+          "冀派中医1331x1331超级矩阵V3实战化_20261020",
+          "吉派中医1331x1331超级矩阵V3实战化_20261020",
+          0.9333
+        ],
+        [
+          "世殊医道1331x1331超级矩阵V4终极升级_20261019",
+          "世殊医道师叔值班分身1331x1331超级矩阵V3实战化_20261018",
+          0.7143
+        ],
+        [
+          "旴江医派1331x1331超级矩阵V3实战化_20261018",
+          "旴江医派1331x1331超级矩阵V3实战化_20261020",
+          0.5778
+        ]
+      ],
+      "counter_evidence": "冀派 vs 吉派 0.933、燕京 vs 颜德馨 0.950 —— 不同对象同模板，名字近乎一样：骨架相似不是血缘"
+    },
+    "master_rule": "files_desc -> bytes_desc -> name_len_asc -> name_asc；母版 = 同族骨架最完整者，不是历史上最早的版本",
+    "signature_rule": "sha256(json(sorted([rel_path, bytes])))[:16]，目录与 zip 用同一口径（zip 排除 __MACOSX 等打包噪声）",
+    "diff_matrix": "每个派生对母版给 added / removed / resized 三列，diff_sha16 逐族落盘，可复算",
+    "digest": "7abb49de320bce8c6d7847d6e122b49f13feb0d5d55477438ab69b3f4ea92bf4",
+    "digest_note": "note 字段进 payload，改 note 即改 digest；本值对应 note=母版=同族骨架最完整者（不是最早版本）…",
+    "build_seconds": 0.4,
+    "capped_objects": []
+  },
+  "verification": {
+    "selftest": "25/25 PASS",
+    "v3_gate": "32/32 PASS",
+    "unittest_main": 1665,
+    "unittest_v3": 11,
+    "unittest_verax": 21,
+    "v71_cases": 41,
+    "redline_files": 152,
+    "redline_violations": 0,
+    "dimension_lock": "PASS (12 dims / 7 gates / 0 violation)",
+    "diff0": "DIFF=0 6d119b2a9f2df687 | 拦截 16/16 | 放行 4/4 | 冷装配 31.07ms 峰值 1.69MiB",
+    "five_site_dna_build": "package 28 / repo 171 / missing 0 / zip_sha16 a87fa921bf963fa1",
+    "verify_v44": "13/13 (A1-A13 PASS)",
+    "readme_claims": "VERDICT PASS | mismatch=0 | stale_header=0",
+    "check_sums": "ok=true total=250 mismatches=[]"
+  },
+  "not_committed": [
+    "AGENT_FEED_*.md（历史投喂包，untracked 不提交）",
+    "holoaeon_lathe/pl4_probe.py · pl4_probe.json · v71_probe.py · v71_family.json · v71_readme_patch.py · _doc65.py · _hid.py（机床件，仓外，零侵入）",
+    "reports/state_beacon.json（活体产物，untracked）",
+    "benchmarks/*（diff0 跑完已 git checkout -- 还原，未进本批）",
+    "reports/v44_model_gateway_check.json（活体产物，每次跑必改，不进提交）"
+  ],
+  "honest_boundaries": [
+    "近亲族的 content_verified=False 是明写的：本批只做文件名 Jaccard，未做任何字节级比对。要升级为「内容同源」必须二次解包 8,278 文件逐字节核验，本批不做，也不假装做过。",
+    "L1 的 14 个 twin 只证「目录态与 zip 态清单与大小一致」，不证两者字节一致，更不证谁先谁后——先后需要 mtime 或发布记录，骨架给不出来。",
+    "「22 zip」沿用 V68 的 runtime_zips 口径（*_runtime*.zip）。顶层 zip 总数实为 69，若把其余 47 个也纳入，签名面与族数都会变；本批不扩，口径边界写在这里。",
+    "母版规则是「同族骨架最完整者」，不是「最早的版本」。文件多/字节多/名字短/字典序四级全确定，任何人复算得同一结果；但它表达的是完整性，不是时间。",
+    "冀派 0.933、燕京 0.950 这两族是反证而非反例：它们证明同名模板可以被不同对象复用，因此近亲族不能当作血缘证明，只能当作「值得核验的候选」清单。",
+    "216 个对象两两签名不同 → 严格签名在域内聚不出族。第一版实现在这一点上等于交白卷，加 L2 才是有效交付；这条已写进模块 docstring，防止后来者以为「零族」是数据问题。",
+    "PL-5（18 仓判据注入包）与 PL-6（导学）按碳基规则不得与本批混做；PL-5 触碰 18 仓属外部动作，须另开单独确认。"
+  ],
+  "seal": "潮起开门，潮落闭嘴 · 桃花庵出品"
+}
