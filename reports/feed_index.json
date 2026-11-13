@@ -1,27 +1,11 @@
 {
-  "schema": "FEED-INDEX-v1",
   "as_of": "2026-11-13",
-  "generated_by": "V75 收口（feed_index 由 pending 转 with_feed）",
-  "scope": "仓根 AGENT_FEED_*.md 实测枚举（本机 2026-11-13），只登记事实，不改既有批次、不改名任何文件",
-  "revoked_claims": [
-    {
-      "claim": "V56–V60 五包缺 _DONE 改名",
-      "truth": "5/5 全部已带 _DONE（mtime 2026-11-12 15:52–18:23）",
-      "files": [
-        "AGENT_FEED_V56_DONE_CONTINUITY_GATE_20261112.md",
-        "AGENT_FEED_V57_DONE_README_V4_CLUSTER_20261112.md",
-        "AGENT_FEED_V58_DONE_ORG_GATE_20261112.md",
-        "AGENT_FEED_V59_DONE_TENSOR_GATE_20261112.md",
-        "AGENT_FEED_V60_DONE_SALVAGE_GATE_20261112.md"
-      ],
-      "verdict": "过期挂账，撤销（本批不再作为待办项）"
-    }
-  ],
+  "generated_by": "V76 收口（登记「V76 无投喂包」事实）",
   "no_feed_batches": [
     {
       "batch": "V64",
-      "files_declared": "12 缺口平台适配",
       "evidence": "仓根无 AGENT_FEED_V64_*.md（2026-11-13 实测）",
+      "files_declared": "12 缺口平台适配",
       "note": "执行端直接落地，未出投喂包；本条为事后登记，不补造投喂包"
     },
     {
@@ -58,8 +42,33 @@
       "batch": "V74",
       "evidence": "仓根无 AGENT_FEED_V74_*.md（2026-11-13 实测）",
       "note": "本批由 ANCHOR_20261113_HOLOAEON_V73.md 第七节定序驱动，属执行端账面清理，无独立投喂包"
+    },
+    {
+      "batch": "V76",
+      "evidence": "仓根无 AGENT_FEED_V76_*.md（2026-11-13 实测）",
+      "files_declared": "PL-3 收口（双口径并存）",
+      "note": "由四人组实跑决议 + 挂账方案 §4 H4 / §6 第 6 条直接定批，执行端落地，未出投喂包；本条为事后登记，不补造投喂包"
     }
   ],
+  "pending_feeds": [],
+  "pending_note": "V75 已交付收口，pending 清空；下一批（V76 起点 PL-4/PL-5/PL-6 之一）须有新投喂包才开工",
+  "revoked_claims": [
+    {
+      "claim": "V56–V60 五包缺 _DONE 改名",
+      "files": [
+        "AGENT_FEED_V56_DONE_CONTINUITY_GATE_20261112.md",
+        "AGENT_FEED_V57_DONE_README_V4_CLUSTER_20261112.md",
+        "AGENT_FEED_V58_DONE_ORG_GATE_20261112.md",
+        "AGENT_FEED_V59_DONE_TENSOR_GATE_20261112.md",
+        "AGENT_FEED_V60_DONE_SALVAGE_GATE_20261112.md"
+      ],
+      "truth": "5/5 全部已带 _DONE（mtime 2026-11-12 15:52–18:23）",
+      "verdict": "过期挂账，撤销（本批不再作为待办项）"
+    }
+  ],
+  "schema": "FEED-INDEX-v1",
+  "scope": "仓根 AGENT_FEED_*.md 实测枚举（本机 2026-11-13），只登记事实，不改既有批次、不改名任何文件",
+  "seal": "潮起开门，潮落闭嘴",
   "with_feed_batches": [
     {
       "batch": "V50",
@@ -135,13 +144,10 @@
     },
     {
       "batch": "V75",
-      "file": "AGENT_FEED_V75_DONE_CLAIMS_GATE_QIANWEN_R8_20261113.md",
       "bytes": 27988,
-      "sha256": "CD1B6AA898E48E67FB8E1049BEC449F827D459637B937A983030C7CF924CAEC4",
-      "note": "正式执行版 V2（08:54 基线刷新），覆盖同日 08:36 待签冻结版；落地后手工 Rename-Item 加 _DONE，字节级改名 sha256 不变（复核 before==after）。索引原记 14,194 B 为刷新前旧版体量，实测 27,988 B。"
+      "file": "AGENT_FEED_V75_DONE_CLAIMS_GATE_QIANWEN_R8_20261113.md",
+      "note": "正式执行版 V2（08:54 基线刷新），覆盖同日 08:36 待签冻结版；落地后手工 Rename-Item 加 _DONE，字节级改名 sha256 不变（复核 before==after）。索引原记 14,194 B 为刷新前旧版体量，实测 27,988 B。",
+      "sha256": "CD1B6AA898E48E67FB8E1049BEC449F827D459637B937A983030C7CF924CAEC4"
     }
-  ],
-  "pending_feeds": [],
-  "seal": "潮起开门，潮落闭嘴",
-  "pending_note": "V75 已交付收口，pending 清空；下一批（V76 起点 PL-4/PL-5/PL-6 之一）须有新投喂包才开工"
+  ]
 }
