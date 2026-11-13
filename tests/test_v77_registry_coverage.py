@@ -75,10 +75,10 @@ class T1RegistryShape(_Base):
 
     def test_faces_include_registry_coverage(self):
         self.assertIn("registry_coverage", cg.FACES)
-        self.assertEqual(len(cg.FACES), 8)
+        self.assertEqual(len(cg.FACES), 9)
 
     def test_eight_faces_unique(self):
-        self.assertEqual(len(set(cg.FACES)), 8)
+        self.assertEqual(len(set(cg.FACES)), 9)
 
     def test_live_windows_count(self):
         self.assertEqual(len(cg.LIVE_WINDOWS), 6)
@@ -189,7 +189,7 @@ class T7HistoricalNotPunished(_Base):
 
 
 class T8RealRepoEightFaces(_Base):
-    """T8：真实仓 + 真实 README 八面全绿，两跑同 digest。"""
+    """T8：真实仓 + 真实 README 全面全绿，两跑同 digest（面数按实时 FACES 回读）。"""
 
     def test_real_repo_pass(self):
         v = cg.verify(self.reg)
@@ -218,9 +218,9 @@ class T9SelfDigestAndReport(_Base):
         reg["doc_claims"][0]["note"] = "被改过了"
         self.assertTrue(cg.check_self_digest(reg))
 
-    def test_report_has_eight_faces(self):
+    def test_report_has_all_faces(self):
         snap = cg.report(self.reg)
-        self.assertEqual(len(snap["faces"]), 8)
+        self.assertEqual(len(snap["faces"]), len(cg.FACES))
         self.assertTrue(all(snap["faces"][f] for f in cg.FACES))
 
 

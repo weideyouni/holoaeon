@@ -250,76 +250,268 @@
       "timeboxed": false
     }
   ],
+  "internal_baselines": [
+    {
+      "core_py_count": 156,
+      "id": "semvec-0.9.1",
+      "max_age_days": 90,
+      "measured_at": "2026-11-04",
+      "path": "benchmarks/results-semvec-0.9.1.json",
+      "risk_tier": "fast",
+      "source_sha16": "c05a4c6d9fefc31a",
+      "stale_if_core_py_count_changes": true
+    },
+    {
+      "core_py_count": 156,
+      "id": "semvec-kfold-0.9.2",
+      "max_age_days": 90,
+      "measured_at": "2026-11-01",
+      "path": "benchmarks/results-semvec-kfold-0.9.2.json",
+      "risk_tier": "fast",
+      "source_sha16": "95257ff017a02140",
+      "stale_if_core_py_count_changes": true
+    },
+    {
+      "core_py_count": 156,
+      "id": "semvec-kfold-0.9.3",
+      "max_age_days": 90,
+      "measured_at": "2026-11-01",
+      "path": "benchmarks/results-semvec-kfold-0.9.3.json",
+      "risk_tier": "fast",
+      "source_sha16": "5bcd42b0e95821bd",
+      "stale_if_core_py_count_changes": true
+    },
+    {
+      "core_py_count": 156,
+      "id": "results-0.9.1",
+      "max_age_days": 90,
+      "measured_at": "2026-11-03",
+      "path": "benchmarks/results-0.9.1.json",
+      "risk_tier": "fast",
+      "source_sha16": "a7a523dcc3024bb2",
+      "stale_if_core_py_count_changes": true
+    }
+  ],
   "regulation_pins": [
     {
+      "change_probe": {
+        "mode": "manual_review_only",
+        "note": "只登记检索指针，不联网、不声称已核实",
+        "probe_doc_no": "SEP-2575 / SEP-2567",
+        "probe_query": "MCP protocol version latest revision",
+        "probe_url": "https://modelcontextprotocol.io/specification/versioning"
+      },
+      "claim_sites": [
+        "README.md#~dual-version pointer",
+        "README.zh-CN.md#~双版本指针",
+        "holoaeon/mcp_adapter.py#L40"
+      ],
       "doc_no": "SEP-2575 / SEP-2567",
       "effective_from": "2026-07-28",
       "id": "MCP",
-      "max_age_days": 180,
+      "max_age_days": 90,
       "note": "legacy 2024-11-05 按官方 MAY 路径保留；代码已双版本，文档此前停在 2024-11-05",
+      "risk_tier": "fast",
+      "runtime_pointer": "holoaeon/mcp_adapter.py#PROTOCOL_VERSION",
+      "runtime_role": "legacy",
+      "runtime_value": "2024-11-05",
       "source_pointer": "holoaeon/mcp_adapter.py#SUPPORTED_PROTOCOL_VERSIONS",
+      "source_sha16": "8dc7919fe5d98623",
       "status": "current",
       "verified_at": "2026-11-13",
-      "version": "2026-07-28（第 5 版）"
+      "version": "2026-07-28（第 5 版）",
+      "version_chain": [
+        {
+          "effective_from": "2024-11-05",
+          "role": "legacy",
+          "superseded_by": "2026-07-28",
+          "version": "2024-11-05"
+        },
+        {
+          "effective_from": "2026-07-28",
+          "role": "current",
+          "supersedes": "2024-11-05",
+          "version": "2026-07-28"
+        }
+      ]
     },
     {
+      "change_probe": {
+        "mode": "manual_review_only",
+        "note": "只登记检索指针，不联网",
+        "probe_doc_no": "《国家基本公共卫生服务规范》第三版 +〔2024〕31号/336号",
+        "probe_query": "国家基本公共卫生服务规范 现行版本 慢阻肺 纳入"
+      },
+      "claim_sites": [
+        "README.zh-CN.md#~第三版（2017）",
+        "holoaeon/phc_chronic_engine.py#L48"
+      ],
       "doc_no": "《国家基本公共卫生服务规范》",
       "effective_from": "2017",
       "id": "PHC-NORM",
-      "max_age_days": 180,
+      "max_age_days": 365,
       "note": "慢阻肺 2024 由〔2024〕31号 / 336号试行纳入，不是第三版原内容",
+      "risk_tier": "stable",
+      "runtime_pointer": "holoaeon/phc_chronic_engine.py#L4-L5",
+      "runtime_role": "current",
+      "runtime_value": "2025",
       "source_pointer": "holoaeon/phc_chronic_engine.py#L4 +〔2024〕31号 / 336号",
+      "source_sha16": "b7b234c71e6448ca",
       "status": "current",
       "verified_at": "2026-11-13",
-      "version": "第三版（2017），不含慢阻肺"
+      "version": "第三版（2017），不含慢阻肺",
+      "version_chain": [
+        {
+          "effective_from": "2017",
+          "role": "legacy",
+          "superseded_by": "2024 增补（慢阻肺纳入）",
+          "version": "第三版（2017）"
+        },
+        {
+          "effective_from": "2024",
+          "role": "current",
+          "supersedes": "第三版（2017）",
+          "version": "2024 增补（慢阻肺纳入）"
+        },
+        {
+          "effective_from": "2025",
+          "role": "current",
+          "supersedes": "2024 增补（慢阻肺纳入）",
+          "version": "2025 口径（国卫基层发〔2025〕7号）"
+        }
+      ]
     },
     {
+      "change_probe": {
+        "mode": "manual_review_only",
+        "note": "只登记检索指针，不联网",
+        "probe_doc_no": "国卫基层发〔2025〕7号 /〔2025〕15号 / 国卫办基层函〔2025〕439号",
+        "probe_query": "国卫基层发 2025 基层卫生健康 文件"
+      },
+      "claim_sites": [
+        "holoaeon/phc_chronic_engine.py#L4"
+      ],
       "doc_no": "国卫基层发〔2025〕7号 /〔2025〕15号 / 国卫办基层函〔2025〕439号",
       "effective_from": "2025",
       "id": "PHC-2025",
       "max_age_days": 180,
       "note": "只存文号指针，不复制规范全文",
+      "risk_tier": "annual",
+      "runtime_pointer": "holoaeon/phc_chronic_engine.py#L4-L5",
+      "runtime_role": "current",
+      "runtime_value": "2025",
       "source_pointer": "README.zh-CN.md#公卫口径段（V41 小节）",
+      "source_sha16": "6899225ea48fa6a3",
       "status": "current",
-      "verified_at": "2026-11-13",
-      "version": "2025"
+      "verified_at": "2026-11-14",
+      "version": "2025",
+      "version_chain": [
+        {
+          "effective_from": "2025",
+          "role": "current",
+          "version": "2025"
+        }
+      ]
     },
     {
+      "change_probe": {
+        "mode": "manual_review_only",
+        "note": "只登记检索指针，不联网",
+        "probe_doc_no": "医保发〔2025〕33号",
+        "probe_query": "国家基本医疗保险药品目录 最新版 执行"
+      },
+      "claim_sites": [
+        "holoaeon/pharma_gate.py#L127"
+      ],
       "doc_no": "医保发〔2025〕33号",
       "effective_from": "2026-01-01",
       "id": "NHSA-CATALOG",
       "max_age_days": 180,
       "note": "只登记年份/文号/生效日；SAMPLE_ENTRIES 仍为 simulated，不落地真实目录",
+      "risk_tier": "annual",
+      "runtime_pointer": "holoaeon/pharma_gate.py#L127",
+      "runtime_role": "current",
+      "runtime_value": "2025",
       "source_pointer": "holoaeon/pharma_gate.py#version_pin",
+      "source_sha16": "60849bd3acab48b2",
       "status": "current",
       "verified_at": "2026-11-13",
-      "version": "2025 版目录"
+      "version": "2025 版目录",
+      "version_chain": [
+        {
+          "effective_from": "2026-01-01",
+          "role": "current",
+          "version": "2025 版目录"
+        }
+      ]
     },
     {
+      "change_probe": {
+        "mode": "manual_review_only",
+        "note": "只登记检索指针，不联网",
+        "probe_doc_no": "2025 版《中华人民共和国药典》 / 医保办函〔2026〕10号",
+        "probe_query": "中华人民共和国药典 2025年版 实施日期"
+      },
+      "claim_sites": [
+        "holoaeon/pharma_gate.py#L131"
+      ],
       "doc_no": "2025 版《中华人民共和国药典》 / 医保办函〔2026〕10号",
       "effective_from": "2025",
       "id": "PHARMACOPOEIA",
-      "max_age_days": 180,
+      "max_age_days": 365,
       "note": "2025 版药典变更部分饮片名称，指针化登记、不复制条目",
+      "risk_tier": "stable",
+      "runtime_pointer": "holoaeon/pharma_gate.py#L131",
+      "runtime_role": "current",
+      "runtime_value": "2025",
       "source_pointer": "holoaeon/pharma_gate.py#version_pin",
+      "source_sha16": "60849bd3acab48b2",
       "status": "current",
       "verified_at": "2026-11-13",
-      "version": "2025"
+      "version": "2025",
+      "version_chain": [
+        {
+          "effective_from": "2025",
+          "role": "current",
+          "version": "2025"
+        }
+      ]
     },
     {
+      "change_probe": {
+        "mode": "manual_review_only",
+        "note": "只登记检索指针，不联网",
+        "probe_doc_no": "GB/T 22239-2019 + GB/T 28448-2019",
+        "probe_query": "网络安全等级保护 2.0 现行国家标准"
+      },
+      "claim_sites": [
+        "docs/MLPS3_MAPPING.md#L1"
+      ],
       "doc_no": "GB/T 22239-2019 + GB/T 28448-2019",
       "effective_from": "2019",
       "id": "MLPS3",
-      "max_age_days": 180,
+      "max_age_days": 365,
       "note": "等保 2.0 现行标准；README 只提 MLPS3，此处补联动指针",
+      "risk_tier": "stable",
+      "runtime_pointer": "docs/MLPS3_MAPPING.md#L1",
+      "runtime_role": "current",
+      "runtime_value": "2019",
       "source_pointer": "docs/MLPS3_MAPPING.md",
+      "source_sha16": "bdb5b747c96270f2",
       "status": "current",
       "verified_at": "2026-11-13",
-      "version": "2019（现行）"
+      "version": "2019（现行）",
+      "version_chain": [
+        {
+          "effective_from": "2019",
+          "role": "current",
+          "version": "2019（现行）"
+        }
+      ]
     }
   ],
   "schema": "CLAIMS-GATE-v1",
-  "self_digest": "18261604f32da2a5",
+  "self_digest": "7e906dd12be3f0d0",
   "totals": {
     "doc_claims": 17,
     "historical": 3,

@@ -12,7 +12,7 @@ mismatch 即红」推广到**叙述层**与**外部规定层**。升维句：
 把「代码跑在文档前面」反转为「文档是代码的只读视图，外部规定是带核
 实时间戳的指针」。
 
-八面判据（每面都必须先证会红）
+九面判据（每面都必须先证会红）
 ---------------------------------------------------------------
 1. claim_registered      活体时变声明逐条有注册项（结构化清单比对）
 2. readback_consistent   current 项的回读值 == expected_from 指向的真源
@@ -54,9 +54,28 @@ VALID_CLAIM_KIND = ("current", "historical", "narrative")
 REQUIRED_CLAIM_FIELDS = ("id", "kind", "readback", "expected_from", "sha16",
                          "as_of_batch", "timeboxed", "note", "evidence_class")
 
+# --- V81 面 9：规定契约语义一致性 + 通用新鲜度契约 -----------------------------
+# 三条判据共用一套 schema，外部规定针（regulation_pins）与内部实测基线
+# （internal_baselines）都走它，不再给基线单独复制一套 _age_days。
+FACE_REGULATION_SEMANTIC = "regulation_semantic_consistency"
+RISK_TIER_MAX_AGE = {"fast": 90, "annual": 180, "stable": 365}
+PIN_SEMANTIC_FIELDS = ("claim_sites", "runtime_pointer", "version_chain",
+                       "risk_tier", "source_sha16", "change_probe")
+VALID_RUNTIME_ROLE = ("current", "legacy")
+VALID_PROBE_MODE = ("manual_review_only",)
+BASELINE_FIELDS = ("id", "path", "measured_at", "max_age_days", "risk_tier",
+                   "source_sha16", "core_py_count")
+_VER_DATE = re.compile(r"\d{4}-\d{2}-\d{2}")
+_VER_YEAR = re.compile(r"(?<!\d)(?:19|20)\d{2}(?!\d)")
+_VER_ED_CN = re.compile(r"第[一二三四五六七八九十百零]+\s*版")
+_VER_ED_NUM = re.compile(r"第\s*\d+\s*版|\d+\s*版")
+_PTR_CONST = re.compile(r"^\s*([A-Z][A-Z0-9_]*)\s*(?::[^=]*)?=\s*[\"']([^\"']+)[\"']")
+_PTR_LINES = re.compile(r"^L(\d+)(?:-L(\d+))?$")
+
 FACES = ("claim_registered", "readback_consistent", "historical_timeboxed",
          "regulation_pinned", "pin_freshness", "determinism_self_digest",
-         "chain_position_coverage", "registry_coverage")
+         "chain_position_coverage", "registry_coverage",
+         "regulation_semantic_consistency")
 
 # 面 8 的扫描规则：只认这几类"会变的叙述位"，不扫普通文字。
 COVERAGE_PATTERNS = {
@@ -474,6 +493,296 @@ def check_regulation_pins(reg, today=None):
 
 
 # ---------------------------------------------------------------------------
+# 面 9（V81）：规定契约语义一致性 + 通用新鲜度契约
+# ---------------------------------------------------------------------------
+def _vtokens(text):
+    """把任意版本表述压成可比 token：完整日期 / 四位年份 / 版次。
+
+    只做「同一事实的不同写法」归一（2026-07-28 ≡ 2026 年 ≡ 第 5 版），
+    不做语义理解——看不懂的字符串原样不产出 token，宁可判红也不猜。
+    """
+    s = str(text or "")
+    toks = set(_VER_DATE.findall(s))
+    toks |= set(_VER_YEAR.findall(s))
+    for m in _VER_ED_CN.findall(s):
+        toks.add(re.sub(r"\s+", "", m))
+    for m in _VER_ED_NUM.findall(s):
+        toks.add(re.sub(r"\s+", "", m))
+    return toks
+
+
+def _allowed_tokens(pin):
+    """一条针允许出现的版本 token 集合 = version ∪ version_chain 各档。"""
+    allowed = _vtokens(pin.get("version"))
+    for link in (pin.get("version_chain") or []):
+        if isinstance(link, dict):
+            allowed |= _vtokens(link.get("version"))
+    return allowed
+
+
+def _split_pointer(pointer):
+    """'path#L12' / 'path#L12-L14' / 'path#CONST' → (path, spec)。"""
+    p = str(pointer or "")
+    if "#" not in p:
+        return p.strip(), ""
+    path, _, spec = p.rpartition("#")
+    return path.strip(), spec.strip()
+
+
+def _read_pointer(root, pointer):
+    """定位一个指针位，返回 (ok, 该位文本, 说明)。只读文件，不发任何请求。"""
+    path, spec = _split_pointer(pointer)
+    if not path:
+        return False, "", "指针为空"
+    full = os.path.join(root, path.replace("/", os.sep))
+    if not os.path.isfile(full):
+        return False, "", "文件不存在: %s" % path
+    try:
+        lines = _read_text(full).splitlines()
+    except (OSError, UnicodeDecodeError) as exc:
+        return False, "", "读不出: %s" % exc
+    m = _PTR_LINES.match(spec)
+    if m:
+        a = int(m.group(1))
+        b = int(m.group(2) or a)
+        if a < 1 or b < a or b > len(lines):
+            return False, "", "行号越界 %s（文件 %d 行）" % (spec, len(lines))
+        return True, "\n".join(lines[a - 1:b]), "%s#%s" % (path, spec)
+    if spec.startswith("~"):
+        needle = spec[1:].strip()
+        if not needle:
+            return False, "", "子串锚为空"
+        hit = [ln for ln in lines if needle in ln]
+        if not hit:
+            return False, "", "子串锚未命中: %s" % needle
+        return True, "\n".join(hit), "%s#~%s" % (path, needle)
+    if spec:
+        hit = [ln for ln in lines if re.search(r"\b%s\b" % re.escape(spec), ln)]
+        if not hit:
+            return False, "", "符号未找到: %s" % spec
+        return True, "\n".join(hit), "%s#%s" % (path, spec)
+    return True, "\n".join(lines), path
+
+
+def claim_site_consistent(reg, root=None):
+    """判据 1：各 claim_sites 出现的版本字样必须 ⊆ {version ∪ version_chain}。"""
+    root = root or repo_root()
+    fails = []
+    for pin in (reg.get("regulation_pins") or []):
+        if not isinstance(pin, dict):
+            continue
+        pid = pin.get("id")
+        sites = pin.get("claim_sites")
+        if not isinstance(sites, list) or not sites:
+            fails.append({"face": FACE_REGULATION_SEMANTIC, "id": pid,
+                          "detail": "claim_sites 缺失或为空（登记了规定，没说它写在哪）"})
+            continue
+        allowed = _allowed_tokens(pin)
+        for site in sites:
+            ok, text, detail = _read_pointer(root, site)
+            if not ok:
+                fails.append({"face": FACE_REGULATION_SEMANTIC, "id": pid,
+                              "detail": "叙述位不可定位 %s（%s）" % (site, detail)})
+                continue
+            seen = _vtokens(text)
+            if not seen:
+                fails.append({"face": FACE_REGULATION_SEMANTIC, "id": pid,
+                              "detail": "叙述位 %s 未出现任何版本字样（叙述位漂移）" % site})
+                continue
+            drift = sorted(seen - allowed)
+            if drift:
+                fails.append({"face": FACE_REGULATION_SEMANTIC, "id": pid,
+                              "detail": "claim_site_drift %s 出现未登记版本 %s（已登记 %s）"
+                                        % (site, ",".join(drift), ",".join(sorted(allowed)))})
+    return fails
+
+
+def runtime_version_registered(reg, root=None):
+    """判据 2：运行时真正生效的常量必须登记，且与谱系自洽。"""
+    root = root or repo_root()
+    fails = []
+    for pin in (reg.get("regulation_pins") or []):
+        if not isinstance(pin, dict):
+            continue
+        pid = pin.get("id")
+        ptr = pin.get("runtime_pointer")
+        role = pin.get("runtime_role")
+        value = pin.get("runtime_value")
+        chain = [c for c in (pin.get("version_chain") or []) if isinstance(c, dict)]
+        if not ptr:
+            fails.append({"face": FACE_REGULATION_SEMANTIC, "id": pid,
+                          "detail": "runtime_pointer 缺失（登记口径与运行时口径不可判）"})
+        if role not in VALID_RUNTIME_ROLE:
+            fails.append({"face": FACE_REGULATION_SEMANTIC, "id": pid,
+                          "detail": "runtime_role=%r 非 current/legacy" % (role,)})
+        if not value:
+            fails.append({"face": FACE_REGULATION_SEMANTIC, "id": pid,
+                          "detail": "runtime_value 缺失"})
+        if not ptr:
+            continue
+        ok, text, detail = _read_pointer(root, ptr)
+        if not ok:
+            fails.append({"face": FACE_REGULATION_SEMANTIC, "id": pid,
+                          "detail": "运行时指针不可定位 %s（%s）" % (ptr, detail)})
+            continue
+        if value and str(value) not in text:
+            fails.append({"face": FACE_REGULATION_SEMANTIC, "id": pid,
+                          "detail": "runtime_value=%r 未出现在 %s（登记与运行时脱钩）"
+                                    % (value, detail)})
+        if value:
+            unreg = sorted(_vtokens(value) - _allowed_tokens(pin))
+            if unreg:
+                fails.append({"face": FACE_REGULATION_SEMANTIC, "id": pid,
+                              "detail": "runtime_value 版本 %s 不在 version_chain（无谱系即红）"
+                                        % ",".join(unreg)})
+            if role == "legacy":
+                link = next((c for c in chain if str(c.get("version")) == str(value)), None)
+                if link is None:
+                    fails.append({"face": FACE_REGULATION_SEMANTIC, "id": pid,
+                                  "detail": "legacy 值 %r 不在 version_chain" % (value,)})
+                elif link.get("role") != "legacy" or not link.get("superseded_by"):
+                    fails.append({"face": FACE_REGULATION_SEMANTIC, "id": pid,
+                                  "detail": "legacy 谱系条目不完整（须 role=legacy + superseded_by）"})
+    return fails
+
+
+def _file_sha16(root, relpath):
+    full = os.path.join(root, str(relpath).replace("/", os.sep))
+    if not os.path.isfile(full):
+        return None
+    with open(full, "rb") as f:
+        return hashlib.sha256(f.read()).hexdigest()[:16]
+
+
+def freshness_contract(reg, root=None, today=None):
+    """判据 3：一套 schema 同时管外部针与内部基线（不复制第二套 _age_days）。"""
+    import datetime
+    root = root or repo_root()
+    if today is None:
+        today = datetime.date.today()
+    elif isinstance(today, str):
+        today = datetime.date(*[int(x) for x in today.split("-")])
+    fails = []
+    for pin in (reg.get("regulation_pins") or []):
+        if not isinstance(pin, dict):
+            continue
+        pid = pin.get("id")
+        tier = pin.get("risk_tier")
+        if tier not in RISK_TIER_MAX_AGE:
+            fails.append({"face": FACE_REGULATION_SEMANTIC, "id": pid,
+                          "detail": "risk_tier=%r 未登记（只认 fast/annual/stable）" % (tier,)})
+        else:
+            want = RISK_TIER_MAX_AGE[tier]
+            if pin.get("max_age_days") != want:
+                fails.append({"face": FACE_REGULATION_SEMANTIC, "id": pid,
+                              "detail": "risk_tier=%s 应配 %d 天，登记 %r（分级不匹配）"
+                                        % (tier, want, pin.get("max_age_days"))})
+        sha = pin.get("source_sha16")
+        src = _split_pointer(pin.get("source_pointer"))[0]
+        if not sha:
+            fails.append({"face": FACE_REGULATION_SEMANTIC, "id": pid,
+                          "detail": "source_sha16 缺失（无法判源是否已变）"})
+        elif src:
+            actual = _file_sha16(root, src)
+            if actual is None:
+                fails.append({"face": FACE_REGULATION_SEMANTIC, "id": pid,
+                              "detail": "source_pointer 指向文件不存在: %s" % src})
+            elif actual != sha:
+                fails.append({"face": FACE_REGULATION_SEMANTIC, "id": pid,
+                              "detail": "source_sha16 漂移 %s → %s（改源须同时更新 verified_at 与 sha16）"
+                                        % (sha, actual)})
+        probe = pin.get("change_probe")
+        if not isinstance(probe, dict):
+            fails.append({"face": FACE_REGULATION_SEMANTIC, "id": pid,
+                          "detail": "change_probe 缺失（离线复核检索指针）"})
+        else:
+            mode = probe.get("mode")
+            if mode not in VALID_PROBE_MODE:
+                fails.append({"face": FACE_REGULATION_SEMANTIC, "id": pid,
+                              "detail": "change_probe.mode=%r 非法（离线项目不得声称已联网核实）"
+                                        % (mode,)})
+            if not (probe.get("probe_url") or probe.get("probe_query")):
+                fails.append({"face": FACE_REGULATION_SEMANTIC, "id": pid,
+                              "detail": "change_probe 无检索指针（probe_url / probe_query）"})
+
+    core_py = _count_py(root, True)
+    for base in (reg.get("internal_baselines") or []):
+        if not isinstance(base, dict):
+            fails.append({"face": FACE_REGULATION_SEMANTIC, "id": "?",
+                          "detail": "internal_baselines 含非对象项"})
+            continue
+        bid = base.get("id")
+        miss = [k for k in BASELINE_FIELDS if base.get(k) in (None, "", [])]
+        if miss:
+            fails.append({"face": FACE_REGULATION_SEMANTIC, "id": bid,
+                          "detail": "基线缺字段 %s（不许省 measured_at）" % ",".join(miss)})
+        tier = base.get("risk_tier")
+        if tier in RISK_TIER_MAX_AGE and base.get("max_age_days") != RISK_TIER_MAX_AGE[tier]:
+            fails.append({"face": FACE_REGULATION_SEMANTIC, "id": bid,
+                          "detail": "基线 risk_tier=%s 应配 %d 天，登记 %r"
+                                    % (tier, RISK_TIER_MAX_AGE[tier], base.get("max_age_days"))})
+        age = _age_days(base.get("measured_at"), today)
+        limit = base.get("max_age_days")
+        if age is None:
+            fails.append({"face": FACE_REGULATION_SEMANTIC, "id": bid,
+                          "detail": "measured_at 不可解析"})
+        elif age < 0:
+            fails.append({"face": FACE_REGULATION_SEMANTIC, "id": bid,
+                          "detail": "measured_at 在未来（%s）——伪造旧值换绿" % (base.get("measured_at"),)})
+        elif isinstance(limit, int) and age > limit:
+            fails.append({"face": FACE_REGULATION_SEMANTIC, "id": bid,
+                          "detail": "STALE_BASELINE age=%d > %d（如实登记，禁伪造 measured_at）"
+                                    % (age, limit)})
+        sha = base.get("source_sha16")
+        actual = _file_sha16(root, base.get("path"))
+        if actual is None:
+            fails.append({"face": FACE_REGULATION_SEMANTIC, "id": bid,
+                          "detail": "基线文件不存在: %s" % (base.get("path"),)})
+        elif sha and actual != sha:
+            fails.append({"face": FACE_REGULATION_SEMANTIC, "id": bid,
+                          "detail": "基线文件 sha16 漂移 %s → %s" % (sha, actual)})
+        if base.get("stale_if_core_py_count_changes"):
+            want_py = base.get("core_py_count")
+            if isinstance(want_py, int) and core_py != want_py:
+                fails.append({"face": FACE_REGULATION_SEMANTIC, "id": bid,
+                              "detail": "核心包 .py 数 %d → %d，基线可能失效（须重测）"
+                                        % (want_py, core_py)})
+    return fails
+
+
+def regulation_semantic_consistency(reg, root=None, today=None):
+    """面 9 聚合：三条判据 + 四类漂移列表（只报告 drifted 项，不做裁决）。"""
+    root = root or repo_root()
+    site = claim_site_consistent(reg, root)
+    run = runtime_version_registered(reg, root)
+    fresh = freshness_contract(reg, root, today)
+    fails = site + run + fresh
+
+    def _ids(items, tag):
+        return [x.get("id") for x in items if tag in str(x.get("detail", ""))]
+
+    tiers = {}
+    for pin in (reg.get("regulation_pins") or []):
+        if isinstance(pin, dict):
+            t = pin.get("risk_tier") or "unregistered"
+            tiers[t] = tiers.get(t, 0) + 1
+    return {
+        "face": FACE_REGULATION_SEMANTIC,
+        "ok": not fails,
+        "fails": fails,
+        "claim_site_drift": _ids(site, "drift"),
+        "runtime_unregistered": _ids(run, "脱钩") + _ids(run, "缺失") + _ids(run, "不可定位"),
+        "freshness_violations": _ids(fresh, "STALE") + _ids(fresh, "漂移") + _ids(fresh, "不匹配"),
+        "internal_stale": _ids(fresh, "STALE_BASELINE"),
+        "risk_tier_dist": tiers,
+        "pins_with_contract": sum(1 for p in (reg.get("regulation_pins") or [])
+                                  if isinstance(p, dict)
+                                  and all(p.get(k) not in (None, "", [], {}) for k in PIN_SEMANTIC_FIELDS)),
+        "internal_baselines": len(reg.get("internal_baselines") or []),
+    }
+
+
+# ---------------------------------------------------------------------------
 # 面 6：确定性 + 自摘要
 # ---------------------------------------------------------------------------
 def _canonical(obj):
@@ -692,6 +1001,10 @@ def verify(reg=None, ctx=None, today=None):
     for item in cov_fails:
         faces["registry_coverage"]["ok"] = False
         faces["registry_coverage"]["fails"].append(item)
+    sem = regulation_semantic_consistency(r, c["root"], today)
+    for item in sem["fails"]:
+        faces[FACE_REGULATION_SEMANTIC]["ok"] = False
+        faces[FACE_REGULATION_SEMANTIC]["fails"].append(item)
 
     fails_total = sum(len(v["fails"]) for v in faces.values())
     body = {
@@ -705,6 +1018,16 @@ def verify(reg=None, ctx=None, today=None):
                            "coverage": "%d/%d" % (cp["verified"], cp["declared"])},
         "registry_coverage": {"windows": len(LIVE_WINDOWS),
                               "entries": len(r.get("coverage") or [])},
+        "regulation_semantic": {
+            "face": FACE_REGULATION_SEMANTIC,
+            "pins_with_contract": sem["pins_with_contract"],
+            "internal_baselines": sem["internal_baselines"],
+            "risk_tier_dist": sem["risk_tier_dist"],
+            "internal_stale": sem["internal_stale"],
+            "claim_site_drift": sem["claim_site_drift"],
+            "runtime_unregistered": sem["runtime_unregistered"],
+            "freshness_violations": sem["freshness_violations"],
+        },
         "declared_digest": r.get("self_digest"),
         "computed_digest": self_digest(r),
     }
@@ -732,6 +1055,7 @@ def report(reg=None, ctx=None, today=None):
                             if isinstance(x, dict) and x.get("kind") in ("current", "narrative")]
         },
         "faces": {f: v["faces"][f]["ok"] for f in FACES},
+        "regulation_semantic": v["regulation_semantic"],
         "digest": v["digest"],
     }
     for k, val in list(snap["readbacks"].items()):

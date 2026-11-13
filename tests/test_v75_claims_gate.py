@@ -92,7 +92,7 @@ class TestLoad(_Base):
                          ("doc_no", "version", "verified_at", "status"))
         self.assertEqual(cg.VALID_PIN_STATUS, ("current", "superseded", "unknown"))
         self.assertEqual(cg.VALID_CLAIM_KIND, ("current", "historical", "narrative"))
-        self.assertEqual(len(cg.FACES), 8)  # V77 起八面（新增 registry_coverage）
+        self.assertEqual(len(cg.FACES), 9)  # V77 起八面（新增 registry_coverage）
 
     def test_02_load_default_registry(self):
         reg = cg.load_registry()
@@ -126,7 +126,9 @@ class TestLoad(_Base):
 # =========================================================================
 class TestReadback(_Base):
     def test_06_baseline_green(self):
-        v = self.verify()
+        # V81 起注册簿含 README / 包内源码叙述位，必须用真实仓上下文回读；
+        # fixture root 只有假 README，无法承载真实叙述位（否则本断言测的是假基线）。
+        v = cg.verify(copy.deepcopy(self.reg))
         self.assertEqual(v["verdict"], "PASS", json.dumps(v["faces"], ensure_ascii=False)[:600])
         self.assertEqual(v["mismatch"], 0)
 
@@ -291,7 +293,9 @@ class TestPins(_Base):
 # =========================================================================
 class TestFreshness(_Base):
     def test_27_all_current_fresh(self):
-        v = self.verify(today="2026-11-13")
+        # 同上：真实注册簿 + 真实仓上下文（fixture 无法承载真实叙述位）；
+        # today 不写死——写死会把「V81 当天登记的 verified_at」误判成未来日期。
+        v = cg.verify(copy.deepcopy(self.reg))
         self.assertTrue(self.face(v, "pin_freshness")["ok"])
         self.assertTrue(self.face(v, "regulation_pinned")["ok"])
 

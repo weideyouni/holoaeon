@@ -1,6 +1,6 @@
 {
-  "as_of": "2026-11-13",
-  "generated_by": "V77 收口（撤销过期 PL 挂账 + 第 8 面自覆盖）",
+  "as_of": "2026-11-14",
+  "generated_by": "V81 收口（规定契约语义一致性 + 通用新鲜度契约 · claims_gate 第 9 面）",
   "no_feed_batches": [
     {
       "batch": "V64",
@@ -57,7 +57,16 @@
     }
   ],
   "no_feed_count": 10,
-  "pending_feeds": [],
+  "pending_feeds": [
+    {
+      "item": "PL-7",
+      "title": "GitHub workflow scope（ci.yml 直推免网页路径）",
+      "status": "PENDING_CARBON_WEB_ACTION",
+      "since": "2026-11-14",
+      "evidence": "11-14 01:57 碳基终裁「必须补 workflow scope」，当时同步报错才搁置",
+      "note": "必办未完成，搁置≠取消；本批 V81 不依赖它，五地同步仍走 PAT 直推；条件允许时补 scope 后可回读确认转 DONE_WITH_SCOPE_READBACK"
+    }
+  ],
   "pending_note": "PL-1~PL-6 已全部落地（V68/V69/V71/V72/V73）；V76/V77 均由四人组决议直接定批（无投喂包）；下一批 V78 = CI 门禁补齐（四人组 V2 §9.6③）",
   "revoked_claims": [
     {
@@ -155,6 +164,13 @@
       "file": "AGENT_FEED_V75_DONE_CLAIMS_GATE_QIANWEN_R8_20261113.md",
       "note": "正式执行版 V2（08:54 基线刷新），覆盖同日 08:36 待签冻结版；落地后手工 Rename-Item 加 _DONE，字节级改名 sha256 不变（复核 before==after）。索引原记 14,194 B 为刷新前旧版体量，实测 27,988 B。",
       "sha256": "CD1B6AA898E48E67FB8E1049BEC449F827D459637B937A983030C7CF924CAEC4"
+    },
+    {
+      "batch": "V81",
+      "file": "AGENT_FEED_V81_DONE_REGULATION_SEMANTIC_FRESHNESS_20261114.md",
+      "bytes": 24734,
+      "sha_note": "落地后 Rename-Item 加 _DONE，字节级改名 sha256 不变（改名前后复核）",
+      "note": "图片投喂 → 投喂包全文 367 行 / §0–§10；执行端实测面数为第 9 面（V79 第 9 面未落地），与包内预期的第 10 面有 1 之差，按回读为准"
     }
   ]
 }
