@@ -1,7 +1,7 @@
 {
   "batch": "V78b",
   "name": "CI 门禁正式收口：复算闸与 v3 域闸入 ci.yml（P0-A LF 归一化 / P0-B 清单卫生 / P0-C 十步入 CI）",
-  "status": "LOCAL_READY",
+  "status": "PUSHED_CI_GREEN",
   "date": "2026-11-14",
   "doc_version": "0.9.73",
   "doc_version_note": "开工前实测 DOC_VERSION=0.9.72 / HEAD=8726f18（V81 收口态）；四处耦合同批：spec.py:35 + test_v22_eng_skills.py:50 + test_v64_hangover_zero.py:396 + test_v70_prehistory_criteria.py:309",
@@ -63,12 +63,39 @@
     "本批收的是门禁侧：本地绿=云端绿的『判据同口径』，仍不承诺云端 runner 环境（Python 版本矩阵、stdlib 差异）零漂移——那是 ci_preflight 的 A13 契约在管的部分",
     "check_sums 的 git 判据读 index（ls-files）：批次流程必须『先 git add 后过闸再 commit』；CI 上 index==HEAD 天然成立",
     "git 不可用环境（理论场景）下 untracked/ignored 判据降级为不判，结果里如实披露 git_unavailable，不冒充通过",
-    "v81_receipt 的 sums_entries=251 是历史快照，V78b 起以本回执 332 为当前口径；面数 9 不变（本批未给 claims_gate 加面，只修 _receipt 发现逻辑）",
-    "S4 向量海 manifest 与 S5 HF mirror 属推送后动作，见 push 段"
+    "v81_receipt 的 sums_entries=251 是历史快照，V78b 起以本回执 332 为当前口径；面数 9 不变（本批未给 claims_gate 加面，只修 _receipt 发现逻辑）"
   ],
   "not_committed": [
     "AGENT_FEED_V79_CROSS_LEDGER_GATE_20261114.md 及其余 108 个仓根投喂包（历史资产，不入本批）",
     "F:\\doubaowork\\holoaeon_lathe\\* 与 F:\\doubaowork\\_规划局_20261112\\*（仓外机床与规划局产物）"
   ],
-  "seal": "潮起开门，潮落闭嘴"
+  "seal": "潮起开门，潮落闭嘴",
+  "ci_final": {
+    "commit": "cd26541",
+    "push": {
+      "s3_github": "8726f18..cd26541 main（ssh://git@ssh.github.com:443，PL-7 Deploy Key 通道首个含 ci.yml 变更的正式批次）",
+      "s2_gitee": "8726f18..cd26541 main（HTTPS token）"
+    },
+    "ci_run": 43508585490,
+    "sync_run": 43508585358,
+    "status": "success",
+    "jobs": {
+      "py3.8": "success",
+      "py3.10": "success",
+      "py3.12": "success"
+    },
+    "new_steps_proof": "Manifest integrity (SHA256SUMS, LF-caliber) 与 v3 gate (33 faces incl. A13 CI contract) 在三个 job 均 success——LF 口径清单在 Linux LF checkout 上复算通过，『本地绿=云端绿』由判据变成云端实测事实",
+    "note": "本批零 CI 修复轮次（对照 V81 的两轮：时区口径 / py3.8 stdlib 白名单）——12 步首次全绿"
+  },
+  "five_site": {
+    "s1_local": "cd26541",
+    "s2_gitee": "cd26541",
+    "s3_github": "cd26541（CI 三版本 success）",
+    "s4_vector_sea": "manifest --check PASS（missing/extra/bad_sha256/bad_bytes 全空）；five_site_dna build 后 verify PASS（package 28 / repo 171 / drift []；重建前漂移 13 条为 V 系存量未刷新，同批收口）",
+    "s5_huggingface": "mirror 实推成功：uploaded 22 / remote_files 717 / sha 4b59f79db864e58029982644540ea0e272b546d3 / mismatch []（huggingface_hub 以工具层安装，不入仓依赖）"
+  },
+  "repair_commits": [
+    "cd26541 主体（22 文件 +514/−120）",
+    "本回执收口补正（receipt 状态 PUSHED_CI_GREEN + ci_final/five_site 段 + five_site_manifest 重建）"
+  ]
 }
