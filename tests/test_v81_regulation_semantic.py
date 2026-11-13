@@ -459,5 +459,34 @@ class T10_Digest(unittest.TestCase):
                                 "第三方顶层 import: %s" % m)
 
 
+# =========================================================================
+# 组 11 · 日期口径（UTC runner 假红，V81 实测 CI 三版本全红后补）
+# =========================================================================
+class TestTodayCaliber(unittest.TestCase):
+    """GitHub runner 是 UTC：本地 2026-11-14 02:36 时 UTC 仍是 11-13。
+
+    闸原先用 `date.today()`，会把「当天（本地）登记的 verified_at」判成
+    「在未来」，于是 pin_freshness 面变红 → test_v75 test_39（断言其他面
+    不得跟着红）在 CI 上必红。修法是把「今天」显式定成仓内口径 UTC+8。
+    """
+
+    def test_56_today_is_utc_plus_8(self):
+        import datetime
+        utc = datetime.datetime.utcnow()
+        self.assertEqual(cg._today_cst(), (utc + datetime.timedelta(hours=8)).date())
+        # 与 UTC 日期最多差 1 天（08:00 前后的窗口），不会漂更多
+        self.assertIn((cg._today_cst() - utc.date()).days, (0, 1))
+
+    def test_57_future_pin_still_red(self):
+        """口径改成 UTC+8 不等于放过未来日期：today 早于 verified_at 照样红。"""
+        reg = {"regulation_pins": [{
+            "id": "TZ", "version": "1.0", "status": "current",
+            "verified_at": "2026-11-14", "max_age_days": 90,
+        }]}
+        rep = cg.check_regulation_pins(reg, today="2026-11-13")
+        detail = " ".join(f["detail"] for f in rep)
+        self.assertIn("在未来", detail)
+
+
 if __name__ == "__main__":
     unittest.main()

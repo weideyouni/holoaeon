@@ -438,6 +438,20 @@ def check_doc_claims(reg, ctx=None):
 # ---------------------------------------------------------------------------
 # 面 4-5：外部规定针
 # ---------------------------------------------------------------------------
+def _today_cst():
+    """仓内日期口径 = Asia/Shanghai（UTC+8）。
+
+    GitHub runner 用的是 UTC：本地 2026-11-14 02:36 时 UTC 仍是 2026-11-13，
+    `date.today()` 会把「当天登记的 verified_at」判成「在未来」（V81 实测
+    三个 py 版本的 Unit tests 全红即由此假红而来）。本仓的日期口径是本地
+    日期（回执 / 锚点 / 台账 / pin 登记一致），所以闸必须显式按 UTC+8 取今天，
+    而不是跟随运行机器的本地时区。用固定 +8 偏移而非 zoneinfo：CI 覆盖 py3.8，
+    zoneinfo 自 3.9 才有。
+    """
+    import datetime
+    return (datetime.datetime.utcnow() + datetime.timedelta(hours=8)).date()
+
+
 def _age_days(verified_at, today):
     import datetime
     try:
@@ -452,7 +466,7 @@ def check_regulation_pins(reg, today=None):
     fails = []
     pins = reg.get("regulation_pins") or []
     if today is None:
-        today = datetime.date.today()
+        today = _today_cst()
     elif isinstance(today, str):
         today = datetime.date(*[int(x) for x in today.split("-")])
     for pin in pins:
@@ -659,7 +673,7 @@ def freshness_contract(reg, root=None, today=None):
     import datetime
     root = root or repo_root()
     if today is None:
-        today = datetime.date.today()
+        today = _today_cst()
     elif isinstance(today, str):
         today = datetime.date(*[int(x) for x in today.split("-")])
     fails = []

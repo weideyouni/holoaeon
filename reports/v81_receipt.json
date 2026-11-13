@@ -69,9 +69,9 @@
     "reports/feed_index.json：V81 登记 with_feed，PL-7 保持可见"
   ],
   "verification": {
-    "claims_gate": "PASS / mismatch 0（九面，第 9 面 regulation_semantic_consistency，digest e69dd5614c391de5）",
-    "unittest_main": 1929,
-    "test_v81": "55/55 OK",
+    "claims_gate": "PASS / mismatch 0（九面，第 9 面 regulation_semantic_consistency，digest a0e6ee56358096ae）",
+    "unittest_main": 1931,
+    "test_v81": "57/57 OK（55 + 2 例日期口径）",
     "redline": 156,
     "selftest": "25/25 PASS",
     "v3_gate": "33/33 PASS",
@@ -100,7 +100,7 @@
     "green_after_register": {
       "verdict": "PASS",
       "mismatch": 0,
-      "digest": "e69dd5614c391de5"
+      "digest": "a0e6ee56358096ae"
     }
   },
   "honest_boundary": [
@@ -118,7 +118,7 @@
     "F:\\doubaowork\\holoaeon_lathe\\*（机床、锚点、证据文件，仓外）"
   ],
   "seal": "潮起开门，潮落闭嘴",
-  "registry_self_digest": "7e906dd12be3f0d0",
+  "registry_self_digest": "c32266b3a3ca281d",
   "post_fix": {
     "found_by": "首轮全链复跑 4 处红，均为真实漂移而非测试噪声",
     "items": [
@@ -127,5 +127,16 @@
       "test_v75 test_06/test_27 用 fixture 假 root + 真实注册簿 → 新增叙述位无文件可读，已改为真实仓上下文"
     ],
     "design_change": "claim_site 新增子串锚语法 `path#~text`：按「含该文本的行」定位，不随文档插行漂移；行号锚仍保留（用于源码常量位）。README 类叙述位一律改子串锚。"
-  }
+  },
+  "post_ci_fix": {
+    "trigger": "S3 推送 0254ad3 后 CI run 43484203589 在 py3.8 / py3.10 / py3.12 三个 job 的 Unit tests 步骤全红",
+    "failed_test": "tests/test_v75_claims_gate.py::TestCanary::test_39_canary_isolated —— AssertionError: False is not true : pin_freshness",
+    "root_cause": "claims_gate 用 datetime.date.today() 取「今天」，而 GitHub runner 是 UTC：本地 2026-11-14 02:36 时 UTC 仍是 2026-11-13，于是当天登记的 verified_at=2026-11-14 被判「在未来」，pin_freshness 面多红一面 → test_39「一面红不得带红别的面」失败。本地跑不出来是因为本机时区就是 UTC+8。",
+    "fix": "新增 cg._today_cst()，按 UTC+8 取今天（固定偏移而非 zoneinfo：CI 覆盖 py3.8，zoneinfo 自 3.9）；两处默认 today 改用它；未来日期判据本身不放松",
+    "proof": "新增 test_56（_today_cst 与 UTC 关系，差 ≤1 天）/ test_57（today 早于 verified_at 仍判「在未来」，防倒扣换绿）；主套 1929 → 1931 OK",
+    "note": "ci.yml 未改（字节级不变），失败是判据的时区口径问题而不是 CI 配置问题"
+  },
+  "repair_commits": [
+    "本批第三笔：UTC+8 日期口径修复（_today_cst）+ test_56/57 + 双 README 1931/1963 + PHC-2025 sha16 重算"
+  ]
 }
