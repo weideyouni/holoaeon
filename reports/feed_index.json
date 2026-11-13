@@ -1,7 +1,7 @@
 {
   "schema": "FEED-INDEX-v1",
   "as_of": "2026-11-13",
-  "generated_by": "V74 旧账清理（撤销过期挂账 + 登记无投喂包事实）",
+  "generated_by": "V75 收口（feed_index 由 pending 转 with_feed）",
   "scope": "仓根 AGENT_FEED_*.md 实测枚举（本机 2026-11-13），只登记事实，不改既有批次、不改名任何文件",
   "revoked_claims": [
     {
@@ -61,33 +61,87 @@
     }
   ],
   "with_feed_batches": [
-    {"batch": "V50", "file": "AGENT_FEED_V50_DONE_QIANWEN_P0_ADOPTION_20261109.md"},
-    {"batch": "V51", "file": "AGENT_FEED_V51_DONE_CIRCUIT_GATE_20261111.md"},
-    {"batch": "V51R", "file": "AGENT_FEED_V51R_DONE_HARDWARE_NETLIST_FUSION_20261111.md"},
-    {"batch": "V52", "file": "AGENT_FEED_V52_DONE_CINEMA_GATE_20261112.md"},
-    {"batch": "V53", "file": "AGENT_FEED_V53_DONE_PALETTE_GATE_20261112.md"},
-    {"batch": "V54", "file": "AGENT_FEED_V54_DONE_PALETTE_AUX_VERSION_XCAT_20261112.md"},
-    {"batch": "V55", "file": "AGENT_FEED_V55_DONE_C18_CLUSTER_BASE_20261112.md"},
-    {"batch": "V56", "file": "AGENT_FEED_V56_DONE_CONTINUITY_GATE_20261112.md"},
-    {"batch": "V57", "file": "AGENT_FEED_V57_DONE_README_V4_CLUSTER_20261112.md"},
-    {"batch": "V58", "file": "AGENT_FEED_V58_DONE_ORG_GATE_20261112.md"},
-    {"batch": "V59", "file": "AGENT_FEED_V59_DONE_TENSOR_GATE_20261112.md"},
-    {"batch": "V60", "file": "AGENT_FEED_V60_DONE_SALVAGE_GATE_20261112.md"},
-    {"batch": "V61", "file": "AGENT_FEED_V61_DONE_SALVAGE_PATCH_20261112.md"},
-    {"batch": "V62", "file": "AGENT_FEED_V62_DONE_MERIDIAN_LINK_20261112.md"},
-    {"batch": "V63", "file": "AGENT_FEED_V63_DONE_FORGE_BUREAU_20261112.md"},
-    {"batch": "V68", "file": "AGENT_FEED_V68_DONE_PREHISTORY_LEDGER_20261112.md"},
-    {"batch": "V70", "file": "AGENT_FEED_V70_DONE_DISCHARGE_PLAN_20261112.md"},
-    {"batch": "V73", "file": "AGENT_FEED_V73_DONE_PL6_TUTOR_20261113.md"}
-  ],
-  "pending_feeds": [
+    {
+      "batch": "V50",
+      "file": "AGENT_FEED_V50_DONE_QIANWEN_P0_ADOPTION_20261109.md"
+    },
+    {
+      "batch": "V51",
+      "file": "AGENT_FEED_V51_DONE_CIRCUIT_GATE_20261111.md"
+    },
+    {
+      "batch": "V51R",
+      "file": "AGENT_FEED_V51R_DONE_HARDWARE_NETLIST_FUSION_20261111.md"
+    },
+    {
+      "batch": "V52",
+      "file": "AGENT_FEED_V52_DONE_CINEMA_GATE_20261112.md"
+    },
+    {
+      "batch": "V53",
+      "file": "AGENT_FEED_V53_DONE_PALETTE_GATE_20261112.md"
+    },
+    {
+      "batch": "V54",
+      "file": "AGENT_FEED_V54_DONE_PALETTE_AUX_VERSION_XCAT_20261112.md"
+    },
+    {
+      "batch": "V55",
+      "file": "AGENT_FEED_V55_DONE_C18_CLUSTER_BASE_20261112.md"
+    },
+    {
+      "batch": "V56",
+      "file": "AGENT_FEED_V56_DONE_CONTINUITY_GATE_20261112.md"
+    },
+    {
+      "batch": "V57",
+      "file": "AGENT_FEED_V57_DONE_README_V4_CLUSTER_20261112.md"
+    },
+    {
+      "batch": "V58",
+      "file": "AGENT_FEED_V58_DONE_ORG_GATE_20261112.md"
+    },
+    {
+      "batch": "V59",
+      "file": "AGENT_FEED_V59_DONE_TENSOR_GATE_20261112.md"
+    },
+    {
+      "batch": "V60",
+      "file": "AGENT_FEED_V60_DONE_SALVAGE_GATE_20261112.md"
+    },
+    {
+      "batch": "V61",
+      "file": "AGENT_FEED_V61_DONE_SALVAGE_PATCH_20261112.md"
+    },
+    {
+      "batch": "V62",
+      "file": "AGENT_FEED_V62_DONE_MERIDIAN_LINK_20261112.md"
+    },
+    {
+      "batch": "V63",
+      "file": "AGENT_FEED_V63_DONE_FORGE_BUREAU_20261112.md"
+    },
+    {
+      "batch": "V68",
+      "file": "AGENT_FEED_V68_DONE_PREHISTORY_LEDGER_20261112.md"
+    },
+    {
+      "batch": "V70",
+      "file": "AGENT_FEED_V70_DONE_DISCHARGE_PLAN_20261112.md"
+    },
+    {
+      "batch": "V73",
+      "file": "AGENT_FEED_V73_DONE_PL6_TUTOR_20261113.md"
+    },
     {
       "batch": "V75",
-      "file": "AGENT_FEED_V75_CLAIMS_GATE_QIANWEN_R8_20261113.md",
-      "bytes": 14194,
-      "status": "待执行（规格已冻结；注册簿口径与批序按包内默认 A/A）",
-      "note": "claims_gate：双注册簿 + 七面判据 + 金丝雀 7/7 红 + CI 第 10 道"
+      "file": "AGENT_FEED_V75_DONE_CLAIMS_GATE_QIANWEN_R8_20261113.md",
+      "bytes": 27988,
+      "sha256": "CD1B6AA898E48E67FB8E1049BEC449F827D459637B937A983030C7CF924CAEC4",
+      "note": "正式执行版 V2（08:54 基线刷新），覆盖同日 08:36 待签冻结版；落地后手工 Rename-Item 加 _DONE，字节级改名 sha256 不变（复核 before==after）。索引原记 14,194 B 为刷新前旧版体量，实测 27,988 B。"
     }
   ],
-  "seal": "潮起开门，潮落闭嘴"
+  "pending_feeds": [],
+  "seal": "潮起开门，潮落闭嘴",
+  "pending_note": "V75 已交付收口，pending 清空；下一批（V76 起点 PL-4/PL-5/PL-6 之一）须有新投喂包才开工"
 }
