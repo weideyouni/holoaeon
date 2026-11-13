@@ -96,6 +96,19 @@
   },
   "repair_commits": [
     "cd26541 主体（22 文件 +514/−120）",
-    "本回执收口补正（receipt 状态 PUSHED_CI_GREEN + ci_final/five_site 段 + five_site_manifest 重建）"
-  ]
+    "eb489bf 回执收口补正（receipt 状态 PUSHED_CI_GREEN + ci_final/five_site 段 + five_site_manifest 重建）"
+  ],
+  "sync_incident": {
+    "what": "V78b 首推 GitHub 后，sync-from-gitee 工作流（on: push + 每 30 分钟 cron，无条件以 Gitee 为准 force 对齐 GitHub 并保留 .github）在同一分钟窗口观测到 Gitee 仍为 8726f18，遂以 sync-bot 身份 force 推 27379a6 覆盖 GitHub main——cd26541 被 wiped，仓库一度回退到 V81 态",
+    "recovery": "按既有事实链恢复：本地 = Gitee = eb489bf（权威态），force-with-lease(27379a6) 重推 GitHub → main = eb489bf；随后被触发的 sync run 43509690280 观测 Gitee=eb489bf，良性对齐零内容变更；CI run 43509690274 on eb489bf 三版本 success",
+    "discipline_fixed": "今后五地同步推送顺序一律 **先 Gitee 后 GitHub**（sync-bot 以 Gitee 为真源；先推 GitHub 必然制造毫秒窗口的回退竞态）——已写入机床 STATE 与工作日志",
+    "blast_radius": "GitHub main 历史短暂丢失 cd26541/eb489bf（已恢复，无数据丢失：本地与 Gitee 全程持有权威内容）；cd26541 的 CI run 43508585490 记录仍有效"
+  },
+  "final_state": {
+    "head": "eb489bf",
+    "github": "eb489bf（CI 43509690274 三版本 success）",
+    "gitee": "eb489bf",
+    "hf": "mirror 22 文件 mismatch []",
+    "doc_version": "0.9.73"
+  }
 }
