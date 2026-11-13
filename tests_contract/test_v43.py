@@ -46,6 +46,7 @@ class VectorSeaOrder(unittest.TestCase):
 
 
 class DeliveryPkg(unittest.TestCase):
+    @unittest.skipUnless(os.path.isdir(cdp.dna.PKG), "交付包目录不在本机（CI 无该目录）；本机有包时照常全跑")
     def test_06_no_drift_now_and_zip_not_flagged(self):
         res = cdp.diagnose()
         self.assertEqual(res["verdict"], "PASS")

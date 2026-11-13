@@ -59,6 +59,7 @@ class DualSyncTest(unittest.TestCase):
             DS.resolve_capability("phantom")
         self.assertTrue(DS.resolve_capability("channel_groups_17")["ok"])
 
+    @unittest.skipUnless(os.path.isdir(IVSA_ROOT), "客仓不在本机（CI 无该目录）；本机有客仓时照常全跑")
     def test_05_interface_equal_17(self):
         iface = DS.interface_check(os.path.join(ROOT, DS.INTERFACE["holo"]),
                                    os.path.join(IVSA_ROOT, DS.INTERFACE["ivsa"]))
@@ -115,6 +116,9 @@ class DualSyncTest(unittest.TestCase):
         self.assertEqual(self.check["verdict"], "PASS")
         self.assertEqual(self.check["failed"], [])
 
+    @unittest.skipUnless(os.name == "nt",
+                         "SHA256SUMS 为 Windows 工作区口径（CRLF 哈希 + 含不提交件），"
+                         "Linux checkout 必然不匹配；本机照常全跑")
     def test_11_sums_match_recorded_digest(self):
         recomputed = DS.sums_digest([l for l in self.sums_text.splitlines() if l.strip()])
         self.assertEqual(recomputed, self.doc["holoaeon"]["sums_sha256"])

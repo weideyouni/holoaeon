@@ -2,6 +2,10 @@
 
 覆盖：对账器整体 PASS / ivsa 清单 91/91 / 17 通道互认 / 许可分层 / 插件默认关闭 /
 源码未入宿主 / 双仓摘要口径 / spec 与维度锁 / 票据在位。
+
+CI 说明：本文件多数断言需要**客仓 ivsa 在场**（默认 F 盘路径，可用环境变量
+`HOLOAEON_IVSA` 覆盖）。Linux runner 上没有该目录，故凡依赖客仓的用例一律
+`skipUnless(os.path.isdir(V.IVSA))` 自动跳过；本机有客仓时照常全跑。
 """
 
 import importlib.util
@@ -19,20 +23,25 @@ _spec = importlib.util.spec_from_file_location(
 V = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(V)
 
+GUARD = unittest.skipUnless(os.path.isdir(V.IVSA), "客仓不在本机（CI 无该目录）；本机有客仓时照常全跑")
+
 
 class TestIivsaRecon(unittest.TestCase):
     def test_01_ticket_present(self):
         path = os.path.join(ROOT, "data", "V2.1_ivsa只读对账票据.md")
         self.assertTrue(os.path.isfile(path) and os.path.getsize(path) > 0, path)
 
+    @GUARD
     def test_02_ivsa_sums_91(self):
         ok, detail = V.check_ivsa_sums()
         self.assertTrue(ok, detail)
 
+    @GUARD
     def test_03_channels_17(self):
         ok, detail = V.check_channels()
         self.assertTrue(ok, detail)
 
+    @GUARD
     def test_04_license_layers(self):
         ok, detail = V.check_license()
         self.assertTrue(ok, detail)
@@ -45,6 +54,7 @@ class TestIivsaRecon(unittest.TestCase):
         ok, detail = V.check_no_source_copy()
         self.assertTrue(ok, detail)
 
+    @GUARD
     def test_07_dual_sums_consistent(self):
         ok, detail = V.check_dual_sums()
         self.assertTrue(ok, detail)
@@ -53,6 +63,7 @@ class TestIivsaRecon(unittest.TestCase):
         ok, detail = V.check_spec_lock()
         self.assertTrue(ok, detail)
 
+    @GUARD
     def test_09_recon_all_green(self):
         report = V.run()
         self.assertEqual(report["verdict"], "PASS",

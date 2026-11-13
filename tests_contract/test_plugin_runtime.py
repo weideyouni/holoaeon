@@ -31,6 +31,7 @@ class PluginRuntimeTest(unittest.TestCase):
         self.assertTrue(rt.enable("潮起开门")["ok"])
         self.assertTrue(rt.enable(rt.plugin["seal"])["ok"])
 
+    @unittest.skipUnless(os.path.isdir(IVSA_ROOT), "客仓不在本机（CI 无该目录）；本机有客仓时照常全跑")
     def test_03_six_capabilities_loaded(self):
         rt = _runtime()
         rt.enable("潮起开门")
