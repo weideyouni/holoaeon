@@ -1,0 +1,137 @@
+{
+  "batch": "V79-CROSS-LEDGER-CONSISTENCY-GATE",
+  "status": "closed_execution_side",
+  "date": "2026-11-14",
+  "head": "7dc9bf0",
+  "head_full": "7dc9bf09030541e077823bdf0b957f1854fdefbb",
+  "prev_head": "7dc9bf0",
+  "doc_version": "0.9.74",
+  "baseline_note": "包内基线 HEAD=6950124 / DOC 0.9.72 / 主套 1874 / 预检 10/10 / 清单 251；开工实测 HEAD=7dc9bf0（V78b 回执终笔）/ DOC 0.9.73 / 主套 1931 / 预检 12/12 / 清单 332。按包 §0.1 编号固定、数值顺延，不因中间批次改号。",
+  "face_number_note": "包内写「claims_gate 第 9 面」，但第 9 面已被 V81 regulation_semantic_consistency 占用；V79 主题未被占用，故落为第 10 面 cross_ledger_consistency。面序号以 `python -m holoaeon.claims_gate report` 回读为准，不在 README 写死。",
+  "pl7_status": "DONE_WITH_SSH_DEPLOY_KEY",
+  "pl7_note": "V78b 已以 repo-scoped Deploy Key（id=169812825）+ SSH over 443 打通含 .github/workflows/* 变更的推送（真实探针 rc=0），碳基终裁「必须加工作流」的功能目标已达成；PAT 的 x_oauth_scopes 仍为 public_repo，账户级 workflow scope 未补（碳基网页动作可选、非阻塞）。本条不把 PL-7 当已取消：通道已开、账户级设置未开，两面都如实登记。",
+  "patches": [
+    {
+      "path": "holoaeon/claims_gate.py",
+      "action": "edit",
+      "sha16": "4a934623be58d688",
+      "bytes": 64636
+    },
+    {
+      "path": "data/claims_registry.json",
+      "action": "edit",
+      "sha16": "98127057e221439b",
+      "bytes": 22225
+    },
+    {
+      "path": "holoaeon/spec.py",
+      "action": "edit",
+      "sha16": "af8340041c3c2d4d",
+      "bytes": 11025
+    },
+    {
+      "path": "tests/test_v79_cross_ledger_gate.py",
+      "action": "add",
+      "sha16": "a35e68ad9d95a8bd",
+      "bytes": 21288
+    },
+    {
+      "path": "tests/test_v22_eng_skills.py",
+      "action": "edit",
+      "sha16": "f367083da38f1e06",
+      "bytes": 8071
+    },
+    {
+      "path": "tests/test_v64_hangover_zero.py",
+      "action": "edit",
+      "sha16": "2271298b181e2999",
+      "bytes": 17117
+    },
+    {
+      "path": "tests/test_v70_prehistory_criteria.py",
+      "action": "edit",
+      "sha16": "56d0e57debf74a6b",
+      "bytes": 15663
+    },
+    {
+      "path": "tests/test_v75_claims_gate.py",
+      "action": "edit",
+      "sha16": "b3a2b571e5e05eec",
+      "bytes": 21634
+    },
+    {
+      "path": "tests/test_v77_registry_coverage.py",
+      "action": "edit",
+      "sha16": "934290190c0d19c4",
+      "bytes": 11113
+    },
+    {
+      "path": "README.md",
+      "action": "edit",
+      "sha16": "6864d61ec65ba206",
+      "bytes": 237336
+    },
+    {
+      "path": "README.zh-CN.md",
+      "action": "edit",
+      "sha16": "6e853d4c19b92203",
+      "bytes": 197660
+    },
+    {
+      "path": "reports/feed_index.json",
+      "action": "edit",
+      "sha16": "afb740e0eada129e",
+      "bytes": 7526
+    },
+    {
+      "path": "reports/v79_receipt.json",
+      "action": "add"
+    }
+  ],
+  "ci_yml_unchanged": {
+    "before_sha16": "a5fe41fd60f9c7cc",
+    "after_sha16": "a5fe41fd60f9c7cc"
+  },
+  "verification": {
+    "claims_gate_faces": 10,
+    "canary": "8/8 red + 基准绿",
+    "intent_vs_blocker_red_before_register": true,
+    "unittest_main": 1981,
+    "contract_suite": 184,
+    "v3_gate": "33/33",
+    "ci_preflight": "12/12 / A13 aligned=true",
+    "redline": "156 文件 0 违规",
+    "check_sums": "ok / mismatches=[]",
+    "selftest": "25/25",
+    "dimension_lock": "12 维度 0 violation（verify:false=D02/D05/D06/D07）"
+  },
+  "ledger_conflicts_registered": [
+    "D0",
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D5"
+  ],
+  "stale_pointers_cleared": [
+    "reports/feed_index.json#pending_note"
+  ],
+  "five_site": {
+    "note": "逐地以仓外 five_site_confirm_V79_20261114.json 为准；仓内不写最终 head",
+    "s1_local": "git rev-parse HEAD（收口后由补正提交回填）",
+    "s2_gitee": "pending_readback",
+    "s3_github": "pending_readback",
+    "s4_vector_sea": "pending_readback",
+    "s5_hf": "pending_readback"
+  },
+  "honest_boundaries": [
+    "第 10 面只读本地已登记值，不联网核实远端：five_site_head 靠回执登记，闸自身不跑 git ls-remote",
+    "head / five_site_head / carbon_intent / batch_stage 只做权威与结构校验，不做数值漂移比对（提交窗口内天然滞后）",
+    "local green 仍不等于 cloud green（D5 已登记为 known_boundary，不伪装成已解决）",
+    "state_beacon 两枚历史键按 D4 合法登记，不删不手改",
+    "D0 三处污染措辞（NOTE / v77_decision_defer_workflow.py / 机床 STATE.pending）本批只登记不改写，清理归 PL-7 批"
+  ],
+  "untouched": "ci.yml（字节不变）/ ci_preflight.STEPS（12 面契约保持 aligned）/ v3_gate（不新增第 34 面）/forge_bureau.py / dual_caliber.py / concept_anatomy.py R-04 token（仍 0.9.33）/ VERSION 0.9.1 / L1-L8 / PACK_ORDER 9 / EXTRA_PACK_ORDER 19",
+  "next_batch": "V80 = 云端环境差异可失败化（ENV_DELTA 注册簿），须新投喂包才开工",
+  "seal": "潮起开门，潮落闭嘴"
+}

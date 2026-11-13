@@ -92,7 +92,7 @@ class TestLoad(_Base):
                          ("doc_no", "version", "verified_at", "status"))
         self.assertEqual(cg.VALID_PIN_STATUS, ("current", "superseded", "unknown"))
         self.assertEqual(cg.VALID_CLAIM_KIND, ("current", "historical", "narrative"))
-        self.assertEqual(len(cg.FACES), 9)  # V77 起八面（新增 registry_coverage）
+        self.assertGreaterEqual(len(cg.FACES), 9)  # V77 起 9 面；V79 起 10 面（下界断言防退化，不写死）
 
     def test_02_load_default_registry(self):
         reg = cg.load_registry()

@@ -75,10 +75,10 @@ class T1RegistryShape(_Base):
 
     def test_faces_include_registry_coverage(self):
         self.assertIn("registry_coverage", cg.FACES)
-        self.assertEqual(len(cg.FACES), 9)
+        self.assertEqual(len(cg.FACES), 10)  # V79 起 10 面（第 10 面 cross_ledger_consistency）
 
     def test_eight_faces_unique(self):
-        self.assertEqual(len(set(cg.FACES)), 9)
+        self.assertEqual(len(set(cg.FACES)), len(cg.FACES))  # 唯一性判据；数量不写死
 
     def test_live_windows_count(self):
         self.assertEqual(len(cg.LIVE_WINDOWS), 6)

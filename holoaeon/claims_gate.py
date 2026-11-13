@@ -59,6 +59,36 @@ REQUIRED_CLAIM_FIELDS = ("id", "kind", "readback", "expected_from", "sha16",
 # （internal_baselines）都走它，不再给基线单独复制一套 _age_days。
 FACE_REGULATION_SEMANTIC = "regulation_semantic_consistency"
 RISK_TIER_MAX_AGE = {"fast": 90, "annual": 180, "stable": 365}
+
+# --- V79 面 10：跨账口径一致性（cross_ledger_consistency）-------------------------
+# 把「同一事实在七本账里的不同写法」做成可失败判据。权威顺序：碳基口述终裁
+# 高于任何派生账本记录——两者冲突时判「记录」红，不判碳基红。
+FACE_CROSS_LEDGER = "cross_ledger_consistency"
+
+AUTHORITATIVE_SOURCES = {
+    "head": "git_rev_parse_HEAD",
+    "doc_version": "holoaeon/spec.py:DOC_VERSION",
+    "batch_stage": "memory_of_yuan.version_history[-1].stage",
+    "five_site_head": "git_ls_remote_origin_main",
+    "main_suite": "unittest_discover_measured",
+    "redline": "redline_scan_measured",
+    "carbon_intent": "carbon_utterance_terminal",
+}
+# 明确不算证据：本地 remote-tracking 引用 / 运行期快照 / 历史 timeboxed 副本
+NON_EVIDENCE = ("git_remote_tracking_ref", "runtime_snapshot", "timeboxed_historical")
+# 意图误记特征词：命中即要求显式登记为 intent_vs_blocker，否则红
+BLOCKER_AS_INTENT_MARKERS = ("决议不", "选择不", "不干", "永不",
+                             "以后条件允许再做", "暂缓即取消")
+CONFLICT_KINDS = ("intent_vs_blocker", "stale_pointer", "caliber_difference",
+                  "non_evidence", "runtime_snapshot", "known_boundary")
+# 这几类是「合法差异/边界」，登记后可容忍值不同，但事实变了要重新登记
+TOLERANT_KINDS = ("caliber_difference", "non_evidence", "runtime_snapshot",
+                  "known_boundary")
+CARBON_PRECEDENCE = "above_all_derived_ledgers"
+# 这三条只做权威/结构校验，不做「数值漂移」比对：
+# head 与 five_site_head 在提交窗口内天然滞后（提交后才定 sha），
+# carbon_intent 由 canon 一致性校验，不比数值。
+DECLARED_ONLY = ("head", "five_site_head", "carbon_intent", "batch_stage")
 PIN_SEMANTIC_FIELDS = ("claim_sites", "runtime_pointer", "version_chain",
                        "risk_tier", "source_sha16", "change_probe")
 VALID_RUNTIME_ROLE = ("current", "legacy")
@@ -75,7 +105,7 @@ _PTR_LINES = re.compile(r"^L(\d+)(?:-L(\d+))?$")
 FACES = ("claim_registered", "readback_consistent", "historical_timeboxed",
          "regulation_pinned", "pin_freshness", "determinism_self_digest",
          "chain_position_coverage", "registry_coverage",
-         "regulation_semantic_consistency")
+         "regulation_semantic_consistency", "cross_ledger_consistency")
 
 # 面 8 的扫描规则：只认这几类"会变的叙述位"，不扫普通文字。
 COVERAGE_PATTERNS = {
@@ -812,6 +842,288 @@ def regulation_semantic_consistency(reg, root=None, today=None):
 # ---------------------------------------------------------------------------
 # 面 6：确定性 + 自摘要
 # ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# 面 10：跨账口径一致性（V79）
+# ---------------------------------------------------------------------------
+def _git_ref_head(root):
+    """纯文件读 HEAD（不启子进程、不联网）；读不到返回 None。"""
+    gitdir = os.path.join(root, ".git")
+    headfile = os.path.join(gitdir, "HEAD")
+    if os.path.isfile(gitdir):
+        with open(gitdir, "r", encoding="utf-8", errors="replace") as f:
+            ref = f.read().strip()
+        return ref or None if not ref.startswith("ref:") else None
+    if not os.path.isfile(headfile):
+        return None
+    with open(headfile, "r", encoding="utf-8", errors="replace") as f:
+        ref = f.read().strip()
+    if not ref.startswith("ref:"):
+        return ref or None
+    rel = ref[4:].strip()
+    p = os.path.join(gitdir, *rel.split("/"))
+    if not os.path.isfile(p):
+        return None
+    with open(p, "r", encoding="utf-8", errors="replace") as f:
+        return f.read().strip() or None
+
+
+def _memory_dir(root):
+    return os.path.join(os.path.dirname(os.path.abspath(root)), "holoaeon_memory")
+
+
+def _memory_stage(root):
+    """玉安 version_history 最后一条的 stage；仓外文件缺失返回 None。"""
+    p = os.path.join(_memory_dir(root), "version_history.json")
+    try:
+        data = _load_json(p)
+    except (OSError, ValueError):
+        return None
+    hist = data.get("history") or []
+    return hist[-1].get("stage") if hist else None
+
+
+def _claims_by_id(reg):
+    return {x.get("id"): x for x in (reg.get("doc_claims") or []) if isinstance(x, dict)}
+
+
+def _readback_or_none(reg, cid, ctx):
+    claim = _claims_by_id(reg).get(cid)
+    if not claim:
+        return None
+    val = readback(claim, ctx)
+    return None if val is _UNKNOWN else val
+
+
+def ledger_observed(reg, ctx=None):
+    """各权威源的当前实测值。不联网、不跑测试：能本地读的实时读，
+    测试数与 redline 从注册簿既有 readback 取（不重跑）。"""
+    c = ctx or _ctx()
+    texts = dict(c.get("texts") or {})
+    root = c["root"]
+    obs = {
+        "head": texts.get("head") or _git_ref_head(root),
+        "doc_version": texts.get("doc_version") or _spec_doc_version(root),
+        "batch_stage": texts.get("batch_stage") or _memory_stage(root),
+        "five_site_head": texts.get("five_site_head"),
+        "main_suite": texts.get("main_suite"),
+        "redline": texts.get("redline"),
+        "carbon_intent": texts.get("carbon_intent"),
+    }
+    if obs["main_suite"] is None:
+        obs["main_suite"] = _readback_or_none(reg, "acceptance_suite_zh", c)
+    if obs["redline"] is None:
+        obs["redline"] = _readback_or_none(reg, "gate_redline_zh", c)
+    return obs
+
+
+def _landed_batches(root):
+    """已落地批次：reports/ 下 v<xx>_receipt.json 的文件名（含字母后缀批次）。"""
+    got = set()
+    d = os.path.join(root, "reports")
+    if not os.path.isdir(d):
+        return got
+    for name in os.listdir(d):
+        m = re.match(r"^v(\d+[a-z]?)_receipt\.json$", name)
+        if m:
+            got.add(m.group(1))
+    return got
+
+
+def _conflict_covers(conflicts, key):
+    for e in conflicts:
+        if key in (e.get("keys") or []):
+            return e
+        where = e.get("where")
+        if isinstance(where, str) and key in where:
+            return e
+        if isinstance(where, (list, tuple)) and key in where:
+            return e
+    return None
+
+
+def _conflict_kind_counts(conflicts):
+    out = {}
+    for e in conflicts:
+        k = e.get("kind") or "unknown"
+        out[k] = out.get(k, 0) + 1
+    return out
+
+
+_WHERE_FILE = re.compile(r"[A-Za-z0-9_.\-]+\.(?:md|py|json|yml|yaml)")
+
+
+def _where_files(where):
+    return set(_WHERE_FILE.findall((where or "").replace("\\", "/")))
+
+
+def _intent_registered(conflicts, where):
+    """原文所在位置是否已有 intent_vs_blocker 挂账（按文件名交集匹配）。"""
+    files = _where_files(where)
+    for e in conflicts:
+        if e.get("kind") != "intent_vs_blocker":
+            continue
+        reg_where = e.get("where")
+        if not isinstance(reg_where, str) or not reg_where:
+            continue
+        reg_files = _where_files(reg_where)
+        if files and reg_files and (files & reg_files):
+            return e
+        if reg_where.replace("\\", "/") in (where or "").replace("\\", "/"):
+            return e
+    return None
+
+
+def cross_ledger_consistency(reg, ctx=None, today=None):
+    """跨账冲突：未登记即红；登记后事实漂移也红；陈旧指针即红；
+    技术阻塞被写成碳基意图即红（intent_vs_blocker）。纯本地、不联网。"""
+    c = ctx or _ctx()
+    srcs = reg.get("ledger_sources")
+    conflicts = [e for e in (reg.get("ledger_conflicts") or []) if isinstance(e, dict)]
+    fails = []
+
+    def add(item_id, detail, kind):
+        fails.append({"face": FACE_CROSS_LEDGER, "id": item_id,
+                      "detail": detail, "kind": kind})
+
+    # --- 结构判据：没有登记面的闸等同摆设 ---
+    if not isinstance(srcs, dict):
+        add("ledger_sources_missing", "ledger_sources 段缺失：跨账判据没有登记面",
+            "structure")
+        srcs = {}
+    missing = [k for k in AUTHORITATIVE_SOURCES if k not in srcs]
+    if missing:
+        add("ledger_sources_incomplete",
+            "权威源未登记: %s" % ", ".join(sorted(missing)), "structure")
+
+    for key in sorted(AUTHORITATIVE_SOURCES):
+        if key not in srcs or not isinstance(srcs[key], dict):
+            continue
+        s = srcs[key]
+        auth = s.get("authority")
+        if auth != AUTHORITATIVE_SOURCES[key]:
+            add("authority_mismatch:%s" % key,
+                "%s 的 authority=%r，应为 %r" % (key, auth, AUTHORITATIVE_SOURCES[key]),
+                "structure")
+        for ne in (s.get("non_evidence") or []):
+            if ne not in NON_EVIDENCE:
+                add("non_evidence_unknown:%s" % key,
+                    "%s 的 non_evidence 含未登记项 %r（非证据不得冒充权威源）" % (key, ne),
+                    "structure")
+
+    carbon = srcs.get("carbon_intent") if isinstance(srcs.get("carbon_intent"), dict) else {}
+    if carbon.get("precedence") != CARBON_PRECEDENCE:
+        add("carbon_precedence",
+            "carbon_intent.precedence 必须为 %r（碳基口述高于派生账本）" % CARBON_PRECEDENCE,
+            "structure")
+
+    for e in conflicts:
+        for fld in ("id", "kind", "where", "was", "truth", "disposition"):
+            if not e.get(fld):
+                add("conflict_field:%s" % (e.get("id") or "?"),
+                    "冲突登记缺字段 %s" % fld, "structure")
+        if e.get("kind") and e["kind"] not in CONFLICT_KINDS:
+            add("conflict_kind:%s" % (e.get("id") or "?"),
+                "kind=%r 不在允许集合（把边界伪装成已解决也算越界）" % e.get("kind"),
+                "structure")
+
+    # --- A 未登记冲突：登记时观测与当前实测不一致却没登记 ---
+    now = ledger_observed(reg, c)
+    for key in sorted(AUTHORITATIVE_SOURCES):
+        if key in DECLARED_ONLY:
+            continue
+        s = srcs.get(key) if isinstance(srcs.get(key), dict) else {}
+        was = s.get("observed")
+        cur = now.get(key)
+        if was in (None, "") or cur in (None, ""):
+            continue
+        if was == cur:
+            continue
+        if _conflict_covers(conflicts, key) is None:
+            add("unregistered_conflict:%s" % key,
+                "%s 两账不同（登记 %r / 实测 %r）且未登记冲突" % (key, was, cur),
+                "unregistered_conflict")
+
+    # --- B stale_pointer：账面指针指向已落地批次 ---
+    landed = set(c.get("landed_batches") or []) or _landed_batches(c["root"])
+    note = (c.get("texts") or {}).get("pending_note")
+    if note is None:
+        try:
+            note = _load_json(os.path.join(c["root"], "reports",
+                                           "feed_index.json")).get("pending_note")
+        except (OSError, ValueError):
+            note = None
+    if isinstance(note, str) and note.strip():
+        for b in re.findall(r"V(\d+[a-z]?)", note):
+            if b in landed:
+                add("stale_pointer",
+                    "pending_note 指向已落地批次 V%s：%r" % (b, note.strip()[:90]),
+                    "stale_pointer")
+                break
+
+    # --- C intent_vs_blocker：意图误记 ---
+    for e in conflicts:
+        was = e.get("was") or ""
+        hits = [m for m in BLOCKER_AS_INTENT_MARKERS if m in was]
+        if hits and e.get("kind") != "intent_vs_blocker":
+            add("intent_vs_blocker:%s" % (e.get("id") or "?"),
+                "把技术阻塞写成意图（命中 %s）却未登记为 intent_vs_blocker"
+                % "、".join(hits), "intent_vs_blocker")
+        if e.get("kind") == "intent_vs_blocker":
+            if "blocker_not_intent" not in (e.get("disposition") or ""):
+                add("intent_vs_blocker:%s:disposition" % (e.get("id") or "?"),
+                    "intent_vs_blocker 的 disposition 必须写明 blocker_not_intent",
+                    "intent_vs_blocker")
+            canon = carbon.get("observed")
+            if canon and e.get("carbon_canon") != canon:
+                add("intent_vs_blocker:%s:canon" % (e.get("id") or "?"),
+                    "登记与碳基口述终裁相悖（carbon_canon 未对齐，判记录红不判碳基红）",
+                    "intent_vs_blocker")
+
+    # --- C2 原文级：账本措辞把技术阻塞写成意图，且未挂账 ---
+    intent_texts = (c.get("texts") or {}).get("intent_texts") or []
+    for item in intent_texts:
+        if not isinstance(item, dict):
+            continue
+        where = item.get("where") or "?"
+        text = item.get("text") or ""
+        hits = [m for m in BLOCKER_AS_INTENT_MARKERS if m in text]
+        if not hits:
+            continue
+        if _intent_registered(conflicts, where) is None:
+            add("intent_vs_blocker:%s" % os.path.basename(where.replace("\\", "/")),
+                "账本措辞命中 %s，且未登记为 blocker_not_intent：%r"
+                % ("、".join(hits), text.strip()[:90]), "intent_vs_blocker")
+
+    # --- D drift_after_register：已登记差异的事实值变了 ---
+    for e in conflicts:
+        if e.get("kind") not in TOLERANT_KINDS:
+            continue
+        obs_reg = e.get("observed_at_register") or {}
+        for key in sorted(obs_reg):
+            cur = now.get(key)
+            if cur in (None, ""):
+                continue
+            if obs_reg[key] != cur:
+                add("drift_after_register:%s:%s" % (e.get("id") or "?", key),
+                    "已登记差异的事实值变了（登记 %r / 实测 %r），登记未更新"
+                    % (obs_reg[key], cur), "drift_after_register")
+
+    return {
+        "face": FACE_CROSS_LEDGER,
+        "ok": not fails,
+        "fails": fails,
+        "ledger_sources": len(srcs),
+        "ledger_conflicts": len(conflicts),
+        "by_kind": _conflict_kind_counts(conflicts),
+        "unregistered": [f["id"] for f in fails if f["kind"] == "unregistered_conflict"],
+        "drifted": [f["id"] for f in fails if f["kind"] == "drift_after_register"],
+        "stale_pointers": [f["id"] for f in fails if f["kind"] == "stale_pointer"],
+        "intent_vs_blocker": [f["id"] for f in fails if f["kind"] == "intent_vs_blocker"],
+        "registered_boundaries": [e.get("id") for e in conflicts
+                                  if e.get("kind") in TOLERANT_KINDS],
+    }
+
+
 def _canonical(obj):
     return json.dumps(obj, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
 
@@ -1032,6 +1344,10 @@ def verify(reg=None, ctx=None, today=None):
     for item in sem["fails"]:
         faces[FACE_REGULATION_SEMANTIC]["ok"] = False
         faces[FACE_REGULATION_SEMANTIC]["fails"].append(item)
+    cl = cross_ledger_consistency(r, c, today)
+    for item in cl["fails"]:
+        faces[FACE_CROSS_LEDGER]["ok"] = False
+        faces[FACE_CROSS_LEDGER]["fails"].append(item)
 
     fails_total = sum(len(v["fails"]) for v in faces.values())
     body = {
@@ -1054,6 +1370,17 @@ def verify(reg=None, ctx=None, today=None):
             "claim_site_drift": sem["claim_site_drift"],
             "runtime_unregistered": sem["runtime_unregistered"],
             "freshness_violations": sem["freshness_violations"],
+        },
+        "cross_ledger": {
+            "face": FACE_CROSS_LEDGER,
+            "ledger_sources": cl["ledger_sources"],
+            "ledger_conflicts": cl["ledger_conflicts"],
+            "by_kind": cl["by_kind"],
+            "unregistered": cl["unregistered"],
+            "drifted": cl["drifted"],
+            "stale_pointers": cl["stale_pointers"],
+            "intent_vs_blocker": cl["intent_vs_blocker"],
+            "registered_boundaries": cl["registered_boundaries"],
         },
         "declared_digest": r.get("self_digest"),
         "computed_digest": self_digest(r),
@@ -1083,6 +1410,12 @@ def report(reg=None, ctx=None, today=None):
         },
         "faces": {f: v["faces"][f]["ok"] for f in FACES},
         "regulation_semantic": v["regulation_semantic"],
+        "cross_ledger": {
+            "sources": v["cross_ledger"]["ledger_sources"],
+            "conflicts": v["cross_ledger"]["ledger_conflicts"],
+            "by_kind": v["cross_ledger"]["by_kind"],
+            "registered_boundaries": v["cross_ledger"]["registered_boundaries"],
+        },
         "digest": v["digest"],
     }
     for k, val in list(snap["readbacks"].items()):

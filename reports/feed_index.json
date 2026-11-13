@@ -1,6 +1,6 @@
 {
   "as_of": "2026-11-14",
-  "generated_by": "V78b CI 门禁正式收口（复算闸与 v3 域闸入 ci.yml · P0-A/P0-B/P0-C · DOC 0.9.73）",
+  "generated_by": "V79 跨账口径一致性闸（claims_gate 第 10 面 cross_ledger_consistency · ledger_sources + ledger_conflicts D0-D5 · DOC 0.9.74）",
   "no_feed_batches": [
     {
       "batch": "V64",
@@ -68,7 +68,7 @@
       "title": "GitHub workflow 推送权限（ci.yml 直推免网页路径）"
     }
   ],
-  "pending_note": "PL-1~PL-6 已全部落地（V68/V69/V71/V72/V73）；PL-7 已闭环（2026-11-14：repo-scoped 写权限 Deploy Key id=169812825 + SSH over 443，含 ci.yml 改动的真实推送探针 rc=0，碳基终裁『必须加工作流』的执行解释=让 .github/workflows/* 变更可推，已成立）；V78b 已执行（2026-11-14：复算闸与 v3 域闸入 ci.yml，12 步，DOC 0.9.73）；下一批候选：V79 跨账闸（投喂包在仓根待执行）或 V82（P1-B 失效判据处置），由四人组定调",
+  "pending_note": "账本指针一律回读：批次落地看 reports/ 下最新 v*_receipt.json 的 status 与 head；PL 序列看 pending_feeds。本条不再写具体「下一批」——避免落地后变成陈旧指针。",
   "revoked_claims": [
     {
       "claim": "V56–V60 五包缺 _DONE 改名",
@@ -172,6 +172,18 @@
       "file": "AGENT_FEED_V81_DONE_REGULATION_SEMANTIC_FRESHNESS_20261114.md",
       "note": "图片投喂 → 投喂包全文 367 行 / §0–§10；执行端实测面数为第 9 面（V79 第 9 面未落地），与包内预期的第 10 面有 1 之差，按回读为准",
       "sha_note": "落地后 Rename-Item 加 _DONE，字节级改名 sha256 不变（改名前后复核）"
+    },
+    {
+      "batch": "V79",
+      "done_file": "AGENT_FEED_V79_DONE_CROSS_LEDGER_GATE_20261114.md",
+      "file": "AGENT_FEED_V79_CROSS_LEDGER_GATE_20261114.md",
+      "topic": "跨账口径一致性闸（claims_gate 第 10 面 · intent_vs_blocker）"
+    },
+    {
+      "batch": "V78b",
+      "file": "（执行侧直接落地，无投喂包；见 reports/v78b_receipt.json）",
+      "topic": "CI 门禁正式收口（复算闸与 v3 域闸入 ci.yml · SHA256SUMS 332）"
     }
-  ]
+  ],
+  "with_feed_count": 22
 }
