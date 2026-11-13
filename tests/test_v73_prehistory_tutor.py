@@ -353,6 +353,10 @@ class T7_FieldsAndLoading(SyntheticBase):
         self.assertEqual(t.split_pointer("a.md#Lx"), (None, 0))
 
 
+@unittest.skipUnless(
+    os.path.isdir(t.MATERIAL_ROOT),
+    "真语料素材仅在本机可用（CI 无 F 盘）；本机有素材时照常全跑",
+)
 class T8_RealCorpus(unittest.TestCase):
     """真实站点：跑仓内卡片库 + F 盘素材，必须全绿。"""
 
@@ -383,6 +387,10 @@ class T8_RealCorpus(unittest.TestCase):
 
 class T9_Cli(unittest.TestCase):
 
+    @unittest.skipUnless(
+        os.path.isdir(t.MATERIAL_ROOT),
+        "真语料素材仅在本机可用（CI 无 F 盘）；本机有素材时照常全跑",
+    )
     def test_90_main_verify_exit_zero(self):
         self.assertEqual(t._main(["prehistory_tutor", "verify"]), 0)
 
