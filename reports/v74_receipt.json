@@ -1,0 +1,122 @@
+{
+  "batch": "V74-OLD-LEDGER-CLEANUP",
+  "line": "V23→…→V73→V74（旧账清理，独立成批）",
+  "status": "closed",
+  "date": "2026-11-13",
+  "head": "224d2bd",
+  "head_full": "224d2bdd9f0b79aa23312cabfeff7dfaf7d5dd86",
+  "head_note": "本批为账面清理批，无新增/修改包内源码；回执落盘时 HEAD=224d2bd（V73 回执提交）；回执自身提交 sha 见 git log 末条与 ANCHOR_20261113_HOLOAEON_V74.md",
+  "prev_head": "224d2bd",
+  "doc_version": "0.9.67",
+  "doc_version_note": "本批不升 DOC；V75 claims_gate 才升 0.9.68",
+  "patches": [
+    {
+      "id": "P1",
+      "item": "撤销 V56–V60 过期挂账，改为登记 7 批无投喂包事实 + 补索引",
+      "before": "四人组接招回执 §3 记载「V56–V60 五包缺 _DONE 改名」为待办",
+      "after": "实测 5/5 全部已带 _DONE（mtime 2026-11-12 15:52–18:23）；真正缺口是 V64/V65/V66/V67/V69/V71/V72 共 7 批无 AGENT_FEED 文件",
+      "deliverable": "reports/feed_index.json（schema FEED-INDEX-v1：revoked_claims / no_feed_batches 8 条（含本批 V74）/ with_feed_batches 18 条 / pending_feeds 1 条）",
+      "reversible": true
+    },
+    {
+      "id": "P2",
+      "item": "build_king.py 回填 V73 终值 + 修 head_short 自相矛盾",
+      "before": "HEAD=63f8b37 / head_short=5edc01d（同一文件内互相矛盾）/ doc_version=0.9.56 / ledger_history=70 / unittest_main=578 / redline=129 / prev_chain 首条 63f8b37(V62) / 五地段 S1=S2=S3=9657456、S5=753221b7·617 文件 / 人读区 DOC 写死 0.9.34",
+      "after": "HEAD=224d2bd / head_short=224d2bd / doc_version=0.9.67 / ledger_history=98 / unittest_main=1743 OK / redline=154 / prev_chain 前插 5 条（224d2bd(V73 回执)、50871c5、56168ec(V72 回执)、378df33、fe1cd75(V71 收口)）/ 五地 S1=S2=S3=224d2bd、S4 195/195、S5=c08b90aa·704 / DOC 改为读 identity.doc_version（不再写死）",
+      "deliverable": "F:\\doubaowork\\holoaeon_lathe\\build_king.py（仓外，不提交）",
+      "reversible": true
+    },
+    {
+      "id": "P3",
+      "item": "S4 惯例台账声明权威源 + 保留停点指针",
+      "before": "history 79 条停 V55-C18-CLUSTER-BASE / DOC 0.9.49，无权威源字段，易被误读为漏补",
+      "after": "新增顶层 authoritative_source（live_ledger=holoaeon_memory/five_site_sync.json + per_batch_receipts=five_site_confirm_V<xx>.json + history_stop{last_batch,last_doc,history_len,statement,policy}）；history 仍 79、confirmations 仍 21（未追补、未伪造）",
+      "deliverable": "F:\\doubaowork\\vector-sea\\_holoaeon_v4_five_site_receipt_20261102.json（untracked 台账；备份 .bak_v74_20261113_084900）",
+      "reversible": true
+    },
+    {
+      "id": "P4",
+      "item": "git 探针复核留痕",
+      "before": "V73 收尾时 ENGINE_LATHE_STATE.json 的 git 字段曾全为 GIT_ERROR:[WinError 2]；V73 已修，V74 只做复核",
+      "after": "实测 git.head=224d2bdd9f0b79aa23312cabfeff7dfaf7d5dd86 / tracked_dirty=0 / untracked=100（含本批两件新件；提交后回 98）/ GIT_ERROR 无",
+      "deliverable": "本回执 patches 段 + ENGINE_LATHE_STATE.json 复核",
+      "reversible": true
+    },
+    {
+      "id": "P5",
+      "item": "回执 + 锚点 + 台账/灯塔/三域记忆 V74 条目",
+      "before": "S4 confirmations 21 / 灯塔 gates 44 lessons_absorbed 17 / version_history 98 / five_site_sync 52 / engineering_process 40",
+      "after": "见收工件段（逐项 append，不改写既有条）",
+      "deliverable": "reports/v74_receipt.json + ANCHOR_20261113_HOLOAEON_V74.md",
+      "reversible": true
+    }
+  ],
+  "build_king": {
+    "script": "F:\\doubaowork\\holoaeon_lathe\\build_king.py",
+    "patch_scripts": [
+      "F:\\doubaowork\\holoaeon_lathe\\v74_build_king_backfill.py（10 处 count==1）",
+      "F:\\doubaowork\\holoaeon_lathe\\v74_build_king_backfill_b.py（11 处 count==1：五地段 7 处 + meta 3 处 + DOC 写死改回读）"
+    ],
+    "package_dir": "F:\\doubaowork\\holoaeon_memory\\_king_V40_20261108",
+    "package_sha_before": "135bfd24f11df3555767c2eb2308c34215cdfec04447e44f34900abc4e23275d",
+    "package_sha_after": "7fc8227138e6503cdae63af7a041c6d581d78bcf6732c4738b20d129bfe75ef1",
+    "verify": "python _king_V40_20261108\\load_king.py → VERDICT: OK — 10 域 sha 全 MATCH；as_of 2026-11-13 | head 224d2bd | doc 0.9.67",
+    "directory_name_note": "目录名含旧日期 20261108，内容已刷为 2026-11-13 真值；不改名以免断已有引用"
+  },
+  "feed_index": "reports/feed_index.json（schema FEED-INDEX-v1，仓内提交件；未删任何既有投喂包、未改名任何投喂包）",
+  "s4_authority": {
+    "file": "F:\\doubaowork\\vector-sea\\_holoaeon_v4_five_site_receipt_20261102.json",
+    "backup": ".bak_v74_20261113_084900",
+    "confirmations": "21（未增，V74 五地结果另在 five_site_confirm_V74_20261113.json 与 live_ledger）",
+    "history": "79（停 V55，声明为冻结段口径差异，不追补）",
+    "policy": "不追补、不伪造历史；只追加 confirmations"
+  },
+  "lathe_probe": {
+    "git_head": "224d2bdd9f0b79aa23312cabfeff7dfaf7d5dd86",
+    "tracked_dirty": 0,
+    "untracked": 100,
+    "untracked_before_commit_note": "含 reports/feed_index.json 与 reports/v74_receipt.json 两件新件；提交后回落 98",
+    "git_error": null
+  },
+  "verification": {
+    "unittest_main": "1743 OK（23.673s，python -m unittest discover -s tests；本批无源码变更，复算证明未漂移）",
+    "redline": "154 文件 0 违规（scripts/redline_scan.py）",
+    "dimension_lock": "PASS（12 维度 / 7 闸 / 0 violation；diff0_hash=2fc892cf9af6e755 tamper=f42c8229ee5acd73）",
+    "readme_claims_check": "PASS | mismatch=0 stale_header=0（仓外闸）",
+    "check_sums": "ok=true / mismatches=[]（250 条；新增 reports 件不进清单，与 V38 口径一致）",
+    "diff0": "本批不动 benchmarks、不动内核，未重跑 bench（判据 6d119b2a9f2df687 沿用 V73 实测）",
+    "build_king": "VERDICT: OK（package_sha 7fc82271…，10 域全 MATCH）"
+  },
+  "criteria_check": {
+    "有可复算前后值": "P1–P5 每项均写 before/after（见 patches）",
+    "无历史条目被删": "feed_index 只追加；build_king 只前插 prev_chain、未删 pending_feeds 任何历史条；S4 history 79 未动",
+    "HEAD/DOC 与 V73 终值一致": "HEAD=224d2bd ✔ / DOC=0.9.67 ✔",
+    "零写入远端": "本批不 push（五地同步按批次惯例另步执行，见 anchor）",
+    "零 git 历史改写": "无 amend / 无 rebase / 无 reset",
+    "零改名既有文件": "未改名任何 AGENT_FEED、未改名任何既有件"
+  },
+  "honest_boundaries": [
+    "本批是账面清理，无包内源码变更；1743/154 是复算证明而非新增",
+    "build_king 的 pending_feeds 保留 V54–V63 等历史条目（附录性质，未删改），其内部数字为当时口径，不作现行真值",
+    "加载包目录名 _king_V40_20261108 含旧日期，内容已刷 2026-11-13；改名会断既有引用，本批不改",
+    "_king 包为本地离线件，未上传任何远端",
+    "S4 history 停 V55 为口径差异，本批只声明不追补；追补历史等于伪造，拒绝",
+    "旧账核查仅覆盖四人组接招回执 §3 列出的三处 + 第四处 GIT_ERROR；未做全仓旧账普查",
+    "V56–V60 挂账撤销依据是文件系统实测（5/5 带 _DONE），不是 git 历史推断",
+    "feed_index 的 no_feed_batches 为「仓根无投喂包」这一事实登记，不等于该批无规格来源（部分由锚点/接招回执定序）"
+  ],
+  "not_committed": [
+    "AGENT_FEED_*.md（含 V75 待执行包）",
+    "F:\\doubaowork\\holoaeon_lathe\\ 下全部工具件与锚点",
+    "F:\\doubaowork\\vector-sea\\ 台账与回执",
+    "F:\\doubaowork\\holoaeon_memory\\ 加载包与三域记忆"
+  ],
+  "next_batch": {
+    "id": "V75",
+    "name": "claims_gate（双注册簿 + 七面判据 + 金丝雀 7/7 红 + CI 第 10 道）",
+    "feed": "AGENT_FEED_V75_CLAIMS_GATE_QIANWEN_R8_20261113.md",
+    "doc_target": "0.9.68",
+    "baseline": "224d2bd（V74 回执提交之后）"
+  },
+  "seal": "潮起开门，潮落闭嘴"
+}
