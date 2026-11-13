@@ -447,7 +447,18 @@ class T10_Digest(unittest.TestCase):
     def test_53_no_third_party_imports(self):
         with open(os.path.join(ROOT, "holoaeon", "claims_gate.py"), encoding="utf-8") as f:
             tree = ast.parse(f.read())
-        allowed = set(sys.stdlib_module_names) if hasattr(sys, "stdlib_module_names") else set()
+        if hasattr(sys, "stdlib_module_names"):
+            allowed = set(sys.stdlib_module_names)
+        else:
+            # py3.8 没有 sys.stdlib_module_names（3.10 才引入）。空集会把 json/hashlib
+            # 这类标准库也判成第三方，于是 py3.8 的 CI 必红（V81 实测）。这里退回
+            # 「内置模块名 + 本闸实际允许的标准库白名单」——仍是白名单，不是放行。
+            allowed = set(sys.builtin_module_names) | {
+                "ast", "json", "datetime", "hashlib", "os", "re", "sys", "io",
+                "shutil", "tempfile", "collections", "textwrap", "typing", "time",
+                "urllib", "pathlib", "subprocess", "itertools", "functools",
+                "copy", "inspect", "traceback", "random", "math",
+            }
         for node in tree.body:
             mods = []
             if isinstance(node, ast.Import):
