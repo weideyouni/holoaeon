@@ -137,6 +137,32 @@
     "note": "ci.yml 未改（字节级不变），失败是判据的时区口径问题而不是 CI 配置问题"
   },
   "repair_commits": [
-    "本批第三笔：UTC+8 日期口径修复（_today_cst）+ test_56/57 + 双 README 1931/1963 + PHC-2025 sha16 重算"
-  ]
+    "172a8b1 主体（13 文件 +1170/−38）",
+    "0254ad3 回执 head 补正（+2/−2）",
+    "fa1bf5d UTC+8 日期口径修复（6 文件 +72/−18）",
+    "8f5b6ff py3.8 标准库白名单回退（1 文件 +12/−1）"
+  ],
+  "post_ci_fix2": {
+    "trigger": "fa1bf5d 的 CI run 43485240831：py3.10 / py3.12 已绿，py3.8 仍红",
+    "failed_test": "test_53_no_third_party_imports —— AssertionError: False is not true : 第三方顶层 import: ast",
+    "root_cause": "sys.stdlib_module_names 自 py3.10 才有；py3.8 上 allowed 退化成空集，json / hashlib / ast 这类标准库全被判第三方 import",
+    "fix": "无该属性时退回 sys.builtin_module_names ∪ 本闸允许的标准库白名单（仍是白名单，不是放行）",
+    "proof": "test_v81 57/57 OK；按 py3.8 回退路径复算 claims_gate.py 顶层 import 无越界项"
+  },
+  "ci_final": {
+    "commit": "8f5b6ff",
+    "ci_run": 43485695201,
+    "sync_run": 43485694966,
+    "status": "success",
+    "jobs": {
+      "py3.8": "success",
+      "py3.10": "success",
+      "py3.12": "success"
+    },
+    "failed_runs_before": [
+      43484203589,
+      43485240831
+    ],
+    "note": "两轮失败（时区口径 / py3.8 stdlib 白名单）均已修复；ci.yml 全程字节级不变（sha16 b743704ca8c307f7）"
+  }
 }
