@@ -48,8 +48,15 @@
       "evidence": "仓根无 AGENT_FEED_V76_*.md（2026-11-13 实测）",
       "files_declared": "PL-3 收口（双口径并存）",
       "note": "由四人组实跑决议 + 挂账方案 §4 H4 / §6 第 6 条直接定批，执行端落地，未出投喂包；本条为事后登记，不补造投喂包"
+    },
+    {
+      "batch": "V77",
+      "evidence": "仓根无 AGENT_FEED_V77_*.md（2026-11-13 实测）",
+      "files_declared": "账面一致性（claims_gate 第 8 面 registry_coverage）",
+      "note": "由四人组决策回执 V2（V76 前置回执 + append-only §9）定序，执行端落地，未出投喂包；本条为事后登记，不补造投喂包"
     }
   ],
+  "no_feed_count": 10,
   "pending_feeds": [],
   "pending_note": "PL-1~PL-6 已全部落地（V68/V69/V71/V72/V73）；V76/V77 均由四人组决议直接定批（无投喂包）；下一批 V78 = CI 门禁补齐（四人组 V2 §9.6③）",
   "revoked_claims": [
