@@ -345,7 +345,9 @@ def a12_constraints() -> None:
         deps_empty = "dependencies = []" in text or "dependencies=[]" in text
     check("A12.1", "零依赖未破", deps_empty, {"pyproject": os.path.basename(pyproject)})
 
-    # V38 · P38-B：SHA256SUMS 复算闸并入 A12 子检查（不新增 CHECKS 项 → 对外仍 32/32 口径）
+    # V38 · P38-B：SHA256SUMS 复算闸并入 A12 子检查（不新增 CHECKS 项）
+    # V78a 起对外口径由 32/32 升到 33/33——新增的是独立面 A13（CI 预检契约），
+    # 本子检查仍然不新增项，别把两者混算。
     # 闸只阻断不重建：重建是批次动作，自动重建会掩盖追溯性。
     try:
         import importlib.util
@@ -364,6 +366,47 @@ def a12_constraints() -> None:
     print("  [SUMS] OK → %d 条复算一致（report_only，不自动重建）" % sums_total)
 
 
+# ------------------------------------------------------------ A13 CI 预检契约
+def a13_ci_preflight() -> None:
+    """V78a 第 33 面：ci.yml 与本地预检器「双向对齐」，并披露预检报告状态。
+
+    判据只有一条：两边的步骤表不许漂移。
+      · 正向：预检器声明认领的每一面，ci.yml 里都得有；
+      · 反向：ci.yml 里的每个 `- name:`，预检器都得认领。
+    本面**不执行**那些重门禁——闸里套闸会递归且变慢；它只校验契约本身。
+    价值在于：ci.yml 加了步骤而预检器没跟上时，这一面立刻红，
+    「本地绿 ≠ 云端绿」的差异从人肉对账变成机器拦截。
+    """
+    try:
+        import importlib.util
+        _cp = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ci_preflight.py")
+        _sp = importlib.util.spec_from_file_location("ci_preflight_contract", _cp)
+        _md = importlib.util.module_from_spec(_sp)
+        _sp.loader.exec_module(_md)
+        rep = _md.contract_report()
+    except Exception as exc:  # noqa: BLE001
+        check("A13.1", "CI 预检契约双向对齐", False,
+              {"error": "%s: %s" % (type(exc).__name__, str(exc)[:120])})
+        return
+
+    last = {"verdict": "NOT_RUN"}
+    p = os.path.join(ROOT, "reports", "ci_preflight.json")
+    if os.path.exists(p):
+        try:
+            with open(p, "r", encoding="utf-8") as fh:
+                pre = json.load(fh)
+            last = {"verdict": pre.get("verdict"), "passed": pre.get("passed"),
+                    "total": pre.get("total"), "failed": pre.get("failed")}
+        except Exception:  # noqa: BLE001
+            last = {"verdict": "UNREADABLE"}
+
+    check("A13.1", "ci.yml ↔ ci_preflight 步骤表双向对齐", bool(rep.get("aligned")),
+          {"workflow": rep.get("workflow"), "ci_steps": rep.get("ci_steps"),
+           "claimed_steps": rep.get("claimed_steps"),
+           "missing": rep.get("missing"), "unused": rep.get("unused"),
+           "last_preflight": last})
+
+
 # ------------------------------------------------------------ main
 def main() -> int:
     ap = argparse.ArgumentParser()
@@ -380,6 +423,7 @@ def main() -> int:
     a10_replay(k)
     a11_bridge()
     a12_constraints()
+    a13_ci_preflight()
 
     failed = [c for c in CHECKS if not c["ok"]]
     rep = {"gate": "v3", "doc_version": "0.9.3", "checks": CHECKS,

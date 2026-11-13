@@ -1,0 +1,58 @@
+{
+  "batch": "V78a",
+  "name": "CI 预检闸（本地 10 步回放 + v3_gate 第 33 面 A13 双向契约）",
+  "status": "LOCAL_READY",
+  "date": "2026-11-13",
+  "head": "TBD_AFTER_COMMIT",
+  "doc_version": "0.9.71",
+  "doc_version_note": "唯一权威点 holoaeon/spec.py:35；升号耦合 4 处已同步：spec.py + tests/test_v22_eng_skills.py:50 + tests/test_v64_hangover_zero.py:396 + tests/test_v70_prehistory_criteria.py:309。concept_anatomy.py R-04 token 仍冻结 0.9.33（V23 快照），沿用 V66/V67/V73/V75/V76 先例不动；tests/test_v75_claims_gate.py 内的 0.9.68 是自造 tmp 上下文，故意不动。",
+  "why": "186 连败里最贵的一课不是某个测试红了，而是本地全绿、云端全红——F 盘素材、客仓、交付包、CRLF 口径清单，本地都有，Linux runner 上一个都没有。本批不承诺「本地跑等于云端跑」，它承诺「两张步骤表不许悄悄漂移」。",
+  "patches": {
+    "A": "新建 scripts/ci_preflight.py（约 300 行，纯标准库）：把 .github/workflows/ci.yml 的 10 个 - name 原样搬回本地逐面执行；STEPS 每项含 id / ci_name（前缀匹配）/ kind（info|run|multi）/ desc / cmd；info 只记录不判红（矩阵是 CI 的事），multi 逐个跑、任一失败即停；单步超时 900s；PYTHONIOENCODING=utf-8 + PYTHONUTF8=1；输出 reports/ci_preflight.json（含 contract 段、evidence_class=measured、doc_version 从 spec.py 实时读）；CLI 支持 --only / --list / --json",
+    "B": "scripts/v3_gate.py 新增 a13_ci_preflight()（第 33 面）：用 importlib 加载 ci_preflight（不执行重门禁，避免闸里套闸递归变慢），读 contract_report() 判「双向对齐」，并读 reports/ci_preflight.json 披露 last_preflight 状态；main 里 a12_constraints() 之后调用；A12 注释改为「V78a 起对外口径 32/32 → 33/33」",
+    "C": "contract_report() 提供双向判据：missing（ci.yml 有而 STEPS 没认领）/ unused（STEPS 有而 ci.yml 没有）/ aligned；实测 ci_steps=10 / claimed_steps=10 / missing=[] / unused=[]",
+    "D": "新增 tests/test_v78_ci_preflight.py（12 例）：结构（10 面 / id 唯一 / kind 合法 / 字段齐）、契约（正向 / 反向 / aligned / 篡改必红）、行为（info 不判红 / 失败命令必判红 / multi 首败即停 / --list 不执行 / 报告字段齐 / 零第三方依赖 AST 扫描）",
+    "E": "DOC_VERSION 0.9.70 → 0.9.71（4 处耦合同源）+ README 双份批次行（新批次前插、旧最新批次降为上一批次）+ README 活体门禁行改为实测（v3_gate 33/33 · unittest 1874 OK · 清单 251 条）",
+    "F": "SHA256SUMS 250 → 251 条（新增 scripts/ci_preflight.py，按 scripts/ 字母序插入）+ data/dual_repo_sums.json（entries=251 / sums_sha256 同步）"
+  },
+  "verification": {
+    "v3_gate": "33/33 PASS",
+    "ci_preflight_contract": "ci_steps=10 / claimed=10 / missing=[] / unused=[] / aligned=true",
+    "test_v78": "12/12 OK",
+    "unittest_main": 1874,
+    "v3_domain": "11 OK",
+    "verax_domain": "21 OK",
+    "contract_suite": "184 OK",
+    "selftest": "25/25 PASS",
+    "redline": 156,
+    "dimension_lock": "PASS（12 维度 / 0 violation）",
+    "design_vocab": "PASS 8/8 registry_sha16=7631bf8ea7b6caed",
+    "check_sums": "ok=true / total=251 / mismatches=[]",
+    "claims_gate": "PASS / mismatch 0（八面：claim_registered / readback_consistent / historical_timeboxed / regulation_pinned / pin_freshness / determinism_self_digest / chain_position_coverage / registry_coverage）",
+    "nephron": "A1 = PASS（sha256=8e89abc924486bd1）；变异证明 基线 PASS → 篡改后 FAIL（差异步 3）",
+    "preflight_run": "10/10 PASS（interpreter / unit_tests / contract_tests / dimension_lock / design_vocab / selftest / redline / nephron / claims_gate / examples）",
+    "doc_version_after": "0.9.71",
+    "sums_entries": 251,
+    "sums_sha256": "607aa8c5dfaf898e5f8395b84b1ccbbb61a4b180f8fc35e4e51867a75d2bc604"
+  },
+  "falsifiable": {
+    "T07": "给 ci.yml 塞一个没人认领的步骤 → aligned 必须 False 且 missing 命中该步名（实测红）",
+    "T09": "一条必然 sys.exit(7) 的命令 → ok=False 且 rc=7（实测红）",
+    "T10": "multi 第一步指向不存在脚本 → ok=False 且 rc≠0，不继续跑第二步（实测红）",
+    "T12": "AST 扫描顶层 import 只允许标准库 + holoaeon（零第三方依赖可判）",
+    "A13.1": "ci.yml 加步骤而预检器没跟上 → v3_gate 第 33 面当场红"
+  },
+  "honest_boundary": [
+    "预检器只回放步骤名与命令，不复现 CI 的 py3.8/3.10/3.12 矩阵；interpreter 面在本机只记录当前版本，不判红。",
+    "「双向对齐」判的是步骤表结构，不判每步语义是否等价：ci.yml 的 run 命令与 STEPS 的 cmd 若文字不同但指向同一校验器，A13 仍判绿（这是有意的——两边的调用形式本来就不同：CI 用 bash 多行，本地用 argv）。",
+    "预检器不联网、不装依赖，装不出来的东西（如 CI 的 ubuntu-22.04 钉版）它不负责。",
+    "local green 仍不等于 cloud green；本批只把「表漂移」变成可失败，不把「环境差异」变成可失败。"
+  ],
+  "not_committed": [
+    "AGENT_FEED_*.md（仓根投喂包，untracked，不提交）",
+    "reports/ci_preflight.json（运行期生成物，D 类活体产物；不列入清单）",
+    "reports/state_beacon.json / 各 daily_* 过程文档",
+    "F:\\doubaowork\\holoaeon_lathe\\*（机床与锚点在仓外）"
+  ],
+  "seal": "桃花庵出品 · 潮起开门，潮落闭嘴"
+}

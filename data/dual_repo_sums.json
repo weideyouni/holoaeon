@@ -3,7 +3,7 @@
   "evidence_class": "simulated",
   "generated_at": "2026-11-02",
   "holoaeon": {
-    "entries": 250,
+    "entries": 251,
     "exclude_reason": "清单自身与派生件不入清单，避免自指循环",
     "excludes": [
       "SHA256SUMS",
@@ -19,7 +19,7 @@
     ],
     "manifest": "SHA256SUMS",
     "root": "F:/doubaowork/holoaeon",
-    "sums_sha256": "e030497aad9c11c8105856c185f04172f00bb4e05b33e4e8c88e7070e2c672c8",
+    "sums_sha256": "607aa8c5dfaf898e5f8395b84b1ccbbb61a4b180f8fc35e4e51867a75d2bc604",
     "v38_note": "V38 清单不动点重建：2 条漂移复算归零；按 C-07/C-09 移出 3 条运行期生成物（v44 实时报告、b8 校验、dual_repo_sums），条目 250"
   },
   "interface": {
