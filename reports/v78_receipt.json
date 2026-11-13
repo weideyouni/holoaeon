@@ -3,7 +3,7 @@
   "name": "CI 预检闸（本地 10 步回放 + v3_gate 第 33 面 A13 双向契约）",
   "status": "LOCAL_READY",
   "date": "2026-11-13",
-  "head": "TBD_AFTER_COMMIT",
+  "head": "7ada52a93d91fd44a19482eaf3423795c4143e4d",
   "doc_version": "0.9.71",
   "doc_version_note": "唯一权威点 holoaeon/spec.py:35；升号耦合 4 处已同步：spec.py + tests/test_v22_eng_skills.py:50 + tests/test_v64_hangover_zero.py:396 + tests/test_v70_prehistory_criteria.py:309。concept_anatomy.py R-04 token 仍冻结 0.9.33（V23 快照），沿用 V66/V67/V73/V75/V76 先例不动；tests/test_v75_claims_gate.py 内的 0.9.68 是自造 tmp 上下文，故意不动。",
   "why": "186 连败里最贵的一课不是某个测试红了，而是本地全绿、云端全红——F 盘素材、客仓、交付包、CRLF 口径清单，本地都有，Linux runner 上一个都没有。本批不承诺「本地跑等于云端跑」，它承诺「两张步骤表不许悄悄漂移」。",
