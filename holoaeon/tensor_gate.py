@@ -69,6 +69,16 @@ from .org_gate import DEEPENING_BATCHES
 # 一、命名规范（编号内嵌式——GitHub 建仓名已合规，零迁移如实声明）
 # ---------------------------------------------------------------------------
 
+# 领域编排环声明（V75 补齐，形制照 forge_gate；只加常量不动机制）
+CHAIN_POSITION = {
+    "ring": 22,
+    "layer": "tensor",
+    "domain": "张量与吸收（耦合场与外部扬弃）",
+    "batch": "V59",
+    "upstream": ["org_gate(ring21 组织)", "salvage_gate(ring23 打捞)"],
+    "lineage_note": "同环多模块为既有模式，非编号冲突",
+}
+
 NAMING_PATTERN = re.compile(r"^holoaeon-c(\d{2})-([a-z]+)$")
 
 

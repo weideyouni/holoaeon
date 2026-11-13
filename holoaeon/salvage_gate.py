@@ -104,6 +104,16 @@ from .org_gate import DEEPENING_BATCHES
 
 # 资产身份注册表：pattern 用于在本机工作区自动匹配（目录/文件名匹配，
 # 不含绝对路径——仓内零本机路径泄漏）；sg_id/nature 为对账事实。
+# 领域编排环声明（V75 补齐，形制照 forge_gate；只加常量不动机制）
+CHAIN_POSITION = {
+    "ring": 23,
+    "layer": "salvage",
+    "domain": "打捞（知识打捞与指针化）",
+    "batch": "V60",
+    "upstream": ["tensor_gate(ring22 张量吸收)"],
+    "lineage_note": "ring23 与 meridian_link 同环：打捞入仓与经络检索是同一环的两个面，非编号冲突",
+}
+
 SALVAGE_ASSETS: Tuple[Dict[str, Any], ...] = (
     {"id": "sk6m_600m", "name": "打捞之王600万超级矩阵V3实战化",
      "sg_id": "SG-MASTER-SALVAGE-KING-6M-1331x1331-SUPER-MAS-V3.0",

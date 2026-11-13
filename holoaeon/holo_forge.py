@@ -12,6 +12,16 @@ import os
 import sys
 import time
 
+# 领域编排环声明（V75 补齐；V28 链式执行层第三环，历史口径 ring3，只加常量不动机制）
+CHAIN_POSITION = {
+    "ring": 3,
+    "layer": "chain-execution",
+    "domain": "链式执行（计划-执行-参考-成品四态融合）",
+    "batch": "V28",
+    "upstream": ["mobius_vortex(V26 回流)", "klein_projection(V27 吸纳)"],
+    "lineage_note": "历史链式执行层编号 ring3，与领域编排环并存，非编号冲突",
+}
+
 SEAL = "潮起开门，潮落闭嘴"
 AXIOMS = {"holography": "全息是宇宙的第一铁律：局部包含整体",
           "universal_linkage": "万物互联：万物可链，契约即接口"}

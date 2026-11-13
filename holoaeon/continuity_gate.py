@@ -58,6 +58,16 @@ from .hypervector import HypervectorSpace
 # 一、贯续常量（三条贯续 + 四问判据 + 八期次序）
 # ---------------------------------------------------------------------------
 
+# 领域编排环声明（V75 补齐，形制照 forge_gate；只加常量不动机制）
+CHAIN_POSITION = {
+    "ring": 20,
+    "layer": "continuity",
+    "domain": "贯续（可续跑的状态与心跳贯续）",
+    "batch": "V56",
+    "upstream": ["c18_cluster(ring19 集群底座)", "org_gate(ring21 组织域)"],
+    "lineage_note": "同环多模块为既有模式，非编号冲突",
+}
+
 CONTINUITY_AXES: Tuple[str, str, str] = ("temporal", "structural", "evidential")
 
 CONTINUITY_AXIS_DESC: Dict[str, str] = {

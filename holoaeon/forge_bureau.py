@@ -71,6 +71,16 @@ from .protocol_plugins import PROTOCOL_REGISTRY, export_skill_to_protocol, list_
 from .salvage_gate import ADAPTATION_REQUIRED, C18_NUMBERING
 from .skill import ngram_dice
 
+# 领域编排环声明（V75 补齐，形制照 forge_gate；只加常量不动机制）
+CHAIN_POSITION = {
+    "ring": 24,
+    "layer": "bureau",
+    "domain": "制造局（机床资产与工位）",
+    "batch": "V63",
+    "upstream": ["meridian_link(ring23 经络检索)", "forge_gate(ring16 装配工厂)"],
+    "lineage_note": "同环多模块为既有模式，非编号冲突",
+}
+
 SEAL = "潮起开门，潮落闭嘴"
 SCHEMA_VERSION = "FORGE-BUREAU-v1.0"
 DATA_OUT_NAME = "forge_bureau_meridian.json"

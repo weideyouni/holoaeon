@@ -55,6 +55,16 @@ from .hypervector import HypervectorSpace
 # ---------------------------------------------------------------------------
 
 # 五岗编制（素材 2.2 采信；可兼任但仓主与记录员不得同人——自证污染硬规则）
+# 领域编排环声明（V75 补齐，形制照 forge_gate；只加常量不动机制）
+CHAIN_POSITION = {
+    "ring": 21,
+    "layer": "organization",
+    "domain": "组织（角色分工与协作场）",
+    "batch": "V58",
+    "upstream": ["continuity_gate(ring20 贯续)", "tensor_gate(ring22 张量吸收)"],
+    "lineage_note": "同环多模块为既有模式，非编号冲突",
+}
+
 ORG_ROLES: Tuple[str, str, str, str, str] = (
     "仓主", "结构员", "连接员", "适配员", "记录员",
 )

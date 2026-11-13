@@ -134,6 +134,21 @@ jobs:
           fi
           exit $rc
 
+      - name: Claims gate (A1 narrative + regulation pins)
+        # V75：叙述位与外部规定版本双注册簿。闸红必须把具体面抛进 annotation，
+        # 否则「README 写 526 而实测 1793」这类漂移只会在人肉对账时才被发现。
+        run: |
+          set +e
+          log=/tmp/claims.log
+          python -m holoaeon.claims_gate verify > "$log" 2>&1
+          rc=$?
+          cat "$log"
+          if [ $rc -ne 0 ]; then
+            detail=$(grep -E "MISMATCH|UNPINNED|STALE|INCOMPLETE|self_digest|UNLOCATED|Traceback" "$log" | head -n 6 | tr '\n' ' ')
+            echo "::error title=claims-gate rc=$rc py=${{ matrix.python }}::${detail:-no-detail}"
+          fi
+          exit $rc
+
       - name: Examples 01-04 (smoke)
         run: |
           for f in examples/01_basic_matrix.py examples/02_semantic_routing.py \

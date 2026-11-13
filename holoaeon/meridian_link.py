@@ -109,6 +109,16 @@ from .packs.topology_resonance_pack import (
 from .org_gate import c03_gate_report
 from .salvage_gate import load_d03_b
 
+# 领域编排环声明（V75 补齐，形制照 forge_gate；只加常量不动机制）
+CHAIN_POSITION = {
+    "ring": 23,
+    "layer": "meridian",
+    "domain": "经络（检索网与知识回流）",
+    "batch": "V62",
+    "upstream": ["salvage_gate(ring23 同环·打捞)", "c18_cluster(ring19 集群底座)"],
+    "lineage_note": "ring23 与 salvage_gate 同环：打捞入仓与经络检索是同一环的两个面，非编号冲突",
+}
+
 SEAL = "潮起开门，潮落闭嘴"
 SCHEMA_VERSION = "MERIDIAN-LINK-v1.0"
 DATA_OUT_NAME = "searchnet_d03_meridian.json"

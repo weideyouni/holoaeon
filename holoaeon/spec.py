@@ -32,7 +32,7 @@ VERSION = "0.9.1"
 # VERSION / RUNTIME_ID 会写进每条回执并参与 ReproHash，改动即等于让 DIFF=0 黄金值
 # （2fc892cf9af6e755）漂移，与"V1 黄金值不许漂移"的硬口径冲突。
 # 因此 V2 的版本号单独记在 DOC_VERSION，供文档/快照/徽章使用。
-DOC_VERSION = "0.9.67"  # V73 史前大部头导学产品（PL-6）：指针卡片库 42 张（导学大典/通史/周易/道藏四部头）+ prehistory_tutor 六面判据；只存指针与 200 字内短摘要、零诊断零处方，六面金丝雀 6/6 红 …扩 prehistory 快照；18/18 自检全绿、252 例、零第三方、零实现复制
+DOC_VERSION = "0.9.68"  # V75 双注册簿闸门（claims_gate）：叙述位与外部规定版本从静态文本升级为仓内只读注册簿 + 可失败判据（七面 + 七金丝雀）；只改「数字从哪来」不改数字，零第三方 import / 零网络 / 不写文件
 MATRIX_ID = "HOLOAEON-MATRIX-0.9.1"
 RUNTIME_ID = "HOLOAEON-RUNTIME-0.9.1"
 PROTOCOL_ID = "HOLOAEON-DATAPROTO v1.0"

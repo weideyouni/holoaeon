@@ -1,0 +1,251 @@
+{
+  "batch": "V75-CLAIMS-GATE",
+  "line": "V75 双注册簿闸门批：把 README 的叙述性声明与外部规定版本升级为仓内只读注册簿 + 可失败判据；只改「数字从哪来」，不改任何数字",
+  "status": "closed_execution_side_head_pending",
+  "date": "2026-11-13",
+  "head": "034f8ba",
+  "head_full": "034f8ba34e1f0871f1f7593113c442b1a2473bf5",
+  "head_note": "开工 head（V74 回执补正）。本批提交后回执经补正提交换成本批 head，并补 prev_head / prev_head_full（V37 起惯例：回执 head 只能提交后拿到）",
+  "prev_head": "034f8ba",
+  "prev_head_full": "034f8ba34e1f0871f1f7593113c442b1a2473bf5",
+  "doc_version": "0.9.68",
+  "doc_version_note": "唯一权威点 holoaeon/spec.py:35；升号实测耦合点 spec.py + tests/test_v22_eng_skills.py:50 + tests/test_v64_hangover_zero.py:396 + tests/test_v70_prehistory_criteria.py:309（后两处为本批实跑发现的历史写死断言，已同步）。concept_anatomy.py R-04 token 仍冻结 0.9.33（V23 快照），test_v19 断言同值，沿用 V73 先例不动",
+  "patches": [
+    {
+      "file": "holoaeon/claims_gate.py",
+      "kind": "new",
+      "note": "七面判据 + 只读注册簿装载 + self_digest + verify/report CLI；纯标准库"
+    },
+    {
+      "file": "data/claims_registry.json",
+      "kind": "new",
+      "note": "CLAIMS-GATE-v1；doc_claims 15（current 9 / historical 3 / narrative 3）+ regulation_pins 6；self_digest 3f288ce6f591f110"
+    },
+    {
+      "file": "tests/test_v75_claims_gate.py",
+      "kind": "new",
+      "note": "50 例（九组 + 第 10 组真实包覆盖）"
+    },
+    {
+      "file": "holoaeon/continuity_gate.py",
+      "kind": "edit",
+      "note": "CHAIN_POSITION ring20（V56）"
+    },
+    {
+      "file": "holoaeon/org_gate.py",
+      "kind": "edit",
+      "note": "CHAIN_POSITION ring21（V58）"
+    },
+    {
+      "file": "holoaeon/tensor_gate.py",
+      "kind": "edit",
+      "note": "CHAIN_POSITION ring22（V59）"
+    },
+    {
+      "file": "holoaeon/salvage_gate.py",
+      "kind": "edit",
+      "note": "CHAIN_POSITION ring23（V60）"
+    },
+    {
+      "file": "holoaeon/meridian_link.py",
+      "kind": "edit",
+      "note": "CHAIN_POSITION ring23（V62，与 salvage 同环两面，lineage_note 已写明非编号冲突）"
+    },
+    {
+      "file": "holoaeon/forge_bureau.py",
+      "kind": "edit",
+      "note": "CHAIN_POSITION ring24（V63）"
+    },
+    {
+      "file": "holoaeon/holo_forge.py",
+      "kind": "edit",
+      "note": "CHAIN_POSITION ring3（V28 链式执行层编号，与领域编排环并存）"
+    },
+    {
+      "file": "holoaeon/spec.py",
+      "kind": "edit",
+      "note": "DOC_VERSION 0.9.67→0.9.68（含 V75 描述注释）"
+    },
+    {
+      "file": "tests/test_v22_eng_skills.py",
+      "kind": "edit",
+      "note": "版本同步断言 0.9.68"
+    },
+    {
+      "file": "tests/test_v64_hangover_zero.py",
+      "kind": "edit",
+      "note": "历史写死 DOC 断言 0.9.67→0.9.68（本批实跑发现）"
+    },
+    {
+      "file": "tests/test_v70_prehistory_criteria.py",
+      "kind": "edit",
+      "note": "历史写死 DOC 断言 0.9.67→0.9.68（本批实跑发现）"
+    },
+    {
+      "file": "README.zh-CN.md",
+      "kind": "edit",
+      "note": "块 E 九处 + 活体数字 + V75 批次行前插 + V73 行补「上一批次」前缀"
+    },
+    {
+      "file": "README.md",
+      "kind": "edit",
+      "note": "同构英文改写（含 V46-D note 英文句尾重写）"
+    },
+    {
+      "file": ".github/workflows/ci.yml",
+      "kind": "edit",
+      "note": "第 10 道 Claims gate（只加这一道）"
+    },
+    {
+      "file": "reports/v75_receipt.json",
+      "kind": "new",
+      "note": "本回执"
+    }
+  ],
+  "registry": {
+    "schema": "CLAIMS-GATE-v1",
+    "doc_claims": 15,
+    "current": 9,
+    "historical": 3,
+    "narrative": 3,
+    "regulation_pins": 6,
+    "self_digest": "3f288ce6f591f110",
+    "pin_status_breakdown": {
+      "current": 6,
+      "superseded": 0,
+      "unknown": 0
+    }
+  },
+  "verification": {
+    "unittest_main": "1793 OK",
+    "unittest_v3": "11 OK",
+    "unittest_verax": "21 OK",
+    "unittest_total": "1825",
+    "selftest": "25/25",
+    "v3_gate": "32/32",
+    "v44": "13/13",
+    "redline": "155 文件 0 违规",
+    "dimension_lock": "PASS（12 维度 + 7 闸 + 0 violation）",
+    "check_sums": "ok:true / mismatches:[] / 250 条",
+    "readme_claims_check_outside": "VERDICT: PASS | mismatch=0 stale_header=0（双份全 MATCH，仓外第二读者并行）",
+    "claims_gate_verify": "PASS（七面全绿，见 criteria_check）",
+    "py_recursive": "155",
+    "py_top_level": "86",
+    "chain_position_constants": "29（declared_and_verified 24）"
+  },
+  "criteria_check": {
+    "face_1_claim_registered": "PASS（15/15 字段齐，缺一即 UNPINNED）",
+    "face_2_readback_consistent": "PASS（9 条 current 全部 resolved 到 receipt/computed）",
+    "face_3_historical_timeboxed": "PASS（3 条 historical 均带 as_of_batch + timeboxed）",
+    "face_4_regulation_pinned": "PASS（6/6 四必填齐）",
+    "face_5_pin_freshness": "PASS（STALE=0，max_age_days 未超）",
+    "face_6_determinism_self_digest": "PASS（两跑同 digest 3f288ce6f591f110）",
+    "face_7_chain_position_coverage": "PASS（29 常量 / 24 显式校验）",
+    "canary": "7/7 red + 基准绿（坏账七种各自单独打红，互不串扰）",
+    "diff0": "DIFF=0（判据 6d119b2a9f2df687）",
+    "canary_detail": {
+      "result_file": "holoaeon_lathe\\v75_canary_result.json（仓外，不提交）",
+      "canaries_red": 7,
+      "baseline_green": true,
+      "verdict": "PASS",
+      "cases": [
+        {
+          "case": "face1",
+          "face": "claim_registered",
+          "mutation": "删掉一条活体声明（gate_redline_zh）",
+          "that_face_red": true,
+          "other_red_faces": []
+        },
+        {
+          "case": "face2",
+          "face": "readback_consistent",
+          "mutation": "验收行 expected_from 指到合计（1825 vs 1793）",
+          "that_face_red": true,
+          "other_red_faces": []
+        },
+        {
+          "case": "face3",
+          "face": "historical_timeboxed",
+          "mutation": "historical 的 timeboxed 改 false",
+          "that_face_red": true,
+          "other_red_faces": []
+        },
+        {
+          "case": "face4",
+          "face": "regulation_pinned",
+          "mutation": "第一条 pin 的 verified_at 置空串",
+          "that_face_red": true,
+          "other_red_faces": [
+            "pin_freshness"
+          ]
+        },
+        {
+          "case": "face5",
+          "face": "pin_freshness",
+          "mutation": "全部 pin verified_at=2019-01-01（超 180 天）",
+          "that_face_red": true,
+          "other_red_faces": []
+        },
+        {
+          "case": "face6",
+          "face": "determinism_self_digest",
+          "mutation": "self_digest 改全 0（不重算）",
+          "that_face_red": true,
+          "other_red_faces": []
+        },
+        {
+          "case": "face7",
+          "face": "chain_position_coverage",
+          "mutation": "临时包内放「声明 ring1 但无常量」的模块",
+          "that_face_red": true,
+          "other_red_faces": [
+            "readback_consistent"
+          ]
+        }
+      ]
+    },
+    "canary_note": "7/7 单独打红 + 基准绿。两处联动如实登记、不算串扰：face4（verified_at 置空）必然连带 pin_freshness（空日期不可判）；face7（临时包根）必然连带 readback_consistent（computed.py_recursive 数临时包 1 ≠ 155）"
+  },
+  "build_king": {
+    "note": "本批未改 build_king 定点值（无新 head 常量、无台账数字变化）",
+    "pkg_sha": "7fc8227138e6503cdae63af7a041c6d581d78bcf6732c4738b20d129bfe75ef1",
+    "load_king": "VERDICT: OK"
+  },
+  "feed_index": {
+    "note": "pending 1（V75）→ 收口后置 with_feed 19 / pending 0",
+    "pending_before": [
+      "V75"
+    ],
+    "default_decision": "包内两处待碳基签按「按默认开工」取 A/A：①双表实体注册簿 + 七面判据 + 仓内模块；②批序 V74 旧账清理先落地 → V75 在其之上"
+  },
+  "honest_boundaries": [
+    "verified_at 是人写快照：本模块不联网核实规定现行有效，只判超期（不复制法规全文、不落地真实医保目录）",
+    "面 2 保证「文档视图 == 批次回执记录」，不是「重跑一遍测试」；回执数字必须由本批实跑填入",
+    "链位覆盖实测 29 常量 / 24 校验，投喂包验收表写 28/28；差额 1 来自 holo_forge.py（V28 链式执行层 ring3），按实测优先并登记",
+    "concept_anatomy.py R-04 token 冻结 0.9.33 未随批升（V73 先例，实跑实测耦合点只有 4 处，已在 doc_version_note 列明）",
+    "主套 1793 高于投喂包下限 1778：差额主要为 test_v75_claims_gate 50 例",
+    "本批 7 个模块的 CHAIN_POSITION 为「补完应 28/28」，实测 29；salvage/meridian 同 ring23 是两面非冲突，holo_forge ring3 是历史编号",
+    "仓外 readme_claims_check.py 仍保留为第二读者（含 subprocess，不搬入仓内）；仓内闸门为权威判据"
+  ],
+  "not_committed": [
+    "AGENT_FEED_V75_CLAIMS_GATE_QIANWEN_R8_20261113.md（投喂包，untracked、不提交，收口后加 _DONE）",
+    "holoaeon_lathe 全部工具脚本（v75_chain_position.py / v75_make_registry.py / v75_doc_bump.py / v75_readme_patch.py / v75_ci_patch.py / v75_doc_assert_fix.py / 探针与备份）",
+    "包内 7 个 *.py.bak_v75 备份（已移出到 holoaeon_lathe\\bak）"
+  ],
+  "next_batch": "V76 待投喂（PL-4 族谱 / PL-5 判据注入包 / PL-6 导学三案各自单独成批，不混做）",
+  "seal": "潮起开门，潮落闭嘴",
+  "feed_corrections": [
+    {
+      "item": "链位覆盖 28/28 → 实测 29",
+      "detail": "投喂包 §7 验收表写 chain_position_coverage 28/28；实测常量 29（declared/verified 24）。多出 1 个为 holo_forge.py（V28 链式执行层 ring3），PL-6 已一并补齐。按实测优先原则落地。"
+    },
+    {
+      "item": "DOC 升号耦合点 2 处 → 实测 4 处",
+      "detail": "投喂包预期只有 spec.py + test_v22 两处；本批实跑主套发现 test_v64_hangover_zero.py:396 与 test_v70_prehistory_criteria.py:309 亦写死 0.9.67，已同步升 0.9.68。concept_anatomy.py R-04 token 仍冻结 0.9.33（V23 快照），沿用 V73 先例不动。"
+    },
+    {
+      "item": "en 验收行取首匹配 → 改末匹配",
+      "detail": "README.md 历史段先出现旧值 main suite 数字，claims_gate 的 readme.en.acceptance_main 由 _first_int 改 _last_int（活体口径行在后段），zh 同步；此为实现修正，判据口径（回读 vs 回执）未变。"
+    }
+  ]
+}
