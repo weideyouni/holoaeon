@@ -57,6 +57,14 @@ SUMS_EXCLUDES = (
     "reports/b9_closeout.json",
     "reports/b9_closeout_check.json",
     "reports/ivsa_recon.json",
+    # V78b · P0-B：以下 5 条是运行期产物（3 条未跟踪 + 2 条被 .gitignore 命中），
+    # 云端 checkout 上不存在，入清单必红；排除与 check_sums 的 untracked/ignored
+    # 判据双向配合——闸拦新增，清单不再收录存量。
+    "reports/daily_baseline_20261103.md",
+    "reports/daily_gate.json",
+    "reports/daily_gate_20261103.json",
+    "reports/feishu_fetch.json",
+    "reports/feishu_v3_fetch.json",
 )
 
 
@@ -67,11 +75,42 @@ def canonical_digest(obj: Any) -> str:
 
 
 def sha256_file(path: str) -> str:
+    """原字节口径（ivsa 侧复算沿用原约定，保持对方仓清单语义不变）。"""
     h = hashlib.sha256()
     with open(path, "rb") as f:
         for chunk in iter(lambda: f.read(65536), b""):
             h.update(chunk)
     return h.hexdigest()
+
+
+def _binary_patterns(root: str) -> List[str]:
+    """解析 .gitattributes 的 `*.xxx binary` 行 → 后缀清单（V78b，规则唯一来源）。"""
+    out: List[str] = []
+    p = os.path.join(root, ".gitattributes")
+    if not os.path.isfile(p):
+        return out
+    with open(p, "r", encoding="utf-8", errors="ignore") as f:
+        for line in f:
+            parts = line.strip().split()
+            if len(parts) == 2 and parts[0].startswith("*.") and parts[1] == "binary":
+                out.append(parts[0][2:])
+    return out
+
+
+def sha256_file_lf(path: str, binary_exts: Iterable[str] = ()) -> str:
+    """V78b · P0-A：宿主清单口径——文本文件 CRLF→LF 后哈希，二进制原字节。
+
+    与 scripts/check_sums.py 的 `_digest_file` 同一语义：两边各自解析同一份
+    .gitattributes，规则只有一份，不互相硬编码（闸与重建器口径漂移即红）。
+    """
+    exts = set(binary_exts)
+    name = os.path.basename(path)
+    ext = name.rsplit(".", 1)[1].lower() if "." in name else ""
+    with open(path, "rb") as f:
+        raw = f.read()
+    if ext not in exts:
+        raw = raw.replace(b"\r\n", b"\n")
+    return hashlib.sha256(raw).hexdigest()
 
 
 def plugin_descriptor() -> Dict[str, Any]:
@@ -156,7 +195,12 @@ def interface_check(holo_csv: str, ivsa_csv: str) -> Dict[str, Any]:
 
 
 def build_sums(root: str, files: Iterable[str]) -> List[str]:
-    """生成 SHA256SUMS 行（`hex  relpath`，按路径字典序，排除清单自指项）。"""
+    """生成 SHA256SUMS 行（`hex  relpath`，按路径字典序，排除清单自指项）。
+
+    V78b · P0-A 起口径：文本文件 LF 归一化哈希（二进制按 .gitattributes 原字节），
+    Windows CRLF 工作区与 Linux checkout 产出同一份清单——本地绿=云端绿。
+    """
+    binary_exts = _binary_patterns(root)
     lines: List[str] = []
     for rel in sorted(files):
         if rel in SUMS_EXCLUDES:
@@ -164,7 +208,7 @@ def build_sums(root: str, files: Iterable[str]) -> List[str]:
         abspath = os.path.join(root, rel.replace("/", os.sep))
         if not os.path.isfile(abspath):
             continue
-        lines.append("%s  %s" % (sha256_file(abspath), rel))
+        lines.append("%s  %s" % (sha256_file_lf(abspath, binary_exts), rel))
     return lines
 
 
@@ -185,8 +229,13 @@ def parse_sums(text: str) -> List[Tuple[str, str]]:
     return out
 
 
-def verify_sums(root: str, text: str) -> Dict[str, Any]:
-    """按清单逐件复算：缺文件 / 多文件 / 哈希不符 / 字节不符。"""
+def verify_sums(root: str, text: str, lf_caliber: bool = False) -> Dict[str, Any]:
+    """按清单逐件复算：缺文件 / 多文件 / 哈希不符 / 字节不符。
+
+    lf_caliber（V78b）：True 时文本按 LF 归一化口径复算（holoaeon 侧清单口径），
+    默认 False 保持原字节口径（ivsa 侧沿用对方仓清单约定，语义不变）。
+    """
+    binary_exts = _binary_patterns(root) if lf_caliber else set()
     entries = parse_sums(text)
     missing, extra, bad_sha, bad_bytes = [], [], [], []
     names = set()
@@ -196,7 +245,8 @@ def verify_sums(root: str, text: str) -> Dict[str, Any]:
         if not os.path.isfile(abspath):
             missing.append(name)
             continue
-        got = sha256_file(abspath)
+        got = (sha256_file_lf(abspath, binary_exts) if lf_caliber
+               else sha256_file(abspath))
         if got != digest:
             bad_sha.append(name)
         if len(got) != len(digest):

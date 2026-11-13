@@ -1,4 +1,6 @@
-# 统一检出为 LF：SHA256SUMS 记录的是 LF 字节，Windows 上若被转成 CRLF 会导致复算不符
+# 统一检出为 LF。SHA256SUMS 自 V78b 起记录 LF 归一化字节（文本按 LF、二进制按
+# .gitattributes 原字节），Windows CRLF 工作区与 Linux checkout 复算同口径；
+# 闸与重建器都以本文件的 binary 行为唯一规则来源。
 * text=auto eol=lf
 *.zip binary
 *.png binary

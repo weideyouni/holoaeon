@@ -1,10 +1,10 @@
 {
   "batch": "B8",
   "evidence_class": "simulated",
-  "generated_at": "2026-11-02",
+  "generated_at": "2026-11-14",
   "holoaeon": {
-    "entries": 251,
-    "exclude_reason": "清单自身与派生件不入清单，避免自指循环",
+    "entries": 332,
+    "exclude_reason": "清单自身与派生件不入清单，避免自指循环；V78b 起另排除 5 条运行期产物（3 未跟踪 + 2 gitignore）",
     "excludes": [
       "SHA256SUMS",
       "data/dual_repo_sums.json",
@@ -15,12 +15,17 @@
       "data/B9_收口票据.md",
       "reports/b9_closeout.json",
       "reports/b9_closeout_check.json",
-      "reports/ivsa_recon.json"
+      "reports/ivsa_recon.json",
+      "reports/daily_baseline_20261103.md",
+      "reports/daily_gate.json",
+      "reports/daily_gate_20261103.json",
+      "reports/feishu_fetch.json",
+      "reports/feishu_v3_fetch.json"
     ],
     "manifest": "SHA256SUMS",
     "root": "F:/doubaowork/holoaeon",
-    "sums_sha256": "607aa8c5dfaf898e5f8395b84b1ccbbb61a4b180f8fc35e4e51867a75d2bc604",
-    "v38_note": "V38 清单不动点重建：2 条漂移复算归零；按 C-07/C-09 移出 3 条运行期生成物（v44 实时报告、b8 校验、dual_repo_sums），条目 250"
+    "sums_sha256": "62318b5be9e97c13111dbf33e9244ef13487902708c3383575248d6e4bd3d29a",
+    "v78b_note": "P0-A：文本文件 LF 归一化口径（CRLF 工作区与 Linux checkout 同清单）；P0-B：运行期产物移出（旧清单 251 条中在列的 5 条）+ 重建只收 git 已跟踪文件（追平 V 系批次新增的已跟踪件），251→332"
   },
   "interface": {
     "expected_total": 17,

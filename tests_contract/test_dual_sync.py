@@ -116,14 +116,12 @@ class DualSyncTest(unittest.TestCase):
         self.assertEqual(self.check["verdict"], "PASS")
         self.assertEqual(self.check["failed"], [])
 
-    @unittest.skipUnless(os.name == "nt",
-                         "SHA256SUMS 为 Windows 工作区口径（CRLF 哈希 + 含不提交件），"
-                         "Linux checkout 必然不匹配；本机照常全跑")
     def test_11_sums_match_recorded_digest(self):
+        """V78b：LF 归一化口径后本测试平台无关——CRLF 工作区与 LF checkout 同判据。"""
         recomputed = DS.sums_digest([l for l in self.sums_text.splitlines() if l.strip()])
         self.assertEqual(recomputed, self.doc["holoaeon"]["sums_sha256"])
-        v = DS.verify_sums(ROOT, self.sums_text)
-        self.assertTrue(v["ok"])
+        v = DS.verify_sums(ROOT, self.sums_text, lf_caliber=True)
+        self.assertTrue(v["ok"], json.dumps(v, ensure_ascii=False))
         self.assertEqual(v["checked"], self.doc["holoaeon"]["entries"])
 
 

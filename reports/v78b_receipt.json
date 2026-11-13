@@ -1,0 +1,74 @@
+{
+  "batch": "V78b",
+  "name": "CI 门禁正式收口：复算闸与 v3 域闸入 ci.yml（P0-A LF 归一化 / P0-B 清单卫生 / P0-C 十步入 CI）",
+  "status": "LOCAL_READY",
+  "date": "2026-11-14",
+  "doc_version": "0.9.73",
+  "doc_version_note": "开工前实测 DOC_VERSION=0.9.72 / HEAD=8726f18（V81 收口态）；四处耦合同批：spec.py:35 + test_v22_eng_skills.py:50 + test_v64_hangover_zero.py:396 + test_v70_prehistory_criteria.py:309",
+  "ci_yml_changed": {
+    "steps_before": 10,
+    "steps_after": 12,
+    "added": [
+      "Manifest integrity (SHA256SUMS, LF-caliber) → python scripts/check_sums.py .",
+      "v3 gate (33 faces incl. A13 CI contract) → python scripts/v3_gate.py"
+    ],
+    "preflight_contract": "ci_preflight.STEPS 10→12（A13 双向对齐同批扩容，test_v78_ci_preflight 断言同步改）",
+    "pl7_prerequisite": "PL-7 已闭环（repo-scoped 写权限 Deploy Key id=169812825 + SSH over 443）：ci.yml 变更自本批起可推送——v81 时代『ci.yml 字节不变』的约束已由物理阻断解除"
+  },
+  "p0a": {
+    "caliber": "lf_normalized_text_raw_binary",
+    "rule_source": ".gitattributes 的 `*.xxx binary` 行（zip/png/jpg/jpeg/gif/pdf），闸与重建器各自解析同一份文件，不硬编码",
+    "text_rule": "CRLF→LF 后哈希；本地 CRLF 工作区与云端 LF checkout 复算同一份清单",
+    "red_before": "LF 口径下旧清单 251 条中 30 条 mismatch（CRLF 绑定）；改完不重建必红"
+  },
+  "p0b": {
+    "removed": [
+      "reports/daily_baseline_20261103.md",
+      "reports/daily_gate.json",
+      "reports/daily_gate_20261103.json",
+      "reports/feishu_fetch.json",
+      "reports/feishu_v3_fetch.json"
+    ],
+    "why": "3 条未跟踪 + 2 条 gitignore 命中——云端 checkout 上不存在，入清单必红",
+    "new_gate_checks": "check_sums 新增 untracked / ignored 两条机器判据（git ls-files 读 index：先闸后提交不断链；git 不可用时降级为不判并如实披露，不冒充通过）",
+    "rebuild_scope": "build_b8_dual_sync.release_files 只收 git 已跟踪文件；旧清单 251 → 332 条（移 5 + 追平 V 系批次新增的 86 条已跟踪件）"
+  },
+  "claims_gate_receipt_fix": "claims_gate._receipt：正则放宽 v<N><字母?>，『最新』判据从文件名 N 改为回执自身 doc_version——字母后缀批次 V78b 在时间上晚于纯数字批次 V81，按 N 排序会指到旧回执",
+  "patches": [
+    "scripts/check_sums.py：P0-A LF 归一化 + _binary_patterns + P0-B untracked/ignored 判据（verify 签名不变，v3_gate A12 调用无感）",
+    "holoaeon/fusion_upgrade/dual_sync.py：sha256_file_lf + build_sums 改 LF 口径 + SUMS_EXCLUDES 追加 5 条运行期产物（ivsa 侧 sha256_file 保持原字节口径，对方仓清单语义不变）",
+    "scripts/build_b8_dual_sync.py：release_files 只收 git 已跟踪文件 + generated_at 2026-11-14 + v78b_note",
+    ".gitattributes：第 1 行注释改真（V78b 起 SHA256SUMS 确为 LF 归一化口径；旧注释所述与实测相反）",
+    ".github/workflows/ci.yml：+2 步（Manifest integrity / v3 gate），10→12",
+    "scripts/ci_preflight.py：STEPS 10→12 + docstring 口径（CRLF 陈述改为『曾…V78b 起…』）",
+    "tests/test_v78_ci_preflight.py：T01/T06/T11 断言 10→12",
+    "holoaeon/claims_gate.py：_receipt 按 doc_version 取最新（支持字母后缀批次）",
+    "holoaeon/spec.py + 三处 DOC 耦合测试：0.9.72 → 0.9.73",
+    "data/claims_registry.json：PHC-2025 source_sha16 1a8f1e139d260d40 → 6e853d4c19b92203（README.zh-CN.md 改文档必漂，判据正确生效）；self_digest c32266b3a3ca281d → a2cbfe04f52a413e",
+    "README.zh-CN.md / README.md：复算闸 251→332（LF 口径注）+ 门禁行 V38→V78b 口径 + 批次行前插 V78b（V81 降上一批次）",
+    "reports/feed_index.json：PL-7 转 DONE_WITH_SSH_DEPLOY_KEY，pending_note 更新"
+  ],
+  "verification": {
+    "unittest_main": 1931,
+    "redline": 156,
+    "selftest": "25/25 PASS",
+    "v3_gate": "33/33 PASS（A12 内嵌复算 332 条绿；A13 双向对齐 12/12 面）",
+    "dimension_lock": "PASS（12 维度 / 0 violation）",
+    "sums_entries": 332,
+    "sums_caliber": "lf_normalized_text_raw_binary",
+    "doc_version_after": "0.9.73",
+    "ci_steps": 12
+  },
+  "honest_boundary": [
+    "本批收的是门禁侧：本地绿=云端绿的『判据同口径』，仍不承诺云端 runner 环境（Python 版本矩阵、stdlib 差异）零漂移——那是 ci_preflight 的 A13 契约在管的部分",
+    "check_sums 的 git 判据读 index（ls-files）：批次流程必须『先 git add 后过闸再 commit』；CI 上 index==HEAD 天然成立",
+    "git 不可用环境（理论场景）下 untracked/ignored 判据降级为不判，结果里如实披露 git_unavailable，不冒充通过",
+    "v81_receipt 的 sums_entries=251 是历史快照，V78b 起以本回执 332 为当前口径；面数 9 不变（本批未给 claims_gate 加面，只修 _receipt 发现逻辑）",
+    "S4 向量海 manifest 与 S5 HF mirror 属推送后动作，见 push 段"
+  ],
+  "not_committed": [
+    "AGENT_FEED_V79_CROSS_LEDGER_GATE_20261114.md 及其余 108 个仓根投喂包（历史资产，不入本批）",
+    "F:\\doubaowork\\holoaeon_lathe\\* 与 F:\\doubaowork\\_规划局_20261112\\*（仓外机床与规划局产物）"
+  ],
+  "seal": "潮起开门，潮落闭嘴"
+}

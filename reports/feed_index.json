@@ -1,6 +1,6 @@
 {
   "as_of": "2026-11-14",
-  "generated_by": "V81 收口（规定契约语义一致性 + 通用新鲜度契约 · claims_gate 第 9 面）",
+  "generated_by": "V78b CI 门禁正式收口（复算闸与 v3 域闸入 ci.yml · P0-A/P0-B/P0-C · DOC 0.9.73）",
   "no_feed_batches": [
     {
       "batch": "V64",
@@ -59,15 +59,16 @@
   "no_feed_count": 10,
   "pending_feeds": [
     {
+      "closed_at": "2026-11-14",
+      "evidence": "repo-scoped 写权限 Deploy Key id=169812825（POST /repos/weideyouni/holoaeon/keys → 201）+ SSH over 443 认证成功（Hi weideyouni/holoaeon）+ 临时分支含 ci.yml 改动真实推送 rc=0 后清理；origin.pushurl=ssh://git@ssh.github.com:443/weideyouni/holoaeon.git",
       "item": "PL-7",
-      "title": "GitHub workflow scope（ci.yml 直推免网页路径）",
-      "status": "PENDING_CARBON_WEB_ACTION",
+      "note": "碳基终裁『必须加工作流』的执行解释=让 .github/workflows/* 变更可推——已成立；现有 public_repo PAT 未补 workflow scope（账户级 SSH key 404 权限不足，改走仓库级窄权限通道，更小可撤销）；V78b 为首个含 ci.yml 变更的正式批次",
       "since": "2026-11-14",
-      "evidence": "11-14 01:57 碳基终裁「必须补 workflow scope」，当时同步报错才搁置",
-      "note": "必办未完成，搁置≠取消；本批 V81 不依赖它，五地同步仍走 PAT 直推；条件允许时补 scope 后可回读确认转 DONE_WITH_SCOPE_READBACK"
+      "status": "DONE_WITH_SSH_DEPLOY_KEY",
+      "title": "GitHub workflow 推送权限（ci.yml 直推免网页路径）"
     }
   ],
-  "pending_note": "PL-1~PL-6 已全部落地（V68/V69/V71/V72/V73）；V76/V77 均由四人组决议直接定批（无投喂包）；下一批 V78 = CI 门禁补齐（四人组 V2 §9.6③）",
+  "pending_note": "PL-1~PL-6 已全部落地（V68/V69/V71/V72/V73）；PL-7 已闭环（2026-11-14：repo-scoped 写权限 Deploy Key id=169812825 + SSH over 443，含 ci.yml 改动的真实推送探针 rc=0，碳基终裁『必须加工作流』的执行解释=让 .github/workflows/* 变更可推，已成立）；V78b 已执行（2026-11-14：复算闸与 v3 域闸入 ci.yml，12 步，DOC 0.9.73）；下一批候选：V79 跨账闸（投喂包在仓根待执行）或 V82（P1-B 失效判据处置），由四人组定调",
   "revoked_claims": [
     {
       "claim": "V56–V60 五包缺 _DONE 改名",
@@ -167,10 +168,10 @@
     },
     {
       "batch": "V81",
-      "file": "AGENT_FEED_V81_DONE_REGULATION_SEMANTIC_FRESHNESS_20261114.md",
       "bytes": 24734,
-      "sha_note": "落地后 Rename-Item 加 _DONE，字节级改名 sha256 不变（改名前后复核）",
-      "note": "图片投喂 → 投喂包全文 367 行 / §0–§10；执行端实测面数为第 9 面（V79 第 9 面未落地），与包内预期的第 10 面有 1 之差，按回读为准"
+      "file": "AGENT_FEED_V81_DONE_REGULATION_SEMANTIC_FRESHNESS_20261114.md",
+      "note": "图片投喂 → 投喂包全文 367 行 / §0–§10；执行端实测面数为第 9 面（V79 第 9 面未落地），与包内预期的第 10 面有 1 之差，按回读为准",
+      "sha_note": "落地后 Rename-Item 加 _DONE，字节级改名 sha256 不变（改名前后复核）"
     }
   ]
 }

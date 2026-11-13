@@ -281,23 +281,36 @@ _UNKNOWN = _Unknown()
 # expected_from 解析：receipt.<field> / computed.<name> / literal.<id>
 # ---------------------------------------------------------------------------
 def _receipt(ctx):
-    """最新批次回执：按 reports/v<N>_receipt.json 里 N 最大者自动发现。
+    """最新批次回执：按回执自身的 doc_version 最高者自动发现。
 
     V76 修正：V75 版把文件名写死成 v75_receipt.json，于是每批都要改源码才
     能读到本批回执 —— 这正是本模块要治的「会变的事实被复制成静态副本」，
     现在还回来了。改为按版本号取最大，批次换了不必再动这一行。
+
+    V78b 再修：正则放宽到 `v<N><字母?>_receipt.json`，且「最新」的判据从
+    文件名里的 N 改为回执自身的 doc_version —— V78b（字母后缀批次）在时间
+    上晚于 V81，按 N 取最大会指到旧回执，doc_version 才是批次先后的真判据。
     """
     d = os.path.join(ctx["root"], "reports")
     if not os.path.isdir(d):
         return None
-    best_n, best_p = -1, None
+    best_key, best_p = None, None
     for name in os.listdir(d):
-        m = re.match(r"^v(\d+)_receipt\.json$", name)
+        m = re.match(r"^v(\d+)([a-z]?)_receipt\.json$", name)
         if not m:
             continue
-        n = int(m.group(1))
-        if n > best_n:
-            best_n, best_p = n, os.path.join(d, name)
+        p = os.path.join(d, name)
+        try:
+            data = _load_json(p)
+        except ValueError:
+            continue
+        dv = data.get("doc_version") if isinstance(data, dict) else None
+        try:
+            key = (tuple(int(x) for x in str(dv).split(".")), name)
+        except (TypeError, ValueError):
+            key = ((-1,), name)
+        if best_key is None or key > best_key:
+            best_key, best_p = key, p
     if best_p is None or not os.path.exists(best_p):
         return None
     try:

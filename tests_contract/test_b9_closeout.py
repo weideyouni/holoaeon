@@ -53,9 +53,11 @@ class TestB9Closeout(unittest.TestCase):
 
     def test_08_sums_excludes_b9_manifest_like(self):
         excluded = set(DS.SUMS_EXCLUDES)
-        self.assertEqual(len(excluded), 10)
+        # V78b：+5 条运行期产物（3 未跟踪 + 2 gitignore），10 → 15
+        self.assertEqual(len(excluded), 15)
         for rel in ("data/B9_收口票据.md", "reports/b9_closeout.json",
-                    "reports/b9_closeout_check.json", "reports/five_site_manifest.json"):
+                    "reports/b9_closeout_check.json", "reports/five_site_manifest.json",
+                    "reports/daily_gate.json", "reports/feishu_fetch.json"):
             self.assertIn(rel, excluded)
 
     def test_09_spec_version_locked(self):

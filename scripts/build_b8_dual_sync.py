@@ -11,6 +11,7 @@ from __future__ import annotations
 import csv
 import json
 import os
+import subprocess
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,7 +25,20 @@ REPORTS = os.path.join(ROOT, "reports")
 SUMS_PATH = os.path.join(ROOT, "SHA256SUMS")
 
 
+def _tracked_files(root: str):
+    """git index 文件集合（V78b：清单只绑已跟踪文件；git 不可用直接失败，宁可响不可错）。"""
+    proc = subprocess.run(
+        ["git", "-c", "core.quotepath=false", "ls-files", "-z", "--"],
+        cwd=root, capture_output=True, timeout=60,
+    )
+    if proc.returncode != 0:
+        raise RuntimeError("git ls-files 失败，无法判定受管目录的跟踪边界")
+    return set(x for x in proc.stdout.decode("utf-8", "replace").split("\0") if x)
+
+
 def release_files(root: str):
+    """V78b：只收 git 已跟踪文件——未跟踪运行期产物（daily_* / gate 临时件）一律不入清单。"""
+    tracked = _tracked_files(root)
     files = []
     for top in ("data", "reports", "holoaeon/fusion_upgrade", "tests_contract", "scripts"):
         base = os.path.join(root, *top.split("/"))
@@ -35,6 +49,8 @@ def release_files(root: str):
                 if not name.endswith((".py", ".json", ".csv", ".md")):
                     continue
                 rel = os.path.relpath(os.path.join(dirpath, name), root).replace(os.sep, "/")
+                if rel not in tracked:
+                    continue
                 files.append(rel)
     return files
 
@@ -81,14 +97,18 @@ def main() -> int:
         "sums_id": "SG-B8-DUAL-REPO-SUMS-V1",
         "batch": DS.BATCH,
         "evidence_class": DS.EVIDENCE_CLASS,
-        "generated_at": "2026-11-02",
+        "generated_at": "2026-11-14",  # V78b 重建：P0-A LF 口径 + P0-B 移出 5 条运行期产物
         "holoaeon": {
             "root": ROOT.replace(os.sep, "/"),
             "manifest": "SHA256SUMS",
             "entries": len(holo_lines),
             "sums_sha256": DS.sums_digest(holo_lines),
             "excludes": list(DS.SUMS_EXCLUDES),
-            "exclude_reason": "清单自身与派生件不入清单，避免自指循环",
+            "exclude_reason": "清单自身与派生件不入清单，避免自指循环；"
+                              "V78b 起另排除 5 条运行期产物（3 未跟踪 + 2 gitignore）",
+            "v78b_note": "P0-A：文本文件 LF 归一化口径（CRLF 工作区与 Linux checkout 同清单）；"
+                         "P0-B：运行期产物移出（旧清单 251 条中在列的 5 条）+ 重建只收 git 已跟踪文件"
+                         "（追平 V 系批次新增的已跟踪件），251→332",
         },
         "ivsa": {
             "root": IVSA_ROOT.replace(os.sep, "/"),

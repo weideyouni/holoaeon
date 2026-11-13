@@ -2,7 +2,7 @@
 """
 ci_preflight.py —— V78a 本地 CI 预检闸（旁挂脚本，不改内核、不进 discover）
 ================================================================================
-把 `.github/workflows/ci.yml` 里的 10 个步骤**原样搬回本地**跑一遍，输出
+把 `.github/workflows/ci.yml` 里的 12 个步骤**原样搬回本地**跑一遍，输出
 `reports/ci_preflight.json`；任一步 FAIL，退出码 1。
 
 为什么要有这台闸
@@ -10,7 +10,8 @@ ci_preflight.py —— V78a 本地 CI 预检闸（旁挂脚本，不改内核、
 2026-11-13 那次「186 次连续 failure」里最贵的一课，不是某个测试红了，而是
 **本地全绿、云端全红**——本地绿从来不是云端绿的证据：
   · 本机有 F 盘素材、有客仓、有交付包，云端 checkout 里一个都没有；
-  · 本机的 `SHA256SUMS` 是 CRLF 工作区口径，Linux 上必然不匹配。
+  · 本机的 `SHA256SUMS` 曾是 CRLF 工作区口径，Linux 上必然不匹配——V78b 起
+    复算闸按 LF 归一化口径（文本 LF / 二进制原字节），本地绿与云端绿同判据。
 修完那一批后，剩下的问题变成「怎么让下一次不再靠人去云端撞」。答案是：
 **把 ci.yml 的步骤表当成一份契约，本地照抄一份、机器校验两边不许漂移。**
 
@@ -99,6 +100,14 @@ STEPS = [
     {"id": "claims_gate", "ci_name": "Claims gate", "kind": "run",
      "cmd": ["-m", "holoaeon.claims_gate", "verify"],
      "desc": "八面闸：叙述位 + 外部规定版本双注册簿"},
+
+    {"id": "manifest_integrity", "ci_name": "Manifest integrity", "kind": "run",
+     "cmd": ["scripts/check_sums.py", "."],
+     "desc": "SHA256SUMS 复算（V78b：LF 归一化口径 + 运行期产物不入清单）"},
+
+    {"id": "v3_gate", "ci_name": "v3 gate", "kind": "run",
+     "cmd": ["scripts/v3_gate.py"],
+     "desc": "33 面 v3 域闸（A12 内嵌复算；A13 校验本闸与 ci.yml 的契约）"},
 
     {"id": "examples", "ci_name": "Examples 01-04", "kind": "multi",
      "cmd": ["examples/01_basic_matrix.py", "examples/02_semantic_routing.py",

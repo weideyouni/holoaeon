@@ -149,6 +149,38 @@ jobs:
           fi
           exit $rc
 
+      - name: Manifest integrity (SHA256SUMS, LF-caliber)
+        # V78b · P0-A/P0-B/P0-C：复算闸正式入 CI。文本按 LF 归一化口径——
+        # 本地 CRLF 工作区与云端 LF checkout 复算同一份清单；清单条目必须是
+        # git 已跟踪且未被 ignore 的文件，运行期产物入清单在此被机器拦截。
+        run: |
+          set +e
+          log=/tmp/sums.log
+          python scripts/check_sums.py . > "$log" 2>&1
+          rc=$?
+          cat "$log"
+          if [ $rc -ne 0 ]; then
+            detail=$(grep -E '"(mismatches|unreadable|untracked|ignored|error)"|Traceback' "$log" | head -n 6 | tr '\n' ' ')
+            echo "::error title=manifest-integrity rc=$rc py=${{ matrix.python }}::${detail:-no-detail}"
+          fi
+          exit $rc
+
+      - name: v3 gate (33 faces incl. A13 CI contract)
+        # V78b · P0-C：33 面 v3 域闸正式入 CI——此前只在本机跑，「本机 33/33、
+        # 云端零验证」正是 186 连红里最贵的教训之一。A12 内嵌 SHA256SUMS 复算，
+        # A13 校验 ci.yml ↔ 预检器双向契约（本闸入 CI 后该契约由云端自证）。
+        run: |
+          set +e
+          log=/tmp/v3.log
+          python scripts/v3_gate.py > "$log" 2>&1
+          rc=$?
+          tail -n 40 "$log"
+          if [ $rc -ne 0 ]; then
+            detail=$(grep -E "FAIL|A[0-9]+\.|SHA256SUMS|Traceback|AssertionError" "$log" | head -n 8 | tr '\n' ' ')
+            echo "::error title=v3-gate rc=$rc py=${{ matrix.python }}::${detail:-no-detail}"
+          fi
+          exit $rc
+
       - name: Examples 01-04 (smoke)
         run: |
           for f in examples/01_basic_matrix.py examples/02_semantic_routing.py \
