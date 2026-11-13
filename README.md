@@ -150,6 +150,7 @@ back; permanent links are never assumed**. Validate any edge via
   runs independently repo-by-repo; remote repo creation is an irreversible external action —
   it was carbon-confirmed and executed by the run agent (creation receipt in
   `reports/v55_receipt.json` under `github_create`, per-repo HEADs, `ls-remote` 18/18).
+- **Authority declared (V75)**: for the domain repositories the authority is **Gitee (the only remote)**; the GitHub side is the V55 creation snapshot and is not authoritative. A8 ("all five sites share one head") applies **to the N19 base repository only**; each domain repo is reported honestly as "two sites share one head (Gitee = local)". This batch pushes to no domain repo.
 
 
 

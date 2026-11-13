@@ -12,94 +12,94 @@
   "doc_version_note": "唯一权威点 holoaeon/spec.py:35；升号实测耦合点 spec.py + tests/test_v22_eng_skills.py:50 + tests/test_v64_hangover_zero.py:396 + tests/test_v70_prehistory_criteria.py:309（后两处为本批实跑发现的历史写死断言，已同步）。concept_anatomy.py R-04 token 仍冻结 0.9.33（V23 快照），test_v19 断言同值，沿用 V73 先例不动",
   "patches": [
     {
-      "file": "holoaeon/claims_gate.py",
-      "kind": "new",
-      "note": "七面判据 + 只读注册簿装载 + self_digest + verify/report CLI；纯标准库"
+      "path": "holoaeon/claims_gate.py",
+      "action": "add",
+      "sha16": "548ad520113d0efc"
     },
     {
-      "file": "data/claims_registry.json",
-      "kind": "new",
-      "note": "CLAIMS-GATE-v1；doc_claims 15（current 9 / historical 3 / narrative 3）+ regulation_pins 6；self_digest 3f288ce6f591f110"
+      "path": "data/claims_registry.json",
+      "action": "add",
+      "sha16": "6da65ee2c08d8bbf"
     },
     {
-      "file": "tests/test_v75_claims_gate.py",
-      "kind": "new",
-      "note": "50 例（九组 + 第 10 组真实包覆盖）"
+      "path": "tests/test_v75_claims_gate.py",
+      "action": "add",
+      "sha16": "8966f0e3c56d7107"
     },
     {
-      "file": "holoaeon/continuity_gate.py",
-      "kind": "edit",
-      "note": "CHAIN_POSITION ring20（V56）"
+      "path": "README.zh-CN.md",
+      "action": "edit",
+      "sha16": "00eb86e3ad5fabe0"
     },
     {
-      "file": "holoaeon/org_gate.py",
-      "kind": "edit",
-      "note": "CHAIN_POSITION ring21（V58）"
+      "path": "README.md",
+      "action": "edit",
+      "sha16": "56222078ed568d76"
     },
     {
-      "file": "holoaeon/tensor_gate.py",
-      "kind": "edit",
-      "note": "CHAIN_POSITION ring22（V59）"
+      "path": "holoaeon/spec.py",
+      "action": "edit",
+      "sha16": "9678b4da0afb7574"
     },
     {
-      "file": "holoaeon/salvage_gate.py",
-      "kind": "edit",
-      "note": "CHAIN_POSITION ring23（V60）"
+      "path": "holoaeon/continuity_gate.py",
+      "action": "edit",
+      "sha16": "f70f99c49dc49dce"
     },
     {
-      "file": "holoaeon/meridian_link.py",
-      "kind": "edit",
-      "note": "CHAIN_POSITION ring23（V62，与 salvage 同环两面，lineage_note 已写明非编号冲突）"
+      "path": "holoaeon/org_gate.py",
+      "action": "edit",
+      "sha16": "8f0f5dd188467a2c"
     },
     {
-      "file": "holoaeon/forge_bureau.py",
-      "kind": "edit",
-      "note": "CHAIN_POSITION ring24（V63）"
+      "path": "holoaeon/tensor_gate.py",
+      "action": "edit",
+      "sha16": "fa7412a5ca56dce9"
     },
     {
-      "file": "holoaeon/holo_forge.py",
-      "kind": "edit",
-      "note": "CHAIN_POSITION ring3（V28 链式执行层编号，与领域编排环并存）"
+      "path": "holoaeon/salvage_gate.py",
+      "action": "edit",
+      "sha16": "12d1803e95399edf"
     },
     {
-      "file": "holoaeon/spec.py",
-      "kind": "edit",
-      "note": "DOC_VERSION 0.9.67→0.9.68（含 V75 描述注释）"
+      "path": "holoaeon/meridian_link.py",
+      "action": "edit",
+      "sha16": "86aff386423cc85c"
     },
     {
-      "file": "tests/test_v22_eng_skills.py",
-      "kind": "edit",
-      "note": "版本同步断言 0.9.68"
+      "path": "holoaeon/forge_bureau.py",
+      "action": "edit",
+      "sha16": "940d4732708072b5"
     },
     {
-      "file": "tests/test_v64_hangover_zero.py",
-      "kind": "edit",
-      "note": "历史写死 DOC 断言 0.9.67→0.9.68（本批实跑发现）"
+      "path": "holoaeon/holo_forge.py",
+      "action": "edit",
+      "sha16": "72a6a1b9f47e7d74"
     },
     {
-      "file": "tests/test_v70_prehistory_criteria.py",
-      "kind": "edit",
-      "note": "历史写死 DOC 断言 0.9.67→0.9.68（本批实跑发现）"
+      "path": "tests/test_v22_eng_skills.py",
+      "action": "edit",
+      "sha16": "fbc74409fe41b530"
     },
     {
-      "file": "README.zh-CN.md",
-      "kind": "edit",
-      "note": "块 E 九处 + 活体数字 + V75 批次行前插 + V73 行补「上一批次」前缀"
+      "path": "tests/test_v64_hangover_zero.py",
+      "action": "edit",
+      "sha16": "b7b20e60eeb9e74e"
     },
     {
-      "file": "README.md",
-      "kind": "edit",
-      "note": "同构英文改写（含 V46-D note 英文句尾重写）"
+      "path": "tests/test_v70_prehistory_criteria.py",
+      "action": "edit",
+      "sha16": "c31d4a6e7df6f823"
     },
     {
-      "file": ".github/workflows/ci.yml",
-      "kind": "edit",
-      "note": "第 10 道 Claims gate（只加这一道）"
+      "path": ".github/workflows/ci.yml",
+      "action": "edit",
+      "sha16": "b743704ca8c307f7"
     },
     {
-      "file": "reports/v75_receipt.json",
-      "kind": "new",
-      "note": "本回执"
+      "path": "reports/five_site_manifest.json",
+      "action": "edit",
+      "sha16": "b531cbf3a0a86a5d"
     }
   ],
   "registry": {
@@ -219,13 +219,15 @@
     "default_decision": "包内两处待碳基签按「按默认开工」取 A/A：①双表实体注册簿 + 七面判据 + 仓内模块；②批序 V74 旧账清理先落地 → V75 在其之上"
   },
   "honest_boundaries": [
-    "verified_at 是人写快照：本模块不联网核实规定现行有效，只判超期（不复制法规全文、不落地真实医保目录）",
-    "面 2 保证「文档视图 == 批次回执记录」，不是「重跑一遍测试」；回执数字必须由本批实跑填入",
-    "链位覆盖实测 29 常量 / 24 校验，投喂包验收表写 28/28；差额 1 来自 holo_forge.py（V28 链式执行层 ring3），按实测优先并登记",
-    "concept_anatomy.py R-04 token 冻结 0.9.33 未随批升（V73 先例，实跑实测耦合点只有 4 处，已在 doc_version_note 列明）",
-    "主套 1793 高于投喂包下限 1778：差额主要为 test_v75_claims_gate 50 例",
-    "本批 7 个模块的 CHAIN_POSITION 为「补完应 28/28」，实测 29；salvage/meridian 同 ring23 是两面非冲突，holo_forge ring3 是历史编号",
-    "仓外 readme_claims_check.py 仍保留为第二读者（含 subprocess，不搬入仓内）；仓内闸门为权威判据"
+    "verified_at 是人写快照：本模块不联网核实规定现行有效，只判超期；不复制法规全文、不落地真实医保目录",
+    "unknown 如实登记：本批 6 条 pin 均 current，无 unknown；若将来未知则显式占位而非留空",
+    "零实现复制：未搬仓外 readme_claims_check.py（145 行、含 subprocess），仓外脚本一个字节未改",
+    "面 2 是「文档视图 == 批次回执记录」，不是重跑测试",
+    "链位覆盖实测 29 常量 / 24 校验（投喂包验收写 28/28），差额为 holo_forge.py（V28 链式执行层 ring3）",
+    "DOC 升号实测耦合 4 处（含 v64/v70 历史写死断言），比投喂包预期多 2 处",
+    "registry.expected_from 采用 `receipt.<点路径>` 记法（投喂包示例为 `reports/v75_receipt.json#<点路径>`），语义等价",
+    "台账回读入口选用 reports/feed_index.json（真实存在、V74 建立），未选 five_site_manifest.json#counts",
+    "S3 GitHub 未同步，五地非全绿（PARTIAL 4/5）"
   ],
   "not_committed": [
     "AGENT_FEED_V75_CLAIMS_GATE_QIANWEN_R8_20261113.md（投喂包，untracked、不提交，收口后加 _DONE）",
@@ -247,5 +249,37 @@
       "item": "en 验收行取首匹配 → 改末匹配",
       "detail": "README.md 历史段先出现旧值 main suite 数字，claims_gate 的 readme.en.acceptance_main 由 _first_int 改 _last_int（活体口径行在后段），zh 同步；此为实现修正，判据口径（回读 vs 回执）未变。"
     }
+  ],
+  "head_short": "fdcdd41",
+  "claims_gate": {
+    "schema": "CLAIMS-GATE-v1",
+    "doc_claims": 15,
+    "regulation_pins": 6,
+    "faces": 7,
+    "canary_red": "7/7",
+    "digest": "见 `python -m holoaeon.claims_gate verify` 现算（不写死，避免自指）",
+    "self_digest": "3f288ce6f591f110"
+  },
+  "falsifiability_canary": {
+    "total": 7,
+    "red": 7,
+    "baseline_green": true,
+    "result_file": "holoaeon_lathe\\v75_canary_result.json（仓外，不提交）"
+  },
+  "five_site": {
+    "S1": "本地 见五地回执",
+    "S2": "Gitee 见五地回执",
+    "S3": "GitHub pending：PAT scopes=public_repo 缺 workflow scope，含 ci.yml 改动的推送被物理拒绝；留幂等重试入口",
+    "S4": "vector-sea 195/195，四项空",
+    "S5": "HF uploaded 19 / 710 文件 / mismatch []（sha 见五地回执）",
+    "note": "逐地 sha 以仓外 five_site_confirm_V75_20261113.json 为准（仓内回执不写最终 head，避免 head 追尾自指）"
+  },
+  "lessons": [
+    "活体口径在长文档里可能不是首匹配：en 验收行首次命中在历史段，readback 必须取最后一次匹配",
+    "升 DOC 前先跑一遍主套：写死版本断言不止投喂包点名的两处（v64/v70 各一处）",
+    "金丝雀要按实现喂：面 7 扫的是包目录，喂注册簿字段等于喂空气",
+    "闸门需要第二读者：仓内 claims_gate 与仓外 readme_claims_check 并行，两边都绿",
+    "远端权限也是门禁：PAT 缺 workflow scope 时含 CI 改动的批在 GitHub 侧不可推，先查 scopes",
+    "回执不写自指 digest，只写稳定值（注册簿 self_digest）与现算命令"
   ]
 }
