@@ -32,7 +32,7 @@ VERSION = "0.9.1"
 # VERSION / RUNTIME_ID 会写进每条回执并参与 ReproHash，改动即等于让 DIFF=0 黄金值
 # （2fc892cf9af6e755）漂移，与"V1 黄金值不许漂移"的硬口径冲突。
 # 因此 V2 的版本号单独记在 DOC_VERSION，供文档/快照/徽章使用。
-DOC_VERSION = "0.9.68"  # V75 双注册簿闸门（claims_gate）：叙述位与外部规定版本从静态文本升级为仓内只读注册簿 + 可失败判据（七面 + 七金丝雀）；只改「数字从哪来」不改数字，零第三方 import / 零网络 / 不写文件
+DOC_VERSION = "0.9.69"  # V76 双口径收口（dual_caliber）：PL-3 语义桥不再覆盖主路，改为「主路口径 + 桥接口径」并列可查 + 七面可失败判据；主路 forge_absorb 一字未动（实测 12/15 换仓，覆盖即推翻 V72 已推 18 仓账），零第三方 import / 零网络 / 不写文件
 MATRIX_ID = "HOLOAEON-MATRIX-0.9.1"
 RUNTIME_ID = "HOLOAEON-RUNTIME-0.9.1"
 PROTOCOL_ID = "HOLOAEON-DATAPROTO v1.0"

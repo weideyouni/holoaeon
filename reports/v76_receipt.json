@@ -1,0 +1,207 @@
+{
+  "batch": "V76-DUAL-CALIBER",
+  "line": "V76 双口径收口批（PL-3 语义桥从「覆盖主路」改为「双口径并存」）：主路 forge_absorb 一字未改，桥接口径并列成账 + 七面可失败判据；不改归属，只改「第二口径怎么被读」",
+  "status": "closed_execution_side",
+  "date": "2026-11-13",
+  "head": "0aa5b23",
+  "head_full": "0aa5b232bcde188a23add4f0df9d7eabcfc99a34",
+  "head_note": "head = 提交前基线 HEAD（V75 最终）。receipt 的 head 只能提交后拿到，故本回执由一笔补正提交写回真实 sha；最终 HEAD 见五地回执 five_site_confirm_V76_20261113.json",
+  "prev_head": "0aa5b23",
+  "prev_head_full": "0aa5b232bcde188a23add4f0df9d7eabcfc99a34",
+  "doc_version": "0.9.69",
+  "doc_version_note": "唯一权威点 holoaeon/spec.py:35；升号耦合 4 处已同步：spec.py + tests/test_v22_eng_skills.py:50 + tests/test_v64_hangover_zero.py:396 + tests/test_v70_prehistory_criteria.py:309。tests/test_v75_claims_gate.py 内的 0.9.68 是自造 tmp 上下文（L42/L53/L154/L156），不依赖真实 DOC_VERSION，故意不动。concept_anatomy.py R-04 token 仍冻结 0.9.33（V23 快照），沿用 V73/V75 先例不动",
+  "patches": [
+    {
+      "path": "holoaeon/dual_caliber.py",
+      "action": "add",
+      "sha16": "0e7d39bcd40dcdd9",
+      "bytes": 10605
+    },
+    {
+      "path": "data/dual_caliber_ledger.json",
+      "action": "add",
+      "sha16": "836ad03bdf41e7d6",
+      "bytes": 10173
+    },
+    {
+      "path": "tests/test_v76_dual_caliber.py",
+      "action": "add",
+      "sha16": "958b7346d73b4fc1",
+      "bytes": 10515
+    },
+    {
+      "path": "holoaeon/spec.py",
+      "action": "edit",
+      "sha16": "0a0accd86db9f92e",
+      "bytes": 11056
+    },
+    {
+      "path": "tests/test_v22_eng_skills.py",
+      "action": "edit",
+      "sha16": "785fd8f1d58b9d03",
+      "bytes": 8071
+    },
+    {
+      "path": "tests/test_v64_hangover_zero.py",
+      "action": "edit",
+      "sha16": "5a36a66e11358ca9",
+      "bytes": 17117
+    },
+    {
+      "path": "tests/test_v70_prehistory_criteria.py",
+      "action": "edit",
+      "sha16": "d8bceb9f7441e8a9",
+      "bytes": 15663
+    },
+    {
+      "path": "holoaeon/claims_gate.py",
+      "action": "edit",
+      "sha16": "6034d0739ce0eb95",
+      "bytes": 26186
+    },
+    {
+      "path": "README.md",
+      "action": "edit",
+      "sha16": "6dc3dcd18ad21811",
+      "bytes": 231072
+    },
+    {
+      "path": "README.zh-CN.md",
+      "action": "edit",
+      "sha16": "ec46ae208bb8391e",
+      "bytes": 192118
+    },
+    {
+      "path": "reports/five_site_manifest.json",
+      "action": "edit",
+      "sha16": "608264d519b1e08d",
+      "bytes": 31395
+    }
+  ],
+  "dual_caliber": {
+    "schema": "DUAL-CALIBER-v1",
+    "samples": 15,
+    "decisions": [
+      "bridge_adopted",
+      "base_kept",
+      "vacuum_kept"
+    ],
+    "totals": {
+      "samples": 15,
+      "zero_before": 13,
+      "zero_after": 1,
+      "changed": 12,
+      "unchanged": 3,
+      "bridge_adopted": 12,
+      "base_kept": 2,
+      "vacuum_kept": 1
+    },
+    "ledger_self_digest": "38adbb82332911b7",
+    "ledger_bytes": 10173,
+    "mainline_untouched": "forge_bureau.forge_absorb 零改动（forge_bureau.py 不在本批 patches 内）",
+    "verify": "PASS / 七面全绿 / digest 38adbb82332911b7"
+  },
+  "verification": {
+    "unittest_main": "1835 OK",
+    "unittest_v3": "11 OK",
+    "unittest_verax": "21 OK",
+    "unittest_total": "1867",
+    "selftest": "25/25",
+    "v3_gate": "32/32",
+    "v44": "13/13",
+    "redline": "156 文件 0 违规",
+    "dimension_lock": "PASS（12 维度 + 7 闸 + 0 violation）",
+    "check_sums": "ok:true / mismatches:[] / 250 条",
+    "readme_claims_check_outside": "VERDICT: PASS | mismatch=0 stale_header=0（双份全 MATCH，仓外第二读者并行）",
+    "claims_gate_verify": "PASS（七面全绿；注册簿 15 条 current 全部改读本回执后一致）",
+    "py_recursive": "156",
+    "py_top_level": "87",
+    "chain_position_constants": "29（declared_and_verified 24）",
+    "unittest_delta": "1793 → 1835（+42 = test_v76_dual_caliber）"
+  },
+  "criteria_check": {
+    "face_1_base_readonly_equal": "PASS（15/15 样本 base 逐字段等于 forge_absorb 现跑，重算不缓存）",
+    "face_2_bridge_rerun_equal": "PASS（15/15 样本 bridge 逐字段等于 bridged_absorb 现跑）",
+    "face_3_attribution_traceable": "PASS（12 adopted 全部带归因词；2 base_kept 同仓分升可追；1 vacuum 在册）",
+    "face_4_vacuum_registered": "PASS（SG-MASTER-SONGJIANG 仍 0 分且登记 KNOWN_VACUUM，不伪装已修复）",
+    "face_5_deterministic_digest": "PASS（两跑同 digest 38adbb82332911b7）",
+    "face_6_totals_consistent": "PASS（totals 与逐行实测一致；zero_before 13 / zero_after 1 / changed 12）",
+    "face_7_self_digest": "PASS（剔 self_digest 后 sha256[:16] 自洽）",
+    "canary": "10/10 red + 基准绿",
+    "canary_detail": {
+      "baseline_green": true,
+      "cases": [
+        {"case": "C1", "mutation": "篡改 base score", "that_face_red": true},
+        {"case": "C2", "mutation": "篡改 bridge repo", "that_face_red": true},
+        {"case": "C3", "mutation": "篡改 decision 字符串", "that_face_red": true},
+        {"case": "C4", "mutation": "adopted 但删掉归因词", "that_face_red": true},
+        {"case": "C5", "mutation": "把真空样本谎报成已修复（未登记）", "that_face_red": true},
+        {"case": "C6", "mutation": "改 self_digest（不重算）", "that_face_red": true},
+        {"case": "C7", "mutation": "改 totals 单项", "that_face_red": true},
+        {"case": "C8", "mutation": "行序交换", "that_face_red": true},
+        {"case": "C9", "mutation": "多增一行样本", "that_face_red": true},
+        {"case": "C10", "mutation": "篡改 BOUNDARIES 常量", "that_face_red": true}
+      ]
+    },
+    "diff0": "未跑本批 bench（本批不触碰 forge_bureau / graph / scheduler / hypervector / kernel，判据 6d119b2a9f2df687 不变）"
+  },
+  "quartet_run": {
+    "note": "本轮四人组以仓内 holoaeon.packs.quartet_director_pack 公开入口实跑（非纸面）",
+    "mission": "六条产品线 + 旧账清理 + 千问第八轮补丁全部闭环后，从剩余待办中定序唯一可开工项 → dimension 3",
+    "gradient_flow": "f_current 1.751667 / f_perturbed 1.386667 / curvature -0.0 / convexity concave",
+    "constraint_audit": "5 硬 1 软；硬约束 violation 全 0；kkt_complementary_slackness=true；唯一激活=软约束「全量重评下游」(λ=8.5 / total_penalty 7.225)；verdict=review",
+    "algorithm_select": "gradient_descent（利一阶 / 线性 / 成本低）",
+    "resonance_scan": "5 候选，resonance_pairs=[] / count=0 / cluster_signal=false（不可打包做）",
+    "emergence": "check_emergence(0.85,0.88,0.80,0.35) → true / mean 0.72 / std 0.2155 / order 0.569",
+    "risk_register": "risk_level=high：R1 主路输出变化会影响 V72 已推 18 仓归属账 / R2 18 仓重推属外部动作未授权",
+    "decision": "形态定为「双口径并存」而非「覆盖式改写主路」——依据术步 verdict=review、法步 governable 不可信、实测覆盖会改 12/15 归属"
+  },
+  "honest_boundaries": [
+    "四人组「法」步 convexity/governable 判据实测为浮点伪影：价值函数线性 ⇒ 二阶差分恒 0，符号只由浮点舍入方向决定（5 组扰动中 1 组 +0.0 判 convex、4 组 −0.0 判 concave），不得用于背书可治理性",
+    "涌现第一条件 P2×P3 读模块常量 QUARTET_SIMS['P2×P3']=0.7，0.7>=0.7 恒真，实际只有 P1/P4/order 三条件在判",
+    "桥接词表是先验不是理解：LEXICON 14 条人写词表，只补区分性词汇面，不改打分代码、不改平票规则",
+    "base_kept 不等于「没变化」：认知主权 0.0000→0.1096、AI教育大师 0.0800→0.2449 均为同仓分升，分数变而仓未变，故判 base_kept；同仓 ≠ 采纳",
+    "18 仓远端重推属外部动作，本批停在 LOCAL_READY，只出确认表，不 push、不代签",
+    "本批不改主路一个字节：forge_bureau.py 不在 patches 内，1793 条既有测试无一条为适配本批而修改",
+    "DOC 升号实测耦合 4 处，与 V75 记录一致；test_v75 内 0.9.68 为自造 tmp 上下文不改",
+    "报告类产物（reports/daily_gate_*.json 等）仍显示 0.9.68，属运行期快照，不随批次手改"
+  ],
+  "not_committed": [
+    "holoaeon_lathe 全部工具脚本（v76_quartet_decision.py / v76_probe_curvature_and_delta.py / v76_build_ledger.py / v76_sha16.py / _v76_registry_peek.py / 资料回顾探针 / _v76_main_suite.log）",
+    "reports/state_beacon.json 属 untracked 活体灯塔，本批刷 gates 与 batch 但不入提交"
+  ],
+  "next_batch": "候选三条：①B4 九项点单（SUSPENDED，须碳基三态裁决，agent 不代签）；②S3 GitHub 补推（PAT 缺 workflow scope + 2026-11-16 到期，须用户网页动作）；③18 仓按 V76 新口径重评（外部动作，只出确认表）",
+  "seal": "潮起开门，潮落闭嘴",
+  "feed_corrections": [
+    {
+      "item": "claims_gate 回执发现由写死改为自动取最新",
+      "detail": "V75 版 _receipt() 硬编码 reports/v75_receipt.json，于是本批改对 README 后仍判 7 处 MISMATCH（读的还是 V75 的数）。这正是本模块要治的「会变的事实被复制成静态副本」，现在还给了自己：改为按 reports/v<N>_receipt.json 中 N 最大者自动发现，批次换了不必再改源码。改后 verify → PASS / mismatch 0，V75 50 例仍全绿"
+    },
+    {
+      "item": "本批无投喂包（执行端直接落地）",
+      "detail": "V76 由四人组决议 + 挂账方案 §4 H4 / §6 第 6 条直接定批，未出 AGENT_FEED_*.md；按 V64/V65/V66/V67/V69/V71/V72 先例在 feed_index.json 登记「无包事实」"
+    },
+    {
+      "item": "台账字节 10,172 → 实为 10,173",
+      "detail": "json.dumps 序列化正文 10,172 B，落盘加末尾换行共 10,173 B；README 双份已按文件实数改写为 10,173 B（含末尾换行），不以正文字数冒充文件字节"
+    },
+    {
+      "item": "四人组 governable 不可信 → 本批不据此背书",
+      "detail": "5 组扰动实测：cur 0.3/0.5/0.2/0.8 + per 0.1×4 得 curvature 0.0 / convex / governable=True；其余 4 组（含默认 0.5×4）得 −0.0 / concave / False。数学内核 curvature=(f2-2f1+f0)/Σp² 对线性价值函数恒 0，故该判据结构性不可达，已写进 README 与回执"
+    }
+  ],
+  "five_site": {
+    "S1": "本地 见五地回执",
+    "S2": "Gitee 见五地回执",
+    "S3": "GitHub pending：远端仍 034f8ba；PAT scopes 仅 public_repo 缺 workflow，且 2026-11-16 09:04（北京）到期，须用户网页补 scope 并延长有效期",
+    "S4": "vector-sea 195/195 四项空",
+    "S5": "HF 见五地回执",
+    "note": "逐地 sha 以仓外 five_site_confirm_V76_20261113.json 为准（仓内回执不写最终 head，避免 head 追尾自指）"
+  },
+  "lessons": [
+    "派生台账的停点要写清「冻结段 vs 活账」，否则每批都被当漏补",
+    "四人组判据要先证可达性再谈可信：线性价值函数下 curvature 恒 0，±0 只是舍入符号",
+    "新模块落盘后 claims_gate 会拿 README 回读去对「最新回执」——回执不先落，README 改对了也判 FAIL",
+    "文件字节要以实际落盘长度为准（含末尾换行），正文序列化长度不等于文件字节"
+  ]
+}

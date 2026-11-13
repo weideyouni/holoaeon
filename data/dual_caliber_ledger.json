@@ -1,0 +1,508 @@
+{
+ "as_of": "2026-11-13",
+ "boundaries": [
+  "主路 forge_absorb 零改动：本模块只读调用，不写入、不替换、不缓存其结果",
+  "bridge 只加文本（两侧显式词表），ngram_dice 与 tie-break 一字未动",
+  "真空样本（名字无领域线索）桥后仍 0 分，登记 KNOWN_VACUUM，不伪装已修复",
+  "18 仓远端重推属外部动作：本批只出确认表，停在 LOCAL_READY",
+  "base 与 bridge 并列登记，任何一方都不是唯一真值，裁决权在碳基"
+ ],
+ "calibers": [
+  "base",
+  "bridge"
+ ],
+ "known_vacuum": [
+  "SG-MASTER-SONGJIANG"
+ ],
+ "samples": [
+  {
+   "attribution": {
+    "evidence": "lexicon_substring",
+    "labels": [
+     "cosmos"
+    ],
+    "matched_terms": [
+     "arena",
+     "母体",
+     "沙盘"
+    ],
+    "vacuum": false
+   },
+   "base": {
+    "cang": "C01",
+    "domain": "本源",
+    "repo": "holoaeon-c01-source",
+    "score": 0.0
+   },
+   "bridge": {
+    "cang": "C18",
+    "domain": "宇宙",
+    "repo": "holoaeon-c18-cosmos",
+    "score": 0.1463
+   },
+   "decision": "bridge_adopted",
+   "delta": {
+    "repo_changed": true,
+    "score_delta": 0.1463
+   },
+   "name": "总沙盘母体Arena1331x1331多智能体矩阵V3实战化_20261024",
+   "still_zero": false
+  },
+  {
+   "attribution": {
+    "evidence": "lexicon_substring",
+    "labels": [
+     "risk_legal"
+    ],
+    "matched_terms": [
+     "安全",
+     "审计",
+     "验证"
+    ],
+    "vacuum": false
+   },
+   "base": {
+    "cang": "C01",
+    "domain": "本源",
+    "repo": "holoaeon-c01-source",
+    "score": 0.0
+   },
+   "bridge": {
+    "cang": "C15",
+    "domain": "风险",
+    "repo": "holoaeon-c15-risk",
+    "score": 0.1538
+   },
+   "decision": "bridge_adopted",
+   "delta": {
+    "repo_changed": true,
+    "score_delta": 0.1538
+   },
+   "name": "王静斋V3.0_runtime_独立验证与安全审计报告_20261018.md",
+   "still_zero": false
+  },
+  {
+   "attribution": {
+    "evidence": "lexicon_substring",
+    "labels": [
+     "risk_legal"
+    ],
+    "matched_terms": [
+     "法务"
+    ],
+    "vacuum": false
+   },
+   "base": {
+    "cang": "C01",
+    "domain": "本源",
+    "repo": "holoaeon-c01-source",
+    "score": 0.0
+   },
+   "bridge": {
+    "cang": "C15",
+    "domain": "风险",
+    "repo": "holoaeon-c15-risk",
+    "score": 0.0506
+   },
+   "decision": "bridge_adopted",
+   "delta": {
+    "repo_changed": true,
+    "score_delta": 0.0506
+   },
+   "name": "天元法务金刚1331x1331超级矩阵V3实战化_20261018",
+   "still_zero": false
+  },
+  {
+   "attribution": {
+    "evidence": "lexicon_substring",
+    "labels": [
+     "career"
+    ],
+    "matched_terms": [
+     "办公"
+    ],
+    "vacuum": false
+   },
+   "base": {
+    "cang": "C01",
+    "domain": "本源",
+    "repo": "holoaeon-c01-source",
+    "score": 0.0
+   },
+   "bridge": {
+    "cang": "C06",
+    "domain": "职业",
+    "repo": "holoaeon-c06-career",
+    "score": 0.0556
+   },
+   "decision": "bridge_adopted",
+   "delta": {
+    "repo_changed": true,
+    "score_delta": 0.0556
+   },
+   "name": "超级办公之王1331x1331超级矩阵V3实战化_20261020",
+   "still_zero": false
+  },
+  {
+   "attribution": {
+    "evidence": "lexicon_substring",
+    "labels": [
+     "risk_legal"
+    ],
+    "matched_terms": [
+     "门控",
+     "隐私"
+    ],
+    "vacuum": false
+   },
+   "base": {
+    "cang": "C01",
+    "domain": "本源",
+    "repo": "holoaeon-c01-source",
+    "score": 0.0
+   },
+   "bridge": {
+    "cang": "C15",
+    "domain": "风险",
+    "repo": "holoaeon-c15-risk",
+    "score": 0.092
+   },
+   "decision": "bridge_adopted",
+   "delta": {
+    "repo_changed": true,
+    "score_delta": 0.092
+   },
+   "name": "隐私门控路由本地化1331x1331多智能体矩阵V3实战化_20261031",
+   "still_zero": false
+  },
+  {
+   "attribution": {
+    "evidence": "lexicon_substring",
+    "labels": [
+     "education"
+    ],
+    "matched_terms": [
+     "教育",
+     "课程"
+    ],
+    "vacuum": false
+   },
+   "base": {
+    "cang": "C05",
+    "domain": "教育",
+    "repo": "holoaeon-c05-education",
+    "score": 0.08
+   },
+   "bridge": {
+    "cang": "C05",
+    "domain": "教育",
+    "repo": "holoaeon-c05-education",
+    "score": 0.2449
+   },
+   "decision": "base_kept",
+   "delta": {
+    "repo_changed": false,
+    "score_delta": 0.1649
+   },
+   "name": "AI教育大师每日课程",
+   "still_zero": false
+  },
+  {
+   "attribution": {
+    "evidence": "lexicon_substring",
+    "labels": [
+     "sovereign"
+    ],
+    "matched_terms": [
+     "主权",
+     "认知"
+    ],
+    "vacuum": false
+   },
+   "base": {
+    "cang": "C01",
+    "domain": "本源",
+    "repo": "holoaeon-c01-source",
+    "score": 0.0
+   },
+   "bridge": {
+    "cang": "C01",
+    "domain": "本源",
+    "repo": "holoaeon-c01-source",
+    "score": 0.1096
+   },
+   "decision": "base_kept",
+   "delta": {
+    "repo_changed": false,
+    "score_delta": 0.1096
+   },
+   "name": "认知主权1331x1331多智能体矩阵V3实战化_20261030",
+   "still_zero": false
+  },
+  {
+   "attribution": {
+    "evidence": "lexicon_substring",
+    "labels": [
+     "time_arch"
+    ],
+    "matched_terms": [
+     "考古"
+    ],
+    "vacuum": false
+   },
+   "base": {
+    "cang": "C01",
+    "domain": "本源",
+    "repo": "holoaeon-c01-source",
+    "score": 0.0
+   },
+   "bridge": {
+    "cang": "C13",
+    "domain": "时间",
+    "repo": "holoaeon-c13-time",
+    "score": 0.0548
+   },
+   "decision": "bridge_adopted",
+   "delta": {
+    "repo_changed": true,
+    "score_delta": 0.0548
+   },
+   "name": "世界考古大师1331x1331超级矩阵V3实战化_20261020",
+   "still_zero": false
+  },
+  {
+   "attribution": {
+    "evidence": "lexicon_substring",
+    "labels": [
+     "cosmos",
+     "creation"
+    ],
+    "matched_terms": [
+     "创作",
+     "宇宙",
+     "工坊",
+     "邮差"
+    ],
+    "vacuum": false
+   },
+   "base": {
+    "cang": "C18",
+    "domain": "宇宙",
+    "repo": "holoaeon-c18-cosmos",
+    "score": 0.05
+   },
+   "bridge": {
+    "cang": "C08",
+    "domain": "创造",
+    "repo": "holoaeon-c08-creation",
+    "score": 0.1791
+   },
+   "decision": "bridge_adopted",
+   "delta": {
+    "repo_changed": true,
+    "score_delta": 0.1291
+   },
+   "name": "潮起邮差_四重宇宙创作工坊_20261019",
+   "still_zero": false
+  },
+  {
+   "attribution": {
+    "evidence": "lexicon_substring",
+    "labels": [
+     "meaning"
+    ],
+    "matched_terms": [
+     "三教",
+     "儒释道"
+    ],
+    "vacuum": false
+   },
+   "base": {
+    "cang": "C01",
+    "domain": "本源",
+    "repo": "holoaeon-c01-source",
+    "score": 0.0
+   },
+   "bridge": {
+    "cang": "C11",
+    "domain": "意义",
+    "repo": "holoaeon-c11-meaning",
+    "score": 0.1042
+   },
+   "decision": "bridge_adopted",
+   "delta": {
+    "repo_changed": true,
+    "score_delta": 0.1042
+   },
+   "name": "儒释道三教合一1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+   "still_zero": false
+  },
+  {
+   "attribution": {
+    "evidence": "lexicon_substring",
+    "labels": [
+     "education",
+     "craft_math"
+    ],
+    "matched_terms": [
+     "数学",
+     "早课"
+    ],
+    "vacuum": false
+   },
+   "base": {
+    "cang": "C01",
+    "domain": "本源",
+    "repo": "holoaeon-c01-source",
+    "score": 0.0
+   },
+   "bridge": {
+    "cang": "C05",
+    "domain": "教育",
+    "repo": "holoaeon-c05-education",
+    "score": 0.1132
+   },
+   "decision": "bridge_adopted",
+   "delta": {
+    "repo_changed": true,
+    "score_delta": 0.1132
+   },
+   "name": "数学大师1331_数学史早课",
+   "still_zero": false
+  },
+  {
+   "attribution": {
+    "evidence": "lexicon_substring",
+    "labels": [
+     "meridian_med"
+    ],
+    "matched_terms": [
+     "中医"
+    ],
+    "vacuum": false
+   },
+   "base": {
+    "cang": "C01",
+    "domain": "本源",
+    "repo": "holoaeon-c01-source",
+    "score": 0.0
+   },
+   "bridge": {
+    "cang": "C03",
+    "domain": "经络",
+    "repo": "holoaeon-c03-meridian",
+    "score": 0.0253
+   },
+   "decision": "bridge_adopted",
+   "delta": {
+    "repo_changed": true,
+    "score_delta": 0.0253
+   },
+   "name": "海派中医全派1331x1331超级矩阵V3_runtime_v3.zip",
+   "still_zero": false
+  },
+  {
+   "attribution": {
+    "evidence": "none",
+    "labels": [],
+    "matched_terms": [],
+    "vacuum": true
+   },
+   "base": {
+    "cang": "C01",
+    "domain": "本源",
+    "repo": "holoaeon-c01-source",
+    "score": 0.0
+   },
+   "bridge": {
+    "cang": "C01",
+    "domain": "本源",
+    "repo": "holoaeon-c01-source",
+    "score": 0.0
+   },
+   "decision": "vacuum_kept",
+   "delta": {
+    "repo_changed": false,
+    "score_delta": 0.0
+   },
+   "name": "SG-MASTER-SONGJIANG-1331x1331-SUPER-MAS-V3.0_runtime_20261019.zip",
+   "still_zero": true
+  },
+  {
+   "attribution": {
+    "evidence": "lexicon_substring",
+    "labels": [
+     "meridian_med"
+    ],
+    "matched_terms": [
+     "医派"
+    ],
+    "vacuum": false
+   },
+   "base": {
+    "cang": "C01",
+    "domain": "本源",
+    "repo": "holoaeon-c01-source",
+    "score": 0.0
+   },
+   "bridge": {
+    "cang": "C03",
+    "domain": "经络",
+    "repo": "holoaeon-c03-meridian",
+    "score": 0.0217
+   },
+   "decision": "bridge_adopted",
+   "delta": {
+    "repo_changed": true,
+    "score_delta": 0.0217
+   },
+   "name": "吴门医派1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+   "still_zero": false
+  },
+  {
+   "attribution": {
+    "evidence": "lexicon_substring",
+    "labels": [
+     "craft_math"
+    ],
+    "matched_terms": [
+     "张量",
+     "拆解"
+    ],
+    "vacuum": false
+   },
+   "base": {
+    "cang": "C01",
+    "domain": "本源",
+    "repo": "holoaeon-c01-source",
+    "score": 0.0
+   },
+   "bridge": {
+    "cang": "C14",
+    "domain": "技艺",
+    "repo": "holoaeon-c14-skill",
+    "score": 0.1
+   },
+   "decision": "bridge_adopted",
+   "delta": {
+    "repo_changed": true,
+    "score_delta": 0.1
+   },
+   "name": "张量拆解双王矩阵实战化_20261017",
+   "still_zero": false
+  }
+ ],
+ "schema": "DUAL-CALIBER-v1",
+ "seal": "潮起开门，潮落闭嘴",
+ "self_digest": "38adbb82332911b7",
+ "totals": {
+  "base_kept": 2,
+  "bridge_adopted": 12,
+  "changed": 12,
+  "samples": 15,
+  "unchanged": 3,
+  "vacuum_kept": 1,
+  "zero_after": 1,
+  "zero_before": 13
+ }
+}

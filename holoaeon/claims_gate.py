@@ -229,11 +229,27 @@ _UNKNOWN = _Unknown()
 # expected_from 解析：receipt.<field> / computed.<name> / literal.<id>
 # ---------------------------------------------------------------------------
 def _receipt(ctx):
-    p = os.path.join(ctx["root"], "reports", "v75_receipt.json")
-    if not os.path.exists(p):
+    """最新批次回执：按 reports/v<N>_receipt.json 里 N 最大者自动发现。
+
+    V76 修正：V75 版把文件名写死成 v75_receipt.json，于是每批都要改源码才
+    能读到本批回执 —— 这正是本模块要治的「会变的事实被复制成静态副本」，
+    现在还回来了。改为按版本号取最大，批次换了不必再动这一行。
+    """
+    d = os.path.join(ctx["root"], "reports")
+    if not os.path.isdir(d):
+        return None
+    best_n, best_p = -1, None
+    for name in os.listdir(d):
+        m = re.match(r"^v(\d+)_receipt\.json$", name)
+        if not m:
+            continue
+        n = int(m.group(1))
+        if n > best_n:
+            best_n, best_p = n, os.path.join(d, name)
+    if best_p is None or not os.path.exists(best_p):
         return None
     try:
-        return _load_json(p)
+        return _load_json(best_p)
     except ValueError:
         return None
 
