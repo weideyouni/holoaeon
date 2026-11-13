@@ -511,7 +511,7 @@
     }
   ],
   "schema": "CLAIMS-GATE-v1",
-  "self_digest": "02cd6d2b550f59e7",
+  "self_digest": "ad8fb60db1b4e271",
   "totals": {
     "doc_claims": 17,
     "historical": 3,
@@ -521,7 +521,7 @@
   "ledger_sources": {
     "head": {
       "authority": "git_rev_parse_HEAD",
-      "observed": "7dc9bf0",
+      "observed": "509d20e",
       "observed_at": "2026-11-14",
       "non_evidence": [
         "git_remote_tracking_ref"
@@ -544,7 +544,7 @@
     },
     "five_site_head": {
       "authority": "git_ls_remote_origin_main",
-      "observed": "7dc9bf0",
+      "observed": "509d20e",
       "observed_at": "2026-11-14",
       "non_evidence": [
         "git_remote_tracking_ref"
