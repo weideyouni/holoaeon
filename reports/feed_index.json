@@ -1,6 +1,6 @@
 {
   "as_of": "2026-11-13",
-  "generated_by": "V76 收口（登记「V76 无投喂包」事实）",
+  "generated_by": "V77 收口（撤销过期 PL 挂账 + 第 8 面自覆盖）",
   "no_feed_batches": [
     {
       "batch": "V64",
@@ -51,7 +51,7 @@
     }
   ],
   "pending_feeds": [],
-  "pending_note": "V75 已交付收口，pending 清空；下一批（V76 起点 PL-4/PL-5/PL-6 之一）须有新投喂包才开工",
+  "pending_note": "PL-1~PL-6 已全部落地（V68/V69/V71/V72/V73）；V76/V77 均由四人组决议直接定批（无投喂包）；下一批 V78 = CI 门禁补齐（四人组 V2 §9.6③）",
   "revoked_claims": [
     {
       "claim": "V56–V60 五包缺 _DONE 改名",

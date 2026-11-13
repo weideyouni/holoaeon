@@ -234,7 +234,7 @@
     "holoaeon_lathe 全部工具脚本（v75_chain_position.py / v75_make_registry.py / v75_doc_bump.py / v75_readme_patch.py / v75_ci_patch.py / v75_doc_assert_fix.py / 探针与备份）",
     "包内 7 个 *.py.bak_v75 备份（已移出到 holoaeon_lathe\\bak）"
   ],
-  "next_batch": "V76 待投喂（PL-4 族谱 / PL-5 判据注入包 / PL-6 导学三案各自单独成批，不混做）",
+  "next_batch": "已由 V77 撤销：PL-1~PL-6 于 V68/V69/V71/V72/V73 全部落地，V76（双口径并存）/V77（账面一致性）均由四人组决议直接定批；后续定序见四人组决策回执 V2 §9.6（V78 = CI 门禁补齐）",
   "seal": "潮起开门，潮落闭嘴",
   "feed_corrections": [
     {

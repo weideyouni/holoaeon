@@ -1,245 +1,329 @@
 {
-  "schema": "CLAIMS-GATE-v1",
+  "coverage": [
+    {
+      "as_of_batch": "V77",
+      "covered_by": "badge_tests_zh",
+      "id": "cover_zh_badge",
+      "must_appear": true,
+      "must_write_readback": false,
+      "note": "徽章主套数由面 2 回读比对，此处只登记「此处有活体写死位」这一事实",
+      "pattern": "tests_badge",
+      "window": "zh_badge"
+    },
+    {
+      "as_of_batch": "V77",
+      "covered_by": "acceptance_suite_zh",
+      "id": "cover_zh_acceptance",
+      "must_appear": true,
+      "must_write_readback": false,
+      "note": "工程验收行主套数，由面 2 回读比对",
+      "pattern": "suite_count",
+      "window": "zh_acceptance"
+    },
+    {
+      "as_of_batch": "V77",
+      "covered_by": "zh_timeline_version",
+      "id": "cover_zh_timeline",
+      "must_appear": false,
+      "must_write_readback": true,
+      "note": "先证红：L158 V0.1→V38 未登记；改回读式后本写死位应消失",
+      "pattern": "version_range",
+      "window": "zh_timeline"
+    },
+    {
+      "as_of_batch": "V77",
+      "covered_by": "badge_tests_en",
+      "id": "cover_en_badge",
+      "must_appear": true,
+      "must_write_readback": false,
+      "note": "英文徽章主套数",
+      "pattern": "tests_badge",
+      "window": "en_badge"
+    },
+    {
+      "as_of_batch": "V77",
+      "covered_by": "acceptance_suite_en",
+      "id": "cover_en_acceptance",
+      "must_appear": true,
+      "must_write_readback": false,
+      "note": "英文 Gates 行主套数",
+      "pattern": "suite_count",
+      "window": "en_acceptance"
+    },
+    {
+      "as_of_batch": "V77",
+      "covered_by": "en_timeline_version",
+      "id": "cover_en_timeline",
+      "must_appear": false,
+      "must_write_readback": true,
+      "note": "先证红：L1069 V0.1 to V59 未登记；改回读式后消失",
+      "pattern": "version_range",
+      "window": "en_timeline"
+    }
+  ],
   "doc_claims": [
     {
+      "as_of_batch": "",
+      "evidence_class": "measured",
+      "expected_from": "receipt.verification.unittest_main",
       "id": "badge_tests_zh",
       "kind": "current",
-      "readback": "readme.zh.tests_badge",
-      "expected_from": "receipt.verification.unittest_main",
-      "sha16": "",
-      "as_of_batch": "",
-      "timeboxed": false,
       "note": "中文 README 徽章主套数（shields.io 静态值，与回执同源）",
-      "evidence_class": "measured"
+      "readback": "readme.zh.tests_badge",
+      "sha16": "",
+      "timeboxed": false
     },
     {
+      "as_of_batch": "",
+      "evidence_class": "measured",
+      "expected_from": "receipt.verification.unittest_main",
       "id": "badge_tests_en",
       "kind": "current",
-      "readback": "readme.en.tests_badge",
-      "expected_from": "receipt.verification.unittest_main",
-      "sha16": "",
-      "as_of_batch": "",
-      "timeboxed": false,
       "note": "英文 README 徽章主套数",
-      "evidence_class": "measured"
+      "readback": "readme.en.tests_badge",
+      "sha16": "",
+      "timeboxed": false
     },
     {
+      "as_of_batch": "",
+      "evidence_class": "measured",
+      "expected_from": "receipt.verification.unittest_main",
       "id": "acceptance_suite_zh",
       "kind": "current",
-      "readback": "readme.zh.acceptance_main",
-      "expected_from": "receipt.verification.unittest_main",
-      "sha16": "",
-      "as_of_batch": "",
-      "timeboxed": false,
       "note": "中文「工程验收」行主套单测数",
-      "evidence_class": "measured"
+      "readback": "readme.zh.acceptance_main",
+      "sha16": "",
+      "timeboxed": false
     },
     {
+      "as_of_batch": "",
+      "evidence_class": "measured",
+      "expected_from": "receipt.verification.unittest_main",
       "id": "acceptance_suite_en",
       "kind": "current",
-      "readback": "readme.en.acceptance_main",
-      "expected_from": "receipt.verification.unittest_main",
-      "sha16": "",
-      "as_of_batch": "",
-      "timeboxed": false,
       "note": "英文「工程验收」行主套单测数",
-      "evidence_class": "measured"
+      "readback": "readme.en.acceptance_main",
+      "sha16": "",
+      "timeboxed": false
     },
     {
+      "as_of_batch": "",
+      "evidence_class": "measured",
+      "expected_from": "receipt.verification.unittest_main",
       "id": "gate_suite_zh",
       "kind": "current",
-      "readback": "readme.zh.gate_unittest",
-      "expected_from": "receipt.verification.unittest_main",
-      "sha16": "",
-      "as_of_batch": "",
-      "timeboxed": false,
       "note": "中文「当前工程状态」门禁行主套数",
-      "evidence_class": "measured"
+      "readback": "readme.zh.gate_unittest",
+      "sha16": "",
+      "timeboxed": false
     },
     {
+      "as_of_batch": "",
+      "evidence_class": "measured",
+      "expected_from": "receipt.verification.redline",
       "id": "gate_redline_zh",
       "kind": "current",
-      "readback": "readme.zh.gate_redline",
-      "expected_from": "receipt.verification.redline",
-      "sha16": "",
-      "as_of_batch": "",
-      "timeboxed": false,
       "note": "中文门禁行红线文件数",
-      "evidence_class": "measured"
+      "readback": "readme.zh.gate_redline",
+      "sha16": "",
+      "timeboxed": false
     },
     {
+      "as_of_batch": "",
+      "evidence_class": "measured",
+      "expected_from": "receipt.verification.redline",
       "id": "redline_files_computed",
       "kind": "current",
-      "readback": "computed.py_recursive",
-      "expected_from": "receipt.verification.redline",
-      "sha16": "",
-      "as_of_batch": "",
-      "timeboxed": false,
       "note": "递归口径包内 .py 实数（与红线扫描 os.walk 同口径）",
-      "evidence_class": "measured"
+      "readback": "computed.py_recursive",
+      "sha16": "",
+      "timeboxed": false
     },
     {
+      "as_of_batch": "",
+      "evidence_class": "measured",
+      "expected_from": "computed.sums_entries",
       "id": "checklist_entries",
       "kind": "current",
-      "readback": "readme.zh.checklist_entries",
-      "expected_from": "computed.sums_entries",
-      "sha16": "",
-      "as_of_batch": "",
-      "timeboxed": false,
       "note": "复算闸条数：README 视图 vs SHA256SUMS 实际行数",
-      "evidence_class": "measured"
+      "readback": "readme.zh.checklist_entries",
+      "sha16": "",
+      "timeboxed": false
     },
     {
+      "as_of_batch": "",
+      "evidence_class": "measured",
+      "expected_from": "receipt.doc_version",
       "id": "doc_version_spec",
       "kind": "current",
-      "readback": "spec.doc_version",
-      "expected_from": "receipt.doc_version",
-      "sha16": "",
-      "as_of_batch": "",
-      "timeboxed": false,
       "note": "DOC_VERSION 唯一权威点（holoaeon/spec.py）",
-      "evidence_class": "measured"
+      "readback": "spec.doc_version",
+      "sha16": "",
+      "timeboxed": false
     },
     {
+      "as_of_batch": "V46",
+      "evidence_class": "snapshot",
+      "expected_from": "literal.v46",
       "id": "v46d_badge_note_zh",
       "kind": "historical",
-      "readback": "readme.zh.v46d_note",
-      "expected_from": "literal.v46",
-      "sha16": "",
-      "as_of_batch": "V46",
-      "timeboxed": true,
       "note": "V46-D 徽章注记（tests-526）：保留原样、不判红、不改写成当前值",
-      "evidence_class": "snapshot"
+      "readback": "readme.zh.v46d_note",
+      "sha16": "",
+      "timeboxed": true
     },
     {
+      "as_of_batch": "V46",
+      "evidence_class": "snapshot",
+      "expected_from": "literal.v46",
       "id": "v46d_badge_note_en",
       "kind": "historical",
-      "readback": "readme.en.v46d_note",
-      "expected_from": "literal.v46",
-      "sha16": "",
-      "as_of_batch": "V46",
-      "timeboxed": true,
       "note": "V46-D badge note（tests-526），英文侧同构",
-      "evidence_class": "snapshot"
+      "readback": "readme.en.v46d_note",
+      "sha16": "",
+      "timeboxed": true
     },
     {
+      "as_of_batch": "V73",
+      "evidence_class": "snapshot",
+      "expected_from": "literal.v73",
       "id": "v73_suite_snapshot",
       "kind": "historical",
-      "readback": "readme.zh.v73_snapshot",
-      "expected_from": "literal.v73",
-      "sha16": "",
-      "as_of_batch": "V73",
-      "timeboxed": true,
       "note": "V73 批次小节里的主套/红线数（当时真值），不随本批刷新",
-      "evidence_class": "snapshot"
+      "readback": "readme.zh.v73_snapshot",
+      "sha16": "",
+      "timeboxed": true
     },
     {
+      "as_of_batch": "",
+      "evidence_class": "pointer",
+      "expected_from": "narrative.readback",
       "id": "ring_count_zh",
       "kind": "narrative",
-      "readback": "readme.zh.ring_readback",
-      "expected_from": "narrative.readback",
-      "sha16": "",
-      "as_of_batch": "",
-      "timeboxed": false,
       "note": "领域编排环数：写「以 claims_gate report 回读为准」，禁写死环数",
-      "evidence_class": "pointer"
+      "readback": "readme.zh.ring_readback",
+      "sha16": "",
+      "timeboxed": false
     },
     {
+      "as_of_batch": "",
+      "evidence_class": "pointer",
+      "expected_from": "narrative.readback",
       "id": "batch_count_zh",
       "kind": "narrative",
-      "readback": "readme.zh.batch_readback",
-      "expected_from": "narrative.readback",
-      "sha16": "",
-      "as_of_batch": "",
-      "timeboxed": false,
       "note": "批次数：写「不写死、以台账回读为准」，禁写 V73 / 条数",
-      "evidence_class": "pointer"
+      "readback": "readme.zh.batch_readback",
+      "sha16": "",
+      "timeboxed": false
     },
     {
+      "as_of_batch": "",
+      "evidence_class": "pointer",
+      "expected_from": "narrative.readback",
       "id": "pyfiles_command_zh",
       "kind": "narrative",
-      "readback": "readme.zh.pyfiles_recursive",
-      "expected_from": "narrative.readback",
-      "sha16": "",
-      "as_of_batch": "",
-      "timeboxed": false,
       "note": "包内 .py 计数命令必须走 find 递归口径（ls 只数顶层）",
-      "evidence_class": "pointer"
+      "readback": "readme.zh.pyfiles_recursive",
+      "sha16": "",
+      "timeboxed": false
+    },
+    {
+      "as_of_batch": "V77",
+      "evidence_class": "computed",
+      "expected_from": "narrative.readback",
+      "id": "zh_timeline_version",
+      "kind": "narrative",
+      "note": "中文 README L158 时间线行：版本范围禁写死（V75 漏改的 V0.1 → V38 由此面接管），须写回读式",
+      "readback": "readme.zh.timeline_readback",
+      "sha16": null,
+      "timeboxed": false
+    },
+    {
+      "as_of_batch": "V77",
+      "evidence_class": "computed",
+      "expected_from": "narrative.readback",
+      "id": "en_timeline_version",
+      "kind": "narrative",
+      "note": "英文 README 时间线行：同上（原写死 V0.1 to V59，比中文更旧，属同一病）",
+      "readback": "readme.en.timeline_readback",
+      "sha16": null,
+      "timeboxed": false
     }
   ],
   "regulation_pins": [
     {
-      "id": "MCP",
       "doc_no": "SEP-2575 / SEP-2567",
-      "version": "2026-07-28（第 5 版）",
       "effective_from": "2026-07-28",
-      "verified_at": "2026-11-13",
-      "status": "current",
+      "id": "MCP",
+      "max_age_days": 180,
+      "note": "legacy 2024-11-05 按官方 MAY 路径保留；代码已双版本，文档此前停在 2024-11-05",
       "source_pointer": "holoaeon/mcp_adapter.py#SUPPORTED_PROTOCOL_VERSIONS",
-      "max_age_days": 180,
-      "note": "legacy 2024-11-05 按官方 MAY 路径保留；代码已双版本，文档此前停在 2024-11-05"
+      "status": "current",
+      "verified_at": "2026-11-13",
+      "version": "2026-07-28（第 5 版）"
     },
     {
-      "id": "PHC-NORM",
       "doc_no": "《国家基本公共卫生服务规范》",
-      "version": "第三版（2017），不含慢阻肺",
       "effective_from": "2017",
-      "verified_at": "2026-11-13",
-      "status": "current",
+      "id": "PHC-NORM",
+      "max_age_days": 180,
+      "note": "慢阻肺 2024 由〔2024〕31号 / 336号试行纳入，不是第三版原内容",
       "source_pointer": "holoaeon/phc_chronic_engine.py#L4 +〔2024〕31号 / 336号",
-      "max_age_days": 180,
-      "note": "慢阻肺 2024 由〔2024〕31号 / 336号试行纳入，不是第三版原内容"
+      "status": "current",
+      "verified_at": "2026-11-13",
+      "version": "第三版（2017），不含慢阻肺"
     },
     {
-      "id": "PHC-2025",
       "doc_no": "国卫基层发〔2025〕7号 /〔2025〕15号 / 国卫办基层函〔2025〕439号",
-      "version": "2025",
       "effective_from": "2025",
-      "verified_at": "2026-11-13",
-      "status": "current",
+      "id": "PHC-2025",
+      "max_age_days": 180,
+      "note": "只存文号指针，不复制规范全文",
       "source_pointer": "README.zh-CN.md#公卫口径段（V41 小节）",
-      "max_age_days": 180,
-      "note": "只存文号指针，不复制规范全文"
+      "status": "current",
+      "verified_at": "2026-11-13",
+      "version": "2025"
     },
     {
-      "id": "NHSA-CATALOG",
       "doc_no": "医保发〔2025〕33号",
-      "version": "2025 版目录",
       "effective_from": "2026-01-01",
-      "verified_at": "2026-11-13",
-      "status": "current",
-      "source_pointer": "holoaeon/pharma_gate.py#version_pin",
+      "id": "NHSA-CATALOG",
       "max_age_days": 180,
-      "note": "只登记年份/文号/生效日；SAMPLE_ENTRIES 仍为 simulated，不落地真实目录"
+      "note": "只登记年份/文号/生效日；SAMPLE_ENTRIES 仍为 simulated，不落地真实目录",
+      "source_pointer": "holoaeon/pharma_gate.py#version_pin",
+      "status": "current",
+      "verified_at": "2026-11-13",
+      "version": "2025 版目录"
     },
     {
-      "id": "PHARMACOPOEIA",
       "doc_no": "2025 版《中华人民共和国药典》 / 医保办函〔2026〕10号",
-      "version": "2025",
       "effective_from": "2025",
-      "verified_at": "2026-11-13",
-      "status": "current",
-      "source_pointer": "holoaeon/pharma_gate.py#version_pin",
+      "id": "PHARMACOPOEIA",
       "max_age_days": 180,
-      "note": "2025 版药典变更部分饮片名称，指针化登记、不复制条目"
+      "note": "2025 版药典变更部分饮片名称，指针化登记、不复制条目",
+      "source_pointer": "holoaeon/pharma_gate.py#version_pin",
+      "status": "current",
+      "verified_at": "2026-11-13",
+      "version": "2025"
     },
     {
-      "id": "MLPS3",
       "doc_no": "GB/T 22239-2019 + GB/T 28448-2019",
-      "version": "2019（现行）",
       "effective_from": "2019",
-      "verified_at": "2026-11-13",
-      "status": "current",
-      "source_pointer": "docs/MLPS3_MAPPING.md",
+      "id": "MLPS3",
       "max_age_days": 180,
-      "note": "等保 2.0 现行标准；README 只提 MLPS3，此处补联动指针"
+      "note": "等保 2.0 现行标准；README 只提 MLPS3，此处补联动指针",
+      "source_pointer": "docs/MLPS3_MAPPING.md",
+      "status": "current",
+      "verified_at": "2026-11-13",
+      "version": "2019（现行）"
     }
   ],
+  "schema": "CLAIMS-GATE-v1",
+  "self_digest": "18261604f32da2a5",
   "totals": {
-    "doc_claims": 15,
-    "regulation_pins": 6,
+    "doc_claims": 17,
     "historical": 3,
-    "narrative": 3
-  },
-  "self_digest": "3f288ce6f591f110"
+    "narrative": 5,
+    "regulation_pins": 6
+  }
 }

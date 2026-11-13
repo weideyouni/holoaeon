@@ -12,7 +12,7 @@ mismatch 即红」推广到**叙述层**与**外部规定层**。升维句：
 把「代码跑在文档前面」反转为「文档是代码的只读视图，外部规定是带核
 实时间戳的指针」。
 
-七面判据（每面都必须先证会红）
+八面判据（每面都必须先证会红）
 ---------------------------------------------------------------
 1. claim_registered      活体时变声明逐条有注册项（结构化清单比对）
 2. readback_consistent   current 项的回读值 == expected_from 指向的真源
@@ -22,6 +22,10 @@ mismatch 即红」推广到**叙述层**与**外部规定层**。升维句：
 6. determinism_self_digest  两跑同 digest；self_digest 抓「建完改报告」
 7. chain_position_coverage  模块头 docstring 显式 ring 声明的模块，必须有
                             模块级 CHAIN_POSITION 且 ring 一致（走 AST，不走文本正则）
+8. registry_coverage     活体窗口内出现的写死叙述位（版本范围 / 徽章数 / 复算条数）
+                            必须在注册簿 coverage 段登记；漏登记即红、登记后文本消失即红、
+                            声称已改回读式但窗口里没有「回读」字样也红
+                            —— 这一面是「闸自己也会漏自己」的自覆盖判据（V77 新增）
 
 诚实边界（写在这里，不只是写在回执里）
 ---------------------------------------------------------------
@@ -52,7 +56,31 @@ REQUIRED_CLAIM_FIELDS = ("id", "kind", "readback", "expected_from", "sha16",
 
 FACES = ("claim_registered", "readback_consistent", "historical_timeboxed",
          "regulation_pinned", "pin_freshness", "determinism_self_digest",
-         "chain_position_coverage")
+         "chain_position_coverage", "registry_coverage")
+
+# 面 8 的扫描规则：只认这几类"会变的叙述位"，不扫普通文字。
+COVERAGE_PATTERNS = {
+    "version_range": re.compile(r"V\d+\.\d+\s*(?:→|->|~|to)\s*V\d+"),
+    "tests_badge": re.compile(r"tests-(\d+)"),
+    "suite_count": re.compile(r"主套单测\s*\*\*(\d+)\s*OK\*\*|main suite\s*\*\*(\d+)\s*OK\*\*"),
+    "count_decl": re.compile(r"(\d+)\s*条\s*0\s*不匹配"),
+}
+
+# 活体窗口：锚点行 ±1 行。历史段落不在此列，故不会误红。
+LIVE_WINDOWS = (
+    {"id": "zh_badge", "file": "README.zh-CN.md", "key": "readme_zh",
+     "anchor": "![Tests](", "patterns": ("tests_badge",)},
+    {"id": "zh_acceptance", "file": "README.zh-CN.md", "key": "readme_zh",
+     "anchor": "工程验收（本机实跑口径）", "patterns": ("suite_count",)},
+    {"id": "zh_timeline", "file": "README.zh-CN.md", "key": "readme_zh",
+     "anchor": "2026-10 → 今", "patterns": ("version_range",)},
+    {"id": "en_badge", "file": "README.md", "key": "readme_en",
+     "anchor": "[![Tests](", "patterns": ("tests_badge",)},
+    {"id": "en_acceptance", "file": "README.md", "key": "readme_en",
+     "anchor": "Gates (measured on this machine)", "patterns": ("suite_count",)},
+    {"id": "en_timeline", "file": "README.md", "key": "readme_en",
+     "anchor": "2026-10 → present", "patterns": ("version_range",)},
+)
 
 # 活体位：这些 id 必须出现在注册簿里（面 1）。
 # 取值 = 与 README/规格里的活体副本一一对应的位，不是全部文本。
@@ -189,6 +217,11 @@ READBACKS = {
         _text(c, "readme_zh", "README.zh-CN.md"), "批次数不写死"),
     "readme.zh.pyfiles_recursive": lambda c: _uses_find(
         _text(c, "readme_zh", "README.zh-CN.md")),
+    # V77 新增：时间线行的版本范围必须改回读式（不许写死 V0.1 → V38 / V59）
+    "readme.zh.timeline_readback": lambda c: _has_readback(
+        _text(c, "readme_zh", "README.zh-CN.md"), "2026-10 → 今"),
+    "readme.en.timeline_readback": lambda c: _has_readback(
+        _text(c, "readme_en", "README.md"), "2026-10 → present"),
 }
 
 
@@ -265,6 +298,13 @@ def _int_of(value):
     return None
 
 
+def _is_version(value):
+    """版本号字面（0.9.69 / 12.0.1）：必须逐字符比，禁止归零成整数。"""
+    if not isinstance(value, str):
+        return False
+    return bool(re.fullmatch(r"\d+(?:\.\d+)+", value.strip()))
+
+
 def _dig(obj, path):
     for key in path.split("."):
         if not isinstance(obj, dict):
@@ -336,13 +376,18 @@ def check_doc_claims(reg, ctx=None):
                 fails.append({"face": "readback_consistent", "id": cid,
                               "detail": "INCOMPLETE expected_from 不可解析"})
             else:
-                g_i, e_i = _int_of(got), _int_of(exp)
-                if isinstance(got, str) and isinstance(exp, str) and g_i is None:
-                    ok = got.strip() == exp.strip()
-                elif g_i is None or e_i is None:
-                    ok = got == exp
+                # V77 修：形如 0.9.69 / 1.2.3 的版本号不得走 _int_of（它只会抓第一段
+                # 数字，0.9.69 与 0.9.70 都归零 → 版本升号被闸当成「没变」，是假绿）
+                if _is_version(got) or _is_version(exp):
+                    ok = str(got).strip() == str(exp).strip()
                 else:
-                    ok = g_i == e_i
+                    g_i, e_i = _int_of(got), _int_of(exp)
+                    if isinstance(got, str) and isinstance(exp, str) and g_i is None:
+                        ok = got.strip() == exp.strip()
+                    elif g_i is None or e_i is None:
+                        ok = got == exp
+                    else:
+                        ok = g_i == e_i
                 if not ok:
                     fails.append({"face": "readback_consistent", "id": cid,
                                   "detail": "MISMATCH readback=%r expected=%r" % (got, exp)})
@@ -539,6 +584,74 @@ def check_chain_position(pkg_dir=None):
 
 
 # ---------------------------------------------------------------------------
+# 面 8：注册簿自覆盖（活体窗口内的写死叙述位必须登记）
+# ---------------------------------------------------------------------------
+def check_registry_coverage(reg, ctx=None):
+    """面 8：活体窗口 × 模式扫描 → 未登记即红；登记后文本消失即红。
+
+    fails 的 detail 前缀是机器可读标签：
+      UNREGISTERED   窗口里出现写死位，但注册簿无对应 coverage 条目
+      VANISHED       注册簿登记了（且 must_appear），窗口里却找不到该写死位
+      NOT_READBACK   登记项声称已改回读式，但窗口里没有「回读」字样
+      ANCHOR_MISSING 窗口锚点整行消失（README 结构被改，判红而非静默跳过）
+      UNKNOWN_WINDOW coverage 条目指向不存在的窗口
+    """
+    c = ctx or _ctx()
+    fails = []
+    cov = [x for x in (reg.get("coverage") or []) if isinstance(x, dict)]
+    win_ids = [w["id"] for w in LIVE_WINDOWS]
+
+    for e in cov:
+        if e.get("window") not in win_ids:
+            fails.append({"face": "registry_coverage", "id": e.get("id"),
+                          "detail": "UNKNOWN_WINDOW %r" % (e.get("window"),)})
+
+    for w in LIVE_WINDOWS:
+        try:
+            text = _text(c, w["key"], w["file"])
+        except (OSError, KeyError):
+            fails.append({"face": "registry_coverage", "id": w["id"],
+                          "detail": "ANCHOR_MISSING 文件不可读 %s" % (w["file"],)})
+            continue
+        lines = text.splitlines()
+        idx = [i for i, ln in enumerate(lines) if w["anchor"] in ln]
+        if not idx:
+            fails.append({"face": "registry_coverage", "id": w["id"],
+                          "detail": "ANCHOR_MISSING %r" % (w["anchor"],)})
+            continue
+        lo = max(0, min(idx) - 1)
+        hi = min(len(lines) - 1, max(idx) + 1)
+        win_text = "\n".join(lines[lo:hi + 1])
+
+        for pat_id in w["patterns"]:
+            pat = COVERAGE_PATTERNS[pat_id]
+            hits = []
+            for i in range(lo, hi + 1):
+                for m in pat.finditer(lines[i]):
+                    hits.append((i + 1, m.group(0)))
+            entries = [e for e in cov
+                       if e.get("window") == w["id"] and e.get("pattern") == pat_id]
+            for ln, frag in hits:
+                if not entries:
+                    fails.append({"face": "registry_coverage", "id": w["id"],
+                                  "detail": "UNREGISTERED %s 写死位 %r @L%d（%s）"
+                                            % (pat_id, frag, ln, w["file"])})
+            if entries and not hits:
+                for e in entries:
+                    if e.get("must_appear", True):
+                        fails.append({"face": "registry_coverage", "id": e.get("id"),
+                                      "detail": "VANISHED %s 登记在册但窗口内已无写死位"
+                                                % (pat_id,)})
+            if entries and hits:
+                for e in entries:
+                    if e.get("must_write_readback") and not (
+                            ("回读" in win_text) or ("readback" in win_text.lower())):
+                        fails.append({"face": "registry_coverage", "id": e.get("id"),
+                                      "detail": "NOT_READBACK 登记项声称回读式，窗口内无「回读」字样"})
+    return fails
+
+
+# ---------------------------------------------------------------------------
 # 聚合
 # ---------------------------------------------------------------------------
 def _totals(reg):
@@ -575,6 +688,10 @@ def verify(reg=None, ctx=None, today=None):
     for item in cp["fails"]:
         faces["chain_position_coverage"]["ok"] = False
         faces["chain_position_coverage"]["fails"].append(item)
+    cov_fails = check_registry_coverage(r, c)
+    for item in cov_fails:
+        faces["registry_coverage"]["ok"] = False
+        faces["registry_coverage"]["fails"].append(item)
 
     fails_total = sum(len(v["fails"]) for v in faces.values())
     body = {
@@ -586,6 +703,8 @@ def verify(reg=None, ctx=None, today=None):
         "chain_position": {"declared": cp["declared"], "constants": cp["constants"],
                            "verified": cp["verified"],
                            "coverage": "%d/%d" % (cp["verified"], cp["declared"])},
+        "registry_coverage": {"windows": len(LIVE_WINDOWS),
+                              "entries": len(r.get("coverage") or [])},
         "declared_digest": r.get("self_digest"),
         "computed_digest": self_digest(r),
     }

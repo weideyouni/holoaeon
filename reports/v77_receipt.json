@@ -1,0 +1,192 @@
+{
+  "batch": "V77-REGISTRY-COVERAGE",
+  "line": "V77 账面一致性批（claims_gate 第 8 面 registry_coverage）：闸第一次把「自己会不会漏登记」写成可失败判据——6 个活体窗口 × 4 类模式；不改任何数字，只改「写死的活体值有没有被登记、登记了是不是真的回读式」",
+  "status": "closed_execution_side",
+  "date": "2026-11-13",
+  "head": "待补正（提交后回填）",
+  "head_full": "待补正（提交后回填）",
+  "head_note": "回执的 head 只能提交后拿到，故由一笔补正提交写回真实 sha；最终 HEAD 为补正提交 sha，见五地回执 five_site_confirm_V77_20261113.json",
+  "prev_head": "758973b",
+  "prev_head_full": "758973b4ef00e7b0627f6adc6a2cf17ef2d77e3c",
+  "doc_version": "0.9.70",
+  "doc_version_note": "唯一权威点 holoaeon/spec.py:35；升号耦合 4 处已同步：spec.py + tests/test_v22_eng_skills.py + tests/test_v64_hangover_zero.py + tests/test_v70_prehistory_criteria.py",
+  "patches": [
+    {
+      "path": "holoaeon/claims_gate.py",
+      "action": "modify",
+      "sha16": "bc6244ebc3ed9e92",
+      "bytes": 32735
+    },
+    {
+      "path": "data/claims_registry.json",
+      "action": "modify",
+      "sha16": "4bc33ad32be80356",
+      "bytes": 10708
+    },
+    {
+      "path": "README.zh-CN.md",
+      "action": "modify",
+      "sha16": "2520c702334169e6",
+      "bytes": 193201
+    },
+    {
+      "path": "README.md",
+      "action": "modify",
+      "sha16": "992dc354f2a2f2b4",
+      "bytes": 232228
+    },
+    {
+      "path": "holoaeon/spec.py",
+      "action": "modify",
+      "sha16": "8249b4d29f410bc5",
+      "bytes": 11035
+    },
+    {
+      "path": "tests/test_v77_registry_coverage.py",
+      "action": "add",
+      "sha16": "e8f413aa1508d4b3",
+      "bytes": 10960
+    },
+    {
+      "path": "tests/test_v75_claims_gate.py",
+      "action": "modify",
+      "sha16": "bd995a5e678b7f44",
+      "bytes": 21160
+    },
+    {
+      "path": "tests/test_v22_eng_skills.py",
+      "action": "modify",
+      "sha16": "81320249ae07df8f",
+      "bytes": 8071
+    },
+    {
+      "path": "tests/test_v64_hangover_zero.py",
+      "action": "modify",
+      "sha16": "c62ff4414a70c22c",
+      "bytes": 17117
+    },
+    {
+      "path": "tests/test_v70_prehistory_criteria.py",
+      "action": "modify",
+      "sha16": "d41af972870ef954",
+      "bytes": 15663
+    },
+    {
+      "path": "reports/v75_receipt.json",
+      "action": "modify",
+      "sha16": "0057f5b8914d1fb3",
+      "bytes": 12084
+    },
+    {
+      "path": "reports/feed_index.json",
+      "action": "modify",
+      "sha16": "6a08117b3d55f922",
+      "bytes": 5056
+    },
+    {
+      "path": "reports/five_site_manifest.json",
+      "action": "modify",
+      "sha16": "a910729d3bc6a7f8",
+      "bytes": 31395
+    },
+    {
+      "path": "reports/v77_receipt.json",
+      "action": "add",
+      "sha16": "self (自指项不列摘要)",
+      "bytes": null
+    }
+  ],
+  "registry": {
+    "doc_claims": 17,
+    "breakdown": {
+      "current": 9,
+      "historical": 3,
+      "narrative": 5,
+      "regulation_pins": 6
+    },
+    "coverage_entries": 6,
+    "live_windows": [
+      "zh_badge",
+      "zh_acceptance",
+      "zh_timeline",
+      "en_badge",
+      "en_acceptance",
+      "en_timeline"
+    ],
+    "new_claims": [
+      "zh_timeline_version",
+      "en_timeline_version"
+    ],
+    "self_digest": "18261604f32da2a5",
+    "backup": "data/claims_registry.json.bak_v77_20261113_171657（untracked，不提交）"
+  },
+  "verification": {
+    "unittest_main": "1862 OK",
+    "unittest_v3": "11 OK",
+    "unittest_verax": "21 OK",
+    "unittest_total": "1894",
+    "selftest": "25/25",
+    "v3_gate": "32/32",
+    "v44": "13/13",
+    "redline": "156 文件 0 违规",
+    "dimension_lock": "PASS（12 维度 + 7 闸 + 0 violation）",
+    "check_sums": "ok:true / mismatches:[] / 250 条",
+    "readme_claims_check_outside": "VERDICT: PASS | mismatch=0 stale_header=0",
+    "claims_gate_verify": "PASS | mismatch 0 | digest 81a891b4e6565b58 | totals 17-3-5-6",
+    "dual_caliber_verify": "PASS | digest 38adbb82332911b7（本批未动台账）",
+    "py_recursive": "156",
+    "py_top_level": "87",
+    "chain_position_constants": "29（declared_and_verified 24）",
+    "unittest_delta": "1835 → 1862（+27 = test_v77_registry_coverage）"
+  },
+  "criteria_check": {
+    "face_8_red_first": "首跑即红 6 处：zh_badge tests-1835 @L13 / zh_acceptance 主套单测 **1835 OK** @L131 / zh_timeline V0.1 → V38 @L158 / en_badge tests-1835 @L27 / en_acceptance（锚点写错，修为 Gates (measured on this machine)）/ en_timeline V0.1 to V59 @L1069",
+    "face_8_green_after": "README 两条时间线改回读式 + 注册簿加 6 条 coverage + 2 条 narrative claim → PASS / mismatch 0 / totals 17-3-5-6",
+    "historical_not_punished": "历史副本不扫：V4.0 → V6.1（V1 版本脉络）、V1.0→V1.1 等历史段落按 timeboxed 原样保留，闸只扫锚点行 ±1 行的活体窗口",
+    "false_green_found": "闸自己也看不见版本升号：_int_of 抓首段数字，0.9.69 与 0.9.70 都归零成 0 → 判「相等」。本批改成 _is_version 逐字符比，改完立刻红出 doc_version_spec 0.9.70 vs 0.9.69（回执未写时的正确红）"
+  },
+  "quartet_run": {
+    "note": "本批定序自四人组决策回执 V2（V76 前置回执 + append-only §9 勘误），非本轮新跑",
+    "ordered": "V77 账面一致性（②）→ V78 CI 门禁补齐（③）；V1 Step1 = S3 补推为共同物理前置（BLOCKED_ON_CARBON）",
+    "observation": "V2 §9.6 定义 V77 应待 S3 闭环后开工；本批由碳基直接投喂下令开工，故 A8 违约态（S3 仍 d596c71）继续，此处如实登记"
+  },
+  "honest_boundaries": [
+    "A8 违约态延续：S3 GitHub 仍 d596c7137588b75cfccb89c949e426670ae4973a，sync-from-gitee 的 「keep github workflows」使 ci.yml 永久滞后 15 行且 sync 提交导致 head 结构性 ≠ Gitee head；五地同头在本通道上不可达，除非带 workflow scope 手动推一次",
+    "V77 不改 .github/workflows/*，故本批未撞 PAT scope 墙；但 V78（check_sums + v3_gate 进 ci.yml）必然撞墙，第 1 步（补 workflow scope 并延 PAT 到期 2026-11-16 09:04 北京）仍是共同前置，待碳基一句话",
+    "ANCHOR_MISSING 判红只在真实仓生效：第 8 面对「窗口锚点整行消失」判红（结构漂移不许静默跳过）；测试替身若窗口锚点全缺会红 —— V75 既有夹具因此补 timeline 两行（同批同步，非豁免）",
+    "B4 九项点单仍未裁决（9 项 / 119,157 文件 / 10,166.9 MB 全 SUSPENDED，须碳基逐项三态，agent 不代签）",
+    "18 仓远端重推仍停 LOCAL_READY，本批未 push、未代签",
+    "收口七件中的「五地回执」本批预期 4/5：S3 结构性问题未解，verdict 记 PARTIAL_4_OF_5_AUTOSYNC_PENDING"
+  ],
+  "not_committed": [
+    "holoaeon_lathe 全部工具脚本（v77_patch_claims_gate.py / v77_patch_unescape.py / v77_patch_registry.py / v77_patch_doc_beacon_backlog.py / v77_patch_readme.py / v77_make_receipt.py / _v77_main_suite.log / bak 目录）",
+    "data/claims_registry.json.bak_v77_20261113_171657（注册簿改前备份）",
+    "reports/state_beacon.json 及其 .bak_v77（灯塔按惯例 untracked，只刷不提交）",
+    "F:\\doubaowork\\engineering_machine.py（机床在仓外，零侵入铁律）",
+    "AGENT_FEED_*.md 投喂包（落仓根、untracked）"
+  ],
+  "next_batch": "V78 = CI 门禁补齐批（check_sums 进 ci.yml + v3_gate 32/32→33/33 观测面），前置：PAT 补 workflow scope 并延有效期（碳基一句话）。并行未决：B4 九项三态裁决 / 18 仓重推授权 / S3 补推",
+  "seal": "潮起开门，潮落闭嘴",
+  "feed_corrections": [
+    {
+      "item": "raw string 里的 \\uXXXX 转义",
+      "detail": "把 \\u2192 之类写进 r\"...\" 后 re.compile 直接 bad escape；已改真实字符并加残留扫描。同族坑：中文全角引号被误写成半角嵌套 → SyntaxError（本批 patch 脚本实测一次）"
+    },
+    {
+      "item": "V75 测试与第 8 面的耦合",
+      "detail": "新增 2 条 narrative claim 后，V75 夹具 README 缺 timeline 行 → 3 红；补两行后剩 2 红为硬编码断言（len(FACES)==7 → 8；narrative 三元素列表 → 五元素）。四处全部同批同步，未改断言语义"
+    }
+  ],
+  "five_site": {
+    "S1": "本地 见五地回执",
+    "S2": "Gitee 见五地回执",
+    "S3": "GitHub pending：远端仍 d596c71（sync-bot 提交），非 scope 拒绝但结构性不可同头",
+    "S4": "向量海 见五地回执",
+    "S5": "HuggingFace 见五地回执"
+  },
+  "lessons": [
+    "闸必须能看见「自己漏改」：V75 建了七面闸却漏改自家 README 的 L158，根因是注册簿没有自覆盖判据 —— 判据的完备性要包含「判据自身的输入面是否被登记」",
+    "数值比较的归一化会吞掉语义：_int_of 抓首段数字，0.9.69 与 0.9.70 都归零 —— 凡是「形如 a.b.c 的版本」必须走字符串精确比，不许过任何数值通道",
+    "活体窗口 ≠ 全文扫描：全文扫会把历史段落（V4.0 → V6.1）全判红，逼人删历史；正确做法是锚点行 ±1 行的窗口 + 历史副本 timeboxed 保留"
+  ]
+}

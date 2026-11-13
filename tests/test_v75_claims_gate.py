@@ -25,11 +25,13 @@ README_ZH_OK = """# Demo
 | 门禁 | `v3_gate 32/32` · `unittest 1778 OK` · `redline 3 文件 0 违规` |
 **批次数不写死**，一律以台账回读为准。
 包内 .py 以 `find holoaeon -name '*.py' | wc -l` 回读。
+**2026-10 → 今 · 版本号以回读为准（不写死）。**
 """
 
 README_EN_OK = """# Demo
 [![Tests](https://img.shields.io/badge/tests-1778%2B11%2B21%20passed-success.svg)](#-testing)
 - **Gates (measured on this machine)**: main suite **1778 OK** + v3 domain **11** + verax domain **21** (**1810** total)
+**2026-10 → present — version is a readback of the ledger, never hardcoded.**
 """
 
 
@@ -90,7 +92,7 @@ class TestLoad(_Base):
                          ("doc_no", "version", "verified_at", "status"))
         self.assertEqual(cg.VALID_PIN_STATUS, ("current", "superseded", "unknown"))
         self.assertEqual(cg.VALID_CLAIM_KIND, ("current", "historical", "narrative"))
-        self.assertEqual(len(cg.FACES), 7)
+        self.assertEqual(len(cg.FACES), 8)  # V77 起八面（新增 registry_coverage）
 
     def test_02_load_default_registry(self):
         reg = cg.load_registry()
@@ -212,7 +214,9 @@ class TestHistorical(_Base):
 class TestNarrative(_Base):
     def test_17_three_narrative_claims(self):
         ids = [x["id"] for x in self.reg["doc_claims"] if x["kind"] == "narrative"]
-        self.assertEqual(sorted(ids), ["batch_count_zh", "pyfiles_command_zh", "ring_count_zh"])
+        self.assertEqual(sorted(ids),
+                         ["batch_count_zh", "en_timeline_version", "pyfiles_command_zh",
+                          "ring_count_zh", "zh_timeline_version"])  # V77 增两条时间线叙述位
 
     def test_18_ring_written_as_literal(self):
         ctx = cg._ctx(root=self.ctx["root"], texts={
