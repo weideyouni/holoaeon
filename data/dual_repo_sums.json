@@ -24,7 +24,7 @@
     ],
     "manifest": "SHA256SUMS",
     "root": "F:/doubaowork/holoaeon",
-    "sums_sha256": "594eecb78abbf755dd8cefb7b2616cd09e7a8c63543441ed8e88d7c7d30bfef3",
+    "sums_sha256": "8cc30fc8012010001271b4042d08b50b041b98e5ce3827d8ad2f1535de39ad1f",
     "v78b_note": "P0-A：文本文件 LF 归一化口径（CRLF 工作区与 Linux checkout 同清单）；P0-B：运行期产物移出（旧清单 251 条中在列的 5 条）+ 重建只收 git 已跟踪文件（追平 V 系批次新增的已跟踪件），251→332",
     "v79_note": "V79：清单 332→334（新增 reports/v79_receipt.json 与 data 侧改动），LF 口径不变"
   },

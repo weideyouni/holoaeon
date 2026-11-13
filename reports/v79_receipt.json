@@ -133,10 +133,12 @@
       "head": "509d20eb80320b2d0a38a9dcaadffaf9eda4a1df",
       "push": "7dc9bf0..509d20e",
       "ci_runs": [
-        43528852974
+        43528852884,
+        43529079694
       ],
       "conclusion": "success",
-      "ok": true
+      "ok": true,
+      "ci_note": "509d20e -> CI 43528852884 success；f8db323 -> CI 43529079694 success；sync-from-gitee 43529079677 success"
     },
     "S4_vector_sea": {
       "ok": true,
