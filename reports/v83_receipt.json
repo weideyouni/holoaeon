@@ -2,8 +2,24 @@
   "baseline_note": "四环开工前基线：HEAD caa855d / tracked dirty 0 / claims_gate 11 面 PASS mismatch 0 digest 658160628be2277b / 主套 2082 skipped 3 / 契约 184 / SHA256SUMS 337 条 / ci.yml sha16 a5fe41fd60f9c7cc / DOC 0.9.76。",
   "batch": "V83",
   "cloud_reconciliation": {
-    "note": "本批推送后由 CI run 回读更新：主套 Ran 预期 2123 / skipped 33、契约 184 / 11；D08 cloud 与 D13 同步关闭。",
-    "state": "pending_cloud_rerun"
+    "contract_suite": "Ran 184 / OK (skipped=11)",
+    "delta_vs_local": {
+      "executed": -35,
+      "explained_by": [
+        "D01"
+      ],
+      "ran": -5,
+      "skipped": 30
+    },
+    "jobs": {
+      "py3.10": 132336649589,
+      "py3.12": 132336649379,
+      "py3.8": 132336649707
+    },
+    "main_suite": "Ran 2123 / OK (skipped=33)",
+    "note": "三解释器同值；本批 46 例全部上云；D13 关闭。",
+    "run": 43558490124,
+    "state": "closed"
   },
   "date": "2026-11-14",
   "disposal": [
@@ -42,8 +58,8 @@
     "投喂包 §5C 金丝雀 C1 原始写法（ast.get_source_segment + 字符串切分再 parse）在本仓树形下会抛 SyntaxError；执行端改为整树遍历定位 emergence 赋值与 emergence_conditions 字典值，语义等价且更稳。",
     "投喂包未点明 sims 常量表在函数内的具体行号，实测定为 :983-984；判据两处 :1005 / :1020 与包述一致。"
   ],
-  "head": "",
-  "head_full": "",
+  "head": "4374ee0",
+  "head_full": "4374ee009c33a446ff1b774b659a215d174cf81f",
   "head_note": "head 在提交后回填；本回执先随第一笔提交入库。",
   "honest_boundaries": [
     "例数：投喂包写「约 40–50 例」，执行端实测 46 例（八组 + 八金丝雀），回执按实测记。",
@@ -72,7 +88,7 @@
   ],
   "prev_head": "caa855dfbed75c04fe2a8a8f3657ad3a30cd95e4",
   "seal": "潮起开门，潮落闭嘴",
-  "status": "LOCAL_GREEN_PENDING_CI",
+  "status": "PUSHED_CI_GREEN",
   "untouched": [
     "sims / weight_matrix 保留未删（只降级为静态先验回显）",
     "res_pairs 0.75 门槛未动",
@@ -86,11 +102,13 @@
     "ci_yml_note": "字节不变（连续第 5 批）",
     "ci_yml_sha16_after": "a5fe41fd60f9c7cc",
     "claims_gate": "11/11 PASS mismatch 0 digest 16aa3e13439f6140",
+    "cloud_contract": "184 / skipped 11（executed 173）",
     "contract_suite": "184 / 0",
     "dimension_lock": "12 维度 0 violation（verify:false=D02/D05/D06/D07）",
+    "env_delta_parity_updated": "D08 local 2128/3/2125 + cloud 2123/33/2090，gap ran −5 / executed −35 / skip +30（全归 D01）；D13 关闭 closed_after_cloud_rerun_43558490124；self_digest 重算",
     "redline": "156 文件 0 违规",
     "selftest": "25/25",
-    "unittest_cloud": "2077 / skipped 33（沿用 V82 run 43548778699 基线；本批推送后回读更新）",
+    "unittest_cloud": "2123 / skipped 33（run 43558490124 · py3.12 job 132336649379；py3.10 132336649589 / py3.8 132336649707 同值）",
     "unittest_main": 2128,
     "unittest_main_skipped": 3,
     "v3_gate": "33/33",

@@ -213,21 +213,20 @@
       "title": "解释器矩阵：本机 3.13.14 vs CI 3.8 / 3.10 / 3.12"
     },
     {
-      "caliber_note": "本机 V83 落地后实测 2128（V82 的 2082 + 本批 46）；云端仍是 V82 的 run 43548778699 实测 2077。ran 差 -51 = D01 的 5（test_v72_prehistory_injection setUpClass SkipTest，not_discovered） + D13 的 46（本批新增尚未上云，收口笔关闭）；skip 差 30 由 D01 独家解释。",
+      "caliber_note": "本机 V83 落地后实测 2128（V82 的 2082 + 本批 46）；云端 V83 推送后 run 43558490124 实测 2123（V82 的 2077 + 46，本批 46 例全部上云，三解释器同值）。ran 差 -5 全部来自 tests/test_v72_prehistory_injection.py 的 setUpClass SkipTest（D01 not_discovered=5）；executed 差 -35 = 5 + skip 差 30（D01）；skip 差 30 由 D01 独家解释。D13 已关闭。",
       "cloud": {
-        "evidence": "CI run 43548778699 · py3.12 job 132306143979 日志（Ran 2077 / OK skipped=33；Ran 184 / OK skipped=11）；py3.10 job 132306144226 / py3.8 job 132306144733 同值（V82 基线；本批推送后回读将更新为 2123）",
-        "executed": 2044,
-        "ran": 2077,
+        "evidence": "CI run 43558490124 · py3.12 job 132336649379 日志（Ran 2123 / OK skipped=33；Ran 184 / OK skipped=11）；py3.10 job 132336649589 / py3.8 job 132336649707 同值",
+        "executed": 2090,
+        "ran": 2123,
         "skipped": 33
       },
       "dimension": "parity_main_suite",
       "gap": {
-        "executed_diff": -81,
+        "executed_diff": -35,
         "explained_by": [
-          "D01",
-          "D13"
+          "D01"
         ],
-        "ran_diff": -51,
+        "ran_diff": -5,
         "skip_diff": 30
       },
       "guards": [],
@@ -358,10 +357,10 @@
       "title": "本批（V82）新增 46 例已上云（临时条目已关闭）"
     },
     {
-      "caliber_note": "临时条目：仅解释本批尚未上云的 46 例 ran 差；推送后云端回读 not_discovered.cloud 置 0、status 关闭。",
+      "caliber_note": "临时条目生命周期已收口：本批 46 例在 run 43558490124 全部执行，not_discovered.cloud 置 0，D08 的 ran_diff 回到 -5、executed_diff 回到 -35。条目保留可追溯，但已不参与差值解释。",
       "cloud": {
-        "evidence": "云端仍是 V82 的 2077；本批推送后 run 回读将置 2123 并关闭本条目",
-        "value": "absent"
+        "evidence": "CI run 43558490124 · py3.12 job 132336649379 日志 Ran 2123 = 云端基线 2077 + 本批 46",
+        "value": "present"
       },
       "dimension": "batch_not_yet_on_cloud",
       "guards": [],
@@ -372,7 +371,7 @@
       },
       "measured_at": "2026-11-14",
       "not_discovered": {
-        "cloud": 46,
+        "cloud": 0,
         "local": 0
       },
       "risk_tier": "fast",
@@ -380,9 +379,9 @@
         "cloud": 0,
         "local": 0
       },
-      "status": "open_pending_cloud_rerun",
+      "status": "closed_after_cloud_rerun_43558490124",
       "suite": "main",
-      "title": "本批（V83）新增 46 例尚未上云（临时条目，收口笔关闭）"
+      "title": "本批（V83）新增 46 例已上云（临时条目已关闭）"
     }
   ],
   "measurement_protocol": {
@@ -401,5 +400,5 @@
     "simulation": "本机云端条件模拟（v80_cloud_sim2.py：patch os.path.isdir/exists 判 F 盘与客仓/交付包不存在）"
   },
   "schema": "ENV-DELTA-REGISTRY-v1",
-  "self_digest": "5c282e6996aad671"
+  "self_digest": "faf65c9fc177f96e"
 }

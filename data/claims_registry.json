@@ -389,7 +389,7 @@
       "non_evidence": [
         "git_remote_tracking_ref"
       ],
-      "observed": "509d20e",
+      "observed": "4374ee0",
       "observed_at": "2026-11-14"
     },
     "main_suite": {
@@ -520,7 +520,7 @@
       "runtime_role": "current",
       "runtime_value": "2025",
       "source_pointer": "README.zh-CN.md#公卫口径段（V41 小节）",
-      "source_sha16": "196727e069976999",
+      "source_sha16": "0b6f426b3afc4646",
       "status": "current",
       "verified_at": "2026-11-14",
       "version": "2025",
@@ -630,7 +630,7 @@
     }
   ],
   "schema": "CLAIMS-GATE-v1",
-  "self_digest": "28e81f8c1d92af7c",
+  "self_digest": "05aee18564624239",
   "totals": {
     "doc_claims": 17,
     "historical": 3,
