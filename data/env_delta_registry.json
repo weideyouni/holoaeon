@@ -213,21 +213,20 @@
       "title": "解释器矩阵：本机 3.13.14 vs CI 3.8 / 3.10 / 3.12"
     },
     {
-      "caliber_note": "本机 V84 落地后实测 2182（V83 的 2128 + 本批 54）；cloud 侧仍是 V83 run 43558490124 的 2123，本批 54 例尚未上云，差值由 D14 独家解释（-54），其余 -5/+30 仍归 D01（v72 setUpClass SkipTest 的 not_discovered=5 与 skip 差 30）。",
+      "caliber_note": "V84 云端回读终值：本机 2182/3/2179 对云端 2177/33/2144，ran −5 / executed −35 / skip +30 全归 D01（v72 setUpClass SkipTest 的 not_discovered=5 与 skip 差 30）；本批 54 例已全部上云，D14 关闭。",
       "cloud": {
-        "evidence": "CI run 43558490124 · py3.12 job 132336649379 日志（V83 值，尚未重跑）；V84 CI 启动后按 ANCHOR 回读重登记（py3.10 / py3.8 同源）",
-        "executed": 2090,
-        "ran": 2123,
+        "evidence": "CI run 43643023044 · py3.12 job 132594550352 日志 Ran 2177 / skipped 33；py3.10 132594550278 / py3.8 132594550080 同值（三 job success）",
+        "executed": 2144,
+        "ran": 2177,
         "skipped": 33
       },
       "dimension": "parity_main_suite",
       "gap": {
-        "executed_diff": -89,
+        "executed_diff": -35,
         "explained_by": [
-          "D01",
-          "D14"
+          "D01"
         ],
-        "ran_diff": -59,
+        "ran_diff": -5,
         "skip_diff": 30
       },
       "guards": [],
@@ -385,10 +384,10 @@
       "title": "本批（V83）新增 46 例已上云（临时条目已关闭）"
     },
     {
-      "caliber_note": "临时条目：V84 的 tests/test_v84_tautology_golden_watch.py 54 例只在本机跑过，cloud 计数仍为 V83 的 2123；CI 三解释器 success 并回读日志后把 status 置 closed_after_cloud_rerun_<run>、not_discovered.cloud 归 0。",
+      "caliber_note": "V84 收口：tests/test_v84_tautology_golden_watch.py 54 例已在三解释器上跑过（ran 2177 / skipped 33），not_discovered 归 0，条目留册可追溯。",
       "cloud": {
-        "evidence": "未上云：V84 收口提交尚未推送，cloud 仍是 V83 run 43558490124 的 2123",
-        "value": "absent"
+        "evidence": "CI run 43643023044 · py3.12 job 132594550352 已跑到本批 54 例（Ran 2177）",
+        "value": "present"
       },
       "dimension": "batch_not_yet_on_cloud",
       "guards": [],
@@ -399,7 +398,7 @@
       },
       "measured_at": "2026-11-15",
       "not_discovered": {
-        "cloud": 54,
+        "cloud": 0,
         "local": 0
       },
       "risk_tier": "fast",
@@ -407,6 +406,7 @@
         "cloud": 0,
         "local": 0
       },
+      "status": "closed_after_cloud_rerun_43643023044",
       "suite": "main",
       "title": "本批（V84）新增 54 例尚未上云（待 CI 回读后关闭）"
     }
@@ -427,5 +427,5 @@
     "simulation": "本机云端条件模拟（v80_cloud_sim2.py：patch os.path.isdir/exists 判 F 盘与客仓/交付包不存在）"
   },
   "schema": "ENV-DELTA-REGISTRY-v1",
-  "self_digest": "cc245e441f402d73"
+  "self_digest": "9c64b4e0a3893f25"
 }
