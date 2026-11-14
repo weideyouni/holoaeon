@@ -1,0 +1,102 @@
+{
+  "baseline_note": "四环开工前基线：HEAD caa855d / tracked dirty 0 / claims_gate 11 面 PASS mismatch 0 digest 658160628be2277b / 主套 2082 skipped 3 / 契约 184 / SHA256SUMS 337 条 / ci.yml sha16 a5fe41fd60f9c7cc / DOC 0.9.76。",
+  "batch": "V83",
+  "cloud_reconciliation": {
+    "note": "本批推送后由 CI run 回读更新：主套 Ran 预期 2123 / skipped 33、契约 184 / 11；D08 cloud 与 D13 同步关闭。",
+    "state": "pending_cloud_rerun"
+  },
+  "date": "2026-11-14",
+  "disposal": [
+    {
+      "after": "新增 p23: str = \"\" 入参；缺省取本函数自有 _cosine(vecs[\"P2\"], vecs[\"P3\"]) （vecs = [s, 1-s]，即 res_pairs 用的同一基础设施），显式值优先；判据改为 p23_value >= 0.7（两处）；输出新增 p23_similarity（round 4 位，无门槛回显）与 p23_source（cosine_default / explicit / cosine_default(fallback:unparsable)）；sims 保留不删、降级静态先验回显；新增模块级 _clip01。",
+      "before": "局部常量表 sims[\"P2×P3\"] = 0.7 与门槛 0.7 比常量（:983-984 定义 / :1005 / :1020 两处判据），涌现第一条从未约束任何入参",
+      "compat_anchor": {
+        "input": "check_emergence(0.85,0.85,0.85,0.30) / quartet_tensor 同值",
+        "result": "p23_similarity 1.0 / emergence True / order 0.523686（test_v67:251 零破坏，43/43 OK）"
+      },
+      "id": "P23-REAL-INPUT",
+      "sick_sample": {
+        "input": "quartet_tensor(\"0.9\",\"0.9\",\"0.2\",\"0.3\")",
+        "new_verdict": "False；resonance_pairs 仅 ['P1×P2','P3×P4']（门槛 0.75 本就不收 P2×P3）",
+        "old_verdict": "P2×P3 判据 True（常量恒真）",
+        "real_cosine": 0.3482
+      },
+      "site": "holoaeon/packs/topology_resonance_pack.py::quartet_tensor",
+      "title": "quartet_tensor 的 P2×P3 判据：常量恒真 → 真实入参（缺省自有余弦）"
+    },
+    {
+      "id": "CALIBER-COEXISTENCE",
+      "note": "V82 quartet_director 用 1-|p2-p3| 约定式（:266 起，tol=1e-9 相对容差带追认为登记口径）；V83 quartet_tensor 用真实 _cosine。两者并存属碳基决策边界（投喂包 §8），本批不碰统一事宜。C7 金丝雀锁两口径各自稳定。",
+      "title": "两包 p23 口径不同且并存（登记事实，不统一）"
+    }
+  ],
+  "doc_version": "0.9.77",
+  "falsifiable": [
+    "病样本 (0.9,0.9,0.2,0.3)：p23_similarity 必须 ≈0.3482 且第一条 False；若仍 True，本批视为未落地",
+    "兼容锚 (0.85,0.85,0.85,0.30)：emergence 必须 True 且 order ≈0.5237",
+    "显式 p23=\"0.55\"：p23_value 0.55、第一条 False（判据可真可假）",
+    "C1 AST 金丝雀：quartet_tensor 的 emergence 判定表达式与 emergence_conditions 字典值中不得出现 Name('sims')",
+    "C1/C2 在 pre_v83 原件上必须红（V83_CANARY_ACTIVITY.json：failures=2）"
+  ],
+  "feed_corrections": [
+    "投喂包 §5C 金丝雀 C1 原始写法（ast.get_source_segment + 字符串切分再 parse）在本仓树形下会抛 SyntaxError；执行端改为整树遍历定位 emergence 赋值与 emergence_conditions 字典值，语义等价且更稳。",
+    "投喂包未点明 sims 常量表在函数内的具体行号，实测定为 :983-984；判据两处 :1005 / :1020 与包述一致。"
+  ],
+  "head": "",
+  "head_full": "",
+  "head_note": "head 在提交后回填；本回执先随第一笔提交入库。",
+  "honest_boundaries": [
+    "例数：投喂包写「约 40–50 例」，执行端实测 46 例（八组 + 八金丝雀），回执按实测记。",
+    "p23 非法值容错：p23=\"abc\" 回退缺省余弦，p23_source 标 cosine_default(fallback:unparsable)，由 B8 锁定；这是执行端定的口径，非投喂包原文。",
+    "两包 p23 口径（V82 的 1-|p2-p3| 与 V83 的 _cosine）不统一，属碳基决策；本批只登记并存事实。",
+    "V83_PROVE_RED.json 首轮记录为 45 例 30 红（本轮修 C1 后重跑得 46 例 30 红；两份证据并存，均为旧码实测）。",
+    "云端 ran/skipped 本批写 2077 为 V82 基线实测；本批 46 例上云后的新值以 CI 回读为准，收口笔改写 README 与 D08/D13。",
+    "claims_gate 第 11 面 env_delta 不联网、不读 CI 日志；D08 云端值靠执行端对账录入，闸只校验自洽与解释覆盖。"
+  ],
+  "manifest": {
+    "caliber": "build_b8_dual_sync.release_files ∩ git index + dual_sync.build_sums（LF 归一化）",
+    "entries": 338,
+    "note": "条数 338 = V82 的 337 + reports/v83_receipt.json（tests/ 不在清单目录集内，新增测试不增条数；清单在本回执落盘后重建，故不记清单自身 sha16）。",
+    "path": "SHA256SUMS"
+  },
+  "name": "TOPOLOGY_P23_DISPOSAL",
+  "next_batch": "等碳基定调：B4 九项 / 18 仓授权 / 内部基线重测 / 两包 p23 口径是否统一 / workflow scope 补授权。",
+  "patches": [
+    "holoaeon/packs/topology_resonance_pack.py：p23 入参 + 判据改真实 + p23_similarity/p23_source + _clip01（sha256 4ee07f89f0893c54b7baead4e6001c012f523e31806dfb5af13f72407bbed5ca）",
+    "tests/test_v83_topology_p23_disposal.py：新建 46 例（八组 + 八金丝雀）",
+    "holoaeon/spec.py + tests/test_v22_eng_skills.py + tests/test_v64_hangover_zero.py + tests/test_v70_prehistory_criteria.py：DOC 0.9.76 → 0.9.77 四处耦合",
+    "README.zh-CN.md / README.md：徽章 2128、验收行本机 2128 / 云端 2077（本批 46 例待上云 D13）、合计 2160、清单 338 条、门禁行补 V83 46 例、V83 最新批次行（V82 降上一批次）",
+    "data/claims_registry.json：doc_version 0.9.77 / main_suite 2128 / redline 156 / doc_version_spec sha16 62136e31765874db / PHC-2025 source_sha16 196727e069976999 / self_digest 28e81f8c1d92af7c",
+    "data/env_delta_registry.json：D08 local 2128/3/2125、cloud 暂 2077/33/2044、gap ran −51 / executed −81 / skip +30（D01+D13）；新增 D13 临时条目（46 例待上云，status open_pending_cloud_rerun）；self_digest 5c282e6996aad671（收口笔按云端回读再刷）",
+    "reports/v83_receipt.json：本回执"
+  ],
+  "prev_head": "caa855dfbed75c04fe2a8a8f3657ad3a30cd95e4",
+  "seal": "潮起开门，潮落闭嘴",
+  "status": "LOCAL_GREEN_PENDING_CI",
+  "untouched": [
+    "sims / weight_matrix 保留未删（只降级为静态先验回显）",
+    "res_pairs 0.75 门槛未动",
+    "quartet_director 的 p23 口径与 tol 未动（V82 已登记）",
+    "业务 B4 九项 / 18 仓授权 / 路径 C / D0 均未触碰",
+    "VERSION / MATRIX_ID / RUNTIME_ID / PACK_ORDER / BUILTIN_LAYERS / diff0 注释值 / tamper / zip 冻结值未动"
+  ],
+  "verification": {
+    "check_sums": "ok / mismatches=[]（338 条）",
+    "ci_preflight": "12/12 / A13 aligned=true",
+    "ci_yml_note": "字节不变（连续第 5 批）",
+    "ci_yml_sha16_after": "a5fe41fd60f9c7cc",
+    "claims_gate": "11/11 PASS mismatch 0 digest 16aa3e13439f6140",
+    "contract_suite": "184 / 0",
+    "dimension_lock": "12 维度 0 violation（verify:false=D02/D05/D06/D07）",
+    "redline": "156 文件 0 违规",
+    "selftest": "25/25",
+    "unittest_cloud": "2077 / skipped 33（沿用 V82 run 43548778699 基线；本批推送后回读更新）",
+    "unittest_main": 2128,
+    "unittest_main_skipped": 3,
+    "v3_gate": "33/33",
+    "v3_suite": "11 / 0",
+    "v67_compat": "43 例全绿（兼容锚零破坏）",
+    "v83_test_file": "46 例全绿（八组 + 八金丝雀）",
+    "verax_suite": "21 / 0"
+  }
+}

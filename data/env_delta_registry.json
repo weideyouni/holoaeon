@@ -1,36 +1,15 @@
 {
-  "schema": "ENV-DELTA-REGISTRY-v1",
   "as_of": "2026-11-14",
-  "batch": "V82",
+  "batch": "V83",
   "caliber_note": "本注册簿登记「环境与环境之间的差异」，与 claims_registry 的 ledger_sources（账与账一致）不相交。云端值是执行端对账时登记的实测值，闸不联网不读 CI 日志。",
-  "measurement_protocol": {
-    "local": "本机 python -m unittest discover -s tests / tests_contract（-v 实测）",
-    "cloud": "CI run 43540948562 · py3.12 job 132281135371 日志（Ran 2031 / OK skipped=33；Ran 184 / OK skipped=11）；基线 CI run 43528852884 · job 132241243161（Ran 1976 / skipped=33；184/11）",
-    "simulation": "本机云端条件模拟（v80_cloud_sim2.py：patch os.path.isdir/exists 判 F 盘与客仓/交付包不存在）",
-    "guard_census": "AST 静态普查 tests/ + tests_contract/（装饰器 / 模块级别名 / skipTest / raise SkipTest）",
-    "census_tool": "holoaeon_lathe/v80_guard_census2.py",
-    "evidence_files": [
-      "holoaeon_lathe/V80_GUARD_CENSUS_FULL.json",
-      "holoaeon_lathe/V80_CLOUD_SIM.json",
-      "holoaeon_lathe/V80_CI_JOB_132241243161.log",
-      "holoaeon_lathe/V80_CI_JOB_132281135371_py3.12___tests_selftest_redline.log",
-      "holoaeon_lathe/V80_CI_JOB_132281135069_py3.10___tests_selftest_redline.log",
-      "holoaeon_lathe/V80_CI_JOB_132281135386_py3.8___tests_selftest_redline.log"
-    ]
-  },
   "entries": [
     {
-      "id": "D01",
-      "dimension": "f_drive_assets",
-      "title": "F 盘素材与现场证据（doubaowork 根 / 真盘子料 / 真站点 / 素材目录）",
-      "local": {
-        "value": "present",
-        "evidence": "本机 F:\\doubaowork 存在；受守卫保护的 34 个测试全部执行"
-      },
+      "caliber_note": "v70:26 是 HAVE_SITE 模块级探测因子（装饰器 L321 的判据来源），非独立跳过点；v72:291 是 setUpClass 抛 SkipTest → skip 记 1、类内 5 个 test 不计入 Ran，这是云端 Ran 少 5 的全部来源",
       "cloud": {
-        "value": "absent",
-        "evidence": "ubuntu runner 无 F 盘；模拟实测受守卫影响 30 skip + 5 个测试不被发现"
+        "evidence": "ubuntu runner 无 F 盘；模拟实测受守卫影响 30 skip + 5 个测试不被发现",
+        "value": "absent"
       },
+      "dimension": "f_drive_assets",
       "guards": [
         "tests/test_v52_cinema_gate.py:187",
         "tests/test_v68_prehistory_ledger.py:363",
@@ -43,31 +22,31 @@
         "tests/test_v73_prehistory_tutor.py:360",
         "tests/test_v73_prehistory_tutor.py:394"
       ],
-      "skip_attributed": {
-        "local": 0,
-        "cloud": 30
-      },
-      "not_discovered": {
-        "local": 0,
-        "cloud": 5
+      "id": "D01",
+      "local": {
+        "evidence": "本机 F:\\doubaowork 存在；受守卫保护的 34 个测试全部执行",
+        "value": "present"
       },
       "measured_at": "2026-11-14",
+      "not_discovered": {
+        "cloud": 5,
+        "local": 0
+      },
       "risk_tier": "fast",
-      "caliber_note": "v70:26 是 HAVE_SITE 模块级探测因子（装饰器 L321 的判据来源），非独立跳过点；v72:291 是 setUpClass 抛 SkipTest → skip 记 1、类内 5 个 test 不计入 Ran，这是云端 Ran 少 5 的全部来源",
-      "suite": "main"
+      "skip_attributed": {
+        "cloud": 30,
+        "local": 0
+      },
+      "suite": "main",
+      "title": "F 盘素材与现场证据（doubaowork 根 / 真盘子料 / 真站点 / 素材目录）"
     },
     {
-      "id": "D02",
-      "dimension": "ivsa_guest_repo",
-      "title": "客仓 integrative-rehab-vsa（F:\\doubaowork\\开源发布_中西医融合康复工程_20261026\\integrative-rehab-vsa）",
-      "local": {
-        "value": "present",
-        "evidence": "本机客仓在，契约套 10 个相关测试全跑"
-      },
+      "caliber_note": "test_ivsa_recon.py:26 是模块级 skipUnless 别名 GUARD，L35/40/45/58/67 五处 @GUARD 都用它；test_v43.py:64 在 AdapterBridge 的 setUp 里，两个测试各跳一次",
       "cloud": {
-        "value": "absent",
-        "evidence": "仓库不含客仓；模拟实测 10 skip"
+        "evidence": "仓库不含客仓；模拟实测 10 skip",
+        "value": "absent"
       },
+      "dimension": "ivsa_guest_repo",
       "guards": [
         "tests_contract/test_dual_sync.py:63",
         "tests_contract/test_ivsa_recon.py:26",
@@ -80,298 +59,347 @@
         "tests_contract/test_plugin_runtime.py:43",
         "tests_contract/test_v43.py:64"
       ],
-      "skip_attributed": {
-        "local": 0,
-        "cloud": 10
-      },
-      "not_discovered": {
-        "local": 0,
-        "cloud": 0
+      "id": "D02",
+      "local": {
+        "evidence": "本机客仓在，契约套 10 个相关测试全跑",
+        "value": "present"
       },
       "measured_at": "2026-11-14",
+      "not_discovered": {
+        "cloud": 0,
+        "local": 0
+      },
       "risk_tier": "fast",
-      "caliber_note": "test_ivsa_recon.py:26 是模块级 skipUnless 别名 GUARD，L35/40/45/58/67 五处 @GUARD 都用它；test_v43.py:64 在 AdapterBridge 的 setUp 里，两个测试各跳一次",
-      "suite": "contract"
+      "skip_attributed": {
+        "cloud": 10,
+        "local": 0
+      },
+      "suite": "contract",
+      "title": "客仓 integrative-rehab-vsa（F:\\doubaowork\\开源发布_中西医融合康复工程_20261026\\integrative-rehab-vsa）"
     },
     {
-      "id": "D03",
-      "dimension": "delivery_package",
-      "title": "交付包 PKG（F:\\doubaowork\\HoloAeon_V4冷热插拔赋能升级_20261102）",
-      "local": {
-        "value": "present",
-        "evidence": "本机交付包在，DeliveryPkg 测试全跑"
-      },
+      "caliber_note": "cdp.dna.PKG 指向仓外交付包目录；本机有包时照常全跑",
       "cloud": {
-        "value": "absent",
-        "evidence": "仓库不含交付包；模拟实测 1 skip"
+        "evidence": "仓库不含交付包；模拟实测 1 skip",
+        "value": "absent"
       },
+      "dimension": "delivery_package",
       "guards": [
         "tests_contract/test_v43.py:50"
       ],
-      "skip_attributed": {
-        "local": 0,
-        "cloud": 1
-      },
-      "not_discovered": {
-        "local": 0,
-        "cloud": 0
+      "id": "D03",
+      "local": {
+        "evidence": "本机交付包在，DeliveryPkg 测试全跑",
+        "value": "present"
       },
       "measured_at": "2026-11-14",
+      "not_discovered": {
+        "cloud": 0,
+        "local": 0
+      },
       "risk_tier": "fast",
-      "caliber_note": "cdp.dna.PKG 指向仓外交付包目录；本机有包时照常全跑",
-      "suite": "contract"
+      "skip_attributed": {
+        "cloud": 1,
+        "local": 0
+      },
+      "suite": "contract",
+      "title": "交付包 PKG（F:\\doubaowork\\HoloAeon_V4冷热插拔赋能升级_20261102）"
     },
     {
-      "id": "D04",
-      "dimension": "memory_of_yuan_module",
-      "title": "仓外记忆模块 memory_of_yuan 未安装（两端同态）",
-      "local": {
-        "value": "absent-this-interp",
-        "evidence": "本机主套 skipped=3 全为此由（-v 实测）"
-      },
+      "caliber_note": "两端同态：本机 3 skip、云端 3 skip，不解释任何差值，只解释 skip 构成",
       "cloud": {
-        "value": "absent",
-        "evidence": "仓库不含该模块，导入必失败 → 三个测试各 skipTest 一次"
+        "evidence": "仓库不含该模块，导入必失败 → 三个测试各 skipTest 一次",
+        "value": "absent"
       },
+      "dimension": "memory_of_yuan_module",
       "guards": [
         "tests/test_v12_v17_integration.py:134",
         "tests/test_v12_v17_integration.py:144",
         "tests/test_v12_v17_integration.py:154"
       ],
-      "skip_attributed": {
-        "local": 3,
-        "cloud": 3
-      },
-      "not_discovered": {
-        "local": 0,
-        "cloud": 0
+      "id": "D04",
+      "local": {
+        "evidence": "本机主套 skipped=3 全为此由（-v 实测）",
+        "value": "absent-this-interp"
       },
       "measured_at": "2026-11-14",
+      "not_discovered": {
+        "cloud": 0,
+        "local": 0
+      },
       "risk_tier": "stable",
-      "caliber_note": "两端同态：本机 3 skip、云端 3 skip，不解释任何差值，只解释 skip 构成",
-      "suite": "main"
+      "skip_attributed": {
+        "cloud": 3,
+        "local": 3
+      },
+      "suite": "main",
+      "title": "仓外记忆模块 memory_of_yuan 未安装（两端同态）"
     },
     {
-      "id": "D05",
+      "caliber_note": "谱系条目：只证明该类差异已治，不参与现行差值解释（C8 金丝雀守此线）",
+      "cloud": {
+        "evidence": "云端 checkout LF，同一判据下 334 条 0 不匹配",
+        "value": "lf-checkout"
+      },
       "dimension": "crlf_caliber",
+      "guards": [],
+      "id": "D05",
+      "local": {
+        "evidence": "本机工作区 CRLF，V78b 起清单按 LF 归一化比对",
+        "value": "crlf-worktree"
+      },
+      "measured_at": "2026-11-14",
+      "not_discovered": {
+        "cloud": 0,
+        "local": 0
+      },
+      "risk_tier": "stable",
+      "skip_attributed": {
+        "cloud": 0,
+        "local": 0
+      },
       "status": "resolved_by_V78b",
-      "title": "CRLF 工作区 vs LF checkout（已治：清单 LF 归一化口径）",
-      "local": {
-        "value": "crlf-worktree",
-        "evidence": "本机工作区 CRLF，V78b 起清单按 LF 归一化比对"
-      },
-      "cloud": {
-        "value": "lf-checkout",
-        "evidence": "云端 checkout LF，同一判据下 334 条 0 不匹配"
-      },
-      "guards": [],
-      "skip_attributed": {
-        "local": 0,
-        "cloud": 0
-      },
-      "not_discovered": {
-        "local": 0,
-        "cloud": 0
-      },
-      "measured_at": "2026-11-14",
-      "risk_tier": "stable",
-      "caliber_note": "谱系条目：只证明该类差异已治，不参与现行差值解释（C8 金丝雀守此线）"
+      "title": "CRLF 工作区 vs LF checkout（已治：清单 LF 归一化口径）"
     },
     {
-      "id": "D06",
+      "caliber_note": "谱系条目：只证明该类差异已治，不参与现行差值解释",
+      "cloud": {
+        "evidence": "GitHub runner 默认 UTC；V81 起闸内取 _today_cst",
+        "value": "UTC"
+      },
       "dimension": "timezone_utc8",
+      "guards": [],
+      "id": "D06",
+      "local": {
+        "evidence": "本机 Asia/Shanghai",
+        "value": "UTC+8"
+      },
+      "measured_at": "2026-11-14",
+      "not_discovered": {
+        "cloud": 0,
+        "local": 0
+      },
+      "risk_tier": "stable",
+      "skip_attributed": {
+        "cloud": 0,
+        "local": 0
+      },
       "status": "resolved_by_V81",
-      "title": "本机 UTC+8 vs runner UTC（已治：_today_cst 统一取 CST）",
-      "local": {
-        "value": "UTC+8",
-        "evidence": "本机 Asia/Shanghai"
-      },
-      "cloud": {
-        "value": "UTC",
-        "evidence": "GitHub runner 默认 UTC；V81 起闸内取 _today_cst"
-      },
-      "guards": [],
-      "skip_attributed": {
-        "local": 0,
-        "cloud": 0
-      },
-      "not_discovered": {
-        "local": 0,
-        "cloud": 0
-      },
-      "measured_at": "2026-11-14",
-      "risk_tier": "stable",
-      "caliber_note": "谱系条目：只证明该类差异已治，不参与现行差值解释"
+      "title": "本机 UTC+8 vs runner UTC（已治：_today_cst 统一取 CST）"
     },
     {
-      "id": "D07",
+      "caliber_note": "版本矩阵本身不产生 skip；py3.8 若出现语法/API 差异另案登记",
+      "cloud": {
+        "evidence": "ci.yml 三版本矩阵；日志锚点取 py3.12 job",
+        "value": "3.8 / 3.10 / 3.12"
+      },
       "dimension": "python_matrix",
-      "title": "解释器矩阵：本机 3.13.14 vs CI 3.8 / 3.10 / 3.12",
-      "local": {
-        "value": "3.13.14",
-        "evidence": "本机 python --version 实测"
-      },
-      "cloud": {
-        "value": "3.8 / 3.10 / 3.12",
-        "evidence": "ci.yml 三版本矩阵；日志锚点取 py3.12 job"
-      },
       "guards": [],
-      "skip_attributed": {
-        "local": 0,
-        "cloud": 0
-      },
-      "not_discovered": {
-        "local": 0,
-        "cloud": 0
+      "id": "D07",
+      "local": {
+        "evidence": "本机 python --version 实测",
+        "value": "3.13.14"
       },
       "measured_at": "2026-11-14",
+      "not_discovered": {
+        "cloud": 0,
+        "local": 0
+      },
       "risk_tier": "stable",
-      "caliber_note": "版本矩阵本身不产生 skip；py3.8 若出现语法/API 差异另案登记"
-    },
-    {
-      "id": "D08",
-      "dimension": "parity_main_suite",
-      "title": "主套双端计数对账（tests/）",
-      "local": {
-        "ran": 2082,
-        "skipped": 3,
-        "executed": 2079,
-        "evidence": "本机 python -m unittest discover -s tests 实测（V82 加 46 例：2036 → 2082）；tests_contract 184 / 0"
-      },
-      "cloud": {
-        "ran": 2077,
-        "skipped": 33,
-        "executed": 2044,
-        "evidence": "CI run 43548778699 · py3.12 job 132306143979 日志（Ran 2077 / OK skipped=33；Ran 184 / OK skipped=11）；py3.10 job 132306144226 / py3.8 job 132306144733 同值"
-      },
-      "gap": {
-        "ran_diff": -5,
-        "executed_diff": -35,
-        "skip_diff": 30,
-        "explained_by": [
-          "D01"
-        ]
-      },
-      "guards": [],
-      "measured_at": "2026-11-14",
-      "risk_tier": "fast",
-      "caliber_note": "本机 V82 落地后实测 2082（V80 的 2036 + 本批 46）；云端 V82 推送后 run 43548778699 实测 2077（2031 + 46，本批 46 例全部上云）。ran 差 -5 全部来自 tests/test_v72_prehistory_injection.py 的 setUpClass SkipTest（D01 的 not_discovered=5）；executed 差 -35 = 5 + skip 差 30（D01）；skip 差 30 由 D01 独家解释。D12 临时条目已关闭。",
-      "suite": "main"
-    },
-    {
-      "id": "D11",
-      "dimension": "batch_not_yet_on_cloud",
-      "title": "本批（V80）新增 55 例已上云（临时条目已关闭）",
-      "local": {
-        "value": "present",
-        "evidence": "本机 2036 = V79 基线 1981 + 本批 55 例"
-      },
-      "cloud": {
-        "value": "present",
-        "evidence": "CI run 43540948562 · py3.12 job 132281135371 日志（Ran 2031 / OK skipped=33；Ran 184 / OK skipped=11）；基线 CI run 43528852884 · job 132241243161（Ran 1976 / skipped=33；184/11）（V80 推送后 run 实测 2031 = 1976 + 55）"
-      },
-      "guards": [],
       "skip_attributed": {
-        "local": 0,
-        "cloud": 0
+        "cloud": 0,
+        "local": 0
       },
-      "not_discovered": {
-        "local": 0,
-        "cloud": 0
+      "title": "解释器矩阵：本机 3.13.14 vs CI 3.8 / 3.10 / 3.12"
+    },
+    {
+      "caliber_note": "本机 V83 落地后实测 2128（V82 的 2082 + 本批 46）；云端仍是 V82 的 run 43548778699 实测 2077。ran 差 -51 = D01 的 5（test_v72_prehistory_injection setUpClass SkipTest，not_discovered） + D13 的 46（本批新增尚未上云，收口笔关闭）；skip 差 30 由 D01 独家解释。",
+      "cloud": {
+        "evidence": "CI run 43548778699 · py3.12 job 132306143979 日志（Ran 2077 / OK skipped=33；Ran 184 / OK skipped=11）；py3.10 job 132306144226 / py3.8 job 132306144733 同值（V82 基线；本批推送后回读将更新为 2123）",
+        "executed": 2044,
+        "ran": 2077,
+        "skipped": 33
+      },
+      "dimension": "parity_main_suite",
+      "gap": {
+        "executed_diff": -81,
+        "explained_by": [
+          "D01",
+          "D13"
+        ],
+        "ran_diff": -51,
+        "skip_diff": 30
+      },
+      "guards": [],
+      "id": "D08",
+      "local": {
+        "evidence": "本机 python -m unittest discover -s tests 实测（V83 加 46 例：2082 → 2128）；tests_contract 184 / 0",
+        "executed": 2125,
+        "ran": 2128,
+        "skipped": 3
       },
       "measured_at": "2026-11-14",
       "risk_tier": "fast",
+      "suite": "main",
+      "title": "主套双端计数对账（tests/）"
+    },
+    {
+      "caliber_note": "临时条目生命周期已收口：本批 55 例在 run 43540948562 全部执行，not_discovered.cloud 置 0，D08 的 ran_diff 回到 -5、executed_diff 回到 -35。条目保留可追溯，但已不参与差值解释。",
+      "cloud": {
+        "evidence": "CI run 43540948562 · py3.12 job 132281135371 日志（Ran 2031 / OK skipped=33；Ran 184 / OK skipped=11）；基线 CI run 43528852884 · job 132241243161（Ran 1976 / skipped=33；184/11）（V80 推送后 run 实测 2031 = 1976 + 55）",
+        "value": "present"
+      },
+      "dimension": "batch_not_yet_on_cloud",
+      "guards": [],
+      "id": "D11",
+      "local": {
+        "evidence": "本机 2036 = V79 基线 1981 + 本批 55 例",
+        "value": "present"
+      },
+      "measured_at": "2026-11-14",
+      "not_discovered": {
+        "cloud": 0,
+        "local": 0
+      },
+      "risk_tier": "fast",
+      "skip_attributed": {
+        "cloud": 0,
+        "local": 0
+      },
       "status": "closed_after_cloud_rerun_43540948562",
       "suite": "main",
-      "caliber_note": "临时条目生命周期已收口：本批 55 例在 run 43540948562 全部执行，not_discovered.cloud 置 0，D08 的 ran_diff 回到 -5、executed_diff 回到 -35。条目保留可追溯，但已不参与差值解释。"
+      "title": "本批（V80）新增 55 例已上云（临时条目已关闭）"
     },
     {
-      "id": "D09",
-      "dimension": "parity_contract_suite",
-      "title": "契约套双端计数对账（tests_contract/）",
-      "local": {
-        "ran": 184,
-        "skipped": 0,
-        "executed": 184,
-        "evidence": "本机 python -m unittest discover -s tests / tests_contract（-v 实测）"
-      },
+      "caliber_note": "契约套云端发现数不变（184=184），差值全在 skip：客仓 10 + 交付包 1",
       "cloud": {
-        "ran": 184,
-        "skipped": 11,
+        "evidence": "CI run 43540948562 · py3.12 job 132281135371 日志（Ran 2031 / OK skipped=33；Ran 184 / OK skipped=11）；基线 CI run 43528852884 · job 132241243161（Ran 1976 / skipped=33；184/11）",
         "executed": 173,
-        "evidence": "CI run 43540948562 · py3.12 job 132281135371 日志（Ran 2031 / OK skipped=33；Ran 184 / OK skipped=11）；基线 CI run 43528852884 · job 132241243161（Ran 1976 / skipped=33；184/11）"
+        "ran": 184,
+        "skipped": 11
       },
+      "dimension": "parity_contract_suite",
       "gap": {
-        "ran_diff": 0,
         "executed_diff": -11,
-        "skip_diff": 11,
         "explained_by": [
           "D02",
           "D03"
-        ]
+        ],
+        "ran_diff": 0,
+        "skip_diff": 11
       },
       "guards": [],
+      "id": "D09",
+      "local": {
+        "evidence": "本机 python -m unittest discover -s tests / tests_contract（-v 实测）",
+        "executed": 184,
+        "ran": 184,
+        "skipped": 0
+      },
       "measured_at": "2026-11-14",
       "risk_tier": "fast",
-      "caliber_note": "契约套云端发现数不变（184=184），差值全在 skip：客仓 10 + 交付包 1",
-      "suite": "contract"
+      "suite": "contract",
+      "title": "契约套双端计数对账（tests_contract/）"
     },
     {
-      "id": "D10",
-      "dimension": "in_repo_receipt_gate",
-      "title": "仓内联调回执门（test_v45「尚无联调回执」）",
-      "local": {
-        "value": "receipt-present",
-        "evidence": "本机契约套 skipped=0，回执随仓在"
-      },
+      "caliber_note": "两端同态（0 skip）：登记它是为了让「每个 skipTest 都有归属」，不参与差值解释",
       "cloud": {
-        "value": "receipt-present",
-        "evidence": "回执随仓下发，云端同样可读；模拟实测 0 skip"
+        "evidence": "回执随仓下发，云端同样可读；模拟实测 0 skip",
+        "value": "receipt-present"
       },
+      "dimension": "in_repo_receipt_gate",
       "guards": [
         "tests_contract/test_v45.py:36",
         "tests_contract/test_v45.py:45"
       ],
-      "skip_attributed": {
-        "local": 0,
-        "cloud": 0
-      },
-      "not_discovered": {
-        "local": 0,
-        "cloud": 0
+      "id": "D10",
+      "local": {
+        "evidence": "本机契约套 skipped=0，回执随仓在",
+        "value": "receipt-present"
       },
       "measured_at": "2026-11-14",
+      "not_discovered": {
+        "cloud": 0,
+        "local": 0
+      },
       "risk_tier": "stable",
-      "caliber_note": "两端同态（0 skip）：登记它是为了让「每个 skipTest 都有归属」，不参与差值解释",
-      "suite": "contract"
+      "skip_attributed": {
+        "cloud": 0,
+        "local": 0
+      },
+      "suite": "contract",
+      "title": "仓内联调回执门（test_v45「尚无联调回执」）"
     },
     {
-      "id": "D12",
-      "dimension": "batch_not_yet_on_cloud",
-      "title": "本批（V82）新增 46 例已上云（临时条目已关闭）",
-      "local": {
-        "value": "present",
-        "evidence": "本机 2082 = V80 基线 2036 + 本批 46 例"
-      },
+      "caliber_note": "临时条目生命周期已收口：本批 46 例在 run 43548778699 全部执行，not_discovered.cloud 置 0，D08 的 ran_diff 回到 -5、executed_diff 回到 -35。条目保留可追溯，但已不参与差值解释。",
       "cloud": {
-        "value": "present",
-        "evidence": "CI run 43548778699 · py3.12 job 132306143979 日志 Ran 2077 = 云端基线 2031 + 本批 46"
+        "evidence": "CI run 43548778699 · py3.12 job 132306143979 日志 Ran 2077 = 云端基线 2031 + 本批 46",
+        "value": "present"
       },
+      "dimension": "batch_not_yet_on_cloud",
       "guards": [],
-      "skip_attributed": {
-        "local": 0,
-        "cloud": 0
-      },
-      "not_discovered": {
-        "local": 0,
-        "cloud": 0
+      "id": "D12",
+      "local": {
+        "evidence": "本机 2082 = V80 基线 2036 + 本批 46 例",
+        "value": "present"
       },
       "measured_at": "2026-11-14",
+      "not_discovered": {
+        "cloud": 0,
+        "local": 0
+      },
       "risk_tier": "fast",
+      "skip_attributed": {
+        "cloud": 0,
+        "local": 0
+      },
       "status": "closed_after_cloud_rerun_43548778699",
       "suite": "main",
-      "caliber_note": "临时条目生命周期已收口：本批 46 例在 run 43548778699 全部执行，not_discovered.cloud 置 0，D08 的 ran_diff 回到 -5、executed_diff 回到 -35。条目保留可追溯，但已不参与差值解释。"
+      "title": "本批（V82）新增 46 例已上云（临时条目已关闭）"
+    },
+    {
+      "caliber_note": "临时条目：仅解释本批尚未上云的 46 例 ran 差；推送后云端回读 not_discovered.cloud 置 0、status 关闭。",
+      "cloud": {
+        "evidence": "云端仍是 V82 的 2077；本批推送后 run 回读将置 2123 并关闭本条目",
+        "value": "absent"
+      },
+      "dimension": "batch_not_yet_on_cloud",
+      "guards": [],
+      "id": "D13",
+      "local": {
+        "evidence": "本机 2128 = V82 基线 2082 + 本批 46 例",
+        "value": "present"
+      },
+      "measured_at": "2026-11-14",
+      "not_discovered": {
+        "cloud": 46,
+        "local": 0
+      },
+      "risk_tier": "fast",
+      "skip_attributed": {
+        "cloud": 0,
+        "local": 0
+      },
+      "status": "open_pending_cloud_rerun",
+      "suite": "main",
+      "title": "本批（V83）新增 46 例尚未上云（临时条目，收口笔关闭）"
     }
   ],
-  "self_digest": "09895ae0f96092a8"
+  "measurement_protocol": {
+    "census_tool": "holoaeon_lathe/v80_guard_census2.py",
+    "cloud": "CI run 43540948562 · py3.12 job 132281135371 日志（Ran 2031 / OK skipped=33；Ran 184 / OK skipped=11）；基线 CI run 43528852884 · job 132241243161（Ran 1976 / skipped=33；184/11）",
+    "evidence_files": [
+      "holoaeon_lathe/V80_GUARD_CENSUS_FULL.json",
+      "holoaeon_lathe/V80_CLOUD_SIM.json",
+      "holoaeon_lathe/V80_CI_JOB_132241243161.log",
+      "holoaeon_lathe/V80_CI_JOB_132281135371_py3.12___tests_selftest_redline.log",
+      "holoaeon_lathe/V80_CI_JOB_132281135069_py3.10___tests_selftest_redline.log",
+      "holoaeon_lathe/V80_CI_JOB_132281135386_py3.8___tests_selftest_redline.log"
+    ],
+    "guard_census": "AST 静态普查 tests/ + tests_contract/（装饰器 / 模块级别名 / skipTest / raise SkipTest）",
+    "local": "本机 python -m unittest discover -s tests / tests_contract（-v 实测）",
+    "simulation": "本机云端条件模拟（v80_cloud_sim2.py：patch os.path.isdir/exists 判 F 盘与客仓/交付包不存在）"
+  },
+  "schema": "ENV-DELTA-REGISTRY-v1",
+  "self_digest": "5c282e6996aad671"
 }

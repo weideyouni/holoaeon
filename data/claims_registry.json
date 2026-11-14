@@ -85,7 +85,7 @@
       "timeboxed": false
     },
     {
-      "as_of_batch": "V82",
+      "as_of_batch": "V83",
       "evidence_class": "measured",
       "expected_from": "receipt.verification.unittest_main",
       "id": "acceptance_suite_zh",
@@ -96,7 +96,7 @@
       "timeboxed": false
     },
     {
-      "as_of_batch": "V82",
+      "as_of_batch": "V83",
       "evidence_class": "measured",
       "expected_from": "receipt.verification.unittest_main",
       "id": "acceptance_suite_en",
@@ -107,7 +107,7 @@
       "timeboxed": false
     },
     {
-      "as_of_batch": "V82",
+      "as_of_batch": "V83",
       "evidence_class": "measured",
       "expected_from": "receipt.verification.unittest_main",
       "id": "gate_suite_zh",
@@ -118,7 +118,7 @@
       "timeboxed": false
     },
     {
-      "as_of_batch": "",
+      "as_of_batch": "V83",
       "evidence_class": "measured",
       "expected_from": "receipt.verification.redline",
       "id": "gate_redline_zh",
@@ -151,14 +151,14 @@
       "timeboxed": false
     },
     {
-      "as_of_batch": "V82",
+      "as_of_batch": "V83",
       "evidence_class": "measured",
       "expected_from": "receipt.doc_version",
       "id": "doc_version_spec",
       "kind": "current",
       "note": "DOC_VERSION 唯一权威点（holoaeon/spec.py）",
       "readback": "spec.doc_version",
-      "sha16": "8dc6ef2cd51c6512",
+      "sha16": "62136e31765874db",
       "timeboxed": false
     },
     {
@@ -292,6 +292,125 @@
       "stale_if_core_py_count_changes": true
     }
   ],
+  "ledger_conflicts": [
+    {
+      "carbon_canon": "碳基 11-14 01:57 终裁：必须补 workflow scope，当时只是同步报错才搁置，任务从未取消",
+      "disposition": "登记为 blocker_not_intent；三处污染措辞由 PL-7 批清理，本批不代改",
+      "id": "D0",
+      "keys": [
+        "carbon_intent"
+      ],
+      "kind": "intent_vs_blocker",
+      "root_cause": "技术阻塞（推送含 workflow 变更被硬拒 → 改走 cron 内容镜像）被误记成碳基意图",
+      "truth": "碳基 11-14 01:57 终裁：必须补 workflow scope，当时只是同步报错才搁置，任务从未取消",
+      "was": "碳基决议：先不加工作流权限，等以后条件允许再做；该任务永不重启",
+      "where": "NOTE_20261113_HOLOAEON_S3_MIRROR_MODE.md L1/L3 + v77_decision_defer_workflow.py L2/L48/L50/L51 + engineering_machine.STATE.pending"
+    },
+    {
+      "disposition": "本批撤销过期挂账并改为回读式",
+      "id": "D1",
+      "keys": [],
+      "kind": "stale_pointer",
+      "truth": "V78/V78a/V78b 均已落地（7dc9bf0）",
+      "was": "下一批 V78 = CI 门禁补齐",
+      "where": "reports/feed_index.json#pending_note"
+    },
+    {
+      "disposition": "登记为合法口径差",
+      "id": "D2",
+      "keys": [],
+      "kind": "caliber_difference",
+      "truth": "回执 status 描述推送与 CI 结果，STATE 描述机床断点，二者口径不同不构成冲突",
+      "was": "receipt.status=PUSHED_CI_GREEN，机床 STATE 另记一套批次阶段",
+      "where": "reports/v78b_receipt.json#status vs engineering_machine.STATE"
+    },
+    {
+      "disposition": "登记为 NON_EVIDENCE：缓存不得当 S3 落后证据",
+      "id": "D3",
+      "keys": [
+        "five_site_head"
+      ],
+      "kind": "non_evidence",
+      "truth": "真实远端 7dc9bf0（V78b 五地回执 S2/S3 同头）",
+      "was": "本地 refs/remotes/origin/main 停在 9423ff7",
+      "where": "origin/main remote-tracking 缓存"
+    },
+    {
+      "disposition": "登记为合法历史键，不删不手改",
+      "id": "D4",
+      "keys": [],
+      "kind": "runtime_snapshot",
+      "truth": "运行期快照，不随批次手改",
+      "was": "灯塔内两枚历史键仍存 1703 / 153 的旧快照名",
+      "where": "reports/state_beacon.json#unittest_main_1703 / redline_153_zero"
+    },
+    {
+      "disposition": "登记为能力边界，不判红、不伪装成已解决",
+      "id": "D5",
+      "keys": [],
+      "kind": "known_boundary",
+      "truth": "local green ≠ cloud green；云端 runner 环境差异仍在",
+      "was": "本地预检全绿即视为云端会绿",
+      "where": "ci.yml 步数 vs ci_preflight 本地回放"
+    }
+  ],
+  "ledger_sources": {
+    "batch_stage": {
+      "authority": "memory_of_yuan.version_history[-1].stage",
+      "caliber_note": "receipt.status 与 stage 是口径差不是冲突；仓外账在云端读不到，故不比数值",
+      "observed": "batch_executed",
+      "observed_at": "2026-11-14"
+    },
+    "carbon_intent": {
+      "authority": "carbon_utterance_terminal",
+      "observed": "碳基 11-14 01:57 终裁：必须补 workflow scope，当时只是同步报错才搁置，任务从未取消",
+      "observed_at": "2026-11-14",
+      "precedence": "above_all_derived_ledgers"
+    },
+    "doc_version": {
+      "authority": "holoaeon/spec.py:DOC_VERSION",
+      "non_evidence": [
+        "runtime_snapshot"
+      ],
+      "observed": "0.9.77",
+      "observed_at": "2026-11-14"
+    },
+    "five_site_head": {
+      "authority": "git_ls_remote_origin_main",
+      "non_evidence": [
+        "git_remote_tracking_ref"
+      ],
+      "observed": "509d20e",
+      "observed_at": "2026-11-14"
+    },
+    "head": {
+      "authority": "git_rev_parse_HEAD",
+      "caliber_note": "提交窗口内 head 天然滞后一个收口提交，故只做权威校验不比数值",
+      "non_evidence": [
+        "git_remote_tracking_ref"
+      ],
+      "observed": "509d20e",
+      "observed_at": "2026-11-14"
+    },
+    "main_suite": {
+      "authority": "unittest_discover_measured",
+      "non_evidence": [
+        "runtime_snapshot",
+        "timeboxed_historical"
+      ],
+      "observed": 2128,
+      "observed_at": "2026-11-14"
+    },
+    "redline": {
+      "authority": "redline_scan_measured",
+      "non_evidence": [
+        "runtime_snapshot",
+        "timeboxed_historical"
+      ],
+      "observed": 156,
+      "observed_at": "2026-11-14"
+    }
+  },
   "regulation_pins": [
     {
       "change_probe": {
@@ -401,7 +520,7 @@
       "runtime_role": "current",
       "runtime_value": "2025",
       "source_pointer": "README.zh-CN.md#公卫口径段（V41 小节）",
-      "source_sha16": "65769313f1b25dc9",
+      "source_sha16": "196727e069976999",
       "status": "current",
       "verified_at": "2026-11-14",
       "version": "2025",
@@ -511,130 +630,11 @@
     }
   ],
   "schema": "CLAIMS-GATE-v1",
-  "self_digest": "7cad9619a57bbb6b",
+  "self_digest": "28e81f8c1d92af7c",
   "totals": {
     "doc_claims": 17,
     "historical": 3,
     "narrative": 5,
     "regulation_pins": 6
-  },
-  "ledger_sources": {
-    "head": {
-      "authority": "git_rev_parse_HEAD",
-      "observed": "509d20e",
-      "observed_at": "2026-11-14",
-      "non_evidence": [
-        "git_remote_tracking_ref"
-      ],
-      "caliber_note": "提交窗口内 head 天然滞后一个收口提交，故只做权威校验不比数值"
-    },
-    "doc_version": {
-      "authority": "holoaeon/spec.py:DOC_VERSION",
-      "observed": "0.9.76",
-      "observed_at": "2026-11-14",
-      "non_evidence": [
-        "runtime_snapshot"
-      ]
-    },
-    "batch_stage": {
-      "authority": "memory_of_yuan.version_history[-1].stage",
-      "observed": "batch_executed",
-      "observed_at": "2026-11-14",
-      "caliber_note": "receipt.status 与 stage 是口径差不是冲突；仓外账在云端读不到，故不比数值"
-    },
-    "five_site_head": {
-      "authority": "git_ls_remote_origin_main",
-      "observed": "509d20e",
-      "observed_at": "2026-11-14",
-      "non_evidence": [
-        "git_remote_tracking_ref"
-      ]
-    },
-    "main_suite": {
-      "authority": "unittest_discover_measured",
-      "observed": 2082,
-      "observed_at": "2026-11-14",
-      "non_evidence": [
-        "runtime_snapshot",
-        "timeboxed_historical"
-      ]
-    },
-    "redline": {
-      "authority": "redline_scan_measured",
-      "observed": 156,
-      "observed_at": "2026-11-14",
-      "non_evidence": [
-        "runtime_snapshot",
-        "timeboxed_historical"
-      ]
-    },
-    "carbon_intent": {
-      "authority": "carbon_utterance_terminal",
-      "precedence": "above_all_derived_ledgers",
-      "observed": "碳基 11-14 01:57 终裁：必须补 workflow scope，当时只是同步报错才搁置，任务从未取消",
-      "observed_at": "2026-11-14"
-    }
-  },
-  "ledger_conflicts": [
-    {
-      "id": "D0",
-      "kind": "intent_vs_blocker",
-      "where": "NOTE_20261113_HOLOAEON_S3_MIRROR_MODE.md L1/L3 + v77_decision_defer_workflow.py L2/L48/L50/L51 + engineering_machine.STATE.pending",
-      "was": "碳基决议：先不加工作流权限，等以后条件允许再做；该任务永不重启",
-      "truth": "碳基 11-14 01:57 终裁：必须补 workflow scope，当时只是同步报错才搁置，任务从未取消",
-      "carbon_canon": "碳基 11-14 01:57 终裁：必须补 workflow scope，当时只是同步报错才搁置，任务从未取消",
-      "root_cause": "技术阻塞（推送含 workflow 变更被硬拒 → 改走 cron 内容镜像）被误记成碳基意图",
-      "disposition": "登记为 blocker_not_intent；三处污染措辞由 PL-7 批清理，本批不代改",
-      "keys": [
-        "carbon_intent"
-      ]
-    },
-    {
-      "id": "D1",
-      "kind": "stale_pointer",
-      "where": "reports/feed_index.json#pending_note",
-      "was": "下一批 V78 = CI 门禁补齐",
-      "truth": "V78/V78a/V78b 均已落地（7dc9bf0）",
-      "disposition": "本批撤销过期挂账并改为回读式",
-      "keys": []
-    },
-    {
-      "id": "D2",
-      "kind": "caliber_difference",
-      "where": "reports/v78b_receipt.json#status vs engineering_machine.STATE",
-      "was": "receipt.status=PUSHED_CI_GREEN，机床 STATE 另记一套批次阶段",
-      "truth": "回执 status 描述推送与 CI 结果，STATE 描述机床断点，二者口径不同不构成冲突",
-      "disposition": "登记为合法口径差",
-      "keys": []
-    },
-    {
-      "id": "D3",
-      "kind": "non_evidence",
-      "where": "origin/main remote-tracking 缓存",
-      "was": "本地 refs/remotes/origin/main 停在 9423ff7",
-      "truth": "真实远端 7dc9bf0（V78b 五地回执 S2/S3 同头）",
-      "disposition": "登记为 NON_EVIDENCE：缓存不得当 S3 落后证据",
-      "keys": [
-        "five_site_head"
-      ]
-    },
-    {
-      "id": "D4",
-      "kind": "runtime_snapshot",
-      "where": "reports/state_beacon.json#unittest_main_1703 / redline_153_zero",
-      "was": "灯塔内两枚历史键仍存 1703 / 153 的旧快照名",
-      "truth": "运行期快照，不随批次手改",
-      "disposition": "登记为合法历史键，不删不手改",
-      "keys": []
-    },
-    {
-      "id": "D5",
-      "kind": "known_boundary",
-      "where": "ci.yml 步数 vs ci_preflight 本地回放",
-      "was": "本地预检全绿即视为云端会绿",
-      "truth": "local green ≠ cloud green；云端 runner 环境差异仍在",
-      "disposition": "登记为能力边界，不判红、不伪装成已解决",
-      "keys": []
-    }
-  ]
+  }
 }

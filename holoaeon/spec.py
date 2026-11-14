@@ -32,7 +32,7 @@ VERSION = "0.9.1"
 # VERSION / RUNTIME_ID 会写进每条回执并参与 ReproHash，改动即等于让 DIFF=0 黄金值
 # （2fc892cf9af6e755）漂移，与"V1 黄金值不许漂移"的硬口径冲突。
 # 因此 V2 的版本号单独记在 DOC_VERSION，供文档/快照/徽章使用。
-DOC_VERSION = "0.9.76"  # V82 P1-B 失效判据处置：governable 三态（True/False/None）+ 相对容差 tol；check_emergence / advisor_quartet_tensor 增 p23 真实入参（缺省 1-|p2-p3|），QUARTET_SIMS 降级静态先验表；ci.yml 字节不变、零新模块
+DOC_VERSION = "0.9.77"  # V83 同型恒真第二处：topology_resonance.quartet_tensor 增 p23 真实入参（缺省直读自有余弦 _cosine，显式优先），sims/weight_matrix 降级静态先验只回显，输出 p23_similarity 无门槛回显；ci.yml 字节不变第 5 批、零新模块
 MATRIX_ID = "HOLOAEON-MATRIX-0.9.1"
 RUNTIME_ID = "HOLOAEON-RUNTIME-0.9.1"
 PROTOCOL_ID = "HOLOAEON-DATAPROTO v1.0"

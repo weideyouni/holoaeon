@@ -962,11 +962,17 @@ def qi_algorithm_selection(problem_type: str = "", dimension: int = 0,
 
 # ============================================================ 13. 四人组张量向量化
 def quartet_tensor(p1: str = "", p2: str = "", p3: str = "",
-                   p4: str = "", **_: Any) -> dict:
+                   p4: str = "", p23: str = "", **_: Any) -> dict:
     """四人组张量向量化：权重矩阵+共振检测+决策熵+涌现判断。
 
     P1探微[愿景×拓扑×涌现] / P2筑基[工程×算法×收敛]
     P3构弦[架构×约束×度量] / P4持衡[本体×共振×平衡]
+
+    V83（同型恒真第二处处置）：P2×P3 判据改读真实入参 ``p23``——缺省取本函数自有
+    ``_cosine(vecs["P2"], vecs["P3"])`` 真实共振（vecs = [s, 1-s] 二维表示），
+    显式 ``p23`` 优先并 clip01，非法值回缺省口径（``p23_source`` 标注）。
+    ``sims`` / ``weight_matrix`` 是**静态先验表**，只回显不参与判定（谱系同 V82 QUARTET_SIMS）。
+    ``p23_similarity`` 无门槛回显：``res_pairs`` 只收 cos≥0.75 的对，低共振也如实回显。
     """
     scores = []
     for s in [p1, p2, p3, p4]:
@@ -980,10 +986,21 @@ def quartet_tensor(p1: str = "", p2: str = "", p3: str = "",
         "器": {"P1": 0.2, "P2": 0.5, "P3": 0.3, "P4": 0.3},
         "升维": {"P1": 0.5, "P2": 0.3, "P3": 0.4, "P4": 0.4},
     }
+    # V83：静态先验表，只回显不参与判定（谱系同 V82 QUARTET_SIMS，不删）
     sims = {"P1×P2": 0.5, "P1×P3": 0.4, "P1×P4": 0.3,
             "P2×P3": 0.7, "P2×P4": 0.5, "P3×P4": 0.4}
 
     vecs = {f"P{i+1}": [s, 1 - s] for i, s in enumerate(scores)}
+
+    # V83：P2×P3 真实入参（缺省直读本函数自有真实共振；显式优先）
+    p23_default = _clip01(_cosine(vecs["P2"], vecs["P3"]))
+    p23_value, p23_source = p23_default, "cosine_default"
+    if p23 not in ("", None):
+        try:
+            p23_value, p23_source = _clip01(float(p23)), "explicit"
+        except (TypeError, ValueError):
+            p23_value, p23_source = p23_default, "cosine_default(fallback:unparsable)"
+
     res_pairs = []
     pair_names = [("P1", "P2"), ("P1", "P3"), ("P1", "P4"),
                   ("P2", "P3"), ("P2", "P4"), ("P3", "P4")]
@@ -1002,7 +1019,7 @@ def quartet_tensor(p1: str = "", p2: str = "", p3: str = "",
     e_max = 1.0
     order = agreement
 
-    emergence = (sims["P2×P3"] >= 0.7 and p1s >= 0.6 and
+    emergence = (p23_value >= 0.7 and p1s >= 0.6 and
                  p4s <= 0.4 and order > 0.30)
 
     return {
@@ -1010,20 +1027,22 @@ def quartet_tensor(p1: str = "", p2: str = "", p3: str = "",
         "scores": {"P1": round(p1s, 4), "P2": round(p2s, 4),
                    "P3": round(p3s, 4), "P4": round(p4s, 4)},
         "weight_matrix": weight_matrix,
-        "similarities": sims,
+        "similarities": sims,  # 静态先验回显，不参与判定
+        "p23_similarity": round(p23_value, 4),
+        "p23_source": p23_source,
         "resonance_pairs": res_pairs,
         "resonance_count": len(res_pairs),
         "decision_entropy": round(entropy, 6),
         "entropy_max": round(e_max, 6),
         "order": round(order, 6),
         "emergence_conditions": {
-            "P2×P3_strong(≥0.7)": sims["P2×P3"] >= 0.7,
+            "P2×P3_strong(≥0.7)": p23_value >= 0.7,
             "P1_vision(≥0.6)": p1s >= 0.6,
             "P4_risk(≤0.4)": p4s <= 0.4,
             "order(>0.30)": order > 0.30,
         },
         "emergence": emergence,
-        "note": "四人组张量：权重矩阵+共振+熵+涌现触发",
+        "note": "四人组张量：权重矩阵+共振+熵+涌现触发（P2×P3 读真实 p23，缺省=自有余弦）",
     }
 
 
@@ -1123,6 +1142,11 @@ def _cosine(a: List[float], b: List[float]) -> float:
     na = math.sqrt(sum(x * x for x in a))
     nb = math.sqrt(sum(y * y for y in b))
     return dot / (na * nb) if na and nb else 0.0
+
+
+def _clip01(v: float) -> float:
+    """数值裁剪到 [0,1]（V83 p23 入参容错）。"""
+    return max(0.0, min(1.0, float(v)))
 
 
 def _det_hash(s: str) -> int:
