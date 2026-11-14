@@ -121,7 +121,7 @@ class _Base(unittest.TestCase):
 class G1AuthoritativeSources(_Base):
     def test_01_face_name_is_registered_in_faces(self):
         self.assertIn(cg.FACE_CROSS_LEDGER, cg.FACES)
-        self.assertEqual(len(cg.FACES), 10)
+        self.assertGreaterEqual(len(cg.FACES), 10)  # V80 起 11 面；下界口径，面数不写死
 
     def test_02_authoritative_sources_cover_seven_keys(self):
         self.assertEqual(len(cg.AUTHORITATIVE_SOURCES), 7)

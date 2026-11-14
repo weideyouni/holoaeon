@@ -1,0 +1,197 @@
+{
+  "batch": "V80-ENV-DELTA-REGISTRY",
+  "status": "LOCAL_READY",
+  "date": "2026-11-14",
+  "head": "e391157",
+  "head_full": "e391157848e1783ad13ee7f01285a06d4de73ce1",
+  "prev_head": "e391157",
+  "doc_version": "0.9.75",
+  "baseline_note": "V79 收口 HEAD=e391157 / DOC 0.9.74 / claims_gate 10 面 / 主套 1981 / 清单 334；本批 11 面 / 0.9.75 / 主套 2036 / 清单见 verification.check_sums。",
+  "face_number_note": "投喂包点名 env_delta 主题但未给面序号；第 1-10 面均已被占用，故落为第 11 面，FACES 顺序追加在末位，面数一律 `python -m holoaeon.claims_gate report` 回读、不在 README 写死。",
+  "patches": [
+    {
+      "path": "holoaeon/claims_gate.py",
+      "action": "edit",
+      "sha16": "c63dbe87d7d7749d",
+      "bytes": 83354
+    },
+    {
+      "path": "holoaeon/spec.py",
+      "action": "edit",
+      "sha16": "52df9267f09e2bc9",
+      "bytes": 11023
+    },
+    {
+      "path": "data/env_delta_registry.json",
+      "action": "add",
+      "sha16": "b37fb14dd28cff20",
+      "bytes": 12351
+    },
+    {
+      "path": "data/claims_registry.json",
+      "action": "edit",
+      "sha16": "233e972fc2a673e8",
+      "bytes": 22242
+    },
+    {
+      "path": "tests/test_v80_env_delta.py",
+      "action": "add",
+      "sha16": "84f0a8a89eac45df",
+      "bytes": 20272
+    },
+    {
+      "path": "tests/test_v22_eng_skills.py",
+      "action": "edit",
+      "sha16": "38e967bb443a7c21",
+      "bytes": 8071
+    },
+    {
+      "path": "tests/test_v64_hangover_zero.py",
+      "action": "edit",
+      "sha16": "ad653ec19708ed4b",
+      "bytes": 17117
+    },
+    {
+      "path": "tests/test_v70_prehistory_criteria.py",
+      "action": "edit",
+      "sha16": "cf56bb121c804684",
+      "bytes": 15663
+    },
+    {
+      "path": "tests/test_v77_registry_coverage.py",
+      "action": "edit",
+      "sha16": "9be20609a865d9da",
+      "bytes": 11141
+    },
+    {
+      "path": "tests/test_v79_cross_ledger_gate.py",
+      "action": "edit",
+      "sha16": "b636be717e0798d4",
+      "bytes": 21346
+    },
+    {
+      "path": "README.md",
+      "action": "edit",
+      "sha16": "24954f0b27aac2f5",
+      "bytes": 239652
+    },
+    {
+      "path": "README.zh-CN.md",
+      "action": "edit",
+      "sha16": "0f92dd7e189a770d",
+      "bytes": 199802
+    }
+  ],
+  "ci_yml_unchanged": {
+    "before_sha16": "a5fe41fd60f9c7cc",
+    "after_sha16": "a5fe41fd60f9c7cc"
+  },
+  "manifest": {
+    "path": "SHA256SUMS",
+    "entries": 336,
+    "caliber": "build_b8_dual_sync.release_files ∩ git index + dual_sync.build_sums（LF 归一化）",
+    "note": "清单在写本回执之后重建，故回执不记清单自身 sha16（自指）；条数 336 = V79 的 334 + data/env_delta_registry.json + 本回执。tests/ 不在清单目录集内（历史口径）。"
+  },
+  "registry": {
+    "path": "data/env_delta_registry.json",
+    "schema": "ENV-DELTA-REGISTRY-v1",
+    "entries": 11,
+    "ids": [
+      "D01",
+      "D02",
+      "D03",
+      "D04",
+      "D05",
+      "D06",
+      "D07",
+      "D08",
+      "D11",
+      "D09",
+      "D10"
+    ],
+    "self_digest": "54f272a6ec310526",
+    "guards_total": 25,
+    "guards_attributed": 25
+  },
+  "verification": {
+    "claims_gate_faces": 11,
+    "claims_gate_verdict": "PASS",
+    "claims_gate_mismatch": 0,
+    "env_delta_prove_red": {
+      "mismatch_before_register": 29,
+      "unregistered_guards": 25,
+      "guards_total": 25
+    },
+    "canary": "8/8 红 + 基准绿（C1 未登记守卫 / C3 悬空 explained_by / C4 少报 executed_diff / C5 改一字节不重封 / C6 行锚超 ±10 / C7 只写本机数 / C8 已治项充数 / 基准全绿）",
+    "unittest_main": 2036,
+    "unittest_main_skipped": 3,
+    "contract_suite": 184,
+    "cloud_main_suite_reference": {
+      "ran": 1976,
+      "skipped": 33,
+      "job": "132241243161",
+      "run": "43528852884"
+    },
+    "cloud_contract_reference": {
+      "ran": 184,
+      "skipped": 11
+    },
+    "v3_gate": "33/33",
+    "ci_preflight": "12/12 / A13 aligned=true",
+    "redline": "156 文件 0 违规",
+    "check_sums": "ok / mismatches=[]（336 条，0 不匹配）",
+    "selftest": "25/25",
+    "dimension_lock": "12 维度 0 violation（verify:false=D02/D05/D06/D07）",
+    "ci_yml_unchanged": "a5fe41fd60f9c7cc -> a5fe41fd60f9c7cc"
+  },
+  "env_delta_registered": {
+    "keys": [
+      "env_registry",
+      "unregistered_guard",
+      "parity_disclosed",
+      "digest_drift"
+    ],
+    "entries": [
+      "D01",
+      "D02",
+      "D03",
+      "D04",
+      "D05",
+      "D06",
+      "D07",
+      "D08",
+      "D11",
+      "D09",
+      "D10"
+    ],
+    "parity_dimensions": [
+      "parity_main_suite",
+      "parity_contract_suite"
+    ],
+    "local_cloud": {
+      "main": {
+        "local": "2036/3",
+        "cloud": "1976/33"
+      },
+      "contract": {
+        "local": "184/0",
+        "cloud": "184/11"
+      }
+    }
+  },
+  "feed_corrections": [
+    "投喂包 §1 推测「Ran 差 5 指向模块级条件定义」——AST 实测 conditional_defs=0，实为 tests/test_v72_prehistory_injection.py 的 setUpClass 抛 SkipTest：记 1 次 skip、类内 5 个 test 不计入 Ran。",
+    "投喂包给守卫下界 9 处——AST 全量普查得 25 处（装饰器 11 + 模块级别名 1 + 别名装饰器 5 + skipTest 6 + raise SkipTest 1）。本批按「下界口径交付、实测全集登记」处理。",
+    "投喂包 §5B 只列 D01-D09——实测多出 D10（in_repo_receipt_gate，test_v45:36,45 两端同态）与 D11（本批 55 例尚未上云，临时条目）。"
+  ],
+  "honest_boundaries": [
+    "云端 ran/skipped 是本批开工前人工对账登记的实测值（job 132241243161），闸离线不联网、不读 CI 日志，只判登记自洽。",
+    "D11 为临时条目（本批 55 例尚未上云）：云端跑完 V80 后应把 not_discovered.cloud 置 0，届时 D08 的 ran_diff 应回到 -5。",
+    "D05/D06（CRLF / 时区）仅为谱系登记，不参与现行差值解释；C8 金丝雀专门守住这条线。",
+    "test_v77_registry_coverage.py / test_v79_cross_ledger_gate.py 的「面数 == 10」已改为下界 ≥10（与 V77 既有「数量不写死」口径一致），不改判据强度、只换口径写法。",
+    "README 复算闸条数按清单实际行数回读，本批最终态见 check_sums；若回执补写导致条数变化，以清单回读为准。"
+  ],
+  "untouched": "ci.yml（字节不变）/ ci_preflight.STEPS（12 面契约）/ v3_gate（不新增第 34 面）/ forge_bureau.py / dual_caliber.py / VERSION 0.9.1 / L1-L8 / PACK_ORDER 9 / EXTRA_PACK_ORDER 19 / 既有守卫的跳过行为一处未删未改（登记差异 ≠ 治差异）",
+  "next_batch": "V82 / B4 九项 / 18 仓远端重推 照旧排队，须新投喂包才开工",
+  "seal": "潮起开门，潮落闭嘴"
+}

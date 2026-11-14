@@ -105,7 +105,8 @@ _PTR_LINES = re.compile(r"^L(\d+)(?:-L(\d+))?$")
 FACES = ("claim_registered", "readback_consistent", "historical_timeboxed",
          "regulation_pinned", "pin_freshness", "determinism_self_digest",
          "chain_position_coverage", "registry_coverage",
-         "regulation_semantic_consistency", "cross_ledger_consistency")
+         "regulation_semantic_consistency", "cross_ledger_consistency",
+         "env_delta_consistency")
 
 # 面 8 的扫描规则：只认这几类"会变的叙述位"，不扫普通文字。
 COVERAGE_PATTERNS = {
@@ -1302,6 +1303,383 @@ def check_registry_coverage(reg, ctx=None):
 # ---------------------------------------------------------------------------
 # 聚合
 # ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# 面 11：环境差异可失败化（env_delta_consistency，V80）
+# 病灶：本地全绿、云端少跑 46 个测试却同样显示绿。本面把「差值」变成可失败判据：
+#   unregistered_guard 每个环境守卫必须归属注册条目
+#   parity_disclosed   双端 ran/skipped 差必须逐条可解释，README 双口径同屏回读
+#   digest_drift       注册簿自摘要 + 守卫行锚（±10 行）漂移即红
+# 离线纪律：本面不联网、不读 CI 日志；云端值是执行端对账时登记的实测值，
+# 面只判「登记完备且自洽」，不冒充自动核实。
+# ---------------------------------------------------------------------------
+FACE_ENV_DELTA = "env_delta_consistency"
+ENV_DELTA_SCHEMA = "ENV-DELTA-REGISTRY-v1"
+ENV_REGISTRY_REL = os.path.join("data", "env_delta_registry.json")
+ENV_PARITY_DIMS = ("parity_main_suite", "parity_contract_suite")
+ENV_LINE_TOL = 10
+ENV_RESOLVED_MARK = "resolved_by_"
+ENV_GUARD_TOKENS = ("skipUnless", "skipIf", "SkipTest", "skipTest", "isdir",
+                    "isfile", "exists", "getenv", "environ", "platform",
+                    "GUARD", "IVSA", "PKG", "MATERIAL_ROOT", "HAVE_SITE", "memory_of_yuan")
+ENV_ENTRY_REQUIRED = ("id", "dimension", "title", "measured_at", "risk_tier")
+ENV_ACCEPT_ZH = "工程验收"
+ENV_ACCEPT_EN = "Gates (measured"
+ENV_CLOUD_MARKS = ("云端", "cloud")
+
+
+def env_registry_path(root=None):
+    return os.path.join(root or repo_root(), ENV_REGISTRY_REL)
+
+
+def load_env_registry(root=None, path=None):
+    """读环境差注册簿。缺文件/坏文件都不抛，由面内判 INCOMPLETE（证红前置要能跑）。"""
+    p = path or env_registry_path(root)
+    if not os.path.isfile(p):
+        return {"schema": ENV_DELTA_SCHEMA, "entries": [], "_missing": True}
+    try:
+        return _load_json(p)
+    except (OSError, ValueError):
+        return {"schema": ENV_DELTA_SCHEMA, "entries": [], "_broken": True}
+
+
+def _deco_name(func):
+    if isinstance(func, ast.Attribute):
+        return func.attr
+    if isinstance(func, ast.Name):
+        return func.id
+    return ""
+
+
+def _method_count(node):
+    """类装饰器覆盖的 test 方法数；函数装饰器记 1。"""
+    if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+        return 1
+    return sum(1 for b in node.body
+               if isinstance(b, (ast.FunctionDef, ast.AsyncFunctionDef)) and b.name.startswith("test"))
+
+
+def scan_env_guards(root):
+    """AST 普查环境守卫。四类：装饰器（含模块级别名）/ 模块级条件定义 /
+    运行时 skipTest / raise SkipTest。返回 [{file,line,kind,symbol,methods}]。
+
+    只做静态识别，不执行任何被测代码（红线纪律）。
+    """
+    guards = []
+    skip_decos = ("skipUnless", "skipIf", "skip")
+    for sub in ("tests", "tests_contract"):
+        base = os.path.join(root, sub)
+        if not os.path.isdir(base):
+            continue
+        try:
+            names = sorted(os.listdir(base))
+        except OSError:
+            continue
+        for fn in names:
+            if not (fn.startswith("test") and fn.endswith(".py")):
+                continue
+            path = os.path.join(base, fn)
+            try:
+                src = _read_text(path)
+                tree = ast.parse(src)
+            except (OSError, UnicodeDecodeError, SyntaxError):
+                continue
+            rel = os.path.relpath(path, root).replace("\\", "/")
+            aliases = {}
+            for node in getattr(tree, "body", []):
+                if (isinstance(node, ast.Assign) and len(node.targets) == 1
+                        and isinstance(node.targets[0], ast.Name)
+                        and isinstance(node.value, ast.Call)):
+                    nm = _deco_name(node.value.func)
+                    if nm in skip_decos:
+                        aliases[node.targets[0].id] = nm
+                        guards.append({"file": rel, "line": node.lineno,
+                                       "kind": "module_alias", "symbol": node.targets[0].id,
+                                       "methods": 0})
+            for node in ast.walk(tree):
+                if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+                    for dec in node.decorator_list:
+                        f = dec.func if isinstance(dec, ast.Call) else dec
+                        nm = _deco_name(f)
+                        if nm in skip_decos or nm in aliases:
+                            guards.append({
+                                "file": rel, "line": node.lineno,
+                                "kind": "decorator" if nm in skip_decos else "decorator_alias",
+                                "symbol": nm, "target": node.name,
+                                "methods": _method_count(node)})
+                elif isinstance(node, ast.Call) and _deco_name(node.func) == "skipTest":
+                    guards.append({"file": rel, "line": node.lineno, "kind": "runtime_skip",
+                                   "symbol": "skipTest", "methods": 1})
+                elif isinstance(node, ast.Raise) and node.exc is not None:
+                    nm = _deco_name(node.exc.func) if isinstance(node.exc, ast.Call) else _deco_name(node.exc)
+                    if nm == "SkipTest":
+                        guards.append({"file": rel, "line": node.lineno, "kind": "raise_skip",
+                                       "symbol": "SkipTest", "methods": 1})
+                        # 类级 setUpClass 抛出时：skip 记 1，类内各 test 不计入 Ran
+                        guards[-1]["not_discovered"] = 1
+    alias_cover = {}
+    for g in guards:
+        if g["kind"] == "decorator_alias":
+            k = (g["file"], g["symbol"])
+            alias_cover[k] = alias_cover.get(k, 0) + g["methods"]
+    for g in guards:
+        if g["kind"] == "module_alias":
+            g["methods"] = alias_cover.get((g["file"], g["symbol"]), 0)
+    return guards
+
+
+def _guard_anchors(entry):
+    """把 entry['guards'] 里的 'path:12,34' 解析成 [(file, line)]。"""
+    out = []
+    for spec in (entry.get("guards") or []):
+        if not isinstance(spec, str) or ":" not in spec:
+            continue
+        f, _, nums = spec.rpartition(":")
+        for tok in nums.replace(" ", "").split(","):
+            if tok.isdigit():
+                out.append((f.strip(), int(tok)))
+    return out
+
+
+def _anchor_hit(file, line, anchors, tol=ENV_LINE_TOL):
+    for (af, al) in anchors:
+        if af == file and abs(al - line) <= tol:
+            return True
+    return False
+
+
+def _guard_line_ok(root, file, line):
+    """行锚存活性：文件在，且 ±TOL 行内出现过探测因子。"""
+    path = os.path.join(root, file)
+    if not os.path.isfile(path):
+        return False, "文件不存在"
+    try:
+        lines = _read_text(path).split("\n")
+    except (OSError, UnicodeDecodeError):
+        return False, "文件读不出"
+    lo = max(0, line - 1 - ENV_LINE_TOL)
+    hi = min(len(lines), line + ENV_LINE_TOL)
+    blob = "\n".join(lines[lo:hi])
+    for tok in ENV_GUARD_TOKENS:
+        if tok in blob:
+            return True, ""
+    return False, "±%d 行内无探测因子" % ENV_LINE_TOL
+
+
+def _env_int(v):
+    if isinstance(v, bool) or not isinstance(v, int):
+        return None
+    return v
+
+
+def _parity_pair(entries):
+    got = {}
+    for e in entries:
+        dim = e.get("dimension")
+        if dim in ENV_PARITY_DIMS and dim not in got:
+            got[dim] = e
+    return got
+
+
+def _env_entry_shape(entry, by_id):
+    """条目完备性（C2：删 evidence 即红）。"""
+    fails = []
+    eid = entry.get("id") or "?"
+    for k in ENV_ENTRY_REQUIRED:
+        if not entry.get(k):
+            fails.append({"face": FACE_ENV_DELTA, "id": eid, "detail": "缺字段 %s" % k})
+    local, cloud = entry.get("local"), entry.get("cloud")
+    for side, val in (("local", local), ("cloud", cloud)):
+        if not isinstance(val, dict) or not val:
+            fails.append({"face": FACE_ENV_DELTA, "id": eid,
+                          "detail": "%s 段缺失或为空" % side})
+            continue
+        if not val.get("evidence"):
+            fails.append({"face": FACE_ENV_DELTA, "id": eid,
+                          "detail": "%s.evidence 缺失（登记不完备）" % side})
+    if entry.get("status", "").startswith(ENV_RESOLVED_MARK) is False:
+        for g in (entry.get("guards") or [])[:1]:
+            if not isinstance(g, str):
+                fails.append({"face": FACE_ENV_DELTA, "id": eid, "detail": "guards 非字符串"})
+    return fails
+
+
+def _readme_accept_line(text, marker):
+    for ln in text.splitlines():
+        if marker in ln:
+            return ln
+    return ""
+
+
+def env_delta_consistency(reg_env, ctx=None, today=None):
+    """面 11 聚合：unregistered_guard / parity_disclosed / digest_drift。"""
+    c = ctx or _ctx()
+    root = c["root"]
+    fails = []
+    entries = [e for e in (reg_env.get("entries") or []) if isinstance(e, dict)]
+    by_id = {e.get("id"): e for e in entries}
+
+    if reg_env.get("_missing") or reg_env.get("_broken") or not entries:
+        fails.append({"face": FACE_ENV_DELTA, "id": "registry",
+                      "detail": "env_delta 注册簿缺失或为空（证红前置态）"})
+
+    # --- schema + 条目完备 -------------------------------------------------
+    if reg_env.get("schema") and reg_env.get("schema") != ENV_DELTA_SCHEMA:
+        fails.append({"face": FACE_ENV_DELTA, "id": "schema",
+                      "detail": "schema %r != %r" % (reg_env.get("schema"), ENV_DELTA_SCHEMA)})
+    for e in entries:
+        fails.extend(_env_entry_shape(e, by_id))
+    ids = [e.get("id") for e in entries]
+    for i in ids:
+        if ids.count(i) > 1:
+            fails.append({"face": FACE_ENV_DELTA, "id": i, "detail": "条目 id 重复"})
+
+    # --- 判据 1：unregistered_guard ---------------------------------------
+    anchors = []
+    for e in entries:
+        anchors.extend(_guard_anchors(e))
+    guards = scan_env_guards(root)
+    unregistered = []
+    for g in guards:
+        if not _anchor_hit(g["file"], g["line"], anchors):
+            unregistered.append("%s:%d" % (g["file"], g["line"]))
+            fails.append({"face": FACE_ENV_DELTA, "id": "%s:%d" % (g["file"], g["line"]),
+                          "detail": "未登记的环境守卫（%s %s）" % (g["kind"], g.get("symbol"))})
+
+    # --- 判据 3a：守卫行锚存活性 ------------------------------------------
+    drifted = []
+    for e in entries:
+        for (f, ln) in _guard_anchors(e):
+            ok, why = _guard_line_ok(root, f, ln)
+            if not ok:
+                drifted.append("%s:%d" % (f, ln))
+                fails.append({"face": FACE_ENV_DELTA, "id": "%s:%d" % (f, ln),
+                              "detail": "行锚漂移（%s）" % why})
+
+    # --- 判据 2：parity_disclosed -----------------------------------------
+    pairs = _parity_pair(entries)
+    parity = {}
+    for dim in ENV_PARITY_DIMS:
+        e = pairs.get(dim)
+        if not e:
+            fails.append({"face": FACE_ENV_DELTA, "id": dim,
+                          "detail": "缺 %s 对账条目" % dim})
+            continue
+        local = e.get("local") or {}
+        cloud = e.get("cloud") or {}
+        vals = {}
+        for side, src in (("local", local), ("cloud", cloud)):
+            ran, sp = _env_int(src.get("ran")), _env_int(src.get("skipped"))
+            if ran is None or sp is None:
+                fails.append({"face": FACE_ENV_DELTA, "id": e.get("id"),
+                              "detail": "%s.ran/skipped 必须是整数" % side})
+            vals[side] = {"ran": ran, "skipped": sp}
+        gap = e.get("gap") or {}
+        if None in (vals.get("local", {}).get("ran"), vals.get("cloud", {}).get("ran")):
+            continue
+        exp_ran = vals["cloud"]["ran"] - vals["local"]["ran"]
+        exp_skip = vals["cloud"]["skipped"] - vals["local"]["skipped"]
+        exp_exec = (vals["cloud"]["ran"] - vals["cloud"]["skipped"]) - \
+                   (vals["local"]["ran"] - vals["local"]["skipped"])
+        if _env_int(gap.get("ran_diff")) != exp_ran:
+            fails.append({"face": FACE_ENV_DELTA, "id": e.get("id"),
+                          "detail": "ran_diff 登记 %r != 实测 %d" % (gap.get("ran_diff"), exp_ran)})
+        if _env_int(gap.get("executed_diff")) != exp_exec:
+            fails.append({"face": FACE_ENV_DELTA, "id": e.get("id"),
+                          "detail": "executed_diff 登记 %r != 实测 %d"
+                                    % (gap.get("executed_diff"), exp_exec)})
+        explained = gap.get("explained_by") or []
+        if not explained:
+            fails.append({"face": FACE_ENV_DELTA, "id": e.get("id"),
+                          "detail": "gap.explained_by 为空（差值无解释）"})
+        sum_skip, sum_ran = 0, 0
+        for rid in explained:
+            if rid not in by_id:
+                fails.append({"face": FACE_ENV_DELTA, "id": e.get("id"),
+                              "detail": "explained_by 指向不存在的条目 %r" % rid})
+                continue
+            re_ = by_id[rid]
+            if str(re_.get("status", "")).startswith(ENV_RESOLVED_MARK):
+                fails.append({"face": FACE_ENV_DELTA, "id": e.get("id"),
+                              "detail": "%r 已治（%s），不得充数解释现行差值"
+                                        % (rid, re_.get("status"))})
+            att = re_.get("skip_attributed") or {}
+            sum_skip += (_env_int(att.get("cloud")) or 0) - (_env_int(att.get("local")) or 0)
+            nd = re_.get("not_discovered") or {}
+            sum_ran += (_env_int(nd.get("cloud")) or 0) - (_env_int(nd.get("local")) or 0)
+        if sum_skip != exp_skip:
+            fails.append({"face": FACE_ENV_DELTA, "id": e.get("id"),
+                          "detail": "explained_by 覆盖 skip 差 %d != 实测 %d"
+                                    % (sum_skip, exp_skip)})
+        if exp_ran != 0 and sum_ran != -exp_ran:
+            fails.append({"face": FACE_ENV_DELTA, "id": e.get("id"),
+                          "detail": "explained_by 覆盖 ran 差 %d != 实测 %d"
+                                    % (-sum_ran, exp_ran)})
+        # skip 构成：同套条目合计须等于该套云端口径（主套 / 契约套各自闭环）
+        suite = e.get("suite")
+        same = [x for x in entries if suite in ("main", "contract") and x.get("suite") == suite]
+        all_c = sum((_env_int((x.get("skip_attributed") or {}).get("cloud")) or 0) for x in same)
+        all_l = sum((_env_int((x.get("skip_attributed") or {}).get("local")) or 0) for x in same)
+        if all_c != vals["cloud"]["skipped"]:
+            fails.append({"face": FACE_ENV_DELTA, "id": e.get("id"),
+                          "detail": "云端 skip 构成 %d != 实测 %d"
+                                    % (all_c, vals["cloud"]["skipped"])})
+        if all_l != vals["local"]["skipped"]:
+            fails.append({"face": FACE_ENV_DELTA, "id": e.get("id"),
+                          "detail": "本机 skip 构成 %d != 实测 %d"
+                                    % (all_l, vals["local"]["skipped"])})
+        parity[dim] = {"id": e.get("id"), "local": vals.get("local"),
+                       "cloud": vals.get("cloud"), "ran_diff": exp_ran,
+                       "executed_diff": exp_exec, "explained_by": explained}
+
+    # --- 判据 2b：README 双口径同屏 ---------------------------------------
+    main_p = pairs.get("parity_main_suite")
+    if main_p:
+        lran = _env_int((main_p.get("local") or {}).get("ran"))
+        cran = _env_int((main_p.get("cloud") or {}).get("ran"))
+        for key, rel, marker in (("readme_zh", "README.zh-CN.md", ENV_ACCEPT_ZH),
+                                 ("readme_en", "README.md", ENV_ACCEPT_EN)):
+            try:
+                text = _text(c, key, rel)
+            except OSError:
+                text = ""
+            line = _readme_accept_line(text, marker)
+            if not line:
+                fails.append({"face": FACE_ENV_DELTA, "id": key,
+                              "detail": "找不到验收行锚 %r" % marker})
+                continue
+            if lran is not None and str(lran) not in line:
+                fails.append({"face": FACE_ENV_DELTA, "id": key,
+                              "detail": "验收行缺本机数 %d" % lran})
+            if cran is not None and str(cran) not in line:
+                fails.append({"face": FACE_ENV_DELTA, "id": key,
+                              "detail": "验收行缺云端数 %d（双口径必须同屏）" % cran})
+            if not any(m in line for m in ENV_CLOUD_MARKS):
+                fails.append({"face": FACE_ENV_DELTA, "id": key,
+                              "detail": "验收行未标注云端口径"})
+
+    # --- 判据 3b：注册簿自摘要 ---------------------------------------------
+    declared = reg_env.get("self_digest")
+    if not declared:
+        fails.append({"face": FACE_ENV_DELTA, "id": "self_digest", "detail": "self_digest 未填"})
+    else:
+        actual = _sha16({k: v for k, v in reg_env.items() if k != "self_digest"})
+        if declared != actual:
+            fails.append({"face": FACE_ENV_DELTA, "id": "self_digest",
+                          "detail": "self_digest %r != 实际 %r（改过注册簿未重算）"
+                                    % (declared, actual)})
+
+    return {
+        "face": FACE_ENV_DELTA,
+        "entries": len(entries),
+        "guards_total": len(guards),
+        "guards_attributed": len(guards) - len(unregistered),
+        "unregistered": unregistered,
+        "drifted": drifted,
+        "parity": parity,
+        "fails": fails,
+    }
+
+
 def _totals(reg):
     claims = reg.get("doc_claims") or []
     return {
@@ -1348,6 +1726,10 @@ def verify(reg=None, ctx=None, today=None):
     for item in cl["fails"]:
         faces[FACE_CROSS_LEDGER]["ok"] = False
         faces[FACE_CROSS_LEDGER]["fails"].append(item)
+    ed = env_delta_consistency(load_env_registry(c["root"]), c, today)
+    for item in ed["fails"]:
+        faces[FACE_ENV_DELTA]["ok"] = False
+        faces[FACE_ENV_DELTA]["fails"].append(item)
 
     fails_total = sum(len(v["fails"]) for v in faces.values())
     body = {
@@ -1382,6 +1764,15 @@ def verify(reg=None, ctx=None, today=None):
             "intent_vs_blocker": cl["intent_vs_blocker"],
             "registered_boundaries": cl["registered_boundaries"],
         },
+        "env_delta": {
+            "face": FACE_ENV_DELTA,
+            "entries": ed["entries"],
+            "guards_total": ed["guards_total"],
+            "guards_attributed": ed["guards_attributed"],
+            "unregistered": ed["unregistered"],
+            "drifted": ed["drifted"],
+            "parity": ed["parity"],
+        },
         "declared_digest": r.get("self_digest"),
         "computed_digest": self_digest(r),
     }
@@ -1415,6 +1806,14 @@ def report(reg=None, ctx=None, today=None):
             "conflicts": v["cross_ledger"]["ledger_conflicts"],
             "by_kind": v["cross_ledger"]["by_kind"],
             "registered_boundaries": v["cross_ledger"]["registered_boundaries"],
+        },
+        "env_delta": {
+            "face": FACE_ENV_DELTA,
+            "entries": v["env_delta"]["entries"],
+            "guards_total": v["env_delta"]["guards_total"],
+            "guards_attributed": v["env_delta"]["guards_attributed"],
+            "unregistered": v["env_delta"]["unregistered"],
+            "parity": v["env_delta"]["parity"],
         },
         "digest": v["digest"],
     }
