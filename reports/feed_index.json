@@ -1,6 +1,6 @@
 {
   "as_of": "2026-11-14",
-  "generated_by": "V80 云端环境差异可失败化（claims_gate 第 11 面 env_delta_consistency · data/env_delta_registry.json D01–D11 · DOC 0.9.75）",
+  "generated_by": "V82 P1-B 失效判据处置（governable True/False/None + p23 真实入参 + env_delta D08 云端终值 2077/33 · DOC 0.9.76）",
   "no_feed_batches": [
     {
       "batch": "V64",
@@ -188,7 +188,12 @@
       "batch": "V80",
       "file": "AGENT_FEED_V80_DONE_ENV_DELTA_20261114.md（收口改名，字节不变 18291 B）",
       "topic": "云端环境差异可失败化（ENV_DELTA 注册簿 D01–D11 · claims_gate 第 11 面 env_delta_consistency · DOC 0.9.75 · 清单 336）"
+    },
+    {
+      "batch": "V82",
+      "file": "AGENT_FEED_V82_DONE_P1B_DISPOSAL_20261114.md（收口改名，字节不变 13401 B）",
+      "topic": "P1-B 失效判据处置（governable 三态 + tol 1e-9 相对容差 · check_emergence/advisor_quartet_tensor 增 p23 真实入参、QUARTET_SIMS 降级静态先验表 · 46 例 + 8 金丝雀 · DOC 0.9.76 · 清单 337 · 云端 run 43548778699 回读 2077/33）"
     }
   ],
-  "with_feed_count": 23
+  "with_feed_count": 24
 }
