@@ -3,7 +3,7 @@
   "evidence_class": "simulated",
   "generated_at": "2026-11-14",
   "holoaeon": {
-    "entries": 336,
+    "entries": 337,
     "exclude_reason": "清单自身与派生件不入清单，避免自指循环；V78b 起另排除 5 条运行期产物（3 未跟踪 + 2 gitignore）",
     "excludes": [
       "SHA256SUMS",
@@ -24,7 +24,7 @@
     ],
     "manifest": "SHA256SUMS",
     "root": "F:/doubaowork/holoaeon",
-    "sums_sha256": "732b6773a934b103e03af7209668ad42c1a31f93ab08a64d05648c848420883a",
+    "sums_sha256": "cb1b4bee29bec33be15051937746c35546276b9473725ffbe5f9a6555d791888",
     "v78b_note": "P0-A：文本文件 LF 归一化口径（CRLF 工作区与 Linux checkout 同清单）；P0-B：运行期产物移出（旧清单 251 条中在列的 5 条）+ 重建只收 git 已跟踪文件（追平 V 系批次新增的已跟踪件），251→332",
     "v79_note": "V79：清单 332→334（新增 reports/v79_receipt.json 与 data 侧改动），LF 口径不变"
   },

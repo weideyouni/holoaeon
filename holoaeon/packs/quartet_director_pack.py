@@ -11,8 +11,11 @@ V12-BUTLER-OS-BOOTSTRAP · Butler OS 引导模块的"四人组集成"载体：
   · key = "quartet_director"（第 13 个扩展包，EXTRA_PACK_ORDER 12→13）
   · 14 技能 / 5 角色 / 2 工作流
   · 内联实现：不 import quartet_toolkit（保持零外部依赖、离线、确定性）
-  · 公开 check_emergence(p1,p2,p3,p4)：供 Butler OS 菜单 4 与验证清单直接调用
+  · 公开 check_emergence(p1,p2,p3,p4,p23=None)：供 Butler OS 菜单 4 与验证清单直接调用
   · 涌现条件：P2×P3 强共振(≥0.7) + P1 愿景(≥0.6) + P4 风险(≤0.4) + order>0.30
+  · P2×P3 口径（V82 起为真实判据，不再读常量表）：显式 p23 优先；缺省按
+    p23 = 1 - |p2 - p3| 现算（**登记的约定口径，不是实测相似度**）
+  · governable 三态（V82 起）：convex→True / concave→False / flat→None（未判定，不冒充）
   · 维度不变：只进 EXTRA_PACK_REGISTRY，不进 PACK_ORDER —— A1（25/47/9）不受影响
 """
 from __future__ import annotations
@@ -37,7 +40,9 @@ LENS = {
 }
 # 五步决策协议（道法术器升维）
 STEPS = ["道", "法", "术", "器", "升维"]
-# 四人组相似度表（确定性、固定，同 V11 topology_resonance 口径）
+# 四人组相似度表 = **静态先验表**（V82 降级，不删）：确定性固定值，同 V11 topology_resonance
+# 口径。它是「先验」，不是任何一次调用实测出来的共振；涌现判据自 V82 起**不再读取本表**
+# （见 check_emergence / advisor_quartet_tensor 的 p23 真实入参），本表只作为输出回显的谱系。
 QUARTET_SIMS = {"P1×P2": 0.5, "P1×P3": 0.4, "P1×P4": 0.3,
                 "P2×P3": 0.7, "P2×P4": 0.5, "P3×P4": 0.4}
 # 涌现阈值
@@ -56,6 +61,57 @@ def _det_fingerprint(parts: List[str]) -> str:
     """确定性指纹（sha256 前 16 hex），同输入同输出。"""
     h = hashlib.sha256("|".join(parts).encode("utf-8")).hexdigest()
     return h[:16]
+
+
+# ---------------------------------------------------------- V82 · 两条失效判据的处置装置
+CURVATURE_TOL_SCALE = 1e-9
+
+
+def _curvature_tol(f0: float) -> float:
+    """曲率判定容差（**相对量级**，V82 起）：tol = 1e-9 · max(1.0, |f0|)。
+
+    为什么相对化：曲率由浮点差分 (f2 - 2f1 + f0) / denom 得来，线性价值函数理论上
+    恰为 0，浮点舍入会给出 ±1e-17 级残差。绝对阈值会随状态量级漂移（|f0| 越大残差越大），
+    因此按 |f0| 归一；|f0| 很小时以 1.0 兜底，避免 tol 退化成 0 而让残差重新判成凸/凹。
+    """
+    return CURVATURE_TOL_SCALE * max(1.0, abs(float(f0)))
+
+
+def _classify_curvature(curvature: float, f0: float) -> dict:
+    """曲率 → 三态（convex / concave / flat）映射，返回 convexity / governable / 说明。
+
+    `governable` 三态（V82 起）：True=凸域可治理；False=凹域不可治理；
+    **None=平域/线性域「未判定」**——不是「50% 可治理」，也不许当数值用。
+    这一条与 V67 `stagnation_side=None`（不评估 ≠ 假评估）同一纪律：
+    浮点残差不能冒充凸性，未知必须显式是未知。
+    """
+    c = float(curvature)
+    tol = _curvature_tol(f0)
+    if c > tol:
+        return {"convexity": "convex", "governable": True, "curvature_tol": tol,
+                "governable_note": "曲率显著为正 → 凸域 → 可治理（「唯一最优」有语义）"}
+    if c < -tol:
+        return {"convexity": "concave", "governable": False, "curvature_tol": tol,
+                "governable_note": "曲率显著为负 → 凹域 → 不可治理（无唯一最优）"}
+    return {"convexity": "flat", "governable": None, "curvature_tol": tol,
+            "governable_note": "曲率落在容差带内 → 线性/平域 → 可治理性未判定"
+                               "（None，不冒充 False，也不冒充 True）"}
+
+
+def _p23_similarity(p2: float, p3: float) -> float:
+    """P2×P3 相似度缺省口径：p23 = 1 - |p2 - p3|（裁剪到 [0,1]）。
+
+    **这是登记的约定口径，不是实测的「真」相似度**：四人组两张量越接近，值越大。
+    调用方给了显式 p23 时永远以显式值为准（见 check_emergence / advisor_quartet_tensor）。
+    """
+    return _clip01(1.0 - abs(float(p2) - float(p3)))
+
+
+def _p23_of(p2: float, p3: float, p23: Any = None) -> float:
+    """统一取 p23：显式值（含字符串入口）优先，缺省走 _p23_similarity。"""
+    if p23 is None or (isinstance(p23, str) and not p23.strip()):
+        return _p23_similarity(p2, p3)
+    return _clip01(float(p23))
 
 
 # ============================================================ 1. 任务定义（道 · P4持衡）
@@ -123,8 +179,12 @@ def advisor_gradient_flow(current: str = "", perturbation: str = "",
     """法步·梯度流向：价值函数梯度方向 + 凸性（可治理性）判断。
 
     透镜：四人共评。
-    数学内核：f(x)=Σ w_i·x_i（权重=1/(i+1)）；梯度=扰动前后差分；
-    曲率>0 → convex（可治理）。
+    数学内核：f(x)=Σ w_i·x_i（权重=1/(i+1)）；梯度=扰动前后差分；曲率=二阶差分。
+    `governable` 为**三态**（V82 起）：convex→True / concave→False /
+    flat→**None（未判定）**。判 flat 的容差随量级相对化：
+    `|curvature| ≤ 1e-9 · max(1.0, |f0|)` 即视为平域——浮点残差（线性态理论 0，
+    实测 ±1e-17）不得冒充凸性。平域不是「不可治理」，是「可治理性未判定」，
+    与 V67 `stagnation_side=None`（不评估 ≠ 假评估）同一纪律。
     """
     if current:
         state = [float(x) for x in current.split(",") if x.strip()]
@@ -146,16 +206,18 @@ def advisor_gradient_flow(current: str = "", perturbation: str = "",
     f2 = sum(w * (x + 2 * p) for w, x, p in zip(weights, state, pert))
     denom = sum(p * p for p in pert) if any(pert) else 1.0
     curvature = (f2 - 2 * f1 + f0) / denom
-    convexity = "convex" if curvature > 0 else ("concave" if curvature < 0 else "flat")
+    tri = _classify_curvature(curvature, f0)
     return {
         "step": "法", "lens": "四人共评",
         "current_state": [round(x, 4) for x in state],
         "gradient": [round(g, 6) for g in grad],
         "gradient_direction": [round(g, 6) for g in grad_dir],
         "f_current": round(f0, 6), "f_perturbed": round(f1, 6),
-        "curvature": round(curvature, 6), "convexity": convexity,
-        "governable": convexity == "convex",
-        "note": "法步：梯度=价值导向，曲率=可治理性（凸=可治理）",
+        "curvature": round(curvature, 6), "curvature_tol": tri["curvature_tol"],
+        "convexity": tri["convexity"],
+        "governable": tri["governable"],
+        "governable_note": tri["governable_note"],
+        "note": "法步：梯度=价值导向，曲率=可治理性（三态：凸=True / 凹=False / 平=None 未判定）",
     }
 
 
@@ -246,21 +308,25 @@ def advisor_algorithm_select(problem_type: str = "", dimension: int = 0,
 
 # ============================================================ 6. 四人组张量向量化
 def advisor_quartet_tensor(p1: str = "", p2: str = "", p3: str = "",
-                           p4: str = "", **_: Any) -> dict:
+                           p4: str = "", p23: str = "", **_: Any) -> dict:
     """四人组张量向量化：权重矩阵 + 共振检测 + 决策熵 + 涌现判断。
 
-    数学内核：均值/标准差 → 一致度(order)；P2×P3 强共振 + P1 愿景 +
-    P4 风险受控 + order 超阈 → 涌现。
+    数学内核：均值/标准差 → 一致度(order)；P2×P3 强共振（**真实判据**, V82）+
+    P1 愿景 + P4 风险受控 + order 超阈 → 涌现。
+
+    P2×P3 口径：显式 `p23`（字符串入口）优先；缺省 p23 = 1 - |P2 - P3|（登记约定）。
+    `QUARTET_SIMS` 只是**静态先验表**（回显用），判据不再读它。
     """
     scores = [_clip01(float(s)) if s else 0.7 for s in (p1, p2, p3, p4)]
     p1s, p2s, p3s, p4s = scores
+    p23_value = _p23_of(p2s, p3s, p23)
     mean = sum(scores) / 4
     variance = sum((s - mean) ** 2 for s in scores) / 4
     std = math.sqrt(variance)
     agreement = 1.0 - min(std / 0.5, 1.0)
     order = agreement
     conditions = {
-        "P2×P3_strong(≥0.7)": QUARTET_SIMS["P2×P3"] >= EMERGENCE_P23,
+        "P2×P3_strong(≥0.7)": p23_value >= EMERGENCE_P23,
         "P1_vision(≥0.6)": p1s >= EMERGENCE_P1,
         "P4_risk(≤0.4)": p4s <= EMERGENCE_P4,
         "order(>0.30)": order > EMERGENCE_ORDER,
@@ -270,34 +336,41 @@ def advisor_quartet_tensor(p1: str = "", p2: str = "", p3: str = "",
         "tensor_space": "R^4",
         "scores": {"P1": round(p1s, 4), "P2": round(p2s, 4),
                    "P3": round(p3s, 4), "P4": round(p4s, 4)},
-        "similarities": QUARTET_SIMS,
+        "similarities": QUARTET_SIMS,  # 静态先验表，不是本次实测共振
+        "p23_similarity": round(p23_value, 4),
         "mean": round(mean, 4), "std": round(std, 4),
         "agreement": round(agreement, 4), "order": round(order, 4),
         "emergence_conditions": conditions,
         "emergence": emergence,
-        "note": "四人组张量：权重矩阵+共振+熵+涌现触发",
+        "note": "四人组张量：权重矩阵+共振+熵+涌现触发（P2×P3 为真实判据，similarities 仅先验回显）",
     }
 
 
 # ============================================================ 7. 涌现判定（公开）
 def check_emergence(p1: float = 0.0, p2: float = 0.0, p3: float = 0.0,
-                    p4: float = 0.0, **_: Any) -> dict:
+                    p4: float = 0.0, p23: Any = None, **_: Any) -> dict:
     """四人组涌现判定（公开入口）：输入四人评分，返回 {emergence, order, conditions}。
 
     数学内核（与投喂验证清单一致）：
       mean=(p1+p2+p3+p4)/4；std=总体标准差；agreement=1-min(std/0.5,1)；
       order=agreement；涌现 = P2×P3≥0.7 且 P1≥0.6 且 P4≤0.4 且 order>0.30。
-    示例：check_emergence(0.85,0.85,0.85,0.30) → emergence=True, order≈0.52
+
+    P2×P3 口径（V82 起为**真实判据**，旧码读常量表故永真）：
+      · 显式 `p23` 优先（数值或字符串，超出 [0,1] 会被裁剪）；
+      · 缺省 p23 = 1 - |p2 - p3|——**登记的约定口径，不是实测相似度**；
+      · `similarities` 仍回显 `QUARTET_SIMS`，但那是**静态先验表**，判据不读它。
+    示例：check_emergence(0.85,0.85,0.85,0.30) → emergence=True, order≈0.52（p23=1.0）
     """
     scores = [_clip01(x) for x in (p1, p2, p3, p4)]
     p1s, p2s, p3s, p4s = scores
+    p23_value = _p23_of(p2s, p3s, p23)
     mean = sum(scores) / 4
     variance = sum((s - mean) ** 2 for s in scores) / 4
     std = math.sqrt(variance)
     agreement = 1.0 - min(std / 0.5, 1.0)
     order = agreement
     conditions = {
-        "P2×P3_strong(≥0.7)": QUARTET_SIMS["P2×P3"] >= EMERGENCE_P23,
+        "P2×P3_strong(≥0.7)": p23_value >= EMERGENCE_P23,
         "P1_vision(≥0.6)": p1s >= EMERGENCE_P1,
         "P4_risk(≤0.4)": p4s <= EMERGENCE_P4,
         "order(>0.30)": order > EMERGENCE_ORDER,
@@ -309,7 +382,9 @@ def check_emergence(p1: float = 0.0, p2: float = 0.0, p3: float = 0.0,
         "mean": round(mean, 4),
         "std": round(std, 4),
         "agreement": round(agreement, 4),
+        "p23_similarity": round(p23_value, 4),
         "conditions": conditions,
+        "similarities": QUARTET_SIMS,  # 静态先验表，不是本次实测共振
         "scores": {"P1": round(p1s, 4), "P2": round(p2s, 4),
                    "P3": round(p3s, 4), "P4": round(p4s, 4)},
     }
@@ -512,11 +587,13 @@ class QuartetDirectorPack(DomainPack):
         SkillSpec("advisor_quartet_tensor", advisor_quartet_tensor,
                   "四人组张量向量化：权重矩阵+共振+决策熵+涌现判断",
                   tags=["quartet", "tensor", "resonance", "emergence"],
-                  inputs={"p1": "str", "p2": "str", "p3": "str", "p4": "str"}),
+                  inputs={"p1": "str", "p2": "str", "p3": "str", "p4": "str",
+                          "p23": "str（可选：显式 P2×P3 相似度；缺省 1-|p2-p3|）"}),
         SkillSpec("check_emergence", check_emergence,
-                  "四人组涌现判定（公开）：评分→{emergence, order, conditions}",
+                  "四人组涌现判定（公开）：评分→{emergence, order, conditions, p23_similarity}",
                   tags=["quartet", "emergence", "public", "verdict"],
-                  inputs={"p1": "float", "p2": "float", "p3": "float", "p4": "float"}),
+                  inputs={"p1": "float", "p2": "float", "p3": "float", "p4": "float",
+                          "p23": "float（可选：显式相似度；缺省 1-|p2-p3|）"}),
         SkillSpec("advisor_review_board", advisor_review_board,
                   "评审委员会：四人透镜并行打分 + P4 一票否决 + 汇总裁决",
                   tags=["quartet", "review", "board", "veto"],

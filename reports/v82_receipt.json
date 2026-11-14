@@ -1,0 +1,144 @@
+{
+  "batch": "V82",
+  "name": "P1-B 失效判据处置（governable 三态 + p23 真实入参 + 金丝雀防倒退）",
+  "status": "LOCAL_READY",
+  "date": "2026-11-14",
+  "head": "9d7d9bb",
+  "head_full": "9d7d9bbbfa81563af0eb625e2432c08757dff131",
+  "prev_head": "9d7d9bb",
+  "doc_version": "0.9.76",
+  "baseline_note": "开工基线 9d7d9bb / DOC 0.9.75 / claims_gate 11 面 / 清单 336 条 / ci.yml 字节不变（连续第 4 批）",
+  "head_note": "head 记开工基线（本批首笔提交尚未产生）；提交后 head 由 state_beacon / 机床 FIVE_SITE 登记，不追写本回执（避免清单自指循环）。",
+  "patches": [
+    {
+      "path": "holoaeon/packs/quartet_director_pack.py",
+      "action": "edit",
+      "sha16": "07b3f1fe0ede2186",
+      "bytes": 33375,
+      "note": "新增 CURVATURE_TOL_SCALE / _curvature_tol / _classify_curvature / _p23_similarity / _p23_of 五个 helper；advisor_gradient_flow 输出改三态（convex=True / concave=False / flat=None）+ curvature_tol + governable_note；check_emergence 增 p23 入参并输出 p23_similarity；advisor_quartet_tensor 同上；两处 conditions 的 P2×P3 判据由 QUARTET_SIMS 常量改为 p23 实测；QUARTET_SIMS 注释降级为静态先验表；SkillSpec inputs 加 p23 说明"
+    },
+    {
+      "path": "tests/test_v82_p1b_disposal.py",
+      "action": "add",
+      "sha16": "8a93c424c4f92835",
+      "bytes": 13587,
+      "note": "46 例（A–H 九组 + C1–C8 八金丝雀）；_read_src() 用 with 关闭文件句柄"
+    },
+    {
+      "path": "holoaeon/spec.py",
+      "action": "edit",
+      "sha16": "8dc6ef2cd51c6512",
+      "bytes": 11004,
+      "note": "DOC_VERSION 0.9.75 → 0.9.76（唯一精确权威点，注释改 V82 说明）"
+    },
+    {
+      "path": "tests/test_v22_eng_skills.py",
+      "action": "edit",
+      "sha16": "912abf14bf0fc47c",
+      "bytes": 8071,
+      "note": "版本断言同步 0.9.76"
+    },
+    {
+      "path": "tests/test_v64_hangover_zero.py",
+      "action": "edit",
+      "sha16": "0a18840ce5483fbe",
+      "bytes": 17117,
+      "note": "版本断言同步 0.9.76"
+    },
+    {
+      "path": "tests/test_v70_prehistory_criteria.py",
+      "action": "edit",
+      "sha16": "b473cef9cf6f2396",
+      "bytes": 15663,
+      "note": "版本断言同步 0.9.76"
+    },
+    {
+      "path": "data/claims_registry.json",
+      "action": "edit",
+      "sha16": "53bd686a9f1720fc",
+      "bytes": 22242,
+      "note": "main_suite.observed 2036→2082；doc_version.observed 0.9.75→0.9.76；doc_version_spec sha16 重算；PHC-2025 source_sha16 重算（README.zh-CN.md）；self_digest 重算"
+    },
+    {
+      "path": "data/env_delta_registry.json",
+      "action": "edit",
+      "sha16": "7a2efda008bc9f01",
+      "bytes": 14203,
+      "note": "D08 local 2036/3/2033→2082/3/2079，gap ran −51 / executed −81（explained_by D01 + D12）；新增 D12 临时条目（本批 46 例尚未上云，status open_until_cloud_rerun）；self_digest 重算"
+    },
+    {
+      "path": "README.zh-CN.md",
+      "action": "edit",
+      "sha16": "8e11b7320157cc58",
+      "bytes": 201283,
+      "note": "徽章 2036→2082；验收行 2082 OK / 本机合计 2114；最新批次行前插 V82（V80 降为上一批次）；门禁行 unittest 2082 OK + V82 test_v82_p1b_disposal 46 例"
+    },
+    {
+      "path": "README.md",
+      "action": "edit",
+      "sha16": "0f63d1153a50b6a5",
+      "bytes": 241313,
+      "note": "徽章 2036→2082；Latest batch 前插 V82（V80 降为 Previous batch）；Gates 段 2082 OK / 2114 total；门禁行 2082 OK + V82 46 cases"
+    },
+    {
+      "path": "SHA256SUMS",
+      "action": "edit",
+      "sha16": "11ad43400b005c88",
+      "bytes": 32034,
+      "note": "清单重建（336 条；tests/ 不入清单，故条数不变）"
+    }
+  ],
+  "disposal": {
+    "p1b_1_governable": {
+      "before": "governable = (convexity == 'convex')：曲率浮点差分 ±1e-17 可误判 convex（伪影），且 flat 落 False（三态压一态）",
+      "after": "True / False / None 三态 + 相对容差 tol = 1e-9 * max(1.0, |f0|) + governable_note；flat → None（未判定不冒充 False）",
+      "falsifiable": "C1-C3（+ C7 锁 tol 相对化）"
+    },
+    "p1b_2_p23": {
+      "before": "QUARTET_SIMS['P2×P3'] = 0.7 >= EMERGENCE_P23 = 0.7 —— 常量比常量，永真",
+      "after": "p23 真实入参：显式 p23 优先，缺省 1-|p2-p3|；判据可真可假；QUARTET_SIMS 保留并降级为静态先验表（similarities 仅回显）",
+      "falsifiable": "C4-C6（+ C5 AST 锁判据不得读 QUARTET_SIMS、C8 兼容性）"
+    }
+  },
+  "manifest": {
+    "path": "SHA256SUMS",
+    "entries": 337,
+    "caliber": "build_b8_dual_sync.release_files ∩ git index + dual_sync.build_sums（LF 归一化）",
+    "note": "清单在写本回执之后重建，故回执不记清单自身 sha16（自指）；条数 337 = V80 的 336 + reports/v82_receipt.json（tests/ 不在清单目录集内，新增测试不增条数）。"
+  },
+  "verification": {
+    "unittest_main": 2082,
+    "unittest_main_skipped": 3,
+    "unittest_cloud": "pending（本批推送后 py3.12 job 日志回读登记）",
+    "contract_suite": 184,
+    "claims_gate": "11/11 PASS mismatch 0",
+    "env_delta_parity_updated": "D08 local 2082/3/2079 + cloud 2031/33/1998（云端值待重跑回写）+ D12 临时条目 open；self_digest 重算",
+    "ci_yml_sha16_after": "a5fe41fd60f9c7cc",
+    "v3_gate": "33/33",
+    "ci_preflight": "12/12 / A13 aligned=true",
+    "redline": "156 文件 0 违规",
+    "selftest": "25/25",
+    "dimension_lock": "12 维度 0 violation（verify:false=D02/D05/D06/D07）",
+    "check_sums": "ok / mismatches=[]（337 条）"
+  },
+  "falsifiable": {
+    "red_before_patch": "holoaeon_lathe/V82_PROVE_RED.json：46 例在未改源码上 35 红（failures 15 + errors 20）；C1 在旧码实测把 ±1e-17 残差判 convex（伪影复现）；C4 旧码 P2×P3 恒 true",
+    "canaries": "8/8（C1-C8 全部在旧码上红、新码上绿）",
+    "green_after": "V82 套 46 OK；主套 2082 OK"
+  },
+  "honest_boundaries": [
+    "QUARTET_SIMS 保留为静态先验表，本批不删（谱系完整）；判据不再读它是处置的全部含义",
+    "p23 缺省口径（1-|p2-p3|）是登记的约定，不是实测的「真」相似度——显式入参优先",
+    "governable=None 表示未判定，不表示「50% 可治理」——不许把 None 当数值用",
+    "同型病灶未处置：holoaeon/packs/topology_resonance_pack.py:1005/:1020 也有 `sims['P2×P3'] >= 0.7` 常量恒真，且用的是该文件局部 sims 常量（:983-984）而非 QUARTET_SIMS——投喂包 §5D/§8 未点名，按硬边界本批不动，登记为下一批候选",
+    "tol 量级 1e-9 为本批执行端所定（写进 docstring + C7 金丝雀）；量级更换属判据变更，须新投喂包",
+    "云端 ran/skipped 为人工对账登记值（闸离线不读 CI 日志）；本批 46 例上云前 D12 保持 open"
+  ],
+  "feed_corrections": [
+    "投喂包 §5A 只要求「注入 1e-16 残差仍判 flat」——实测将注入点做成 C1 金丝雀（构造 f0/f1/f2 使二阶差分落在 tol 内），并额外加 C7 锁 tol 相对化式子（投喂包 §5C 已要求）",
+    "投喂包未点名 topology_resonance_pack.py 的同型常量恒真（局部 sims，非 QUARTET_SIMS）；按 §5D/§8 不处置，回执登记"
+  ],
+  "untouched": "QUARTET_SIMS 表本体 / EMERGENCE_P1/P4/ORDER 三条判据与阈值 / pack 其余 skill 函数 / claims_gate 11 面判据 / ci.yml（字节不变）/ ci_preflight 12 面 / VERSION 0.9.1 / L1-L8 / PACK_ORDER 9 / EXTRA_PACK_ORDER 19 / B4 · 18 仓 · 路径 C · D0（归 PL-7）",
+  "next_batch": "待碳基/四人组定调（topology_resonance_pack 同型病灶、B4 九项、18 仓授权、内部基线重测）",
+  "seal": "潮起开门，潮落闭嘴"
+}

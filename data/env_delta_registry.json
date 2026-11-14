@@ -1,7 +1,7 @@
 {
   "schema": "ENV-DELTA-REGISTRY-v1",
   "as_of": "2026-11-14",
-  "batch": "V80",
+  "batch": "V82",
   "caliber_note": "本注册簿登记「环境与环境之间的差异」，与 claims_registry 的 ledger_sources（账与账一致）不相交。云端值是执行端对账时登记的实测值，闸不联网不读 CI 日志。",
   "measurement_protocol": {
     "local": "本机 python -m unittest discover -s tests / tests_contract（-v 实测）",
@@ -233,10 +233,10 @@
       "dimension": "parity_main_suite",
       "title": "主套双端计数对账（tests/）",
       "local": {
-        "ran": 2036,
+        "ran": 2082,
         "skipped": 3,
-        "executed": 2033,
-        "evidence": "本机 python -m unittest discover -s tests / tests_contract（-v 实测）"
+        "executed": 2079,
+        "evidence": "本机 python -m unittest discover -s tests 实测（V82 加 46 例：2036 → 2082）；tests_contract 184 / 0"
       },
       "cloud": {
         "ran": 2031,
@@ -245,17 +245,18 @@
         "evidence": "CI run 43540948562 · py3.12 job 132281135371 日志（Ran 2031 / OK skipped=33；Ran 184 / OK skipped=11）；基线 CI run 43528852884 · job 132241243161（Ran 1976 / skipped=33；184/11）"
       },
       "gap": {
-        "ran_diff": -5,
-        "executed_diff": -35,
+        "ran_diff": -51,
+        "executed_diff": -81,
         "skip_diff": 30,
         "explained_by": [
-          "D01"
+          "D01",
+          "D12"
         ]
       },
       "guards": [],
       "measured_at": "2026-11-14",
       "risk_tier": "fast",
-      "caliber_note": "本机 V80 落地后实测 2036（V79 的 1981 + 本批 55）；云端 V80 推送后 run 43540948562 实测 2031（1976 + 55，本批 55 例已上云）。ran 差 -5 全部来自 tests/test_v72_prehistory_injection.py 的 setUpClass SkipTest（D01 的 not_discovered=5）；executed 差 -35 = 5 + skip 差 30（D01）；skip 差 30 由 D01 独家解释",
+      "caliber_note": "本机 V82 落地后实测 2082（V80 的 2036 + 本批 46）；云端仍为 V80 实测 2031（本批 46 例尚未上云，见临时条目 D12）。ran 差 -51 = -46（本批未上云）+ -5（D01 的 not_discovered=5）；executed 差 -81 = -46 + -35（D01 的 5 + skip 30）；skip 差 30 由 D01 独家解释。云端重跑后 D12 关闭、ran 差回到 0。",
       "suite": "main"
     },
     {
@@ -344,7 +345,34 @@
       "risk_tier": "stable",
       "caliber_note": "两端同态（0 skip）：登记它是为了让「每个 skipTest 都有归属」，不参与差值解释",
       "suite": "contract"
+    },
+    {
+      "id": "D12",
+      "dimension": "batch_not_yet_on_cloud",
+      "title": "本批（V82）新增 46 例尚未上云（临时条目）",
+      "local": {
+        "value": "present",
+        "evidence": "本机 2082 = V80 基线 2036 + 本批 46 例"
+      },
+      "cloud": {
+        "value": "absent",
+        "evidence": "云端仍为 V80 实测 2031（1998 执行 + 33 skip）；本批 46 例待 V82 推送后 CI 重跑"
+      },
+      "guards": [],
+      "skip_attributed": {
+        "local": 0,
+        "cloud": 0
+      },
+      "not_discovered": {
+        "local": 0,
+        "cloud": 46
+      },
+      "measured_at": "2026-11-14",
+      "risk_tier": "fast",
+      "status": "open_until_cloud_rerun",
+      "suite": "main",
+      "caliber_note": "临时条目生命周期：V82 推送后云端 job 日志回读到本批 46 例执行即置 closed，not_discovered.cloud 归 0、D08 ran_diff 归 0；条目保留可追溯但不删除。"
     }
   ],
-  "self_digest": "21150fd096374b68"
+  "self_digest": "08cd76efc06098b3"
 }
