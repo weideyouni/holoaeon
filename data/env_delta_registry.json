@@ -5,14 +5,17 @@
   "caliber_note": "本注册簿登记「环境与环境之间的差异」，与 claims_registry 的 ledger_sources（账与账一致）不相交。云端值是执行端对账时登记的实测值，闸不联网不读 CI 日志。",
   "measurement_protocol": {
     "local": "本机 python -m unittest discover -s tests / tests_contract（-v 实测）",
-    "cloud": "CI run 43528852884 · py3.12 job 132241243161 日志（Ran 1976 / OK skipped=33；Ran 184 / OK skipped=11）",
+    "cloud": "CI run 43540948562 · py3.12 job 132281135371 日志（Ran 2031 / OK skipped=33；Ran 184 / OK skipped=11）；基线 CI run 43528852884 · job 132241243161（Ran 1976 / skipped=33；184/11）",
     "simulation": "本机云端条件模拟（v80_cloud_sim2.py：patch os.path.isdir/exists 判 F 盘与客仓/交付包不存在）",
     "guard_census": "AST 静态普查 tests/ + tests_contract/（装饰器 / 模块级别名 / skipTest / raise SkipTest）",
     "census_tool": "holoaeon_lathe/v80_guard_census2.py",
     "evidence_files": [
       "holoaeon_lathe/V80_GUARD_CENSUS_FULL.json",
       "holoaeon_lathe/V80_CLOUD_SIM.json",
-      "holoaeon_lathe/V80_CI_JOB_132241243161.log"
+      "holoaeon_lathe/V80_CI_JOB_132241243161.log",
+      "holoaeon_lathe/V80_CI_JOB_132281135371_py3.12___tests_selftest_redline.log",
+      "holoaeon_lathe/V80_CI_JOB_132281135069_py3.10___tests_selftest_redline.log",
+      "holoaeon_lathe/V80_CI_JOB_132281135386_py3.8___tests_selftest_redline.log"
     ]
   },
   "entries": [
@@ -236,37 +239,36 @@
         "evidence": "本机 python -m unittest discover -s tests / tests_contract（-v 实测）"
       },
       "cloud": {
-        "ran": 1976,
+        "ran": 2031,
         "skipped": 33,
-        "executed": 1943,
-        "evidence": "CI run 43528852884 · py3.12 job 132241243161 日志（Ran 1976 / OK skipped=33；Ran 184 / OK skipped=11）"
+        "executed": 1998,
+        "evidence": "CI run 43540948562 · py3.12 job 132281135371 日志（Ran 2031 / OK skipped=33；Ran 184 / OK skipped=11）；基线 CI run 43528852884 · job 132241243161（Ran 1976 / skipped=33；184/11）"
       },
       "gap": {
-        "ran_diff": -60,
-        "executed_diff": -90,
+        "ran_diff": -5,
+        "executed_diff": -35,
         "skip_diff": 30,
         "explained_by": [
-          "D01",
-          "D11"
+          "D01"
         ]
       },
       "guards": [],
       "measured_at": "2026-11-14",
       "risk_tier": "fast",
-      "caliber_note": "本机取 V80 落地后实测 2036（V79 的 1981 + 本批 55）；云端取 V80 之前最近一次 job 实测 1976。ran 差 60 = skip 差 30（D01）+ 本批 55 例尚未上云（D11）；executed 差 90 = 30 + 60",
+      "caliber_note": "本机 V80 落地后实测 2036（V79 的 1981 + 本批 55）；云端 V80 推送后 run 43540948562 实测 2031（1976 + 55，本批 55 例已上云）。ran 差 -5 全部来自 tests/test_v72_prehistory_injection.py 的 setUpClass SkipTest（D01 的 not_discovered=5）；executed 差 -35 = 5 + skip 差 30（D01）；skip 差 30 由 D01 独家解释",
       "suite": "main"
     },
     {
       "id": "D11",
       "dimension": "batch_not_yet_on_cloud",
-      "title": "本批（V80）新增 55 例尚未在云端执行",
+      "title": "本批（V80）新增 55 例已上云（临时条目已关闭）",
       "local": {
         "value": "present",
         "evidence": "本机 2036 = V79 基线 1981 + 本批 55 例"
       },
       "cloud": {
-        "value": "pending",
-        "evidence": "CI run 43528852884 · py3.12 job 132241243161 日志（Ran 1976 / OK skipped=33；Ran 184 / OK skipped=11）（V80 之前的 run，故仍为 1976）"
+        "value": "present",
+        "evidence": "CI run 43540948562 · py3.12 job 132281135371 日志（Ran 2031 / OK skipped=33；Ran 184 / OK skipped=11）；基线 CI run 43528852884 · job 132241243161（Ran 1976 / skipped=33；184/11）（V80 推送后 run 实测 2031 = 1976 + 55）"
       },
       "guards": [],
       "skip_attributed": {
@@ -275,13 +277,13 @@
       },
       "not_discovered": {
         "local": 0,
-        "cloud": 55
+        "cloud": 0
       },
       "measured_at": "2026-11-14",
       "risk_tier": "fast",
-      "status": "open_until_cloud_rerun",
+      "status": "closed_after_cloud_rerun_43540948562",
       "suite": "main",
-      "caliber_note": "临时条目：云端跑完 V80 后由回写环节把 not_discovered.cloud 置 0（或删本条），届时 D08 的 ran_diff 应回到 -5、executed_diff 回到 -35"
+      "caliber_note": "临时条目生命周期已收口：本批 55 例在 run 43540948562 全部执行，not_discovered.cloud 置 0，D08 的 ran_diff 回到 -5、executed_diff 回到 -35。条目保留可追溯，但已不参与差值解释。"
     },
     {
       "id": "D09",
@@ -297,7 +299,7 @@
         "ran": 184,
         "skipped": 11,
         "executed": 173,
-        "evidence": "CI run 43528852884 · py3.12 job 132241243161 日志（Ran 1976 / OK skipped=33；Ran 184 / OK skipped=11）"
+        "evidence": "CI run 43540948562 · py3.12 job 132281135371 日志（Ran 2031 / OK skipped=33；Ran 184 / OK skipped=11）；基线 CI run 43528852884 · job 132241243161（Ran 1976 / skipped=33；184/11）"
       },
       "gap": {
         "ran_diff": 0,
@@ -344,5 +346,5 @@
       "suite": "contract"
     }
   ],
-  "self_digest": "54f272a6ec310526"
+  "self_digest": "21150fd096374b68"
 }
