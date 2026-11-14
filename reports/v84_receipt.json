@@ -1,0 +1,104 @@
+{
+  "baseline_note": "四环开工前基线：HEAD 7453b3a / tracked dirty 0 / claims_gate 11 面 PASS mismatch 0 digest 35630b56d3c79e7c / 主套 2128 skipped 3 / 契约 184 / SHA256SUMS 338 条 / ci.yml sha16 a5fe41fd60f9c7cc / DOC 0.9.77。",
+  "batch": "V84",
+  "cloud_reconciliation": {
+    "note": "本批尚未推送云端；D14 临时条目登记「54 例未上云」，CI 三解释器 success 并回读 py3.12 日志后关闭并回写 D08。",
+    "state": "pending_cloud_rerun"
+  },
+  "date": "2026-11-15",
+  "disposal": [
+    {
+      "id": "TAUTOLOGY-STANDING-WATCH",
+      "title": "恒真判据从「人工发现」升级为「常驻闸」（A 口径扫描器 + 登记账 + 第 34 面）",
+      "site": "holoaeon/tautology_scan.py + data/tautology_allowlist.json + scripts/v3_gate.py::a14_tautology_watch",
+      "before": "V82/V83 各治一处恒真判据，均由单人肉眼发现；下一次同型缺陷只能靠再发现一次",
+      "after": "新增 tautology_scan.py（纯 AST、零执行、零新依赖、py3.8 兼容），检测四类常量-常量形态（tautology_eq / dead_always_true / dead_always_false / membership_in_const）；白名单登记 8 处正当用途（每条带 anchors + liveness + 三值 category），漂移/缺活性/摘要不符一律红；v3_gate 长出第 34 面 A14，三判据 unregistered_tautology · allowlist_drift · scanner_selfcheck",
+      "measured": "证红态 hits=8 allowlisted=0 unregistered=8（V84_RED_BEFORE_ALLOWLIST.json）；转绿态 hits=8 allowlisted=8 unregistered=0 drift=0 selfcheck=ok（V84_GREEN_SCAN.json）"
+    },
+    {
+      "id": "EIGHT-LEGIT-USES",
+      "title": "8 处 B 口径命中逐条定性为正当用途（不治、只登记）",
+      "note": "cinema_gate.py:365/366/367（magic_num 模块成员检查 3 处，membership_in_const）· packs/omnicore_pack.py:214（design_grid = LOCK_SIDE * LOCK_SIDE == LOCK_DESIGN，常量不变式自检）· packs/subdistill_pack.py:468（rows 1331）/ :469（nodes 108641）（常量不变式自检）· packs/topology_resonance_pack.py:692（REORGANIZATION_PRIORITY == 'stagnation_first'，配置常量分派且 test_v67::test_priority_switch_is_effective 有 monkeypatch 活性实证）/ :699（== 'disorder_first'，dead_always_false，同一分派的阴面）。全部保留原样。"
+    }
+  ],
+  "doc_version": "0.9.78",
+  "falsifiable": [
+    "扫描器证红：白名单不存在时 scan() 必须 hits=8 / unregistered=8；若为 0，说明扫描器没在扫（V84_RED_BEFORE_ALLOWLIST.json）",
+    "转绿：登记后必须 hits=8 / allowlisted=8 / unregistered=0 / drift=0 / selfcheck=ok（V84_GREEN_SCAN.json）",
+    "C1 新恒真未登记：造 `CONST >= CONST` 必须判未登记（命中即红）",
+    "C4 链式比较零误报：`0 <= x <= 1` 必须 0 命中（四人组 v1 曾 25 处假阳）",
+    "C5 常量环境三类零误判：参数默认值 / for 目标 / 多次赋值必须 0 命中（执行端 v1 曾 16 处假阳）",
+    "C7 行锚超 ±5 必须不匹配（防错配放行）",
+    "A14.1 在本仓必须 PASS；若某处新增恒真未登记，第 34 面即红并使 v3_gate 整体 ABORT"
+  ],
+  "feed_corrections": [
+    "投喂包 §5B 示例把白名单条目写为 `category` 三值枚举但未给枚举字面；执行端定为 invariant_selfcheck / config_dispatch / presence_check，写进 tautology_scan.py docstring 与 A14 面证据。",
+    "投喂包未规定 line 容差；执行端取 ±5（由 C7 金丝雀锁死），并在 match_hit 里以 anchors 归一化子串（去空白与各类引号）做二次校验，防止「行号漂移后被错配放行」。"
+  ],
+  "head": "7453b3a",
+  "head_full": "7453b3a915017814710b9de21b954a3ad965ea38",
+  "head_note": "head 在提交后回填；本回执先随第一笔提交入库。",
+  "honest_boundaries": [
+    "静态口径只能判 B 口径（字面常量比较）。A 口径（这条判据是否真的约束了输入）无法静态判定，8 处正当用途是人读上下文后的定性，不是机器结论；未登记命中 = 待复核，不等于已判定为病。",
+    "8 处命中一律不治：投喂包 §8 硬边界点名「不治 8 处正当用途」，本批只登记并锁活性来源。",
+    "扫描范围仅 holoaeon/ 包；scripts/ 与 tests/ 不入轮（测试里的常量断言属锁定用途，扫进来会造成系统性假阳）。",
+    "隐晦形态（函数返回常量、跨模块间址、getattr / dict.get、字符串拼装）无静态证据，不做也不声称已覆盖；这是已知能力边界。",
+    "env_delta 第 11 面不联网、不读 CI 日志；D08 云端值靠对账录入，本批云端尚未回读，D14 为临时条目。",
+    "四条内部基线（semvec-0.9.1 / semvec-kfold-0.9.2 / semvec-kfold-0.9.3 / results-0.9.1）未重测：本批只把 core_py_count 登记为当前 157，测量时的 156 另存 core_py_count_at_measure；重测属碳基点单第 4 项。",
+    "白名单 8 条里 T04/T05 的 liveness 指向 monkeypatch 实证（test_v67::test_priority_switch_is_effective）；其余 6 条 liveness 是「改常量即改行为」的静态陈述，未经运行时实验，属登记事实（simulated），不是实证。"
+  ],
+  "manifest": {
+    "caliber": "build_b8_dual_sync.release_files ∩ git index + dual_sync.build_sums（LF 归一化）",
+    "entries": 340,
+    "note": "条数 340 = V83 的 338 + holoaeon/tautology_scan.py + reports/v84_receipt.json（tests/ 与 data/*.json 的登记账不进清单目录集，故新增测试与白名单不增条数）。",
+    "path": "SHA256SUMS"
+  },
+  "name": "TAUTOLOGY_GOLDEN_WATCH",
+  "next_batch": "等碳基定调：B4 九项 / 18 仓授权 / 内部基线重测 / 两包 p23 口径是否统一 / workflow scope 补授权。任何一项到位即恢复「四人组策划 → 投喂包 → 执行 → 回执」链路。",
+  "patches": [
+    "holoaeon/tautology_scan.py：新建（scan / scan_source / match_hit / canonical_digest / _selfcheck / main --json；纯 AST 零执行、零新依赖、py3.8 兼容）",
+    "data/tautology_allowlist.json：新建 8 条登记（T01–T08，schema TAUTOLOGY-ALLOWLIST-v1 / batch V84 / as_of 2026-11-15 / self_digest 83331535fbbf75a7）",
+    "scripts/v3_gate.py：追加 a14_tautology_watch（A14.1）+ main 调用 + docstring A1–A14",
+    "tests/test_v84_tautology_golden_watch.py：新建 54 例（十组含 C1–C8 金丝雀）",
+    "holoaeon/spec.py + tests/test_v22_eng_skills.py + tests/test_v64_hangover_zero.py + tests/test_v70_prehistory_criteria.py：DOC 0.9.77 → 0.9.78 四处耦合",
+    "README.zh-CN.md / README.md：徽章 2182、验收行本机 2182 / 云端 2123（本批 54 例待上云 D14）、合计 2214、清单 339 条、门禁行 v3 34/34 + 主套 2182 + 红线 157、V84 最新批次行（V83 降上一批次）",
+    "data/claims_registry.json：doc_version 0.9.78 / main_suite 2182 / redline 157 / doc_version_spec sha16 a45c5e77275b8ed1 / PHC-2025 source_sha16 77adebf72ba88d4c / internal_baselines core_py_count 157（at_measure 156）/ self_digest d11ba5e54a3a25d4",
+    "data/env_delta_registry.json：D08 local 2182/3/2179、cloud 暂 2123/33/2090、gap ran −59 / executed −89 / skip +30（D01+D14）；新增 D14 临时条目（54 例待上云）；self_digest cc245e441f402d73",
+    "data/dual_repo_sums.json：重建（holoaeon 339 / ivsa 91，verdict PASS）",
+    "reports/v84_receipt.json：本回执"
+  ],
+  "prev_head": "7453b3a915017814710b9de21b954a3ad965ea38",
+  "seal": "潮起开门，潮落闭嘴",
+  "status": "LOCAL_READY",
+  "untouched": [
+    "8 处 B 口径命中的源码一行未动（只登记）",
+    "claims_gate 11 面判据与阈值未动",
+    "v3_gate 前 33 面未动（只追加第 34 面）",
+    "ci.yml 字节未动（连续第 6 批）",
+    "quartet_director / topology_resonance 两包 p23 口径未动",
+    "业务 B4 九项 / 18 仓授权 / 路径 C / D0 均未触碰",
+    "VERSION / MATRIX_ID / RUNTIME_ID / PACK_ORDER / BUILTIN_LAYERS / diff0 注释值 / tamper / zip 冻结值未动"
+  ],
+  "verification": {
+    "check_sums": "ok / mismatches=[]（340 条）",
+    "ci_preflight": "12/12 / A13 aligned=true",
+    "ci_yml_note": "字节不变（连续第 6 批）",
+    "ci_yml_sha16_after": "a5fe41fd60f9c7cc",
+    "claims_gate": "11/11 PASS mismatch 0 digest e6e96ca7f3ab9440",
+    "contract_suite": "184 / 0",
+    "dimension_lock": "12 维度 0 violation（verify:false=D02/D05/D06/D07）",
+    "env_delta_parity_updated": "D08 local 2182/3/2179 + cloud 2123/33/2090（V83 run 值），gap ran −59 / executed −89 / skip +30（D01+D14）；D14 待云端回读关闭",
+    "redline": "157 文件 0 违规",
+    "selftest": "25/25",
+    "tautology": "[PASS] hits=8 allowlisted=8 unregistered=0 drift=0 selfcheck=ok（self_digest 83331535fbbf75a7）",
+    "unittest_cloud": "待 V84 CI 回读（V83 值 2123 / skipped 33 · run 43558490124）",
+    "unittest_main": 2182,
+    "unittest_main_skipped": 3,
+    "v3_gate": "34/34",
+    "v3_suite": "11 / 0",
+    "v67_compat": "43 例全绿（p23 兼容锚零破坏）",
+    "v82_compat": "check_emergence(0.9,0.9,0.2,0.3) emergence False（V82 判据活性未退化）",
+    "v84_test_file": "54 例全绿（十组含 C1–C8 金丝雀）",
+    "verax_suite": "21 / 0"
+  }
+}

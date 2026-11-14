@@ -1,6 +1,6 @@
 {
-  "as_of": "2026-11-14",
-  "batch": "V83",
+  "as_of": "2026-11-15",
+  "batch": "V84",
   "caliber_note": "本注册簿登记「环境与环境之间的差异」，与 claims_registry 的 ledger_sources（账与账一致）不相交。云端值是执行端对账时登记的实测值，闸不联网不读 CI 日志。",
   "entries": [
     {
@@ -213,31 +213,32 @@
       "title": "解释器矩阵：本机 3.13.14 vs CI 3.8 / 3.10 / 3.12"
     },
     {
-      "caliber_note": "本机 V83 落地后实测 2128（V82 的 2082 + 本批 46）；云端 V83 推送后 run 43558490124 实测 2123（V82 的 2077 + 46，本批 46 例全部上云，三解释器同值）。ran 差 -5 全部来自 tests/test_v72_prehistory_injection.py 的 setUpClass SkipTest（D01 not_discovered=5）；executed 差 -35 = 5 + skip 差 30（D01）；skip 差 30 由 D01 独家解释。D13 已关闭。",
+      "caliber_note": "本机 V84 落地后实测 2182（V83 的 2128 + 本批 54）；cloud 侧仍是 V83 run 43558490124 的 2123，本批 54 例尚未上云，差值由 D14 独家解释（-54），其余 -5/+30 仍归 D01（v72 setUpClass SkipTest 的 not_discovered=5 与 skip 差 30）。",
       "cloud": {
-        "evidence": "CI run 43558490124 · py3.12 job 132336649379 日志（Ran 2123 / OK skipped=33；Ran 184 / OK skipped=11）；py3.10 job 132336649589 / py3.8 job 132336649707 同值",
+        "evidence": "CI run 43558490124 · py3.12 job 132336649379 日志（V83 值，尚未重跑）；V84 CI 启动后按 ANCHOR 回读重登记（py3.10 / py3.8 同源）",
         "executed": 2090,
         "ran": 2123,
         "skipped": 33
       },
       "dimension": "parity_main_suite",
       "gap": {
-        "executed_diff": -35,
+        "executed_diff": -89,
         "explained_by": [
-          "D01"
+          "D01",
+          "D14"
         ],
-        "ran_diff": -5,
+        "ran_diff": -59,
         "skip_diff": 30
       },
       "guards": [],
       "id": "D08",
       "local": {
-        "evidence": "本机 python -m unittest discover -s tests 实测（V83 加 46 例：2082 → 2128）；tests_contract 184 / 0",
-        "executed": 2125,
-        "ran": 2128,
+        "evidence": "本机 python -m unittest discover -s tests 实测（V84 加 54 例：2128 → 2182）；tests_contract 184 / 0",
+        "executed": 2179,
+        "ran": 2182,
         "skipped": 3
       },
-      "measured_at": "2026-11-14",
+      "measured_at": "2026-11-15",
       "risk_tier": "fast",
       "suite": "main",
       "title": "主套双端计数对账（tests/）"
@@ -382,6 +383,32 @@
       "status": "closed_after_cloud_rerun_43558490124",
       "suite": "main",
       "title": "本批（V83）新增 46 例已上云（临时条目已关闭）"
+    },
+    {
+      "caliber_note": "临时条目：V84 的 tests/test_v84_tautology_golden_watch.py 54 例只在本机跑过，cloud 计数仍为 V83 的 2123；CI 三解释器 success 并回读日志后把 status 置 closed_after_cloud_rerun_<run>、not_discovered.cloud 归 0。",
+      "cloud": {
+        "evidence": "未上云：V84 收口提交尚未推送，cloud 仍是 V83 run 43558490124 的 2123",
+        "value": "absent"
+      },
+      "dimension": "batch_not_yet_on_cloud",
+      "guards": [],
+      "id": "D14",
+      "local": {
+        "evidence": "本机 2182 = V83 基线 2128 + 本批 54 例",
+        "value": "present"
+      },
+      "measured_at": "2026-11-15",
+      "not_discovered": {
+        "cloud": 54,
+        "local": 0
+      },
+      "risk_tier": "fast",
+      "skip_attributed": {
+        "cloud": 0,
+        "local": 0
+      },
+      "suite": "main",
+      "title": "本批（V84）新增 54 例尚未上云（待 CI 回读后关闭）"
     }
   ],
   "measurement_protocol": {
@@ -400,5 +427,5 @@
     "simulation": "本机云端条件模拟（v80_cloud_sim2.py：patch os.path.isdir/exists 判 F 盘与客仓/交付包不存在）"
   },
   "schema": "ENV-DELTA-REGISTRY-v1",
-  "self_digest": "faf65c9fc177f96e"
+  "self_digest": "cc245e441f402d73"
 }

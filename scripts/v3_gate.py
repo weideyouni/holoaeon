@@ -2,10 +2,11 @@
 """
 v3_gate.py —— V3 验收门禁（旁挂脚本，不改内核、不进 34 单测）
 ================================================================================
-把 A1–A13 中可机械判定的部分逐条跑一遍，输出 JSON；任一 FAIL 退出码 1。
+把 A1–A14 中可机械判定的部分逐条跑一遍，输出 JSON；任一 FAIL 退出码 1。
 口径：
   · 主套仍是 34 tests / 25 self-checks（本脚本另计，不并入，维度不变）；
   · 所有结论 evidence_class=simulated；仿真 ≠ 证明。
+  · V84 新增第 34 面 A14（恒真判据常驻金哨）：加面不改 ci.yml 步骤表。
 
 用法：
     python scripts\\v3_gate.py
@@ -407,6 +408,36 @@ def a13_ci_preflight() -> None:
            "last_preflight": last})
 
 
+# ------------------------------------------------------------ A14 恒真金哨（V84）
+def a14_tautology_watch() -> None:
+    """V84 第 34 面：恒真判据常驻金哨（A 口径 + 白名单登记账 + 扫描器自检）。
+
+    判据：`holoaeon.tautology_scan.scan()` 报 ok。
+      · 未登记命中 = 疑似「判据冒充输入约束」→ 红；
+      · 白名单漂移/缺 liveness/摘要不符 → 红（白名单是登记账，不是放行名单）；
+      · 扫描器自检（链式比较 / 参数 / for 目标 / 多次赋值 / 真恒真 / 成员测试）→ 不过即红。
+    本面只读静态源码与 JSON，不联网、不执行被扫代码。
+    """
+    try:
+        from holoaeon import tautology_scan as _ts
+        rep = _ts.scan()
+    except Exception as exc:  # noqa: BLE001
+        check("A14.1", "恒真判据常驻金哨（A 口径 + 白名单 + 扫描器自检）", False,
+              {"error": "%s: %s" % (type(exc).__name__, str(exc)[:120])})
+        return
+    check("A14.1", "恒真判据常驻金哨（A 口径 + 白名单 + 扫描器自检）", bool(rep.get("ok")),
+          {"unregistered": len(rep.get("unregistered") or []),
+           "allowlisted": len(rep.get("allowlisted") or []),
+           "allowlist_entries": rep.get("allowlist_entries"),
+           "hits_total": rep.get("hits_total"),
+           "drift": [d.get("id") for d in (rep.get("drift") or [])],
+           "liveness_missing": rep.get("liveness_missing"),
+           "digest": rep.get("digest"),
+           "scanner_selfcheck": rep.get("scanner_selfcheck", {}).get("ok"),
+           "first_unregistered": [{"file": h.get("file"), "line": h.get("line")}
+                                  for h in (rep.get("unregistered") or [])[:5]]})
+
+
 # ------------------------------------------------------------ main
 def main() -> int:
     ap = argparse.ArgumentParser()
@@ -424,6 +455,7 @@ def main() -> int:
     a11_bridge()
     a12_constraints()
     a13_ci_preflight()
+    a14_tautology_watch()
 
     failed = [c for c in CHECKS if not c["ok"]]
     rep = {"gate": "v3", "doc_version": "0.9.3", "checks": CHECKS,

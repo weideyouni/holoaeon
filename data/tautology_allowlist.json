@@ -1,0 +1,115 @@
+{
+  "as_of": "2026-11-14",
+  "batch": "V84",
+  "caliber": "B 口径（字面常量参与比较）登记账；A 口径（判据冒充输入约束）为 0",
+  "entries": [
+    {
+      "anchors": [
+        "LOCK_SIDE*LOCK_SIDE==LOCK_DESIGN"
+      ],
+      "category": "invariant_selfcheck",
+      "expr": "LOCK_SIDE * LOCK_SIDE == LOCK_DESIGN",
+      "family": [
+        "rows",
+        "nodes",
+        "slots",
+        "coord"
+      ],
+      "file": "holoaeon/packs/omnicore_pack.py",
+      "id": "T01",
+      "line": 214,
+      "liveness": "改 SUBD_TOTAL/SLOTS_PER/SLOTS_RESERVED/LOCK_SIDE 任一常量即变 False 并报警——恒真正是维度锁自检的用途，不是判据冒充"
+    },
+    {
+      "anchors": [
+        "rows_ok"
+      ],
+      "category": "invariant_selfcheck",
+      "expr": "rows_ok",
+      "family": [],
+      "file": "holoaeon/packs/subdistill_pack.py",
+      "id": "T02",
+      "line": 468,
+      "liveness": "同上：rows_ok 由常量算术式与 LOCK_SIDE 比对得出，改常量即变 False"
+    },
+    {
+      "anchors": [
+        "nodes_ok"
+      ],
+      "category": "invariant_selfcheck",
+      "expr": "nodes_ok",
+      "family": [],
+      "file": "holoaeon/packs/subdistill_pack.py",
+      "id": "T03",
+      "line": 469,
+      "liveness": "同上：nodes_ok 与 LOCK_MANDALA 比对，改常量即变 False"
+    },
+    {
+      "anchors": [
+        "REORGANIZATION_PRIORITY==stagnation_first"
+      ],
+      "category": "config_dispatch",
+      "expr": "REORGANIZATION_PRIORITY == \"stagnation_first\"",
+      "family": [
+        "disorder_first",
+        "all"
+      ],
+      "file": "holoaeon/packs/topology_resonance_pack.py",
+      "id": "T04",
+      "line": 692,
+      "liveness": "tests/test_v67_contract_and_arbitration.py::TestReorganizationArbitration::test_priority_switch_is_effective monkeypatch 该常量后断言 verdict 变 reorganize_stagnation —— 已有活性实证，非不可注入永真"
+    },
+    {
+      "anchors": [
+        "REORGANIZATION_PRIORITY==disorder_first"
+      ],
+      "category": "config_dispatch",
+      "expr": "REORGANIZATION_PRIORITY == \"disorder_first\"",
+      "family": [],
+      "file": "holoaeon/packs/topology_resonance_pack.py",
+      "id": "T05",
+      "line": 699,
+      "liveness": "同 T04：同一 monkeypatch 测试覆盖两分支可切换（当前配置下此支为不活跃分支）"
+    },
+    {
+      "anchors": [
+        "imagesinASSET_POINTERS"
+      ],
+      "category": "presence_check",
+      "expr": "\"images\" in ASSET_POINTERS",
+      "family": [
+        "remote_full_pack"
+      ],
+      "file": "holoaeon/cinema_gate.py",
+      "id": "T06",
+      "line": 365,
+      "liveness": "改 ASSET_POINTERS 内容（删键或改值）即变 False —— 素材指针纪律的声明在位检查"
+    },
+    {
+      "anchors": [
+        "不入git仓inASSET_POINTERS[images]"
+      ],
+      "category": "presence_check",
+      "expr": "\"不入 git 仓\" in ASSET_POINTERS[\"images\"]",
+      "family": [],
+      "file": "holoaeon/cinema_gate.py",
+      "id": "T07",
+      "line": 366,
+      "liveness": "改 ASSET_POINTERS['images'] 措辞即变 False —— 声明在位检查"
+    },
+    {
+      "anchors": [
+        "未提供inASSET_POINTERS[remote_full_pack]"
+      ],
+      "category": "presence_check",
+      "expr": "\"未提供\" in ASSET_POINTERS[\"remote_full_pack\"]",
+      "family": [],
+      "file": "holoaeon/cinema_gate.py",
+      "id": "T08",
+      "line": 367,
+      "liveness": "改 ASSET_POINTERS['remote_full_pack'] 措辞即变 False —— 声明在位检查"
+    }
+  ],
+  "schema": "TAUTOLOGY-ALLOWLIST-v1",
+  "self_digest": "83331535fbbf75a7"
+}
