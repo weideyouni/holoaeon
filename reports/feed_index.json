@@ -1,6 +1,6 @@
 {
   "as_of": "2026-11-14",
-  "generated_by": "V79 跨账口径一致性闸（claims_gate 第 10 面 cross_ledger_consistency · ledger_sources + ledger_conflicts D0-D5 · DOC 0.9.74）",
+  "generated_by": "V80 云端环境差异可失败化（claims_gate 第 11 面 env_delta_consistency · data/env_delta_registry.json D01–D11 · DOC 0.9.75）",
   "no_feed_batches": [
     {
       "batch": "V64",
@@ -183,7 +183,12 @@
       "batch": "V78b",
       "file": "（执行侧直接落地，无投喂包；见 reports/v78b_receipt.json）",
       "topic": "CI 门禁正式收口（复算闸与 v3 域闸入 ci.yml · SHA256SUMS 332）"
+    },
+    {
+      "batch": "V80",
+      "file": "AGENT_FEED_V80_DONE_ENV_DELTA_20261114.md（收口改名，字节不变 18291 B）",
+      "topic": "云端环境差异可失败化（ENV_DELTA 注册簿 D01–D11 · claims_gate 第 11 面 env_delta_consistency · DOC 0.9.75 · 清单 336）"
     }
   ],
-  "with_feed_count": 22
+  "with_feed_count": 23
 }
