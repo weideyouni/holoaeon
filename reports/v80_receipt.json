@@ -2,8 +2,8 @@
   "batch": "V80-ENV-DELTA-REGISTRY",
   "status": "PUSHED_CI_GREEN",
   "date": "2026-11-14",
-  "head": "34e4df0",
-  "head_full": "34e4df0b2ff58b527d890ab326c099dea2697385",
+  "head": "152299f",
+  "head_full": "152299f86c9cf9496b94c4b1be3182df3679eb55",
   "prev_head": "e391157",
   "doc_version": "0.9.75",
   "baseline_note": "V79 收口 HEAD=e391157 / DOC 0.9.74 / claims_gate 10 面 / 主套 1981 / 清单 334；本批 11 面 / 0.9.75 / 主套 2036 / 清单见 verification.check_sums。",
@@ -251,17 +251,17 @@
   },
   "five_site": {
     "S1_local": {
-      "head": "950bfaffcdc0ea18d9d0c17c5eb8fa6a9e472be8",
+      "head": "152299f86c9cf9496b94c4b1be3182df3679eb55",
       "ok": true
     },
     "S2_gitee": {
-      "head": "950bfaffcdc0ea18d9d0c17c5eb8fa6a9e472be8",
-      "push": "e391157..950bfaf",
+      "head": "152299f86c9cf9496b94c4b1be3182df3679eb55",
+      "push": "e391157..152299f",
       "ok": true
     },
     "S3_github": {
-      "head": "950bfaffcdc0ea18d9d0c17c5eb8fa6a9e472be8",
-      "push": "e391157..950bfaf",
+      "head": "152299f86c9cf9496b94c4b1be3182df3679eb55",
+      "push": "e391157..152299f",
       "ci_runs": [
         43540948562
       ],
@@ -286,5 +286,6 @@
       "mismatch": [],
       "note": "镜像后再次上传 16 件（对账回写引入 README×2 / 注册簿×2 / 清单 / 回执）；两侧排除 .gitattributes 后 721=721"
     }
-  }
+  },
+  "head_note": "head 记「云端对账回写笔」152299f；本批收口笔在其后，最终远端 sha 由 state_beacon / 机床 FIVE_SITE 登记，不追写本回执（避免清单自指循环）。"
 }
