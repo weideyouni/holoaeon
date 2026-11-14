@@ -239,24 +239,23 @@
         "evidence": "本机 python -m unittest discover -s tests 实测（V82 加 46 例：2036 → 2082）；tests_contract 184 / 0"
       },
       "cloud": {
-        "ran": 2031,
+        "ran": 2077,
         "skipped": 33,
-        "executed": 1998,
-        "evidence": "CI run 43540948562 · py3.12 job 132281135371 日志（Ran 2031 / OK skipped=33；Ran 184 / OK skipped=11）；基线 CI run 43528852884 · job 132241243161（Ran 1976 / skipped=33；184/11）"
+        "executed": 2044,
+        "evidence": "CI run 43548778699 · py3.12 job 132306143979 日志（Ran 2077 / OK skipped=33；Ran 184 / OK skipped=11）；py3.10 job 132306144226 / py3.8 job 132306144733 同值"
       },
       "gap": {
-        "ran_diff": -51,
-        "executed_diff": -81,
+        "ran_diff": -5,
+        "executed_diff": -35,
         "skip_diff": 30,
         "explained_by": [
-          "D01",
-          "D12"
+          "D01"
         ]
       },
       "guards": [],
       "measured_at": "2026-11-14",
       "risk_tier": "fast",
-      "caliber_note": "本机 V82 落地后实测 2082（V80 的 2036 + 本批 46）；云端仍为 V80 实测 2031（本批 46 例尚未上云，见临时条目 D12）。ran 差 -51 = -46（本批未上云）+ -5（D01 的 not_discovered=5）；executed 差 -81 = -46 + -35（D01 的 5 + skip 30）；skip 差 30 由 D01 独家解释。云端重跑后 D12 关闭、ran 差回到 0。",
+      "caliber_note": "本机 V82 落地后实测 2082（V80 的 2036 + 本批 46）；云端 V82 推送后 run 43548778699 实测 2077（2031 + 46，本批 46 例全部上云）。ran 差 -5 全部来自 tests/test_v72_prehistory_injection.py 的 setUpClass SkipTest（D01 的 not_discovered=5）；executed 差 -35 = 5 + skip 差 30（D01）；skip 差 30 由 D01 独家解释。D12 临时条目已关闭。",
       "suite": "main"
     },
     {
@@ -349,14 +348,14 @@
     {
       "id": "D12",
       "dimension": "batch_not_yet_on_cloud",
-      "title": "本批（V82）新增 46 例尚未上云（临时条目）",
+      "title": "本批（V82）新增 46 例已上云（临时条目已关闭）",
       "local": {
         "value": "present",
         "evidence": "本机 2082 = V80 基线 2036 + 本批 46 例"
       },
       "cloud": {
-        "value": "absent",
-        "evidence": "云端仍为 V80 实测 2031（1998 执行 + 33 skip）；本批 46 例待 V82 推送后 CI 重跑"
+        "value": "present",
+        "evidence": "CI run 43548778699 · py3.12 job 132306143979 日志 Ran 2077 = 云端基线 2031 + 本批 46"
       },
       "guards": [],
       "skip_attributed": {
@@ -365,14 +364,14 @@
       },
       "not_discovered": {
         "local": 0,
-        "cloud": 46
+        "cloud": 0
       },
       "measured_at": "2026-11-14",
       "risk_tier": "fast",
-      "status": "open_until_cloud_rerun",
+      "status": "closed_after_cloud_rerun_43548778699",
       "suite": "main",
-      "caliber_note": "临时条目生命周期：V82 推送后云端 job 日志回读到本批 46 例执行即置 closed，not_discovered.cloud 归 0、D08 ran_diff 归 0；条目保留可追溯但不删除。"
+      "caliber_note": "临时条目生命周期已收口：本批 46 例在 run 43548778699 全部执行，not_discovered.cloud 置 0，D08 的 ran_diff 回到 -5、executed_diff 回到 -35。条目保留可追溯，但已不参与差值解释。"
     }
   ],
-  "self_digest": "08cd76efc06098b3"
+  "self_digest": "09895ae0f96092a8"
 }

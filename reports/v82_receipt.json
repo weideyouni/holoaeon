@@ -1,10 +1,10 @@
 {
   "batch": "V82",
   "name": "P1-B 失效判据处置（governable 三态 + p23 真实入参 + 金丝雀防倒退）",
-  "status": "LOCAL_READY",
+  "status": "PUSHED_CI_GREEN",
   "date": "2026-11-14",
-  "head": "9d7d9bb",
-  "head_full": "9d7d9bbbfa81563af0eb625e2432c08757dff131",
+  "head": "3091ac8",
+  "head_full": "3091ac8c84ae9d6140b4c1f5e59f56fdacb13a8f",
   "prev_head": "9d7d9bb",
   "doc_version": "0.9.76",
   "baseline_note": "开工基线 9d7d9bb / DOC 0.9.75 / claims_gate 11 面 / 清单 336 条 / ci.yml 字节不变（连续第 4 批）",
@@ -62,28 +62,28 @@
     {
       "path": "data/env_delta_registry.json",
       "action": "edit",
-      "sha16": "7a2efda008bc9f01",
-      "bytes": 14203,
+      "sha16": "b2b014c7df1523ad",
+      "bytes": 14234,
       "note": "D08 local 2036/3/2033→2082/3/2079，gap ran −51 / executed −81（explained_by D01 + D12）；新增 D12 临时条目（本批 46 例尚未上云，status open_until_cloud_rerun）；self_digest 重算"
     },
     {
       "path": "README.zh-CN.md",
       "action": "edit",
-      "sha16": "8e11b7320157cc58",
-      "bytes": 201283,
+      "sha16": "65769313f1b25dc9",
+      "bytes": 201389,
       "note": "徽章 2036→2082；验收行 2082 OK / 本机合计 2114；最新批次行前插 V82（V80 降为上一批次）；门禁行 unittest 2082 OK + V82 test_v82_p1b_disposal 46 例"
     },
     {
       "path": "README.md",
       "action": "edit",
-      "sha16": "0f63d1153a50b6a5",
-      "bytes": 241313,
+      "sha16": "011f94d76ae548b9",
+      "bytes": 241409,
       "note": "徽章 2036→2082；Latest batch 前插 V82（V80 降为 Previous batch）；Gates 段 2082 OK / 2114 total；门禁行 2082 OK + V82 46 cases"
     },
     {
       "path": "SHA256SUMS",
       "action": "edit",
-      "sha16": "11ad43400b005c88",
+      "sha16": "cb1b4bee29bec33b",
       "bytes": 32034,
       "note": "清单重建（336 条；tests/ 不入清单，故条数不变）"
     }
@@ -109,17 +109,18 @@
   "verification": {
     "unittest_main": 2082,
     "unittest_main_skipped": 3,
-    "unittest_cloud": "pending（本批推送后 py3.12 job 日志回读登记）",
+    "unittest_cloud": "2077 / skipped 33（run 43548778699 · py3.12 job 132306143979；py3.10/3.8 同值）",
     "contract_suite": 184,
     "claims_gate": "11/11 PASS mismatch 0",
-    "env_delta_parity_updated": "D08 local 2082/3/2079 + cloud 2031/33/1998（云端值待重跑回写）+ D12 临时条目 open；self_digest 重算",
+    "env_delta_parity_updated": "D08 local 2082/3/2079 + cloud 2077/33/2044，gap ran −5 / executed −35 / skip +30（全归 D01）；D12 关闭 closed_after_cloud_rerun_43548778699；self_digest 重算",
     "ci_yml_sha16_after": "a5fe41fd60f9c7cc",
     "v3_gate": "33/33",
     "ci_preflight": "12/12 / A13 aligned=true",
     "redline": "156 文件 0 违规",
     "selftest": "25/25",
     "dimension_lock": "12 维度 0 violation（verify:false=D02/D05/D06/D07）",
-    "check_sums": "ok / mismatches=[]（337 条）"
+    "check_sums": "ok / mismatches=[]（337 条）",
+    "cloud_contract": "184 / skipped 11（executed 173）"
   },
   "falsifiable": {
     "red_before_patch": "holoaeon_lathe/V82_PROVE_RED.json：46 例在未改源码上 35 红（failures 15 + errors 20）；C1 在旧码实测把 ±1e-17 残差判 convex（伪影复现）；C4 旧码 P2×P3 恒 true",
@@ -140,5 +141,56 @@
   ],
   "untouched": "QUARTET_SIMS 表本体 / EMERGENCE_P1/P4/ORDER 三条判据与阈值 / pack 其余 skill 函数 / claims_gate 11 面判据 / ci.yml（字节不变）/ ci_preflight 12 面 / VERSION 0.9.1 / L1-L8 / PACK_ORDER 9 / EXTRA_PACK_ORDER 19 / B4 · 18 仓 · 路径 C · D0（归 PL-7）",
   "next_batch": "待碳基/四人组定调（topology_resonance_pack 同型病灶、B4 九项、18 仓授权、内部基线重测）",
-  "seal": "潮起开门，潮落闭嘴"
+  "seal": "潮起开门，潮落闭嘴",
+  "cloud_reconciliation": {
+    "run": "43548778699",
+    "head": "3091ac8",
+    "conclusion": "success",
+    "jobs": {
+      "py3.12": {
+        "id": 132306143979,
+        "main": [
+          2077,
+          33
+        ],
+        "contract": [
+          184,
+          11
+        ]
+      },
+      "py3.10": {
+        "id": 132306144226,
+        "main": [
+          2077,
+          33
+        ],
+        "contract": [
+          184,
+          11
+        ]
+      },
+      "py3.8": {
+        "id": 132306144733,
+        "main": [
+          2077,
+          33
+        ],
+        "contract": [
+          184,
+          11
+        ]
+      }
+    },
+    "delta_after": {
+      "ran_diff": -5,
+      "skip_diff": 30,
+      "executed_diff": -35,
+      "explained_by": [
+        "D01"
+      ]
+    },
+    "D12_closure": "本批 46 例在 run 43548778699 全部执行：云端 2031 → 2077，D12 not_discovered.cloud 46 → 0，status closed_after_cloud_rerun_43548778699",
+    "readme_readback": "双口径同屏：本机 2082（skipped 3）／云端 2077（skipped 33），闸内 readme_zh / readme_en 均 PASS",
+    "evidence_log": "holoaeon_lathe/V80_CI_JOB_132306143979_py3.12__tests_selftest_redline.log（44430 B）"
+  }
 }
