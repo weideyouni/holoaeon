@@ -38,6 +38,41 @@ See [`docs/support-matrix.md`](docs/support-matrix.md) for which cells are `meas
 
 </div>
 
+## 🗺️ Strategic blueprint (partners & reviewers: read this first)
+
+> **Status: work in progress, not a stable release.** This repository is the HoloAeon base trunk (V-series).
+> The LA-series specialist project (LongAeon) lives in its **own** repository and never consumes a V-number.
+> This blueprint is the entry point for partners, B-side institutions and requirement alignment —
+> engineering details stay in the sections below and in `docs/`.
+> Every capability is labelled **landed / partial / planned / suspended / not adopted**, and every number is
+> read back at check time rather than hard-coded.
+
+- **One-line positioning**: a CPU-runnable, offline-capable, auditable **city-state multi-agent base** — six native
+  services (dispatch, semantic alignment, convergence judging, safety gates, vector-sea knowledge, time-series
+  archiving) on top of the 1331 collapse-matrix topology; any LLM or none at all.
+- **What it can do**: layered five-tier agent matrix · collapse-matrix operators (Möbius expand / Klein converge) ·
+  Hilbert space + Kalman observation · private vector-sea · runtime + graph orchestration · medical safety gates
+  (fuse, high-risk sign-off, dose isolation, zero-fabrication) · Timerun hash archiving · three deployment shapes
+  (local Windows `F:\doubaowork` / distributed B-side / air-gapped) · model-neutral adapter gateway.
+- **What it cannot do (yet)**: it is not a stable release; it never replaces a clinician's judgement
+  (**final medical authority stays with the human**); eighteen physical sub-repositories and the portable
+  edge compute appliance remain **suspended on the carbon side**.
+- **Registered downstream specialist**: **LongAeon** (longevity / anti-ageing healthspan engineering) —
+  separate repository `longaeon-rejuvenation-matrix`, connected by contract + version lock + pointer only.
+  The base registers the reference; it **never copies specialist source code**, and any write into this
+  repository must first be whitelisted in `base_registration`.
+- **Rigid red lines**: metaphors (heartbeat / skin / cytoskeleton / meridian / Hebbian field) are cognitive
+  architecture, not biology; simulation ≠ proof; zero dose error, zero data fabrication, zero illegal
+  extrapolation; AGPL/GPL read-only; air-gapped mode never leaks data outward.
+- **Collaboration**: quartet (planning / review / verification) vs execution end (landing / commit / push /
+  five-site sync); feeds are analysed before they become instructions; every batch must pass full tests,
+  self-test, hash manifest and five-site read-back.
+
+For the full Chinese blueprint aimed at partners, see **README.zh-CN.md → 「🗺️ 战略蓝图（合作方与评审先读这里）」**.
+
+---
+
+
 ---
 
 HoloAeon is a **pure standard-library, fully offline, deterministic** cognitive framework
@@ -1763,6 +1798,36 @@ deterministic primitives, and self-organizing collaboration**. It can serve as:
 - a semantic communication bus;
 - a self-organizing collaboration testbed;
 - a model-agnostic cognitive foundation for applications.
+
+### Registered specialist project: LongAeon (长寿纪元 · 抗衰老健康寿命工程)
+
+LongAeon is a **registered specialist workshop inside the HoloAeon city**, not a module of the
+kernel. It lives in its own repository (`weideyouni/longaeon-rejuvenation-matrix`, private) with
+its own README, version line and release cadence, and connects back through contract + version
+lock only — **no base source code is copied into the specialist repo, and no specialist business
+code is hard-wired into the kernel**.
+
+- **Contract surface**: `longaeon/contracts/base_coupling.json` records the base head / DOC version
+  it was calibrated against, and the adapter-interface list it consumes.
+- **Runtime reuse**: the specialist runs on base Runtime, message bus, heartbeat, skeleton, skin,
+  Hebbian field, dual operators (Möbius expansion / Klein convergence), Hilbert space and Kalman
+  filtering — it re-implements none of these.
+- **Registered avatars**: the specialist's bureau avatars are registered into the base roster
+  (`data/bureau_roles.json` in the specialist repo) and were proven live through a 12-interface
+  minimal-link run recorded outside the repo as process evidence.
+- **Requirement baseline**: the V2.1 review-requirement document, its adoption verdict and the
+  per-item reconciliation live in the specialist repo under `docs/`
+  (`REQUIREMENT_HOLOAEON_LONGAEON_V2.1.md`, `REQUIREMENT_V2.1_ADOPTION.md`,
+  `DELIVERABLES_GAP_TABLE.md`).
+- **Honest state (as of LA-V6.1)**: the executable completion line is reached for the specialist's
+  own chain, while two items remain **suspended on the carbon side** — physical splitting of the
+  H01–H18 sub-repositories and J-Box edge hardware provisioning. The 25-mechanism alignment is
+  recorded at its measured value, not claimed as full coupling. Nothing in this section should be
+  read as "the whole line is complete".
+
+Base-side stance unchanged: this repository only **registers the reference and the version pointer**;
+it does not host specialist business code, and no base metric in this README is altered by the
+specialist's progress.
 
 ---
 
