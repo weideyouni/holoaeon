@@ -2,8 +2,45 @@
   "batch": "V86",
   "date": "2026-11-17",
   "doc_version": "0.9.78",
-  "head": "pending",
-  "head_full": "pending",
+  "five_site": {
+    "S1_local": {
+      "note": "本批主体提交；随后还有一次回执补正提交（head 回填），以 git log 顶部为准",
+      "ref": "main",
+      "sha": "5853c328ed254e36dc1873e9bb21fd7d17be55f1"
+    },
+    "S2_gitee": {
+      "push_readback": "5d2bb37..5853c32 main -> main",
+      "repo": "weideyouni/holoaeon",
+      "sha": "5853c328ed254e36dc1873e9bb21fd7d17be55f1",
+      "verified_by": "token https push + remote ref readback"
+    },
+    "S3_github": {
+      "push_readback": "5d2bb37..5853c32 main -> main",
+      "repo": "weideyouni/holoaeon",
+      "sha": "5853c328ed254e36dc1873e9bb21fd7d17be55f1",
+      "verified_by": "ssh443 push + git ls-remote refs/heads/main"
+    },
+    "S4_vector_sea": {
+      "bad_sha256": 0,
+      "dir": "F:\\doubaowork\\vector-sea\\holoaeon-v4-cold-hot-plug",
+      "entries": 202,
+      "extra": 0,
+      "files": 202,
+      "missing": 0,
+      "verdict": "PASS"
+    },
+    "S5_hf": {
+      "files": 745,
+      "mismatch": 0,
+      "repo": "weideyouni/holoaeon",
+      "sha": "5ded7389f2083a2cd419580a7bd4b4601e1dbf77",
+      "uploaded": 21,
+      "verified_by": "mirror_hf.py --base 5d2bb37 --head 5853c32"
+    },
+    "verified_at": "2026-11-17"
+  },
+  "head": "5853c328ed254e36dc1873e9bb21fd7d17be55f1",
+  "head_full": "5853c328ed254e36dc1873e9bb21fd7d17be55f1",
   "honest_boundaries": [
     "V85 治理批（六件：governable 三态化 + CI 步骤名回读 + claims MCP pin note + *.bak gitignore/搬迁 + 可选件 + README 瘦身）确未执行：git log --all --grep=V85 无结果、tautology_scan 最近提交停在 V84。V85 与 V86 无技术依赖（本批闸门全绿），属纪律排序；本批按碳基「先推送」指令优先完成 V86 收口与五地，如实登记，不化妆为已做。",
     "投喂包 §5.3 预期 13 碎片 / 325 格，实测只有 2 个试点双态全真 → 经络实盘 12 碎片 × 25 = 300 格（三项 PASS）。第 3 试点「世殊医道慢病管理智能引擎」sim=0.368、缺心跳参数族（70/768/17）与三同源不全，判「分裂：只独立不回连（孤儿插件）」，dual_state=false，如实不注册装配——这是 G-DNA-01 的活体反例，不是造红。",
@@ -40,9 +77,9 @@
     "reports/v86_receipt.json：本回执"
   ],
   "seal": "潮起开门，潮落闭嘴",
-  "status": "LOCAL_GREEN_PENDING_SYNC",
+  "status": "SYNCED_FIVE_SITE",
   "verification": {
-    "check_sums": "345/345 ok（提交后复算，见补正）",
+    "check_sums": "346/346 ok（mismatches 0 · untracked 0）",
     "claims_gate": "11/11 PASS digest 56f26fb0fd23543c",
     "dimension_lock": "12 维度 + 7 闸 + 0 violation",
     "genome_dna_gate": "7/7 PASS",
