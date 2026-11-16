@@ -361,18 +361,35 @@ _VALID_LAYERS = ("公理", "矩阵", "核心机制", "耗散验证", "经络子�
 VALID_LEGS = ("编排", "总线", "可观测")
 
 
-def load_fragments() -> List[Dict[str, Any]]:
-    """装载已吸纳项目碎片组合体（B 榜 10 条——load_d03_b 零复制复用）。"""
+BASE_FRAGMENT_COUNT = 10  # B 榜历史基线：下界守卫，不是上限（V86 蜕皮）
+
+
+def load_fragments(extra_fragments: Optional[List[Dict[str, Any]]] = None
+                   ) -> List[Dict[str, Any]]:
+    """装载碎片组合体：B 榜 10 条历史基线 + DNA 注册表新增插件碎片。
+
+    V86 第一性原理：250 是 10 碎片时的**实例值**，公理是 fragments x 25。
+    历史 B 榜 append-only 不改动；新碎片只从 genome_dna_registry 合并（零复制）。
+    """
     data = load_d03_b()
-    rows = data.get("results", [])
-    if len(rows) != 10:
-        raise ValueError("B 榜碎片!=10 条（实 {}）".format(len(rows)))
+    rows = list(data.get("results", []))
+    if len(rows) != BASE_FRAGMENT_COUNT:
+        raise ValueError("B 榜历史碎片!=10 条（实 {}）——历史基线不许丢失"
+                         .format(len(rows)))
+    if extra_fragments is None:
+        from holoaeon import genome_dna as _gd
+        extra_fragments = _gd.registered_fragments()
+    rows.extend(extra_fragments)
+    if len(rows) < BASE_FRAGMENT_COUNT:
+        raise ValueError("碎片总数低于历史基线：{}".format(len(rows)))
     for r in rows:
         if r.get("leg") not in VALID_LEGS:
             raise ValueError("碎片 leg 非法：{} -> {!r}".format(r.get("repo"), r.get("leg")))
         if r.get("verify_status") != "unverified":
             raise ValueError("碎片 verify_status 非 unverified（诚实口径）：{}"
                              .format(r.get("repo")))
+    if len({r.get("repo") for r in rows}) != len(rows):
+        raise ValueError("碎片 repo 重复（经络格会塌陷）")
     return rows
 
 
@@ -414,10 +431,13 @@ def link_cell(row: Dict[str, Any], mech: Dict[str, Any]) -> Dict[str, Any]:
             "state": state, "evidence": evidence}
 
 
-def build_meridian_table() -> List[Dict[str, Any]]:
-    """穷举构建经络链接表：10 碎片×25 机制=250 格，无跳格（判定可以是
-    没有链接，但不许没有判定）。纯函数——同输入同输出（确定性纪律）。"""
-    fragments = load_fragments()
+def build_meridian_table(fragments: Optional[List[Dict[str, Any]]] = None
+                         ) -> List[Dict[str, Any]]:
+    """穷举构建经络链接表：len(fragments) x 25 机制格，无跳格（判定可以是
+    没有链接，但不许没有判定）。纯函数——同输入同输出（确定性纪律）。
+    V86：格数由碎片数动态计算，10 碎片时仍为 250（既有闸门零回退）。"""
+    if fragments is None:
+        fragments = load_fragments()
     return [link_cell(row, mech)
             for row in fragments
             for mech in KERNEL_MECHANISMS]
@@ -510,18 +530,21 @@ def check_named() -> Dict[str, Any]:
                     "类社会组合体/城邦架构/去幻觉/耗散度量）由 import 对账兜底"}
 
 
-def check_linkage(table: Optional[List[Dict[str, Any]]] = None) -> Dict[str, Any]:
-    """穷举对账：250 格无缺格/三态合法/pending 仅限 essence null 碎片/
-    unlinked 仅限 essence 在案碎片/linked 证据非空且逐格可复算。"""
+def check_linkage(table: Optional[List[Dict[str, Any]]] = None,
+                  fragments: Optional[List[Dict[str, Any]]] = None) -> Dict[str, Any]:
+    """穷举对账：fragments x 25 格无缺格/三态合法/pending 仅限 essence null
+    碎片/unlinked 仅限 essence 在案碎片/linked 证据非空且逐格可复算。"""
     problems: List[str] = []
+    if fragments is None:
+        fragments = load_fragments()
     if table is None:
-        table = build_meridian_table()
-    fragments = load_fragments()
+        table = build_meridian_table(fragments)
+    expected = len(fragments) * len(KERNEL_MECHANISMS)
     essence_map = {r["repo"]: bool(r.get("essence")) for r in fragments}
     want_pairs = {(r["repo"], m["id"]) for r in fragments for m in KERNEL_MECHANISMS}
     got_pairs = {(c["repo"], c["mech"]) for c in table}
-    if len(table) != 250:
-        problems.append("链接表!=250 格（实 {}）".format(len(table)))
+    if len(table) != expected:
+        problems.append("链接表!={} 格（实 {}）".format(expected, len(table)))
     missing = want_pairs - got_pairs
     if missing:
         problems.append("缺格 {} 处：{}".format(len(missing), sorted(missing)[:3]))
@@ -574,7 +597,7 @@ def meridian_summary(table: Optional[List[Dict[str, Any]]] = None) -> Dict[str, 
     return {
         "cang": "holoaeon-c03-meridian",
         "dim": "D03",
-        "fragments": 10, "mechanisms": len(KERNEL_MECHANISMS), "cells": len(table),
+        "fragments": len(load_fragments()), "mechanisms": len(KERNEL_MECHANISMS), "cells": len(table),
         "linked_total": sum(by_mech.values()),
         "by_mechanism": {m["id"]: {"name": m["name"], "linked": by_mech.get(m["id"], 0)}
                          for m in KERNEL_MECHANISMS},
@@ -604,7 +627,7 @@ def build_ledger() -> Dict[str, Any]:
         "schema": SCHEMA_VERSION,
         "source": "碳基三轮指令（建立经络链接/内核机制穷举信息补充/手工补充 17 条点名）"
                   "+ B 榜 10 条（V61 落盘 data/searchnet_d03_b.json，全员 unverified）",
-        "fragments": 10, "mechanisms": len(KERNEL_MECHANISMS), "cells": len(table),
+        "fragments": len(load_fragments()), "mechanisms": len(KERNEL_MECHANISMS), "cells": len(table),
         "mechanism_axis": [{"id": m["id"], "layer": m["layer"], "name": m["name"],
                             "en": m["en"]} for m in KERNEL_MECHANISMS],
         "table": table,
@@ -662,7 +685,7 @@ def _main(argv: Optional[List[str]] = None) -> int:
         res = check_all()
         _print_check(res["registry"], "registry 完全匹配（五源 import 对账）")
         _print_check(res["named"], "named 碳基点名 17 条对账")
-        _print_check(res["linkage"], "linkage 穷举 250 格三态对账")
+        _print_check(res["linkage"], "linkage 穷举 {} 格三态对账".format(res["linkage"]["cells"]))
         return 0 if res["pass"] else 1
     if cmd == "table":
         table = build_meridian_table()

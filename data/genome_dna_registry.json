@@ -1,0 +1,8 @@
+{
+  "schema": "HOLOAEON-GENOME-REGISTRY-v1.0",
+  "seal": "潮起开门，潮落闭嘴",
+  "append_only": true,
+  "created": "2026-11-17",
+  "note": "V86 内核基因 DNA 插件登记簿。只登记指针（path+sha256+fragment_id+leg），插件源码一律不进基座仓。双态同时为真的条目才会被 registered_fragments() 转成经络碎片。",
+  "plugins": []
+}
