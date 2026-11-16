@@ -528,9 +528,9 @@
       "runtime_role": "current",
       "runtime_value": "2025",
       "source_pointer": "README.zh-CN.md#公卫口径段（V41 小节）",
-      "source_sha16": "0d4a56f72c4e59aa",
+      "source_sha16": "7ee8a1be9ad7d1eb",
       "status": "current",
-      "verified_at": "2026-11-15",
+      "verified_at": "2026-11-16",
       "version": "2025",
       "version_chain": [
         {
@@ -638,7 +638,7 @@
     }
   ],
   "schema": "CLAIMS-GATE-v1",
-  "self_digest": "83f2be1c9ab40237",
+  "self_digest": "6a80a53c1af377aa",
   "totals": {
     "doc_claims": 17,
     "historical": 3,

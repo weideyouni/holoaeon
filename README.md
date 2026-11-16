@@ -38,62 +38,162 @@ See [`docs/support-matrix.md`](docs/support-matrix.md) for which cells are `meas
 
 </div>
 
-## 🗺️ Strategic blueprint (partners & reviewers: read this first)
+## 🗺️ Strategic blueprint (partners, institutions & reviewers: read this first)
 
-> **Status: work in progress, not a stable release.** This repository is the HoloAeon base trunk (V-series).
-> The LA-series specialist project (LongAeon) lives in its **own** repository and never consumes a V-number.
-> This blueprint is the entry point for partners, B-side institutions and requirement alignment —
-> engineering details stay in the sections below and in `docs/`.
-> Every capability is labelled **landed / partial / planned / suspended / not adopted**, and every number is
-> read back at check time rather than hard-coded.
+> **Status: work in progress, not a stable release.** This repository is the **HoloAeon base trunk** (V-series).
+> The LA-series specialist project **LongAeon** lives in its **own** repository and never consumes a V-number.
+> **Seal: 潮起开门，潮落闭嘴** ｜ **Taohua'an Production** ｜ Review board: **quartet (planning only)** · execution end (landing / commit / push / five-site).
+> This section is the **upper layer for partners**: business value first. Engineering constraints live in the
+> technical sections below and in `docs/`.
+> Two hard rules: **① no hard-coded numbers — every claim ships with a read-back command; ② no hiding unfinished work — every capability carries a status label.**
 
-- **One-line positioning**: a CPU-runnable, offline-capable, auditable **city-state multi-agent base** — six native
-  services (dispatch, semantic alignment, convergence judging, safety gates, vector-sea knowledge, time-series
-  archiving) on top of the 1331 collapse-matrix topology; any LLM or none at all.
-- **What it can do**: layered five-tier agent matrix · collapse-matrix operators (Möbius expand / Klein converge) ·
-  Hilbert space + Kalman observation · private vector-sea · runtime + graph orchestration · medical safety gates
-  (fuse, high-risk sign-off, dose isolation, zero-fabrication) · Timerun hash archiving · three deployment shapes
-  (local Windows `F:\doubaowork` / distributed B-side / air-gapped) · model-neutral adapter gateway.
-- **What it cannot do (yet)**: it is not a stable release; it never replaces a clinician's judgement
-  (**final medical authority stays with the human**); eighteen physical sub-repositories and the portable
-  edge compute appliance remain **suspended on the carbon side**.
-- **Registered downstream specialist**: **LongAeon** (longevity / anti-ageing healthspan engineering) —
-  separate repository `longaeon-rejuvenation-matrix`, connected by contract + version lock + pointer only.
-  The base registers the reference; it **never copies specialist source code**, and any write into this
-  repository must first be whitelisted in `base_registration`.
-- **Rigid red lines**: metaphors (heartbeat / skin / cytoskeleton / meridian / Hebbian field) are cognitive
-  architecture, not biology; simulation ≠ proof; zero dose error, zero data fabrication, zero illegal
-  extrapolation; AGPL/GPL read-only; air-gapped mode never leaks data outward.
-- **Collaboration**: quartet (planning / review / verification) vs execution end (landing / commit / push /
-  five-site sync); feeds are analysed before they become instructions; every batch must pass full tests,
-  self-test, hash manifest and five-site read-back.
+### 0.1 Status labels (read this table before anything else)
 
-For the full Chinese blueprint aimed at partners, see **README.zh-CN.md → 「🗺️ 战略蓝图（合作方与评审先读这里）」**.
+| Label | Meaning | Can we commit to it externally |
+|---|---|---|
+| **【baseline-locked】** | Passed every gate, has a receipt, five-site read-back identical, reproducible | Yes — may be promised and demoed |
+| **【transient】** | Usable, but interfaces/dirs still evolving | Demo only — interfaces not frozen |
+| **【under construction】** | Code and skeleton exist; the acceptance chain is not closed | Scope may be disclosed; no timeline promised |
+| **【suspended】** | Waiting on the carbon side or external conditions (ethics approval / legal entity / hardware) | Not promised, not delegated |
+| **【not adopted】** | Evaluated and dropped; decision on record | Not promised — avoid misunderstanding |
+
+### 0.2 One-line positioning
+
+A **CPU-runnable, air-gap-capable, auditable** city-state multi-agent base: no LLM lock-in (it also runs with no
+LLM at all), 1331 collapse-matrix as the core topology, with six native services — dispatch, semantic alignment,
+convergence judging, safety gates, vector-sea knowledge, time-series archiving — so that a vertical project only
+needs to pour in domain Skills and digital avatars.
+
+### 0.3 What we solve (what the market cannot do)
+
+| Their structural weakness | HoloAeon's answer |
+|---|---|
+| GPU / cloud-API dependence — dies when offline | Pure standard library, CPU-first, runs air-gapped (tier-3 protection-zone shape) |
+| Flat agents, no convergence judging — drift and hallucination | Five-tier city-state matrix (resource → operation → task split → convergence → judging), each tier self-checked |
+| No medical fuse / dose isolation / traceability — cannot enter medical B-side | Native safety gates: medical fuse, high-risk sign-off, dose isolation, zero RWE fabrication |
+| Not auditable; a new domain forces a rewrite | Timerun archiving + hash manifest + five-site sync + self-test gates; upper layers pluggable |
+
+### 0.4 Architecture (minimal)
+
+```
+Upper layer (pluggable, replaceable)
+  ├─ ShiShuYiDao · rehabilitation vertical skill pack
+  ├─ third-party vertical Skills packs
+  └─ LongAeon (longevity / healthspan specialist, separate repo longaeon-rejuvenation-matrix)
+        ↓
+HoloAeon base core (stable trunk, changed as little as possible)
+  ├─ Runtime dispatch + Graph orchestration
+  ├─ Semantic resonance / collapse-matrix operators
+  ├─ Safety gates / medical fuse controller
+  ├─ Timerun time-series archiving & hash attestation
+  ├─ Vector-sea adapter + model-neutral gateway
+        ↓
+Infrastructure
+  ├─ Local workspace F:\doubaowork
+  ├─ Five-site sync (local → private Gitee → GitHub → HuggingFace mirror → vector-sea / Feishu anchors)
+  └─ Skill asset library and standardised ingestion templates
+```
+
+### 0.5 Capability matrix (capability × status × read-back anchor)
+
+| # | Capability | Status | Read-back anchor (never hard-coded) |
+|---|---|---|---|
+| 1 | Five-tier city-state agent matrix | **【baseline-locked】** | `python -m holoaeon.selftest` |
+| 2 | 1331 collapse matrix / resonance operators / Möbius-Klein / Hilbert space / Kalman observation | **【baseline-locked】** | `python scripts/v3_gate.py` (no args) |
+| 3 | Runtime dispatch + Graph orchestration | **【baseline-locked】** | `python -m unittest discover -s tests` |
+| 4 | Private vector-sea (synonym clusters / intent vectors / alignment, offline) | **【baseline-locked】** | `python scripts/build_vector_sea_manifest.py` → `python scripts/check_vector_sea_manifest.py` |
+| 5 | Safety gates (medical fuse / high-risk sign-off / dose isolation / zero fabrication) | **【baseline-locked】** | `python scripts/v3_gate.py` face list + compliance section in `docs/` |
+| 6 | Timerun archiving + hash attestation | **【baseline-locked】** | `python scripts/check_sums.py` |
+| 7 | Dimension lock (frozen snapshot explicitly declared) | **【baseline-locked】** | `python scripts/check_dimension_lock.py` |
+| 8 | Red-line scan (forbidden calls / out-of-bounds paths) | **【baseline-locked】** | `python scripts/redline_scan.py` |
+| 9 | Claims gate + tautology scan (hard-coded numbers must fail) | **【baseline-locked】** | `python -m holoaeon.claims_gate` · `python -m holoaeon.tautology_scan` |
+| 10 | Five-site sync (local / Gitee / GitHub / vector-sea / HF) | **【baseline-locked】** | `python scripts/five_site_dna.py` |
+| 11 | CI preflight and cloud reconciliation | **【baseline-locked】** | `python scripts/ci_preflight.py` |
+| 12 | Zero-drift criterion (bench double run, identical value) | **【baseline-locked】** | `python benchmarks/bench_public.py` |
+| 13 | Holographic life-matrix pack (1331×1331 meridian fusion, germ-layer resonance, dissipative operators) | **【under construction】** | see extension packs and `docs/` |
+| 14 | MiroFish swarm-intelligence distillation (optional, non-intrusive) | **【under construction】** | see extension pack |
+| 15 | Visual Graph debug panel (engineering only, not a business UI) | **【under construction】** | — |
+| 16 | Rehabilitation loop (assessment → plan → follow-up → data return, RWE-aligned) | **【under construction】** | gap table in `docs/` |
+| 17 | Eighteen physical sub-repositories / portable edge appliance (hardware) | **【suspended】** | carbon-side decision |
+| 18 | Long-horizon narrative knowledge engineering (history / podcast / monograph) | **【not adopted】** (separate repo) | not merged here — see §0.8 |
+
+### 0.6 Deployment shapes (CPU-first, three shapes)
+
+| Shape | Description | Status |
+|---|---|---|
+| Personal workstation | Windows + Python + CPU only, workspace fixed at `F:\doubaowork` | **【baseline-locked】** |
+| Distributed B-side | Multi-node task split, one vector-sea, one audit trail | **【under construction】** |
+| Air-gapped (tier-3 protection-zone shape) | Inside the intranet; models / vector stores / skill packs synced beforehand; nothing leaks outward | **【baseline-locked (capability ready; environment depends on the client side)】** |
+
+Dependency stance: `dependencies = 0` (standard library only). Any external dependency must enter `pyproject.toml`
+and pass the licence gate.
+
+### 0.7 Red lines (the "cannot do" a partner must understand)
+
+1. Heartbeat / skin / cytoskeleton / meridian / Hebbian field are **cognitive-architecture metaphors** — not organs,
+   not medical conclusions. **Simulation ≠ proof.**
+2. Zero dose error, zero data fabrication, zero illegal extrapolation are hard fuses; the base **never emits an executable prescription**.
+3. AGPL / GPL dependencies are read-only, never merged; unlicensed components are never copied (methodology only).
+4. In air-gapped mode, models / vector stores / skill packs must be synced locally beforehand; **no patient data leaves**.
+5. Major versions and external deliveries must pass the gates; **final medical authority stays with the human (carbon-based final ruling)**.
+
+### 0.8 Repository and branch relation (the most confusing part)
+
+```
+HoloAeon (V-series · trunk · city-state base)      ← this repo: holoaeon
+   └─ provides: Runtime / Graph / operators / safety gates / Timerun / vector-sea
+        ↓ contract + version lock + pointer only, never copies specialist source
+LongAeon (LA-series · separate repo · workshop inside the city)
+   └─ outputs: longevity / healthspan assessment and intervention-plan grading
+```
+
+- Specialist projects **always live in their own repository** — no V-number, no trunk modification;
+- Any write into the base must first be **whitelisted** (on the LongAeon side:
+  `longaeon/contracts/base_coupling.json::base_registration`); outside the whitelist not a single byte moves;
+- The base registers **reference and version pointers only** (`docs/` and contract files), never specialist source code.
+
+### 0.9 Acceptance gates (every batch must pass · judgement is always read-back)
+
+| Gate | Command | Judgement |
+|---|---|---|
+| 1 Self-test suite | `python -m holoaeon.selftest` | all green |
+| 2 v3 gate | `python scripts/v3_gate.py` | every face passes |
+| 3 Main unit tests | `python -m unittest discover -s tests` | all green (skip list registered) |
+| 4 Dimension lock | `python scripts/check_dimension_lock.py` | no violation |
+| 5 Red-line scan | `python scripts/redline_scan.py` | zero violation |
+| 6 In-repo manifest | `python scripts/check_sums.py` | `ok: true`, no missing |
+| 7 Claims gate / tautology | `python -m holoaeon.claims_gate` · `python -m holoaeon.tautology_scan` | all PASS |
+| 8 README number recomputation | `python F:\doubaowork\holoaeon_lathe\readme_claims_check.py` | mismatch = 0 |
+
+> Caliber note: the feed package called it "seven gates"; the **measured set is eight** (gate 8 is an independent
+> README recomputation gate). Measured wins over the feed.
+
+### 0.10 Collaboration and requirement alignment
+
+| Role | Responsibility | Boundary |
+|---|---|---|
+| **Quartet (planning only)** | review / adopt-or-reject / feed packages / verification / memory write-back | no code, no commits |
+| **Execution end** | landing / tests / commit / push / five-site sync | never changes calibers on its own |
+| **Carbon side (final authority)** | direction, external commitments, ethics and legal-entity matters | the only source of external authorisation |
+
+- Requirements arrive as **Information Feeds**: a feed **is not an instruction** — the quartet must analyse it and align
+  it with the baseline before work starts.
+- Feed files are renamed `_DONE` after reading; ledgers are **append-only**; one batch = one commit;
+- Two remotes: **Gitee first, then GitHub**; secrets stay local, masked in output, never committed or transmitted;
+- A daily `ANCHOR_YYYYMMDD_*.md` records version, diff and restore point;
+- Nothing reaches the trunk without gates; **prove it red before proving it green**.
+
+### 0.11 Integration (how a partner system connects)
+
+- **Structured output**: receipts, manifests and read-back reports are JSON with caliber fields and the seal;
+- **No front-end coupling**: API / message stream outwards; partner systems consume output, never internal operators;
+- **Contract first**: cross-repo work is always *contract + version lock + pointer*; interface changes go through version bumps and receipts;
+- **Reviewable evidence chain**: every batch = hash manifest + receipt + five-site read-back.
+
+For the full Chinese blueprint aimed at partners, see **README.zh-CN.md → 「🗺️ 战略工程蓝图（合作方 / 医疗机构 / 评审：先读这一节）」**.
 
 ---
 
-
----
-
-HoloAeon is a **pure standard-library, fully offline, deterministic** cognitive framework
-for building multi-agent systems on top of any large language model. It provides a layered
-set of primitives — envelopes, a message bus, agents, skills, memory, a heartbeat scheduler,
-a security guard, an adaptive collaboration graph, a parallel actor cluster, hyperdimensional
-representations, and a model-adapter layer — plus **nine ready-to-use domain packs** that span
-the everyday work of knowledge professionals, including a deterministic **optimization &
-self-organizing search** layer (see [ALGORITHM.md](ALGORITHM.md)).
-
-> **Naming.** *Holo* (whole, holographic) + *Aeon* (a high-dimensional, timeless being in
-> Gnostic cosmology). It signals the project's inspiration: a system in which every local part
-> carries a summary of the whole, and structure self-organizes across scales.
-
-> **On the biological vocabulary.** Terms such as "heartbeat", "skin", "cytoskeleton",
-> "meridian", and "Hebbian field" are **cognitive-architecture metaphors**. They describe
-> synchronization, boundary control, routing, structural support, and self-organization in a
-> multi-agent system — not biological organs or medical structures. A precise
-> [metaphor → engineering-concept map](#-metaphor--engineering-concept-map) is included below.
-
----
 
 ## The C18 Repository Cluster (C01–C18 + N19 · structure → connectivity → continuity)
 
