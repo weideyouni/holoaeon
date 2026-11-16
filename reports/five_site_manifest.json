@@ -127,20 +127,20 @@
   },
   "repo": {
     "README.md": {
-      "bytes": 256844,
-      "sha256": "db13bf22657cfa7f5916a788aae93cc267a04072962425990554e34bf9dab6d5"
+      "bytes": 259603,
+      "sha256": "4ea7af278880d24e9e4f378f333cdec2a793b47f95cc4ddc41fb11ff0d6b78b8"
     },
     "README.zh-CN.md": {
-      "bytes": 214585,
-      "sha256": "7ee8a1be9ad7d1eb59c7391970a3ed568d286d09341e7439ef13aff37495d07d"
+      "bytes": 215505,
+      "sha256": "d2d88b96082aebecba661ecd27689e4e6ee654beb63220d3ef617271c64df40c"
     },
     "README_FUSION_V4_20261102.md": {
       "bytes": 56256,
       "sha256": "faa420e7a225b76e556d66e7616bba53f1409e0c0575f4abbb3286086cbd4afa"
     },
     "SHA256SUMS": {
-      "bytes": 32312,
-      "sha256": "972b626e245085e91f814780dd2800540c13e340325387ae06d34682c515cb21"
+      "bytes": 32404,
+      "sha256": "6f5d492da26aa77613a3565f201d9e17355a8083b3d2b544ba4a310da39f4dde"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
