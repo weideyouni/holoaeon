@@ -1,0 +1,40 @@
+{
+  "batch": "V41-A",
+  "date": "2026-11-16",
+  "doc_version": "0.9.78",
+  "head": "ae17afd",
+  "head_full": "ae17afdedbe458e4ed8a02157216efc244e7312c",
+  "honest_boundaries": [
+    "DOC_VERSION 维持 0.9.78：tests/test_v22_eng_skills.py 有精确断言，不为文档计数破坏活体判据。",
+    "本回执为 V41-A 批次回执，不改写 V84 历史回执。",
+    "云端尚未跑本批 61 例；D15 保持 open_pending_cloud_sync，待 CI 回读后关闭。",
+    "清单口径不含 holoaeon/ 主包与 tests/；新增引擎与单测按 git 跟踪留痕，不重复进 SHA256SUMS。",
+    "test_v71 的 files/bytes 是现场快照（8284 / 98555186），本批按实测更新，不属引擎零侵入范围。"
+  ],
+  "manifest": {
+    "caliber": "release_files: data/reports/holoaeon-fusion_upgrade/tests_contract/scripts",
+    "entries": 341,
+    "mismatches": 0
+  },
+  "name": "SSYD_CHRONIC_ENGINE",
+  "patches": [
+    "holoaeon/ssyd_chronic_engine.py：新建（ring 12，8 病种 / 五维病机 / SR01–SR14 / E14 七项 / M01–M06 / 随访 / MDT / 信封 / 容量）",
+    "tests/test_ssyd_chronic_engine.py：新建 61 例",
+    "README.md：新增 V41-A 小节；徽章与门禁行主套计数 2182→2243、红线 157→158",
+    "README.zh-CN.md：新增慢病引擎条目；徽章与验收行主套计数 2182→2243、红线 157→158",
+    "data/claims_registry.json：core_py_count 157→158 / main_suite 2243 / redline 158 / PHC-2025 sha16 按当前 README 回读",
+    "data/env_delta_registry.json：D08 本机 2243/3/2240；新增 D15（61 例待上云）"
+  ],
+  "seal": "潮起开门，潮落闭嘴",
+  "status": "LOCAL_GREEN_PENDING_SYNC",
+  "verification": {
+    "check_sums": "341/341 ok",
+    "claims_gate": "11/11 PASS digest 1f91041c0f8692cb",
+    "redline": "158 文件 0 违规",
+    "selftest": "25/25",
+    "unittest_main": 2243,
+    "unittest_main_skipped": 3,
+    "unittest_v41a": "61/61",
+    "v3_gate": "34/34 PASS"
+  }
+}

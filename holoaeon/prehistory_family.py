@@ -37,8 +37,8 @@ FAMILY_VERSION = "1.0"
 
 EXPECTED_DIRS = 194
 EXPECTED_ZIPS = 22
-EXPECTED_FILES = 8277           # 194 个目录的文件总数（排除隐藏件，2026-11-13 实测）
-EXPECTED_BYTES = 98484518       # 同上，字节总数
+EXPECTED_FILES = 8284           # 194 个目录的文件总数（排除隐藏件，2026-11-16 实测）
+EXPECTED_BYTES = 98555186       # 同上，字节总数
 EXPECTED_EXACT_FAMILIES = 14    # 同骨架跨域双态族（实测）
 EXPECTED_SINGLETONS = 188       # 216 - 14×2
 

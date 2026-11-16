@@ -382,8 +382,8 @@ class RealSiteTest(unittest.TestCase):
         s = report["summary"]
         self.assertEqual(s["dirs"], 194)
         self.assertEqual(s["zips"], 22)
-        self.assertEqual(s["files"], 8277)
-        self.assertEqual(s["bytes"], 98484518)
+        self.assertEqual(s["files"], 8284)
+        self.assertEqual(s["bytes"], 98555186)
         self.assertEqual(s["exact_families"], 14)
         self.assertEqual(s["singletons"], 188)
         self.assertGreaterEqual(s["near_families"], 1)
