@@ -1,0 +1,58 @@
+{
+  "batch": "V86",
+  "date": "2026-11-17",
+  "doc_version": "0.9.78",
+  "head": "pending",
+  "head_full": "pending",
+  "honest_boundaries": [
+    "V85 治理批（六件：governable 三态化 + CI 步骤名回读 + claims MCP pin note + *.bak gitignore/搬迁 + 可选件 + README 瘦身）确未执行：git log --all --grep=V85 无结果、tautology_scan 最近提交停在 V84。V85 与 V86 无技术依赖（本批闸门全绿），属纪律排序；本批按碳基「先推送」指令优先完成 V86 收口与五地，如实登记，不化妆为已做。",
+    "投喂包 §5.3 预期 13 碎片 / 325 格，实测只有 2 个试点双态全真 → 经络实盘 12 碎片 × 25 = 300 格（三项 PASS）。第 3 试点「世殊医道慢病管理智能引擎」sim=0.368、缺心跳参数族（70/768/17）与三同源不全，判「分裂：只独立不回连（孤儿插件）」，dual_state=false，如实不注册装配——这是 G-DNA-01 的活体反例，不是造红。",
+    "四件齐备度口径与包假设不符：现场 616 顶层项（418 目录 / 198 文件）→ 净候选 201 / V3 族 149 / 顶层 zip 69 / 「runtime_v3 + selftest.py + zip + SHA256SUMS」四件齐备 = 0。试点 standalone 判定改按实际形态（runtime_v3/selftest.py 或 module/test_*.py），口径调整登记于此，不悄悄改包内定义。",
+    "θ = 0.592 取「双态真试点相似度最小值」，< 1.0；表典试点 sim 实测 1.0000 仅代表 25 机制轴词边界命中率满载，不得表述为「100% 同源 / 完美融合 / 已商用」。genome_similarity 是词边界正则启发式（HEURISTIC_ONLY），不是语义同源证明。",
+    "DOC_VERSION 维持 0.9.78 不顺延：它在 spec.py 内，spec.py 字节相同即本批第一判据（a45c5e77…3cb 前后一致）。",
+    "清单口径不含 holoaeon/ 主包与 tests/：新增 holoaeon/genome_dna.py 与 tests/test_genome_dna.py 按 git 跟踪留痕，不重复进 SHA256SUMS；本批新登记 4 个发布件（scripts/asset_census.py、scripts/plugin_contract.py、data/plugin_contract.json、data/genome_dna_registry.json），运行期产物 reports/asset_census.json 不进清单（V38：每次重跑即漂移的产物不钉）。",
+    "主套 2285 例仅本机实测；云端口径仍 2177 / skipped 33（本批 +42 未上云），D15 保持 open_pending_cloud_sync，not_discovered 合计 103（V41-A 61 + V86 42）。",
+    "史前族谱现场快照随之变化：EXPECTED_FILES 8284→8309、EXPECTED_BYTES 98555186→99091756（+25 文件 / +536570B，多为本批与上一批产物）；属快照口径，不在引擎零侵入范围。",
+    "回执 head 只能提交后取得（V37 惯例），本回执首版 head=pending，随后以补正提交回填真实 head 与五地回读结果——必然产生第二次提交，此为已知流程cost，不视为账面漂移。",
+    "201 候选只做全量登记（reports/asset_census.json）+ 3 试点契约装配（data/plugin_contract.json），登记 ≠ 装配；genome_dna_registry.json 中 3 条均 verify_status=unverified，未标定前不写成已验收。"
+  ],
+  "manifest": {
+    "caliber": "release_files: data/reports/holoaeon-fusion_upgrade/tests_contract/scripts",
+    "entries": 345,
+    "mismatches": 0
+  },
+  "name": "GENOME_DNA",
+  "patches": [
+    "holoaeon/genome_dna.py：新建（三条内核基因 G-DNA-01/02/03 落成可失败断言；A14 恒真金哨改为读 data/genome_dna.json 母本 seal 对账）",
+    "holoaeon/meridian_link.py：六处旧皮削平（BASE_FRAGMENT_COUNT=10 下界 + 注册表合并 / 建表动态化 / check_linkage 用 fragments×25 / summary 与 ledger 读 load_fragments() / 相对导入修复）",
+    "scripts/asset_census.py + reports/asset_census.json：新建顶层资产盘点（616 / 418 / 198 / 201 候选 / 149 V3族 / 69 zip / 四件齐 0）",
+    "scripts/plugin_contract.py + data/plugin_contract.json：新建八面双态契约与 θ 标定（3 试点 / 2 dual_state_pass / θ=0.592）",
+    "data/genome_dna_registry.json：append 3 条试点碎片（V86-F01/F02/F03，均 unverified）",
+    "data/claims_registry.json：core_py_count 158→159（4 条基线）、redline 158→159、main_suite 2243→2285、PHC-2025 source_sha16 重算、self_digest 重算",
+    "data/env_delta_registry.json：D08 本机 2285/3/2282、D15 not_discovered 103（61+42）、self_digest 重算",
+    "holoaeon/prehistory_family.py：EXPECTED_FILES 8309 / EXPECTED_BYTES 99091756（现场快照）",
+    "tests/test_genome_dna.py：41→42 例（注册簿只收双态真 / 注入空基线 10 碎片 250 格零回退 / 实盘 ×25 / summary 动态）",
+    "tests/test_v62_meridian_link.py：9 处去写死（空 extra_fragments 基线 + 实盘 ×25）",
+    "tests/test_v71_prehistory_family.py：引用 pf.EXPECTED_* 单源",
+    "README.md：V86 Latest batch 行、V84 降 Previous；徽章 2285；门禁行 2285 / V86 42 cases / redline 159；Gates 行 2285 / 2317",
+    "README.zh-CN.md：同上（最新批次 / 上一批次 / 徽章 / 验收行 / 门禁行）",
+    "SHA256SUMS：341→345 条（纳入 4 个新增发布件，LF 归一化口径）",
+    "reports/v86_receipt.json：本回执"
+  ],
+  "seal": "潮起开门，潮落闭嘴",
+  "status": "LOCAL_GREEN_PENDING_SYNC",
+  "verification": {
+    "check_sums": "345/345 ok（提交后复算，见补正）",
+    "claims_gate": "11/11 PASS digest 56f26fb0fd23543c",
+    "dimension_lock": "12 维度 + 7 闸 + 0 violation",
+    "genome_dna_gate": "7/7 PASS",
+    "meridian_link": "3/3 PASS（12 碎片 × 25 = 300 格）",
+    "plugin_contract": "3 pilots / 2 dual_state_pass / θ=0.592",
+    "redline": "159 文件 0 违规",
+    "selftest": "25/25",
+    "unittest_main": 2285,
+    "unittest_main_skipped": 3,
+    "unittest_genome_dna": "42/42",
+    "v3_gate": "34/34 PASS"
+  }
+}

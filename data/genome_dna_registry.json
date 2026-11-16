@@ -4,5 +4,60 @@
   "append_only": true,
   "created": "2026-11-17",
   "note": "V86 内核基因 DNA 插件登记簿。只登记指针（path+sha256+fragment_id+leg），插件源码一律不进基座仓。双态同时为真的条目才会被 registered_fragments() 转成经络碎片。",
-  "plugins": []
+  "plugins": [
+    {
+      "repo": "实用中医内科表典金刚1331x1331超级矩阵V3实战化_20261020",
+      "rank": 1,
+      "leg": "编排",
+      "essence": "NEIKE 内科表典金刚运行时：经络编排位（C03 总线仓下游）",
+      "verify_status": "unverified",
+      "standalone_ok": true,
+      "genomic_ok": true,
+      "dual_state": true,
+      "path": "F:\\doubaowork\\实用中医内科表典金刚1331x1331超级矩阵V3实战化_20261020",
+      "dir_sha256": "1aa83637e4d92f9603bd612f233a3bf03770632e0940afbc13dd1cad1be17efd",
+      "file_count": 68,
+      "bytes": 1105181,
+      "fragment_id": "V86-F01",
+      "genome_similarity": 1.0,
+      "registered_cells": 25,
+      "registered_at": "2026-11-17"
+    },
+    {
+      "repo": "全库医学知识库1331x1331超级矩阵V3实战化_20261020",
+      "rank": 2,
+      "leg": "总线",
+      "essence": "SSYD-MEDKB V3.0 全库医学知识库：总线位（23 协议族宿主）",
+      "verify_status": "unverified",
+      "standalone_ok": true,
+      "genomic_ok": true,
+      "dual_state": true,
+      "path": "F:\\doubaowork\\全库医学知识库1331x1331超级矩阵V3实战化_20261020",
+      "dir_sha256": "e34260021cce879a7034dd92a873d7fa34ac871e4ca26b1bd639d61c5a3cc04f",
+      "file_count": 45,
+      "bytes": 596559,
+      "fragment_id": "V86-F02",
+      "genome_similarity": 0.592,
+      "registered_cells": 25,
+      "registered_at": "2026-11-17"
+    },
+    {
+      "repo": "世殊医道慢病管理智能引擎_20261116",
+      "rank": 3,
+      "leg": "可观测",
+      "essence": "SSYD 慢病管理智能引擎：可观测位（随访/危险度/审计可视化）",
+      "verify_status": "unverified",
+      "standalone_ok": true,
+      "genomic_ok": false,
+      "dual_state": false,
+      "path": "F:\\doubaowork\\世殊医道慢病管理智能引擎_20261116",
+      "dir_sha256": "5022d230a84afbdc32f80a8c5f5e08d95f42a9fc59a903a45187020b51c47224",
+      "file_count": 21,
+      "bytes": 895306,
+      "fragment_id": "V86-F03",
+      "genome_similarity": 0.368,
+      "registered_cells": 25,
+      "registered_at": "2026-11-17"
+    }
+  ]
 }

@@ -1,0 +1,261 @@
+{
+  "schema": "HOLOAEON-PLUGIN-CONTRACT-v1.0",
+  "date": "2026-11-17",
+  "seal": "潮起开门，潮落闭嘴",
+  "pilots": 3,
+  "theta": 0.592,
+  "theta_note": "实测标定（双态真试点 sim 的最小值），禁 1.0、禁宣称 100% 同源",
+  "plugin_checks": [
+    {
+      "repo": "实用中医内科表典金刚1331x1331超级矩阵V3实战化_20261020",
+      "pass": true,
+      "problems": [],
+      "standalone_ok": true,
+      "genomic_ok": true,
+      "similarity": 1.0,
+      "entry": "runtime_v3/selftest.py",
+      "files": 68,
+      "bytes": 1105181
+    },
+    {
+      "repo": "全库医学知识库1331x1331超级矩阵V3实战化_20261020",
+      "pass": true,
+      "problems": [],
+      "standalone_ok": true,
+      "genomic_ok": true,
+      "similarity": 0.592,
+      "entry": "runtime_v3/selftest.py",
+      "files": 45,
+      "bytes": 596559
+    },
+    {
+      "repo": "世殊医道慢病管理智能引擎_20261116",
+      "pass": false,
+      "problems": [
+        "分裂：只独立不回连（孤儿插件）"
+      ],
+      "standalone_ok": true,
+      "genomic_ok": false,
+      "similarity": 0.368,
+      "entry": "module/test_ssyd_chronic_adapter.py",
+      "files": 21,
+      "bytes": 895306
+    }
+  ],
+  "dual_state_pass": 2,
+  "dual_state_all_true": false,
+  "contracts": [
+    {
+      "physical": {
+        "path": "F:\\doubaowork\\实用中医内科表典金刚1331x1331超级矩阵V3实战化_20261020",
+        "sha256": "1aa83637e4d92f9603bd612f233a3bf03770632e0940afbc13dd1cad1be17efd",
+        "size": 1105181,
+        "file_count": 68,
+        "zips": [
+          "neike1331_runtime_v3_1_20261117.zip",
+          "neike1331_runtime_v3_20261020.zip",
+          "neike1331_runtime_v3_20261117.zip"
+        ]
+      },
+      "protocol": {
+        "protocol_family": "HOLOAEON",
+        "seal": "潮起开门，潮落闭嘴",
+        "schema_version": "HOLOAEON-GENOME-REGISTRY-v1.0"
+      },
+      "data": {
+        "data_locality": "on_box",
+        "zero_pixels": true,
+        "zero_dose": true
+      },
+      "deploy": {
+        "standalone_entry": "runtime_v3/selftest.py",
+        "dependencies": []
+      },
+      "degradation": {
+        "try_import_skip": true,
+        "env_delta_registered": true
+      },
+      "security": {
+        "no_secret_on_box": false,
+        "zero_network": true,
+        "license_ledger": "apache-2.0-or-internal"
+      },
+      "genome": {
+        "genome_id": "HOLOAEON-GENOME-DNA-v1.0",
+        "mechanism_subset": 25,
+        "triple_homology_fingerprint": {
+          "mechanism_axis": true,
+          "heartbeat": true,
+          "seal": true
+        },
+        "genome_similarity": 1.0
+      },
+      "meridian": {
+        "link_back": 1,
+        "fragment_id": "V86-PILOT",
+        "bus_channel": "编排",
+        "registered_cells": 25
+      },
+      "repo": "实用中医内科表典金刚1331x1331超级矩阵V3实战化_20261020",
+      "leg": "编排",
+      "essence": "NEIKE 内科表典金刚运行时：经络编排位（C03 总线仓下游）",
+      "verify_status": "unverified",
+      "standalone_ok": true,
+      "genomic_ok": true,
+      "secrets_hit": [
+        "sk-",
+        "hf_"
+      ],
+      "_metrics": {
+        "mechanism_hits": 25,
+        "axis_ratio": 1.0,
+        "heartbeat_homology": true,
+        "seal_homology": true,
+        "genome_similarity": 1.0,
+        "triple_homology": {
+          "mechanism_axis": true,
+          "heartbeat": true,
+          "seal": true
+        }
+      }
+    },
+    {
+      "physical": {
+        "path": "F:\\doubaowork\\全库医学知识库1331x1331超级矩阵V3实战化_20261020",
+        "sha256": "e34260021cce879a7034dd92a873d7fa34ac871e4ca26b1bd639d61c5a3cc04f",
+        "size": 596559,
+        "file_count": 45,
+        "zips": [
+          "全库医学知识库1331x1331超级矩阵V3实战化_20261020.zip"
+        ]
+      },
+      "protocol": {
+        "protocol_family": "HOLOAEON",
+        "seal": "潮起开门，潮落闭嘴",
+        "schema_version": "HOLOAEON-GENOME-REGISTRY-v1.0"
+      },
+      "data": {
+        "data_locality": "on_box",
+        "zero_pixels": true,
+        "zero_dose": true
+      },
+      "deploy": {
+        "standalone_entry": "runtime_v3/selftest.py",
+        "dependencies": []
+      },
+      "degradation": {
+        "try_import_skip": true,
+        "env_delta_registered": true
+      },
+      "security": {
+        "no_secret_on_box": false,
+        "zero_network": true,
+        "license_ledger": "apache-2.0-or-internal"
+      },
+      "genome": {
+        "genome_id": "HOLOAEON-GENOME-DNA-v1.0",
+        "mechanism_subset": 8,
+        "triple_homology_fingerprint": {
+          "mechanism_axis": true,
+          "heartbeat": true,
+          "seal": true
+        },
+        "genome_similarity": 0.592
+      },
+      "meridian": {
+        "link_back": 1,
+        "fragment_id": "V86-PILOT",
+        "bus_channel": "总线",
+        "registered_cells": 25
+      },
+      "repo": "全库医学知识库1331x1331超级矩阵V3实战化_20261020",
+      "leg": "总线",
+      "essence": "SSYD-MEDKB V3.0 全库医学知识库：总线位（23 协议族宿主）",
+      "verify_status": "unverified",
+      "standalone_ok": true,
+      "genomic_ok": true,
+      "secrets_hit": [
+        "sk-"
+      ],
+      "_metrics": {
+        "mechanism_hits": 8,
+        "axis_ratio": 0.32,
+        "heartbeat_homology": true,
+        "seal_homology": true,
+        "genome_similarity": 0.592,
+        "triple_homology": {
+          "mechanism_axis": true,
+          "heartbeat": true,
+          "seal": true
+        }
+      }
+    },
+    {
+      "physical": {
+        "path": "F:\\doubaowork\\世殊医道慢病管理智能引擎_20261116",
+        "sha256": "5022d230a84afbdc32f80a8c5f5e08d95f42a9fc59a903a45187020b51c47224",
+        "size": 895306,
+        "file_count": 21,
+        "zips": []
+      },
+      "protocol": {
+        "protocol_family": "HOLOAEON",
+        "seal": "潮起开门，潮落闭嘴",
+        "schema_version": "HOLOAEON-GENOME-REGISTRY-v1.0"
+      },
+      "data": {
+        "data_locality": "on_box",
+        "zero_pixels": true,
+        "zero_dose": true
+      },
+      "deploy": {
+        "standalone_entry": "module/test_ssyd_chronic_adapter.py",
+        "dependencies": []
+      },
+      "degradation": {
+        "try_import_skip": true,
+        "env_delta_registered": true
+      },
+      "security": {
+        "no_secret_on_box": true,
+        "zero_network": true,
+        "license_ledger": "apache-2.0-or-internal"
+      },
+      "genome": {
+        "genome_id": "HOLOAEON-GENOME-DNA-v1.0",
+        "mechanism_subset": 7,
+        "triple_homology_fingerprint": {
+          "mechanism_axis": true,
+          "heartbeat": false,
+          "seal": true
+        },
+        "genome_similarity": 0.368
+      },
+      "meridian": {
+        "link_back": 1,
+        "fragment_id": "V86-PILOT",
+        "bus_channel": "可观测",
+        "registered_cells": 25
+      },
+      "repo": "世殊医道慢病管理智能引擎_20261116",
+      "leg": "可观测",
+      "essence": "SSYD 慢病管理智能引擎：可观测位（随访/危险度/审计可视化）",
+      "verify_status": "unverified",
+      "standalone_ok": true,
+      "genomic_ok": false,
+      "secrets_hit": [],
+      "_metrics": {
+        "mechanism_hits": 7,
+        "axis_ratio": 0.28,
+        "heartbeat_homology": false,
+        "seal_homology": true,
+        "genome_similarity": 0.368,
+        "triple_homology": {
+          "mechanism_axis": true,
+          "heartbeat": false,
+          "seal": true
+        }
+      }
+    }
+  ]
+}

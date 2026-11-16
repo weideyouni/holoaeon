@@ -164,8 +164,19 @@ class TestGenomeIntegrity(unittest.TestCase):
         self.assertEqual(gd.genome_hash(), gd.genome_hash())
         self.assertEqual(len(gd.genome_hash()), 64)
 
-    def test_registry_empty_by_default(self):
-        self.assertEqual(gd.registered_fragments(), [])
+    def test_registry_only_dual_state_fragments(self):
+        """注册表可空可实：registered_fragments 只返回**双态同时为真**的条目。
+
+        V86 批3 起注册表承载真实试点，故不再断言「恒为空」——那只在
+        初始态成立；硬断空表会让第一次合法 append 就把测试打红。
+        """
+        with io.open(gd._REGISTRY_PATH, "r", encoding="utf-8") as fh:
+            reg = json.load(fh)
+        self.assertEqual(reg["schema"], gd.SCHEMA)
+        self.assertTrue(reg["append_only"])
+        expect = sum(1 for x in reg.get("plugins", [])
+                     if x.get("standalone_ok") and x.get("genomic_ok"))
+        self.assertEqual(len(gd.registered_fragments()), expect)
 
 
 class TestMeridianDynamic(unittest.TestCase):
@@ -174,11 +185,19 @@ class TestMeridianDynamic(unittest.TestCase):
                 "verify_status": "unverified", "origin": "test"}
 
     def test_10_fragments_250_green(self):
-        frags = ml.load_fragments()
+        """B 榜历史基线：注入空 extra → 10 碎片 250 格零回退。"""
+        frags = ml.load_fragments(extra_fragments=[])
         self.assertEqual(len(frags), 10)
-        table = ml.build_meridian_table()
+        table = ml.build_meridian_table(frags)
         self.assertEqual(len(table), 250)
-        self.assertTrue(ml.check_linkage()["pass"])
+        self.assertTrue(ml.check_linkage(table=table, fragments=frags)["pass"])
+
+    def test_live_table_fragments_x25(self):
+        """实盘：格数 == 碎片数 × 25（公理是乘积，不是 250 这个实例值）。"""
+        frags = ml.load_fragments()
+        table = ml.build_meridian_table(frags)
+        self.assertEqual(len(table), len(frags) * len(ml.KERNEL_MECHANISMS))
+        self.assertTrue(ml.check_linkage(table=table, fragments=frags)["pass"])
 
     def test_11_fragments_275_green(self):
         frags = ml.load_fragments(extra_fragments=[self._extra("dna-test-a", 11)])
@@ -214,8 +233,9 @@ class TestMeridianDynamic(unittest.TestCase):
 
     def test_summary_dynamic(self):
         s = ml.meridian_summary()
-        self.assertEqual(s["fragments"], 10)
-        self.assertEqual(s["cells"], 250)
+        frags = ml.load_fragments()
+        self.assertEqual(s["fragments"], len(frags))
+        self.assertEqual(s["cells"], len(frags) * len(ml.KERNEL_MECHANISMS))
 
 
 class TestSpecUntouched(unittest.TestCase):

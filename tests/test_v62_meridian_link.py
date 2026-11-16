@@ -143,7 +143,9 @@ class TestNamedByCarbon(unittest.TestCase):
 class TestFragments(unittest.TestCase):
 
     def test_fragments_10(self):
-        self.assertEqual(len(ml.load_fragments()), 10)
+        """B 榜历史基线 10 条（V86 起注入空 extra 实测；实盘=基线+注册表碎片）。"""
+        self.assertEqual(len(ml.load_fragments(extra_fragments=[])), 10)
+        self.assertGreaterEqual(len(ml.load_fragments()), 10)
 
     def test_fragments_all_unverified(self):
         for r in ml.load_fragments():
@@ -154,7 +156,12 @@ class TestFragments(unittest.TestCase):
         self.assertEqual(legs, ["可观测", "总线", "编排"])
 
     def test_fragments_essence_only_kafka(self):
-        with_ess = [r["repo"] for r in ml.load_fragments() if r.get("essence")]
+        """B 榜（10 条历史基线）里带 essence 的只有 kafka。
+
+        实盘会并入注册表试点碎片（其 essence 为定位句），故按基线口径判。
+        """
+        with_ess = [r["repo"] for r in ml.load_fragments(extra_fragments=[])
+                    if r.get("essence")]
         self.assertEqual(with_ess, ["apache/kafka"])
 
 
@@ -227,7 +234,12 @@ class TestLinkCell(unittest.TestCase):
 class TestMeridianTable(unittest.TestCase):
 
     def test_table_250_cells(self):
-        self.assertEqual(len(ml.build_meridian_table()), 250)
+        """10 碎片基线 250 格；实盘格数 == 碎片数 × 25（公理是乘积）。"""
+        base = ml.build_meridian_table(ml.load_fragments(extra_fragments=[]))
+        self.assertEqual(len(base), 250)
+        frags = ml.load_fragments()
+        self.assertEqual(len(ml.build_meridian_table(frags)),
+                         len(frags) * len(ml.KERNEL_MECHANISMS))
 
     def test_table_no_missing_pairs(self):
         table = ml.build_meridian_table()
@@ -244,18 +256,25 @@ class TestMeridianTable(unittest.TestCase):
         self.assertEqual(ml.build_meridian_table(), ml.build_meridian_table())
 
     def test_table_counts_measured(self):
-        """实测值固化（零虚构）：linked=13/pending=214/unlinked=23。"""
-        table = ml.build_meridian_table()
+        """10 碎片基线实测固化（零虚构）：linked=13/pending=214/unlinked=23。
+
+        实盘（并入注册表碎片）三态只增不减——基线格判定不被新碎片改变。
+        """
+        base = ml.build_meridian_table(ml.load_fragments(extra_fragments=[]))
         counts = {"linked": 0, "pending-evidence": 0, "unlinked": 0}
-        for c in table:
+        for c in base:
             counts[c["state"]] += 1
         self.assertEqual(counts, {"linked": 13, "pending-evidence": 214,
                                   "unlinked": 23})
+        live = ml.build_meridian_table()
+        for st, n in counts.items():
+            self.assertGreaterEqual(sum(1 for c in live if c["state"] == st), n)
 
     def test_linkage_check_pass(self):
         res = ml.check_linkage()
         self.assertTrue(res["pass"], res["problems"])
-        self.assertEqual(res["cells"], 250)
+        self.assertEqual(res["cells"], len(ml.load_fragments())
+                         * len(ml.KERNEL_MECHANISMS))
 
     def test_linkage_recompute_evidence(self):
         """linked 证据逐格可复算（判定是纯函数——同输入同输出）。"""
@@ -273,14 +292,20 @@ class TestSummary(unittest.TestCase):
         self.assertEqual(s["dim"], "D03")
 
     def test_summary_linked_by_mech(self):
-        s = ml.meridian_summary()
-        lm = {mid: info["linked"] for mid, info in s["by_mechanism"].items()}
+        """基线值固化（10 碎片口径）+ 实盘每机制链接数单调不减。"""
+        base = ml.meridian_summary(
+            ml.build_meridian_table(ml.load_fragments(extra_fragments=[])))
+        lm = {mid: info["linked"] for mid, info in base["by_mechanism"].items()}
         self.assertEqual(lm["M08"], 6)
         self.assertEqual(lm["M01"], 3)
         self.assertEqual(lm["M04"], 2)
         self.assertEqual(lm["M02"], 1)
         self.assertEqual(lm["M11"], 1)
         self.assertEqual(sum(lm.values()), 13)
+        live = ml.meridian_summary()
+        live_lm = {mid: info["linked"] for mid, info in live["by_mechanism"].items()}
+        for mid, n in lm.items():
+            self.assertGreaterEqual(live_lm[mid], n)
 
     def test_summary_gm_gate_wait4_honest(self):
         """G-M 门禁 4 WAIT 如实携带（门禁不替未来签字）。"""
@@ -304,7 +329,8 @@ class TestLedger(unittest.TestCase):
             self.assertIn(k, ledger)
         self.assertEqual(ledger["batch"], "V62-MERIDIAN-LINK")
         self.assertEqual(ledger["seal"], ml.SEAL)
-        self.assertEqual(ledger["cells"], 250)
+        self.assertEqual(ledger["cells"], len(ml.load_fragments())
+                         * len(ml.KERNEL_MECHANISMS))
         self.assertEqual(len(ledger["mechanism_axis"]), 25)
 
     def test_ledger_deterministic_no_wallclock(self):
@@ -321,8 +347,9 @@ class TestLedger(unittest.TestCase):
             self.assertEqual(out, p)
             with open(p, "r", encoding="utf-8") as fh:
                 data = json.load(fh)
-            self.assertEqual(data["cells"], 250)
-            self.assertEqual(len(data["table"]), 250)
+            self.assertEqual(data["cells"], len(ml.load_fragments())
+                             * len(ml.KERNEL_MECHANISMS))
+            self.assertEqual(len(data["table"]), data["cells"])
 
     def test_ledger_table_matches_live(self):
         ledger = ml.build_ledger()
@@ -354,7 +381,9 @@ class TestCLIAndGate(unittest.TestCase):
             self.assertEqual(
                 ml._main(["meridian_link", "table", "--out", p]), 0)
             with open(p, "r", encoding="utf-8") as fh:
-                self.assertEqual(json.load(fh)["cells"], 250)
+                self.assertEqual(json.load(fh)["cells"],
+                                 len(ml.load_fragments())
+                                 * len(ml.KERNEL_MECHANISMS))
 
     def test_cli_usage_rc1(self):
         self.assertEqual(ml._main(["meridian_link"]), 1)

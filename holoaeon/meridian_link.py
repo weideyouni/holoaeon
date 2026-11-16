@@ -377,7 +377,7 @@ def load_fragments(extra_fragments: Optional[List[Dict[str, Any]]] = None
         raise ValueError("B 榜历史碎片!=10 条（实 {}）——历史基线不许丢失"
                          .format(len(rows)))
     if extra_fragments is None:
-        from holoaeon import genome_dna as _gd
+        from . import genome_dna as _gd
         extra_fragments = _gd.registered_fragments()
     rows.extend(extra_fragments)
     if len(rows) < BASE_FRAGMENT_COUNT:

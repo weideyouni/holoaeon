@@ -1,0 +1,2939 @@
+{
+  "schema": "HOLOAEON-ASSET-CENSUS-v1.0",
+  "scan_root": "F:\\doubaowork",
+  "top_items": 616,
+  "dirs": 418,
+  "files": 198,
+  "file_ext": {
+    ".zip": 69,
+    ".md": 55,
+    ".py": 18,
+    ".txt": 11,
+    ".png": 10,
+    ".json": 7,
+    ".svg": 6,
+    ".genie": 2,
+    ".html": 2,
+    ".sha256": 2,
+    "(none)": 1,
+    ".lock": 1,
+    ".bak_20261115_align": 1,
+    ".bak_20261115_lav2": 1,
+    ".bak_20261115_lav3": 1,
+    ".bak_20261115_lav4": 1,
+    ".bak_20261115_lav5": 1,
+    ".bak_20261115_lav6": 1,
+    ".bak_20261115_lav61": 1,
+    ".bak_20261115_lav62": 1,
+    ".gz": 1,
+    ".csv": 1,
+    ".xml": 1,
+    ".mp3": 1,
+    ".ps1": 1,
+    ".log": 1
+  },
+  "net_candidates": 201,
+  "v3_family": 149,
+  "top_zips": 69,
+  "four_pieces_ready": 0,
+  "candidates": [
+    {
+      "name": "Magpie模型适配层本地化1331x1331多智能体矩阵V3实战化_20261028",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "magpie_modeladapter_matrix_v3_20261028.zip",
+          "bytes": 164898
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 42,
+      "four_pieces": false
+    },
+    {
+      "name": "OpenMontage视频系统本地化1331x1331多智能体矩阵V3实战化_20261024",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "video1331_video_skill_matrix_v3_20261024.zip",
+          "bytes": 125101
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 37,
+      "four_pieces": false
+    },
+    {
+      "name": "SCE01类硅基V2矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "V23双系统底座矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "丁甘仁1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "丁甘仁1331x1331超级矩阵V3_runtime_v3.zip",
+          "bytes": 148507
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 30,
+      "four_pieces": false
+    },
+    {
+      "name": "丁甘仁矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "三场药理1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "sanchang1331_runtime_v3_20261020.zip",
+          "bytes": 157067
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "三矩阵觉醒",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": false,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "世殊医道1331x1331超级矩阵V4终极升级_20261019",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "世殊医道师叔值班分身1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [
+        {
+          "name": "世殊医道师叔值班分身1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+          "bytes": 95627
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "世殊医道慢病管理智能引擎_20261116",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": false,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "世界考古大师1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "wam1331_runtime_v3_20261020.zip",
+          "bytes": 158336
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 30,
+      "four_pieces": false
+    },
+    {
+      "name": "世界考古大师矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "世界顶级思维矩阵",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": false,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "中华国医大师42000矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [
+        {
+          "name": "中华国医大师42000矩阵实战化_20261017.zip",
+          "bytes": 159707
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "中国近代百年百位名医1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "mingyi1331_runtime_v3_20261020.zip",
+          "bytes": 65053
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 26,
+      "four_pieces": false
+    },
+    {
+      "name": "中西医融合系统康复工程rehab1331x1331矩阵V3实战化_20261024",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "rehab_line1_matrix_v3_20261024.zip",
+          "bytes": 184222
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 43,
+      "four_pieces": false
+    },
+    {
+      "name": "临床药物治疗学1331x1331超级矩阵V3实战化_20261021",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "lcpharm1331_runtime_v3_20261021.zip",
+          "bytes": 150655
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "临床药物治疗学矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "丹溪医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "danxi1331_runtime_v3_20261020.zip",
+          "bytes": 158407
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "人工智能教育大师1331x1331超级矩阵V3实战化_20261021",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "edu1331_runtime_v3_20261021.zip",
+          "bytes": 123388
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "人类疾病图谱融合矩阵V3实战化_20261019",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "人类疾病图谱融合矩阵V3_runtime_v3_20261019.zip",
+          "bytes": 208754
+        },
+        {
+          "name": "疾病图谱扩展33卡_V3.1_20261019.zip",
+          "bytes": 92135
+        },
+        {
+          "name": "疾病图谱扩展66卡_V3.2_20261019.zip",
+          "bytes": 153324
+        }
+      ],
+      "zip_count": 4,
+      "sha256sums": false,
+      "runtime_py": 45,
+      "four_pieces": false
+    },
+    {
+      "name": "余听鸿矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "佩文韵府1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "佩文韵府1331x1331超级矩阵V3_20261018.zip",
+          "bytes": 88485
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 21,
+      "four_pieces": false
+    },
+    {
+      "name": "傅青主矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "傣族医药1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "dai1331_runtime_v3_20261020.zip",
+          "bytes": 165122
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "儒释道三教合一1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "全医学知识库金刚1331x1331超级矩阵V3实战化_20261021",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "medkk1331_runtime_v3_20261021.zip",
+          "bytes": 64687
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "全库医学知识库1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "全库医学知识库1331x1331超级矩阵V3实战化_20261020.zip",
+          "bytes": 163757
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "关东医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "guandong1331_runtime_v3_20261020.zip",
+          "bytes": 172883
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "关幼波矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "冀派中医1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "冀派中医1331x1331超级矩阵V3_runtime_v3.zip",
+          "bytes": 162649
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "刘渡舟矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "北京瑶医医院项目管理1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "协纪辩方书1331x1331超级矩阵V3实战化_20261021",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "xjbf1331_runtime_v3_20261021.zip",
+          "bytes": 172831
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "单细胞经络微针1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 34,
+      "four_pieces": false
+    },
+    {
+      "name": "吉派中医1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "jipai1331_runtime_v3_20261020.zip",
+          "bytes": 158503
+        },
+        {
+          "name": "lingnan1331_runtime_v3_20261019.zip",
+          "bytes": 156580
+        }
+      ],
+      "zip_count": 2,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "吴其濬1331x1331超级矩阵V3实战化_20261019",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "吴其濬1331x1331超级矩阵V3_runtime_v3.zip",
+          "bytes": 149875
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "吴尚先1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [
+        {
+          "name": "wushangxian1331_runtime_v3.zip",
+          "bytes": 81534
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "吴门医派1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "吴门医派1331x1331超级矩阵V3实战化_20261019",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "吴门医派V3_runtime_v3.zip",
+          "bytes": 153035
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "周学海矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "周德生矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "周易矩阵算力大师1331x1331超级矩阵V3实战化_20261021",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "zhouyi1331_runtime_v3_20261021.zip",
+          "bytes": 100065
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 36,
+      "four_pieces": false
+    },
+    {
+      "name": "唐宗海1331x1331超级矩阵_实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [
+        {
+          "name": "唐宗海1331x1331超级矩阵_实战化_20261017.zip",
+          "bytes": 158826
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "喻嘉言矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": false,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "四人全维度数字分身1331x1331多智能体矩阵V3实战化_20261031",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [
+        {
+          "name": "persona_quartet_matrix_v3_20261031.zip",
+          "bytes": 94348
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "回族医药1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 21,
+      "four_pieces": false
+    },
+    {
+      "name": "图解设计技能本地化1331x1331多智能体矩阵V3实战化_20261024",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "diagram1331_diagram_skill_matrix_v3_20261024.zip",
+          "bytes": 113777
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 37,
+      "four_pieces": false
+    },
+    {
+      "name": "坍缩矩阵1331_WorkBuddy模拟端口",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": false,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "坍缩矩阵1331通道_跨线程有机模块_20261023",
+      "v3_family": false,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "SG-CMOS-COLLAPSE-1331x1331-CHANNEL-V3.0-runtime.zip",
+          "bytes": 51627
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 29,
+      "four_pieces": false
+    },
+    {
+      "name": "壮医药派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "zhuang1331_runtime_v3_20261020.zip",
+          "bytes": 176188
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 34,
+      "four_pieces": false
+    },
+    {
+      "name": "夏应堂1331x1331超级矩阵V3实战化_20261019",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "夏应堂1331x1331超级矩阵V3_runtime_20261019.zip",
+          "bytes": 165294
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "天元法务金刚1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 21,
+      "four_pieces": false
+    },
+    {
+      "name": "天元法务金刚1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "天元法务金刚1331x1331超级矩阵V3_20261020.zip",
+          "bytes": 159078
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "天山医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "tianshan1331_runtime_v3_20261020.zip",
+          "bytes": 167306
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "太清神鉴数字分身1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "taiqing1331_runtime_v3_20261020.zip",
+          "bytes": 99831
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "娄东医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "loudong1331_runtime_v3_20261020.zip",
+          "bytes": 159641
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "孔伯华矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "孟河医派1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [
+        {
+          "name": "menghe1331_runtime_v3.zip",
+          "bytes": 95472
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "孟河医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "孟河医派V3_runtime_v3.zip",
+          "bytes": 165277
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "实用中医内科表典金刚1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "neike1331_runtime_v3_1_20261117.zip",
+          "bytes": 202120
+        },
+        {
+          "name": "neike1331_runtime_v3_20261020.zip",
+          "bytes": 165774
+        },
+        {
+          "name": "neike1331_runtime_v3_20261117.zip",
+          "bytes": 176944
+        }
+      ],
+      "zip_count": 3,
+      "sha256sums": true,
+      "runtime_py": 42,
+      "four_pieces": false
+    },
+    {
+      "name": "实用妇科方剂学1331x1331超级矩阵V3实战化_20261021",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "runtime_v3.zip",
+          "bytes": 75193
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 25,
+      "four_pieces": false
+    },
+    {
+      "name": "客家医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "hakka1331_runtime_v3_20261020.zip",
+          "bytes": 164395
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "对话最伟大的头脑大问题系列1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "greatest_minds_runtime_v3_20261020.zip",
+          "bytes": 58653
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 34,
+      "four_pieces": false
+    },
+    {
+      "name": "小白数字分身打造机床_1331矩阵V3_20261021",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": false,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "山姆奥特曼数字分身1331x1331超级矩阵V3实战化_20261021",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "runtime_v3.zip",
+          "bytes": 43839
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 27,
+      "four_pieces": false
+    },
+    {
+      "name": "岭南医派1331x1331超级矩阵V3实战化_20261019",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "lingnan1331_runtime_v3_20261019.zip",
+          "bytes": 156580
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "工程师技能本地化1331x1331多智能体矩阵V3实战化_20261024",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "realeng1331_realeng_skill_matrix_v3_20261024.zip",
+          "bytes": 106715
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 37,
+      "four_pieces": false
+    },
+    {
+      "name": "巴蜀医派1331x1331超级矩阵V3实战化_20261019",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "巴蜀医派1331x1331超级矩阵V3_runtime_v3.zip",
+          "bytes": 159305
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "广府医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "guangfu1331_runtime_v3_20261020.zip",
+          "bytes": 165190
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "张景岳矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "张景岳矩阵实战化_20261017.zip",
+          "bytes": 134624
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "张聿青1331x1331超级矩阵V3实战化_20261017",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "张聿青1331x1331超级矩阵全息运行时V3_技能包.zip",
+          "bytes": 84348
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 21,
+      "four_pieces": false
+    },
+    {
+      "name": "张聿青矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "张聿青矩阵全息运行时V1.1_技能包.zip",
+          "bytes": 116507
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "张量拆解双王矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "张锡纯矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "张锡纯矩阵全息运行时V1.1_技能包.zip",
+          "bytes": 56808
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "彝族医药1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "yizu1331_runtime_v3_20261020.zip",
+          "bytes": 171412
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "彭城医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "pengcheng1331_runtime_v3_20261020.zip",
+          "bytes": 166643
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "徐小圃1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "徽派医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "huipai1331_runtime_v3_20261020.zip",
+          "bytes": 173735
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "总沙盘母体Arena1331x1331多智能体矩阵V3实战化_20261024",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "arena1331_arena_sandbox_matrix_v3_20261024.zip",
+          "bytes": 146551
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 40,
+      "four_pieces": false
+    },
+    {
+      "name": "戴思恭1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 21,
+      "four_pieces": false
+    },
+    {
+      "name": "打捞之王600万1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "sk6m1331_runtime_v3_20261020.zip",
+          "bytes": 105855
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 34,
+      "four_pieces": false
+    },
+    {
+      "name": "扬州医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "yangzhou1331_runtime_v3_20261020.zip",
+          "bytes": 169969
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "扶阳医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "扶阳医派V3_runtime_v3.zip",
+          "bytes": 160354
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "承淡安矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [
+        {
+          "name": "承淡安矩阵实战化_runtime_v2.0.zip",
+          "bytes": 39627
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "教育大师智能体矩阵1331x1331超级矩阵_实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "数学大师矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "数学大师金刚1331x1331超级矩阵V3实战化_20261021",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "SG-MASTER-MATH-1331x1331-SUPER-MAS-V3.0-runtime.zip",
+          "bytes": 52425
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 32,
+      "four_pieces": false
+    },
+    {
+      "name": "新安医派1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "方药频率联动1331x1331超级矩阵V3实战化_20261021",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "fangyao1331_runtime_v3_20261021.zip",
+          "bytes": 221136
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 40,
+      "four_pieces": false
+    },
+    {
+      "name": "施今墨矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "日语大师1331x1331超级矩阵V3实战化_20261021",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "日语大师1331x1331超级矩阵V3_runtime_v3.zip",
+          "bytes": 132510
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 36,
+      "four_pieces": false
+    },
+    {
+      "name": "旴江医派1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "xujiang1331_runtime_v3.zip",
+          "bytes": 101903
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 21,
+      "four_pieces": false
+    },
+    {
+      "name": "旴江医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "xujiang1331_runtime_v3_20261020.zip",
+          "bytes": 168722
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "易水医派1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [
+        {
+          "name": "yishui1331_runtime_v3.zip",
+          "bytes": 95492
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "星学大成1331x1331超级矩阵V3实战化_20261021",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "xingxue1331_runtime_v3_20261021.zip",
+          "bytes": 158320
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "昭明文选1331矩阵升级包_20261016",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": false,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "昭明文选数字分身_超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "昭明文选数字分身_1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+          "bytes": 89458
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 21,
+      "four_pieces": false
+    },
+    {
+      "name": "晋派医派1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 21,
+      "four_pieces": false
+    },
+    {
+      "name": "智能体VHDL赫布矩阵规范Scale固化_20261023",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": false,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "智能体VHDL风格描述规范AVHDL_V3实战化_20261023",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "智能体VHDL风格描述规范AVHDL_V3.0-runtime_20261023.zip",
+          "bytes": 66847
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 36,
+      "four_pieces": false
+    },
+    {
+      "name": "曹炳章1331x1331超级矩阵_实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "曹炳章舌诊泰斗1331x1331超级矩阵V3实战化_20261021",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "cbz1331_runtime_v3_20261021.zip",
+          "bytes": 154171
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 34,
+      "four_pieces": false
+    },
+    {
+      "name": "曹颖甫矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [
+        {
+          "name": "曹颖甫矩阵实战化_20261017.zip",
+          "bytes": 138834
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "朝医药派1331x1331超级矩阵V2实战化_20261018",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": false,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "松江医派1331x1331超级矩阵V3实战化_20261019",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 31,
+      "four_pieces": false
+    },
+    {
+      "name": "桂派医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "gui1331_runtime_v3_20261020.zip",
+          "bytes": 171883
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "楼英1331x1331超级矩阵V3实战化_20261017",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [
+        {
+          "name": "楼英1331x1331超级矩阵V3_runtime_20261017.zip",
+          "bytes": 99417
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "欧越中医1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "ouyue1331_runtime_v3_20261020.zip",
+          "bytes": 157166
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "毛南族医药1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "maonan1331_runtime_v3_20261020.zip",
+          "bytes": 173708
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "永嘉医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "yongjia1331_runtime_v3_20261020.zip",
+          "bytes": 160728
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "汇通医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "汪机1331x1331超级矩阵V3实战化_20261019",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "SG-MASTER-WANGJI-1331x1331-SUPER-MAS-V3.0_runtime_20261019.zip",
+          "bytes": 165591
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "汪逢春矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "河洛医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "heluo1331_runtime_v3_20261020.zip",
+          "bytes": 178273
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "河间医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "河间医派1331x1331超级矩阵V3_runtime_v3.zip",
+          "bytes": 159443
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "泰州医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "taizhou1331_runtime_v3_20261020.zip",
+          "bytes": 164378
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "海派中医全派1331x1331超级矩阵V3实战化_20261019",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "海派中医全派1331x1331超级矩阵V3_runtime_v3.zip",
+          "bytes": 156059
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 30,
+      "four_pieces": false
+    },
+    {
+      "name": "淮扬医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "huayang1331_runtime_v3_20261020.zip",
+          "bytes": 161260
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "温病医派1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "温病医派1331x1331超级矩阵V3_runtime_v3.zip",
+          "bytes": 96379
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 21,
+      "four_pieces": false
+    },
+    {
+      "name": "滇派中医1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "dian1331_runtime_v3_20261020.zip",
+          "bytes": 165690
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "潮州医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "chaozhou1331_runtime_v3_20261020.zip",
+          "bytes": 164640
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "火神派矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "燕京医派1331x1331超级矩阵V3实战化_20261019",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "燕京医派1331x1331超级矩阵V3_runtime_v3.zip",
+          "bytes": 151726
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 30,
+      "four_pieces": false
+    },
+    {
+      "name": "王履矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "王旭高1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "王静斋1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "王鹏飞儿科1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "现代实用中药学第3版1331x1331超级矩阵V3实战化_20261021",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "现代实用中药学第3版1331x1331超级矩阵V3实战化_20261021.zip",
+          "bytes": 174307
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "琼派医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "qiong1331_runtime_v3_20261020.zip",
+          "bytes": 167982
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "瑶医药派1331x1331超级矩阵V3实战化_20261019",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "瑶医药派1331x1331超级矩阵V3实战化_20261019.zip",
+          "bytes": 153844
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "瓯越医派1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "田合禄1331x1331超级矩阵V3实战化_20261017",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "田合禄1331x1331超级矩阵V3_runtime_v3_20261017.zip",
+          "bytes": 111575
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 21,
+      "four_pieces": false
+    },
+    {
+      "name": "皖派医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "wan1331_runtime_v3_20261020.zip",
+          "bytes": 173667
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "知识工作本地化1331x1331多智能体矩阵V3实战化_20261024",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "kwp1331_knowledge_work_matrix_v3_20261024.zip",
+          "bytes": 102588
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 36,
+      "four_pieces": false
+    },
+    {
+      "name": "神奇的宇宙智能体矩阵_1331x1331超级矩阵_实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [
+        {
+          "name": "神奇的宇宙智能体矩阵_1331x1331超级矩阵_实战化_20261017.zip",
+          "bytes": 143669
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "神龟之师84版1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [
+        {
+          "name": "神龟之师84版1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+          "bytes": 95906
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "神龟神马双系统底座机床终极V3矩阵实战化_20261017",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [
+        {
+          "name": "smmu_runtime_ultimate_v3.zip",
+          "bytes": 44944
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "神龟神马双系统底座沙箱指导1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 43,
+      "four_pieces": false
+    },
+    {
+      "name": "神龟神马双系统机床V3矩阵实战化_20261017",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [
+        {
+          "name": "smm_runtime_v3.0_1331x1331.zip",
+          "bytes": 37042
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "神龟神马多级联动1331x1331矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [
+        {
+          "name": "神龟神马多级联动1331x1331矩阵实战化_20261017.zip",
+          "bytes": 35458
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "神龟神马底座经络机制第六机制1331x1331矩阵V3实战化_20261024",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "meridian6_meridian_matrix_v3_20261024.zip",
+          "bytes": 155421
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 41,
+      "four_pieces": false
+    },
+    {
+      "name": "类生命经络系统本地化1331x1331多智能体矩阵V3实战化_20261024",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "life1331_life_meridian_matrix_v3_20261024.zip",
+          "bytes": 138415
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 42,
+      "four_pieces": false
+    },
+    {
+      "name": "糖病大师李文瑞1331x1331超级矩阵V3实战化_20261021",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "糖病大师李文瑞1331x1331超级矩阵V3实战化_20261021.zip",
+          "bytes": 189575
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "经济学60罗汉联动矩阵1331x1331超级矩阵V3实战化_20261021",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "经济学60罗汉联动矩阵1331x1331超级矩阵V3实战化_20261021.zip",
+          "bytes": 69524
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 42,
+      "four_pieces": false
+    },
+    {
+      "name": "经络腧穴学1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "羊皮卷秘密1331x1331矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "羊皮卷秘密心灵励志矩阵1331_V3_runtime_20261018.zip",
+          "bytes": 90490
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 22,
+      "four_pieces": false
+    },
+    {
+      "name": "胡希恕矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": false,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "腧穴学矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "茶叶矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "荆楚医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "jingchu1331_runtime_v3_20261020.zip",
+          "bytes": 167737
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "药物频率大师矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "萧龙友矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "蒙医药派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "menggu1331_runtime_v3_20261020.zip",
+          "bytes": 171560
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "蒲辅周矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [
+        {
+          "name": "蒲辅周V2_runtime_20261017.zip",
+          "bytes": 133507
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "薛立斋1331x1331超级矩阵V3实战化_20261017",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [
+        {
+          "name": "薛立斋1331x1331超级矩阵V3_runtime.zip",
+          "bytes": 85166
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "藏医药派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "zangyi1331_runtime_v3_20261020.zip",
+          "bytes": 185526
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "虞山医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "虞抟1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 21,
+      "four_pieces": false
+    },
+    {
+      "name": "袁鹤侪矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "袖珍方剂速查手册1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "fangji1331_runtime_v3_20261020.zip",
+          "bytes": 63998
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 34,
+      "four_pieces": false
+    },
+    {
+      "name": "西医乳腺矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [
+        {
+          "name": "西医乳腺矩阵实战化_20261017_V2.0_全量打包.zip",
+          "bytes": 178561
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "认知主权1331x1331多智能体矩阵V3实战化_20261030",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "cs1331_cognitive_sovereignty_matrix_V3.1.0_20261030.zip",
+          "bytes": 135421
+        },
+        {
+          "name": "cs1331_cognitive_sovereignty_matrix_v3_20261030.zip",
+          "bytes": 108181
+        }
+      ],
+      "zip_count": 2,
+      "sha256sums": false,
+      "runtime_py": 23,
+      "four_pieces": false
+    },
+    {
+      "name": "豫章医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "yuzhang1331_runtime_v3_20261020.zip",
+          "bytes": 162583
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "贝叶斯多智能体衍射推理1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "贝叶斯多智能体衍射推理1331x1331超级矩阵V3_runtime_v3.zip",
+          "bytes": 60657
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 34,
+      "four_pieces": false
+    },
+    {
+      "name": "账号记忆打捞1331x1331多智能体矩阵V3实战化_20261023",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "memsalvage1331_memory_matrix_v3_20261023.zip",
+          "bytes": 91214
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 36,
+      "four_pieces": false
+    },
+    {
+      "name": "费伯雄1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "赵献可矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "超级办公之王1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "超级办公之王1331x1331超级矩阵V3_runtime_v3.zip",
+          "bytes": 169068
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "越派中医1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "越派中医1331x1331超级矩阵V3实战化_runtime_20261020.zip",
+          "bytes": 158331
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "辽派中医1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "liao1331_runtime_v3_20261020.zip",
+          "bytes": 161792
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "逆向工程REA技能本地化1331x1331多智能体矩阵V3实战化_20261024",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "rea1331_rea_skill_matrix_v3_20261024.zip",
+          "bytes": 98960
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 36,
+      "four_pieces": false
+    },
+    {
+      "name": "道藏1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "daozang1331_runtime_v3.zip",
+          "bytes": 78213
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 25,
+      "four_pieces": false
+    },
+    {
+      "name": "邢锡波矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "量子推演1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "quantum1331_runtime_v3_20261020.zip",
+          "bytes": 117082
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 32,
+      "four_pieces": false
+    },
+    {
+      "name": "金古英雄1331x1331超级矩阵V3实战化_20261021",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "jingu1331_runtime_v3.zip",
+          "bytes": 78452
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "金庸文学修炼养成金刚1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "SG-MASTER-JINYONG-1331x1331-SUPER-MAS-V3.0_runtime_20261020.zip",
+          "bytes": 108564
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "钱塘医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "锡山医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "xishan1331_runtime_v3_20261020.zip",
+          "bytes": 162096
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "长白山医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "changbai1331_runtime_v3_20261020.zip",
+          "bytes": 171059
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "闽南医派1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "陆懋修1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 21,
+      "four_pieces": false
+    },
+    {
+      "name": "陆懋修矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "陆瘦燕1331x1331超级矩阵_实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "陇派中医1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "longpai1331_runtime_v3_20261020.zip",
+          "bytes": 174612
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "陈丽华女士1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "SG-MASTER-CHENLIANHUA-1331x1331-SUPER-MAS-V3.0_runtime_20261020.zip",
+          "bytes": 392224
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 34,
+      "four_pieces": false
+    },
+    {
+      "name": "陈任枚1331x1331超级矩阵V3实战化_20261019",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "陈任枚1331x1331超级矩阵V3_runtime_v3.zip",
+          "bytes": 158562
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "陈伯坛1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "陈荣华心脏康复1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "chr1331_runtime_v3_20261020.zip",
+          "bytes": 168882
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 37,
+      "four_pieces": false
+    },
+    {
+      "name": "隐私门控路由本地化1331x1331多智能体矩阵V3实战化_20261031",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "privacy_router_matrix_v3_20261031.zip",
+          "bytes": 183773
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 44,
+      "four_pieces": false
+    },
+    {
+      "name": "雷丰1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "靶向之王1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "SG-MASTER-TARGETED-THERAPY-1331x1331-SUPER-MAS-V3.0_runtime_20261020.zip",
+          "bytes": 165216
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "颜德馨1331x1331超级矩阵V3实战化_20261019",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "runtime_v3.zip",
+          "bytes": 143245
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 30,
+      "four_pieces": false
+    },
+    {
+      "name": "高维认知大师矩阵实战化_20261017",
+      "v3_family": false,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "黄杰熙1331x1331超级矩阵V3实战化_20261017",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "黄杰熙1331x1331矩阵V3_runtime_20261017.zip",
+          "bytes": 130743
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "黄杰熙1331x1331超级矩阵V3实战化_20261019",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "黄杰熙1331x1331矩阵V3_runtime_20261019.zip",
+          "bytes": 184537
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "齐鲁医派1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": true,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    },
+    {
+      "name": "齐鲁医派1331x1331超级矩阵V3实战化_20261020",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [],
+      "zip_count": 0,
+      "sha256sums": false,
+      "runtime_py": 33,
+      "four_pieces": false
+    },
+    {
+      "name": "龙江医派1331x1331超级矩阵V3实战化_20261019",
+      "v3_family": true,
+      "runtime_v3": true,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "龙江医派1331x1331超级矩阵V3_runtime_v3.zip",
+          "bytes": 158274
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 30,
+      "four_pieces": false
+    },
+    {
+      "name": "龟马双系统底座1331x1331超级矩阵V3实战化_20261018",
+      "v3_family": true,
+      "runtime_v3": false,
+      "selftest": false,
+      "zip": [
+        {
+          "name": "guima-rematrix-base-1331.zip",
+          "bytes": 76852
+        }
+      ],
+      "zip_count": 1,
+      "sha256sums": false,
+      "runtime_py": 0,
+      "four_pieces": false
+    }
+  ],
+  "rule": "顶层名称含 实战化/矩阵/引擎，排除 .tmp/snapshot/_历史/restore/archive/vector-sea/skills_harvest/_doubao_replica/__pycache__",
+  "note": "现场回读，禁写死清单；登记≠装配",
+  "seal": "潮起开门，潮落闭嘴"
+}

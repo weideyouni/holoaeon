@@ -211,8 +211,20 @@ def verify() -> Dict[str, Any]:
     for a in AXIOMS:
         if not a.get("falsifiers"):
             problems.append("{} 缺 falsifier".format(a["id"]))
-    if SEAL != "潮起开门，潮落闭嘴":
-        problems.append("SEAL 漂移")
+    # SEAL 漂移对账：与 DNA 母本 data/genome_dna.json 的 seal 字段比对。
+    # V86 批3 修正——原先写成 `SEAL != "潮起开门，潮落闭嘴"`（常量对常量，
+    # 恒假死守卫），被 A14 恒真金哨如实抓出。改成读母本后：改母本 seal 即红。
+    seal_master_path = os.path.join(_ROOT, "data", "genome_dna.json")
+    try:
+        with open(seal_master_path, "r", encoding="utf-8") as fh:
+            _master = json.load(fh)
+        if _master.get("seal") != SEAL:
+            problems.append("SEAL 与母本不一致：{!r} != {!r}"
+                            .format(SEAL, _master.get("seal")))
+    except FileNotFoundError:
+        problems.append("DNA 母本缺失：{}".format(seal_master_path))
+    except (OSError, ValueError) as exc:
+        problems.append("DNA 母本不可解析：{}: {}".format(type(exc).__name__, exc))
 
     # 恒真守卫：每个 check 至少存在一组 pass=False 输入（V82/V83/V84 血脉）
     true_homology = {"mechanism_axis": True, "heartbeat": True, "seal": True}

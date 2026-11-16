@@ -376,16 +376,18 @@ class RealSiteTest(unittest.TestCase):
 
     @unittest.skipUnless(os.path.isdir(r"F:\doubaowork"), "needs local site")
     def test_real_site_build_passes(self):
+        """V86 起单源：现场期望值只写在 holoaeon/prehistory_family.py 的
+        EXPECTED_* 常量里；本测试引用常量，不再双写死数字（V41P 教训）。"""
         report = pf.build_family(self.ROOT)
         ok, problems = pf.check_family(report)
         self.assertTrue(ok, problems[:6])
         s = report["summary"]
-        self.assertEqual(s["dirs"], 194)
-        self.assertEqual(s["zips"], 22)
-        self.assertEqual(s["files"], 8284)
-        self.assertEqual(s["bytes"], 98555186)
-        self.assertEqual(s["exact_families"], 14)
-        self.assertEqual(s["singletons"], 188)
+        self.assertEqual(s["dirs"], pf.EXPECTED_DIRS)
+        self.assertEqual(s["zips"], pf.EXPECTED_ZIPS)
+        self.assertEqual(s["files"], pf.EXPECTED_FILES)
+        self.assertEqual(s["bytes"], pf.EXPECTED_BYTES)
+        self.assertEqual(s["exact_families"], pf.EXPECTED_EXACT_FAMILIES)
+        self.assertEqual(s["singletons"], pf.EXPECTED_SINGLETONS)
         self.assertGreaterEqual(s["near_families"], 1)
 
     @unittest.skipUnless(os.path.isdir(r"F:\doubaowork"), "needs local site")
