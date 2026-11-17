@@ -3,13 +3,13 @@
   "seal": "潮起开门，潮落闭嘴",
   "date": "2026-11-17",
   "batch": "V87-A-MOLT-GENE-CTUP",
-  "ctup_schema": "CTUP-v1.0",
+  "ctup_schema": "CTUP-v1.1",
   "skill_dir_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol",
   "skill_md": {
     "path_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol\\SKILL.md",
     "exists": true,
-    "sha256": "a86895c5191eaaa46601d9a98a1cc59a839291ff2b9be0f6feaf30e143a7f7d4",
-    "bytes": 9467
+    "sha256": "e3e742fb6071af4a5bd7d47914a2271a5060d9a745245c377b11ef0fd1cf9c73",
+    "bytes": 13675
   },
   "unity_check_py": {
     "path_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol\\scripts\\unity_check.py",
@@ -21,15 +21,31 @@
   "readback": {
     "holoaeon": {
       "verdict": "UNITY_OK",
-      "head": "c461b51",
-      "note": "双端同头；tracked_dirty=0；untracked=122；凭证 3 VALID"
+      "entry_verdict": "ENTRY_OK",
+      "sync_head": "ebdb975",
+      "report": "F:\\doubaowork\\holoaeon_lathe\\ENTRY_UNITY_20261117.json"
     },
     "neike": {
       "verdict": "UNITY_OK",
-      "head": "e1ff87f",
-      "note": "五地闭合后同头；批3/批4 仍 D4 hold"
+      "entry_verdict": "ENTRY_OK",
+      "sync_head": "e1ff87f",
+      "report": "F:\\doubaowork\\holoaeon_lathe\\ENTRY_UNITY_NEIKE_20261117.json",
+      "entry_file": "F:\\doubaowork\\holoaeon_lathe\\PROJECT_ENTRY_NEIKE.json",
+      "note": "入口文件放在仓外 lathe，避免污染 v71 现场盘点（+1 文件会打红）"
     }
   },
   "rc_note": "四人组 G9：ANCHOR 只写省略号路径导致全盘搜不到；本账登记完整绝对路径 + SHA256 + 两仓 rc/verdict，跨线程可直接按路径重跑 unity_check.py --project/--memory/--remote。",
-  "report_head": null
+  "report_head": null,
+  "entry_unity_py": {
+    "path_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol\\scripts\\entry_unity.py",
+    "exists": true,
+    "sha256": "b6411b457259fb5947113bc057f0fbd2bccfe97b74ce4fa65949229b69d6d4a4",
+    "bytes": 10481
+  },
+  "v11_additions": [
+    "§九 三段联通：项目入口 → 本地 → 向量海（PROJECT_ENTRY.json + entry_unity.py）",
+    "§十 全员加载：本账号线程 / 本机其他工作台 / 跨仓推广 / 生态互认",
+    "entry_unity 兜底判据：无 remote_sync 时以回执 five_site 4/4 作为云端口径"
+  ],
+  "history_note": "v1.0 首次登记见同日锚点；v1.1 于 2026-11-17 升级，SKILL.md/entry_unity.py 的 SHA256 已按实测重算"
 }
