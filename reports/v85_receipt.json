@@ -1,0 +1,92 @@
+{
+  "batch": "V85",
+  "name": "GOVERNABLE-TRISTATE-BASIN（六件治理批：凭空可治理/平域冒充不可治理 + CI 步骤名回读 + claims 第 12 面 + MCP 选项C + .bak 卫生）",
+  "date": "2026-11-17",
+  "status": "COMMITTED_PENDING_FIVE_SITE",
+  "doc_version": "0.9.79",
+  "head": "fcea1f0f9c1cece2832291b02331bcdf0ec862b5",
+  "head_full": "fcea1f0f9c1cece2832291b02331bcdf0ec862b5",
+  "head_note": "head 为被验收的上一提交（V87-A 收口）；本批提交后按 policy.receipt_head 补正为代码头，补正提交自身不计入 S4/S5 基线。",
+  "predecessor": "V87-A",
+  "supersedes": "V87-A 回执的 doc_version 0.9.78 不再是「最新」（claims_gate 按回执自身 doc_version 取最高）",
+  "patches": [
+    "holoaeon/packs/topology_resonance_pack.py：LOGICAL_POSITIONS 后新增 _curvature_tol / _classify_curvature / _governable_note 三件 helper；法步 fa_gradient_analysis 的 governable 由二值恒判改为三态（convex / concave / flat_unjudged「未判定」），输出 curvature_tol 与 governable_note；emergence_chain.steps[\"法_fa\"] 透传两字段；文件 699→739 行",
+    "tests/test_v85_governable_tristate.py（新）：26 例六组（旧码三态失真 / 零容差边界 / 链透传 / 真实语法检验 / 白名单不误伤 / 确定性）——先证红 19 红",
+    "holoaeon/claims_gate.py：FACES 8→12 面口径（本批新增第 12 面 ci_step_names_readback）；新增 FACE_CI_STEPS / CI_WORKFLOW_REL / CI_STEP_COUNT_HARDCODED / CI_STEP_MUST_HAVE / read_ci_step_names / ci_step_names_readback，verify() 于 env_delta 之后挂接；report 增 ci_steps 块；load_registry 缺文件抛 FileNotFoundError 由调用方记 INCOMPLETE",
+    "tests/test_v85_ci_step_names.py（新）：20 例四组（结构契约 / 真仓回读 / 证红（旧写死面数必红）/ 不误伤其余十一面）",
+    ".github/workflows/ci.yml：两处步骤名改回读式（「Contract tests (tests_contract, case count readback)」/「v3 gate (face count readback, incl. A13 CI contract)」）；190 行 / 12 个 - name:",
+    "scripts/ci_preflight.py：STEPS 12 条 desc 去写死 33 面，ci_name 前缀契约（Contract tests / v3 gate）不变",
+    "data/claims_registry.json：MCP 条目 note 落「选项 C」披露（零代码，A/B 悬置）；ledger_sources.doc_version.observed 0.9.78→0.9.79 / observed_at 2026-11-17；self_digest 重算",
+    ".gitignore：新增 *.bak / *.bak_*",
+    "仓外：19 件 .bak 移入 F:\\doubaowork\\_holoaeon_devtools\\backups\\ 并 append MOVE_LEDGER.jsonl（batch/src/dst/bytes/sha256/moved_at；移动非删除，可回滚）",
+    "holoaeon/spec.py：DOC_VERSION 0.9.78→0.9.79（注释 V85 口径）；VERSION / RUNTIME_ID / MATRIX_ID 未动（ReproHash 黄金值 2fc892cf9af6e755 不受影响）",
+    "tests/test_v22_eng_skills.py / test_v64_hangover_zero.py / test_v70_prehistory_criteria.py / test_v84_tautology_golden_watch.py：四处精确 DOC 断言同步 0.9.79；i3 改为不写死批号（assertRegex # V\\d{2}）；c2 行号改为从白名单回读",
+    "data/genome_dna.json：genesis.spec_sha256_measured → 9893958803b28286f55ad499e662cfca87f1f88492e475862e541d04a78441b4；doc_version_before/after + note 改写（change_class=governance 同批回填）",
+    "data/tautology_allowlist.json：T04 line 692→732 / T05 line 699→739（helper 插入位移，锚失效类）；self_digest 83331535fbbf75a7→9424d7751cf49b96",
+    "README.md + README.zh-CN.md：V85 批次行前插（V87-A 降「上一批次」）；主套 2328→2374（徽章/验收行/门禁行）；本机合计 2360→2406；云端 +43/+46 双批未上云表述显式化",
+    "SHA256SUMS：351 条 → 354 条（新增两测试 + 本回执；LF 归一化口径重建）"
+  ],
+  "verification": {
+    "unittest_main": 2374,
+    "unittest_main_skipped": 3,
+    "unittest_v85_governable_tristate": "26/26 OK",
+    "unittest_v85_ci_step_names": "20/20 OK",
+    "unittest_v84_tautology_golden_watch": "54/54 OK",
+    "selftest": "25/25 PASS",
+    "v3_gate": "34/34 PASS",
+    "redline": "159 文件 0 违规",
+    "dimension_lock": "12 维度 + 7 闸 + 0 violation",
+    "genome_dna_gate": "PASS（pass=true 全项）",
+    "meridian_link": "3/3 PASS（12 碎片 × 25 = 300 格）",
+    "credential_exclusion_check": "PASS（L1 ok / L3 832 文件 0 明文）",
+    "check_sums": "354/354 ok（mismatches 0）",
+    "claims_gate": "12/12 PASS",
+    "doc_upgrade_chain": "spec.py 新 sha256 9893958803b2…；claims self_digest 22cf40fdfa16adc2；allowlist self_digest 9424d7751cf49b96"
+  },
+  "manifest": {
+    "entries": 354,
+    "mismatches": 0
+  },
+  "five_site": {
+    "verified_at": "2026-11-17",
+    "S1_local": {
+      "ref": "main",
+      "sha": "PENDING_COMMIT",
+      "note": "待本批提交后回填"
+    },
+    "S2_gitee": {
+      "repo": "weideyouni/holoaeon",
+      "sha": "PENDING",
+      "verified_by": "token https push + ls-remote readback"
+    },
+    "S3_github": {
+      "repo": "weideyouni/holoaeon",
+      "sha": "PENDING",
+      "verified_by": "ssh443 (Host gh-longaeon) push + ls-remote readback"
+    },
+    "S4_vector_sea": {
+      "dir": "F:\\doubaowork\\vector-sea\\holoaeon-v4-cold-hot-plug",
+      "verdict": "PENDING"
+    },
+    "S5_hf": {
+      "repo": "weideyouni/holoaeon",
+      "sha": "PENDING",
+      "verified_by": "mirror_hf.py --base fcea1f0 --head <new>"
+    }
+  },
+  "feed_corrections": [
+    "投喂包 §3 只列五件（HA-5 README 瘦身 + docs/BATCH_LEDGER.md、P1-7 tautology 第五类 + activity_probe 为可选件）；本批按「五件 + HA-4 选项 C 披露」口径执行，六件命名中的第六件即 HA-4 披露（零代码）。",
+    "投喂包称 ci.yml 写死「33 面」，实测为 34 面（v3_gate 第 34 面 A14 于 V84 已落地），以实测 34 为准并写进 CI_STEP_MUST_HAVE 契约。",
+    "HA-1 要求「照抄 V82」三态，但 V82 的三态写在 advisor_gradient_flow；本批对象是 fa_gradient_analysis（同型第三处），按同一语义（未判定不可冒充可/不可治理）落地，非字面照抄。"
+  ],
+  "honest_boundaries": [
+    "本批 46 例（test_v85_governable_tristate 26 + test_v85_ci_step_names 20）仅本机跑绿，尚未上云（与 V87-A 的 43 例同列 open_pending_cloud_sync，D17 状态不变）。",
+    "patch_v85_ha3.py 在 cross_ledger 锚点 match=2 时 ABORT，前两步已写入形成半应用态；本批以 patch_v85_ha3b.py（锚点加长）为权威，旧脚本整跑会 ABORT，已记录勿重试。",
+    "governable 三态是「未判定」口径而非新判据：curvature 在 tol 内时不下结论，避免旧码凭空判可治理；tol 取 1e-9*max(1,|f0|) 为工程约定，非文献阈值。",
+    "MCP 选项 A/B（改默认 / 改宣称）悬置，本批只落 C（披露），不改 mcp_adapter 行为。",
+    "HA-5 README 瘦身与 P1-7 第五类扫描未做（可选件未点单）。",
+    "回执 head 为被验收的上一提交，属 policy.receipt_head 设计口径；本批提交后补正一次。"
+  ],
+  "seal": "潮起开门，潮落闭嘴",
+  "signature": "桃花庵出品"
+}

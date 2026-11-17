@@ -280,9 +280,10 @@ class TestCanaries(unittest.TestCase):
         self.assertIsNone(S.match_hit(h[0], self.entries))
 
     def test_c2_entry_removed_leaves_hit_unregistered(self):
-        """C2：删白名单一条而代码仍在 → 该命中变未登记（红）。"""
-        hit = self._hit_at("holoaeon/packs/topology_resonance_pack.py", 692)
-        kept = [e for e in self.entries if e["id"] != "T04"]
+        """C2：删白名单一条而代码仍在 → 该命中变未登记（红）。行号从登记簿回读，不写死。"""
+        e = next(x for x in self.entries if x["id"] == "T04")
+        hit = self._hit_at("holoaeon/packs/topology_resonance_pack.py", e["line"])
+        kept = [x for x in self.entries if x["id"] != "T04"]
         self.assertIsNone(S.match_hit(hit, kept))
 
     def test_c3_tamper_byte_breaks_digest(self):
@@ -371,7 +372,7 @@ class TestCrossBatch(unittest.TestCase):
 class TestDocSync(unittest.TestCase):
     def test_i1_doc_version_is_0978(self):
         from holoaeon import spec
-        self.assertEqual(spec.DOC_VERSION, "0.9.78")
+        self.assertEqual(spec.DOC_VERSION, "0.9.79")
 
     def test_i2_allowlist_batch_is_v84(self):
         doc = json.load(io.open(
@@ -379,9 +380,12 @@ class TestDocSync(unittest.TestCase):
         self.assertEqual(doc["batch"], "V84")
         self.assertEqual(doc["schema"], "TAUTOLOGY-ALLOWLIST-v1")
 
-    def test_i3_spec_comment_mentions_v84(self):
+    def test_i3_spec_comment_mentions_batch(self):
+        """DOC_VERSION 行必须标注批号（V##）——批号不写死，防升号漏标。"""
         with io.open(os.path.join(ROOT, "holoaeon", "spec.py"), encoding="utf-8") as fh:
-            self.assertIn("V84", fh.read())
+            lines = [ln for ln in fh.read().splitlines() if ln.startswith("DOC_VERSION")]
+        self.assertTrue(lines, "spec.py 缺 DOC_VERSION 行")
+        self.assertRegex(lines[0], r"#\s*V\d{2}")
 
 
 if __name__ == "__main__":

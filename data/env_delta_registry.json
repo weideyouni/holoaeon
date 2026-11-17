@@ -1,6 +1,6 @@
 {
   "as_of": "2026-11-17",
-  "batch": "V87-A",
+  "batch": "V85",
   "caliber_note": "本注册簿登记「环境与环境之间的差异」，与 claims_registry 的 ledger_sources（账与账一致）不相交。云端值是执行端对账时登记的实测值，闸不联网不读 CI 日志。",
   "entries": [
     {
@@ -213,7 +213,7 @@
       "title": "解释器矩阵：本机 3.13.14 vs CI 3.8 / 3.10 / 3.12"
     },
     {
-      "caliber_note": "V87-A 本机回读：本机 2328/3/2325 对云端 2177/33/2144；ran −151 / executed −181 / skip +30，其中 D01 解释 −5、D15 解释 −103、D17 解释 −43。",
+      "caliber_note": "V85 本机回读：本机 2374/3/2371 对云端 2177/33/2144；ran −197 / executed −227 / skip +30，其中 D01 解释 −5、D15 解释 −103、D17 解释 −43、D18 解释 −46。",
       "cloud": {
         "evidence": "CI run 43643023044 · py3.12 job 132594550352 日志 Ran 2177 / skipped 33；py3.10 132594550278 / py3.8 132594550080 同值（三 job success）",
         "executed": 2144,
@@ -222,21 +222,22 @@
       },
       "dimension": "parity_main_suite",
       "gap": {
-        "executed_diff": -181,
-        "ran_diff": -151,
-        "skip_diff": 30,
+        "executed_diff": -227,
         "explained_by": [
           "D01",
           "D15",
-          "D17"
-        ]
+          "D17",
+          "D18"
+        ],
+        "ran_diff": -197,
+        "skip_diff": 30
       },
       "guards": [],
       "id": "D08",
       "local": {
-        "evidence": "本机 python -m unittest discover -s tests 实测（V87-A 后 2328 OK / skipped 3）；tests_contract 184 / 0",
-        "executed": 2325,
-        "ran": 2328,
+        "evidence": "本机 python -m unittest discover -s tests 实测（V85 后 2374 OK / skipped 3）；tests_contract 184 / 0",
+        "executed": 2371,
+        "ran": 2374,
         "skipped": 3
       },
       "measured_at": "2026-11-17",
@@ -440,62 +441,90 @@
       "title": "本批 V41-A 61 例 + V86 42 例尚未上云（待 CI 回读后关闭）"
     },
     {
-      "id": "D16",
       "batch": "V87-A",
+      "caliber_note": "本机不触发（文件在）；上云后预期 +1 skip，届时随 D08 云端回读同批登记，不得提前写进 skip 构成。",
+      "cloud": {
+        "evidence": "云端无 .user_skills 落点；skipTest 降级为 data/ctup_onboarding.json 记录格式校",
+        "value": "absent"
+      },
       "dimension": "cross_machine_ctup_asset",
-      "title": "CTUP 落点 SHA 校验跨机降级（本机校字节，云端只校记录）",
       "guards": [
         "tests/test_v87_molt_gene.py:207"
       ],
+      "id": "D16",
       "local": {
-        "value": "present",
-        "evidence": "SKILL.md / unity_check.py 在本机 .user_skills 存在，SHA256 实校（a86895c5… / bf171fad…）"
+        "evidence": "SKILL.md / unity_check.py 在本机 .user_skills 存在，SHA256 实校（a86895c5… / bf171fad…）",
+        "value": "present"
       },
-      "cloud": {
-        "value": "absent",
-        "evidence": "云端无 .user_skills 落点；skipTest 降级为 data/ctup_onboarding.json 记录格式校"
-      },
-      "skip_attributed": {
-        "local": 0,
-        "cloud": 0
-      },
+      "measured_at": "2026-11-17",
       "not_discovered": {
-        "local": 0,
-        "cloud": 0
+        "cloud": 0,
+        "local": 0
       },
       "risk_tier": "fast",
+      "skip_attributed": {
+        "cloud": 0,
+        "local": 0
+      },
       "status": "open_pending_cloud_sync",
       "suite": "main",
-      "measured_at": "2026-11-17",
-      "caliber_note": "本机不触发（文件在）；上云后预期 +1 skip，届时随 D08 云端回读同批登记，不得提前写进 skip 构成。"
+      "title": "CTUP 落点 SHA 校验跨机降级（本机校字节，云端只校记录）"
     },
     {
-      "id": "D17",
       "batch": "V87-A",
-      "dimension": "batch_not_yet_on_cloud",
-      "title": "V87-A 43 例（test_genome_dna +20 / test_v87_molt_gene +23）尚未上云",
-      "guards": [],
-      "local": {
-        "value": "present",
-        "evidence": "本机 2328 = V86 2285 + V87-A 43（Ran 2328 tests 实测）"
-      },
+      "caliber_note": "上云后关闭；关闭条件 = CI 日志 Ran ≥ 2328 且 skipped 与 D16 一致。",
       "cloud": {
-        "value": "pending",
-        "evidence": "本批尚未推送；云端口径仍为前批 2177"
+        "evidence": "本批尚未推送；云端口径仍为前批 2177",
+        "value": "pending"
       },
-      "skip_attributed": {
-        "local": 0,
-        "cloud": 0
+      "dimension": "batch_not_yet_on_cloud",
+      "guards": [],
+      "id": "D17",
+      "local": {
+        "evidence": "本机 2328 = V86 2285 + V87-A 43（Ran 2328 tests 实测）",
+        "value": "present"
       },
+      "measured_at": "2026-11-17",
       "not_discovered": {
-        "local": 0,
-        "cloud": 43
+        "cloud": 43,
+        "local": 0
       },
       "risk_tier": "fast",
+      "skip_attributed": {
+        "cloud": 0,
+        "local": 0
+      },
       "status": "open_pending_cloud_sync",
       "suite": "main",
+      "title": "V87-A 43 例（test_genome_dna +20 / test_v87_molt_gene +23）尚未上云"
+    },
+    {
+      "batch": "V85",
+      "caliber_note": "上云后关闭；关闭条件 = CI 日志 Ran ≥ 2374 且 skipped 与 D16 一致。",
+      "cloud": {
+        "evidence": "本批尚未推送；云端口径仍为前批 2177",
+        "value": "pending"
+      },
+      "dimension": "batch_not_yet_on_cloud",
+      "guards": [],
+      "id": "D18",
+      "local": {
+        "evidence": "本机 2374 = V87-A 2328 + V85 46（Ran 2374 tests 实测）",
+        "value": "present"
+      },
       "measured_at": "2026-11-17",
-      "caliber_note": "上云后关闭；关闭条件 = CI 日志 Ran ≥ 2328 且 skipped 与 D16 一致。"
+      "not_discovered": {
+        "cloud": 46,
+        "local": 0
+      },
+      "risk_tier": "fast",
+      "skip_attributed": {
+        "cloud": 0,
+        "local": 0
+      },
+      "status": "open_pending_cloud_sync",
+      "suite": "main",
+      "title": "V85 46 例（test_v85_governable_tristate 26 / test_v85_ci_step_names 20）尚未上云"
     }
   ],
   "measurement_protocol": {
@@ -514,5 +543,5 @@
     "simulation": "本机云端条件模拟（v80_cloud_sim2.py：patch os.path.isdir/exists 判 F 盘与客仓/交付包不存在）"
   },
   "schema": "ENV-DELTA-REGISTRY-v1",
-  "self_digest": "82251d26a2a12fcd"
+  "self_digest": "b69ad5a033fdb092"
 }

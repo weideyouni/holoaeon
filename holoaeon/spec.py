@@ -32,7 +32,7 @@ VERSION = "0.9.1"
 # VERSION / RUNTIME_ID 会写进每条回执并参与 ReproHash，改动即等于让 DIFF=0 黄金值
 # （2fc892cf9af6e755）漂移，与"V1 黄金值不许漂移"的硬口径冲突。
 # 因此 V2 的版本号单独记在 DOC_VERSION，供文档/快照/徽章使用。
-DOC_VERSION = "0.9.78"  # V84 恒真判据常驻金哨：新增 holoaeon/tautology_scan.py（A 口径静态检测 + 白名单登记账 + 扫描器自检）+ data/tautology_allowlist.json（8 处正当用途）+ v3_gate 第 34 面 A14；ci.yml 字节不变第 6 批
+DOC_VERSION = "0.9.79"  # V85 六件治理批：governable 三态（topology pack）+ ci.yml 步骤名回读式 + claims 第 12 面 + MCP 选项C披露 + .bak 卫生；VERSION/ID 全未动
 MATRIX_ID = "HOLOAEON-MATRIX-0.9.1"
 RUNTIME_ID = "HOLOAEON-RUNTIME-0.9.1"
 PROTOCOL_ID = "HOLOAEON-DATAPROTO v1.0"

@@ -50,3 +50,7 @@ credential_registry.json
 holoaeon_memory/
 *.bak_ctup_*
 
+
+# 备份残件（V85 / HA-2）：.bak 一律不入库，历史备份移到仓外 _holoaeon_devtools/backups/
+*.bak
+*.bak_*

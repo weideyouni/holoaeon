@@ -51,7 +51,7 @@ jobs:
           fi
           exit $rc
 
-      - name: Contract tests (tests_contract, 184 cases)
+      - name: Contract tests (tests_contract, case count readback)
         # P1-5：契约测试此前从未进 CI，导致「本机 168 OK、远端零验证」。
         run: |
           set +e
@@ -165,7 +165,7 @@ jobs:
           fi
           exit $rc
 
-      - name: v3 gate (33 faces incl. A13 CI contract)
+      - name: v3 gate (face count readback, incl. A13 CI contract)
         # V78b · P0-C：33 面 v3 域闸正式入 CI——此前只在本机跑，「本机 33/33、
         # 云端零验证」正是 186 连红里最贵的教训之一。A12 内嵌 SHA256SUMS 复算，
         # A13 校验 ci.yml ↔ 预检器双向契约（本闸入 CI 后该契约由云端自证）。

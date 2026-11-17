@@ -157,14 +157,15 @@ class G1Structural(unittest.TestCase):
         self.assertIn(cg.FACE_ENV_DELTA, cg.FACES)
 
     def test_03_face_is_last(self):
-        self.assertEqual(cg.FACES[-1], cg.FACE_ENV_DELTA)
+        # V85 起第 12 面 ci_step_names_readback 排在其后；位置不写死（末三段内）
+        self.assertIn(cg.FACE_ENV_DELTA, cg.FACES[-3:])
 
     def test_04_face_count_is_eleven(self):
-        self.assertEqual(len(cg.FACES), 11)
+        self.assertGreaterEqual(len(cg.FACES), 11)  # V85 起 12 面；下界口径
 
     def test_05_report_exposes_eleven_faces(self):
         rep = cg.report()
-        self.assertEqual(len(rep["faces"]), 11)
+        self.assertGreaterEqual(len(rep["faces"]), 11)  # 下界口径，面数不写死
         self.assertIn(cg.FACE_ENV_DELTA, rep["faces"])
 
     def test_06_report_has_env_delta_block(self):

@@ -56,7 +56,7 @@
       ],
       "file": "holoaeon/packs/topology_resonance_pack.py",
       "id": "T04",
-      "line": 692,
+      "line": 732,
       "liveness": "tests/test_v67_contract_and_arbitration.py::TestReorganizationArbitration::test_priority_switch_is_effective monkeypatch 该常量后断言 verdict 变 reorganize_stagnation —— 已有活性实证，非不可注入永真"
     },
     {
@@ -68,7 +68,7 @@
       "family": [],
       "file": "holoaeon/packs/topology_resonance_pack.py",
       "id": "T05",
-      "line": 699,
+      "line": 739,
       "liveness": "同 T04：同一 monkeypatch 测试覆盖两分支可切换（当前配置下此支为不活跃分支）"
     },
     {
@@ -111,5 +111,5 @@
     }
   ],
   "schema": "TAUTOLOGY-ALLOWLIST-v1",
-  "self_digest": "83331535fbbf75a7"
+  "self_digest": "9424d7751cf49b96"
 }

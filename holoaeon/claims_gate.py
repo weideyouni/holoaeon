@@ -106,7 +106,7 @@ FACES = ("claim_registered", "readback_consistent", "historical_timeboxed",
          "regulation_pinned", "pin_freshness", "determinism_self_digest",
          "chain_position_coverage", "registry_coverage",
          "regulation_semantic_consistency", "cross_ledger_consistency",
-         "env_delta_consistency")
+         "env_delta_consistency", "ci_step_names_readback")
 
 # 面 8 的扫描规则：只认这几类"会变的叙述位"，不扫普通文字。
 COVERAGE_PATTERNS = {
@@ -1300,6 +1300,63 @@ def check_registry_coverage(reg, ctx=None):
     return fails
 
 
+
+# ---------------------------------------------------------------------------
+# 面 12：CI 步骤名回读式（ci_step_names_readback，V85）
+# 病灶：`.github/workflows/ci.yml` 的步骤名里写死「33 faces」「184 cases」，
+#   而 v3 面数已到 34、契约用例数也在涨——步骤名是给人看的断言，写死即撒谎。
+# 判据（三条，机器可判）：
+#   HARDCODED_COUNT 任一 `- name:` 里出现「N faces / N cases / N 面 / N 例」→ 红
+#   STEP_MISSING    表里没有 v3 gate 步骤（步骤被删）→ 红
+#   NOT_READBACK    步骤名里没有任何「回读 / read back / readback」声明 → 红
+# 闸不扫 README、不联网：只判「步骤名这一处活体位不得写死数量」。
+# ---------------------------------------------------------------------------
+FACE_CI_STEPS = "ci_step_names_readback"
+CI_WORKFLOW_REL = os.path.join(".github", "workflows", "ci.yml")
+CI_STEP_COUNT_HARDCODED = re.compile(
+    r"(\d+)\s*(?:faces?|cases?|\u9762|\u4f8b)", re.IGNORECASE)
+CI_STEP_MUST_HAVE = "v3 gate"
+
+
+def read_ci_step_names(workflow=None):
+    """读 ci.yml 的 `- name:` 列表，返回 [(行号, 文本)]。文件缺失返回 None。"""
+    p = workflow or os.path.join(repo_root(), CI_WORKFLOW_REL)
+    if not os.path.isfile(p):
+        return None
+    out = []
+    with open(p, "r", encoding="utf-8") as fh:
+        for i, ln in enumerate(fh, 1):
+            st = ln.strip()
+            if st.startswith("- name:"):
+                v = st[len("- name:"):].strip()
+                out.append((i, v.strip('"').strip("'")))
+    return out
+
+
+def ci_step_names_readback(ctx=None):
+    """面 12：步骤名不得写死面数/用例数；v3 gate 步骤必须在；须有回读式声明。"""
+    c = ctx or _ctx()
+    names = read_ci_step_names(c.get("ci_workflow") if isinstance(c, dict) else None)
+    if names is None:
+        return [{"face": FACE_CI_STEPS, "id": "ci_workflow",
+                 "detail": "INCOMPLETE ci.yml 不可读"}]
+    fails = []
+    for ln, name in names:
+        m = CI_STEP_COUNT_HARDCODED.search(name)
+        if m:
+            fails.append({"face": FACE_CI_STEPS, "id": "step_%d" % ln,
+                          "detail": "HARDCODED_COUNT 步骤名写死数量 %r @L%d"
+                                    % (m.group(0), ln)})
+    if not any(name.startswith(CI_STEP_MUST_HAVE) for _, name in names):
+        fails.append({"face": FACE_CI_STEPS, "id": "v3_gate_step",
+                      "detail": "STEP_MISSING 缺少 %r 步骤" % (CI_STEP_MUST_HAVE,)})
+    blob = "\n".join(n for _, n in names).lower()
+    if not (("回读" in blob) or ("readback" in blob) or ("read back" in blob)):
+        fails.append({"face": FACE_CI_STEPS, "id": "readback_decl",
+                      "detail": "NOT_READBACK 步骤名无任何回读式声明"})
+    return fails
+
+
 # ---------------------------------------------------------------------------
 # 聚合
 # ---------------------------------------------------------------------------
@@ -1730,6 +1787,10 @@ def verify(reg=None, ctx=None, today=None):
     for item in ed["fails"]:
         faces[FACE_ENV_DELTA]["ok"] = False
         faces[FACE_ENV_DELTA]["fails"].append(item)
+    cis = ci_step_names_readback(c)
+    for item in cis:
+        faces[FACE_CI_STEPS]["ok"] = False
+        faces[FACE_CI_STEPS]["fails"].append(item)
 
     fails_total = sum(len(v["fails"]) for v in faces.values())
     body = {
@@ -1752,6 +1813,12 @@ def verify(reg=None, ctx=None, today=None):
             "claim_site_drift": sem["claim_site_drift"],
             "runtime_unregistered": sem["runtime_unregistered"],
             "freshness_violations": sem["freshness_violations"],
+        },
+        "ci_steps": {
+            "face": FACE_CI_STEPS,
+            "steps": len(read_ci_step_names(c.get("ci_workflow")) or []),
+            "hardcoded": len([x for x in cis
+                              if x["detail"].startswith("HARDCODED_COUNT")]),
         },
         "cross_ledger": {
             "face": FACE_CROSS_LEDGER,

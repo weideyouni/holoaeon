@@ -42,6 +42,46 @@ from ..resonance_supplement import (  # noqa: E402
 MATRIX_ROWS = 1331
 MATRIX_COLS = 1331
 LOGICAL_POSITIONS = MATRIX_ROWS * MATRIX_COLS  # 1,771,561
+
+# ---------------------------------------------------------- V85 · 同型第三处治理（governable 三态）
+# 病灶：法步的价值函数固定为线性权重和，二阶差分理论恰为 0；原判据
+#   `convexity = "convex" if curvature > 0 else ("concave" if curvature < 0 else "flat")`
+# 用浮点判符号、零容差，±1e-17 残差就会把平域判成凸或凹：
+#   · 残差为正 → governable=True（凭空判「可治理」）
+#   · 残差为负 → governable=False（平域被冒充成「不可治理」）
+# 修法与 V82 在 quartet_director_pack 的处置一一对齐：相对容差 + 三分支 +
+# governable_note + curvature_tol 字段，平域返回 None（未判定不冒充布尔）。
+CURVATURE_TOL_SCALE = 1e-9
+
+
+def _curvature_tol(f0: float) -> float:
+    """曲率判定容差（相对量级）：tol = 1e-9 · max(1.0, |f0|)。
+
+    按 |f0| 归一，因为有限差分 (f2 - 2f1 + f0)/denom 的浮点残差随状态量级漂移；
+    |f0| 很小时以 1.0 兜底，避免 tol 退化成 0 让残差重新判成凸/凹。
+    """
+    return CURVATURE_TOL_SCALE * max(1.0, abs(float(f0)))
+
+
+def _classify_curvature(curvature: float, f0: float) -> dict:
+    """曲率 → 三态（convex / concave / flat），返回 convexity / governable / 说明。
+
+    `governable` 三态（V85 起）：True=凸域可治理；False=凹域不可治理；
+    **None=平域/线性域「未判定」**——既不是「50% 可治理」，也不许当数值用。
+    与 V67 `stagnation_side=None`、V82 quartet 侧同一纪律：未知必须显式是未知。
+    """
+    c = float(curvature)
+    tol = _curvature_tol(f0)
+    if c > tol:
+        return {"convexity": "convex", "governable": True, "curvature_tol": tol,
+                "governable_note": "曲率显著为正 → 凸域 → 可治理（「唯一最优」有语义）"}
+    if c < -tol:
+        return {"convexity": "concave", "governable": False, "curvature_tol": tol,
+                "governable_note": "曲率显著为负 → 凹域 → 不可治理（无唯一最优）"}
+    return {"convexity": "flat", "governable": None, "curvature_tol": tol,
+            "governable_note": "曲率落在容差带内 → 线性/平域 → 可治理性未判定"
+                               "（None，不冒充 False，也不冒充 True）"}
+
 # 108641：实际活跃节点（稀疏实例化率 ≈ 6.13%）
 # V66：不再是裸魔数——108641 = 13 × 61 × 137（13×61=793，793×137=108641），
 #      占 1,771,561 的 6.1325%，且 1,771,561 = 1331×81 + 830。
@@ -845,7 +885,7 @@ def fa_gradient_analysis(current: str = "", perturbation: str = "",
     denom = sum(p * p for p in pert) if any(pert) else 1.0
     curvature = (f_pert2 - 2 * f_pert + f_current) / denom
     taylor_2 = taylor_1 + 0.5 * curvature * denom
-    convexity = "convex" if curvature > 0 else ("concave" if curvature < 0 else "flat")
+    tri = _classify_curvature(curvature, f_current)
     return {
         "step": "法", "lens": "四人共评",
         "current_state": [round(x, 4) for x in state],
@@ -855,8 +895,10 @@ def fa_gradient_analysis(current: str = "", perturbation: str = "",
         "taylor_first": round(taylor_1, 6),
         "taylor_second": round(taylor_2, 6),
         "curvature": round(curvature, 6),
-        "convexity": convexity,
-        "governable": convexity == "convex",
+        "convexity": tri["convexity"],
+        "governable": tri["governable"],
+        "curvature_tol": tri["curvature_tol"],
+        "governable_note": tri["governable_note"],
         "note": "法步：梯度=价值导向，泰勒=有限理性预测，凸性=可治理性",
     }
 
@@ -1098,7 +1140,9 @@ def emergence_chain(input_concept: str = "", **_: Any) -> dict:
                        "dim": dao["dimension"], "constraints": dao["constraint_count"]},
             "法_fa": {"lens": "四人共评",
                       "gradient_dir": fa["gradient_direction"],
-                      "convexity": fa["convexity"], "governable": fa["governable"]},
+                      "convexity": fa["convexity"], "governable": fa["governable"],
+                      "governable_note": fa["governable_note"],
+                      "curvature_tol": fa["curvature_tol"]},
             "术_shu": {"lens": "P3", "active": shu["active_constraints"],
                        "kkt_ok": shu["kkt_complementary_slackness"],
                        "penalty": shu["total_penalty"]},

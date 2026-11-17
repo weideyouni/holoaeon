@@ -107,7 +107,7 @@ STEPS = [
 
     {"id": "v3_gate", "ci_name": "v3 gate", "kind": "run",
      "cmd": ["scripts/v3_gate.py"],
-     "desc": "33 面 v3 域闸（A12 内嵌复算；A13 校验本闸与 ci.yml 的契约）"},
+     "desc": "v3 域闸（面数由 v3_gate 自报，不写死；A12 内嵌复算；A13 校验本闸与 ci.yml 的契约）"},
 
     {"id": "examples", "ci_name": "Examples 01-04", "kind": "multi",
      "cmd": ["examples/01_basic_matrix.py", "examples/02_semantic_routing.py",

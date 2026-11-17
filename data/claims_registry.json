@@ -380,8 +380,8 @@
       "non_evidence": [
         "runtime_snapshot"
       ],
-      "observed": "0.9.78",
-      "observed_at": "2026-11-16"
+      "observed": "0.9.79",
+      "observed_at": "2026-11-17"
     },
     "five_site_head": {
       "authority": "git_ls_remote_origin_main",
@@ -402,12 +402,12 @@
     },
     "main_suite": {
       "authority": "unittest_discover_measured",
-      "caliber_note": "V87-A 主套实测 2328（V86 2285 + test_v87_molt_gene 23 / test_genome_dna +20）",
+      "caliber_note": "V85 主套实测 2374（V87-A 2328 + test_v85_governable_tristate 26 / test_v85_ci_step_names 20）",
       "non_evidence": [
         "runtime_snapshot",
         "timeboxed_historical"
       ],
-      "observed": 2328,
+      "observed": 2374,
       "observed_at": "2026-11-17"
     },
     "redline": {
@@ -439,7 +439,7 @@
       "effective_from": "2026-07-28",
       "id": "MCP",
       "max_age_days": 90,
-      "note": "legacy 2024-11-05 按官方 MAY 路径保留；代码已双版本，文档此前停在 2024-11-05",
+      "note": "MCP PROTOCOL_VERSION 口径：V85 裁决取**选项 C（披露）**——代码保留双版本（运行时默认 PROTOCOL_VERSION=2024-11-05 legacy，2026-07-28 第 5 版可显式启用），本批**不改默认值**（选项 A）、**不改对外宣称**（选项 B），只在注册簿逐字披露「运行时默认仍是 legacy 2024-11-05、current 版本为 2026-07-28（第 5 版）」；A/B 切换留待碳基单点裁决，代码零改动。",
       "risk_tier": "fast",
       "runtime_pointer": "holoaeon/mcp_adapter.py#PROTOCOL_VERSION",
       "runtime_role": "legacy",
@@ -524,13 +524,13 @@
       "effective_from": "2025",
       "id": "PHC-2025",
       "max_age_days": 180,
-      "note": "只存文号指针，不复制规范全文（V86 README 双份验收行更新后按实测重算 sha16）",
+      "note": "只存文号指针，不复制规范全文（V85 README 双份验收行+复算闸条数更新后按实测重算 sha16）",
       "risk_tier": "annual",
       "runtime_pointer": "holoaeon/phc_chronic_engine.py#L4-L5",
       "runtime_role": "current",
       "runtime_value": "2025",
       "source_pointer": "README.zh-CN.md#公卫口径段（V41 小节）",
-      "source_sha16": "e933cf5b8f9000bf",
+      "source_sha16": "4f7966d989e25f06",
       "status": "current",
       "verified_at": "2026-11-17",
       "version": "2025",
@@ -640,7 +640,7 @@
     }
   ],
   "schema": "CLAIMS-GATE-v1",
-  "self_digest": "ed7bfd9f08249809",
+  "self_digest": "88a1bd0277b8ba02",
   "totals": {
     "doc_claims": 17,
     "historical": 3,

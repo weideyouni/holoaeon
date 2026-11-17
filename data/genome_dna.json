@@ -1,43 +1,51 @@
 {
-  "schema": "HOLOAEON-GENOME-DNA-v1.0",
-  "seal": "潮起开门，潮落闭嘴",
-  "date": "2026-11-17",
-  "batch": "V87-A-MOLT-GENE-CTUP",
-  "carbon_authorization": "2026-11-17 06:52 碳基最大权限：成长必然伴随蜕皮，削平阻碍，回归第一性原理；分化与成长最重要",
-  "genesis": {
-    "base_head_measured": "c65d521",
-    "base_head_note": "2026-11-17 V86 提交后现场 git rev-parse 回读：c65d521（批前 5d2bb37）；禁写死",
-    "spec_sha256_measured": "a45c5e77275b8ed101b9202eca7fbd9ba9abb64a7d092856ffd15dbdd2c663cb",
-    "spec_sha256_note": "V86 落地前后必须 byte-identical；spec.py VERSION/RUNTIME_ID 参与 ReproHash 黄金值 2fc892cf9af6e755，零改动",
-    "frozen": [
-      "VERSION=0.9.1",
-      "layers=L1-L8",
-      "PACK_ORDER=9",
-      "EXTRA_PACK_ORDER=19"
+  "asset_census": {
+    "dirs": 418,
+    "exclusion_rule": [
+      "*.tmp*",
+      "snapshot*",
+      "_历史*",
+      "*restore*",
+      "*archive*",
+      "vector-sea",
+      "skills_harvest",
+      "_doubao_replica*",
+      "__pycache__"
     ],
-    "doc_version_before": "0.9.78",
-    "doc_version_after": "0.9.78（本批零改动 spec.py；顺延须另开提交，并同批回填 spec_sha256_measured 与 test_spec_sha256_matches_dna_master 断言）",
-    "landed_head": "c65d521"
+    "file_ext_top": {
+      "json": 7,
+      "md": 55,
+      "png": 10,
+      "py": 18,
+      "svg": 6,
+      "txt": 11,
+      "zip": 69
+    },
+    "files": 198,
+    "first_batch_scope": "201 个净候选全量登记 + 3 个试点装配；其余按批滚动，登记不等于装配",
+    "measured_at": "2026-11-17 06:50",
+    "method": "os.scandir 顶层一次，不递归、不抽样推断",
+    "product_like_dirs": 201,
+    "root": "F:/doubaowork",
+    "top_items": 616,
+    "top_zips": 69,
+    "v3_family": 149
   },
   "axioms": [
     {
-      "id": "G-DNA-01",
-      "name": "生长不是分裂",
-      "formal": "growth <=> dEdges>0 & dCopies==0 & link_back>=1 & family_shared & seal_shared; split <=> dCopies>0 | (dEdges==0 & link_back==0)",
-      "first_principle": "生长增加回连边，分裂增加母体副本。NEIKE 独立建仓 dEdges=3 / dCopies=0，故为生长。",
       "falsifiers": [
         "dCopies>0",
         "link_back==0",
         "seal_mismatch",
         "family_mismatch",
         "dEdges==0"
-      ]
+      ],
+      "first_principle": "生长增加回连边，分裂增加母体副本。NEIKE 独立建仓 dEdges=3 / dCopies=0，故为生长。",
+      "formal": "growth <=> dEdges>0 & dCopies==0 & link_back>=1 & family_shared & seal_shared; split <=> dCopies>0 | (dEdges==0 & link_back==0)",
+      "id": "G-DNA-01",
+      "name": "生长不是分裂"
     },
     {
-      "id": "G-DNA-02",
-      "name": "分化不是分裂",
-      "formal": "differentiation <=> genome_similarity>=theta & triple_homology_diff0 & function_specialized & theta is not None",
-      "first_principle": "分化是表型千姿百态 + 基因型一字不改。F 盘 149 个 V3 族表型各异（丁甘仁/傣族医药/佩文韵府/世界考古），基因型同源。",
       "falsifiers": [
         "theta_is_None",
         "similarity_below_theta",
@@ -47,19 +55,14 @@
         "not_specialized",
         "genome_similarity_hardcoded"
       ],
+      "first_principle": "分化是表型千姿百态 + 基因型一字不改。F 盘 149 个 V3 族表型各异（丁甘仁/傣族医药/佩文韵府/世界考古），基因型同源。",
+      "formal": "differentiation <=> genome_similarity>=theta & triple_homology_diff0 & function_specialized & theta is not None",
+      "id": "G-DNA-02",
+      "name": "分化不是分裂",
       "theta": null,
       "theta_note": "由执行端实测标定写入回执；禁写死 1.0，禁宣称 100% 同源"
     },
     {
-      "id": "G-DNA-03",
-      "name": "系统鲁棒性的真正含义",
-      "formal": "robust <=> skip_registered & output_diff0 & genome_hash_diff0 & cells==fragments*25 & triple_homology & (extension=>spec_byte_identical | governance=>spec_sha_backfilled & test_assertion_backfilled)",
-      "first_principle": "鲁棒不是不坏、不是堆副本、不是任何输入都扛得住；是倒哪一块、怎么倒、倒了还剩什么都能算出来且基因不变形。全量复制堆冗余增加口径漂移面，是更脆弱。",
-      "subcriteria": {
-        "R1": "局部失效 -> try-import + skip 入 env_delta，其余输出 DIFF=0；吞掉失效必红",
-        "R2": "扩展挤压 -> spec.py byte-identical、genome_hash DIFF=0、cells==fragments*25；治理蜕皮 -> 允许 spec 变，但 must 同批回填母本哈希+测试断言且 genome_hash 不变",
-        "R3": "同源守恒 -> 25 机制轴 / 心跳 70·768·17 / SEAL 三同源逐字一致"
-      },
       "falsifiers": [
         "skip_swallowed",
         "output_drift",
@@ -69,23 +72,87 @@
         "homology_drift",
         "bad_change_class",
         "gov_without_backfill"
-      ]
+      ],
+      "first_principle": "鲁棒不是不坏、不是堆副本、不是任何输入都扛得住；是倒哪一块、怎么倒、倒了还剩什么都能算出来且基因不变形。全量复制堆冗余增加口径漂移面，是更脆弱。",
+      "formal": "robust <=> skip_registered & output_diff0 & genome_hash_diff0 & cells==fragments*25 & triple_homology & (extension=>spec_byte_identical | governance=>spec_sha_backfilled & test_assertion_backfilled)",
+      "id": "G-DNA-03",
+      "name": "系统鲁棒性的真正含义",
+      "subcriteria": {
+        "R1": "局部失效 -> try-import + skip 入 env_delta，其余输出 DIFF=0；吞掉失效必红",
+        "R2": "扩展挤压 -> spec.py byte-identical、genome_hash DIFF=0、cells==fragments*25；治理蜕皮 -> 允许 spec 变，但 must 同批回填母本哈希+测试断言且 genome_hash 不变",
+        "R3": "同源守恒 -> 25 机制轴 / 心跳 70·768·17 / SEAL 三同源逐字一致"
+      }
     },
     {
-      "id": "G-DNA-04",
-      "name": "跨线程统一不是割裂",
-      "formal": "unity <=> coordinate_ok & state_ok & credential_ok & readback_ok",
-      "first_principle": "工程生产力的真正阻碍不是能力不足，是割裂：换线程即丢坐标/状态/凭证/回读。四节点齐才联通；任一断线必红且能定位到节点。",
       "falsifiers": [
         "coordinate_head_missing",
         "state_receipt_missing",
         "credential_plaintext",
         "readback_no_numeric",
         "stage_illegal"
-      ]
+      ],
+      "first_principle": "工程生产力的真正阻碍不是能力不足，是割裂：换线程即丢坐标/状态/凭证/回读。四节点齐才联通；任一断线必红且能定位到节点。",
+      "formal": "unity <=> coordinate_ok & state_ok & credential_ok & readback_ok",
+      "id": "G-DNA-04",
+      "name": "跨线程统一不是割裂"
     }
   ],
+  "batch": "V87-A-MOLT-GENE-CTUP",
+  "boundaries": [
+    "theta 禁 1.0、禁宣称 100% 同源",
+    "201 全量登记 ≠ 201 全量装配",
+    "HEURISTIC_ONLY 值不得写入 claims_registry 或 README 作实测",
+    "医学红线：零诊断/零处方/零剂量/E13·E14·M14/碳基执业医师终裁",
+    "协作红线：四人组策划 · 执行端落地 · 碳基终裁；本批 DNA 直动仓系碳基 06:52 明令授权"
+  ],
+  "carbon_authorization": "2026-11-17 06:52 碳基最大权限：成长必然伴随蜕皮，削平阻碍，回归第一性原理；分化与成长最重要",
+  "date": "2026-11-17",
+  "dna_version": "1.1.0",
+  "expansion_convergence": {
+    "conservation": "expand_count - converge_count == registered_plugins AND genome_hash(before)==genome_hash(after)",
+    "converge": [
+      "klein_projection.PROMOTE_GATES/CONVERGE_EPS=0.0",
+      "forge_gate",
+      "dehallucination",
+      "org_gate"
+    ],
+    "expand": [
+      "mobius_vortex.ATLAS_ENTRIES",
+      "magic_lamp.KnownSkillIndex/SkillAssembler",
+      "holo_forge.CHAIN",
+      "swarm_intel.EntityGraph"
+    ],
+    "meaning": "挤而不变形：漩涡/神灯/熔炉挤压每一寸肌肤与经络，DNA 只登记位点不吸收实现"
+  },
+  "genesis": {
+    "base_head_measured": "c65d521",
+    "base_head_note": "2026-11-17 V86 提交后现场 git rev-parse 回读：c65d521（批前 5d2bb37）；禁写死",
+    "doc_version_after": "0.9.79（V85 治理批落地；母本 SHA 与 test_spec_sha256_matches_dna_master 同批回填）",
+    "doc_version_before": "0.9.78",
+    "frozen": [
+      "VERSION=0.9.1",
+      "layers=L1-L8",
+      "PACK_ORDER=9",
+      "EXTRA_PACK_ORDER=19"
+    ],
+    "landed_head": "c65d521",
+    "spec_sha256_measured": "9893958803b28286f55ad499e662cfca87f1f88492e475862e541d04a78441b4",
+    "spec_sha256_note": "V85 治理批（change_class=governance）现场重算：spec.py 仅改 DOC_VERSION 一行注释与号值，VERSION/RUNTIME_ID/MATRIX_ID 未动（ReproHash 黄金值 2fc892cf9af6e755 不受影响）；母本与本断言同批回填，禁写死旧值。"
+  },
+  "genome_revision": {
+    "after": "84876958e3936c50bf5ce058f716a5a3a1bb9194b7a22f15185cb401fce16707",
+    "at": "2026-11-17",
+    "batch": "V87-A",
+    "before": "0a69e93d46bee46dbbadf8081617d2cdbf1c7730dde785a89e66df5c16af234f",
+    "reason": "基因修订：G-DNA-03 formal 增 change_class 分治条款 + falsifiers 补 bad_change_class/gov_without_backfill；新增 G-DNA-04 unity；LOCI 增 unity_nodes。改 AXIOMS/LOCI 必改 genome_hash，旧->新登记在案。",
+    "v85_requirement": "V85 治理批前后 genome_hash 必须仍为 after 值（脱表型不脱基因）"
+  },
   "homology": {
+    "heartbeat": {
+      "bodies": 70,
+      "channels": 17,
+      "dim": 768
+    },
     "mechanism_axis": [
       "A1",
       "A2",
@@ -114,21 +181,38 @@
       "R8"
     ],
     "mechanism_axis_source": "holoaeon/meridian_link.py::KERNEL_MECHANISMS（语义抄录，零 import）",
-    "heartbeat": {
-      "bodies": 70,
-      "dim": 768,
-      "channels": 17
-    },
-    "seal": "潮起开门，潮落闭嘴",
     "protocol_family": [
       "HOLOAEON",
       "SSYD"
-    ]
+    ],
+    "seal": "潮起开门，潮落闭嘴"
   },
+  "invariants": [
+    "spec.py SHA256 前后一致（byte-identical）",
+    "genome_hash = sha256(canonical(axioms+homology+loci)) 前后 DIFF=0",
+    "cells == len(fragments) * 25 且 missing=[] extra=[]",
+    "插件源码零字节进基座（指针纪律）",
+    "零网络 / 零第三方 / neural=false / claim=0",
+    "unity 四节点（坐标/状态/凭证/回读）齐才联通；任一断线必红且可定位"
+  ],
   "loci": {
-    "skin": [
-      "guard.py",
-      "guard_layers/"
+    "bureaus": {
+      "manufacture": "longaeon/bureau/manufacture_bureau.py (LA 仓指针)",
+      "planning": "longaeon/bureau/planning_bureau.py (LA 仓指针)",
+      "salvage": "longaeon/bureau/salvage_bureau.py (LA 仓指针)",
+      "workflow_state": "longaeon/bureau/workflow_state.py（7 状态 / 8 合法转移 / 非法必红 / 滞留熔断，零改动）"
+    },
+    "converge": [
+      "klein_projection.py",
+      "forge_gate.py",
+      "dehallucination.py",
+      "org_gate.py"
+    ],
+    "expand": [
+      "mobius_vortex.py",
+      "magic_lamp.py",
+      "holo_forge.py",
+      "swarm_intel.py"
     ],
     "meridian": [
       "bus.py",
@@ -141,32 +225,39 @@
       "memory.py",
       "graph.py"
     ],
-    "expand": [
-      "mobius_vortex.py",
-      "magic_lamp.py",
-      "holo_forge.py",
-      "swarm_intel.py"
+    "skin": [
+      "guard.py",
+      "guard_layers/"
     ],
-    "converge": [
-      "klein_projection.py",
-      "forge_gate.py",
-      "dehallucination.py",
-      "org_gate.py"
-    ],
-    "bureaus": {
-      "salvage": "longaeon/bureau/salvage_bureau.py (LA 仓指针)",
-      "planning": "longaeon/bureau/planning_bureau.py (LA 仓指针)",
-      "manufacture": "longaeon/bureau/manufacture_bureau.py (LA 仓指针)",
-      "workflow_state": "longaeon/bureau/workflow_state.py（7 状态 / 8 合法转移 / 非法必红 / 滞留熔断，零改动）"
-    },
     "unity_nodes": {
       "coordinate": "reports/remote_sync_*.json + ANCHOR_*.md（仓/分支/HEAD/五地）",
-      "state": "reports/*_receipt.json + version_history / engineering_process（stage 判幂等）",
       "credential": "holoaeon_memory/credential_registry.json（只存指针+状态+掩码+指纹）",
-      "readback": "ls-remote / check_sums / manifest digest（每句已完成带可比对数值）"
+      "readback": "ls-remote / check_sums / manifest digest（每句已完成带可比对数值）",
+      "state": "reports/*_receipt.json + version_history / engineering_process（stage 判幂等）"
     }
   },
+  "meridian_extension": {
+    "current_cells": 250,
+    "current_fragments": 10,
+    "dynamic_rule": "cells == len(fragments) * len(KERNEL_MECHANISMS)",
+    "first_principle": "250 是 10 碎片时的实例值，不是公理值；公理是 fragments × 25。把实例值当公理就是旧皮。",
+    "green_sequence": [
+      250,
+      275,
+      325
+    ],
+    "green_sequence_note": "10 碎片 250 绿 -> append 1 插件 275 绿 -> append 3 插件 325 绿；缺格/多格必红",
+    "hardcoded_to_replace": [
+      "meridian_link.py:369 load_fragments() 的 len(rows)!=10 硬守卫 -> 改为下界守卫 + 合并 registered_fragments()",
+      "meridian_link.py:418 build_meridian_table docstring 静态 250 文案",
+      "meridian_link.py:523 check_linkage() 的 len(table)!=250 -> expected=len(fragments)*len(KERNEL_MECHANISMS)",
+      "meridian_link.py:577 meridian_summary() 的 \"fragments\": 10 -> len(fragments)",
+      "meridian_link.py:607 build_ledger() 的 \"fragments\": 10 -> len(fragments)",
+      "meridian_link.py:665 main() 的 \"linkage 穷举 250 格\" 文案 -> 动态"
+    ]
+  },
   "plugin_contract": {
+    "dual_state_required": true,
     "faces": [
       "physical",
       "protocol",
@@ -177,113 +268,25 @@
       "genome",
       "meridian"
     ],
-    "dual_state_required": true,
-    "standalone_ok": "脱离基座 selftest rc0 + dependencies=[] + 自带 SHA 清单",
     "genomic_ok": "进 genome_dna_registry + 三同源 DIFF=0 + 经络 25 格齐 + spec.py 零改动",
+    "standalone_ok": "脱离基座 selftest rc0 + dependencies=[] + 自带 SHA 清单",
     "verdict": "只独立不回连=分裂（孤儿插件）；只回连不独立=寄生（不可插拔）；双态同时为真才 pass"
   },
-  "meridian_extension": {
-    "current_fragments": 10,
-    "current_cells": 250,
-    "dynamic_rule": "cells == len(fragments) * len(KERNEL_MECHANISMS)",
-    "first_principle": "250 是 10 碎片时的实例值，不是公理值；公理是 fragments × 25。把实例值当公理就是旧皮。",
-    "hardcoded_to_replace": [
-      "meridian_link.py:369 load_fragments() 的 len(rows)!=10 硬守卫 -> 改为下界守卫 + 合并 registered_fragments()",
-      "meridian_link.py:418 build_meridian_table docstring 静态 250 文案",
-      "meridian_link.py:523 check_linkage() 的 len(table)!=250 -> expected=len(fragments)*len(KERNEL_MECHANISMS)",
-      "meridian_link.py:577 meridian_summary() 的 \"fragments\": 10 -> len(fragments)",
-      "meridian_link.py:607 build_ledger() 的 \"fragments\": 10 -> len(fragments)",
-      "meridian_link.py:665 main() 的 \"linkage 穷举 250 格\" 文案 -> 动态"
-    ],
-    "green_sequence": [
-      250,
-      275,
-      325
-    ],
-    "green_sequence_note": "10 碎片 250 绿 -> append 1 插件 275 绿 -> append 3 插件 325 绿；缺格/多格必红"
+  "policy": {
+    "credential": "只存指针 + 探测状态 + 掩码 + sha256[:16]；零明文；五地快照显式排除（.gitignore + credential_exclusion_check.py）",
+    "feed_delta": "实测为准；历史包 append-only 不回填；每批登记 delta + 回读命令",
+    "receipt_head": {
+      "forbidden": [
+        "把「头不同」误报为漏回填",
+        "把回执 head 写死冒充实时头"
+      ],
+      "live_head": "实时 HEAD 与回执 head 允许不同，但必须同时登记 live_head 与 delta_reason",
+      "rule": "回执 head = 被验收的代码头；回执自身提交与后续 remote_sync 刷新不计入 S4/S5 基线快照",
+      "status": "accepted_as_designed（V86 执行端口径，四人组 V87 采信）"
+    }
   },
-  "asset_census": {
-    "root": "F:/doubaowork",
-    "measured_at": "2026-11-17 06:50",
-    "method": "os.scandir 顶层一次，不递归、不抽样推断",
-    "top_items": 616,
-    "dirs": 418,
-    "files": 198,
-    "product_like_dirs": 201,
-    "v3_family": 149,
-    "top_zips": 69,
-    "file_ext_top": {
-      "zip": 69,
-      "md": 55,
-      "py": 18,
-      "txt": 11,
-      "png": 10,
-      "json": 7,
-      "svg": 6
-    },
-    "first_batch_scope": "201 个净候选全量登记 + 3 个试点装配；其余按批滚动，登记不等于装配",
-    "exclusion_rule": [
-      "*.tmp*",
-      "snapshot*",
-      "_历史*",
-      "*restore*",
-      "*archive*",
-      "vector-sea",
-      "skills_harvest",
-      "_doubao_replica*",
-      "__pycache__"
-    ]
-  },
-  "expansion_convergence": {
-    "expand": [
-      "mobius_vortex.ATLAS_ENTRIES",
-      "magic_lamp.KnownSkillIndex/SkillAssembler",
-      "holo_forge.CHAIN",
-      "swarm_intel.EntityGraph"
-    ],
-    "converge": [
-      "klein_projection.PROMOTE_GATES/CONVERGE_EPS=0.0",
-      "forge_gate",
-      "dehallucination",
-      "org_gate"
-    ],
-    "conservation": "expand_count - converge_count == registered_plugins AND genome_hash(before)==genome_hash(after)",
-    "meaning": "挤而不变形：漩涡/神灯/熔炉挤压每一寸肌肤与经络，DNA 只登记位点不吸收实现"
-  },
-  "invariants": [
-    "spec.py SHA256 前后一致（byte-identical）",
-    "genome_hash = sha256(canonical(axioms+homology+loci)) 前后 DIFF=0",
-    "cells == len(fragments) * 25 且 missing=[] extra=[]",
-    "插件源码零字节进基座（指针纪律）",
-    "零网络 / 零第三方 / neural=false / claim=0",
-    "unity 四节点（坐标/状态/凭证/回读）齐才联通；任一断线必红且可定位"
-  ],
-  "verification_measured": {
-    "at": "2026-11-17 06:55",
-    "landed_files": [
-      "holoaeon/holoaeon/genome_dna.py",
-      "holoaeon/data/genome_dna.json",
-      "holoaeon/data/genome_dna_registry.json",
-      "holoaeon/scripts/genome_dna_gate.py",
-      "holoaeon/tests/test_genome_dna.py"
-    ],
-    "meridian_link_edits": 6,
-    "genome_hash": "0a69e93d46bee46dbbadf8081617d2cdbf1c7730dde785a89e66df5c16af234f",
-    "axioms": 3,
-    "falsifiers": 18,
-    "eternal_true_guards": 4,
-    "unittest_new": "41/41 OK",
-    "genome_dna_gate": "7/7 pass",
-    "meridian_check": "3 PASS / 250 格三态零回退",
-    "regression_three_suites": "161 OK",
-    "check_sums": "ok=true / total=341 / mismatches=[]",
-    "green_sequence_verified": [
-      250,
-      275,
-      325
-    ],
-    "note": "新增 5 件尚未纳入 SHA256SUMS（现 341 条），由执行端按批次重建流程纳入，禁手工乱改"
-  },
+  "schema": "HOLOAEON-GENOME-DNA-v1.0",
+  "seal": "潮起开门，潮落闭嘴",
   "status_labels": [
     "baseline-locked",
     "transient",
@@ -291,33 +294,30 @@
     "suspended_carbon",
     "not adopted"
   ],
-  "boundaries": [
-    "theta 禁 1.0、禁宣称 100% 同源",
-    "201 全量登记 ≠ 201 全量装配",
-    "HEURISTIC_ONLY 值不得写入 claims_registry 或 README 作实测",
-    "医学红线：零诊断/零处方/零剂量/E13·E14·M14/碳基执业医师终裁",
-    "协作红线：四人组策划 · 执行端落地 · 碳基终裁；本批 DNA 直动仓系碳基 06:52 明令授权"
-  ],
-  "policy": {
-    "receipt_head": {
-      "rule": "回执 head = 被验收的代码头；回执自身提交与后续 remote_sync 刷新不计入 S4/S5 基线快照",
-      "live_head": "实时 HEAD 与回执 head 允许不同，但必须同时登记 live_head 与 delta_reason",
-      "forbidden": [
-        "把「头不同」误报为漏回填",
-        "把回执 head 写死冒充实时头"
-      ],
-      "status": "accepted_as_designed（V86 执行端口径，四人组 V87 采信）"
-    },
-    "credential": "只存指针 + 探测状态 + 掩码 + sha256[:16]；零明文；五地快照显式排除（.gitignore + credential_exclusion_check.py）",
-    "feed_delta": "实测为准；历史包 append-only 不回填；每批登记 delta + 回读命令"
-  },
-  "dna_version": "1.1.0",
-  "genome_revision": {
-    "before": "0a69e93d46bee46dbbadf8081617d2cdbf1c7730dde785a89e66df5c16af234f",
-    "after": "84876958e3936c50bf5ce058f716a5a3a1bb9194b7a22f15185cb401fce16707",
-    "at": "2026-11-17",
-    "batch": "V87-A",
-    "reason": "基因修订：G-DNA-03 formal 增 change_class 分治条款 + falsifiers 补 bad_change_class/gov_without_backfill；新增 G-DNA-04 unity；LOCI 增 unity_nodes。改 AXIOMS/LOCI 必改 genome_hash，旧->新登记在案。",
-    "v85_requirement": "V85 治理批前后 genome_hash 必须仍为 after 值（脱表型不脱基因）"
+  "verification_measured": {
+    "at": "2026-11-17 06:55",
+    "axioms": 3,
+    "check_sums": "ok=true / total=341 / mismatches=[]",
+    "eternal_true_guards": 4,
+    "falsifiers": 18,
+    "genome_dna_gate": "7/7 pass",
+    "genome_hash": "0a69e93d46bee46dbbadf8081617d2cdbf1c7730dde785a89e66df5c16af234f",
+    "green_sequence_verified": [
+      250,
+      275,
+      325
+    ],
+    "landed_files": [
+      "holoaeon/holoaeon/genome_dna.py",
+      "holoaeon/data/genome_dna.json",
+      "holoaeon/data/genome_dna_registry.json",
+      "holoaeon/scripts/genome_dna_gate.py",
+      "holoaeon/tests/test_genome_dna.py"
+    ],
+    "meridian_check": "3 PASS / 250 格三态零回退",
+    "meridian_link_edits": 6,
+    "note": "新增 5 件尚未纳入 SHA256SUMS（现 341 条），由执行端按批次重建流程纳入，禁手工乱改",
+    "regression_three_suites": "161 OK",
+    "unittest_new": "41/41 OK"
   }
 }
