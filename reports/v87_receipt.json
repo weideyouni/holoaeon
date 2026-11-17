@@ -2,7 +2,7 @@
   "batch": "V87-A",
   "name": "MOLT-GENE-CTUP-UNITY（批0：判据解耦 + CTUP 基因化）",
   "date": "2026-11-17",
-  "status": "local_ready",
+  "status": "FIVE_SITE_SYNCED",
   "doc_version": "0.9.78",
   "head": "d8843de515080413aed84012e0d5121ceeab17ee",
   "head_full": "d8843de515080413aed84012e0d5121ceeab17ee",
@@ -48,23 +48,36 @@
     "S1_local": {
       "ref": "main",
       "sha": "d8843de515080413aed84012e0d5121ceeab17ee",
-      "note": "本批代码提交"
+      "note": "本批代码提交 d8843de5；回执补正 33544da 不计基线"
     },
     "S2_gitee": {
-      "note": "待推送",
-      "status": "pending"
+      "repo": "weideyouni/holoaeon",
+      "sha": "33544da5c53fcf01ff0208a3d94a4bd161503793",
+      "push_readback": "c461b51..33544da main -> main",
+      "verified_by": "token https push + ls-remote readback"
     },
     "S3_github": {
-      "note": "待推送（凭据管理器 OAuth 首选）",
-      "status": "pending"
+      "repo": "weideyouni/holoaeon",
+      "sha": "33544da5c53fcf01ff0208a3d94a4bd161503793",
+      "push_readback": "c461b51..33544da main -> main",
+      "verified_by": "ssh443 (Host gh-longaeon) push + ls-remote readback"
     },
     "S4_vector_sea": {
-      "note": "待清单重建",
-      "status": "pending"
+      "dir": "F:\\doubaowork\\vector-sea\\holoaeon-v4-cold-hot-plug",
+      "entries": 202,
+      "files": 202,
+      "missing": 0,
+      "extra": 0,
+      "bad_sha256": 0,
+      "verdict": "PASS"
     },
     "S5_hf": {
-      "note": "待镜像",
-      "status": "pending"
+      "repo": "weideyouni/holoaeon",
+      "sha": "096934f0c016d5677a28e12f5106e7a611c8b679",
+      "uploaded": 16,
+      "files": 750,
+      "mismatch": 0,
+      "verified_by": "mirror_hf.py --base c461b51 --head 33544da"
     }
   },
   "honest_boundaries": [
