@@ -2,14 +2,14 @@
   "schema": "HOLOAEON-CTUP-ONBOARDING/1.0",
   "seal": "潮起开门，潮落闭嘴",
   "date": "2026-11-17",
-  "batch": "V87-A-MOLT-GENE-CTUP",
-  "ctup_schema": "CTUP-v1.1",
+  "batch": "V85-CTUP-V12",
+  "ctup_schema": "CTUP-v1.2",
   "skill_dir_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol",
   "skill_md": {
     "path_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol\\SKILL.md",
     "exists": true,
-    "sha256": "e3e742fb6071af4a5bd7d47914a2271a5060d9a745245c377b11ef0fd1cf9c73",
-    "bytes": 13675
+    "sha256": "d935a5e719f42512ced215dd32f3f2d7a54caaf56a48259913ea8da039e48a03",
+    "bytes": 17800
   },
   "unity_check_py": {
     "path_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol\\scripts\\unity_check.py",
@@ -22,8 +22,9 @@
     "holoaeon": {
       "verdict": "UNITY_OK",
       "entry_verdict": "ENTRY_OK",
-      "sync_head": "ebdb975",
-      "report": "F:\\doubaowork\\holoaeon_lathe\\ENTRY_UNITY_20261117.json"
+      "sync_head": "df89d0d",
+      "report": "F:\\doubaowork\\holoaeon_lathe\\ENTRY_UNITY_20261117.json",
+      "note": "V85 收口后五地同头 df89d0d（回读时间 2026-11-17）"
     },
     "neike": {
       "verdict": "UNITY_OK",
@@ -47,5 +48,20 @@
     "§十 全员加载：本账号线程 / 本机其他工作台 / 跨仓推广 / 生态互认",
     "entry_unity 兜底判据：无 remote_sync 时以回执 five_site 4/4 作为云端口径"
   ],
-  "history_note": "v1.0 首次登记见同日锚点；v1.1 于 2026-11-17 升级，SKILL.md/entry_unity.py 的 SHA256 已按实测重算"
+  "history_note": "v1.0 首次登记见同日锚点；v1.1 于 2026-11-17 升级，SKILL.md/entry_unity.py 的 SHA256 已按实测重算",
+  "egress_probe_py": {
+    "path_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol\\scripts\\egress_probe.py",
+    "exists": true,
+    "sha256": "f31e4f1ce0ae326de6ebfc60ff050ebfdca64c86edb71977b479851b6643770d",
+    "bytes": 4100
+  },
+  "solution_doc": {
+    "path_abs": "F:\\doubaowork\\holoaeon_lathe\\CTUP_SOLUTION_20261117.md",
+    "exists": true
+  },
+  "load_all": {
+    "report": "F:\\doubaowork\\holoaeon_lathe\\CTUP_LOAD_ALL_20261117.json",
+    "verdict": "LOAD_ALL_OK",
+    "targets": 5
+  }
 }
