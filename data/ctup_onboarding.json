@@ -2,14 +2,14 @@
   "schema": "HOLOAEON-CTUP-ONBOARDING/1.0",
   "seal": "潮起开门，潮落闭嘴",
   "date": "2026-11-17",
-  "batch": "V85-CTUP-V12",
-  "ctup_schema": "CTUP-v1.2",
+  "batch": "V87A-CALIBRATION-CTUP-V13",
+  "ctup_schema": "CTUP-v1.3",
   "skill_dir_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol",
   "skill_md": {
     "path_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol\\SKILL.md",
     "exists": true,
-    "sha256": "d935a5e719f42512ced215dd32f3f2d7a54caaf56a48259913ea8da039e48a03",
-    "bytes": 17800
+    "sha256": "fddfe71a3dae4f9e1d74b47afec71a724bb3b28919e103f8f1c9e60e16814e9c",
+    "bytes": 21840
   },
   "unity_check_py": {
     "path_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol\\scripts\\unity_check.py",
@@ -22,17 +22,17 @@
     "holoaeon": {
       "verdict": "UNITY_OK",
       "entry_verdict": "ENTRY_OK",
-      "sync_head": "df89d0d",
+      "sync_head": "a956464",
       "report": "F:\\doubaowork\\holoaeon_lathe\\ENTRY_UNITY_20261117.json",
-      "note": "V85 收口后五地同头 df89d0d（回读时间 2026-11-17）"
+      "note": "V87-A 后置校准后五地同头 a956464（S5 7e70e31）"
     },
     "neike": {
       "verdict": "UNITY_OK",
       "entry_verdict": "ENTRY_OK",
-      "sync_head": "e1ff87f",
+      "sync_head": "937117d",
       "report": "F:\\doubaowork\\holoaeon_lathe\\ENTRY_UNITY_NEIKE_20261117.json",
       "entry_file": "F:\\doubaowork\\holoaeon_lathe\\PROJECT_ENTRY_NEIKE.json",
-      "note": "入口文件放在仓外 lathe，避免污染 v71 现场盘点（+1 文件会打红）"
+      "note": "NEIKE hold 刷新批三地同头 937117d（S5 f952e3624）"
     }
   },
   "rc_note": "四人组 G9：ANCHOR 只写省略号路径导致全盘搜不到；本账登记完整绝对路径 + SHA256 + 两仓 rc/verdict，跨线程可直接按路径重跑 unity_check.py --project/--memory/--remote。",
@@ -57,11 +57,34 @@
   },
   "solution_doc": {
     "path_abs": "F:\\doubaowork\\holoaeon_lathe\\CTUP_SOLUTION_20261117.md",
-    "exists": true
+    "exists": true,
+    "v13_section": "§十二 v1.3 追加：N6 现场节点 / N7 项目注册表 / 跨生态互认四步"
   },
   "load_all": {
     "report": "F:\\doubaowork\\holoaeon_lathe\\CTUP_LOAD_ALL_20261117.json",
     "verdict": "LOAD_ALL_OK",
     "targets": 5
+  },
+  "registry_check_py": {
+    "path_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol\\scripts\\registry_check.py",
+    "exists": true,
+    "sha256": "62fe1c9c6b29f532008f7a6b9c8a224a0ac4a0c587f810e5d61403e28f1d94d7",
+    "bytes": 4169
+  },
+  "project_registry": {
+    "path_abs": "F:\\doubaowork\\holoaeon_memory\\project_registry.json",
+    "exists": true,
+    "schema": "CTUP-PROJECT-REGISTRY/1.0",
+    "projects": 2,
+    "report": "F:\\doubaowork\\holoaeon_lathe\\REGISTRY_20261117.json",
+    "verdict": "REGISTRY_OK"
+  },
+  "v13_additions": {
+    "N6_field_node": "活体产物次序令牌（跑门禁→checkout→重建清单→校验→提交）+ 现场快照类断言按实测校准并留痕",
+    "N7_project_registry": "holoaeon_memory\\project_registry.json 多项目单一索引 + scripts\\registry_check.py 一条命令体检",
+    "sites": [
+      "holoaeon",
+      "neike1331"
+    ]
   }
 }
