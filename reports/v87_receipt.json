@@ -4,9 +4,9 @@
   "date": "2026-11-17",
   "status": "local_ready",
   "doc_version": "0.9.78",
-  "head": "c461b5138b80d59352e0dfdc1e5eed2963bfb57b",
-  "head_full": "c461b5138b80d59352e0dfdc1e5eed2963bfb57b",
-  "head_note": "被验收代码头 = 上一提交；本批提交后按 policy.receipt_head 补正为被验收的代码头（回执自身提交不计入 S4/S5 基线）",
+  "head": "d8843de515080413aed84012e0d5121ceeab17ee",
+  "head_full": "d8843de515080413aed84012e0d5121ceeab17ee",
+  "head_note": "被验收代码头 = 本批唯一代码提交 d8843de5；回执自身补正提交与 remote_sync 刷新不计入 S4/S5 基线（policy.receipt_head）",
   "patches": [
     "holoaeon/genome_dna.py：DNA_VERSION 1.0.0→1.1.0；G-DNA-03 分治（extension 要求 spec 零改动 / governance 要求 spec_sha + 测试断言双回填 + genome_hash_diff0）；新增 G-DNA-04 unity 四节点；LOCI 增 unity_nodes；PLUGIN_FACES 8→9；新增 unity_check + VALID_STAGES + PLAINTEXT_PATTERNS；robustness_check 兼容扩三参；verify() 基因 3→4、guards 4→5、三条正向活性断言",
     "data/genome_dna.json：axioms 第3条 formal 换分治式 + falsifiers 扩 8；新增第 4 条 G-DNA-04；loci.unity_nodes；顶层 policy（receipt_head / credential / feed_delta）；genome_revision 旧→新；dna_version 1.1.0；invariants 5→6",
@@ -46,8 +46,9 @@
   "five_site": {
     "verified_at": "2026-11-17",
     "S1_local": {
-      "note": "本批提交后回填被验收代码头",
-      "ref": "main"
+      "ref": "main",
+      "sha": "d8843de515080413aed84012e0d5121ceeab17ee",
+      "note": "本批代码提交"
     },
     "S2_gitee": {
       "note": "待推送",
