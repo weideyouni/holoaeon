@@ -2,11 +2,11 @@
   "batch": "V85",
   "name": "GOVERNABLE-TRISTATE-BASIN（六件治理批：凭空可治理/平域冒充不可治理 + CI 步骤名回读 + claims 第 12 面 + MCP 选项C + .bak 卫生）",
   "date": "2026-11-17",
-  "status": "COMMITTED_PENDING_FIVE_SITE",
+  "status": "COMMITTED_FIVE_SITE_SYNCED",
   "doc_version": "0.9.79",
-  "head": "fcea1f0f9c1cece2832291b02331bcdf0ec862b5",
-  "head_full": "fcea1f0f9c1cece2832291b02331bcdf0ec862b5",
-  "head_note": "head 为被验收的上一提交（V87-A 收口）；本批提交后按 policy.receipt_head 补正为代码头，补正提交自身不计入 S4/S5 基线。",
+  "head": "f2e214741439bc5dd94287a0875fef27d554e255",
+  "head_full": "f2e214741439bc5dd94287a0875fef27d554e255",
+  "head_note": "head 为被验收的代码头（V85 六件治理批单批单提交，21 文件）；本回执补正提交自身只含回执与 SHA256SUMS，不计入 S4/S5 基线，五地终值另见 holoaeon_lathe/FIVE_SITE_V85_20261117.json。",
   "predecessor": "V87-A",
   "supersedes": "V87-A 回执的 doc_version 0.9.78 不再是「最新」（claims_gate 按回执自身 doc_version 取最高）",
   "patches": [
@@ -40,38 +40,49 @@
     "meridian_link": "3/3 PASS（12 碎片 × 25 = 300 格）",
     "credential_exclusion_check": "PASS（L1 ok / L3 832 文件 0 明文）",
     "check_sums": "354/354 ok（mismatches 0）",
-    "claims_gate": "12/12 PASS",
-    "doc_upgrade_chain": "spec.py 新 sha256 9893958803b2…；claims self_digest 22cf40fdfa16adc2；allowlist self_digest 9424d7751cf49b96"
+    "claims_gate": "12/12 PASS（digest 18956c7b4d720e57 / mismatch 0）",
+    "doc_upgrade_chain": "spec.py 新 sha256 9893958803b2…；claims self_digest 88a1bd0277b8ba02；allowlist self_digest 9424d7751cf49b96；env_delta self_digest b69ad5a033fdb092；SHA256SUMS digest 21fc21120ace61ba…"
   },
   "manifest": {
     "entries": 354,
-    "mismatches": 0
+    "mismatches": 0,
+    "commit_manifest_digest": "21fc21120ace61ba93b3604b5fb3d7a9524a954f69f5463c8994faa47fb211e9",
+    "digest_note": "此处只记「代码头 f2e2147 提交时」的清单 digest；本回执自身在清单内，若回填补正后的 digest 会构成自指环（CTUP 教训），最终值以 SHA256SUMS 文件本身为准，不回填。"
   },
   "five_site": {
     "verified_at": "2026-11-17",
     "S1_local": {
       "ref": "main",
-      "sha": "PENDING_COMMIT",
-      "note": "待本批提交后回填"
+      "sha": "f2e214741439bc5dd94287a0875fef27d554e255",
+      "note": "git rev-parse HEAD（单批单提交）"
     },
     "S2_gitee": {
       "repo": "weideyouni/holoaeon",
-      "sha": "PENDING",
-      "verified_by": "token https push + ls-remote readback"
+      "sha": "f2e214741439bc5dd94287a0875fef27d554e255",
+      "verified_by": "token https push（fcea1f0..f2e2147）+ ls-remote 回读同头"
     },
     "S3_github": {
       "repo": "weideyouni/holoaeon",
-      "sha": "PENDING",
-      "verified_by": "ssh443 (Host gh-longaeon) push + ls-remote readback"
+      "sha": "f2e214741439bc5dd94287a0875fef27d554e255",
+      "verified_by": "https push（fcea1f0..f2e2147）+ ls-remote origin 回读同头；链路注记：ssh443(Host gh-longaeon) 与 https 首轮 TLS 握手被代理 198.18.1.22 断开，重试后 https 通"
     },
     "S4_vector_sea": {
       "dir": "F:\\doubaowork\\vector-sea\\holoaeon-v4-cold-hot-plug",
-      "verdict": "PENDING"
+      "verdict": "PASS",
+      "manifest_entries": 202,
+      "dir_files": 202,
+      "missing": [],
+      "extra": [],
+      "bad_sha256": [],
+      "bad_bytes": []
     },
     "S5_hf": {
       "repo": "weideyouni/holoaeon",
-      "sha": "PENDING",
-      "verified_by": "mirror_hf.py --base fcea1f0 --head <new>"
+      "commit": "70732d5429832c3a2ca2b6caf96e4c967ca2a578",
+      "remote_files": 753,
+      "uploaded": 21,
+      "mismatch": [],
+      "verified_by": "mirror_hf.py --base fcea1f0 --head f2e2147（内容 sha256 比对，非 blob_id）"
     }
   },
   "feed_corrections": [
@@ -85,8 +96,14 @@
     "governable 三态是「未判定」口径而非新判据：curvature 在 tol 内时不下结论，避免旧码凭空判可治理；tol 取 1e-9*max(1,|f0|) 为工程约定，非文献阈值。",
     "MCP 选项 A/B（改默认 / 改宣称）悬置，本批只落 C（披露），不改 mcp_adapter 行为。",
     "HA-5 README 瘦身与 P1-7 第五类扫描未做（可选件未点单）。",
-    "回执 head 为被验收的上一提交，属 policy.receipt_head 设计口径；本批提交后补正一次。"
+    "V85 46 例仍仅本机跑绿：D16 / D17 / D18 均 open_pending_cloud_sync，关闭条件为 CI 日志 Ran ≥ 2374 且 skipped 与 D16 一致。"
   ],
   "seal": "潮起开门，潮落闭嘴",
-  "signature": "桃花庵出品"
+  "signature": "桃花庵出品",
+  "post_commit_reconcile": {
+    "measured_at": "2026-11-17",
+    "env_delta_registry": "D08 local 2328→2374（2374/3/2371），gap ran −151→−197 / executed −181→−227；新增 D18（V85 46 例未上云，not_discovered.cloud 46）；顶层 batch V87-A→V85；self_digest 82251d26a2a12fcd→b69ad5a033fdb092；entries 17→18",
+    "claims_registry": "ledger_sources.main_suite.observed 2328→2374；regulation_pins PHC-2025 source_sha16 e933cf5b8f9000bf→4f7966d989e25f06（README.zh-CN.md 整文件 sha256[:16] 实测，verified_at 2026-11-17）；self_digest → 88a1bd0277b8ba02",
+    "readme": "两份 README 复算闸条数 351→354（中文「复算闸 **354 条 0 不匹配**」/ 英文「manifest **354 entries / 0 mismatches**」），claims readback_consistent face 转绿"
+  }
 }
