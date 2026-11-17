@@ -1,0 +1,35 @@
+{
+  "schema": "HOLOAEON-CTUP-ONBOARDING/1.0",
+  "seal": "潮起开门，潮落闭嘴",
+  "date": "2026-11-17",
+  "batch": "V87-A-MOLT-GENE-CTUP",
+  "ctup_schema": "CTUP-v1.0",
+  "skill_dir_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol",
+  "skill_md": {
+    "path_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol\\SKILL.md",
+    "exists": true,
+    "sha256": "a86895c5191eaaa46601d9a98a1cc59a839291ff2b9be0f6feaf30e143a7f7d4",
+    "bytes": 9467
+  },
+  "unity_check_py": {
+    "path_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol\\scripts\\unity_check.py",
+    "exists": true,
+    "sha256": "bf171faddd8ed23f85cfbeed840651fc80d83d921cb848d733732e5c8c9bf95f",
+    "bytes": 9479
+  },
+  "unity_report_ref": "F:\\doubaowork\\holoaeon_lathe\\UNITY_CHECK_20261117.json",
+  "readback": {
+    "holoaeon": {
+      "verdict": "UNITY_OK",
+      "head": "c461b51",
+      "note": "双端同头；tracked_dirty=0；untracked=122；凭证 3 VALID"
+    },
+    "neike": {
+      "verdict": "UNITY_OK",
+      "head": "e1ff87f",
+      "note": "五地闭合后同头；批3/批4 仍 D4 hold"
+    }
+  },
+  "rc_note": "四人组 G9：ANCHOR 只写省略号路径导致全盘搜不到；本账登记完整绝对路径 + SHA256 + 两仓 rc/verdict，跨线程可直接按路径重跑 unity_check.py --project/--memory/--remote。",
+  "report_head": null
+}

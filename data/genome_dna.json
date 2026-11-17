@@ -2,7 +2,7 @@
   "schema": "HOLOAEON-GENOME-DNA-v1.0",
   "seal": "潮起开门，潮落闭嘴",
   "date": "2026-11-17",
-  "batch": "V86-GENOME-DNA",
+  "batch": "V87-A-MOLT-GENE-CTUP",
   "carbon_authorization": "2026-11-17 06:52 碳基最大权限：成长必然伴随蜕皮，削平阻碍，回归第一性原理；分化与成长最重要",
   "genesis": {
     "base_head_measured": "c65d521",
@@ -53,11 +53,11 @@
     {
       "id": "G-DNA-03",
       "name": "系统鲁棒性的真正含义",
-      "formal": "robust <=> skip_registered & output_diff0 & spec_byte_identical & genome_hash_diff0 & cells==fragments*25 & triple_homology",
+      "formal": "robust <=> skip_registered & output_diff0 & genome_hash_diff0 & cells==fragments*25 & triple_homology & (extension=>spec_byte_identical | governance=>spec_sha_backfilled & test_assertion_backfilled)",
       "first_principle": "鲁棒不是不坏、不是堆副本、不是任何输入都扛得住；是倒哪一块、怎么倒、倒了还剩什么都能算出来且基因不变形。全量复制堆冗余增加口径漂移面，是更脆弱。",
       "subcriteria": {
         "R1": "局部失效 -> try-import + skip 入 env_delta，其余输出 DIFF=0；吞掉失效必红",
-        "R2": "扩展挤压 -> spec.py byte-identical、genome_hash DIFF=0、cells==fragments*25 无缺格",
+        "R2": "扩展挤压 -> spec.py byte-identical、genome_hash DIFF=0、cells==fragments*25；治理蜕皮 -> 允许 spec 变，但 must 同批回填母本哈希+测试断言且 genome_hash 不变",
         "R3": "同源守恒 -> 25 机制轴 / 心跳 70·768·17 / SEAL 三同源逐字一致"
       },
       "falsifiers": [
@@ -66,7 +66,22 @@
         "spec_modified",
         "genome_hash_drift",
         "cells_mismatch",
-        "homology_drift"
+        "homology_drift",
+        "bad_change_class",
+        "gov_without_backfill"
+      ]
+    },
+    {
+      "id": "G-DNA-04",
+      "name": "跨线程统一不是割裂",
+      "formal": "unity <=> coordinate_ok & state_ok & credential_ok & readback_ok",
+      "first_principle": "工程生产力的真正阻碍不是能力不足，是割裂：换线程即丢坐标/状态/凭证/回读。四节点齐才联通；任一断线必红且能定位到节点。",
+      "falsifiers": [
+        "coordinate_head_missing",
+        "state_receipt_missing",
+        "credential_plaintext",
+        "readback_no_numeric",
+        "stage_illegal"
       ]
     }
   ],
@@ -143,6 +158,12 @@
       "planning": "longaeon/bureau/planning_bureau.py (LA 仓指针)",
       "manufacture": "longaeon/bureau/manufacture_bureau.py (LA 仓指针)",
       "workflow_state": "longaeon/bureau/workflow_state.py（7 状态 / 8 合法转移 / 非法必红 / 滞留熔断，零改动）"
+    },
+    "unity_nodes": {
+      "coordinate": "reports/remote_sync_*.json + ANCHOR_*.md（仓/分支/HEAD/五地）",
+      "state": "reports/*_receipt.json + version_history / engineering_process（stage 判幂等）",
+      "credential": "holoaeon_memory/credential_registry.json（只存指针+状态+掩码+指纹）",
+      "readback": "ls-remote / check_sums / manifest digest（每句已完成带可比对数值）"
     }
   },
   "plugin_contract": {
@@ -234,7 +255,8 @@
     "genome_hash = sha256(canonical(axioms+homology+loci)) 前后 DIFF=0",
     "cells == len(fragments) * 25 且 missing=[] extra=[]",
     "插件源码零字节进基座（指针纪律）",
-    "零网络 / 零第三方 / neural=false / claim=0"
+    "零网络 / 零第三方 / neural=false / claim=0",
+    "unity 四节点（坐标/状态/凭证/回读）齐才联通；任一断线必红且可定位"
   ],
   "verification_measured": {
     "at": "2026-11-17 06:55",
@@ -275,5 +297,27 @@
     "HEURISTIC_ONLY 值不得写入 claims_registry 或 README 作实测",
     "医学红线：零诊断/零处方/零剂量/E13·E14·M14/碳基执业医师终裁",
     "协作红线：四人组策划 · 执行端落地 · 碳基终裁；本批 DNA 直动仓系碳基 06:52 明令授权"
-  ]
+  ],
+  "policy": {
+    "receipt_head": {
+      "rule": "回执 head = 被验收的代码头；回执自身提交与后续 remote_sync 刷新不计入 S4/S5 基线快照",
+      "live_head": "实时 HEAD 与回执 head 允许不同，但必须同时登记 live_head 与 delta_reason",
+      "forbidden": [
+        "把「头不同」误报为漏回填",
+        "把回执 head 写死冒充实时头"
+      ],
+      "status": "accepted_as_designed（V86 执行端口径，四人组 V87 采信）"
+    },
+    "credential": "只存指针 + 探测状态 + 掩码 + sha256[:16]；零明文；五地快照显式排除（.gitignore + credential_exclusion_check.py）",
+    "feed_delta": "实测为准；历史包 append-only 不回填；每批登记 delta + 回读命令"
+  },
+  "dna_version": "1.1.0",
+  "genome_revision": {
+    "before": "0a69e93d46bee46dbbadf8081617d2cdbf1c7730dde785a89e66df5c16af234f",
+    "after": "84876958e3936c50bf5ce058f716a5a3a1bb9194b7a22f15185cb401fce16707",
+    "at": "2026-11-17",
+    "batch": "V87-A",
+    "reason": "基因修订：G-DNA-03 formal 增 change_class 分治条款 + falsifiers 补 bad_change_class/gov_without_backfill；新增 G-DNA-04 unity；LOCI 增 unity_nodes。改 AXIOMS/LOCI 必改 genome_hash，旧->新登记在案。",
+    "v85_requirement": "V85 治理批前后 genome_hash 必须仍为 after 值（脱表型不脱基因）"
+  }
 }

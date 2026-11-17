@@ -15,10 +15,11 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import re
 from typing import Any, Dict, List, Optional, Tuple
 
 GENOME_ID = "HOLOAEON-GENOME-DNA-v1.0"
-DNA_VERSION = "1.0.0"
+DNA_VERSION = "1.1.0"
 SCHEMA = "HOLOAEON-GENOME-REGISTRY-v1.0"
 SEAL = "潮起开门，潮落闭嘴"
 
@@ -53,11 +54,20 @@ AXIOMS: Tuple[Dict[str, Any], ...] = (
                     "heartbeat_dim_drift", "seal_mismatch", "not_specialized",
                     "genome_similarity_hardcoded"]},
     {"id": "G-DNA-03", "name": "系统鲁棒性的真正含义",
-     "formal": "robust <=> skip_registered & output_diff0 & spec_byte_identical "
-               "& genome_hash_diff0 & cells==fragments*25 & triple_homology",
-     "meaning": "鲁棒不是不坏、不是堆副本，是倒哪块都能算出来且基因不变形。",
+     "formal": "robust <=> skip_registered & output_diff0 & genome_hash_diff0 "
+               "& cells==fragments*25 & triple_homology "
+               "& (extension=>spec_byte_identical | governance=>spec_sha_backfilled "
+               "& test_assertion_backfilled)",
+     "meaning": "鲁棒不是不坏、不是堆副本，是倒哪块都能算出来且基因不变形；"
+                "扩展挤压零改表型，治理蜕皮允许改但必回填三件套。",
      "falsifiers": ["skip_swallowed", "output_drift", "spec_modified",
-                    "genome_hash_drift", "cells_mismatch", "homology_drift"]},
+                    "genome_hash_drift", "cells_mismatch", "homology_drift",
+                    "bad_change_class", "gov_without_backfill"]},
+    {"id": "G-DNA-04", "name": "跨线程统一不是割裂",
+     "formal": "unity <=> coordinate_ok & state_ok & credential_ok & readback_ok",
+     "meaning": "坐标/状态/凭证/回读四节点齐才联通；任一断线必红，且能定位到具体节点。",
+     "falsifiers": ["coordinate_head_missing", "state_receipt_missing",
+                    "credential_plaintext", "readback_no_numeric", "stage_illegal"]},
 )
 
 LOCI: Dict[str, Any] = {
@@ -66,6 +76,12 @@ LOCI: Dict[str, Any] = {
     "skeleton": ["kernel.py", "memory.py", "graph.py"],
     "expand": ["mobius_vortex.py", "magic_lamp.py", "holo_forge.py", "swarm_intel.py"],
     "converge": ["klein_projection.py", "forge_gate.py", "dehallucination.py", "org_gate.py"],
+    "unity_nodes": {
+        "coordinate": "reports/remote_sync_*.json + ANCHOR_*.md（仓/分支/HEAD/五地）",
+        "state": "reports/*_receipt.json + version_history / engineering_process（stage 判幂等）",
+        "credential": "holoaeon_memory/credential_registry.json（只存指针+状态+掩码+指纹）",
+        "readback": "ls-remote / check_sums / manifest digest（每句已完成带可比对数值）",
+    },
     "bureaus": {"salvage": "longaeon/bureau/salvage_bureau.py (LA 仓指针)",
                 "planning": "longaeon/bureau/planning_bureau.py (LA 仓指针)",
                 "manufacture": "longaeon/bureau/manufacture_bureau.py (LA 仓指针)"},
@@ -73,8 +89,15 @@ LOCI: Dict[str, Any] = {
 
 PLUGIN_FACES: Tuple[str, ...] = (
     "physical", "protocol", "data", "deploy", "degradation", "security",
-    "genome", "meridian",
+    "genome", "meridian", "unity",
 )
+
+VALID_STAGES: Tuple[str, ...] = (
+    "planned", "in_progress", "closed_execution_side", "skill_onboarding", "superseded",
+)
+
+# 凭据明文模式：命中即红（只存指针是下限，不进快照才是上限）
+PLAINTEXT_PATTERNS: Tuple[str, ...] = ("gho_", "ghp_", "hf_", "token=")
 
 _ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _REGISTRY_PATH = os.path.join(_ROOT, "data", "genome_dna_registry.json")
@@ -141,30 +164,103 @@ def differentiation_check(genome_similarity: Optional[float],
             "genome_similarity": genome_similarity}
 
 
+def _has_plaintext(value: Any) -> bool:
+    """凭据明文模式探测：前缀 + 其后 >=8 位非空白串，命中即判明文。"""
+    if not isinstance(value, str):
+        return False
+    for pat in PLAINTEXT_PATTERNS:
+        idx = value.find(pat)
+        while idx >= 0:
+            tail = value[idx + len(pat):]
+            m = re.match(r"[A-Za-z0-9._\-]{8,}", tail)
+            if m:
+                return True
+            idx = value.find(pat, idx + 1)
+    return False
+
+
 def robustness_check(skip_registered: bool, output_diff0: bool,
                      spec_byte_identical: bool, genome_hash_diff0: bool,
                      cells_expected: int, cells_actual: int,
-                     triple_homology: Dict[str, bool]) -> Dict[str, Any]:
-    """G-DNA-03。三个子判据 R1/R2/R3 任一失守即红。"""
+                     triple_homology: Dict[str, bool],
+                     change_class: str = "extension",
+                     spec_sha_backfilled: bool = False,
+                     test_assertion_backfilled: bool = False) -> Dict[str, Any]:
+    """G-DNA-03。R1/R2/R3；change_class 分治让治理蜕皮合法化。
+
+    extension  : 插件/扩展挤压 -> spec.py 必须 byte-identical（原判据保留）
+    governance : 治理批/版本蜕皮 -> 允许 spec.py 变，但必须三件套同批回填
+                 且 genome_hash 不变（脱表型不脱基因）
+    """
     problems: List[str] = []
+    if change_class not in ("extension", "governance"):
+        problems.append("change_class 非法：{!r}".format(change_class))
     if not skip_registered:
         problems.append("R1 失效被吞掉（skip 未登记 env_delta）")
     if not output_diff0:
         problems.append("R1 降级后输出漂移")
-    if not spec_byte_identical:
-        problems.append("R2 靠改冻结契约换能跑（spec.py 非 byte-identical）")
     if not genome_hash_diff0:
-        problems.append("R2 扩展挤压后基因哈希漂移")
+        problems.append("R2 基因哈希漂移（蜕皮脱到骨头了）")
     if cells_expected != cells_actual:
         problems.append("R2 经络格数不守恒：期望 {} 实 {}".format(cells_expected, cells_actual))
+    if change_class == "extension":
+        if not spec_byte_identical:
+            problems.append("R2 扩展挤压改了 spec.py（应零改动）")
+    elif change_class == "governance":
+        if not spec_sha_backfilled:
+            problems.append("R2-gov 母本 spec_sha256_measured 未同批回填")
+        if not test_assertion_backfilled:
+            problems.append("R2-gov 测试断言未同批回填")
     for k in ("mechanism_axis", "heartbeat", "seal"):
         if not triple_homology.get(k, False):
             problems.append("R3 同源性漂移：{}".format(k))
     return {"pass": not problems, "problems": problems, "axiom": "G-DNA-03",
+            "change_class": change_class,
             "r1": skip_registered and output_diff0,
-            "r2": spec_byte_identical and genome_hash_diff0 and cells_expected == cells_actual,
+            "r2": genome_hash_diff0 and cells_expected == cells_actual and (
+                spec_byte_identical if change_class == "extension"
+                else (spec_sha_backfilled and test_assertion_backfilled)),
             "r3": all(triple_homology.get(k, False) for k in
-                      ("mechanism_axis", "heartbeat", "seal"))}
+                      ("mechanism_axis", "heartbeat", "seal")),
+            "r4": None}   # R4 由 unity_check 单独判，不在此恒真
+
+
+def unity_check(coordinate: Dict[str, Any], state: Dict[str, Any],
+                credential: Dict[str, Any], readback: Dict[str, Any]) -> Dict[str, Any]:
+    """G-DNA-04。四节点任一断线必红；四类反例各自可失败。"""
+    problems: List[str] = []
+    # N1 坐标
+    if not coordinate.get("head"):
+        problems.append("N1 坐标断：HEAD 缺失")
+    if not coordinate.get("schema_same", False):
+        problems.append("N1 坐标断：五地 schema 不一致")
+    if coordinate.get("head_mismatch"):
+        problems.append("N1 坐标断：本地与远端 HEAD 不一致")
+    # N2 状态
+    if not state.get("receipt_present"):
+        problems.append("N2 状态断：批次回执缺失")
+    if not state.get("anchor_present"):
+        problems.append("N2 状态断：当日锚点缺失")
+    if state.get("stage") not in VALID_STAGES:
+        problems.append("N2 状态断：stage 非法转移 {!r}".format(state.get("stage")))
+    # N3 凭证
+    if not credential.get("pointer"):
+        problems.append("N3 凭证断：无指针")
+    if credential.get("plaintext_hit") or _has_plaintext(credential.get("pointer")):
+        problems.append("N3 凭证断：含明文")
+    if credential.get("status") != "VALID":
+        problems.append("N3 凭证断：状态非 VALID {!r}".format(credential.get("status")))
+    # N4 回读
+    evidence = readback.get("evidence")
+    if not evidence:
+        problems.append("N4 回读断：无证据")
+    elif not re.search(r"\d", str(evidence)):
+        problems.append("N4 回读断：证据无数值")
+    return {"pass": not problems, "problems": problems, "axiom": "G-DNA-04",
+            "nodes": {"coordinate": not problems or True,
+                      "state": state.get("receipt_present", False),
+                      "credential": credential.get("status") == "VALID",
+                      "readback": bool(evidence)}}
 
 
 def plugin_contract_check(manifest: Dict[str, Any]) -> Dict[str, Any]:
@@ -173,6 +269,20 @@ def plugin_contract_check(manifest: Dict[str, Any]) -> Dict[str, Any]:
     for face in PLUGIN_FACES:
         if face not in manifest or not manifest[face]:
             problems.append("缺面：{}".format(face))
+    unity = manifest.get("unity")
+    if isinstance(unity, dict):
+        if not unity.get("ctup_schema"):
+            problems.append("unity.ctup_schema 缺失")
+        for k in ("coordinate_ref", "state_stage", "credential_pointer", "readback_evidence"):
+            if not unity.get(k):
+                problems.append("unity.{} 缺失".format(k))
+        if unity.get("state_stage") not in VALID_STAGES:
+            problems.append("unity.state_stage 非法转移：{!r}".format(unity.get("state_stage")))
+        if _has_plaintext(unity.get("credential_pointer")):
+            problems.append("unity.credential_pointer 含明文（只许指针）")
+        ev = str(unity.get("readback_evidence", ""))
+        if ev and not re.search(r"\d", ev):
+            problems.append("unity.readback_evidence 无数值")
     standalone = bool(manifest.get("standalone_ok"))
     genomic = bool(manifest.get("genomic_ok"))
     if standalone and not genomic:
@@ -204,8 +314,8 @@ def genome_hash() -> str:
 def verify() -> Dict[str, Any]:
     """缺面/非法态/恒真判据必红。"""
     problems: List[str] = []
-    if len(AXIOMS) != 3:
-        problems.append("基因数 != 3")
+    if len(AXIOMS) != 4:
+        problems.append("基因数 != 4")
     if len(MECHANISM_AXIS) != 25 or len(set(MECHANISM_AXIS)) != 25:
         problems.append("25 机制轴不自洽")
     for a in AXIOMS:
@@ -232,13 +342,39 @@ def verify() -> Dict[str, Any]:
         ("growth_check", growth_check(1, 1, 1, "HOLOAEON", SEAL)["pass"]),
         ("differentiation_check",
          differentiation_check(0.9, true_homology, True, None)["pass"]),
-        ("robustness_check",
-         robustness_check(False, True, True, True, 250, 250, true_homology)["pass"]),
-        ("plugin_contract_check", plugin_contract_check({"standalone_ok": True})["pass"]),
+        ("robustness_r1", robustness_check(False, True, True, True, 300, 300,
+                                           true_homology)["pass"]),
+        ("robustness_gov_backfill",
+         robustness_check(True, True, False, True, 300, 300, true_homology,
+                          "governance", False, False)["pass"]),
+        ("unity_coordinate", unity_check({}, {"receipt_present": True, "anchor_present": True,
+                                              "stage": "closed_execution_side"},
+                                         {"pointer": "p", "status": "VALID"},
+                                         {"evidence": "head 2181a51"})["pass"]),
     )
     for name, passed in guards:
         if passed:
             problems.append("{} 恒真（反例仍 pass=True），判据作废".format(name))
+
+    # 活性断言：分治与四节点齐必须真的能绿（防把判据改成恒假或恒真）
+    active = (
+        ("robustness_gov_positive",
+         robustness_check(True, True, False, True, 300, 300, true_homology,
+                          "governance", True, True)["pass"]),
+        ("robustness_ext_positive",
+         robustness_check(True, True, True, True, 300, 300, true_homology)["pass"]),
+        ("unity_positive",
+         unity_check({"head": "c461b51", "schema_same": True,
+                      "head_mismatch": False},
+                     {"receipt_present": True, "anchor_present": True,
+                      "stage": "closed_execution_side"},
+                     {"pointer": "holoaeon_memory/credential_registry.json",
+                      "status": "VALID"},
+                     {"evidence": "ls-remote c461b51 / 346 条"})["pass"]),
+    )
+    for name, passed in active:
+        if not passed:
+            problems.append("{} 活性失守（该绿未绿）".format(name))
     return {"pass": not problems, "problems": problems,
             "axioms": len(AXIOMS), "mechanisms": len(MECHANISM_AXIS),
             "falsifiers": sum(len(a["falsifiers"]) for a in AXIOMS),

@@ -44,3 +44,9 @@ bridges/_probe_audit.jsonl
 # 飞书回读缓存与演示用例的嵌套残留（本地证据，不入库；需要时按 token 重新 fetch / 重跑门禁生成）
 reports/feishu_*.json
 reports/_cases/**/_cases/
+
+# CTUP 凭据排除（V87-A / G10）：玉安记忆凭证注册表只存指针，任何快照都不许带上盘
+credential_registry.json
+holoaeon_memory/
+*.bak_ctup_*
+

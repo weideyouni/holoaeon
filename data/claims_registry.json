@@ -402,12 +402,12 @@
     },
     "main_suite": {
       "authority": "unittest_discover_measured",
-      "caliber_note": "V86 主套实测 2285（V84 2243 + test_genome_dna 42）",
+      "caliber_note": "V87-A 主套实测 2328（V86 2285 + test_v87_molt_gene 23 / test_genome_dna +20）",
       "non_evidence": [
         "runtime_snapshot",
         "timeboxed_historical"
       ],
-      "observed": 2285,
+      "observed": 2328,
       "observed_at": "2026-11-17"
     },
     "redline": {
@@ -530,7 +530,7 @@
       "runtime_role": "current",
       "runtime_value": "2025",
       "source_pointer": "README.zh-CN.md#公卫口径段（V41 小节）",
-      "source_sha16": "964f33b37b408e01",
+      "source_sha16": "e933cf5b8f9000bf",
       "status": "current",
       "verified_at": "2026-11-17",
       "version": "2025",
@@ -640,7 +640,7 @@
     }
   ],
   "schema": "CLAIMS-GATE-v1",
-  "self_digest": "1f606360cc390b5e",
+  "self_digest": "ed7bfd9f08249809",
   "totals": {
     "doc_claims": 17,
     "historical": 3,

@@ -1,0 +1,46 @@
+{
+  "schema": "HOLOAEON-FEED-DELTA/1.0",
+  "seal": "潮起开门，潮落闭嘴",
+  "date": "2026-11-17",
+  "batch": "V87-A-MOLT-GENE-CTUP",
+  "policy": {
+    "append_only": true,
+    "history_backfill": false,
+    "note": "实测为准：每批登记现场行数/字节/sha16 与回读命令；历史包不回填、不改字节；账面差异（6277->6689->8611 行）是演进，不是错账，一律由此侧账承载。",
+    "readback_command": "python scripts/feed_delta_check.py 或本文件行数现场复算"
+  },
+  "measured_at": "2026-11-17",
+  "entries": [
+    {
+      "file": "AGENT_FEED_V85_GOVERNABLE_TRISTATE_BASIN_20261116.md",
+      "path_abs": "F:\\doubaowork\\holoaeon\\AGENT_FEED_V85_GOVERNABLE_TRISTATE_BASIN_20261116.md",
+      "bytes": 4461,
+      "lines": 42,
+      "sha256": "ea926c1026f08c57e5b1b9e0a56fdb31c95a041b25c64877e2aea350bbfd47ae",
+      "sha16": "ea926c1026f08c57",
+      "tracked": false,
+      "status": "PLANNED_PENDING"
+    },
+    {
+      "file": "AGENT_FEED_V86_GENOME_DNA_20261117.md",
+      "path_abs": "F:\\doubaowork\\holoaeon\\AGENT_FEED_V86_GENOME_DNA_20261117.md",
+      "bytes": 35128,
+      "lines": 405,
+      "sha256": "61c8f6a5176724f76175dd29367d1188c739a0535ce3aba48e0746da3c27761f",
+      "sha16": "61c8f6a5176724f7",
+      "tracked": false,
+      "status": "EXECUTED_DONE"
+    },
+    {
+      "file": "AGENT_FEED_V87_MOLT_GENE_CTUP_UNITY_20261117.md",
+      "path_abs": "F:\\doubaowork\\holoaeon\\AGENT_FEED_V87_MOLT_GENE_CTUP_UNITY_20261117.md",
+      "bytes": 24612,
+      "lines": 290,
+      "sha256": "63ae91efffbcb978e8bbab2712d477e8696b15c2565e170de70bba7cf0190e5f",
+      "sha16": "63ae91efffbcb978",
+      "tracked": false,
+      "status": "IN_PROGRESS"
+    }
+  ],
+  "lineage_note": "V85 4461B / V86 35128B / V87 24612B：三包同日共存于仓根，账面行数增长（6277->6689->8611）是演进，不是错账；V85 未执行、V86 已 EXECUTED_DONE（FEED_STATUS_V86 在机床）、V87 本批执行批0。"
+}

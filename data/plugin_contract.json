@@ -117,6 +117,13 @@
           "heartbeat": true,
           "seal": true
         }
+      },
+      "unity": {
+        "ctup_schema": "CTUP-v1.0",
+        "coordinate_ref": "F:/doubaowork/holoaeon（reports/remote_sync_*.json + ANCHOR）",
+        "state_stage": "closed_execution_side",
+        "credential_pointer": "holoaeon_memory/credential_registry.json（指针 only）",
+        "readback_evidence": "S1/S2/S3 同头 c461b51；清单 346 条；selftest 25/25"
       }
     },
     {
@@ -188,6 +195,13 @@
           "heartbeat": true,
           "seal": true
         }
+      },
+      "unity": {
+        "ctup_schema": "CTUP-v1.0",
+        "coordinate_ref": "F:/doubaowork/holoaeon（reports/remote_sync_*.json + ANCHOR）",
+        "state_stage": "closed_execution_side",
+        "credential_pointer": "holoaeon_memory/credential_registry.json（指针 only）",
+        "readback_evidence": "S1/S2/S3 同头 c461b51；清单 346 条；selftest 25/25"
       }
     },
     {
@@ -255,7 +269,16 @@
           "heartbeat": false,
           "seal": true
         }
+      },
+      "unity": {
+        "ctup_schema": "CTUP-v1.0",
+        "coordinate_ref": "F:/doubaowork/holoaeon（reports/remote_sync_*.json + ANCHOR）",
+        "state_stage": "closed_execution_side",
+        "credential_pointer": "holoaeon_memory/credential_registry.json（指针 only）",
+        "readback_evidence": "S1/S2/S3 同头 c461b51；清单 346 条；selftest 25/25"
       }
     }
-  ]
+  ],
+  "faces": 9,
+  "unity_note": "V87-A：八面扩九面，unity 面只登记四节点指针；补面不升态——θ=0.592 保持，第 3 试点仍判分裂不装配"
 }

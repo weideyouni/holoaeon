@@ -1,0 +1,79 @@
+{
+  "batch": "V87-A",
+  "name": "MOLT-GENE-CTUP-UNITY（批0：判据解耦 + CTUP 基因化）",
+  "date": "2026-11-17",
+  "status": "local_ready",
+  "doc_version": "0.9.78",
+  "head": "c461b5138b80d59352e0dfdc1e5eed2963bfb57b",
+  "head_full": "c461b5138b80d59352e0dfdc1e5eed2963bfb57b",
+  "head_note": "被验收代码头 = 上一提交；本批提交后按 policy.receipt_head 补正为被验收的代码头（回执自身提交不计入 S4/S5 基线）",
+  "patches": [
+    "holoaeon/genome_dna.py：DNA_VERSION 1.0.0→1.1.0；G-DNA-03 分治（extension 要求 spec 零改动 / governance 要求 spec_sha + 测试断言双回填 + genome_hash_diff0）；新增 G-DNA-04 unity 四节点；LOCI 增 unity_nodes；PLUGIN_FACES 8→9；新增 unity_check + VALID_STAGES + PLAINTEXT_PATTERNS；robustness_check 兼容扩三参；verify() 基因 3→4、guards 4→5、三条正向活性断言",
+    "data/genome_dna.json：axioms 第3条 formal 换分治式 + falsifiers 扩 8；新增第 4 条 G-DNA-04；loci.unity_nodes；顶层 policy（receipt_head / credential / feed_delta）；genome_revision 旧→新；dna_version 1.1.0；invariants 5→6",
+    "data/plugin_contract.json：三试点各补 unity 面（ctup_schema / coordinate_ref / state_stage / credential_pointer / readback_evidence）+ faces 9 + unity_note；θ=0.592、dual_state_pass=2 未动",
+    "tests/test_genome_dna.py：4 处规格断言同步（1.1.0 / 九面 / axioms=4 / guards=5）+ TestMoltGovernance 8 例 + TestUnityLocus 12 例（原 42 例一条未删）",
+    "tests/test_v87_molt_gene.py（新）：23 例六组",
+    "scripts/credential_exclusion_check.py（新）：G10 三层可执行断言（L1 gitignore / L2 清单 / L3 文本明文）",
+    "data/feed_delta_registry.json（新）：三包 append-only 行数侧账（V85 42 / V86 405 / V87 290）",
+    "data/ctup_onboarding.json（新）：CTUP 落点完整绝对路径 + SHA256 + 两仓 verdict",
+    "data/env_delta_registry.json：16→17 条（D16 跨机 CTUP 守卫 / D17 V87-A 43 例未上云）；D08 本机 2328/3/2325，gap −151/−181/+30，self_digest 82251d26a2a12fcd",
+    ".gitignore：三条凭据排除（credential_registry.json / holoaeon_memory/ / *.bak_ctup_*）",
+    "README.md + README.zh-CN.md：验收行双口径 2328/2177 + §0.5d CTUP 与五地排除；复算闸条数按实测回读",
+    "SHA256SUMS：346 → 351 条（含本回执；LF 归一化口径重建）"
+  ],
+  "verification": {
+    "unittest_main": 2328,
+    "unittest_main_skipped": 3,
+    "unittest_genome_dna": "62/62",
+    "unittest_v87_molt_gene": "23/23",
+    "selftest": "25/25",
+    "v3_gate": "34/34 PASS",
+    "genome_dna_gate": "7/7 PASS",
+    "meridian_link": "3/3 PASS（12 碎片 × 25 = 300 格）",
+    "redline": "159 文件 0 违规",
+    "dimension_lock": "12 维度 + 7 闸 + 0 violation",
+    "credential_exclusion_check": "PASS（L1 ok / L2 6 份 0 红 / L3 828 文件 0 明文）",
+    "plugin_contract": "3 pilots / 2 dual_state_pass / θ=0.592（未动）",
+    "check_sums": "351/351 ok（mismatches 0 · untracked 0）",
+    "claims_gate": "13/13 PASS（self_digest 见注册簿）",
+    "genome_hash": "0a69e93d46bee46dbbadf8081617d2cdbf1c7730dde785a89e66df5c16af234f → 84876958e3936c50bf5ce058f716a5a3a1bb9194b7a22f15185cb401fce16707",
+    "dna_verify": "pass=True / axioms=4 / mechanisms=25 / falsifiers=25 / guards=5"
+  },
+  "manifest": {
+    "entries": 351,
+    "mismatches": 0
+  },
+  "five_site": {
+    "verified_at": "2026-11-17",
+    "S1_local": {
+      "note": "本批提交后回填被验收代码头",
+      "ref": "main"
+    },
+    "S2_gitee": {
+      "note": "待推送",
+      "status": "pending"
+    },
+    "S3_github": {
+      "note": "待推送（凭据管理器 OAuth 首选）",
+      "status": "pending"
+    },
+    "S4_vector_sea": {
+      "note": "待清单重建",
+      "status": "pending"
+    },
+    "S5_hf": {
+      "note": "待镜像",
+      "status": "pending"
+    }
+  },
+  "honest_boundaries": [
+    "V85 六件治理批未执行：按投喂包批序，V87-A（批0）先落地，V85 属批1；本回执不为 V85 背书。",
+    "本批 43 例（test_genome_dna +20 / test_v87_molt_gene +23）仅本机跑绿，尚未上云（D17 open_pending_cloud_sync）；跨机 CTUP 守卫 D16 同状态，云端 skip 构成待上云后同批回读。",
+    "回执 head 为被验收的上一提交（c461b51），本批提交后按 policy.receipt_head 补正；这不是漏回填，是设计口径。",
+    "口径污染实测：把主套日志写进 F:\\doubaowork\\holoaeon_lathe 触发 test_v71_prehistory_family 现场盘点红（files 8310 != 8309），已移出到 agent workspace；跑测试临时产物一律不得落盘点区。",
+    "θ=0.592 与 dual_state_pass=2 沿用 V86 实测，本批未重标定；plugin_contract 只加第九面，不改判据数值。",
+    "credential_exclusion_check 的 L2 对「键名含 pointer 或值含 指针/pointer」的字段豁免——这是指针纪律的必然结果，不是放宽明文检测（L3 全仓文本扫描仍是硬判据）。"
+  ],
+  "seal": "潮起开门，潮落闭嘴",
+  "signature": "桃花庵出品"
+}

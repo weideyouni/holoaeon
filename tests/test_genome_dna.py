@@ -26,6 +26,11 @@ def _manifest(**overrides):
         "security": {"zero_network": True, "no_secret_on_box": True},
         "genome": {"genome_id": gd.GENOME_ID, "mechanism_subset": list(gd.MECHANISM_AXIS)},
         "meridian": {"link_back": 3, "fragment_id": "p001", "bus_channel": "bus"},
+        "unity": {"ctup_schema": "CTUP-v1.0",
+                  "coordinate_ref": "F:/doubaowork/holoaeon（reports/remote_sync）",
+                  "state_stage": "closed_execution_side",
+                  "credential_pointer": "holoaeon_memory/credential_registry.json",
+                  "readback_evidence": "S1/S2/S3 同头 c461b51"},
         "standalone_ok": True, "genomic_ok": True,
     }
     m.update(overrides)
@@ -37,7 +42,7 @@ class TestIdentity(unittest.TestCase):
         self.assertEqual(gd.GENOME_ID, "HOLOAEON-GENOME-DNA-v1.0")
 
     def test_dna_version_self_governed(self):
-        self.assertEqual(gd.DNA_VERSION, "1.0.0")
+        self.assertEqual(gd.DNA_VERSION, "1.1.0")
 
     def test_seal(self):
         self.assertEqual(gd.SEAL, "潮起开门，潮落闭嘴")
@@ -48,10 +53,12 @@ class TestIdentity(unittest.TestCase):
         self.assertEqual(list(gd.MECHANISM_AXIS),
                          [m["id"] for m in ml.KERNEL_MECHANISMS])
 
-    def test_eight_faces(self):
-        self.assertEqual(len(gd.PLUGIN_FACES), 8)
+    def test_nine_faces(self):
+        """V87-A：八面扩九面，新增 unity。补面不升态。"""
+        self.assertEqual(len(gd.PLUGIN_FACES), 9)
         self.assertIn("genome", gd.PLUGIN_FACES)
         self.assertIn("meridian", gd.PLUGIN_FACES)
+        self.assertIn("unity", gd.PLUGIN_FACES)
 
 
 class TestGrowthAxiom(unittest.TestCase):
@@ -150,10 +157,10 @@ class TestGenomeIntegrity(unittest.TestCase):
     def test_verify_green(self):
         v = gd.verify()
         self.assertTrue(v["pass"], v["problems"])
-        self.assertEqual(v["axioms"], 3)
+        self.assertEqual(v["axioms"], 4)
 
     def test_eternal_true_guard_present(self):
-        self.assertEqual(gd.verify()["guards"], 4)
+        self.assertEqual(gd.verify()["guards"], 5)
 
     def test_self_check_deterministic(self):
         a = json.dumps(gd.self_check(), ensure_ascii=False, sort_keys=True)
@@ -236,6 +243,129 @@ class TestMeridianDynamic(unittest.TestCase):
         frags = ml.load_fragments()
         self.assertEqual(s["fragments"], len(frags))
         self.assertEqual(s["cells"], len(frags) * len(ml.KERNEL_MECHANISMS))
+
+
+
+class TestMoltGovernance(unittest.TestCase):
+    """V87-A 分治：spec.py 是表型，基因是 axioms/homology/loci。"""
+
+    def test_extension_green(self):
+        self.assertTrue(gd.robustness_check(True, True, True, True, 300, 300,
+                                            TRUE_HOMOLOGY, "extension")["pass"])
+
+    def test_extension_spec_modified_red(self):
+        self.assertFalse(gd.robustness_check(True, True, False, True, 300, 300,
+                                             TRUE_HOMOLOGY, "extension")["pass"])
+
+    def test_governance_trio_green_active(self):
+        r = gd.robustness_check(True, True, False, True, 300, 300, TRUE_HOMOLOGY,
+                                "governance", True, True)
+        self.assertTrue(r["pass"], r["problems"])
+        self.assertEqual(r["change_class"], "governance")
+        self.assertTrue(r["r2"])
+
+    def test_governance_without_spec_backfill_red(self):
+        self.assertFalse(gd.robustness_check(True, True, False, True, 300, 300,
+                                             TRUE_HOMOLOGY, "governance",
+                                             False, True)["pass"])
+
+    def test_governance_without_test_assertion_red(self):
+        self.assertFalse(gd.robustness_check(True, True, False, True, 300, 300,
+                                             TRUE_HOMOLOGY, "governance",
+                                             True, False)["pass"])
+
+    def test_governance_genome_hash_drift_red(self):
+        """蜕皮脱到骨头了：hash 漂移在 governance 下仍必红。"""
+        self.assertFalse(gd.robustness_check(True, True, False, False, 300, 300,
+                                             TRUE_HOMOLOGY, "governance",
+                                             True, True)["pass"])
+
+    def test_bad_change_class_red(self):
+        self.assertFalse(gd.robustness_check(True, True, True, True, 300, 300,
+                                             TRUE_HOMOLOGY, "other")["pass"])
+
+    def test_gov_still_subject_to_r1(self):
+        self.assertFalse(gd.robustness_check(False, True, False, True, 300, 300,
+                                             TRUE_HOMOLOGY, "governance",
+                                             True, True)["pass"])
+
+
+class TestUnityLocus(unittest.TestCase):
+    """G-DNA-04：四节点齐才联通；四类反例各自必红。"""
+
+    COORD = {"head": "c461b51", "schema_same": True, "head_mismatch": False}
+    STATE = {"receipt_present": True, "anchor_present": True,
+             "stage": "closed_execution_side"}
+    CRED = {"pointer": "holoaeon_memory/credential_registry.json", "status": "VALID"}
+    READ = {"evidence": "ls-remote c461b51 / 346 条"}
+
+    def test_axiom04_registered(self):
+        ids = [a["id"] for a in gd.AXIOMS]
+        self.assertIn("G-DNA-04", ids)
+        self.assertIn("unity", gd.AXIOMS[3]["formal"])
+
+    def test_unity_nodes_in_loci(self):
+        self.assertEqual(sorted(gd.LOCI["unity_nodes"].keys()),
+                         ["coordinate", "credential", "readback", "state"])
+
+    def test_genome_hash_matches_master_revision(self):
+        with io.open(os.path.join(os.path.dirname(os.path.dirname(
+                os.path.abspath(__file__))), "data", "genome_dna.json"),
+                "r", encoding="utf-8") as fh:
+            master = json.load(fh)
+        self.assertEqual(gd.genome_hash(), master["genome_revision"]["after"])
+        self.assertNotEqual(master["genome_revision"]["before"],
+                            master["genome_revision"]["after"])
+
+    def test_unity_all_nodes_green(self):
+        self.assertTrue(gd.unity_check(self.COORD, self.STATE,
+                                       self.CRED, self.READ)["pass"])
+
+    def test_unity_coordinate_red(self):
+        self.assertFalse(gd.unity_check({"head": "", "schema_same": True},
+                                        self.STATE, self.CRED, self.READ)["pass"])
+        self.assertFalse(gd.unity_check({"head": "a", "schema_same": False},
+                                        self.STATE, self.CRED, self.READ)["pass"])
+
+    def test_unity_state_red(self):
+        bad = dict(self.STATE, receipt_present=False)
+        self.assertFalse(gd.unity_check(self.COORD, bad, self.CRED, self.READ)["pass"])
+        bad2 = dict(self.STATE, stage="running-forever")
+        self.assertFalse(gd.unity_check(self.COORD, bad2, self.CRED, self.READ)["pass"])
+
+    def test_unity_credential_red(self):
+        self.assertFalse(gd.unity_check(self.COORD, self.STATE,
+                                        {"pointer": "x", "status": "INVALID"},
+                                        self.READ)["pass"])
+        self.assertFalse(gd.unity_check(self.COORD, self.STATE,
+                                        {"pointer": "ghp_" + "a" * 36,
+                                         "status": "VALID"}, self.READ)["pass"])
+
+    def test_unity_readback_red(self):
+        self.assertFalse(gd.unity_check(self.COORD, self.STATE, self.CRED,
+                                        {"evidence": ""})["pass"])
+        self.assertFalse(gd.unity_check(self.COORD, self.STATE, self.CRED,
+                                        {"evidence": "已完成，一切正常"})["pass"])
+
+    def test_plugin_unity_face_missing_red(self):
+        m = _manifest()
+        m.pop("unity")
+        self.assertFalse(gd.plugin_contract_check(m)["pass"])
+
+    def test_plugin_unity_plaintext_red(self):
+        m = _manifest()
+        m["unity"] = dict(m["unity"], credential_pointer="gho_" + "b" * 32)
+        self.assertFalse(gd.plugin_contract_check(m)["pass"])
+
+    def test_plugin_unity_stage_red(self):
+        m = _manifest()
+        m["unity"] = dict(m["unity"], state_stage="unknown-stage")
+        self.assertFalse(gd.plugin_contract_check(m)["pass"])
+
+    def test_plugin_unity_readback_without_number_red(self):
+        m = _manifest()
+        m["unity"] = dict(m["unity"], readback_evidence="回读通过")
+        self.assertFalse(gd.plugin_contract_check(m)["pass"])
 
 
 class TestSpecUntouched(unittest.TestCase):

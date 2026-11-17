@@ -1,6 +1,6 @@
 {
   "as_of": "2026-11-17",
-  "batch": "V86",
+  "batch": "V87-A",
   "caliber_note": "本注册簿登记「环境与环境之间的差异」，与 claims_registry 的 ledger_sources（账与账一致）不相交。云端值是执行端对账时登记的实测值，闸不联网不读 CI 日志。",
   "entries": [
     {
@@ -213,7 +213,7 @@
       "title": "解释器矩阵：本机 3.13.14 vs CI 3.8 / 3.10 / 3.12"
     },
     {
-      "caliber_note": "V86 本机回读：本机 2285/3/2282 对云端 2177/33/2144（云端尚未跑本批）；ran −108 / executed −138 / skip +30，其中 D01 解释 −5、D15 解释 −103。",
+      "caliber_note": "V87-A 本机回读：本机 2328/3/2325 对云端 2177/33/2144；ran −151 / executed −181 / skip +30，其中 D01 解释 −5、D15 解释 −103、D17 解释 −43。",
       "cloud": {
         "evidence": "CI run 43643023044 · py3.12 job 132594550352 日志 Ran 2177 / skipped 33；py3.10 132594550278 / py3.8 132594550080 同值（三 job success）",
         "executed": 2144,
@@ -222,20 +222,21 @@
       },
       "dimension": "parity_main_suite",
       "gap": {
-        "executed_diff": -138,
+        "executed_diff": -181,
+        "ran_diff": -151,
+        "skip_diff": 30,
         "explained_by": [
           "D01",
-          "D15"
-        ],
-        "ran_diff": -108,
-        "skip_diff": 30
+          "D15",
+          "D17"
+        ]
       },
       "guards": [],
       "id": "D08",
       "local": {
-        "evidence": "本机 python -m unittest discover -s tests 实测（V86 修复后 2285 OK / skipped 3）；tests_contract 184 / 0",
-        "executed": 2282,
-        "ran": 2285,
+        "evidence": "本机 python -m unittest discover -s tests 实测（V87-A 后 2328 OK / skipped 3）；tests_contract 184 / 0",
+        "executed": 2325,
+        "ran": 2328,
         "skipped": 3
       },
       "measured_at": "2026-11-17",
@@ -412,7 +413,7 @@
       "title": "本批（V84）新增 54 例尚未上云（待 CI 回读后关闭）"
     },
     {
-      "caliber_note": "V41-A 新增 61 例（tests/test_ssyd_chronic_engine.py）+ V86 新增 42 例（tests/test_genome_dna.py）仅在本机；推送前云端不得假装已跑。",
+      "caliber_note": "V41-A 新增 61 例（tests/test_ssyd_chronic_engine.py）+ V86 新增 42 例（tests/test_genome_dna.py）仅在本机；推送前云端不得假装已跑。 / V87-A 后本机主套 2328（+43），云端仍为前批 2177。",
       "cloud": {
         "evidence": "本批尚未推送，云端口径仍为前批 2177",
         "value": "pending"
@@ -437,6 +438,64 @@
       "status": "open_pending_cloud_sync",
       "suite": "main",
       "title": "本批 V41-A 61 例 + V86 42 例尚未上云（待 CI 回读后关闭）"
+    },
+    {
+      "id": "D16",
+      "batch": "V87-A",
+      "dimension": "cross_machine_ctup_asset",
+      "title": "CTUP 落点 SHA 校验跨机降级（本机校字节，云端只校记录）",
+      "guards": [
+        "tests/test_v87_molt_gene.py:207"
+      ],
+      "local": {
+        "value": "present",
+        "evidence": "SKILL.md / unity_check.py 在本机 .user_skills 存在，SHA256 实校（a86895c5… / bf171fad…）"
+      },
+      "cloud": {
+        "value": "absent",
+        "evidence": "云端无 .user_skills 落点；skipTest 降级为 data/ctup_onboarding.json 记录格式校"
+      },
+      "skip_attributed": {
+        "local": 0,
+        "cloud": 0
+      },
+      "not_discovered": {
+        "local": 0,
+        "cloud": 0
+      },
+      "risk_tier": "fast",
+      "status": "open_pending_cloud_sync",
+      "suite": "main",
+      "measured_at": "2026-11-17",
+      "caliber_note": "本机不触发（文件在）；上云后预期 +1 skip，届时随 D08 云端回读同批登记，不得提前写进 skip 构成。"
+    },
+    {
+      "id": "D17",
+      "batch": "V87-A",
+      "dimension": "batch_not_yet_on_cloud",
+      "title": "V87-A 43 例（test_genome_dna +20 / test_v87_molt_gene +23）尚未上云",
+      "guards": [],
+      "local": {
+        "value": "present",
+        "evidence": "本机 2328 = V86 2285 + V87-A 43（Ran 2328 tests 实测）"
+      },
+      "cloud": {
+        "value": "pending",
+        "evidence": "本批尚未推送；云端口径仍为前批 2177"
+      },
+      "skip_attributed": {
+        "local": 0,
+        "cloud": 0
+      },
+      "not_discovered": {
+        "local": 0,
+        "cloud": 43
+      },
+      "risk_tier": "fast",
+      "status": "open_pending_cloud_sync",
+      "suite": "main",
+      "measured_at": "2026-11-17",
+      "caliber_note": "上云后关闭；关闭条件 = CI 日志 Ran ≥ 2328 且 skipped 与 D16 一致。"
     }
   ],
   "measurement_protocol": {
@@ -455,5 +514,5 @@
     "simulation": "本机云端条件模拟（v80_cloud_sim2.py：patch os.path.isdir/exists 判 F 盘与客仓/交付包不存在）"
   },
   "schema": "ENV-DELTA-REGISTRY-v1",
-  "self_digest": "a63f216f2f84ca30"
+  "self_digest": "82251d26a2a12fcd"
 }
