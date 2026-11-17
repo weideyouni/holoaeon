@@ -38,7 +38,7 @@ FAMILY_VERSION = "1.0"
 EXPECTED_DIRS = 194
 EXPECTED_ZIPS = 22
 EXPECTED_FILES = 8310           # 194 个目录的文件总数（排除隐藏件，2026-11-17 V87-A 现场回读：NEIKE 线程 07:52 新增 1 件，属他仓演进非污染）
-EXPECTED_BYTES = 99095774       # 同上，字节总数（V87-A 现场回读：+1 文件/+4018B）
+EXPECTED_BYTES = 99096450       # 同上，字节总数（V85-CTUP 收口：NEIKE hold 刷新提交 937117d 后 +676B，属他仓演进非污染）
 EXPECTED_EXACT_FAMILIES = 14    # 同骨架跨域双态族（实测）
 EXPECTED_SINGLETONS = 188       # 216 - 14×2
 
