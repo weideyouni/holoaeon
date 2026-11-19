@@ -1,0 +1,50 @@
+{
+ "schema": "HOLOAEON-CTUP-ONBOARDING/1.0",
+ "seal": "潮起开门，潮落闭嘴",
+ "project": "polisaeon",
+ "project_cn": "智慧城邦矩阵（贵港市智能化引擎赋能工程）",
+ "series": "PA",
+ "version": "0.1.0",
+ "batch": "PA-V1",
+ "relation": {
+  "base": "holoaeon",
+  "mechanism": "基座 M11『城邦架构』机制的独立成城（实体化）",
+  "mechanism_axis": "25 位轴全注册（polis_meridian.POLIS_MECH_ALIASES）",
+  "channels": [
+   "meridian extra_fragments：polis_meridian.export_fragments() → 基座 meridian_link.load_fragments(extra_fragments=…)，111×25=2775 格经络链接",
+   "CTUP v1.3 项目注册表 N7：本条目",
+   "五源对账：meridian_link.KERNEL_MECHANISMS id 逐条一致"
+  ],
+  "open_source": false,
+  "remote": null,
+  "remote_note": "不开源：无公开远端；远端建仓须碳基点单才可执行"
+ },
+ "polis_facts": {
+  "seats": 84,
+  "axes": "政府36 / 企业24 / 民生24",
+  "chains": [
+   "糖",
+   "木业家居",
+   "港航",
+   "建材",
+   "电车轮",
+   "农食"
+  ],
+  "batches": [
+   "2027-2028",
+   "2028-2029",
+   "2029-2030"
+  ],
+  "clusters": [
+   "智能编排",
+   "知识蒸馏",
+   "协同推演",
+   "全景画像",
+   "内容生成"
+  ],
+  "p0_count": 12
+ },
+ "sign": "中科国度（北京）数字科技有限公司",
+ "draft_note": "初稿 · 供内部讨论，非最终稿",
+ "cross_thread_call": "新线程：import polis_core; polis_core.check_polis() → polis_meridian.check_mech_registry() / check_injection()"
+}
