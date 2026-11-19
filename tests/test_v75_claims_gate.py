@@ -217,8 +217,11 @@ class TestNarrative(_Base):
     def test_17_three_narrative_claims(self):
         ids = [x["id"] for x in self.reg["doc_claims"] if x["kind"] == "narrative"]
         self.assertEqual(sorted(ids),
-                         ["batch_count_zh", "en_timeline_version", "pyfiles_command_zh",
-                          "ring_count_zh", "zh_timeline_version"])  # V77 增两条时间线叙述位
+                         ["batch_count_zh", "batch_order_monotonic",
+                          "en_timeline_version", "ledger_depth_le3",
+                          "pyfiles_command_zh", "ring_count_zh",
+                          "sums_disclosure_en", "sums_disclosure_zh",
+                          "zh_timeline_version"])  # V88 增 batch_order/ledger_depth/sums 披露
 
     def test_18_ring_written_as_literal(self):
         ctx = cg._ctx(root=self.ctx["root"], texts={
@@ -252,10 +255,10 @@ class TestNarrative(_Base):
 # 组 5 · pin 四字段与状态
 # =========================================================================
 class TestPins(_Base):
-    def test_21_six_pins(self):
+    def test_21_seven_pins(self):
         ids = sorted(p["id"] for p in self.reg["regulation_pins"])
         self.assertEqual(ids, ["MCP", "MLPS3", "NHSA-CATALOG", "PHARMACOPOEIA",
-                               "PHC-2025", "PHC-NORM"])
+                               "PHC-2025", "PHC-NORM", "SUPPLY-CHAIN-2026-11"])
 
     def test_22_missing_version(self):
         reg = _rehash(self.reg)
@@ -311,7 +314,7 @@ class TestFreshness(_Base):
         reg = _rehash(self.reg)
         reg["regulation_pins"][2]["status"] = "unknown"
         reg["regulation_pins"][2]["note"] = "未核实现行版本，如实登记"
-        v = self.verify(reg=reg, today="2026-11-13")
+        v = self.verify(reg=reg, today="2026-11-19")
         self.assertTrue(self.face(v, "pin_freshness")["ok"])
 
     def test_30_unknown_without_note(self):

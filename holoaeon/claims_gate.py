@@ -106,7 +106,8 @@ FACES = ("claim_registered", "readback_consistent", "historical_timeboxed",
          "regulation_pinned", "pin_freshness", "determinism_self_digest",
          "chain_position_coverage", "registry_coverage",
          "regulation_semantic_consistency", "cross_ledger_consistency",
-         "env_delta_consistency", "ci_step_names_readback")
+         "env_delta_consistency", "batch_order_monotonic",
+         "ci_step_names_readback")
 
 # 面 8 的扫描规则：只认这几类"会变的叙述位"，不扫普通文字。
 COVERAGE_PATTERNS = {
@@ -272,6 +273,21 @@ READBACKS = {
         _text(c, "readme_zh", "README.zh-CN.md"), "2026-10 → 今"),
     "readme.en.timeline_readback": lambda c: _has_readback(
         _text(c, "readme_en", "README.md"), "2026-10 → present"),
+    # V88-P1C 清单口径披露：SHA256SUMS 钉数据/文档侧，源码完整性四重守卫
+    "readme.zh.sums_disclosure": lambda c: _has_phrase(
+        _text(c, "readme_zh", "README.zh-CN.md"),
+        ["清单口径披露", "四重守卫"]),
+    "readme.en.sums_disclosure": lambda c: _has_phrase(
+        _text(c, "readme_en", "README.md"),
+        ["manifest scope disclosure", "fourfold guard"]),
+    # V88-P2A 批次序号单调：双份 README 最新批次号 == 最新回执批次
+    "readme.batch_order_consistent": lambda c: len(batch_order_monotonic(c)) == 0,
+    # V88-P2B 台账深度：双份 README 活体台账各 ≤3 行，余行移 docs/BATCH_LEDGER.md
+    "readme.ledger_depth_ok": lambda c: (
+        _ledger_depth(_text(c, "readme_zh", "README.zh-CN.md"),
+                      ["最新批次", "上一批次"]) <= 3
+        and _ledger_depth(_text(c, "readme_en", "README.md"),
+                          ["Latest batch", "Previous batch", "最新批次", "上一批次"]) <= 3),
 }
 
 
@@ -285,6 +301,12 @@ def _has_readback(text, anchor):
 
 def _uses_find(text):
     return bool(re.search(r"find\s+holoaeon\s+-name\s+'\*\.py'", text))
+
+
+def _has_phrase(text, phrases):
+    """全部短语在位才 True（英文不区分大小写）；任一缺失/锚点缺失返回 False。"""
+    low = text.lower()
+    return all(p.lower() in low for p in phrases)
 
 
 def readback(claim, ctx=None):
@@ -1358,6 +1380,50 @@ def ci_step_names_readback(ctx=None):
 
 
 # ---------------------------------------------------------------------------
+# 面 13：批次序号单调化（batch_order_monotonic，V88-P2A）
+# 病灶：README「最新批次」写死成旧号、与回执（=git 提交批次）相反。
+# 判据：双份 README 首条最新批次行的 V 号 == 最新回执 batch 字段。
+# 离线纪律：本面不起 git 子进程；提交批次经回执状态节点传入（N2 状态节点）。
+# ---------------------------------------------------------------------------
+FACE_BATCH_ORDER = "batch_order_monotonic"
+BATCH_TOKEN = re.compile(r"V\d+(?:-[A-Z][\d.]*)?")
+
+
+def _latest_batch_token(text, label):
+    """取首条 `| <label> |` 行内首个批次号；缺失/无号返回 None。"""
+    for ln in text.splitlines():
+        if ("| %s |" % label) in ln:
+            m = BATCH_TOKEN.search(ln)
+            return m.group(0) if m else None
+    return None
+
+
+def _ledger_depth(text, labels):
+    """活体台账行数（最新/上一批次行）；历史行已移 docs/BATCH_LEDGER.md。"""
+    rx = re.compile(r"^\| (?:%s) \|" % "|".join(labels), re.IGNORECASE)
+    return sum(1 for ln in text.splitlines() if rx.match(ln))
+
+
+def batch_order_monotonic(ctx=None):
+    c = ctx or _ctx()
+    fails = []
+    rec = _receipt(c)
+    expected = rec.get("batch") if isinstance(rec, dict) else None
+    if not expected:
+        return [{"face": FACE_BATCH_ORDER, "id": "receipt",
+                 "detail": "无最新批次回执，无法判定批次单调"}]
+    zh = _latest_batch_token(_text(c, "readme_zh", "README.zh-CN.md"), "最新批次")
+    en = _latest_batch_token(_text(c, "readme_en", "README.md"), "Latest batch")
+    if zh != expected:
+        fails.append({"face": FACE_BATCH_ORDER, "id": "readme_zh",
+                      "detail": "README 最新批次 %r != 回执批次 %r" % (zh, expected)})
+    if en != expected:
+        fails.append({"face": FACE_BATCH_ORDER, "id": "readme_en",
+                      "detail": "README(EN) latest batch %r != receipt %r" % (en, expected)})
+    return fails
+
+
+# ---------------------------------------------------------------------------
 # 聚合
 # ---------------------------------------------------------------------------
 # ---------------------------------------------------------------------------
@@ -1791,6 +1857,10 @@ def verify(reg=None, ctx=None, today=None):
     for item in cis:
         faces[FACE_CI_STEPS]["ok"] = False
         faces[FACE_CI_STEPS]["fails"].append(item)
+    bo = batch_order_monotonic(c)
+    for item in bo:
+        faces[FACE_BATCH_ORDER]["ok"] = False
+        faces[FACE_BATCH_ORDER]["fails"].append(item)
 
     fails_total = sum(len(v["fails"]) for v in faces.values())
     body = {
@@ -1819,6 +1889,14 @@ def verify(reg=None, ctx=None, today=None):
             "steps": len(read_ci_step_names(c.get("ci_workflow")) or []),
             "hardcoded": len([x for x in cis
                               if x["detail"].startswith("HARDCODED_COUNT")]),
+        },
+        "batch_order": {
+            "face": FACE_BATCH_ORDER,
+            "expected": (_receipt(c) or {}).get("batch") if isinstance(_receipt(c), dict) else None,
+            "zh": _latest_batch_token(
+                _text(c, "readme_zh", "README.zh-CN.md"), "最新批次"),
+            "en": _latest_batch_token(
+                _text(c, "readme_en", "README.md"), "Latest batch"),
         },
         "cross_ledger": {
             "face": FACE_CROSS_LEDGER,

@@ -248,6 +248,50 @@
       "readback": "readme.en.timeline_readback",
       "sha16": null,
       "timeboxed": false
+    },
+    {
+      "as_of_batch": "V88",
+      "evidence_class": "pointer",
+      "expected_from": "narrative.readback",
+      "id": "sums_disclosure_zh",
+      "kind": "narrative",
+      "note": "清单口径披露：SHA256SUMS 钉数据与文档侧（.json/.md/.csv 及关键 .py），源码完整性由 git 历史 + 四项冻结哈希 + genome_hash + 维度锁四重守卫；禁另造第二份源码清单",
+      "readback": "readme.zh.sums_disclosure",
+      "sha16": "",
+      "timeboxed": false
+    },
+    {
+      "as_of_batch": "V88",
+      "evidence_class": "pointer",
+      "expected_from": "narrative.readback",
+      "id": "sums_disclosure_en",
+      "kind": "narrative",
+      "note": "Manifest scope disclosure (EN mirror): SHA256SUMS pins data/doc side; source integrity rests on git history + four frozen hashes + genome_hash + dimension lock; no second source-code manifest",
+      "readback": "readme.en.sums_disclosure",
+      "sha16": "",
+      "timeboxed": false
+    },
+    {
+      "as_of_batch": "V88",
+      "evidence_class": "pointer",
+      "expected_from": "narrative.readback",
+      "id": "batch_order_monotonic",
+      "kind": "narrative",
+      "note": "批次序号单调：双份 README 首条最新批次号 == 最新回执 batch（git 提交批次经回执状态节点传入，闸不起 git 子进程）；改错 V 号必红",
+      "readback": "readme.batch_order_consistent",
+      "sha16": "",
+      "timeboxed": false
+    },
+    {
+      "as_of_batch": "V88",
+      "evidence_class": "pointer",
+      "expected_from": "narrative.readback",
+      "id": "ledger_depth_le3",
+      "kind": "narrative",
+      "note": "README 活体批次台账深度 ≤3（中英双份）；历史批次行逐字移入 docs/BATCH_LEDGER.md（append-only 禁删史）",
+      "readback": "readme.ledger_depth_ok",
+      "sha16": "",
+      "timeboxed": false
     }
   ],
   "internal_baselines": [
@@ -380,8 +424,8 @@
       "non_evidence": [
         "runtime_snapshot"
       ],
-      "observed": "0.9.79",
-      "observed_at": "2026-11-17"
+      "observed": "0.9.80",
+      "observed_at": "2026-11-19"
     },
     "five_site_head": {
       "authority": "git_ls_remote_origin_main",
@@ -402,13 +446,13 @@
     },
     "main_suite": {
       "authority": "unittest_discover_measured",
-      "caliber_note": "V85 主套实测 2374（V87-A 2328 + test_v85_governable_tristate 26 / test_v85_ci_step_names 20）",
+      "caliber_note": "V88 主套实测 2392（V85 2374 + V88 18：activity_probe 7 / batch_order 5 / p2c_supply 6）",
       "non_evidence": [
         "runtime_snapshot",
         "timeboxed_historical"
       ],
-      "observed": 2374,
-      "observed_at": "2026-11-17"
+      "observed": 2392,
+      "observed_at": "2026-11-19"
     },
     "redline": {
       "authority": "redline_scan_measured",
@@ -524,15 +568,15 @@
       "effective_from": "2025",
       "id": "PHC-2025",
       "max_age_days": 180,
-      "note": "只存文号指针，不复制规范全文（V85 README 双份验收行+复算闸条数更新后按实测重算 sha16）",
+      "note": "只存文号指针，不复制规范全文（V88 收口 README 条数刷新后按整文件实测重算 sha16）",
       "risk_tier": "annual",
       "runtime_pointer": "holoaeon/phc_chronic_engine.py#L4-L5",
       "runtime_role": "current",
       "runtime_value": "2025",
       "source_pointer": "README.zh-CN.md#公卫口径段（V41 小节）",
-      "source_sha16": "4f7966d989e25f06",
+      "source_sha16": "c4a3d979b2bb4546",
       "status": "current",
-      "verified_at": "2026-11-17",
+      "verified_at": "2026-11-19",
       "version": "2025",
       "version_chain": [
         {
@@ -637,14 +681,53 @@
           "version": "2019（现行）"
         }
       ]
+    },
+    {
+      "boundaries": [
+        "零依赖仅覆盖核心包 holoaeon/（bridges/ 部署环境除外）；",
+        "装入已含恶意包的宿主环境时 .pth 仍会执行，本仓不能保护宿主；",
+        "正确表述是「不引入该风险」，不是「能防御该风险」。"
+      ],
+      "change_probe": {
+        "mode": "manual_review_only",
+        "note": "离线复核检索指针；不联网、不声称已核实",
+        "probe_query": "agent-framework PyPI supply-chain poisoning 2026-11-17"
+      },
+      "claim_sites": [
+        "README.md#~supply-chain poisoning structurally inapplicable",
+        "README.zh-CN.md#~供应链投毒结构性不适用"
+      ],
+      "doc_no": "SUPPLY-CHAIN-2026-11",
+      "event": "2026-11-17 微软官方 agent-framework PyPI 投毒事件：恶意版 1.26.1/1.26.2，.pth 解释器启动级凭据窃取，周下载约 4.1 万，扫 60 凭据文件 / 读 300 进程环境变量",
+      "id": "SUPPLY-CHAIN-2026-11",
+      "max_age_days": 90,
+      "name": "供应链投毒事件登记（agent-framework PyPI）",
+      "note": "2026-11-17 微软 agent-framework PyPI 投毒事件登记；基座立场 dependencies=[] 结构性不适用。三条边界原样保留。",
+      "our_stance": "本仓核心包 pyproject.toml 显式 dependencies=[]，该攻击面结构性不适用",
+      "risk_tier": "fast",
+      "runtime_pointer": "pyproject.toml#dependencies",
+      "runtime_role": "current",
+      "runtime_value": "[]",
+      "source_pointer": "reports/security_tier_self_assessment_20261119.md",
+      "source_sha16": "cab319324c78c4b2",
+      "status": "current",
+      "verified_at": "2026-11-19",
+      "version": "2026-11-19",
+      "version_chain": [
+        {
+          "effective_from": "2026-11-19",
+          "role": "current",
+          "version": "2026-11-19"
+        }
+      ]
     }
   ],
   "schema": "CLAIMS-GATE-v1",
-  "self_digest": "88a1bd0277b8ba02",
+  "self_digest": "6166e77e70da66e8",
   "totals": {
-    "doc_claims": 17,
+    "doc_claims": 21,
     "historical": 3,
-    "narrative": 5,
-    "regulation_pins": 6
+    "narrative": 9,
+    "regulation_pins": 7
   }
 }

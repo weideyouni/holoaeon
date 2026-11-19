@@ -44,9 +44,9 @@ class TestStructure(unittest.TestCase):
         cls.m = load_preflight()
 
     def test_01_ten_steps(self):
-        """T01：步骤表恰好 12 面（V78b：+Manifest integrity / +v3 gate），与 ci.yml 对齐。"""
-        self.assertEqual(len(self.m.STEPS), 12)
-        self.assertEqual(len(self.m.declared_ci_names()), 12)
+        """T01：步骤表恰好 16 面（V88：+Tautology / GenomeDNA / Credential / AssetCensus），与 ci.yml 对齐。"""
+        self.assertEqual(len(self.m.STEPS), 16)
+        self.assertEqual(len(self.m.declared_ci_names()), 16)
 
     def test_02_unique_ids_and_kinds(self):
         """T02：id 唯一，kind 只能是 info / run / multi。"""
@@ -84,11 +84,11 @@ class TestContract(unittest.TestCase):
         self.assertEqual(rep["missing"], [], "无人认领的 ci 步骤：%r" % (rep["missing"],))
 
     def test_06_contract_aligned(self):
-        """T06：双向对齐结论为 True，且两边计数都是 12（V78b）。"""
+        """T06：双向对齐结论为 True，且两边计数都是 16（V88）。"""
         rep = self.m.contract_report(WORKFLOW)
         self.assertTrue(rep["aligned"])
-        self.assertEqual(rep["ci_steps"], 12)
-        self.assertEqual(rep["claimed_steps"], 12)
+        self.assertEqual(rep["ci_steps"], 16)
+        self.assertEqual(rep["claimed_steps"], 16)
         self.assertEqual(rep["unused"], [])
 
     def test_07_tampered_workflow_goes_red(self):
@@ -138,13 +138,13 @@ class TestBehaviour(unittest.TestCase):
         self.assertNotEqual(r["rc"], 0)
 
     def test_11_list_does_not_execute(self):
-        """T11：--list 只打印步骤表，不执行任何门禁（rc=0 且列出 12 行，V78b）。"""
+        """T11：--list 只打印步骤表，不执行任何门禁（rc=0 且列出 16 行，V88）。"""
         proc = subprocess.run([sys.executable, SCRIPT, "--list"], cwd=ROOT,
                               capture_output=True, text=True, encoding="utf-8",
                               errors="replace", timeout=120)
         self.assertEqual(proc.returncode, 0, proc.stderr[-300:])
         lines = [ln for ln in (proc.stdout or "").splitlines() if ln.strip()]
-        self.assertEqual(len(lines), 12)
+        self.assertEqual(len(lines), 16)
 
     def test_12_report_fields_and_zero_dependency(self):
         """T12：报告字段齐（含契约段），且源码不引第三方库。"""

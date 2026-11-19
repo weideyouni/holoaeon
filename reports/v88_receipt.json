@@ -1,0 +1,118 @@
+{
+  "batch": "V88",
+  "name": "GATE-HARDENING（治理闸入 CI + 仓外脚本归位 + 台账单调化/瘦身 + 供应链 pin/L1-L5 自评）",
+  "date": "2026-11-19",
+  "status": "IN_PROGRESS",
+  "doc_version": "0.9.80",
+  "head": "",
+  "head_note": "回执 head 按 policy.receipt_head 待本批代码提交后回填；本 provisional 件仅解锁 claims_gate 回读面。",
+  "patches": [
+    {
+      "group": "P0 四闸入 CI",
+      "files": [
+        ".github/workflows/ci.yml",
+        "scripts/ci_preflight.py",
+        "tests/test_v78_ci_preflight.py"
+      ]
+    },
+    {
+      "group": "P1-A 仓外脚本归位（方案 A 复制入仓，仓外原件保留互指）",
+      "files": [
+        "scripts/readme_claims_check.py",
+        "scripts/unity_check.py",
+        "data/ctup_onboarding.json"
+      ]
+    },
+    {
+      "group": "P1-B tautology_scan 第五类 activity_probe（委托 LA _guard.activity_check，跨仓零 import）",
+      "files": [
+        "holoaeon/tautology_scan.py",
+        "tests/test_v88_activity_probe.py"
+      ]
+    },
+    {
+      "group": "P1-C 清单口径双份 README 披露 + sums_disclosure narrative",
+      "files": [
+        "README.zh-CN.md",
+        "README.md"
+      ]
+    },
+    {
+      "group": "P2-A claims_gate 第 13 面 batch_order_monotonic + CTUP 子号化",
+      "files": [
+        "holoaeon/claims_gate.py",
+        "tests/test_v88_batch_order.py"
+      ]
+    },
+    {
+      "group": "P2-B 台账瘦身，历史行移入 append-only BATCH_LEDGER",
+      "files": [
+        "docs/BATCH_LEDGER.md"
+      ]
+    },
+    {
+      "group": "P2-C 第 7 pin SUPPLY-CHAIN-2026-11 + L1-L5 自评",
+      "files": [
+        "data/claims_registry.json",
+        "reports/security_tier_self_assessment_20261119.md",
+        "tests/test_v88_p2c_supply.py"
+      ]
+    },
+    {
+      "group": "DOC 0.9.79→0.9.80 + DNA 母本 spec_sha256 回填（genome_hash 不变）",
+      "files": [
+        "holoaeon/spec.py",
+        "data/genome_dna.json",
+        "tests/test_v22_eng_skills.py",
+        "tests/test_v64_hangover_zero.py",
+        "tests/test_v70_prehistory_criteria.py",
+        "tests/test_v84_tautology_golden_watch.py",
+        "tests/test_v75_claims_gate.py",
+        "tests/test_v77_registry_coverage.py"
+      ]
+    },
+    {
+      "group": "env_delta D08 对账刷新 + D19 新增",
+      "files": [
+        "data/env_delta_registry.json"
+      ]
+    },
+    {
+      "group": "回执",
+      "files": [
+        "reports/v88_receipt.json"
+      ]
+    }
+  ],
+  "verification": {
+    "unittest_main": 2392,
+    "unittest_failures": 0,
+    "unittest_errors": 0,
+    "unittest_skipped_local": 0,
+    "v3_domain": 11,
+    "verax_domain": 21,
+    "total_local": 2424,
+    "redline": 159,
+    "v3_gate": "34/34",
+    "selftest": "25/25",
+    "claims_gate": "PASS mismatch=0",
+    "check_sums": "ok=true total=358 mismatches=[]",
+    "checklist_entries": 358,
+    "cloud_main": 2177,
+    "cloud_skipped": 33
+  },
+  "manifest": {
+    "entries": 358,
+    "mismatches": []
+  },
+  "five_site": {},
+  "honest_boundaries": [
+    "zh README.zh-CN.md 1499 行未达 ≤1100 行目标：台账历史行为单行超长，搬移进 BATCH_LEDGER 不减行数；受保护清单与历史小节禁动，本批不强行折行。",
+    "D19：V88 新增 18 例（activity_probe 7 / batch_order 5 / p2c_supply 6）尚未上云，状态 open_pending_cloud_sync（cloud 18 / local 0）；D16/D17/D18 三条云同步 pending 延续。",
+    "activity_probe 委托 LA 仓 longaeon/models/_guard.py activity_check，跨仓零 import；三护栏：默认关 / 固定种子 ACTIVITY_SEED=20261119 / 超时 ACTIVITY_TIMEOUT=5.0；仿真行为探针 ≠ 临床实证。",
+    "security_tier 自评结论 L3-L4，self_assessed=true，属团队自评，非第三方认证；NHANES 标定 / 法人主体 / 真实医保目录接入不在本批范围。",
+    "清单 358 条口径：release_files 顶层仅 data/reports/holoaeon/fusion_upgrade/tests_contract/scripts；tests/ 与 docs/ 不入册，源码完整性由 git 历史 + 四项冻结哈希 + genome_hash + 维度锁四重守卫保证。"
+  ],
+  "seal": "潮起开门，潮落闭嘴",
+  "signature": "桃花庵出品"
+}

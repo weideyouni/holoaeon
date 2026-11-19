@@ -2,7 +2,7 @@
   "schema": "HOLOAEON-CTUP-ONBOARDING/1.0",
   "seal": "潮起开门，潮落闭嘴",
   "date": "2026-11-17",
-  "batch": "V87A-CALIBRATION-CTUP-V13",
+  "batch": "V88-GATE-HARDENING",
   "ctup_schema": "CTUP-v1.3",
   "skill_dir_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol",
   "skill_md": {
@@ -12,10 +12,17 @@
     "bytes": 21840
   },
   "unity_check_py": {
-    "path_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol\\scripts\\unity_check.py",
+    "path_abs": "F:\\doubaowork\\holoaeon\\scripts\\unity_check.py",
     "exists": true,
-    "sha256": "bf171faddd8ed23f85cfbeed840651fc80d83d921cb848d733732e5c8c9bf95f",
-    "bytes": 9479
+    "sha256": "a5ad83ca085fb591a60f74bc3f5f18b134b3d532ef862bdbc29382018e7377b0",
+    "bytes": 9759,
+    "dev_copy": {
+      "path_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol\\scripts\\unity_check.py",
+      "exists": true,
+      "sha256": "b20c1decc715d3dd9922bd148066a6dfdd59cf046c3744a9441883f7ed8ee090",
+      "bytes": 9635,
+      "note": "V88 P1-A 方案A：仓外开发副本保留，以仓内正本为准；双登记不删史"
+    }
   },
   "unity_report_ref": "F:\\doubaowork\\holoaeon_lathe\\UNITY_CHECK_20261117.json",
   "readback": {
@@ -86,5 +93,37 @@
       "holoaeon",
       "neike1331"
     ]
-  }
+  },
+  "readme_claims_py": {
+    "path_abs": "F:\\doubaowork\\holoaeon\\scripts\\readme_claims_check.py",
+    "exists": true,
+    "sha256": "b6ade16341949ca4eb90be0c41be6dc20c870d4aae2f28e6561ded90c6284691",
+    "bytes": 7464,
+    "dev_copy": {
+      "path_abs": "F:\\doubaowork\\holoaeon_lathe\\readme_claims_check.py",
+      "exists": true,
+      "sha256": "eb3af4a2d73080f85fe86e5a735532344528bc808d64b21d5c0d7ffc9ecec41b",
+      "bytes": 7424,
+      "note": "V88 P1-A 方案A：仓外开发副本保留，以仓内正本为准；双登记不删史"
+    }
+  },
+  "v88_note": "P1-A 仓外脚本归位：unity_check.py / readme_claims_check.py 复制入 scripts/ 为正本，仓外原件保留 dev_copy；path_abs 指向仓内，仓外路径入 dev_copy 字段。",
+  "sequence": [
+    {
+      "sub": "V87-A.1",
+      "renumbered_from": "v1.1",
+      "scope": "§九 三段联通（项目入口→本地→向量海）/ §十 全员加载 / entry_unity 兜底判据"
+    },
+    {
+      "sub": "V87-A.2",
+      "renumbered_from": "v1.2",
+      "scope": "N5 出口节点 / 割裂本质与全息自组织相似性耗散结构 / egress_probe"
+    },
+    {
+      "sub": "V87-A.3",
+      "renumbered_from": "v1.3",
+      "scope": "N6 现场节点 / N7 项目注册表 / registry_check"
+    }
+  ],
+  "renumbered_note": "v1.1/v1.2/v1.3 双序列交叉消除，统一子号 V87-A.1/.2/.3；renumbered_from 留痕，禁删史。"
 }

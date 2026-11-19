@@ -2,7 +2,7 @@
 """
 ci_preflight.py —— V78a 本地 CI 预检闸（旁挂脚本，不改内核、不进 discover）
 ================================================================================
-把 `.github/workflows/ci.yml` 里的 12 个步骤**原样搬回本地**跑一遍，输出
+把 `.github/workflows/ci.yml` 里的 16 个步骤**原样搬回本地**跑一遍，输出
 `reports/ci_preflight.json`；任一步 FAIL，退出码 1。
 
 为什么要有这台闸
@@ -113,6 +113,22 @@ STEPS = [
      "cmd": ["examples/01_basic_matrix.py", "examples/02_semantic_routing.py",
              "examples/03_hebbian_collaboration.py", "examples/04_domain_pipeline.py"],
      "desc": "四例冒烟（逐个跑，任一失败即红）"},
+
+    {"id": "tautology_scan", "ci_name": "Tautology scan", "kind": "run",
+     "cmd": ["-m", "holoaeon.tautology_scan"],
+     "desc": "恒真/同义/漂移/未登记四类 + 白名单 liveness 纪律（V88 入 CI）"},
+
+    {"id": "genome_dna_gate", "ci_name": "Genome DNA gate", "kind": "run",
+     "cmd": ["scripts/genome_dna_gate.py"],
+     "desc": "基因闸 G-DNA-01..04 可证伪 + 治理批三件套回填校验（V88 入 CI）"},
+
+    {"id": "credential_exclusion", "ci_name": "Credential exclusion", "kind": "run",
+     "cmd": ["scripts/credential_exclusion_check.py"],
+     "desc": "三层凭据排除：.gitignore / 清单 / 文本明文，零命中（V88 入 CI）"},
+
+    {"id": "asset_census", "ci_name": "Asset census", "kind": "run",
+     "cmd": ["scripts/asset_census.py"],
+     "desc": "资产台账 vs 工作树回读普查（计数脚本自报，不写死；V88 入 CI）"},
 ]
 
 

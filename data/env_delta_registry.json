@@ -1,6 +1,6 @@
 {
-  "as_of": "2026-11-17",
-  "batch": "V85",
+  "as_of": "2026-11-19",
+  "batch": "V88",
   "caliber_note": "本注册簿登记「环境与环境之间的差异」，与 claims_registry 的 ledger_sources（账与账一致）不相交。云端值是执行端对账时登记的实测值，闸不联网不读 CI 日志。",
   "entries": [
     {
@@ -213,7 +213,7 @@
       "title": "解释器矩阵：本机 3.13.14 vs CI 3.8 / 3.10 / 3.12"
     },
     {
-      "caliber_note": "V85 本机回读：本机 2374/3/2371 对云端 2177/33/2144；ran −197 / executed −227 / skip +30，其中 D01 解释 −5、D15 解释 −103、D17 解释 −43、D18 解释 −46。",
+      "caliber_note": "V88 本机回读：本机 2392/3/2389 对云端 2177/33/2144；ran −215 / executed −245 / skip +30，其中 D01 解释 −5、D15 解释 −103、D17 解释 −43、D18 解释 −46、D19 解释 −18。",
       "cloud": {
         "evidence": "CI run 43643023044 · py3.12 job 132594550352 日志 Ran 2177 / skipped 33；py3.10 132594550278 / py3.8 132594550080 同值（三 job success）",
         "executed": 2144,
@@ -222,25 +222,26 @@
       },
       "dimension": "parity_main_suite",
       "gap": {
-        "executed_diff": -227,
+        "executed_diff": -245,
         "explained_by": [
           "D01",
           "D15",
           "D17",
-          "D18"
+          "D18",
+          "D19"
         ],
-        "ran_diff": -197,
+        "ran_diff": -215,
         "skip_diff": 30
       },
       "guards": [],
       "id": "D08",
       "local": {
-        "evidence": "本机 python -m unittest discover -s tests 实测（V85 后 2374 OK / skipped 3）；tests_contract 184 / 0",
-        "executed": 2371,
-        "ran": 2374,
+        "evidence": "本机 python -m unittest discover -s tests 实测（V88 后 2392 OK / skipped 3）；tests_contract 184 / 0",
+        "executed": 2389,
+        "ran": 2392,
         "skipped": 3
       },
-      "measured_at": "2026-11-17",
+      "measured_at": "2026-11-19",
       "risk_tier": "fast",
       "suite": "main",
       "title": "主套双端计数对账（tests/）"
@@ -525,6 +526,34 @@
       "status": "open_pending_cloud_sync",
       "suite": "main",
       "title": "V85 46 例（test_v85_governable_tristate 26 / test_v85_ci_step_names 20）尚未上云"
+    },
+    {
+      "batch": "V88",
+      "caliber_note": "上云后关闭；关闭条件 = CI 日志 Ran ≥ 2392 且 skipped 与 D16 一致。",
+      "cloud": {
+        "evidence": "本批尚未推送；云端口径仍为前批 2177",
+        "value": "pending"
+      },
+      "dimension": "batch_not_yet_on_cloud",
+      "guards": [],
+      "id": "D19",
+      "local": {
+        "evidence": "本机 2392 = V85 2374 + V88 18（test_v88_activity_probe 7 / test_v88_batch_order 5 / test_v88_p2c_supply 6，Ran 2392 tests 实测）",
+        "value": "present"
+      },
+      "measured_at": "2026-11-19",
+      "not_discovered": {
+        "cloud": 18,
+        "local": 0
+      },
+      "risk_tier": "fast",
+      "skip_attributed": {
+        "cloud": 0,
+        "local": 0
+      },
+      "status": "open_pending_cloud_sync",
+      "suite": "main",
+      "title": "V88 18 例（activity_probe 7 / batch_order 5 / p2c_supply 6）尚未上云"
     }
   ],
   "measurement_protocol": {
@@ -543,5 +572,5 @@
     "simulation": "本机云端条件模拟（v80_cloud_sim2.py：patch os.path.isdir/exists 判 F 盘与客仓/交付包不存在）"
   },
   "schema": "ENV-DELTA-REGISTRY-v1",
-  "self_digest": "b69ad5a033fdb092"
+  "self_digest": "f5ed681883689b18"
 }

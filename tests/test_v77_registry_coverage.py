@@ -91,9 +91,9 @@ class T1RegistryShape(_Base):
     def test_registry_has_six_coverage_entries(self):
         self.assertEqual(len(self.reg.get("coverage") or []), 6)
 
-    def test_doc_claims_seventeen(self):
-        self.assertEqual(self.reg["totals"]["doc_claims"], 17)
-        self.assertEqual(self.reg["totals"]["narrative"], 5)
+    def test_doc_claims_twentyone(self):
+        self.assertEqual(self.reg["totals"]["doc_claims"], 21)
+        self.assertEqual(self.reg["totals"]["narrative"], 9)
 
 
 class T2CanaryUnregistered(_Base):

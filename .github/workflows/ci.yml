@@ -187,3 +187,60 @@ jobs:
                    examples/03_hebbian_collaboration.py examples/04_domain_pipeline.py; do
             echo "== $f"; python "$f"
           done
+
+      - name: Tautology scan (4 categories + allowlist liveness, readback)
+        # V88 · P0：恒真/同义/漂移/未登记四类 + 白名单 liveness 纪律入 CI；
+        # 此前只在本机跑一次写回执，属一次性人工证据，非持续机器保证。
+        run: |
+          set +e
+          log=/tmp/tautology.log
+          python -m holoaeon.tautology_scan > "$log" 2>&1
+          rc=$?
+          tail -n 20 "$log"
+          if [ $rc -ne 0 ]; then
+            detail=$(grep -E "MISMATCH|UNREGISTERED|DRIFT|Traceback" "$log" | head -n 6 | tr '\n' ' ')
+            echo "::error title=tautology rc=$rc py=${{ matrix.python }}::${detail:-no-detail}"
+          fi
+          exit $rc
+
+      - name: Genome DNA gate (G-DNA-01..04 falsifiable)
+        # V88 · P0：基因闸四公理可证伪 + 治理批三件套回填校验入 CI。
+        run: |
+          set +e
+          log=/tmp/dna.log
+          python scripts/genome_dna_gate.py > "$log" 2>&1
+          rc=$?
+          tail -n 20 "$log"
+          if [ $rc -ne 0 ]; then
+            detail=$(grep -E '"pass"|problems|Traceback' "$log" | head -n 6 | tr '\n' ' ')
+            echo "::error title=genome-dna rc=$rc py=${{ matrix.python }}::${detail:-no-detail}"
+          fi
+          exit $rc
+
+      - name: Credential exclusion (3-layer, 0 hit required)
+        # V88 · P0：三层凭据排除（.gitignore / 清单 / 文本明文）零命中入 CI。
+        run: |
+          set +e
+          log=/tmp/cred.log
+          python scripts/credential_exclusion_check.py > "$log" 2>&1
+          rc=$?
+          tail -n 20 "$log"
+          if [ $rc -ne 0 ]; then
+            detail=$(grep -E "hit|明文|Traceback" "$log" | head -n 6 | tr '\n' ' ')
+            echo "::error title=credential-exclusion rc=$rc py=${{ matrix.python }}::${detail:-no-detail}"
+          fi
+          exit $rc
+
+      - name: Asset census (ledger vs worktree readback)
+        # V88 · P0：资产台账 vs 工作树回读普查入 CI（计数由脚本自报，不写死）。
+        run: |
+          set +e
+          log=/tmp/census.log
+          python scripts/asset_census.py > "$log" 2>&1
+          rc=$?
+          tail -n 20 "$log"
+          if [ $rc -ne 0 ]; then
+            detail=$(grep -E "census|Traceback" "$log" | head -n 6 | tr '\n' ' ')
+            echo "::error title=asset-census rc=$rc py=${{ matrix.python }}::${detail:-no-detail}"
+          fi
+          exit $rc

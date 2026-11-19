@@ -26,11 +26,14 @@
 
 import ast
 import hashlib
+import importlib
 import io
 import json
 import os
+import random
 import re
 import sys
+import threading
 
 TAUTOLOGY_SEAL = "潮起开门，潮落闭嘴"
 ALLOWLIST_SCHEMA = "TAUTOLOGY-ALLOWLIST-v1"
@@ -391,7 +394,132 @@ def _selfcheck():
     return {"ok": not fails, "cases": out, "failures": fails}
 
 
-def scan(root=None, allowlist_path=None):
+# --------------------------------------------------------- V88 P1-B 第五类：activity_probe
+# 扰动测活性（显式开关，默认关；纯标准库，固定种子，超时熔断）。
+# 委托来源（跨仓零 import，只登记指针，不复制实现）：
+#   repo : longaeon-rejuvenation-matrix @ ea4e2c1ec732e2b0cd6c4dcd2ced6a3d9b516196
+#   file : longaeon/models/_guard.py  L99-L108  activity_check
+#   思路 : 同一判据函数喂 base / perturbed 两组输入，输出不变 ⇒ 常数输出疑似（activity_suspect）。
+ACTIVITY_SEED = 20261119
+ACTIVITY_TIMEOUT = 5.0
+ACTIVITY_TOLERANCE = 1e-9
+ACTIVITY_CRITERION_RE = re.compile(
+    r"(check|gate|verdict|judge|score|emerge|classify|governable)", re.I)
+
+
+def _activity_rng():
+    return random.Random(ACTIVITY_SEED)
+
+
+def _activity_scalar(rng, perturbed):
+    base = 0.5
+    return round(base + rng.uniform(-0.2, 0.2), 6) if perturbed else base
+
+
+def _run_with_timeout(fn, args, timeout):
+    box = {}
+
+    def _target():
+        try:
+            box["value"] = fn(*args)
+        except Exception as exc:  # noqa: BLE001
+            box["error"] = "%s: %s" % (type(exc).__name__, exc)
+
+    th = threading.Thread(target=_target, daemon=True)
+    th.start()
+    th.join(timeout)
+    if th.is_alive():
+        return None, "activity_timeout"
+    err = box.get("error")
+    if err is not None:
+        return None, err
+    return box.get("value"), None
+
+
+def _activity_equal(a, b, tolerance=ACTIVITY_TOLERANCE):
+    if isinstance(a, (int, float)) and isinstance(b, (int, float)) \
+            and not isinstance(a, bool) and not isinstance(b, bool):
+        return abs(float(a) - float(b)) <= tolerance
+    return repr(a) == repr(b)
+
+
+def probe_callable(fn, base_args, perturbed_args, tolerance=ACTIVITY_TOLERANCE,
+                   timeout=ACTIVITY_TIMEOUT):
+    """扰动测活性：base 与 perturbed 输出相同 ⇒ suspect=True（待复核，非判定病）。"""
+    base, b_err = _run_with_timeout(fn, base_args, timeout)
+    if b_err:
+        return {"suspect": None, "reason": "base_unverifiable:%s" % b_err}
+    pert, p_err = _run_with_timeout(fn, perturbed_args, timeout)
+    if p_err:
+        return {"suspect": None, "reason": "perturbed_unverifiable:%s" % p_err}
+    if _activity_equal(base, pert, tolerance):
+        return {"suspect": True, "reason": "constant_output",
+                "base": repr(base)[:80], "perturbed": repr(pert)[:80]}
+    return {"suspect": False, "reason": "output_changes",
+            "base": repr(base)[:80], "perturbed": repr(pert)[:80]}
+
+
+def _iter_pack_criteria(pkg_dir):
+    out = []
+    packs = os.path.join(pkg_dir, "packs")
+    if not os.path.isdir(packs):
+        return out
+    for fn_name in sorted(os.listdir(packs)):
+        if not fn_name.endswith(".py") or fn_name.startswith("_"):
+            continue
+        full = os.path.join(packs, fn_name)
+        rel = os.path.relpath(full, pkg_dir).replace("\\", "/")
+        try:
+            tree = ast.parse(io.open(full, encoding="utf-8").read())
+        except SyntaxError:
+            continue
+        for node in ast.walk(tree):
+            if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) \
+                    and ACTIVITY_CRITERION_RE.search(node.name):
+                out.append((rel, node.name, node.lineno, len(node.args.args)))
+    return out
+
+
+def activity_probe(root=None, with_activity=False):
+    """第五类探针：默认关闭；开启后对 packs/ 判据函数做扰动活性测试。
+
+    命中标 `activity_suspect`（待复核，不是判定病）；不可执行/超时/参数不匹配记
+    unverifiable，不冒充命中。固定种子 + 线程超时熔断。
+    """
+    pkg = root or os.path.join(_root_repo(), PKG_DIRNAME)
+    if not with_activity:
+        return {"enabled": False, "suspects": [], "probed": 0, "unverifiable": 0,
+                "note": "默认纯静态零执行；--with-activity 才开扰动探针"
+                        "（固定种子 %d，超时 %.1fs）" % (ACTIVITY_SEED, ACTIVITY_TIMEOUT)}
+    rng = _activity_rng()
+    suspects, probed, unverifiable = [], 0, 0
+    for rel, name, lineno, argc in _iter_pack_criteria(pkg):
+        mod_name = "holoaeon.packs." + os.path.splitext(os.path.basename(rel))[0]
+        try:
+            mod = importlib.import_module(mod_name)
+            fn = getattr(mod, name, None)
+            if fn is None or not callable(fn):
+                continue
+            base = [_activity_scalar(rng, False) for _ in range(argc)]
+            pert = [_activity_scalar(rng, True) for _ in range(argc)]
+            res = probe_callable(fn, base, pert)
+            probed += 1
+            if res["suspect"] is True:
+                suspects.append({"file": rel, "line": lineno, "func": name, **res})
+            elif res["suspect"] is None:
+                unverifiable += 1
+        except Exception as exc:  # noqa: BLE001
+            unverifiable += 1
+            suspects.append({"file": rel, "line": lineno, "func": name,
+                             "suspect": None,
+                             "reason": "import_error:%s" % type(exc).__name__})
+    return {"enabled": True, "suspects": suspects, "probed": probed,
+            "unverifiable": unverifiable, "seed": ACTIVITY_SEED,
+            "timeout_s": ACTIVITY_TIMEOUT,
+            "note": "activity_suspect 为待复核标记，不是判定为病；与未登记命中口径一致"}
+
+
+def scan(root=None, allowlist_path=None, with_activity=False):
     """A 口径扫描（静态 B 口径检测 + 白名单登记 + 扫描器自检）。
 
     root 缺省 = 本仓 `holoaeon/` 包目录；allowlist 缺省 = <repo>/data/tautology_allowlist.json。
@@ -430,6 +558,7 @@ def scan(root=None, allowlist_path=None):
     digest_ok = bool(exp_digest) and exp_digest == act_digest
 
     sc = _selfcheck()
+    ap = activity_probe(pkg, with_activity)
     ok = (not unregistered) and (not drift) and (not liveness_missing) \
         and digest_ok and sc["ok"] and not errors and not al.get("_missing")
 
@@ -449,6 +578,7 @@ def scan(root=None, allowlist_path=None):
         "allowlist_missing": bool(al.get("_missing")),
         "parse_errors": errors,
         "scanner_selfcheck": sc,
+        "activity_probe": ap,
         "a_caliber_note": "静态检测只能判 B 口径（字面常量比较）；A 口径（是否冒充输入判据）"
                           "仍需人审。未登记命中 = 待复核/判红，不等于已判定为病。",
         "seal": TAUTOLOGY_SEAL,
@@ -469,11 +599,13 @@ def _load_allowlist_path(path):
 def main(argv=None):
     argv = list(sys.argv[1:] if argv is None else argv)
     out = ""
+    with_activity = "--with-activity" in argv
+    argv = [a for a in argv if a != "--with-activity"]
     if "--json" in argv:
         i = argv.index("--json")
         if i + 1 < len(argv):
             out = argv[i + 1]
-    rep = scan()
+    rep = scan(with_activity=with_activity)
     if out:
         d = os.path.dirname(os.path.abspath(out))
         if d and not os.path.isdir(d):
