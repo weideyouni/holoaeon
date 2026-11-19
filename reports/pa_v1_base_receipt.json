@@ -4,8 +4,8 @@
   "date": "2026-11-19",
   "status": "FIVE_SITE_SYNCED",
   "doc_version": "0.9.80",
-  "head": "7c098b3c467263719d3f1bdc410d8b708687ffbf",
-  "head_note": "被验收代码头 = 本批唯一代码提交 7c098b3；回执自身补正提交（head/five_site 回填 + 清单重算）不计入 S4/S5 基线（policy.receipt_head）。",
+  "head": "36a8deb7f5142692d69eb2f04563961c6044bc90",
+  "head_note": "被验收代码头 = 本批唯一代码提交 36a8deb；回执自身补正提交（head/five_site 回填 + 清单重算）不计入 S4/S5 基线（policy.receipt_head）。",
   "predecessor": "001ae317bd0516f86fe460f8a6cbff83f996050d",
   "patches": [
     {
@@ -79,19 +79,19 @@
     "verified_at": "2026-11-19",
     "S1_local": {
       "ref": "main",
-      "sha": "7c098b3c467263719d3f1bdc410d8b708687ffbf",
-      "working_head": "7c098b3c467263719d3f1bdc410d8b708687ffbf"
+      "sha": "36a8deb7f5142692d69eb2f04563961c6044bc90",
+      "working_head": "36a8deb7f5142692d69eb2f04563961c6044bc90"
     },
     "S2_gitee": {
       "repo": "weideyouni/holoaeon",
-      "sha": "7c098b3c467263719d3f1bdc410d8b708687ffbf",
-      "push_readback": "001ae31..7c098b3 main -> main",
+      "sha": "36a8deb7f5142692d69eb2f04563961c6044bc90",
+      "push_readback": "7871773..36a8deb main -> main",
       "verified_by": "token https push + ls-remote refs/heads/main 回读同头"
     },
     "S3_github": {
       "repo": "weideyouni/holoaeon",
-      "sha": "7c098b3c467263719d3f1bdc410d8b708687ffbf",
-      "push_readback": "001ae31..7c098b3 main -> main",
+      "sha": "36a8deb7f5142692d69eb2f04563961c6044bc90",
+      "push_readback": "7871773..36a8deb main -> main",
       "verified_by": "https + 凭据管理器 OAuth push + ls-remote refs/heads/main 回读同头"
     },
     "S4_vector_sea": {
@@ -107,11 +107,11 @@
     "S5_hf": {
       "repo": "weideyouni/holoaeon",
       "repo_type": "model",
-      "sha": "63c85c0f471b8654f9c580a71bdd4ca6108b662a",
-      "uploaded": 6,
-      "files": 762,
+      "sha": "ccf264d9ce3edbfe8ffc19956312bf57c1ad94e6",
+      "uploaded": 3,
+      "files": 763,
       "mismatch": [],
-      "verified_by": "mirror_hf.py --base 001ae31 --head 7c098b3 + model_info blob/lfs 内容判等 + urllib model_info 独立回读"
+      "verified_by": "mirror_hf.py --base 7871773 --head 36a8deb + model_info blob/lfs 内容判等 + urllib model_info 独立回读"
     }
   },
   "honest_boundaries": [
@@ -123,5 +123,5 @@
   ],
   "seal": "潮起开门，潮落闭嘴",
   "signature": "桃花庵出品",
-  "head_full": "7c098b3c467263719d3f1bdc410d8b708687ffbf"
+  "head_full": "36a8deb7f5142692d69eb2f04563961c6044bc90"
 }
