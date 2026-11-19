@@ -65,11 +65,15 @@
   },
   "polisaeon_remote": {
     "repo": "F:\\doubaowork\\polisaeon",
-    "polis_head": "654ea358b56356b37da9e7da92f323df686c5262",
-    "receipt_head": "7fb908da75fe3d897ccf6fde1a55b0d9cc13cc39",
+    "polis_head": "d10cfac2bd4b8157085e913fe2e50f26e29d9d18",
+    "receipt_head": "d10cfac2bd4b8157085e913fe2e50f26e29d9d18",
     "open_source": false,
-    "remote": null,
-    "note": "polisaeon 独立仓不开源、无公开远端、不进五地；远端建仓须碳基点单。"
+    "remote": {
+      "gitee": "https://gitee.com/weideyouni/polisaeon.git",
+      "github": "https://github.com/weideyouni/polisaeon.git",
+      "hf": "https://huggingface.co/weideyouni/polisaeon"
+    },
+    "note": "私有远端五地同步（非公开开源）：Gitee/GitHub/HF 三地私有仓仅账号内备份、不设 public；原 PA-V1‘独立仓不进五地’悬置约束经碳基点单解除。"
   },
   "five_site": {
     "verified_at": "2026-11-19",
@@ -111,7 +115,7 @@
     }
   },
   "honest_boundaries": [
-    "polisaeon 独立仓不开源：不建公开远端、不进五地同步、不推 GitHub/Gitee/HF；远端建仓须碳基点单。",
+    "polisaeon 私有远端五地同步（非公开开源）：三地私有仓仅账号内备份、不设 public；原‘独立仓不进五地’悬置约束经碳基点单解除。",
     "84 席逐项内容 / 12 P0 清单 / 三件套组件 / 三年三件事 = pending_detail，本批不注入（零虚构）；下批以 part1-part5.md 编辑稿为源。",
     "注入三态 13/2762/0 为键命中口径实测值：仅城邦语义命中基座机制键的格才 linked；分布随注入碎片演化可变，收口判据只锁 pending=0 与格数 2775。",
     "25 机制对账在基座环境执行；脱离基座环境 import 失败诚实 SKIP，属合法边界。",

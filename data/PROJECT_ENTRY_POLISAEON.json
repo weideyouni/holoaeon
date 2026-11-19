@@ -16,8 +16,12 @@
    "五源对账：meridian_link.KERNEL_MECHANISMS id 逐条一致"
   ],
   "open_source": false,
-  "remote": null,
-  "remote_note": "不开源：无公开远端；远端建仓须碳基点单才可执行"
+  "remote": {
+   "gitee": "https://gitee.com/weideyouni/polisaeon.git",
+   "github": "https://github.com/weideyouni/polisaeon.git",
+   "hf": "https://huggingface.co/weideyouni/polisaeon"
+  },
+  "remote_note": "私有远端五地同步（非公开开源）：Gitee/GitHub/HF 三地私有仓仅账号内备份，不设 public；远端坐标随五地建仓收口回填。"
  },
  "polis_facts": {
   "seats": 84,
