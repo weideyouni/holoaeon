@@ -127,20 +127,20 @@
   },
   "repo": {
     "README.md": {
-      "bytes": 259603,
-      "sha256": "4ea7af278880d24e9e4f378f333cdec2a793b47f95cc4ddc41fb11ff0d6b78b8"
+      "bytes": 228375,
+      "sha256": "61dc5283ff44c494d1d44b11cad4ebf99ab7cfa4fdc51542966e5916216f3915"
     },
     "README.zh-CN.md": {
-      "bytes": 215505,
-      "sha256": "d2d88b96082aebecba661ecd27689e4e6ee654beb63220d3ef617271c64df40c"
+      "bytes": 186852,
+      "sha256": "c4a3d979b2bb45466a4931707600da06ce9fd7fea87f74511b3fa3f9f981a2a3"
     },
     "README_FUSION_V4_20261102.md": {
       "bytes": 56256,
       "sha256": "faa420e7a225b76e556d66e7616bba53f1409e0c0575f4abbb3286086cbd4afa"
     },
     "SHA256SUMS": {
-      "bytes": 32404,
-      "sha256": "6f5d492da26aa77613a3565f201d9e17355a8083b3d2b544ba4a310da39f4dde"
+      "bytes": 34005,
+      "sha256": "286e54810ac9289beb713bd4f721494194c70f630359628f5398efd76cad3a7e"
     },
     "data/B0_基线票据_v4fusion.md": {
       "bytes": 6662,
@@ -292,7 +292,7 @@
     },
     "data/dual_repo_sums.json": {
       "bytes": 2661,
-      "sha256": "69cdb23d3730b25c02fa4232cb495fa3b5ca51d8e3f5d140f5c63594f69f111e"
+      "sha256": "f7672bb10454668e9c8cc29b2cbf80c2a0e6de8618384bc24ec82949ebef63a5"
     },
     "data/extension_slots.json": {
       "bytes": 6540,

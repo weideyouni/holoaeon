@@ -2,10 +2,10 @@
   "batch": "V88",
   "name": "GATE-HARDENING（治理闸入 CI + 仓外脚本归位 + 台账单调化/瘦身 + 供应链 pin/L1-L5 自评）",
   "date": "2026-11-19",
-  "status": "IN_PROGRESS",
+  "status": "FIVE_SITE_SYNCED",
   "doc_version": "0.9.80",
-  "head": "",
-  "head_note": "回执 head 按 policy.receipt_head 待本批代码提交后回填；本 provisional 件仅解锁 claims_gate 回读面。",
+  "head": "fbf7d572b3bcc78fe9c54f3313e48a4786d6b6e3",
+  "head_note": "被验收代码头 = 本批唯一代码提交 fbf7d57；回执自身补正提交（head/five_site 回填 + 清单重算）不计入 S4/S5 基线（policy.receipt_head）。",
   "patches": [
     {
       "group": "P0 四闸入 CI",
@@ -99,13 +99,52 @@
     "check_sums": "ok=true total=358 mismatches=[]",
     "checklist_entries": 358,
     "cloud_main": 2177,
-    "cloud_skipped": 33
+    "cloud_skipped": 33,
+    "note": "收口实测：主套 Ran 2392（failures 0 / errors 0 / skipped 0）；redline 159 文件 0 违规；claims_gate PASS mismatch=0；tests_contract 184 OK。"
   },
   "manifest": {
     "entries": 358,
     "mismatches": []
   },
-  "five_site": {},
+  "five_site": {
+    "verified_at": "2026-11-19",
+    "S1_local": {
+      "ref": "main",
+      "sha": "fbf7d572b3bcc78fe9c54f3313e48a4786d6b6e3",
+      "note": "代码基线提交 fbf7d57；回执补正提交不计基线"
+    },
+    "S2_gitee": {
+      "repo": "weideyouni/holoaeon",
+      "sha": "fbf7d572b3bcc78fe9c54f3313e48a4786d6b6e3",
+      "push_readback": "09774fb..fbf7d57 main -> main",
+      "verified_by": "token https push + ls-remote refs/heads/main 回读同头"
+    },
+    "S3_github": {
+      "repo": "weideyouni/holoaeon",
+      "sha": "fbf7d572b3bcc78fe9c54f3313e48a4786d6b6e3",
+      "push_readback": "09774fb..fbf7d57 main -> main",
+      "verified_by": "https + 凭据管理器 OAuth push + ls-remote refs/heads/main 回读同头"
+    },
+    "S4_vector_sea": {
+      "dir": "F:\\doubaowork\\vector-sea\\holoaeon-v4-cold-hot-plug",
+      "manifest_entries": 202,
+      "missing": 0,
+      "extra": 0,
+      "bad_sha256": 0,
+      "bad_bytes": 0,
+      "five_site_dna": "package 28 / repo 171 / drift []",
+      "verdict": "PASS"
+    },
+    "S5_hf": {
+      "repo": "weideyouni/holoaeon",
+      "repo_type": "model",
+      "sha": "99357bbf50ab96d52fae5020cde3c0c796463da9",
+      "uploaded": 28,
+      "files": 761,
+      "mismatch": [],
+      "verified_by": "mirror_hf.py --base 09774fb --head fbf7d57 + model_info blob/lfs 内容判等"
+    }
+  },
   "honest_boundaries": [
     "zh README.zh-CN.md 1499 行未达 ≤1100 行目标：台账历史行为单行超长，搬移进 BATCH_LEDGER 不减行数；受保护清单与历史小节禁动，本批不强行折行。",
     "D19：V88 新增 18 例（activity_probe 7 / batch_order 5 / p2c_supply 6）尚未上云，状态 open_pending_cloud_sync（cloud 18 / local 0）；D16/D17/D18 三条云同步 pending 延续。",
@@ -114,5 +153,6 @@
     "清单 358 条口径：release_files 顶层仅 data/reports/holoaeon/fusion_upgrade/tests_contract/scripts；tests/ 与 docs/ 不入册，源码完整性由 git 历史 + 四项冻结哈希 + genome_hash + 维度锁四重守卫保证。"
   ],
   "seal": "潮起开门，潮落闭嘴",
-  "signature": "桃花庵出品"
+  "signature": "桃花庵出品",
+  "head_full": "fbf7d572b3bcc78fe9c54f3313e48a4786d6b6e3"
 }
