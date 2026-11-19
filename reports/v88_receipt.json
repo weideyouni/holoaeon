@@ -111,18 +111,19 @@
     "S1_local": {
       "ref": "main",
       "sha": "fbf7d572b3bcc78fe9c54f3313e48a4786d6b6e3",
-      "note": "代码基线提交 fbf7d57；回执补正提交不计基线"
+      "note": "代码基线提交 fbf7d57；回执补正提交不计基线",
+      "working_head": "0562058227d92a88934b3e7ecbd14bd773c305b5"
     },
     "S2_gitee": {
       "repo": "weideyouni/holoaeon",
-      "sha": "817b662e216d3ef1781635bbdfb6351bb0dee1a1",
-      "push_readback": "09774fb..fbf7d57..817b662 main -> main",
+      "sha": "0562058227d92a88934b3e7ecbd14bd773c305b5",
+      "push_readback": "09774fb..fbf7d57..817b662..0562058 main -> main",
       "verified_by": "token https push + ls-remote refs/heads/main 回读同头"
     },
     "S3_github": {
       "repo": "weideyouni/holoaeon",
-      "sha": "817b662e216d3ef1781635bbdfb6351bb0dee1a1",
-      "push_readback": "09774fb..fbf7d57..817b662 main -> main",
+      "sha": "0562058227d92a88934b3e7ecbd14bd773c305b5",
+      "push_readback": "09774fb..fbf7d57..817b662..0562058 main -> main",
       "verified_by": "https + 凭据管理器 OAuth push + ls-remote refs/heads/main 回读同头"
     },
     "S4_vector_sea": {
@@ -138,12 +139,12 @@
     "S5_hf": {
       "repo": "weideyouni/holoaeon",
       "repo_type": "model",
-      "sha": "bf9bf82512446377d8c8975f17362a23f2fec8e8",
-      "uploaded": 32,
+      "sha": "0f1b35a1e71fdb670a8fbf7dca7ec6b17f41e920",
+      "uploaded": 36,
       "files": 761,
       "mismatch": [],
       "verified_by": "mirror_hf.py --base 09774fb --head fbf7d57 + model_info blob/lfs 内容判等",
-      "note": "pass1 28 件（基线 fbf7d57）+ pass2 4 件（补正 817b662）；model_info blob/lfs 内容判等 mismatch=[]"
+      "note": "pass1 28 件（基线 fbf7d57）+ pass2 4 件（817b662）+ pass3 4 件（0562058）；model_info blob/lfs 内容判等 mismatch=[]。"
     }
   },
   "honest_boundaries": [
@@ -155,5 +156,57 @@
   ],
   "seal": "潮起开门，潮落闭嘴",
   "signature": "桃花庵出品",
-  "head_full": "fbf7d572b3bcc78fe9c54f3313e48a4786d6b6e3"
+  "head_full": "fbf7d572b3bcc78fe9c54f3313e48a4786d6b6e3",
+  "red_proofs": [
+    {
+      "id": "RP-01",
+      "name": "四闸本地预跑全绿留痕",
+      "evidence": "tautology hits=8 allowlisted=8 unregistered=0 drift=0；genome_dna_gate problems=[]；credential L1 ok / L2 6 份 0 红 / L3 846 文件 0 明文；asset_census top=617（418 目录/199 文件）净候选 201。"
+    },
+    {
+      "id": "RP-02",
+      "name": "CI 16 步回读",
+      "evidence": ".github/workflows/ci.yml 16 个 `- name:`；scripts/ci_preflight.py STEPS 16 面；v3_gate 第 33 面 A13 双向对齐 16/16 PASS。"
+    },
+    {
+      "id": "RP-03",
+      "name": "tautology 白名单无 liveness 条目金丝雀红",
+      "evidence": "tests/test_v84_tautology_golden_watch.py 金表守护；现态 unregistered=0 drift=0；无 liveness 关键词条目不进白名单即被拦。"
+    },
+    {
+      "id": "RP-04",
+      "name": "activity_probe 金丝雀（旧码必标/新码必不标）",
+      "evidence": "tests/test_v88_activity_probe.py 7 例；委托 LA longaeon/models/_guard.py activity_check，跨仓零 import；三护栏默认关 / ACTIVITY_SEED=20261119 / ACTIVITY_TIMEOUT=5.0。"
+    },
+    {
+      "id": "RP-05",
+      "name": "第 8 门仓内路径可跑（clean clone 口径）",
+      "evidence": "scripts/readme_claims_check.py、scripts/unity_check.py 方案 A 复制入仓并入清单；仓内正本可直接运行，不依赖仓外技能目录。"
+    },
+    {
+      "id": "RP-06",
+      "name": "unity_check 仓内 rglob 命中",
+      "evidence": "scripts/unity_check.py 仓内正本在位；data/ctup_onboarding.json 登记仓内/仓外双路径 + dev_copy。"
+    },
+    {
+      "id": "RP-07",
+      "name": "batch_order_monotonic 金丝雀红",
+      "evidence": "tests/test_v88_batch_order.py 5 例；claims_gate 第 13 面单调化校验，闸不起 git 子进程。"
+    },
+    {
+      "id": "RP-08",
+      "name": "清单口径披露句在位 + 判据锁",
+      "evidence": "README.zh-CN.md / README.md 双份 sums_disclosure 披露；registry narrative sums_disclosure_zh / sums_disclosure_en 登记。"
+    },
+    {
+      "id": "RP-09",
+      "name": "README 台账深度 ≤3 判据 PASS",
+      "evidence": "narrative ledger_depth_le3；claims_gate 13/13 PASS mismatch=0；历史批次行逐字入 docs/BATCH_LEDGER.md。"
+    },
+    {
+      "id": "RP-10",
+      "name": "P07 pin 三条边界字段在位",
+      "evidence": "regulation_pins 第 7 条 SUPPLY-CHAIN-2026-11，boundaries 三条原样保留；reports/security_tier_self_assessment_20261119.md L3-L4 自评（self_assessed=true）。"
+    }
+  ]
 }
