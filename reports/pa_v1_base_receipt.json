@@ -1,0 +1,123 @@
+{
+  "batch": "PA-V1",
+  "name": "polisaeon 智慧城邦独立仓基座通道：C1 入口注册数据通道（纯数据零侵入）+ README/清单/注册簿联动",
+  "date": "2026-11-19",
+  "status": "FIVE_SITE_SYNCED",
+  "doc_version": "0.9.80",
+  "head": "7c098b3c467263719d3f1bdc410d8b708687ffbf",
+  "head_note": "被验收代码头 = 本批唯一代码提交 7c098b3；回执自身补正提交（head/five_site 回填 + 清单重算）不计入 S4/S5 基线（policy.receipt_head）。",
+  "predecessor": "001ae317bd0516f86fe460f8a6cbff83f996050d",
+  "patches": [
+    {
+      "group": "C1 基座通道：polisaeon 城邦入口注册（纯数据文件，冻结维度零侵入）",
+      "files": [
+        "data/PROJECT_ENTRY_POLISAEON.json"
+      ]
+    },
+    {
+      "group": "README 双份清单条数口径 358→359 联动",
+      "files": [
+        "README.zh-CN.md",
+        "README.md"
+      ]
+    },
+    {
+      "group": "claims_registry：PHC-2025 钉中文 README 整文件 sha16 随条数刷新重钉 + self_digest 重算",
+      "files": [
+        "data/claims_registry.json"
+      ]
+    },
+    {
+      "group": "SHA256SUMS 重建 359 条 + dual_repo_sums 宿主侧摘要同步（ivsa 侧未动）",
+      "files": [
+        "SHA256SUMS",
+        "data/dual_repo_sums.json"
+      ]
+    },
+    {
+      "group": "回执",
+      "files": [
+        "reports/pa_v1_base_receipt.json"
+      ]
+    }
+  ],
+  "verification": {
+    "unittest_main": 2392,
+    "unittest_failures": 0,
+    "unittest_errors": 0,
+    "unittest_skipped_local": 0,
+    "v3_domain": 11,
+    "verax_domain": 21,
+    "tests_contract": 184,
+    "total_local": 2424,
+    "redline": 159,
+    "v3_gate": "34/34",
+    "selftest": "25/25",
+    "ci_preflight": "16/16",
+    "claims_gate": "PASS mismatch=0",
+    "check_sums": "ok=true total=360 mismatches=[]",
+    "checklist_entries": 360,
+    "note": "收口实测：主套 Ran 2392（failures 0 / errors 0 / skipped 0）；v3 11 / verax 21 / contract 184；redline 159 文件 0 违规；claims_gate PASS mismatch=0；冻结维度 VERSION 0.9.1 / MATRIX_ID / RUNTIME_ID / PROTOCOL_ID / BUS_ID / L1-L8 / PACK_ORDER 9 / EXTRA 19 全未动，spec 与源码零改动。"
+  },
+  "manifest": {
+    "entries": 360,
+    "mismatches": []
+  },
+  "polisaeon_remote": {
+    "repo": "F:\\doubaowork\\polisaeon",
+    "polis_head": "654ea358b56356b37da9e7da92f323df686c5262",
+    "receipt_head": "7fb908da75fe3d897ccf6fde1a55b0d9cc13cc39",
+    "open_source": false,
+    "remote": null,
+    "note": "polisaeon 独立仓不开源、无公开远端、不进五地；远端建仓须碳基点单。"
+  },
+  "five_site": {
+    "verified_at": "2026-11-19",
+    "S1_local": {
+      "ref": "main",
+      "sha": "7c098b3c467263719d3f1bdc410d8b708687ffbf",
+      "working_head": "7c098b3c467263719d3f1bdc410d8b708687ffbf"
+    },
+    "S2_gitee": {
+      "repo": "weideyouni/holoaeon",
+      "sha": "7c098b3c467263719d3f1bdc410d8b708687ffbf",
+      "push_readback": "001ae31..7c098b3 main -> main",
+      "verified_by": "token https push + ls-remote refs/heads/main 回读同头"
+    },
+    "S3_github": {
+      "repo": "weideyouni/holoaeon",
+      "sha": "7c098b3c467263719d3f1bdc410d8b708687ffbf",
+      "push_readback": "001ae31..7c098b3 main -> main",
+      "verified_by": "https + 凭据管理器 OAuth push + ls-remote refs/heads/main 回读同头"
+    },
+    "S4_vector_sea": {
+      "dir": "F:\\doubaowork\\vector-sea\\holoaeon-v4-cold-hot-plug",
+      "manifest_entries": 202,
+      "missing": 0,
+      "extra": 0,
+      "bad_sha256": 0,
+      "bad_bytes": 0,
+      "five_site_dna": "package 28 / repo 171 / missing 0 / drift []",
+      "verdict": "PASS"
+    },
+    "S5_hf": {
+      "repo": "weideyouni/holoaeon",
+      "repo_type": "model",
+      "sha": "63c85c0f471b8654f9c580a71bdd4ca6108b662a",
+      "uploaded": 6,
+      "files": 762,
+      "mismatch": [],
+      "verified_by": "mirror_hf.py --base 001ae31 --head 7c098b3 + model_info blob/lfs 内容判等 + urllib model_info 独立回读"
+    }
+  },
+  "honest_boundaries": [
+    "polisaeon 独立仓不开源：不建公开远端、不进五地同步、不推 GitHub/Gitee/HF；远端建仓须碳基点单。",
+    "84 席逐项内容 / 12 P0 清单 / 三件套组件 / 三年三件事 = pending_detail，本批不注入（零虚构）；下批以 part1-part5.md 编辑稿为源。",
+    "注入三态 13/2762/0 为键命中口径实测值：仅城邦语义命中基座机制键的格才 linked；分布随注入碎片演化可变，收口判据只锁 pending=0 与格数 2775。",
+    "25 机制对账在基座环境执行；脱离基座环境 import 失败诚实 SKIP，属合法边界。",
+    "C1 为纯数据入口注册文件；基座冻结维度（VERSION/layers/PACK_ORDER/spec.py/源码）零改动。"
+  ],
+  "seal": "潮起开门，潮落闭嘴",
+  "signature": "桃花庵出品",
+  "head_full": "7c098b3c467263719d3f1bdc410d8b708687ffbf"
+}
