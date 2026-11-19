@@ -115,14 +115,14 @@
     },
     "S2_gitee": {
       "repo": "weideyouni/holoaeon",
-      "sha": "fbf7d572b3bcc78fe9c54f3313e48a4786d6b6e3",
-      "push_readback": "09774fb..fbf7d57 main -> main",
+      "sha": "817b662e216d3ef1781635bbdfb6351bb0dee1a1",
+      "push_readback": "09774fb..fbf7d57..817b662 main -> main",
       "verified_by": "token https push + ls-remote refs/heads/main 回读同头"
     },
     "S3_github": {
       "repo": "weideyouni/holoaeon",
-      "sha": "fbf7d572b3bcc78fe9c54f3313e48a4786d6b6e3",
-      "push_readback": "09774fb..fbf7d57 main -> main",
+      "sha": "817b662e216d3ef1781635bbdfb6351bb0dee1a1",
+      "push_readback": "09774fb..fbf7d57..817b662 main -> main",
       "verified_by": "https + 凭据管理器 OAuth push + ls-remote refs/heads/main 回读同头"
     },
     "S4_vector_sea": {
@@ -138,11 +138,12 @@
     "S5_hf": {
       "repo": "weideyouni/holoaeon",
       "repo_type": "model",
-      "sha": "99357bbf50ab96d52fae5020cde3c0c796463da9",
-      "uploaded": 28,
+      "sha": "bf9bf82512446377d8c8975f17362a23f2fec8e8",
+      "uploaded": 32,
       "files": 761,
       "mismatch": [],
-      "verified_by": "mirror_hf.py --base 09774fb --head fbf7d57 + model_info blob/lfs 内容判等"
+      "verified_by": "mirror_hf.py --base 09774fb --head fbf7d57 + model_info blob/lfs 内容判等",
+      "note": "pass1 28 件（基线 fbf7d57）+ pass2 4 件（补正 817b662）；model_info blob/lfs 内容判等 mismatch=[]"
     }
   },
   "honest_boundaries": [
