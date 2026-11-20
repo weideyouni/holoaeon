@@ -128,11 +128,21 @@
    "repo": "weideyouni/holoaeon",
    "repo_type": "model",
    "sha": "",
-   "uploaded": 0,
-   "files": 0,
+   "sha_note": "HF commit sha 记于当日锚点 ANCHOR_20261120_V89_LA_V9.md（回执自身在镜像集内，不自写自指 sha）",
+   "files": 766,
+   "local_files": 766,
+   "uploaded": 18,
+   "first_push_uploaded": 18,
+   "recheck_uploaded": 0,
+   "changed_on_recheck": 0,
+   "extra_on_remote": [],
    "mismatch": [],
+   "set_equal": true,
+   "lfs_files": 14,
+   "lfs_note": "14 件远端 LFS（8 releases/*.zip + 6 docs/assets/*.png）内容 sha256 与本地全等，不重传、记 lfs_ok",
+   "verdict": "PASS",
    "verified_by": "mirror_hf_v89_la9.py push holo（git blob 字节口径 + LFS 内容 sha256 判等）+ model_info 逐件对账",
-   "note": "HF commit sha 记于 S4 侧 197_v89_s4_receipt.json（回执不自写自指 sha）。"
+   "note": "首轮 plan changed=32 中 14 件系远端 LFS blob_id 不可比误报，改内容 sha256 判等后 changed=18 并实传；复核轮 changed=0。"
   }
  },
  "honest_boundaries": [
