@@ -4,8 +4,8 @@
  "date": "2026-11-20",
  "status": "FIVE_SITE_SYNCED",
  "doc_version": "0.9.81",
- "head": "d7cda1353db73b732e66ef66eee4f82edb0cf990",
- "head_note": "被验收代码头 = 本批唯一提交；回执自身补正（head / five_site 回填 + 清单重算）以 amend 收在同一提交内，不新增第二提交。",
+ "head": "2f8527d5c1bdb63533e2e32891401b86ee791ff7",
+ "head_note": "被验收代码头 = 本批代码基线提交 2f8527d（17 件）。本回执的五地 truth 补正走「回执补正提交」（policy.receipt_head），不计入 S4/S5 基线；回执不自写自身 head（避免 digest 自指环），补正提交 sha 记于 S4 侧 197_v89_s4_receipt.json 与 ANCHOR_20261120_V89_LA_V9.md，最终 head 以 git log -1 --format=%h 现场回读为准。",
  "patches": [
   {
    "group": "P0 贝叶斯内核上基座主件（15 模块注册表 / 15×25 机制匹配表 / 8 项既有资产统一账 / 18 分仓适配图 / 机制锚定型后验包 / 去特征向量化）",
@@ -97,39 +97,42 @@
   "verified_at": "2026-11-20",
   "S1_local": {
    "ref": "main",
-   "sha": "d7cda1353db73b732e66ef66eee4f82edb0cf990",
-   "note": "本批唯一提交（amend 收口）；working_head 与 sha 同头"
+   "sha": "2f8527d5c1bdb63533e2e32891401b86ee791ff7",
+   "note": "代码基线提交 2f8527d（17 件，+1025/-71）；回执补正提交不计基线",
+   "working_head": "回执补正提交（现场 git log -1 --format=%h 回读，不写入回执以避免自指）"
   },
   "S2_gitee": {
    "repo": "weideyouni/holoaeon",
-   "sha": "PENDING_PUSH",
-   "push_readback": "PENDING",
-   "verified_by": "token https push + ls-remote refs/heads/main 回读同头"
+   "sha": "2f8527d5c1bdb63533e2e32891401b86ee791ff7",
+   "push_readback": "d7cda13..2f8527d main -> main",
+   "verified_by": "token https push + ls-remote refs/heads/main 回读同头 2f8527d5c1bdb63533e2e32891401b86ee791ff7"
   },
   "S3_github": {
    "repo": "weideyouni/holoaeon",
-   "sha": "PENDING_PUSH",
-   "push_readback": "PENDING",
-   "verified_by": "https + 凭据管理器 OAuth push + ls-remote refs/heads/main 回读同头"
+   "sha": "2f8527d5c1bdb63533e2e32891401b86ee791ff7",
+   "push_readback": "d7cda13..2f8527d main -> main",
+   "verified_by": "凭据管理器 gho_ token https push + ls-remote refs/heads/main 回读同头 2f8527d5c1bdb63533e2e32891401b86ee791ff7"
   },
   "S4_vector_sea": {
    "dir": "F:\\doubaowork\\vector-sea\\holoaeon-v4-cold-hot-plug",
-   "manifest_entries": 0,
+   "manifest_entries": 204,
    "missing": 0,
    "extra": 0,
    "bad_sha256": 0,
    "bad_bytes": 0,
-   "five_site_dna": "PENDING",
-   "verdict": "PENDING"
+   "five_site_dna": "package 28 / repo 171 / drift_before_repin 11 / drift_after_repin 0",
+   "verdict": "PASS",
+   "note": "196_five_site_manifest_v89.json（supersedes 195）+ 197_v89_s4_receipt.json；manifest 202→204 条、目录 205 文件；旧 manifest 备份 _backup_s4_holo_v89_20261120。回执补正提交后按最终 HEAD 重钉复验。"
   },
   "S5_hf": {
    "repo": "weideyouni/holoaeon",
    "repo_type": "model",
-   "sha": "PENDING",
+   "sha": "",
    "uploaded": 0,
    "files": 0,
    "mismatch": [],
-   "verified_by": "mirror_hf incremental + model_info 内容判等"
+   "verified_by": "mirror_hf_v89_la9.py push holo（git blob 字节口径 + LFS 内容 sha256 判等）+ model_info 逐件对账",
+   "note": "HF commit sha 记于 S4 侧 197_v89_s4_receipt.json（回执不自写自指 sha）。"
   }
  },
  "honest_boundaries": [
@@ -146,7 +149,7 @@
  ],
  "seal": "潮起开门，潮落闭嘴",
  "signature": "桃花庵出品",
- "head_full": "d7cda1353db73b732e66ef66eee4f82edb0cf990",
+ "head_full": "2f8527d5c1bdb63533e2e32891401b86ee791ff7",
  "red_proofs": [
   {
    "id": "RP-01",
