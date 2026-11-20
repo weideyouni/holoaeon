@@ -32,7 +32,7 @@ VERSION = "0.9.1"
 # VERSION / RUNTIME_ID 会写进每条回执并参与 ReproHash，改动即等于让 DIFF=0 黄金值
 # （2fc892cf9af6e755）漂移，与"V1 黄金值不许漂移"的硬口径冲突。
 # 因此 V2 的版本号单独记在 DOC_VERSION，供文档/快照/徽章使用。
-DOC_VERSION = "0.9.80"  # V88 治理闸入 CI 批：四闸进 CI + 仓外脚本归位 + activity_probe 第五类 + 清单口径披露 + 批次单调化 + 台账瘦身 + SUPPLY-CHAIN pin/L1-L5 自评；VERSION/ID 全未动
+DOC_VERSION = "0.9.81"  # V89 贝叶斯内核上基座批：15 模块×25 机制匹配表 + 8 既有资产统一账 + 18 分仓适配图 + 机制锚定型后验包；VERSION/layers/PACK_ORDER 冻结维度全未动
 MATRIX_ID = "HOLOAEON-MATRIX-0.9.1"
 RUNTIME_ID = "HOLOAEON-RUNTIME-0.9.1"
 PROTOCOL_ID = "HOLOAEON-DATAPROTO v1.0"

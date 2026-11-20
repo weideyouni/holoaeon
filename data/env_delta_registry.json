@@ -1,7 +1,7 @@
 {
-  "as_of": "2026-11-19",
-  "batch": "V88",
-  "caliber_note": "本注册簿登记「环境与环境之间的差异」，与 claims_registry 的 ledger_sources（账与账一致）不相交。云端值是执行端对账时登记的实测值，闸不联网不读 CI 日志。",
+  "as_of": "2026-11-20",
+  "batch": "V89",
+  "caliber_note": "本注册簿登记「环境与环境之间的差异」，与 claims_registry 的 ledger_sources（账与账一致）不相交。云端值是执行端对账时登记的实测值，闸不联网不读 CI 日志。V89 起本机口径按程序化 result.skipped 实测（2415 / skipped 0），不再沿用 V88 的 skipped=3。",
   "entries": [
     {
       "caliber_note": "v70:26 是 HAVE_SITE 模块级探测因子（装饰器 L321 的判据来源），非独立跳过点；v72:291 是 setUpClass 抛 SkipTest → skip 记 1、类内 5 个 test 不计入 Ran，这是云端 Ran 少 5 的全部来源",
@@ -106,7 +106,7 @@
       "title": "交付包 PKG（F:\\doubaowork\\HoloAeon_V4冷热插拔赋能升级_20261102）"
     },
     {
-      "caliber_note": "两端同态：本机 3 skip、云端 3 skip，不解释任何差值，只解释 skip 构成",
+      "caliber_note": "V89 起两端不再同态：本机 0 skip（memory_of_yuan 已可导入）、云端 3 skip（仓库不含该模块）——构成主套 skip 差 +3，登记于 D08 的 explained_by",
       "cloud": {
         "evidence": "仓库不含该模块，导入必失败 → 三个测试各 skipTest 一次",
         "value": "absent"
@@ -119,10 +119,10 @@
       ],
       "id": "D04",
       "local": {
-        "evidence": "本机主套 skipped=3 全为此由（-v 实测）",
-        "value": "absent-this-interp"
+        "evidence": "本机 V89 实测（2026-11-20）：import memory_of_yuan 成功，tests.test_v12_v17_integration 单跑 22/0 skip/0 fail，三条守卫不触发",
+        "value": "present-this-interp"
       },
-      "measured_at": "2026-11-14",
+      "measured_at": "2026-11-20",
       "not_discovered": {
         "cloud": 0,
         "local": 0
@@ -130,7 +130,7 @@
       "risk_tier": "stable",
       "skip_attributed": {
         "cloud": 3,
-        "local": 3
+        "local": 0
       },
       "suite": "main",
       "title": "仓外记忆模块 memory_of_yuan 未安装（两端同态）"
@@ -213,7 +213,7 @@
       "title": "解释器矩阵：本机 3.13.14 vs CI 3.8 / 3.10 / 3.12"
     },
     {
-      "caliber_note": "V88 本机回读：本机 2392/3/2389 对云端 2177/33/2144；ran −215 / executed −245 / skip +30，其中 D01 解释 −5、D15 解释 −103、D17 解释 −43、D18 解释 −46、D19 解释 −18。",
+      "caliber_note": "V89 本机 2415/0/2415 对云端 2177/33/2144；ran −238 / executed −271 / skip +33，其中 D01 解释 −5、D04 解释 skip +3、D15 −103、D17 −43、D18 −46、D19 −18、D20 −23（合计 −238）",
       "cloud": {
         "evidence": "CI run 43643023044 · py3.12 job 132594550352 日志 Ran 2177 / skipped 33；py3.10 132594550278 / py3.8 132594550080 同值（三 job success）",
         "executed": 2144,
@@ -222,26 +222,28 @@
       },
       "dimension": "parity_main_suite",
       "gap": {
-        "executed_diff": -245,
+        "executed_diff": -271,
         "explained_by": [
           "D01",
+          "D04",
           "D15",
           "D17",
           "D18",
-          "D19"
+          "D19",
+          "D20"
         ],
-        "ran_diff": -215,
-        "skip_diff": 30
+        "ran_diff": -238,
+        "skip_diff": 33
       },
       "guards": [],
       "id": "D08",
       "local": {
-        "evidence": "本机 python -m unittest discover -s tests 实测（V88 后 2392 OK / skipped 3）；tests_contract 184 / 0",
-        "executed": 2389,
-        "ran": 2392,
-        "skipped": 3
+        "evidence": "本机 python -m unittest discover -s tests 实测（2026-11-20 收口前：Ran 2415 / skipped 0 / failures 0；tests_contract 184 / 0）",
+        "executed": 2415,
+        "ran": 2415,
+        "skipped": 0
       },
-      "measured_at": "2026-11-19",
+      "measured_at": "2026-11-20",
       "risk_tier": "fast",
       "suite": "main",
       "title": "主套双端计数对账（tests/）"
@@ -415,7 +417,7 @@
       "title": "本批（V84）新增 54 例尚未上云（待 CI 回读后关闭）"
     },
     {
-      "caliber_note": "V41-A 新增 61 例（tests/test_ssyd_chronic_engine.py）+ V86 新增 42 例（tests/test_genome_dna.py）仅在本机；推送前云端不得假装已跑。 / V87-A 后本机主套 2328（+43），云端仍为前批 2177。",
+      "caliber_note": "V41-A 新增 61 例（tests/test_ssyd_chronic_engine.py）+ V86 新增 42 例（tests/test_genome_dna.py）仅在本机；推送前云端不得假装已跑。 / V87-A 后本机主套 2328（+43），云端仍为前批 2177。 / V89 后本机主套 2415（+87），云端仍为前批 2177。",
       "cloud": {
         "evidence": "本批尚未推送，云端口径仍为前批 2177",
         "value": "pending"
@@ -424,10 +426,10 @@
       "guards": [],
       "id": "D15",
       "local": {
-        "evidence": "本机 2285 = V84 2182 + V41-A 61 + V86 42",
+        "evidence": "本机 2415（V89 回读复核）= V84 2182 + V41-A 61 + V86 42 + V87-A 43 + V85 46",
         "value": "present"
       },
-      "measured_at": "2026-11-17",
+      "measured_at": "2026-11-20",
       "not_discovered": {
         "cloud": 103,
         "local": 0
@@ -554,6 +556,33 @@
       "status": "open_pending_cloud_sync",
       "suite": "main",
       "title": "V88 18 例（activity_probe 7 / batch_order 5 / p2c_supply 6）尚未上云"
+    },
+    {
+      "caliber_note": "V89 新增 tests/test_v89_bayes_mech_matching.py 23 例仅在本机；推送前云端不得假装已跑。",
+      "cloud": {
+        "evidence": "本批尚未推送，云端口径仍为前批 2177",
+        "value": "pending"
+      },
+      "dimension": "batch_not_yet_on_cloud",
+      "guards": [],
+      "id": "D20",
+      "local": {
+        "evidence": "本机 V89 套件 23/23 OK（py3.13.16）",
+        "value": "present"
+      },
+      "measured_at": "2026-11-20",
+      "not_discovered": {
+        "cloud": 23,
+        "local": 0
+      },
+      "risk_tier": "fast",
+      "skip_attributed": {
+        "cloud": 0,
+        "local": 0
+      },
+      "status": "open_pending_cloud_sync",
+      "suite": "main",
+      "title": "本批 V89 新增 23 例尚未上云（待 CI 回读后关闭）"
     }
   ],
   "measurement_protocol": {
@@ -572,5 +601,5 @@
     "simulation": "本机云端条件模拟（v80_cloud_sim2.py：patch os.path.isdir/exists 判 F 盘与客仓/交付包不存在）"
   },
   "schema": "ENV-DELTA-REGISTRY-v1",
-  "self_digest": "f5ed681883689b18"
+  "self_digest": "c0faa34f7e216d3d"
 }

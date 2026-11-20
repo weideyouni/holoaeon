@@ -127,7 +127,7 @@
   "genesis": {
     "base_head_measured": "c65d521",
     "base_head_note": "2026-11-17 V86 提交后现场 git rev-parse 回读：c65d521（批前 5d2bb37）；禁写死",
-    "doc_version_after": "0.9.80（V88 治理闸入 CI 批落地；母本 SHA 与 test_spec_sha256_matches_dna_master 同批回填）",
+    "doc_version_after": "0.9.81（V89 贝叶斯内核上基座批落地；母本 SHA 与 test_spec_sha256_matches_dna_master 同批回填）",
     "doc_version_before": "0.9.79",
     "frozen": [
       "VERSION=0.9.1",
@@ -136,8 +136,8 @@
       "EXTRA_PACK_ORDER=19"
     ],
     "landed_head": "c65d521",
-    "spec_sha256_measured": "ca4c6fdf98d26b1c5468f4a69bc653cf51be5807b350843807189b601c3edf22",
-    "spec_sha256_note": "V88 治理闸入 CI 批（change_class=governance）现场重算：spec.py 仅改 DOC_VERSION 一行注释与号值，VERSION/RUNTIME_ID/MATRIX_ID 未动（ReproHash 黄金值 2fc892cf9af6e755 不受影响）；genome_hash 仍为 V87-A after 值（脱表型不脱基因）；母本与本断言同批回填，禁写死旧值。"
+    "spec_sha256_measured": "ae56e7babe73d0894ff77e52369576944a7eb59f4d8fe16bf3cdd8312df0708f",
+    "spec_sha256_note": "V89 贝叶斯内核上基座批（change_class=governance）现场重算：spec.py 仅改 DOC_VERSION 一行注释与号值，VERSION/RUNTIME_ID/MATRIX_ID 未动（ReproHash 黄金值 2fc892cf9af6e755 不受影响）；genome_hash 仍为 V87-A after 值（脱表型不脱基因）；母本与本断言同批回填，禁写死旧值。"
   },
   "genome_revision": {
     "after": "84876958e3936c50bf5ce058f716a5a3a1bb9194b7a22f15185cb401fce16707",

@@ -342,13 +342,51 @@
       "id": "A12.1",
       "name": "零依赖未破",
       "ok": true
+    },
+    {
+      "detail": {
+        "ci_steps": 16,
+        "claimed_steps": 16,
+        "last_preflight": {
+          "failed": [],
+          "passed": 16,
+          "total": 16,
+          "verdict": "PASS"
+        },
+        "missing": [],
+        "unused": [],
+        "workflow": ".github/workflows/ci.yml"
+      },
+      "id": "A13.1",
+      "name": "ci.yml ↔ ci_preflight 步骤表双向对齐",
+      "ok": true
+    },
+    {
+      "detail": {
+        "allowlist_entries": 8,
+        "allowlisted": 8,
+        "digest": {
+          "actual": "9424d7751cf49b96",
+          "expected": "9424d7751cf49b96",
+          "ok": true
+        },
+        "drift": [],
+        "first_unregistered": [],
+        "hits_total": 8,
+        "liveness_missing": [],
+        "scanner_selfcheck": true,
+        "unregistered": 0
+      },
+      "id": "A14.1",
+      "name": "恒真判据常驻金哨（A 口径 + 白名单 + 扫描器自检）",
+      "ok": true
     }
   ],
   "doc_version": "0.9.3",
   "evidence_class": "simulated",
   "failed": [],
   "gate": "v3",
-  "passed": 32,
-  "total": 32,
+  "passed": 34,
+  "total": 34,
   "verdict": "PASS"
 }

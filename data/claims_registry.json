@@ -296,9 +296,9 @@
   ],
   "internal_baselines": [
     {
-      "core_py_count": 159,
+      "core_py_count": 160,
       "core_py_count_at_measure": 156,
-      "core_py_count_note": "V41-A 核心包 .py 157→158（新增 holoaeon/ssyd_chronic_engine.py）；基线数值本身未重测；V86 158→159（新增 holoaeon/genome_dna.py）——仅更新规模记录，基线数值未重测，本批沿用 V41-A 基线（回执登记为已知 stale）",
+      "core_py_count_note": "V41-A 核心包 .py 157→158（新增 holoaeon/ssyd_chronic_engine.py）；基线数值本身未重测；V86 158→159（新增 holoaeon/genome_dna.py）；V89 159→160（新增 holoaeon/bayes_reasoning.py）——仅更新规模记录，基线数值未重测，本批沿用 V41-A 基线（回执登记为已知 stale）",
       "id": "semvec-0.9.1",
       "max_age_days": 90,
       "measured_at": "2026-11-04",
@@ -308,9 +308,9 @@
       "stale_if_core_py_count_changes": true
     },
     {
-      "core_py_count": 159,
+      "core_py_count": 160,
       "core_py_count_at_measure": 156,
-      "core_py_count_note": "V41-A 核心包 .py 157→158（新增 holoaeon/ssyd_chronic_engine.py）；基线数值本身未重测；V86 158→159（新增 holoaeon/genome_dna.py）——仅更新规模记录，基线数值未重测，本批沿用 V41-A 基线（回执登记为已知 stale）",
+      "core_py_count_note": "V41-A 核心包 .py 157→158（新增 holoaeon/ssyd_chronic_engine.py）；基线数值本身未重测；V86 158→159（新增 holoaeon/genome_dna.py）；V89 159→160（新增 holoaeon/bayes_reasoning.py）——仅更新规模记录，基线数值未重测，本批沿用 V41-A 基线（回执登记为已知 stale）",
       "id": "semvec-kfold-0.9.2",
       "max_age_days": 90,
       "measured_at": "2026-11-01",
@@ -320,9 +320,9 @@
       "stale_if_core_py_count_changes": true
     },
     {
-      "core_py_count": 159,
+      "core_py_count": 160,
       "core_py_count_at_measure": 156,
-      "core_py_count_note": "V41-A 核心包 .py 157→158（新增 holoaeon/ssyd_chronic_engine.py）；基线数值本身未重测；V86 158→159（新增 holoaeon/genome_dna.py）——仅更新规模记录，基线数值未重测，本批沿用 V41-A 基线（回执登记为已知 stale）",
+      "core_py_count_note": "V41-A 核心包 .py 157→158（新增 holoaeon/ssyd_chronic_engine.py）；基线数值本身未重测；V86 158→159（新增 holoaeon/genome_dna.py）；V89 159→160（新增 holoaeon/bayes_reasoning.py）——仅更新规模记录，基线数值未重测，本批沿用 V41-A 基线（回执登记为已知 stale）",
       "id": "semvec-kfold-0.9.3",
       "max_age_days": 90,
       "measured_at": "2026-11-01",
@@ -332,9 +332,9 @@
       "stale_if_core_py_count_changes": true
     },
     {
-      "core_py_count": 159,
+      "core_py_count": 160,
       "core_py_count_at_measure": 156,
-      "core_py_count_note": "V41-A 核心包 .py 157→158（新增 holoaeon/ssyd_chronic_engine.py）；基线数值本身未重测；V86 158→159（新增 holoaeon/genome_dna.py）——仅更新规模记录，基线数值未重测，本批沿用 V41-A 基线（回执登记为已知 stale）",
+      "core_py_count_note": "V41-A 核心包 .py 157→158（新增 holoaeon/ssyd_chronic_engine.py）；基线数值本身未重测；V86 158→159（新增 holoaeon/genome_dna.py）；V89 159→160（新增 holoaeon/bayes_reasoning.py）——仅更新规模记录，基线数值未重测，本批沿用 V41-A 基线（回执登记为已知 stale）",
       "id": "results-0.9.1",
       "max_age_days": 90,
       "measured_at": "2026-11-03",
@@ -424,8 +424,8 @@
       "non_evidence": [
         "runtime_snapshot"
       ],
-      "observed": "0.9.80",
-      "observed_at": "2026-11-19"
+      "observed": "0.9.81",
+      "observed_at": "2026-11-20"
     },
     "five_site_head": {
       "authority": "git_ls_remote_origin_main",
@@ -441,18 +441,18 @@
       "non_evidence": [
         "git_remote_tracking_ref"
       ],
-      "observed": "ae17afd",
-      "observed_at": "2026-11-16"
+      "observed": "d7cda13",
+      "observed_at": "2026-11-20"
     },
     "main_suite": {
       "authority": "unittest_discover_measured",
-      "caliber_note": "V88 主套实测 2392（V85 2374 + V88 18：activity_probe 7 / batch_order 5 / p2c_supply 6）",
+      "caliber_note": "V89 主套实测 2415（V88 2392 + V89 23：test_v89_bayes_mech_matching 23 例）",
       "non_evidence": [
         "runtime_snapshot",
         "timeboxed_historical"
       ],
-      "observed": 2392,
-      "observed_at": "2026-11-19"
+      "observed": 2415,
+      "observed_at": "2026-11-20"
     },
     "redline": {
       "authority": "redline_scan_measured",
@@ -460,9 +460,9 @@
         "runtime_snapshot",
         "timeboxed_historical"
       ],
-      "observed": 159,
-      "observed_at": "2026-11-16",
-      "observed_note": "V86 158→159：holoaeon/genome_dna.py 入包；红线实跑 159 文件 0 违规"
+      "observed": 160,
+      "observed_at": "2026-11-20",
+      "observed_note": "V89 159→160：holoaeon/bayes_reasoning.py 入包；红线实跑 160 文件 0 违规"
     }
   },
   "regulation_pins": [
@@ -568,15 +568,15 @@
       "effective_from": "2025",
       "id": "PHC-2025",
       "max_age_days": 180,
-      "note": "只存文号指针，不复制规范全文（V88 收口 README 条数刷新后按整文件实测重算 sha16）",
+      "note": "只存文号指针，不复制规范全文（V89 收口（README 补 V89/D20 后）按整文件实测重算 sha16）",
       "risk_tier": "annual",
       "runtime_pointer": "holoaeon/phc_chronic_engine.py#L4-L5",
       "runtime_role": "current",
       "runtime_value": "2025",
       "source_pointer": "README.zh-CN.md#公卫口径段（V41 小节）",
-      "source_sha16": "0bb12dd55256ffd9",
+      "source_sha16": "0301dc6da416b0dc",
       "status": "current",
-      "verified_at": "2026-11-19",
+      "verified_at": "2026-11-20",
       "version": "2025",
       "version_chain": [
         {
@@ -723,7 +723,7 @@
     }
   ],
   "schema": "CLAIMS-GATE-v1",
-  "self_digest": "cff7e6f679919575",
+  "self_digest": "724cf1048e80b3b6",
   "totals": {
     "doc_claims": 21,
     "historical": 3,

@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-11-15",
+  "as_of": "2026-11-20",
   "generated_by": "V84 恒真判据常驻金哨（tautology_scan.py A 口径扫描器 + 8 条白名单登记账 + v3_gate 第 34 面 A14 + 54 例；DOC 0.9.78）",
   "no_feed_batches": [
     {
@@ -202,7 +202,13 @@
     {
       "batch": "V84",
       "file": "AGENT_FEED_V84_DONE_TAUTOLOGY_GOLDEN_WATCH_20261114.md"
+    },
+    {
+      "batch": "V89",
+      "file": "AGENT_FEED_V89_BAYES_MECHANISM_MATCHING_20261120.md（38364 B / sha16 0ef2ffa073f4af0f，实测复算一致）",
+      "note": "本索引 as_of 自 2026-11-15（V84 口径）后未逐批续登，V85/V86/V87/V88 未逐条入册——回执登记为已知缺口；本条只追加本批事实，不追溯改既有账、不改名任何文件",
+      "topic": "贝叶斯内核上基座（V89 主批）：15 模块注册表（层 4-5-6，基座真实现 6 / pending 9 如实）+ 15×25 机制匹配表（import-evidenced 7 / semantic-anchor 8，锚定 meridian_link import 对账）+ 8 项既有贝叶斯族资产统一挂账（真 import 零复制）+ repo_adapter_map 19 行无空仓（C15 由 B15 仲裁）+ 机制锚定型后验包（(2,2) 基座弱证据回中位、三分流 hot/warm/cold）+ 去特征向量化；DOC 0.9.80→0.9.81；闸 28/28 + 套件 23/23 + 主套 2415；LA-V9 同批在 longaeon-rejuvenation-matrix 0.6.2（anchored 7 / partial 3）"
     }
   ],
-  "with_feed_count": 26
+  "with_feed_count": 27
 }

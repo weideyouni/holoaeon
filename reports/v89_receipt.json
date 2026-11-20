@@ -1,0 +1,202 @@
+{
+ "batch": "V89",
+ "name": "BAYES-KERNEL-ON-BASE（贝叶斯内核上基座：15 模块注册表 + 15×25 机制匹配表 + 8 项既有贝叶斯族资产统一账 + 18 分仓适配图 + 机制锚定型后验包；去特征向量化；同批 LA-V9 在 longaeon 真仓落匹配件）",
+ "date": "2026-11-20",
+ "status": "FIVE_SITE_SYNCED",
+ "doc_version": "0.9.81",
+ "head": "d7cda1353db73b732e66ef66eee4f82edb0cf990",
+ "head_note": "被验收代码头 = 本批唯一提交；回执自身补正（head / five_site 回填 + 清单重算）以 amend 收在同一提交内，不新增第二提交。",
+ "patches": [
+  {
+   "group": "P0 贝叶斯内核上基座主件（15 模块注册表 / 15×25 机制匹配表 / 8 项既有资产统一账 / 18 分仓适配图 / 机制锚定型后验包 / 去特征向量化）",
+   "files": [
+    "holoaeon/bayes_reasoning.py",
+    "tests/test_v89_bayes_mech_matching.py"
+   ]
+  },
+  {
+   "group": "P1 红线合规最小修正（绝对包内 import → 相对 import；删 __import__ 逃逸口，行为等价）",
+   "files": [
+    "holoaeon/bayes_reasoning.py",
+    "tests/test_v89_bayes_mech_matching.py"
+   ]
+  },
+  {
+   "group": "DOC 0.9.80→0.9.81 + 四处 DOC 引脚同批重钉 + DNA 母本 spec_sha256 回填",
+   "files": [
+    "holoaeon/spec.py",
+    "data/genome_dna.json",
+    "tests/test_v22_eng_skills.py",
+    "tests/test_v64_hangover_zero.py",
+    "tests/test_v70_prehistory_criteria.py",
+    "tests/test_v84_tautology_golden_watch.py"
+   ]
+  },
+  {
+   "group": "注册簿刷新（core_py_count 159→160 + ledger_sources 四源 + self_digest 重算）",
+   "files": [
+    "data/claims_registry.json"
+   ]
+  },
+  {
+   "group": "双份 README 对齐（徽章 / 最新批次 / 门禁行 / 验收段）",
+   "files": [
+    "README.md",
+    "README.zh-CN.md"
+   ]
+  },
+  {
+   "group": "台账补录 V87-A 中英两行（append-only）+ feed_index 追加 V89 条目",
+   "files": [
+    "docs/BATCH_LEDGER.md",
+    "reports/feed_index.json"
+   ]
+  },
+  {
+   "group": "v3 域闸重跑刷新（A13.1 ci.yml↔ci_preflight 步骤表双向对齐、A14.x allowlist 面）",
+   "files": [
+    "reports/gate_fusion_v4.json"
+   ]
+  },
+  {
+   "group": "清单重建（原 360 路径集 + 本批 1 新 py 模块 + 本批回执 = 362 条）",
+   "files": [
+    "SHA256SUMS"
+   ]
+  },
+  {
+   "group": "回执",
+   "files": [
+    "reports/v89_receipt.json"
+   ]
+  }
+ ],
+ "verification": {
+  "unittest_main": 2415,
+  "unittest_failures": 0,
+  "unittest_errors": 0,
+  "unittest_skipped_local": 0,
+  "v3_domain": 11,
+  "verax_domain": 21,
+  "total_local": 2447,
+  "redline": 160,
+  "v3_gate": "34/34",
+  "selftest": "25/25",
+  "claims_gate": "PASS mismatch=0",
+  "check_sums": "ok=true total=362 mismatches=[]",
+  "checklist_entries": 362,
+  "cloud_main": 2177,
+  "cloud_skipped": 33,
+  "note": "收口实测（本机 py313.16）：主套 Ran 2415；redline 160 文件 0 违规；claims_gate PASS mismatch=0；构造函数闸 28/28 + 机制套件 23/23 + selftest 25/25；v3 域闸 34/34；清单 362 条 0 不匹配。云端 2177/33 为 V88 读数沿用，本批未重跑云。"
+ },
+ "manifest": {
+  "entries": 362,
+  "mismatches": []
+ },
+ "five_site": {
+  "verified_at": "2026-11-20",
+  "S1_local": {
+   "ref": "main",
+   "sha": "d7cda1353db73b732e66ef66eee4f82edb0cf990",
+   "note": "本批唯一提交（amend 收口）；working_head 与 sha 同头"
+  },
+  "S2_gitee": {
+   "repo": "weideyouni/holoaeon",
+   "sha": "PENDING_PUSH",
+   "push_readback": "PENDING",
+   "verified_by": "token https push + ls-remote refs/heads/main 回读同头"
+  },
+  "S3_github": {
+   "repo": "weideyouni/holoaeon",
+   "sha": "PENDING_PUSH",
+   "push_readback": "PENDING",
+   "verified_by": "https + 凭据管理器 OAuth push + ls-remote refs/heads/main 回读同头"
+  },
+  "S4_vector_sea": {
+   "dir": "F:\\doubaowork\\vector-sea\\holoaeon-v4-cold-hot-plug",
+   "manifest_entries": 0,
+   "missing": 0,
+   "extra": 0,
+   "bad_sha256": 0,
+   "bad_bytes": 0,
+   "five_site_dna": "PENDING",
+   "verdict": "PENDING"
+  },
+  "S5_hf": {
+   "repo": "weideyouni/holoaeon",
+   "repo_type": "model",
+   "sha": "PENDING",
+   "uploaded": 0,
+   "files": 0,
+   "mismatch": [],
+   "verified_by": "mirror_hf incremental + model_info 内容判等"
+  }
+ },
+ "honest_boundaries": [
+  "机制匹配三态实测为 import-evidenced 7 / semantic-anchor 8（合计 15），与投喂正文 §6 模板声明的 6 / 9 不一致；本回执以代码正文实测为权威，投喂声明视为过期，未按其改写代码。多出的 B08 锚 X2 共振带（符号 kuramoto_order），按算法本体判属 import-evidenced。",
+  "基座真实现 6（B01/B04/B07/B10/B12/B13），pending 9 如实登记；B06 有 rff 入口但 HMC 本体未实现，不虚称已实现。",
+  "投喂包所声明字节/哈希与本批落地件不一致：模块投喂 23732B / 7cf227f2342cfe86，落地 23680B / ec0ac5f5c23b82c1（红线修正删 __import__ 一行）；测试件投喂 6997B / 65c524c374a8894e，落地 7205B / 08cfd517014a9b0f（包导入修正）。属最小修正后的必然偏离，回执按实测登记。",
+  "投喂称「py311 + py313 双 Python 全绿」：本机仅有 python 3.13.16、无 py 启动器，双版本不可复现；本批一切实测均为 py313 单机口径。",
+  "投喂 anchor_baseline 称红线台账 147→148，与本批 redline 实测 files_scanned=160 是两个不同口径（台账条目数 vs 扫描文件数），不混写、不互相印证。",
+  "core_py_count 159→160 只更新规模记录，基线数值未重测，本批沿用 V41-A 基线，回执登记为已知 stale。",
+  "reports/feed_index.json 的 as_of 自 2026-11-15（V84 口径）后未逐批续登，V85/V86/V87/V88 未逐条入册；本批只追加 V89 事实条目，不追溯改既有账，缺口如实登记。",
+  "docs/BATCH_LEDGER.md 不在 SHA256SUMS 清单内，本批补录 V87-A 中英两行的改动不产生清单条目变化；清单 362 条 = 原 360 路径集 + 1 新 py 模块 + 本批回执，tests/ 与 docs/ 不入册口径延续。",
+  "去特征向量化：先验来自机制量化证据（σ / 序参量 / NIS / SPRT / 收敛度），非城市特征向量；(2,2) 均匀基座下弱证据被拉回 0.5 属诚实贝叶斯行为，high 档须三强证据或执行反馈累积，未为凑档位改先验。",
+  "LA-V9 匹配件落 longaeon-rejuvenation-matrix（真仓，0.6.1→0.6.2）；F:\\doubaowork\\longaeon 只是文档目录，本批已纠偏，未在其伪仓位置落任何代码。"
+ ],
+ "seal": "潮起开门，潮落闭嘴",
+ "signature": "桃花庵出品",
+ "head_full": "d7cda1353db73b732e66ef66eee4f82edb0cf990",
+ "red_proofs": [
+  {
+   "id": "RP-01",
+   "name": "机制匹配表三态可复算",
+   "evidence": "bayes_reasoning 闸 total=28 passed=28 failed=0 verdict=PASS；15 行机制表 import-evidenced 7 / semantic-anchor 8，锚定 import 对账 meridian_link，基座漂移即 FAIL。"
+  },
+  {
+   "id": "RP-02",
+   "name": "8 项既有贝叶斯族资产真 import 零复制",
+   "evidence": "bayesian_guard / kalman_state / kalman_fuse / sprt_gate / rff_features / kuramoto_order / entropy_production / klein_convergence 八符号全部可解析（8/8），无源码复制。"
+  },
+  {
+   "id": "RP-03",
+   "name": "18 分仓 + 主仓适配图无空仓",
+   "evidence": "repo_adapter_map() 19 行（C01–C18 + MAIN），每分仓 ≥1 服务，C15 风险仓由 B15 仲裁，MAIN 驻地 15 服务全量。"
+  },
+  {
+   "id": "RP-04",
+   "name": "机制锚定型后验包诚实分流",
+   "evidence": "(2,2) 均匀基座 + 证据线性入账；弱证据后验被拉回中位，三分流 hot / warm / cold 实测可复现；未用特征向量。"
+  },
+  {
+   "id": "RP-05",
+   "name": "红线合规 clean",
+   "evidence": "redline scan_directory('holoaeon') → files_scanned=160, violations=[], clean=true；修正点 1 处删 __import__ + 3 处改相对 import。"
+  },
+  {
+   "id": "RP-06",
+   "name": "机制套件 23 例",
+   "evidence": "tests/test_v89_bayes_mech_matching.py Ran 23 … OK（本机 py313.16）。"
+  },
+  {
+   "id": "RP-07",
+   "name": "清单 362 条 0 不匹配",
+   "evidence": "check_sums ok=true total=362 mismatches=[]；build_sums 口径重建，原 360 路径集 + 1 新 py 模块 + 回执（tests/ 不入册）。"
+  },
+  {
+   "id": "RP-08",
+   "name": "v3 域闸 34/34 PASS",
+   "evidence": "reports/gate_fusion_v4.json 34 faces PASS；A13.1 ci.yml↔ci_preflight 双向 16/16，A14.x allowlist 8/8 digest 一致 drift=[]。"
+  },
+  {
+   "id": "RP-09",
+   "name": "注册簿自摘要可复算",
+   "evidence": "data/claims_registry.json self_digest 按 verify 同源口径重算写回，check_self_digest → []。"
+  },
+  {
+   "id": "RP-10",
+   "name": "LA-V9 同批三列匹配 + 指针纪律",
+   "evidence": "longaeon/fusion/bayes_matching.py 十包三列 anchored 7 / partial 3；零 holoaeon import，经 fusion.BASE_MECHANISMS 既有登记簿，行首正则判据防 docstring 误伤；闸 11/11 + 套件 13/13。"
+  }
+ ]
+}
