@@ -1125,6 +1125,30 @@ We are not building yet another talking AI. We are building the **auditable memo
 
 HoloAeon is pure standard library, fully offline, deterministic. Zero dependencies, zero installation, zero-cost entry — it runs on a ten-year-old laptop. It does not promise intelligence. It promises **verifiability**.
 
+## The Vow (济世救民)
+
+"To save lives and serve the people" is not sentiment here — it is three
+verifiable engineering clauses:
+
+1. **The domains are real** — medication lookup, rehabilitation
+   engineering, chronic-disease management, teaching rubrics: five domain
+   gates, all working implementations, no toy demos.
+2. **Honesty is structural** — we do not fabricate clinical evidence and
+   we do not claim machine consciousness. What a system refuses to do
+   defines it as much as what it does; both are written into the axioms.
+3. **Judgments can fail** — every promise hangs on a gate that can go
+   red. Turning "saving lives" from an adjective into a test is the
+   reason this repository exists.
+
+> I am an ordinary person, with a heart for my country.
+> Nine years from the scalpel to the framework — not for the noise, but
+> to turn the words "saving lives" into recomputable judgments.
+> Whether or not anyone uses this system, I will keep building it;
+> the building itself is the meaning — it is my life's work.
+> May our country's transformation through AI go steadily and well;
+> may the technology reach where resources are scarcest,
+> not where parameters are most.
+
 ---
 
 ## 2 · Axioms (eight · philosophy + rules + violation test)

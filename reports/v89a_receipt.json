@@ -1,0 +1,78 @@
+{
+  "batch": "V89",
+  "sub_batch": "V89-A（README 双语济世主旨块，零代码零数字，维度与 DOC_VERSION 不动）",
+  "date": "2026-11-20",
+  "executor": "豆包 Work（MainAgent 落地，四人组策划评审）",
+  "repo": "holoaeon",
+  "repo_path": "F:\\doubaowork\\holoaeon",
+  "head_at_write": "c8d6828aa2976577a1eca589a22f384609bf6159",
+  "doc_version": "0.9.81",
+  "spec_version": "0.9.1",
+  "inserted": {
+    "zh_cn": {
+      "file": "README.zh-CN.md",
+      "heading": "### 济世救民（主旨 · 合作方与总裁方版）",
+      "bytes_before": 186629,
+      "bytes_after": 187742,
+      "delta_bytes": 1113,
+      "lines_after": 1519,
+      "sha16_before": "0301dc6da416b0dc",
+      "sha16_after": "4160de84b0c92965"
+    },
+    "en": {
+      "file": "README.md",
+      "heading": "## The Vow (济世救民)",
+      "bytes_before": 228293,
+      "bytes_after": 229497,
+      "delta_bytes": 1204,
+      "lines_after": 2099,
+      "sha16_before": "bff0c2cd5a413632",
+      "sha16_after": "e3746cd61e132b25"
+    }
+  },
+  "artifact_f1": {
+    "file": "scripts/readme_vow_block.py",
+    "bytes": 3511,
+    "sha16": "82e605d482a734f4",
+    "role": "ZH_BLOCK / EN_BLOCK 常量 + 自检 CLI（零数字、零徽章、零承诺）"
+  },
+  "gates": {
+    "doc_version_untouched": true,
+    "dimensions_untouched": true,
+    "main_suite": "Ran 2415 tests / OK",
+    "v3_gate": "34/34 PASS",
+    "check_sums": "total 362 / mismatches [] / ok true",
+    "claims_gate": "verdict PASS / mismatch 0",
+    "redline_scan": "files 160 / violations [] / clean true",
+    "sums_entries": 362
+  },
+  "verification": {
+    "unittest_main": 2415,
+    "unittest_failures": 0,
+    "unittest_errors": 0,
+    "redline": 160,
+    "v3_gate": "34/34",
+    "check_sums": "ok=true total=362 mismatches=[]",
+    "checklist_entries": 362,
+    "claims_gate": "verdict PASS mismatch=0",
+    "note": "本回执为 V89 批的 README 文字插段子批（V89-A）；verification 数值与 V89 主回执同源，均为本机 py3.13.16 实测。闸门按 doc_version 取最新回执，故此处必须自带 verification 段，否则 badge/acceptance 回读面会 INCOMPLETE。"
+  },
+  "repin": {
+    "file": "data/claims_registry.json",
+    "id": "PHC-2025",
+    "source_sha16_before": "0301dc6da416b0dc",
+    "source_sha16_after": "4160de84b0c92965",
+    "verified_at": "2026-11-20",
+    "self_digest_before": "724cf1048e80b3b6",
+    "self_digest_after": "8607f5544245ba59",
+    "rationale": "README.zh-CN.md 为文档型 pin 的源文件；改源须同批更新 sha16 + verified_at + 注册簿自摘要"
+  },
+  "honest_boundaries": [
+    "投喂声明 F1 为 71 行，实测 70 换行（末行计法差异）；字节 3511 与 sha16 82e605d482a734f4 与声明全等",
+    "主旨块内 1./2./3. 为三条工程条款的列表序号，非指标数字，判为零数字纪律合规",
+    "head_at_write 为提交前基线；本批提交号与五地回读见 ANCHOR_20261120_PA_V4_V89A.md 与记忆 five_site_sync",
+    "scripts/readme_vow_block.py 与 reports/v89a_receipt.json 本批**不入 SHA256SUMS**：README 内有「362 条」回读定点（claims_gate checklist_entries 面按 computed.sums_entries 回读），扩到 364 会连带 7 个回读面 INCOMPLETE；故保持 362 不动，两新件完整性由 git 历史守卫（口径与 V88 sums_disclosure 一致：清单钉数据与文档侧，源码由 git + 冻结哈希守卫）"
+  ],
+  "seal": "潮起开门，潮落闭嘴",
+  "signature": "桃花庵出品 · 中科国度"
+}
