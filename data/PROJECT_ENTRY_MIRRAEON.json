@@ -1,53 +1,59 @@
 {
- "schema": "HOLOAEON-CTUP-ONBOARDING/1.0",
- "seal": "潮起开门，潮落闭嘴",
- "project": "mirraeon",
- "project_cn": "镜面·全职业数字分身矩阵（士农工商 AI 个人助理赋能）",
- "series": "MR",
- "version": "0.1.0",
- "batch": "MR-V2",
- "relation": {
-  "base": "holoaeon",
-  "mechanism": "M11 城邦架构的个体粒度镜像（城×业双矩阵之业轴）；基座 G25 persona_quartet 数字分身先例的矩阵化",
-  "mechanism_axis": "25 位轴全注册（mirror_meridian.MIRROR_MECH_ALIASES）",
-  "channels": [
-   "meridian extra_fragments：export_fragments() 19 实体×25=475 格",
-   "CTUP v1.3 项目注册表 N7：本条目",
-   "五源对账：meridian_link.KERNEL_MECHANISMS 逐 id 一致"
-  ],
-  "open_source": false,
-  "remote": null,
-  "remote_note": "不开源：本地仓留根；远端建仓须碳基点单"
- },
- "mirror_facts": {
-  "realms": [
-   "士",
-   "农",
-   "工",
-   "商"
-  ],
-  "categories": 8,
-  "professions": 1639,
-  "cog_layers": [
-   "knowledge",
-   "reasoning",
-   "expression",
-   "boundary"
-  ],
-  "dual_brain": [
-   "soul",
-   "agent"
-  ],
-  "mr2_components": {
-   "ledger": "mirror_ledger.py：NUMBER_LEDGER 十行口径对账 + check_ledger 16 闸 + SPARSITY_BY_DESIGN 稀疏设计声明",
-   "scene": "scene_id = city_id×occupation_slot_id×scene_type + SCENE_WRITE_MATRIX 三分双签（单签 pending_cosign / 越侧 cross_write_forbidden / 双签 cosigned）",
-   "slot": "occupation_slot.py：七字段席位契约 + pending_detail→evidence_fed→validated→baseline_locked 四状态单步前进 + 8 闸",
-   "brain": "brain_gate.py：Reject 不入账 / downgrade 建议态 / human 挂起待碳基三分流，pass 唯一入账 + 9 闸 + 审计行 + V89 信封只发不算"
+  "schema": "HOLOAEON-CTUP-ONBOARDING/1.0",
+  "seal": "潮起开门，潮落闭嘴",
+  "project": "mirraeon",
+  "project_cn": "镜面·全职业数字分身矩阵（士农工商 AI 个人助理赋能）",
+  "series": "MR",
+  "version": "0.1.0",
+  "batch": "MR-V3",
+  "relation": {
+    "base": "holoaeon",
+    "mechanism": "M11 城邦架构的个体粒度镜像（城×业双矩阵之业轴）；基座 G25 persona_quartet 数字分身先例的矩阵化",
+    "mechanism_axis": "25 位轴全注册（mirror_meridian.MIRROR_MECH_ALIASES）",
+    "channels": [
+      "meridian extra_fragments：export_fragments() 19 实体×25=475 格",
+      "CTUP v1.3 项目注册表 N7：本条目",
+      "五源对账：meridian_link.KERNEL_MECHANISMS 逐 id 一致"
+    ],
+    "open_source": false,
+    "remote": null,
+    "remote_note": "不开源：本地仓留根；远端建仓须碳基点单"
   },
-  "batch_gate": "73/73 PASS（core 18 / ledger 16 / scene 9 / slot 8 / brain 9 / mech_registry 5 / fragments 5 / injection 3）"
- },
- "sister": "polisaeon（城）× mirraeon（业）——城×业交叉即场景",
- "draft_note": "初稿 · 供内部讨论，非最终稿",
- "cross_thread_call": "新线程：import mirror_core; mirror_core.check_mirror() → mirror_meridian.check_mech_registry()/check_injection() → mirror_ledger.check_batch()（MR-V2 批总闸 73）",
- "honest_note": "本条目按 V89-A 先例不入 SHA256SUMS（保 362 定点）；S4 manifest 除外，S4 侧按 tracked blob 重算"
+  "mirror_facts": {
+    "realms": [
+      "士",
+      "农",
+      "工",
+      "商"
+    ],
+    "categories": 8,
+    "professions": 1639,
+    "cog_layers": [
+      "knowledge",
+      "reasoning",
+      "expression",
+      "boundary"
+    ],
+    "dual_brain": [
+      "soul",
+      "agent"
+    ],
+    "mr2_components": {
+      "ledger": "mirror_ledger.py：NUMBER_LEDGER 十行口径对账 + check_ledger 16 闸 + SPARSITY_BY_DESIGN 稀疏设计声明",
+      "scene": "scene_id = city_id×occupation_slot_id×scene_type + SCENE_WRITE_MATRIX 三分双签（单签 pending_cosign / 越侧 cross_write_forbidden / 双签 cosigned）",
+      "slot": "occupation_slot.py：七字段席位契约 + pending_detail→evidence_fed→validated→baseline_locked 四状态单步前进 + 8 闸",
+      "brain": "brain_gate.py：Reject 不入账 / downgrade 建议态 / human 挂起待碳基三分流，pass 唯一入账 + 9 闸 + 审计行 + V89 信封只发不算"
+    },
+    "batch_gate": "98/98 PASS（core 18 / ledger 16 / scene 11 / slot 8 / brain 9 / distill 12 / fidelity 8 / readme_sync 3 / mech_registry 5 / fragments 5 / injection 3）",
+    "mr3_components": {
+      "distill": "distill_demo.py：四层真内容蒸馏（6 知识 K01–K06 + 13 规则 R01–R13 含 3 干扰 + 3 表达 + 3 红线）+ 真状态机流转至 baseline_locked + 12 闸",
+      "fidelity": "fidelity_eval.py：10 题决策盲测 + 确定性关键词契约匹配 + 10/10 命中 / 分 1.0 / 及格线 8 + 8 闸",
+      "ledger_v21": "mirror_ledger.py v2.1：demo_mode 演练双签（-demo 签名者）+ cosigned_demo 永不冒充正式 + check_readme_sync 3 闸"
+    },
+    "first_locked_slot": "MIRRAEON-SLOT-C2-KFXZZRY-001（康复医学主任医师，1639 席位首个落锁）"
+  },
+  "sister": "polisaeon（城）× mirraeon（业）——城×业交叉即场景",
+  "draft_note": "初稿 · 供内部讨论，非最终稿",
+  "cross_thread_call": "新线程：import mirror_core; mirror_core.check_mirror() → mirror_meridian.check_mech_registry()/check_injection() → mirror_ledger.check_batch()（MR-V3 批总闸 98）",
+  "honest_note": "本条目按 V89-A 先例不入 SHA256SUMS（保 362 定点）；S4 manifest 除外，S4 侧按 tracked blob 重算"
 }

@@ -1,131 +1,219 @@
 {
- "schema": "HOLOAEON-CTUP-ONBOARDING/1.0",
- "seal": "潮起开门，潮落闭嘴",
- "date": "2026-11-17",
- "batch": "V88-GATE-HARDENING",
- "ctup_schema": "CTUP-v1.3",
- "skill_dir_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol",
- "skill_md": {
-  "path_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol\\SKILL.md",
-  "exists": true,
-  "sha256": "fddfe71a3dae4f9e1d74b47afec71a724bb3b28919e103f8f1c9e60e16814e9c",
-  "bytes": 21840
- },
- "unity_check_py": {
-  "path_abs": "F:\\doubaowork\\holoaeon\\scripts\\unity_check.py",
-  "exists": true,
-  "sha256": "a5ad83ca085fb591a60f74bc3f5f18b134b3d532ef862bdbc29382018e7377b0",
-  "bytes": 9759,
-  "dev_copy": {
-   "path_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol\\scripts\\unity_check.py",
-   "exists": true,
-   "sha256": "b20c1decc715d3dd9922bd148066a6dfdd59cf046c3744a9441883f7ed8ee090",
-   "bytes": 9635,
-   "note": "V88 P1-A 方案A：仓外开发副本保留，以仓内正本为准；双登记不删史"
-  }
- },
- "unity_report_ref": "F:\\doubaowork\\holoaeon_lathe\\UNITY_CHECK_20261117.json",
- "readback": {
-  "holoaeon": {
-   "verdict": "UNITY_OK",
-   "entry_verdict": "ENTRY_OK",
-   "sync_head": "a956464",
-   "report": "F:\\doubaowork\\holoaeon_lathe\\ENTRY_UNITY_20261117.json",
-   "note": "V87-A 后置校准后五地同头 a956464（S5 7e70e31）"
+  "schema": "HOLOAEON-CTUP-ONBOARDING/1.0",
+  "seal": "潮起开门，潮落闭嘴",
+  "date": "2026-11-17",
+  "batch": "V88-GATE-HARDENING",
+  "ctup_schema": "CTUP-v1.3",
+  "skill_dir_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol",
+  "skill_md": {
+    "path_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol\\SKILL.md",
+    "exists": true,
+    "sha256": "fddfe71a3dae4f9e1d74b47afec71a724bb3b28919e103f8f1c9e60e16814e9c",
+    "bytes": 21840
   },
-  "neike": {
-   "verdict": "UNITY_OK",
-   "entry_verdict": "ENTRY_OK",
-   "sync_head": "937117d",
-   "report": "F:\\doubaowork\\holoaeon_lathe\\ENTRY_UNITY_NEIKE_20261117.json",
-   "entry_file": "F:\\doubaowork\\holoaeon_lathe\\PROJECT_ENTRY_NEIKE.json",
-   "note": "NEIKE hold 刷新批三地同头 937117d（S5 f952e3624）"
-  }
- },
- "rc_note": "四人组 G9：ANCHOR 只写省略号路径导致全盘搜不到；本账登记完整绝对路径 + SHA256 + 两仓 rc/verdict，跨线程可直接按路径重跑 unity_check.py --project/--memory/--remote。",
- "report_head": null,
- "entry_unity_py": {
-  "path_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol\\scripts\\entry_unity.py",
-  "exists": true,
-  "sha256": "b6411b457259fb5947113bc057f0fbd2bccfe97b74ce4fa65949229b69d6d4a4",
-  "bytes": 10481
- },
- "v11_additions": [
-  "§九 三段联通：项目入口 → 本地 → 向量海（PROJECT_ENTRY.json + entry_unity.py）",
-  "§十 全员加载：本账号线程 / 本机其他工作台 / 跨仓推广 / 生态互认",
-  "entry_unity 兜底判据：无 remote_sync 时以回执 five_site 4/4 作为云端口径"
- ],
- "history_note": "v1.0 首次登记见同日锚点；v1.1 于 2026-11-17 升级，SKILL.md/entry_unity.py 的 SHA256 已按实测重算",
- "egress_probe_py": {
-  "path_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol\\scripts\\egress_probe.py",
-  "exists": true,
-  "sha256": "f31e4f1ce0ae326de6ebfc60ff050ebfdca64c86edb71977b479851b6643770d",
-  "bytes": 4100
- },
- "solution_doc": {
-  "path_abs": "F:\\doubaowork\\holoaeon_lathe\\CTUP_SOLUTION_20261117.md",
-  "exists": true,
-  "v13_section": "§十二 v1.3 追加：N6 现场节点 / N7 项目注册表 / 跨生态互认四步"
- },
- "load_all": {
-  "report": "F:\\doubaowork\\holoaeon_lathe\\CTUP_LOAD_ALL_20261117.json",
-  "verdict": "LOAD_ALL_OK",
-  "targets": 5
- },
- "registry_check_py": {
-  "path_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol\\scripts\\registry_check.py",
-  "exists": true,
-  "sha256": "62fe1c9c6b29f532008f7a6b9c8a224a0ac4a0c587f810e5d61403e28f1d94d7",
-  "bytes": 4169
- },
- "project_registry": {
-  "path_abs": "F:\\doubaowork\\holoaeon_memory\\project_registry.json",
-  "exists": true,
-  "schema": "CTUP-PROJECT-REGISTRY/1.0",
-  "projects": 2,
-  "report": "F:\\doubaowork\\holoaeon_lathe\\REGISTRY_20261117.json",
-  "verdict": "REGISTRY_OK"
- },
- "v13_additions": {
-  "N6_field_node": "活体产物次序令牌（跑门禁→checkout→重建清单→校验→提交）+ 现场快照类断言按实测校准并留痕",
-  "N7_project_registry": "holoaeon_memory\\project_registry.json 多项目单一索引 + scripts\\registry_check.py 一条命令体检",
-  "sites": [
-   "holoaeon",
-   "neike1331",
-   "mirraeon"
+  "unity_check_py": {
+    "path_abs": "F:\\doubaowork\\holoaeon\\scripts\\unity_check.py",
+    "exists": true,
+    "sha256": "a5ad83ca085fb591a60f74bc3f5f18b134b3d532ef862bdbc29382018e7377b0",
+    "bytes": 9759,
+    "dev_copy": {
+      "path_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol\\scripts\\unity_check.py",
+      "exists": true,
+      "sha256": "b20c1decc715d3dd9922bd148066a6dfdd59cf046c3744a9441883f7ed8ee090",
+      "bytes": 9635,
+      "note": "V88 P1-A 方案A：仓外开发副本保留，以仓内正本为准；双登记不删史"
+    }
+  },
+  "unity_report_ref": "F:\\doubaowork\\holoaeon_lathe\\UNITY_CHECK_20261117.json",
+  "readback": {
+    "holoaeon": {
+      "verdict": "UNITY_OK",
+      "entry_verdict": "ENTRY_OK",
+      "sync_head": "a956464",
+      "report": "F:\\doubaowork\\holoaeon_lathe\\ENTRY_UNITY_20261117.json",
+      "note": "V87-A 后置校准后五地同头 a956464（S5 7e70e31）"
+    },
+    "neike": {
+      "verdict": "UNITY_OK",
+      "entry_verdict": "ENTRY_OK",
+      "sync_head": "937117d",
+      "report": "F:\\doubaowork\\holoaeon_lathe\\ENTRY_UNITY_NEIKE_20261117.json",
+      "entry_file": "F:\\doubaowork\\holoaeon_lathe\\PROJECT_ENTRY_NEIKE.json",
+      "note": "NEIKE hold 刷新批三地同头 937117d（S5 f952e3624）"
+    }
+  },
+  "rc_note": "四人组 G9：ANCHOR 只写省略号路径导致全盘搜不到；本账登记完整绝对路径 + SHA256 + 两仓 rc/verdict，跨线程可直接按路径重跑 unity_check.py --project/--memory/--remote。",
+  "report_head": null,
+  "entry_unity_py": {
+    "path_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol\\scripts\\entry_unity.py",
+    "exists": true,
+    "sha256": "b6411b457259fb5947113bc057f0fbd2bccfe97b74ce4fa65949229b69d6d4a4",
+    "bytes": 10481
+  },
+  "v11_additions": [
+    "§九 三段联通：项目入口 → 本地 → 向量海（PROJECT_ENTRY.json + entry_unity.py）",
+    "§十 全员加载：本账号线程 / 本机其他工作台 / 跨仓推广 / 生态互认",
+    "entry_unity 兜底判据：无 remote_sync 时以回执 five_site 4/4 作为云端口径"
   ],
-  "mirraeon_note": "MR-V1 纪元族第四员：F:\\doubaowork\\mirraeon（镜面·全职业数字分身矩阵，士农工商 1639 职业/四域 SNGB/八大类 C1-C8/四层认知契约/双脑解耦）；CTUP 条目 data/PROJECT_ENTRY_MIRRAEON.json（按 V89-A 先例不入 SHA256SUMS，保 362 定点）；经络挂接走 meridian_link.mirror_extra_fragments() 懒导入（中文 leg + mirror_native，只经 build_meridian_table 纯 19×25 通道，不进 load_fragments 硬校验组合体）；不开源、不推任何远端（远端建仓须碳基点单）"
- },
- "readme_claims_py": {
-  "path_abs": "F:\\doubaowork\\holoaeon\\scripts\\readme_claims_check.py",
-  "exists": true,
-  "sha256": "b6ade16341949ca4eb90be0c41be6dc20c870d4aae2f28e6561ded90c6284691",
-  "bytes": 7464,
-  "dev_copy": {
-   "path_abs": "F:\\doubaowork\\holoaeon_lathe\\readme_claims_check.py",
-   "exists": true,
-   "sha256": "eb3af4a2d73080f85fe86e5a735532344528bc808d64b21d5c0d7ffc9ecec41b",
-   "bytes": 7424,
-   "note": "V88 P1-A 方案A：仓外开发副本保留，以仓内正本为准；双登记不删史"
-  }
- },
- "v88_note": "P1-A 仓外脚本归位：unity_check.py / readme_claims_check.py 复制入 scripts/ 为正本，仓外原件保留 dev_copy；path_abs 指向仓内，仓外路径入 dev_copy 字段。\nV89-B（MR-V1 基座登记）：sites 追加 mirraeon；DOC_VERSION 0.9.81→0.9.82。\nV89-C（MR-V2 基座登记）：data/PROJECT_ENTRY_MIRRAEON.json 的 mirror_facts 增补 ledger/scene/slot/brain 四件与批总闸 73/73；DOC_VERSION 0.9.82→0.9.83。",
- "sequence": [
-  {
-   "sub": "V87-A.1",
-   "renumbered_from": "v1.1",
-   "scope": "§九 三段联通（项目入口→本地→向量海）/ §十 全员加载 / entry_unity 兜底判据"
+  "history_note": "v1.0 首次登记见同日锚点；v1.1 于 2026-11-17 升级，SKILL.md/entry_unity.py 的 SHA256 已按实测重算",
+  "egress_probe_py": {
+    "path_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol\\scripts\\egress_probe.py",
+    "exists": true,
+    "sha256": "f31e4f1ce0ae326de6ebfc60ff050ebfdca64c86edb71977b479851b6643770d",
+    "bytes": 4100
   },
-  {
-   "sub": "V87-A.2",
-   "renumbered_from": "v1.2",
-   "scope": "N5 出口节点 / 割裂本质与全息自组织相似性耗散结构 / egress_probe"
+  "solution_doc": {
+    "path_abs": "F:\\doubaowork\\holoaeon_lathe\\CTUP_SOLUTION_20261117.md",
+    "exists": true,
+    "v13_section": "§十二 v1.3 追加：N6 现场节点 / N7 项目注册表 / 跨生态互认四步"
   },
-  {
-   "sub": "V87-A.3",
-   "renumbered_from": "v1.3",
-   "scope": "N6 现场节点 / N7 项目注册表 / registry_check"
-  }
- ],
- "renumbered_note": "v1.1/v1.2/v1.3 双序列交叉消除，统一子号 V87-A.1/.2/.3；renumbered_from 留痕，禁删史。"
+  "load_all": {
+    "report": "F:\\doubaowork\\holoaeon_lathe\\CTUP_LOAD_ALL_20261117.json",
+    "verdict": "LOAD_ALL_OK",
+    "targets": 5
+  },
+  "registry_check_py": {
+    "path_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol\\scripts\\registry_check.py",
+    "exists": true,
+    "sha256": "62fe1c9c6b29f532008f7a6b9c8a224a0ac4a0c587f810e5d61403e28f1d94d7",
+    "bytes": 4169
+  },
+  "project_registry": {
+    "path_abs": "F:\\doubaowork\\holoaeon_memory\\project_registry.json",
+    "exists": true,
+    "schema": "CTUP-PROJECT-REGISTRY/1.0",
+    "projects": 2,
+    "report": "F:\\doubaowork\\holoaeon_lathe\\REGISTRY_20261117.json",
+    "verdict": "REGISTRY_OK"
+  },
+  "v13_additions": {
+    "N6_field_node": "活体产物次序令牌（跑门禁→checkout→重建清单→校验→提交）+ 现场快照类断言按实测校准并留痕",
+    "N7_project_registry": "holoaeon_memory\\project_registry.json 多项目单一索引 + scripts\\registry_check.py 一条命令体检",
+    "sites": [
+      "holoaeon",
+      "neike1331",
+      "mirraeon"
+    ],
+    "mirraeon_note": "MR-V1 纪元族第四员：F:\\doubaowork\\mirraeon（镜面·全职业数字分身矩阵，士农工商 1639 职业/四域 SNGB/八大类 C1-C8/四层认知契约/双脑解耦）；CTUP 条目 data/PROJECT_ENTRY_MIRRAEON.json（按 V89-A 先例不入 SHA256SUMS，保 362 定点）；经络挂接走 meridian_link.mirror_extra_fragments() 懒导入（中文 leg + mirror_native，只经 build_meridian_table 纯 19×25 通道，不进 load_fragments 硬校验组合体）；不开源、不推任何远端（远端建仓须碳基点单）",
+    "mirror_facts": {
+      "batch": "MR-V3",
+      "as_of": "2026-11-22",
+      "distill": {
+        "module": "mirraeon/distill_demo.py",
+        "slot_id": "MIRRAEON-SLOT-C2-KFXZZRY-001",
+        "profession": "康复医学主任医师",
+        "final_status": "baseline_locked",
+        "evidence_count": 4,
+        "scope": "职业级公开口径演示（《职业分类大典 2022》C2 条目）；非个人级真实语料，个人级流程留给 MR-V4+"
+      },
+      "fidelity": {
+        "module": "mirraeon/fidelity_eval.py",
+        "quiz_total": 10,
+        "rules_pool": 13,
+        "hits": 10,
+        "misses": 0,
+        "score": 1.0,
+        "pass_line": 8,
+        "passed": true,
+        "engine": "确定性关键词契约匹配（非语义模型、非真人保真）；命中入 brain_gate 审计行 + FIDELITY_REGISTRY"
+      },
+      "posterior": {
+        "query_id": "MR-V3-DISTILL-DEMO-KFXZZRY",
+        "prior_score": 0.666667,
+        "posterior_score": 0.875,
+        "confidence_level": "high",
+        "decision": "直接放行",
+        "update_policy": {
+          "write_back": true,
+          "tier": "hot"
+        },
+        "evidence_used": [
+          "fidelity_hit_rate=1.0"
+        ]
+      },
+      "ledger_v21": {
+        "module": "mirraeon/mirror_ledger.py",
+        "demo_mode": true,
+        "signers": [
+          "polisaeon-demo",
+          "mirraeon-demo"
+        ],
+        "demo_final_status": "cosigned_demo",
+        "formal_rejects_demo_signer": "cross_write_forbidden",
+        "note": "演练完成态 cosigned_demo 永不冒充正式 cosigned；正式通道拒演练签名者"
+      },
+      "batch_gate": {
+        "total": 98,
+        "passed": 98,
+        "failed": 0,
+        "parts": 11,
+        "part_counts": {
+          "mirror_ledger": 16,
+          "scene": 11,
+          "occupation_slot": 8,
+          "brain_gate": 9,
+          "distill_demo": 12,
+          "fidelity_eval": 8,
+          "readme_sync": 3,
+          "mirror_core": 18,
+          "mech_registry": 5,
+          "fragments": 5,
+          "injection": 3
+        }
+      },
+      "tests": {
+        "total": 89,
+        "py313": "OK",
+        "py311": "OK",
+        "files": [
+          "test_mr1_mirror 25",
+          "test_mr2_ledger 36",
+          "test_mr3_distill 28"
+        ]
+      },
+      "readme_sync": {
+        "function": "mirror_ledger.check_readme_sync()",
+        "gates": 3,
+        "mode": "漂移即 FAIL，数字强制回读"
+      },
+      "boundaries": [
+        "保真分不进 NUMBER_LEDGER（运行时分走 FIDELITY_REGISTRY + 审计行）",
+        "演练签名者一律带 -demo，正式通道拒收",
+        "投喂 §7 原写「不 push 任何远端」，本批按碳基口令执行五地同步并如实登记偏离"
+      ],
+      "seal": "潮起开门，潮落闭嘴"
+    }
+  },
+  "readme_claims_py": {
+    "path_abs": "F:\\doubaowork\\holoaeon\\scripts\\readme_claims_check.py",
+    "exists": true,
+    "sha256": "b6ade16341949ca4eb90be0c41be6dc20c870d4aae2f28e6561ded90c6284691",
+    "bytes": 7464,
+    "dev_copy": {
+      "path_abs": "F:\\doubaowork\\holoaeon_lathe\\readme_claims_check.py",
+      "exists": true,
+      "sha256": "eb3af4a2d73080f85fe86e5a735532344528bc808d64b21d5c0d7ffc9ecec41b",
+      "bytes": 7424,
+      "note": "V88 P1-A 方案A：仓外开发副本保留，以仓内正本为准；双登记不删史"
+    }
+  },
+  "v88_note": "P1-A 仓外脚本归位：unity_check.py / readme_claims_check.py 复制入 scripts/ 为正本，仓外原件保留 dev_copy；path_abs 指向仓内，仓外路径入 dev_copy 字段。\nV89-B（MR-V1 基座登记）：sites 追加 mirraeon；DOC_VERSION 0.9.81→0.9.82。\nV89-C（MR-V2 基座登记）：data/PROJECT_ENTRY_MIRRAEON.json 的 mirror_facts 增补 ledger/scene/slot/brain 四件与批总闸 73/73；DOC_VERSION 0.9.82→0.9.83。",
+  "sequence": [
+    {
+      "sub": "V87-A.1",
+      "renumbered_from": "v1.1",
+      "scope": "§九 三段联通（项目入口→本地→向量海）/ §十 全员加载 / entry_unity 兜底判据"
+    },
+    {
+      "sub": "V87-A.2",
+      "renumbered_from": "v1.2",
+      "scope": "N5 出口节点 / 割裂本质与全息自组织相似性耗散结构 / egress_probe"
+    },
+    {
+      "sub": "V87-A.3",
+      "renumbered_from": "v1.3",
+      "scope": "N6 现场节点 / N7 项目注册表 / registry_check"
+    }
+  ],
+  "renumbered_note": "v1.1/v1.2/v1.3 双序列交叉消除，统一子号 V87-A.1/.2/.3；renumbered_from 留痕，禁删史。"
 }

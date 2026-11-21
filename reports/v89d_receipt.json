@@ -1,0 +1,231 @@
+{
+  "batch": "V89",
+  "sub_batch": "V89-D（MR-V3 基座登记：mirraeon 活蒸馏/保真盲测/后验真算/场景演练/README 口径锁 五资产 + 批总闸 98/98 + DOC 0.9.84）",
+  "date": "2026-11-22",
+  "executor": "豆包 Work（MainAgent 落地，四人组策划评审）",
+  "repo": "holoaeon",
+  "repo_path": "F:\\doubaowork\\holoaeon",
+  "head_at_write": "4eb987e6704b33998eb34f46e5fab3b6c01b4012",
+  "doc_version": "0.9.84",
+  "spec_version": "0.9.1",
+  "base_registration": {
+    "project_entry": {
+      "file": "data/PROJECT_ENTRY_MIRRAEON.json",
+      "bytes": 3137,
+      "sha16": "65d76638d90e95b3",
+      "project": "mirraeon",
+      "series": "MR",
+      "version": "0.1.0",
+      "batch": "MR-V3",
+      "mr2_components": ["ledger", "scene", "slot", "brain"],
+      "mr3_components": ["distill_demo", "fidelity_eval", "ledger_v21", "readme_v21"],
+      "first_locked_slot": "MIRRAEON-SLOT-C2-KFXZZRY-001（康复医学主任医师 · C2 · realm S · baseline_locked）",
+      "batch_gate": "98/98 PASS（mirror_ledger 16 / scene 11 / occupation_slot 8 / brain_gate 9 / distill_demo 12 / fidelity_eval 8 / readme_sync 3 / mirror_core 18 / mech_registry 5 / fragments 5 / injection 3）",
+      "cross_thread_call": "批总闸 98 键入口",
+      "entries_in_sums": false
+    },
+    "ctup": {
+      "file": "data/ctup_onboarding.json",
+      "bytes": 9956,
+      "sha16": "266067308b2449a0",
+      "sites": ["holoaeon", "neike1331", "mirraeon"],
+      "v13_additions": ["mirror_facts"],
+      "v88_note_append": "V89-D（MR-V3 基座登记）：CTUP v1.3 N7 mirror_facts 增补 distill/fidelity/posterior/ledger_v21/batch_gate/tests/readme_sync/boundaries 八项；DOC_VERSION 0.9.83→0.9.84。"
+    },
+    "genome_dna": {
+      "file": "data/genome_dna.json",
+      "bytes": 12576,
+      "sha16": "77a21f6e2c1c9c75",
+      "spec_sha256_measured": "2983b0a2f4a610ccc7df653b634619048cf9a969309f604dde6cf63b5449d5c8",
+      "doc_version_before": "0.9.83",
+      "doc_version_after": "0.9.84",
+      "genome_hash": "84876958e3936c50bf5ce058f716a5a3a1bb9194b7a22f15185cb401fce16707",
+      "genome_revision_note": "genome_revision 块（V87-A）本批未动，genome_hash 仍为 after 值"
+    },
+    "claims_registry": {
+      "file": "data/claims_registry.json",
+      "bytes": 27618,
+      "sha16": "bab4883c3a99860b",
+      "sha256": "bab4883c3a99860b9e6dbe0d4432c642c801695593b1c3b9750c5448f8b657b0",
+      "doc_version_spec_sha16": "2983b0a2f4a610cc",
+      "as_of_batch": "V89-D",
+      "ledger_observed": "0.9.84",
+      "observed_at": "2026-11-22",
+      "self_digest": "955be783f20ef27c"
+    },
+    "sums": {
+      "file": "SHA256SUMS",
+      "bytes": 34388,
+      "sha16": "8333e4bc5c7c82d0",
+      "lines": 362,
+      "changed_lines": 3,
+      "changed": ["data/claims_registry.json", "data/ctup_onboarding.json", "data/genome_dna.json"],
+      "caliber": "lf_normalized_text_raw_binary",
+      "spec_in_sums": false
+    },
+    "spec": {
+      "file": "holoaeon/spec.py",
+      "bytes": 10990,
+      "sha256": "2983b0a2f4a610ccc7df653b634619048cf9a969309f604dde6cf63b5449d5c8",
+      "sha16": "2983b0a2f4a610cc",
+      "change": "DOC_VERSION 0.9.83→0.9.84（号值与行尾注释：V89-D MR-V3 活蒸馏+保真盲测基座登记）",
+      "entries_in_sums": false
+    },
+    "doc_version_assertions": {
+      "files": [
+        "tests/test_v22_eng_skills.py",
+        "tests/test_v64_hangover_zero.py",
+        "tests/test_v70_prehistory_criteria.py",
+        "tests/test_v84_tautology_golden_watch.py"
+      ],
+      "each_occurrences": 1,
+      "value": "0.9.84"
+    },
+    "patch_script": {
+      "file": "F:\\doubaowork\\holoaeon_lathe\\patch_base_v89d_20261122.py",
+      "backup_dir": "F:\\doubaowork\\holoaeon\\_backup_v89d_20261122",
+      "backups": ["claims_registry_before.json", "genome_dna_before.json", "ctup_onboarding_before.json", "PROJECT_ENTRY_MIRRAEON_before.json"]
+    }
+  },
+  "mirror_batch": {
+    "batch_id": "MR-V3",
+    "repo": "F:\\doubaowork\\mirraeon",
+    "repo_head_at_write": "d1b44615380ee3d519df3acc16be31f7ae43615c",
+    "assets": {
+      "README.md": "12254B / 6239c9b577bcd089（v2.1 仲裁观阅版，3 分钟口径段）",
+      "mirraeon/distill_demo.py": "18580B / 96f85ad328a56896（EVIDENCE 4 / KNOWLEDGE 6 / RULES 13 / EXPRESSION 3 / BOUNDARY 3，12 闸）",
+      "mirraeon/fidelity_eval.py": "8452B / 9c605299eb2fc2a8（QUIZ 10 / PASS_LINE 8，8 闸，CLI 仅 check|run）",
+      "mirraeon/mirror_ledger.py": "19653B / 45f260e72c522cf7（v2.1 demo_mode 演练轴，BATCH 常量仍 MR-V2）",
+      "tests/test_mr3_distill.py": "7822B / fe91754a19981e13（28 例）"
+    },
+    "archives": {
+      "docs/README_MR-V2.md": "9637B（旧 README，sha16 0b1886c8beaeb3b0）",
+      "docs/mirror_ledger_v2.py.bak": "16019B（旧 ledger，sha16 2d400f0ad76704a5，被 .gitignore *.bak 忽略）"
+    },
+    "frozen_four_untouched": {
+      "mirror_core.py": "defdd62b4aeccce9",
+      "mirror_meridian.py": "1c6fa8b96af60bc8",
+      "occupation_slot.py": "f269d3d30e7facef",
+      "brain_gate.py": "ca24f0a9103df91a"
+    },
+    "batch_gate": {
+      "total": 98,
+      "passed": 98,
+      "failed": 0,
+      "verdict": "PASS",
+      "keys": {
+        "mirror_ledger": 16,
+        "scene": 11,
+        "occupation_slot": 8,
+        "brain_gate": 9,
+        "distill_demo": 12,
+        "fidelity_eval": 8,
+        "readme_sync": 3,
+        "mirror_core": 18,
+        "mech_registry": 5,
+        "fragments": 5,
+        "injection": 3
+      },
+      "label_anomaly": "批总闸输出 batch 字段仍 'MR-V2'（mirror_ledger.py:29 BATCH 硬编码），fidelity_eval 输出 'MR-V3'；ledger 指纹已锁投喂口径，不改文件凑口径，仅登记"
+    },
+    "tests": {
+      "ran": 89,
+      "python": ["3.13.16", "3.11.9"],
+      "verdict": "OK",
+      "breakdown": "test_mr1_mirror 25 / test_mr2_ledger 36 / test_mr3_distill 28",
+      "warning": "ResourceWarning: unclosed file mirror_ledger.py:345（open(readme_path).read() 未关；rc0；改动会破 45f260e72c522cf7 指纹，保留并登记）"
+    },
+    "posterior_live": {
+      "query_id": "MR-V3-DISTILL-DEMO-KFXZZRY",
+      "prior_score": 0.666667,
+      "posterior_score": 0.875,
+      "confidence_level": "high",
+      "decision": "直接放行",
+      "update_policy": {"write_back": true, "tier": "hot"},
+      "evidence_used": ["fidelity_hit_rate=1.0"],
+      "fidelity_used": {"hits": 10, "score": 1.0},
+      "verdict": "PASS"
+    },
+    "fidelity_demo": {
+      "schema": "MIRRAEON-FIDELITY-EVAL/1.0",
+      "batch": "MR-V3",
+      "quiz_total": 10,
+      "rules_pool": 13,
+      "hits": 10,
+      "misses": 0,
+      "score": 1.0,
+      "pass_line": 8,
+      "passed": true,
+      "mapping": "F01→R01, F02→R02+R13, F03→R03, F04→R04+R10, F05→R05, F06→R06, F07→R07, F08→R08, F09→R09, F10→R10"
+    },
+    "distill_demo": {
+      "slot_id": "MIRRAEON-SLOT-C2-KFXZZRY-001",
+      "profession_name": "康复医学主任医师",
+      "category_id": "C2",
+      "realm_code": "S",
+      "source": "《中华人民共和国职业分类大典（2022 年版）》C2 专业技术人员条目",
+      "final_status": "baseline_locked",
+      "evidence_count": 4,
+      "receipts": "transition:evidence_fed ok + EV02/EV03/EV04 appended；validated/locked ok:true",
+      "content_basis": "K01–K06 / R01–R13 全为公开教科书与临床决策常规口径，零虚构个人语料"
+    },
+    "scene_demo": {
+      "keys": [
+        "CITY-DEMO-GG×MIRRAEON-SLOT-C2-KFXZZRY-001×赋能策划",
+        "CITY-DEMO-NC×MIRRAEON-SLOT-C2-KFXZZRY-001×赋能策划",
+        "CITY-DEMO-TS×MIRRAEON-SLOT-C2-KFXZZRY-001×赋能策划"
+      ],
+      "cosign": "polisaeon-demo 签 polisaeon_side ok（pending_cosign）→ mirraeon-demo 签 mirraeon_side ok → cosigned_demo",
+      "formal_rejection": "CITY-DEMO-TS 用 polisaeon-demo 走 formal → {ok:false, reason:cross_write_forbidden}",
+      "demo_never_formal": true,
+      "evidence_script": "$env:TEMP\\_mr3_demo_axis.py"
+    },
+    "readme_sync": "check_readme_sync() 3 闸 PASS（口径段 + 规格数字强制回读，漂移即 FAIL）",
+    "repo_remotes": {
+      "gitee": "https://gitee.com/weideyouni/mirraeon.git（public 观阅态）",
+      "github": "https://github.com/weideyouni/mirraeon.git（public 观阅态）"
+    }
+  },
+  "gates": {
+    "doc_version": "0.9.84",
+    "dimensions_untouched": true,
+    "version_untouched": true,
+    "main_suite": "Ran 2415 tests / OK（receipt 落盘后复跑）",
+    "v3_gate": "34/34 PASS",
+    "check_sums": "ok=true total=362 mismatches=[]",
+    "claims_gate": "verdict PASS / mismatch 0",
+    "redline_scan": "files 160 / violations [] / clean true",
+    "genome_dna_gate": "pass true / problems []",
+    "sums_entries": 362
+  },
+  "verification": {
+    "unittest_main": 2415,
+    "unittest_failures": 0,
+    "unittest_errors": 0,
+    "redline": 160,
+    "v3_gate": "34/34",
+    "check_sums": "ok=true total=362 mismatches=[]",
+    "checklist_entries": 362,
+    "claims_gate": "verdict PASS mismatch=0",
+    "note": "本回执为 V89 批基座登记子批 V89-D（DOC 0.9.84，承接 V89-C/MR-V2）；verification 为本机 py3.13.16 实测，mirraeon 侧 89 例为 py3.13.16 + py3.11.9 双过。"
+  },
+  "honest_boundaries": [
+    "投喂 §7 明写『不 push 任何远端（观阅仓建仓须碳基点单）』，但本轮碳基口令含『五地同步』且上批已要求『五地同步 必须的』；按用户指令执行 push，偏离已在回执 anomalies 登记，远端仍保持 public 观阅态",
+    "保真评测为确定性关键词契约匹配的决策盲测（10 题），非语义模型评估，更非真人保真；如实标注",
+    "distill_demo 内容为职业级公开口径演示（康复医学主任医师 · 大典 C2 条目），非个人级真蒸馏；个人级需碳基投喂真实语料并走 MR-V4+ 流程",
+    "mirror_ledger.py BATCH 常量仍为 'MR-V2'（文件指纹已锁投喂口径），与 fidelity_eval 的 'MR-V3' 标签不一致；不改文件凑口径，仅登记",
+    "测试 ResourceWarning（mirror_ledger.py:345 unclosed file）保留不修：修则破 45f260e72c522cf7 指纹",
+    "holoaeon/spec.py 与 data/PROJECT_ENTRY_MIRRAEON.json 不入 SHA256SUMS（沿 V89-A/B/C 先例，保 362 定点）",
+    "claim 侧 head / five_site_head / batch_stage / carbon_intent 为 DECLARED_ONLY；head_at_write 为提交前基线 4eb987e",
+    "V89 数学本体在基座，mirraeon 侧不复制数学实现",
+    "保真分不进 NUMBER_LEDGER（投喂 §7 明确）"
+  ],
+  "anomalies": [
+    "批总闸 batch 字段 'MR-V2' vs fidelity_eval 'MR-V3'（见 honest_boundaries 第 4 条）",
+    "fidelity_eval.py CLI 实测仅 check|run，传 demo 返回 usage rc2；与投喂措辞差异如实登记",
+    "mirror_ledger.py:345 ResourceWarning（py3.13/py3.11 双过时均出现，rc0）",
+    "投喂 §7『不 push 任何远端』与本轮『五地同步』冲突，按用户指令执行 push"
+  ],
+  "seal": "潮起开门，潮落闭嘴",
+  "signature": "桃花庵出品 · 中科国度"
+}

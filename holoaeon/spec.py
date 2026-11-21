@@ -32,7 +32,7 @@ VERSION = "0.9.1"
 # VERSION / RUNTIME_ID 会写进每条回执并参与 ReproHash，改动即等于让 DIFF=0 黄金值
 # （2fc892cf9af6e755）漂移，与"V1 黄金值不许漂移"的硬口径冲突。
 # 因此 V2 的版本号单独记在 DOC_VERSION，供文档/快照/徽章使用。
-DOC_VERSION = "0.9.83"  # V89-C（MR-V2 基座登记）：mirraeon 账本/席位/双脑/场景四件 + 批总闸 73/73；V89-B（MR-V1）CTUP N7 + 475 格注入在先；VERSION/layers/PACK_ORDER 冻结维度全未动
+DOC_VERSION = "0.9.84"  # V89-D（MR-V3 基座登记）：mirraeon 活蒸馏 distill_demo + 保真盲测 fidelity_eval + 账本 v2.1 演练签名者 + 批总闸 98/98；V89-C（MR-V2）/V89-B（MR-V1）在先；VERSION/layers/PACK_ORDER 冻结维度全未动
 MATRIX_ID = "HOLOAEON-MATRIX-0.9.1"
 RUNTIME_ID = "HOLOAEON-RUNTIME-0.9.1"
 PROTOCOL_ID = "HOLOAEON-DATAPROTO v1.0"
