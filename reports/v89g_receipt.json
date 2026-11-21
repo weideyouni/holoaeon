@@ -1,0 +1,419 @@
+{
+ "schema": "holoaeon.receipt/v1",
+ "batch": "V89",
+ "sub_batch": "V89-G",
+ "batch_note": "V89 批基座登记子批 V89-G：登记 MR-V6 mirraeon 军团 133 跨轴合并批（三表 66/83/140、跨轴 9 双证据链、E5 试点、状态纪律三闸）",
+ "date": "2026-11-22",
+ "executor": "本地 Windows PowerShell + py3.11.9（F:\\doubaowork\\holoaeon）",
+ "repo": "holoaeon",
+ "repo_path": "F:\\doubaowork\\holoaeon",
+ "head_at_write": "72d0b148aea394456cb6c736b8dc782d566e024e",
+ "head_at_write_note": "写回执时 HEAD 仍是 V89-F（父提交）；本批提交哈希在提交后才知道，自指不可能，故记父提交",
+ "doc_version": "0.9.87",
+ "doc_version_before": "0.9.86",
+ "spec_version": "0.9.1",
+ "base_registration": {
+  "spec": {
+   "bytes": 11366,
+   "sha256": "9bfa9df29fc62998746b6bd07b4cf0b41eec0bf023983b23af463f91a9640172",
+   "sha16": "9bfa9df29fc62998"
+  },
+  "claims_registry": {
+   "bytes": 27618,
+   "sha256": "a7e0edad25b177a962bff790fde8261a40e325d6d39d70000443ac6af31dc569",
+   "sha16": "a7e0edad25b177a9"
+  },
+  "ctup_onboarding": {
+   "bytes": 19743,
+   "sha256": "662c986dfb2ba69a25cebb4a10b1689caae544903eea3e395e725cd24497660b",
+   "sha16": "662c986dfb2ba69a"
+  },
+  "genome_dna": {
+   "bytes": 12773,
+   "sha256": "a5c8a77c64e0cad266c71bcbd1e70ea64b8b7e57c0d6767a6500d8ae7e5f95bb",
+   "sha16": "a5c8a77c64e0cad2"
+  },
+  "project_entry": {
+   "bytes": 6698,
+   "sha256": "f20831014e95877286f538d991be1c5151ad522633e9a39236adc006c5c8263e",
+   "sha16": "f20831014e958772"
+  },
+  "claims_self_digest": "31f2e04a24acc144",
+  "genome_change_class": "governance（仅 DOC_VERSION 一行；genome_hash 仍 V87-A after）"
+ },
+ "doc_version_assertions": [
+  {
+   "rel": "tests/test_v22_eng_skills.py",
+   "line": 50,
+   "value": "0.9.87"
+  },
+  {
+   "rel": "tests/test_v64_hangover_zero.py",
+   "line": 396,
+   "value": "0.9.87"
+  },
+  {
+   "rel": "tests/test_v70_prehistory_criteria.py",
+   "line": 309,
+   "value": "0.9.87"
+  },
+  {
+   "rel": "tests/test_v84_tautology_golden_watch.py",
+   "line": 375,
+   "value": "0.9.87"
+  }
+ ],
+ "sums": {
+  "lines": 362,
+  "bytes": 34388,
+  "sha256": "6b13e7abdbeff2c5c74306b51270d1c4c6381835a88ae8f2555c99dd8504fcc4",
+  "sha16": "6b13e7abdbeff2c5",
+  "changed_lines": [
+   41,
+   44,
+   55
+  ],
+  "changed": [
+   {
+    "line": 41,
+    "path": "data/claims_registry.json",
+    "old": "bbb4fb570163fcc364cecc312a6ef59c59382f99e88e8c257bed87e6b588cdc1",
+    "new": "a7e0edad25b177a962bff790fde8261a40e325d6d39d70000443ac6af31dc569"
+   },
+   {
+    "line": 44,
+    "path": "data/ctup_onboarding.json",
+    "old": "ff7c1e14df2fb99708e75ec93947e96e1c0d9c9679dfbbf64dfee201b899ba42",
+    "new": "662c986dfb2ba69a25cebb4a10b1689caae544903eea3e395e725cd24497660b"
+   },
+   {
+    "line": 55,
+    "path": "data/genome_dna.json",
+    "old": "c498f5d4f9de795db1cc8cb6efbbcd0f02bbbbf56c44b034702262d55a5c0e55",
+    "new": "a5c8a77c64e0cad266c71bcbd1e70ea64b8b7e57c0d6767a6500d8ae7e5f95bb"
+   }
+  ],
+  "caliber": "LF 归一化文本原始字节（check_sums.py report_only）；本轮 git 可解析，无降级"
+ },
+ "mirror_batch": {
+  "batch_id": "MR-V6",
+  "feed": "AGENT_FEED_MR-V6_LEGION_133_MERGE_20261122.md 11083B/e3ec29ce91696070",
+  "assets_disk": [
+   {
+    "rel": "data/legion.csv",
+    "bytes": 9540,
+    "sha16": "cf8e72828a3f3f38",
+    "blob_bytes": 9473,
+    "blob_sha16": "C88D6A914FBC94A7",
+    "eol": "CRLF→LF 入库"
+   },
+   {
+    "rel": "data/legion_engineering.csv",
+    "bytes": 11981,
+    "sha16": "11daa973db353e4a",
+    "blob_bytes": 11897,
+    "blob_sha16": "67542C508A129C80",
+    "eol": "CRLF→LF 入库",
+    "derivation": "四人组派生恢复件，非投喂方原件（投喂未随包落盘该 CSV，按坑主表双证据链派生）"
+   },
+   {
+    "rel": "data/legion_master.csv",
+    "bytes": 21418,
+    "sha16": "394ef6c3cf75becd",
+    "blob_bytes": 21277,
+    "blob_sha16": "E5702D577F97CDD5",
+    "eol": "CRLF→LF 入库"
+   },
+   {
+    "rel": "data/alias_map.csv",
+    "bytes": 732,
+    "sha16": "b8e5b1c4a2c9d9bc"
+   },
+   {
+    "rel": "data/slice_of.csv",
+    "bytes": 860,
+    "sha16": "a20a7104452e38bd"
+   },
+   {
+    "rel": "mirraeon/ledger_legion.py",
+    "bytes": 17562,
+    "sha16": "b8a2f0535b3d8fe0"
+   },
+   {
+    "rel": "mirraeon/mirror_ledger.py",
+    "bytes": 21350,
+    "sha16": "5cf0f5fa17a1613d"
+   },
+   {
+    "rel": "tests/test_mr6_legion_merge.py",
+    "bytes": 8695,
+    "sha16": "42d63ddbb7d466b8"
+   },
+   {
+    "rel": "tests/test_mr2_ledger.py",
+    "bytes": 9987,
+    "sha16": "bb17cbb16d515fb0",
+    "blob_bytes": 9735,
+    "blob_sha16": "ACC8491D3D94ABF9",
+    "eol": "CRLF→LF 入库"
+   },
+   {
+    "rel": "README.md",
+    "bytes": 16389,
+    "sha16": "0b85cbea4915bf8d"
+   },
+   {
+    "rel": "docs/test_mr5_legion_v1.py.bak",
+    "bytes": 6438,
+    "sha16": "7f65d19eb2c24f7d"
+   }
+  ],
+  "archives": [
+   {
+    "rel": "docs/README_MR-V5.md",
+    "bytes": 15875,
+    "sha16": "3548e80b95b5144e",
+    "tracked": true,
+    "note": "MR-V5 阶段 README 归档，随本批入库"
+   },
+   {
+    "rel": "docs/mirror_ledger_v23.py.bak",
+    "bytes": 20385,
+    "sha16": "139f04c00f1f41ca",
+    "tracked": false,
+    "note": "在盘、被 .gitignore:29 *.bak 忽略、未跟踪"
+   },
+   {
+    "rel": "docs/ledger_legion_v1.py.bak",
+    "bytes": 13512,
+    "sha16": "2dbde0aaf08eb4f0",
+    "tracked": false,
+    "note": "在盘未跟踪（同上）"
+   },
+   {
+    "rel": "docs/test_mr5_legion_v1.py.bak",
+    "bytes": 6438,
+    "sha16": "7f65d19eb2c24f7d",
+    "tracked": false,
+    "note": "在盘未跟踪（同上）"
+   },
+   {
+    "rel": "data/legion_mr5_lgn.csv.bak",
+    "bytes": 7994,
+    "sha16": "ed6100d2b56e1326",
+    "tracked": false,
+    "note": "旧 LGN 版 legion.csv 留根，在盘未跟踪（同上）"
+   }
+  ],
+  "preserved_untracked": {
+   "rel": ".tmp_mr6/preserved_untracked/README_MR-V5_untracked_eba3203e.md",
+   "bytes": 13853,
+   "sha16": "eba3203e62008700",
+   "note": "外部并发写入者塞入工作树的未跟踪 README 留根，未入库"
+  },
+  "supersede_chain": "README(MR-V5 3548e80b)→MR-V6 0b85cbea；mirror_ledger 5cf0f5fa；ledger_legion 18→15 闸项；test_mr5_legion 退场（v1 留 docs/*.bak）",
+  "frozen_four_untouched": true,
+  "batch_gate": 124,
+  "batch_gate_parts": 13,
+  "batch_gate_part_counts": {
+   "mirror_ledger": 16,
+   "scene": 11,
+   "occupation_slot": 8,
+   "brain_gate": 9,
+   "distill_demo": 12,
+   "fidelity_eval": 8,
+   "readme_sync": 3,
+   "quartet_twins": 11,
+   "ledger_legion": 15,
+   "mirror_core": 18,
+   "mech_registry": 5,
+   "fragments": 5,
+   "injection": 3
+  },
+  "batch_field_frozen": "mirror_ledger 内 batch 字段仍 \"MR-V2\" 不改（改则破指纹）",
+  "legion_gate": {
+   "total": 15,
+   "passed": 15,
+   "failed": 0,
+   "verdict": "PASS",
+   "gates": {
+    "sci": "PASS",
+    "eng": "PASS",
+    "master": "PASS"
+   }
+  },
+  "legion_three_tables": {
+   "sci": {
+    "total": 66,
+    "teams": {
+     "思源队": 25,
+     "铸骨队": 18,
+     "通衢队": 12,
+     "格物队": 11
+    }
+   },
+   "eng": {
+    "total": 83,
+    "natural_person": 76,
+    "team_nodes": 7
+   },
+   "master": {
+    "total": 140,
+    "natural_person": 133,
+    "team_nodes": 7
+   },
+   "self_consistency": [
+    "66+83-9=140",
+    "133=76+66-9",
+    "sci 57+交叉 9+eng 74"
+   ],
+   "cross_axis": {
+    "count": 9,
+    "evidence": "EV×2＋uri×2 双证据链",
+    "same_value_pair": [
+     "Dean",
+     "黄仁勋"
+    ]
+   }
+  },
+  "hv": {
+   "verdict": "PASS",
+   "count": 133,
+   "unique": true
+  },
+  "pilot": {
+   "slot_id": "MIRRAEON-SLOT-C2-LEGION-P0105",
+   "name": "金芝",
+   "transition": "evidence_fed→validated",
+   "validated": true,
+   "note": "公开学术口径占位，不落锁"
+  },
+  "status_discipline": {
+   "status": "140 条一律 evidence_fed",
+   "b_pending": 19,
+   "b_breakdown": "科学 6＋工程 13",
+   "uri": "100% 逻辑占位",
+   "void_68_gate": "PASS（投喂自更正 68→83 采纳）"
+  },
+  "adjudication_pending": {
+   "synonym_3": [
+    {
+     "name": "梁",
+     "schema": "cost-performance-pareto"
+    },
+    {
+     "name": "姚",
+     "schema": "task-tool-trajectory"
+    },
+    {
+     "name": "周",
+     "schema": "platform-model-scenario"
+    }
+   ],
+   "legal_slice_4": [
+    "陈天石",
+    "闫俊杰",
+    "何庭波",
+    "杨植麟"
+   ],
+   "rule": "同义异名与合法切片分开处理不混类；两账只登记、master 不动，待碳基终裁后 MR-V7 收敛并启禁别名闸"
+  },
+  "tests": {
+   "total": 135,
+   "py313": "135 OK 4.917s",
+   "py311": "135 OK 5.256s",
+   "files": {
+    "test_mr1_mirror": 25,
+    "test_mr2_ledger": 36,
+    "test_mr3_distill": 28,
+    "test_mr4_quartet_twins": 22,
+    "test_mr6_legion_merge": 24
+   }
+  },
+  "isolation_copy": "F:\\doubaowork\\mirraeon_mr6_verify（HEAD zip 解包，非 git 仓，36 件）",
+  "mirraeon_head": "5ef2764519415c5aca928dd992abc1d1570d8b4c",
+  "mirraeon_tracked": 36,
+  "mirraeon_commit": {
+   "files_changed": 12,
+   "insertions": 1192,
+   "deletions": 510
+  },
+  "hf_mirror": {
+   "repo": "weideyouni/mirraeon",
+   "sha": "ab32e2b9d037a8201f636bb921d4a28f16b4f5aa",
+   "files": 36,
+   "added": 11,
+   "deleted": 1,
+   "private": true,
+   "set_equal": true,
+   "verdict": "PASS"
+  },
+  "cross_anchor": {
+   "Kavukcuoglu": "工程轴在册（MR-V5「缺席」断言随合并扩容修正）",
+   "Dean": "跨轴同值对（EV/uri 各 2）",
+   "黄仁勋": "跨轴同值对（EV/uri 各 2）"
+  },
+  "eol": {
+   "rule": ".gitattributes * text=auto eol=lf",
+   "four_files": "4 件工作树 CRLF → 入库 LF，disk.replace(CRLF,LF)==blob 全 True",
+   "others": "其余 7 件 blob sha16 与投喂 §2 一致"
+  }
+ },
+ "gates": {
+  "doc_version": "PASS 0.9.86→0.9.87（spec 一行 + 四处断言同批）",
+  "dimensions_untouched": "PASS 25/47/9（A1）",
+  "version_untouched": "PASS VERSION 0.9.1 / layers 8 / PACK_ORDER 9",
+  "main_suite": "2415 tests（见 verification.unittest_main）",
+  "v3_gate": "34/34 PASS",
+  "check_sums": "ok=true total=362 mismatches=[] unreadable=[]",
+  "claims_gate": "PASS（本回执补齐后复跑，见 verification.claims_gate）",
+  "redline_scan": "160 文件 0 违规",
+  "genome_dna_gate": "PASS 7/7（spec_byte_identical / dna_verify / genome_hash_diff0 / self_check_pass / cells_dynamic 12-300 / linkage_pass / registry_schema 3）",
+  "sums_entries": 362
+ },
+ "verification": {
+  "feed": "AGENT_FEED_MR-V6_LEGION_133_MERGE_20261122.md 11083B/e3ec29ce91696070",
+  "isolation_copy": "F:\\doubaowork\\mirraeon_mr6_verify（HEAD zip 解包 31 件 → 覆盖 11 资产 → 删 test_mr5 → 36 件，非 git 仓）",
+  "clean_run": "批闸 124/124（十三键）、军团 15/15、pilot validated、hv 133 unique、135 例双解释器 OK，均在隔离副本与真实仓干净树实测",
+  "unittest_main": 2415,
+  "unittest_failures": 0,
+  "unittest_errors": 0,
+  "unittest_note": "receipt 落盘前两跑均 5 FAIL，全部由本回执缺失级联（doc_version_spec 读旧回执 v89f 的 0.9.86）；落盘后复跑见 unittest_rerun",
+  "unittest_rerun": "2415 tests OK (skipped=3) 49.254s rc0（本回执落盘后 py3.11 复跑；5 例红全部转绿）",
+  "unittest_subset_rerun": "103 tests OK 5.515s rc0（test_v88_p2c_supply + test_v75_claims_gate + test_v77_registry_coverage + test_v85_ci_step_names）",
+  "claims_gate_rerun": "{\"verdict\":\"PASS\",\"mismatch\":0,\"fails\":[]}",
+  "redline": 160,
+  "v3_gate": "34/34",
+  "check_sums": "ok=true total=362 mismatches=[]",
+  "checklist_entries": 362,
+  "genome_dna_gate": "pass=true problems=[]",
+  "claims_gate": "PASS（落盘后复跑）",
+  "mirraeon_head": "5ef2764 / tracked 36 / status 空",
+  "note": "本回执为 V89 批基座登记子批 V89-G（DOC 0.9.87，承接 V89-F/MR-V5，登记 MR-V6 军团 133 跨轴合并批）。"
+ },
+ "anomalies": [
+  "投喂 §0 基线自述 holoaeon de28a54（V89-D，DOC 0.9.84）、MR-V4/V5「待执行」，与实际（V89-E/F 已落、DOC 0.9.86）不符；按投喂侧时序滞后登记，执行序按实际连续序走。",
+  "截图口径 DOC 0.9.84→0.9.87，本机实际 0.9.86→0.9.87，只差起点，落值一致。",
+  "投喂 §7 写「不 push 任何远端」，与口令「五地同步」冲突，按口令三推（Gitee/GitHub/HF）并在此登记偏离。",
+  "MR-V4 投喂 §5 写「测试 28 例」，实测 test_mr4 22 例，如实披露不代改。",
+  "投喂正文谢吉宝实测为 E6（非 E5）；E5 试点首人为金芝 P-0105。",
+  "data/legion_engineering.csv 为四人组派生恢复件（投喂未随包落盘，按坑主表双证据链派生），非投喂方原件。",
+  "4 件入库 blob 为 LF 归一化字节，与投喂 §2 原始字节 sha16 不同；经 disk.replace(CRLF,LF)==blob 逐件 True 验收。",
+  "docs/*.bak 与 data/*.bak 因 .gitignore:29 *.bak 不入库，回执登记「在盘未跟踪」。",
+  "docs/README_MR-V5.md 曾被外部并发写入者以 MR-V5 旧字节塞入工作树（13853/eba3203e），已留根 .tmp_mr6/preserved_untracked 并以权威 15875/3548e80b 覆盖入库。",
+  "回执落盘前两跑各 5 例 FAIL 由回执缺失造成（doc_version_spec 指最新回执），非代码缺陷。"
+ ],
+ "honest_boundaries": [
+  "140 条状态一律 evidence_fed：语料为逻辑占位 corpus_uri=vector://salvage/legion/NNN，真实语料回填属 SALVAGE 阶段，三未清零不进 baseline_locked。",
+  "B 级待核 19 席（科学 6＋工程 13），未做实测回填，仅作待核口径。",
+  "uri 100% 逻辑占位，非可解析实体链接；68 作废口径经自更正为 83 采纳后闸可判（PASS）。",
+  "同义异名 3（梁/姚/周）与合法切片 4（陈天石/闫俊杰/何庭波/杨植麟）只登记不裁定，master 不动，待碳基终裁。",
+  "军团闸 15/15、批总闸 124/124、测试 135/135 均为本机实跑，非沿用历史值。",
+  "Kavukcuoglu 在工程轴在册，MR-V5「缺席」断言随本批合并扩容修正（不冒充历史结论）。",
+  "committing 仅 V89-G 白名单 10 件（spec/四断言/四数据件/SHA256SUMS）+ reports/v89g_receipt.json；工作树既有 120+ 他人脏件/未跟踪件未清、未入本批提交。",
+  "holoaeon 冻结维度（VERSION 0.9.1 / layers 8 / PACK_ORDER 9）本批未动。",
+  ".github_token（ghp_）已 401 失效，本批 GitHub 走 git credential fill 的 gho_ 凭据，属用户资产范畴未修。"
+ ],
+ "seal": "潮起开门，潮落闭嘴",
+ "signature": "桃花庵出品 / 中科国度 · V89-G MR-V6"
+}

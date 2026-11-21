@@ -96,7 +96,7 @@
     ],
     "mirraeon_note": "MR-V1 纪元族第四员：F:\\doubaowork\\mirraeon（镜面·全职业数字分身矩阵，士农工商 1639 职业/四域 SNGB/八大类 C1-C8/四层认知契约/双脑解耦）；CTUP 条目 data/PROJECT_ENTRY_MIRRAEON.json（按 V89-A 先例不入 SHA256SUMS，保 362 定点）；经络挂接走 meridian_link.mirror_extra_fragments() 懒导入（中文 leg + mirror_native，只经 build_meridian_table 纯 19×25 通道，不进 load_fragments 硬校验组合体）；不开源、不推任何远端（远端建仓须碳基点单）",
     "mirror_facts": {
-      "batch": "MR-V5",
+      "batch": "MR-V6",
       "as_of": "2026-11-22",
       "distill": {
         "module": "mirraeon/distill_demo.py",
@@ -253,9 +253,101 @@
         "corpus_uri_note": "corpus_uri=vector://salvage/legion/NNN 全逻辑占位，真实语料回填属 SALVAGE 阶段；军团状态停 evidence_fed，三未清零不进 baseline_locked",
         "domain_note": "军团 domain「科」不在 SNGB 士农工商四域，登记为军团内部编队口径，与 occupation_slot 大典归类分层不混用；「农 0 席」＝圈层截断如实（闸 taxonomy_layers_declared）"
       },
+      "mr6_legion": {
+        "modules": [
+          "mirraeon/ledger_legion.py",
+          "mirraeon/data/legion.csv",
+          "mirraeon/data/legion_engineering.csv",
+          "mirraeon/data/legion_master.csv",
+          "mirraeon/data/alias_map.csv",
+          "mirraeon/data/slice_of.csv"
+        ],
+        "three_tables": {
+          "sci": 66,
+          "eng": 83,
+          "master": 140,
+          "sci_parts": {
+            "思源队": 25,
+            "铸骨队": 18,
+            "通衢队": 12,
+            "格物队": 11
+          },
+          "eng_parts": {
+            "persons": 76,
+            "teams": 7
+          },
+          "master_parts": {
+            "persons": 133,
+            "teams": 7
+          },
+          "self_consistency": [
+            "66+83-9=140",
+            "133=76+66-9"
+          ],
+          "cross_axis": 9
+        },
+        "hv": {
+          "count": 133,
+          "unique": true,
+          "verdict": "PASS"
+        },
+        "legion_gate": {
+          "total": 15,
+          "passed": 15,
+          "failed": 0,
+          "verdict": "PASS",
+          "gates": {
+            "sci": "PASS",
+            "eng": "PASS",
+            "master": "PASS"
+          }
+        },
+        "pilot": {
+          "slot_id": "MIRRAEON-SLOT-C2-LEGION-P0105",
+          "person": "金芝",
+          "line": "E5",
+          "status": "validated",
+          "validated": true
+        },
+        "status_discipline": {
+          "rows_evidence_fed": 140,
+          "confidence_b": 19,
+          "b_parts": {
+            "sci": 6,
+            "eng": 13
+          },
+          "corpus_uri": "100% 逻辑占位",
+          "void_68_absent_gate": "PASS",
+          "note": "140 条一律 evidence_fed；B=19 待核；uri 全逻辑占位；68 采纳系误记、自更正为 83，void_68_absent 闸可判"
+        },
+        "adjudication_pending": {
+          "synonym_aliases": 3,
+          "legal_slices": 4,
+          "detail": {
+            "synonym": [
+              "梁 cost-performance-pareto",
+              "姚 task-tool-trajectory",
+              "周 platform-model-scenario"
+            ],
+            "slice_of": [
+              "陈天石",
+              "闫俊杰",
+              "何庭波",
+              "杨植麟"
+            ]
+          },
+          "note": "两账只登记、master 不动、待碳基点单后 MR-V7 收敛并启用禁别名闸；同义异名与合法切片分开不混类"
+        },
+        "kavukcuoglu": {
+          "in_engineering_axis": true,
+          "note": "MR-V5「缺席」断言随合并扩容修正"
+        },
+        "eol_note": "4 件入库 blob 为 LF 归一化（legion.csv / legion_engineering.csv / legion_master.csv / test_mr2_ledger.py），与投喂 §2 原始字节 sha16 不同，经 LF 归一化逐字节相等",
+        "derivation_note": "data/legion_engineering.csv 为四人组按报告口径从坑主表双证据链派生恢复件，非投喂方原件"
+      },
       "batch_gate": {
-        "total": 127,
-        "passed": 127,
+        "total": 124,
+        "passed": 124,
         "failed": 0,
         "parts": 13,
         "part_counts": {
@@ -267,7 +359,7 @@
           "fidelity_eval": 8,
           "readme_sync": 3,
           "quartet_twins": 11,
-          "ledger_legion": 18,
+          "ledger_legion": 15,
           "mirror_core": 18,
           "mech_registry": 5,
           "fragments": 5,
@@ -275,7 +367,7 @@
         }
       },
       "tests": {
-        "total": 134,
+        "total": 135,
         "py313": "OK",
         "py311": "OK",
         "files": [
@@ -283,7 +375,7 @@
           "test_mr2_ledger 36",
           "test_mr3_distill 28",
           "test_mr4_quartet_twins 22",
-          "test_mr5_legion 23"
+          "test_mr6_legion_merge 24"
         ]
       },
       "readme_sync": {
@@ -300,7 +392,12 @@
         "MR-V5：投喂 §7 原写「不 push 任何远端」，本批按碳基口令执行五地同步并如实登记偏离（沿用 MR-V3/V4 惯例）",
         "MR-V5：测试分项投喂截图记 25+36+28+28+23=140，实测 mr4 为 22 例、mr5 为 23 例，合计 134；以实测 134 为口径并登记分项误记沿袭",
         "MR-V5：B 级席位口径投喂账面写 5，CSV 实测 6（田丰/王元卓/张鹏/姜大昕/Kevin Kelly/苏昊），EXPECTED_B_COUNT=6 双断言",
-        "MR-V5：军团 domain「科」不入 SNGB 四域；corpus_uri 全逻辑占位；军团状态 evidence_fed，三未清零不落 baseline_locked"
+        "MR-V5：军团 domain「科」不入 SNGB 四域；corpus_uri 全逻辑占位；军团状态 evidence_fed，三未清零不落 baseline_locked",
+        "MR-V6：投喂 §7 原写「不 push 任何远端」，本批按碳基口令「记得 五地同步」执行 S2/S3/S5 全同步并如实登记偏离（沿用 MR-V3/V4/V5 惯例）",
+        "MR-V6：投喂 §0 基线自述 holoaeon de28a54 / DOC 0.9.84 / MR-V4-V5 待执行，实测已 0.9.86（V89-E/F 已落）；按投喂侧时序滞后登记，执行序按实际连续序 MR-V4→V5→V6",
+        "MR-V6：投喂 §5 记 MR-V4 测试 28 例，实测 test_mr4 22 例；谢吉宝实测 E6 非 E5；68 采纳系误记自更正为 83——均如实披露不代改",
+        "MR-V6：data/legion_engineering.csv 未随投喂落盘，四人组从坑主表双证据链派生恢复 83 条，派生件显式声明非投喂方原件",
+        "MR-V6：4 件入库 blob 为 LF 归一化字节（legion.csv / legion_engineering.csv / legion_master.csv / test_mr2_ledger.py），与投喂 §2 原始字节 sha16 不同，经 LF 归一化逐字节相等；docs/data 下 *.bak 因 .gitignore 不入库，在盘未跟踪"
       ],
       "seal": "潮起开门，潮落闭嘴"
     }
@@ -318,7 +415,7 @@
       "note": "V88 P1-A 方案A：仓外开发副本保留，以仓内正本为准；双登记不删史"
     }
   },
-  "v88_note": "P1-A 仓外脚本归位：unity_check.py / readme_claims_check.py 复制入 scripts/ 为正本，仓外原件保留 dev_copy；path_abs 指向仓内，仓外路径入 dev_copy 字段。\nV89-B（MR-V1 基座登记）：sites 追加 mirraeon；DOC_VERSION 0.9.81→0.9.82。\nV89-C（MR-V2 基座登记）：data/PROJECT_ENTRY_MIRRAEON.json 的 mirror_facts 增补 ledger/scene/slot/brain 四件与批总闸 73/73；DOC_VERSION 0.9.82→0.9.83。\nV89-D（MR-V3 基座登记）：mirror_facts 增补 distill/fidelity/ledger_v21 与批总闸 98/98（十一键）；DOC_VERSION 0.9.83→0.9.84。\nV89-E（MR-V4 基座登记）：mirror_facts 增补 mr4_quartet（四人组职业分身四席 + twins 闸 11/11 + 涌现四条件）；批总闸 109/109（十二键）；测试 111/111（四文件）；DOC_VERSION 0.9.84→0.9.85。\nV89-F（MR-V5 基座登记）：mirror_facts 增补 mr5_legion（军团 66 席 + 算子五族 + 66 枚 HDC 指纹 + legion 闸 18/18 + evidence_fed）；批总闸 127/127（十三键）；测试 134/134（五文件）；DOC_VERSION 0.9.85→0.9.86。",
+  "v88_note": "P1-A 仓外脚本归位：unity_check.py / readme_claims_check.py 复制入 scripts/ 为正本，仓外原件保留 dev_copy；path_abs 指向仓内，仓外路径入 dev_copy 字段。\nV89-B（MR-V1 基座登记）：sites 追加 mirraeon；DOC_VERSION 0.9.81→0.9.82。\nV89-C（MR-V2 基座登记）：data/PROJECT_ENTRY_MIRRAEON.json 的 mirror_facts 增补 ledger/scene/slot/brain 四件与批总闸 73/73；DOC_VERSION 0.9.82→0.9.83。\nV89-D（MR-V3 基座登记）：mirror_facts 增补 distill/fidelity/ledger_v21 与批总闸 98/98（十一键）；DOC_VERSION 0.9.83→0.9.84。\nV89-E（MR-V4 基座登记）：mirror_facts 增补 mr4_quartet（四人组职业分身四席 + twins 闸 11/11 + 涌现四条件）；批总闸 109/109（十二键）；测试 111/111（四文件）；DOC_VERSION 0.9.84→0.9.85。\nV89-F（MR-V5 基座登记）：mirror_facts 增补 mr5_legion（军团 66 席 + 算子五族 + 66 枚 HDC 指纹 + legion 闸 18/18 + evidence_fed）；批总闸 127/127（十三键）；测试 134/134（五文件）；DOC_VERSION 0.9.85→0.9.86。\nV89-G（MR-V6 基座登记）：mirror_facts 增补 mr6_legion（军团 133 跨轴合并三表 66/83/140 自洽、跨轴 9 双证据链、HV 133 unique、军团闸 15/15、E5 金芝 P-0105 validated、140 evidence_fed / B=19 / uri 逻辑占位 / 68 作废闸、同义异名 3 与合法切片 4 待终裁）；批总闸 124/124（十三键）；测试 135/135（五文件）；DOC_VERSION 0.9.86→0.9.87。",
   "sequence": [
     {
       "sub": "V87-A.1",
