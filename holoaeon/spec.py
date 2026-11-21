@@ -32,7 +32,7 @@ VERSION = "0.9.1"
 # VERSION / RUNTIME_ID 会写进每条回执并参与 ReproHash，改动即等于让 DIFF=0 黄金值
 # （2fc892cf9af6e755）漂移，与"V1 黄金值不许漂移"的硬口径冲突。
 # 因此 V2 的版本号单独记在 DOC_VERSION，供文档/快照/徽章使用。
-DOC_VERSION = "0.9.87"  # V89-G（MR-V6 基座登记）：mirraeon 军团 133 跨轴合并（三表 66 科学 / 83 工程（76 人+7 团队）/ 140 主表（133 人+7 团队）自洽 66+83−9=140、133=76+66−9；跨轴 9 双证据链；HV 133 unique；军团闸 15/15；批总闸 124/124（十三键）；测试 135/135）——E5 试点首位金芝 P-0105 evidence_fed→validated；140 条一律 evidence_fed、B=19、uri 全逻辑占位、68 进作废闸；同义异名 3 / 合法切片 4 两账只登记待碳基终裁；V89-F（MR-V5）/V89-E（MR-V4）/V89-D（MR-V3）在先；VERSION/layers/PACK_ORDER 冻结维度全未动
+DOC_VERSION = "0.9.88"  # V89-H（MR-V7 基座登记）：mirraeon 催化机制 catalyst 13 闸（野心四问×五步协议映射：道=range/法=depth/术=depth/器=speed/升维=altitude，一字不改；五步主导权取 quartet_toolkit 单一真源）+ 自动匹配 seat_match 7 闸（名字是主键、编号是派生；dispatch 名单 3 处手写错号现形 Sanjay P-0006→P-0067 / Matei P-0026→P-0071 / Ion P-0027→P-0072，P-0006 真主 Michael I. Jordan；四席 Hassabis P-0028 / Dean P-0029 / Kavukcuoglu P-0094 / Sutskever P-0008）+ 三条拒收裁决 + 批总闸 144/144（十五键）+ 测试 161/161；V89-G（MR-V6）/V89-F（MR-V5）/V89-E（MR-V4）/V89-D（MR-V3）在先；VERSION/layers/PACK_ORDER 冻结维度全未动
 MATRIX_ID = "HOLOAEON-MATRIX-0.9.1"
 RUNTIME_ID = "HOLOAEON-RUNTIME-0.9.1"
 PROTOCOL_ID = "HOLOAEON-DATAPROTO v1.0"

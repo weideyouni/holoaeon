@@ -96,7 +96,7 @@
     ],
     "mirraeon_note": "MR-V1 纪元族第四员：F:\\doubaowork\\mirraeon（镜面·全职业数字分身矩阵，士农工商 1639 职业/四域 SNGB/八大类 C1-C8/四层认知契约/双脑解耦）；CTUP 条目 data/PROJECT_ENTRY_MIRRAEON.json（按 V89-A 先例不入 SHA256SUMS，保 362 定点）；经络挂接走 meridian_link.mirror_extra_fragments() 懒导入（中文 leg + mirror_native，只经 build_meridian_table 纯 19×25 通道，不进 load_fragments 硬校验组合体）；不开源、不推任何远端（远端建仓须碳基点单）",
     "mirror_facts": {
-      "batch": "MR-V6",
+      "batch": "MR-V7",
       "as_of": "2026-11-22",
       "distill": {
         "module": "mirraeon/distill_demo.py",
@@ -345,11 +345,57 @@
         "eol_note": "4 件入库 blob 为 LF 归一化（legion.csv / legion_engineering.csv / legion_master.csv / test_mr2_ledger.py），与投喂 §2 原始字节 sha16 不同，经 LF 归一化逐字节相等",
         "derivation_note": "data/legion_engineering.csv 为四人组按报告口径从坑主表双证据链派生恢复件，非投喂方原件"
       },
+      "mr7_catalyst_seat_match": {
+        "modules": [
+          "mirraeon/catalyst.py",
+          "mirraeon/seat_match.py",
+          "tests/test_mr7_catalyst.py"
+        ],
+        "catalyst": {
+          "gates": 13,
+          "level_map": {
+            "道": "range",
+            "法": "depth",
+            "术": "depth",
+            "器": "speed",
+            "升维": "altitude"
+          },
+          "level_map_note": "投喂 §3 映射一字不改，测试逐字断言",
+          "five_step_authority": "P4 道 / 四人共评 法 / P3 术 / P2 器 / P1 升维——取 quartet_toolkit 章程单一真源，指针引用零复制",
+          "no_score_disclosure": "NO_SCORE_DISCLOSURE 为拒收声明（催化模板只产追问与清单），非评分"
+        },
+        "seat_match": {
+          "gates": 7,
+          "principle": "名字是主键、编号是派生",
+          "dispatch_corrections": {
+            "Sanjay Ghemawat": "P-0006→P-0067",
+            "Matei Zaharia": "P-0026→P-0071",
+            "Ion Stoica": "P-0027→P-0072",
+            "all_basis": "P2 筑基·器步",
+            "note": "P-0006 真主 Michael I. Jordan（ok:true）；按编号修会张冠李戴，故只登记纠正账不改投喂方历史文档"
+          },
+          "quartet_seats": {
+            "Hassabis": "P-0028",
+            "Dean": "P-0029",
+            "Kavukcuoglu": "P-0094",
+            "Sutskever": "P-0008"
+          },
+          "readback": "18 条全员在册、missing=[]、actual 互不重复"
+        },
+        "rejections": [
+          "numpy 依赖违反零依赖底座 → 纯标准库重写（不引第三方）",
+          "模拟四人组评分冒充证明 → 拒收；涌现数学留 quartet_toolkit 单一真源",
+          "验收预填值（P4=0.35 等）预演冒充实测 → 拒收；只认实跑回读值"
+        ],
+        "incident_parallel_write": "第四例并行写事故：tmp_mr7 初拷基座为 mirror_ledger v2.3 非 v2.4，仓内版本来回跳变；处置为清空 tmp_mr7、从四人组权威缓存 tmp_mr6 重建、在正确 v2.4 基座上完成 v2.5 三处 Edit；权威交付源 .tmp_mr7，动仓文件先拷贝留根",
+        "sha_label_note": "投喂 §2 七资产指纹标注「sha16」，实测为 MD5-16（7/7 全中）；同件 SHA-256-16 全不中，判定算法标签口径而非资产漂移，按 MD5 验收通过并如实登记",
+        "boundary_note": "催化模板只产追问与清单不产评分；3 错号只登记不回改投喂方历史文档；名字主键对军团主表 140 条生效；alias/slice 仍待碳基终裁；quartet_tensor.csv 不入仓"
+      },
       "batch_gate": {
-        "total": 124,
-        "passed": 124,
+        "total": 144,
+        "passed": 144,
         "failed": 0,
-        "parts": 13,
+        "parts": 15,
         "part_counts": {
           "mirror_ledger": 16,
           "scene": 11,
@@ -360,6 +406,8 @@
           "readme_sync": 3,
           "quartet_twins": 11,
           "ledger_legion": 15,
+          "catalyst": 13,
+          "seat_match": 7,
           "mirror_core": 18,
           "mech_registry": 5,
           "fragments": 5,
@@ -367,7 +415,7 @@
         }
       },
       "tests": {
-        "total": 135,
+        "total": 161,
         "py313": "OK",
         "py311": "OK",
         "files": [
@@ -375,7 +423,8 @@
           "test_mr2_ledger 36",
           "test_mr3_distill 28",
           "test_mr4_quartet_twins 22",
-          "test_mr6_legion_merge 24"
+          "test_mr6_legion_merge 24",
+          "test_mr7_catalyst 26"
         ]
       },
       "readme_sync": {
@@ -397,9 +446,16 @@
         "MR-V6：投喂 §0 基线自述 holoaeon de28a54 / DOC 0.9.84 / MR-V4-V5 待执行，实测已 0.9.86（V89-E/F 已落）；按投喂侧时序滞后登记，执行序按实际连续序 MR-V4→V5→V6",
         "MR-V6：投喂 §5 记 MR-V4 测试 28 例，实测 test_mr4 22 例；谢吉宝实测 E6 非 E5；68 采纳系误记自更正为 83——均如实披露不代改",
         "MR-V6：data/legion_engineering.csv 未随投喂落盘，四人组从坑主表双证据链派生恢复 83 条，派生件显式声明非投喂方原件",
-        "MR-V6：4 件入库 blob 为 LF 归一化字节（legion.csv / legion_engineering.csv / legion_master.csv / test_mr2_ledger.py），与投喂 §2 原始字节 sha16 不同，经 LF 归一化逐字节相等；docs/data 下 *.bak 因 .gitignore 不入库，在盘未跟踪"
+        "MR-V6：4 件入库 blob 为 LF 归一化字节（legion.csv / legion_engineering.csv / legion_master.csv / test_mr2_ledger.py），与投喂 §2 原始字节 sha16 不同，经 LF 归一化逐字节相等；docs/data 下 *.bak 因 .gitignore 不入库，在盘未跟踪",
+        "MR-V7：投喂 §7 原写「不 push 任何远端」，本批按碳基口令「记得 五地同步」执行 S2/S3/S4/S5 全同步并如实登记偏离（沿用 MR-V3/V4/V5/V6 惯例）",
+        "MR-V7：投喂 §2 七资产指纹标签写「sha16」，实测为 MD5-16（7/7 全中）；同件 SHA-256-16 全不中，判定为算法标签口径而非资产漂移，按 MD5 验收通过并如实登记，未改任何字节",
+        "MR-V7：第四例并行写事故——tmp_mr7 初拷基座为 mirror_ledger v2.3 非 v2.4，处置为清空重建于四人组权威缓存 tmp_mr6 的 v2.4 基座，v2.5 三处 Edit 在正确基座上完成；权威交付源 .tmp_mr7，动仓文件先拷贝留根，不移动/删除他人落位件",
+        "MR-V7：docs/*.bak 四处归档被 .gitignore *.bak 忽略（在盘未跟踪）；docs/README_MR-V6.md 可跟踪入库；4 个 *.bak 是否 git add -f 入库待裁",
+        "MR-V7：三条拒收裁决——numpy 依赖违反零依赖→纯标准库重写；模拟四人组评分冒充证明→拒收（涌现数学留 quartet_toolkit）；验收预填值 P4=0.35 等预演冒充实测→拒收（只认实跑回读值）；NO_SCORE_DISCLOSURE 为拒收声明非评分",
+        "MR-V7：seat_match 只登记 3 处错号纠正账（Sanjay/Matei/Ion），不回改投喂方历史文档；名字主键对军团主表 140 条生效；同义异名 3 / 合法切片 4 仍未裁定"
       ],
-      "seal": "潮起开门，潮落闭嘴"
+      "seal": "潮起开门，潮落闭嘴",
+      "ledger_rows": 15
     }
   },
   "readme_claims_py": {
@@ -415,7 +471,7 @@
       "note": "V88 P1-A 方案A：仓外开发副本保留，以仓内正本为准；双登记不删史"
     }
   },
-  "v88_note": "P1-A 仓外脚本归位：unity_check.py / readme_claims_check.py 复制入 scripts/ 为正本，仓外原件保留 dev_copy；path_abs 指向仓内，仓外路径入 dev_copy 字段。\nV89-B（MR-V1 基座登记）：sites 追加 mirraeon；DOC_VERSION 0.9.81→0.9.82。\nV89-C（MR-V2 基座登记）：data/PROJECT_ENTRY_MIRRAEON.json 的 mirror_facts 增补 ledger/scene/slot/brain 四件与批总闸 73/73；DOC_VERSION 0.9.82→0.9.83。\nV89-D（MR-V3 基座登记）：mirror_facts 增补 distill/fidelity/ledger_v21 与批总闸 98/98（十一键）；DOC_VERSION 0.9.83→0.9.84。\nV89-E（MR-V4 基座登记）：mirror_facts 增补 mr4_quartet（四人组职业分身四席 + twins 闸 11/11 + 涌现四条件）；批总闸 109/109（十二键）；测试 111/111（四文件）；DOC_VERSION 0.9.84→0.9.85。\nV89-F（MR-V5 基座登记）：mirror_facts 增补 mr5_legion（军团 66 席 + 算子五族 + 66 枚 HDC 指纹 + legion 闸 18/18 + evidence_fed）；批总闸 127/127（十三键）；测试 134/134（五文件）；DOC_VERSION 0.9.85→0.9.86。\nV89-G（MR-V6 基座登记）：mirror_facts 增补 mr6_legion（军团 133 跨轴合并三表 66/83/140 自洽、跨轴 9 双证据链、HV 133 unique、军团闸 15/15、E5 金芝 P-0105 validated、140 evidence_fed / B=19 / uri 逻辑占位 / 68 作废闸、同义异名 3 与合法切片 4 待终裁）；批总闸 124/124（十三键）；测试 135/135（五文件）；DOC_VERSION 0.9.86→0.9.87。",
+  "v88_note": "P1-A 仓外脚本归位：unity_check.py / readme_claims_check.py 复制入 scripts/ 为正本，仓外原件保留 dev_copy；path_abs 指向仓内，仓外路径入 dev_copy 字段。\nV89-B（MR-V1 基座登记）：sites 追加 mirraeon；DOC_VERSION 0.9.81→0.9.82。\nV89-C（MR-V2 基座登记）：data/PROJECT_ENTRY_MIRRAEON.json 的 mirror_facts 增补 ledger/scene/slot/brain 四件与批总闸 73/73；DOC_VERSION 0.9.82→0.9.83。\nV89-D（MR-V3 基座登记）：mirror_facts 增补 distill/fidelity/ledger_v21 与批总闸 98/98（十一键）；DOC_VERSION 0.9.83→0.9.84。\nV89-E（MR-V4 基座登记）：mirror_facts 增补 mr4_quartet（四人组职业分身四席 + twins 闸 11/11 + 涌现四条件）；批总闸 109/109（十二键）；测试 111/111（四文件）；DOC_VERSION 0.9.84→0.9.85。\nV89-F（MR-V5 基座登记）：mirror_facts 增补 mr5_legion（军团 66 席 + 算子五族 + 66 枚 HDC 指纹 + legion 闸 18/18 + evidence_fed）；批总闸 127/127（十三键）；测试 134/134（五文件）；DOC_VERSION 0.9.85→0.9.86。\nV89-G（MR-V6 基座登记）：mirror_facts 增补 mr6_legion（军团 133 跨轴合并三表 66/83/140 自洽、跨轴 9 双证据链、HV 133 unique、军团闸 15/15、E5 金芝 P-0105 validated、140 evidence_fed / B=19 / uri 逻辑占位 / 68 作废闸、同义异名 3 与合法切片 4 待终裁）；批总闸 124/124（十三键）；测试 135/135（五文件）；DOC_VERSION 0.9.86→0.9.87。\nV89-H（MR-V7 基座登记）：mirror_facts 增补 mr7_catalyst_seat_match（catalyst 13 闸 野心四问×五步映射 道=range/法=depth/术=depth/器=speed/升维=altitude；五步主导权取 quartet_toolkit 单一真源；seat_match 7 闸 名字主键编号派生、dispatch 3 错号 P-0067/P-0071/P-0072、P-0006=Michael I. Jordan、四席 P-0028/P-0029/P-0094/P-0008；三条拒收裁决；第四例并行写事故处置）；批总闸 144/144（十五键）；测试 161/161（六文件）；NUMBER_LEDGER 15 行；DOC_VERSION 0.9.87→0.9.88。",
   "sequence": [
     {
       "sub": "V87-A.1",

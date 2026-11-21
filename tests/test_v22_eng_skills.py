@@ -47,7 +47,7 @@ class TestPackSpec(unittest.TestCase):
 
     def test_version_sync(self):
         from holoaeon.spec import DOC_VERSION, VERSION
-        self.assertEqual(DOC_VERSION, "0.9.87")  # V89-G：0.9.86→0.9.87（MR-V6 军团 133 跨轴合并基座登记，唯一精确权威点）
+        self.assertEqual(DOC_VERSION, "0.9.88")  # V89-H：0.9.87→0.9.88（MR-V7 catalyst 13 + seat_match 7 基座登记，唯一精确权威点）
         self.assertEqual(VERSION, "0.9.1")       # 冻结不动
 
     def test_install_on_kernel(self):

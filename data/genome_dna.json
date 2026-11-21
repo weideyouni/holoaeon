@@ -127,8 +127,8 @@
   "genesis": {
     "base_head_measured": "c65d521",
     "base_head_note": "2026-11-17 V86 提交后现场 git rev-parse 回读：c65d521（批前 5d2bb37）；禁写死",
-    "doc_version_after": "0.9.87（V89-G MR-V6 基座登记：军团 133 跨轴合并（三表 66/83/140，自洽 66+83−9=140、133=76+66−9；跨轴 9 双证据链；HV 133 unique；军团闸 15/15；批总闸 124/124（十三键）；测试 135/135）——E5 试点首位金芝 P-0105 validated；140 一律 evidence_fed；B=19；uri 全逻辑占位；68 作废闸；同义异名 3 / 合法切片 4 待碳基终裁）",
-    "doc_version_before": "0.9.86",
+    "doc_version_after": "0.9.88（V89-H MR-V7 基座登记：catalyst 13 闸（野心四问×五步映射 道=range/法=depth/术=depth/器=speed/升维=altitude；五步主导权取 quartet_toolkit 单一真源）+ seat_match 7 闸（名字主键编号派生；dispatch 3 错号 P-0067/P-0071/P-0072；P-0006=Michael I. Jordan；四席 P-0028/P-0029/P-0094/P-0008）+ 三条拒收裁决（numpy 依赖→纯标准库重写 / 模拟评分冒充证明→拒收 / 验收预填值冒充实测→拒收）+ 批总闸 144/144（十五键）+ 测试 161/161）",
+    "doc_version_before": "0.9.87",
     "frozen": [
       "VERSION=0.9.1",
       "layers=L1-L8",
@@ -136,8 +136,8 @@
       "EXTRA_PACK_ORDER=19"
     ],
     "landed_head": "c65d521",
-    "spec_sha256_measured": "9bfa9df29fc62998746b6bd07b4cf0b41eec0bf023983b23af463f91a9640172",
-    "spec_sha256_note": "V89-G（MR-V6 基座登记，change_class=governance）现场重算：spec.py 仅改 DOC_VERSION 一行（号值与注释），VERSION/RUNTIME_ID/MATRIX_ID 未动；genome_hash 仍为 V87-A after 值；四处测试断言同批 0.9.86→0.9.87 回填。"
+    "spec_sha256_measured": "bde521ed44fe34d1865be9ad0f5a89c2013e99c0d12cdeddbd8fbf87bf90581e",
+    "spec_sha256_note": "V89-H（MR-V7 基座登记，change_class=governance）现场重算：spec.py 仅改 DOC_VERSION 一行（号值与注释），VERSION/RUNTIME_ID/MATRIX_ID 未动；genome_hash 仍为 V87-A after 值；四处测试断言同批 0.9.87→0.9.88 回填。"
   },
   "genome_revision": {
     "after": "84876958e3936c50bf5ce058f716a5a3a1bb9194b7a22f15185cb401fce16707",

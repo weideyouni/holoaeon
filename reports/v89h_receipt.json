@@ -1,0 +1,383 @@
+{
+ "schema": "holoaeon.receipt/v1",
+ "batch": "V89",
+ "sub_batch": "V89-H",
+ "batch_note": "V89 批基座登记子批 V89-H：登记 MR-V7 mirraeon 催化机制批（catalyst 13 闸：野心四问×五步协议映射、五步主导权单一真源、三条拒收裁决；seat_match 7 闸：名字主键/编号派生、dispatch 三处错号纠正、四席回读）",
+ "date": "2026-11-22",
+ "executor": "本地 Windows PowerShell + py3.11.9（F:\\doubaowork\\holoaeon）",
+ "repo": "holoaeon",
+ "repo_path": "F:\\doubaowork\\holoaeon",
+ "head_at_write": "4e031c57963651c9846cd42ea6b71843374e6c13",
+ "head_at_write_note": "写回执时 HEAD 仍是 V89-G 父提交；本批提交哈希在提交后才知道，自指不可能，故记父提交",
+ "doc_version": "0.9.88",
+ "doc_version_before": "0.9.87",
+ "spec_version": "0.9.1",
+ "base_registration": {
+  "spec": {
+   "bytes": 11479,
+   "sha256": "bde521ed44fe34d1865be9ad0f5a89c2013e99c0d12cdeddbd8fbf87bf90581e",
+   "sha16": "bde521ed44fe34d1"
+  },
+  "claims_registry": {
+   "bytes": 27618,
+   "sha256": "697014295e79ffdf47e81702201f8c482d383eb9d11a7aadb18158f776ff9137",
+   "sha16": "697014295e79ffdf"
+  },
+  "ctup_onboarding": {
+   "bytes": 24487,
+   "sha256": "21503ce5979168821a506cde351043ff7ef90a550805661e7aa3d0deae84362d",
+   "sha16": "21503ce597916882"
+  },
+  "genome_dna": {
+   "bytes": 12905,
+   "sha256": "d3652272a412b903cac3791d223c334e6235db3afcf2d4779207ed4e0fa14914",
+   "sha16": "d3652272a412b903"
+  },
+  "project_entry": {
+   "bytes": 8396,
+   "sha256": "6c098f276d69250b541bc8f20ba152f5277677de742b1a2f97b85b8d2138e03e",
+   "sha16": "6c098f276d69250b"
+  },
+  "claims_self_digest": "669282c3a621d6e0",
+  "genome_change_class": "governance（仅 DOC_VERSION 一行；genome_hash 仍 V87-A after）"
+ },
+ "doc_version_assertions": [
+  {
+   "rel": "tests/test_v22_eng_skills.py",
+   "line": 50,
+   "value": "0.9.88"
+  },
+  {
+   "rel": "tests/test_v64_hangover_zero.py",
+   "line": 396,
+   "value": "0.9.88"
+  },
+  {
+   "rel": "tests/test_v70_prehistory_criteria.py",
+   "line": 309,
+   "value": "0.9.88"
+  },
+  {
+   "rel": "tests/test_v84_tautology_golden_watch.py",
+   "line": 375,
+   "value": "0.9.88"
+  }
+ ],
+ "sums": {
+  "lines": 362,
+  "bytes": 34388,
+  "sha256": "8559276cfbf37e152a43f59f21d4ed2b67b527e882239c9cc4fa75e74db43abc",
+  "sha16": "8559276cfbf37e15",
+  "changed_lines": [
+   41,
+   44,
+   55
+  ],
+  "changed": [
+   {
+    "line": 41,
+    "path": "data/claims_registry.json",
+    "old": "a7e0edad25b177a962bff790fde8261a40e325d6d39d70000443ac6af31dc569",
+    "new": "697014295e79ffdf47e81702201f8c482d383eb9d11a7aadb18158f776ff9137"
+   },
+   {
+    "line": 44,
+    "path": "data/ctup_onboarding.json",
+    "old": "662c986dfb2ba69a25cebb4a10b1689caae544903eea3e395e725cd24497660b",
+    "new": "21503ce5979168821a506cde351043ff7ef90a550805661e7aa3d0deae84362d"
+   },
+   {
+    "line": 55,
+    "path": "data/genome_dna.json",
+    "old": "a5c8a77c64e0cad266c71bcbd1e70ea64b8b7e57c0d6767a6500d8ae7e5f95bb",
+    "new": "d3652272a412b903cac3791d223c334e6235db3afcf2d4779207ed4e0fa14914"
+   }
+  ],
+  "caliber": "LF 归一化文本原始字节（check_sums.py report_only）；本轮 git 可解析，无降级",
+  "note": "PROJECT_ENTRY_MIRRAEON.json 不入本清单（保 362 定点，详见 PROJECT_ENTRY.mirror_facts.honest_note）"
+ },
+ "mirror_batch": {
+  "batch_id": "MR-V7",
+  "feed": "AGENT_FEED_MR-V7_CATALYST_SEAT_MATCH_20261122.md 10753B/88f0b19ac8f623aa",
+  "feed_path": "F:\\doubaowork\\.tmp_mr7\\AGENT_FEED_MR-V7_CATALYST_SEAT_MATCH_20261122.md",
+  "feed_note": "§0～§8 八节；mtime 2026-11-22 5:01:12；本批未改动原件",
+  "assets_disk": [
+   {
+    "rel": "mirraeon/catalyst.py",
+    "bytes": 11490,
+    "sha16": "f882c51605779f95",
+    "md5_16": "90d475df8481bae7"
+   },
+   {
+    "rel": "mirraeon/seat_match.py",
+    "bytes": 8405,
+    "sha16": "c396739530cac310",
+    "md5_16": "36556b32b865ce02"
+   },
+   {
+    "rel": "mirraeon/mirror_ledger.py",
+    "bytes": 22032,
+    "sha16": "f74fdb821814ab75",
+    "md5_16": "d428526a868a4deb"
+   },
+   {
+    "rel": "tests/test_mr7_catalyst.py",
+    "bytes": 10124,
+    "sha16": "3eacfec2c76022a2",
+    "md5_16": "dee9fe80cb1f8d84"
+   },
+   {
+    "rel": "tests/test_mr2_ledger.py",
+    "bytes": 10029,
+    "sha16": "34dc3e526d46eb3a",
+    "md5_16": "c1ef6bba081ff659"
+   },
+   {
+    "rel": "tests/test_mr6_legion_merge.py",
+    "bytes": 8779,
+    "sha16": "dfe2e0e1c0465dc6",
+    "md5_16": "c231c48da0f8a87d"
+   },
+   {
+    "rel": "README.md",
+    "bytes": 19040,
+    "sha16": "9a2395df571ca9ae",
+    "md5_16": "9830cdca306b5575"
+   }
+  ],
+  "assets_caliber": "投喂 §2 标注「sha16」，实测与 MD5-16 全中、与 SHA-256-16 全不中：结论为算法标签口径（投喂 sha16 实为 MD5-16）；本批按 MD5 逐件 7/7 验收，并在 anomalies 登记标签口径不一致",
+  "archives": [
+   {
+    "rel": "docs/README_MR-V6.md",
+    "bytes": 16389,
+    "sha16": "0b85cbea4915bf8d",
+    "tracked": false,
+    "note": "MR-V6 阶段 README 归档，Copy 落盘未移动原件，目标原先不存在；随本批入库"
+   },
+   {
+    "rel": "docs/mirror_ledger_v24.py.bak",
+    "bytes": 21350,
+    "sha16": "5cf0f5fa17a1613d",
+    "tracked": false,
+    "note": "在盘、被 .gitignore *.bak 忽略、未跟踪"
+   },
+   {
+    "rel": "docs/test_mr2_ledger_pre_mr7.py.bak",
+    "bytes": 9987,
+    "sha16": "bb17cbb16d515fb0",
+    "tracked": false,
+    "note": "在盘未跟踪（同上）"
+   },
+   {
+    "rel": "docs/test_mr6_pre_mr7.py.bak",
+    "bytes": 8695,
+    "sha16": "42d63ddbb7d466b8",
+    "tracked": false,
+    "note": "在盘未跟踪（同上）"
+   }
+  ],
+  "archive_note": "四处归档全部 Copy（未移动原件），目标路径原先均不存在，未覆盖他人文件",
+  "catalyst": {
+   "module": "mirraeon/catalyst.py",
+   "gate_id": "MIRRAEON-CATALYST/1.0",
+   "gates_total": 13,
+   "gates_passed": 13,
+   "level_map": {
+    "道": "range",
+    "法": "depth",
+    "术": "depth",
+    "器": "speed",
+    "升维": "altitude"
+   },
+   "level_map_note": "一字不改（投喂 §3 原表；不按语义自洽改写）",
+   "five_step_authority": {
+    "真源": "quartet_toolkit 章程",
+    "P4": "道",
+    "合议": "法（四人共评）",
+    "P3": "术",
+    "P2": "器",
+    "P1": "升维",
+    "形式": "指针引用零复制（不复制章程文本，仅引用单一真源）"
+   },
+   "no_score_disclosure": "NO_SCORE_DISCLOSURE 为拒收声明（不冒充评分口径），非评分输出；工具不产出分数",
+   "rejections": [
+    {
+     "id": "R1",
+     "claim": "numpy 依赖",
+     "verdict": "拒收",
+     "reason": "违反零依赖纪律",
+     "action": "纯标准库重写"
+    },
+    {
+     "id": "R2",
+     "claim": "模拟四人组评分冒充证明",
+     "verdict": "拒收",
+     "reason": "模拟分数不得作为证明",
+     "action": "涌现数学留 quartet_toolkit 域"
+    },
+    {
+     "id": "R3",
+     "claim": "验收预填值（P4=0.35 等）",
+     "verdict": "拒收",
+     "reason": "预演值冒充实测值",
+     "action": "只认实跑回读值"
+    }
+   ],
+   "zero_dependency": true
+  },
+  "seat_match": {
+   "module": "mirraeon/seat_match.py",
+   "gate_id": "MIRRAEON-SEAT-MATCH/1.0",
+   "gates_total": 7,
+   "gates_passed": 7,
+   "principle": "名字是主键、编号是派生（第一性原理）",
+   "dispatch_corrections": [
+    {
+     "name": "Sanjay Ghemawat",
+     "old": "P-0006",
+     "new": "P-0067",
+     "basis": "P2 筑基·器步"
+    },
+    {
+     "name": "Matei Zaharia",
+     "old": "P-0026",
+     "new": "P-0071",
+     "basis": "P2 筑基·器步"
+    },
+    {
+     "name": "Ion Stoica",
+     "old": "P-0027",
+     "new": "P-0072",
+     "basis": "P2 筑基·器步"
+    }
+   ],
+   "correction_note": "dispatch 名单验真当场现形 3 处手写错号；P-0006 真主为 Michael I. Jordan，若按编号修会张冠李戴，故按名字修编号",
+   "quartet_seats": {
+    "Hassabis": "P-0028",
+    "Dean": "P-0029",
+    "Kavukcuoglu": "P-0094",
+    "Sutskever": "P-0008"
+   },
+   "readback": {
+    "missing": [],
+    "actual_count": 18,
+    "duplicate": false,
+    "michael_jordan": "P-0006 ok:true"
+   }
+  },
+  "incident_parallel_write": {
+   "what": "第四例并行写事故：.tmp_mr7 初拷基座为 mirror_ledger v2.3（非 v2.4），仓内版本来回跳变",
+   "action": "清空 .tmp_mr7 → 从四人组权威缓存 .tmp_mr6 重建 → 在正确 v2.4 基座上完成 v2.5 三处 Edit",
+   "rule": "裁决不与执行端抢写仓内；权威交付源为 .tmp_mr7；动仓文件先拷贝留根；禁止移动/删除他人落位件"
+  },
+  "batch_gate": 144,
+  "batch_gate_parts": 15,
+  "batch_gate_part_counts": {
+   "mirror_ledger": 16,
+   "scene": 11,
+   "occupation_slot": 8,
+   "brain_gate": 9,
+   "distill_demo": 12,
+   "fidelity_eval": 8,
+   "readme_sync": 3,
+   "quartet_twins": 11,
+   "ledger_legion": 15,
+   "catalyst": 13,
+   "seat_match": 7,
+   "mirror_core": 18,
+   "mech_registry": 5,
+   "fragments": 5,
+   "injection": 3
+  },
+  "batch_gate_note": "16+11+8+9+12+8+3+11+15+13+7+18+5+5+3 = 144（124 存量 + catalyst 13 + seat_match 7）",
+  "number_ledger_rows": 15,
+  "number_ledger_note": "末三行：军团合并主表 / 军团自然人 / 野心催化维度",
+  "tests": {
+   "total": 161,
+   "py313": "161 OK 5.778s",
+   "py311": "161 OK 6.087s",
+   "files": {
+    "test_mr1_mirror": 25,
+    "test_mr2_ledger": 36,
+    "test_mr3_distill": 28,
+    "test_mr4_quartet_twins": 22,
+    "test_mr6_legion_merge": 24,
+    "test_mr7_catalyst": 26
+   },
+   "warnings": "各 2 条 ResourceWarning（mirror_ledger.py:380、catalyst.py:216），非失败",
+   "note": "161 = 135 + 26"
+  },
+  "mirraeon_head": "9aed28636f4ea44ee3f2f2d1894c32ecdf2b5a4d",
+  "mirraeon_head_note": "本批提交前父提交（MR-V6 回执提交）",
+  "mirraeon_tracked": 37,
+  "mirraeon_status_pre": "4 改（README/mirror_ledger/test_mr2/test_mr6）+ 4 未跟踪（docs/README_MR-V6.md、mirraeon/catalyst.py、mirraeon/seat_match.py、tests/test_mr7_catalyst.py）",
+  "gitignore_note": "*.bak 与 /AGENT_FEED_*.md 被 .gitignore 忽略；四个 *.bak 在盘未跟踪",
+  "frozen_four_untouched": true,
+  "boundary_conflict": "投喂 §7 写「不 push 任何远端」，与口令「五地同步」冲突；按口令执行五地同步并在此登记偏离"
+ },
+ "gates": {
+  "doc_version": "PASS 0.9.87→0.9.88（spec 一行 + 四处断言同批）",
+  "dimensions_untouched": "PASS 25/47/9（A1）",
+  "version_untouched": "PASS VERSION 0.9.1 / layers 8 / PACK_ORDER 9",
+  "main_suite": "2415 tests（见 verification.unittest_main）",
+  "v3_gate": "34/34 PASS",
+  "check_sums": "ok=true total=362 mismatches=[]",
+  "claims_gate": "PASS（本回执补齐后复跑，见 verification.claims_gate_rerun）",
+  "redline_scan": "160 文件 0 违规",
+  "genome_dna_gate": "PASS 7/7（spec_byte_identical / dna_verify / genome_hash_diff0 / self_check_pass / cells 300/300 / linkage_pass / registry_schema 3）",
+  "sums_entries": 362
+ },
+ "verification": {
+  "feed": "AGENT_FEED_MR-V7_CATALYST_SEAT_MATCH_20261122.md 10753B/88f0b19ac8f623aa",
+  "precheck": "mirraeon HEAD 9aed286 / tracked 37 / 干净；四处归档基线 SHA-256-16 与投喂 supersede 链一致",
+  "assets_md5": "7/7 全中（catalyst 90d475df…、seat_match 36556b32…、mirror_ledger d428526a…、test_mr7 dee9fe80…、test_mr2 c1ef6bba…、test_mr6 c231c48d…、README 9830cdca…）",
+  "assets_sha256": "7/7 全不中（算法标签口径问题，非资产漂移）",
+  "clean_run": "批闸 144/144（十五键）、check_ledger 16/16、catalyst 13/13、seat_match 7/7、dispatch 回读 18 条 missing=[]、161 例双解释器 OK",
+  "unittest_main": 2415,
+  "unittest_failures": 0,
+  "unittest_errors": 0,
+  "unittest_note": "receipt 落盘前首轮 5 FAIL，全部由本回执缺失级联（doc_version_spec expected_from=receipt.doc_version，读到旧回执 v89g 的 0.9.87）",
+  "unittest_five_fail_ids": [
+   "test_v75_claims_gate.TestReadback.test_06_baseline_green",
+   "test_v77_registry_coverage.T8RealRepoEightFaces.test_real_repo_pass",
+   "test_v77_registry_coverage.T9SelfDigestAndReport.test_report_has_all_faces",
+   "test_v85_ci_step_names.TestNoRegression.test_n3_other_faces_still_pass",
+   "test_v88_p2c_supply.TestV88SupplyChain.test_gate_green_real"
+  ],
+  "unittest_rerun": "py3.11: Ran 2415 tests in 49.760s, OK (skipped=3); py3.13 161/161 前轮 OK（MR-V7 同批）",
+  "claims_gate_rerun": "claims_gate verdict=PASS mismatch=0 doc_claims=21 rings 25/25; check_doc_claims=[]",
+  "redline": 160,
+  "v3_gate": "34/34",
+  "check_sums": "ok=true total=362 mismatches=[]",
+  "checklist_entries": 362,
+  "genome_dna_gate": "pass=true problems=[]",
+  "mirraeon_state": "提交前：HEAD 9aed286 / tracked 37 / 4 改 + 4 未跟踪",
+  "holoaeon_state": "tracked 775 / status 133 行（既有脏件未清，未入本批提交）",
+  "note": "本回执为 V89 批基座登记子批 V89-H（DOC 0.9.88，承接 V89-G/MR-V6，登记 MR-V7 催化机制 + 自动匹配名称批）。",
+  "unittest_subset_rerun": "n/a"
+ },
+ "anomalies": [
+  "投喂 §7 写「不 push 任何远端」，与口令「五地同步」冲突，按口令执行并按本回执行五地同步，在此登记偏离（不静默省略）。",
+  "七件「sha16」实为 MD5-16：按 SHA-256 比对 7/7 全不中，按 MD5 比对 7/7 全中；本批按 MD5 验收通过，标签口径不一致登记待投喂方确认。",
+  "第四例并行写事故：.tmp_mr7 初拷基座为 mirror_ledger v2.3（非 v2.4），仓内版本来回跳变；处置为清空重建于 .tmp_mr6 权威缓存基座，未与执行端抢写仓内。",
+  "catalyst 三条拒收裁决（numpy 依赖 / 模拟评分冒充证明 / 验收预填值）均按拒收处置，不接受预演值当实测。",
+  "dispatch 名单 3 处手写错号（Sanjay/Matei/Ion）按名字修编号；P-0006 真主 Michael I. Jordan，按编号修会张冠李戴，故不采编号优先。",
+  "docs/*.bak 四个归档因 .gitignore *.bak 不入库，回执登记「在盘未跟踪」；是否 git add -f 入库待裁。",
+  "主套首轮 5 FAIL 由回执缺失造成（doc_version_spec 指最新回执），非代码缺陷；落盘后复跑见 verification.unittest_rerun。",
+  "holoaeon 既有 dirty 121 行与未跟踪件未清，未纳入本批白名单提交。",
+  "投喂 §0 时序与实盘存在滞后（本轮承接 V89-G 已落）按实际连续序走，不按投喂自述回退。"
+ ],
+ "honest_boundaries": [
+  "catalyst 13 闸、seat_match 7 闸、批总闸 144/144、161 例双解释器均为本机实跑值，非沿用历史值。",
+  "level_map（道 range／法 depth／术 depth／器 speed／升维 altitude）一字不改，不按语义自洽改写。",
+  "五步主导权以 quartet_toolkit 章程为单一真源，本模块仅指针引用、零复制。",
+  "NO_SCORE_DISCLOSURE 是拒收声明，不是评分；工具不产出分数，不存在评分 API。",
+  "seat_match 以名字为主键、编号为派生；3 处错号按名字纠正，回读 missing=[]、18 条 actual 互不重复。",
+  "七件资产按 MD5 验收通过；SHA-256-16 全不中属投喂标注口径，未改投喂件迁就口径。",
+  "committing 仅 V89-H 白名单（spec + 四断言 + 四数据件 + SHA256SUMS）+ reports/v89h_receipt.json；工作树既有他人脏件未清、未入本批提交。",
+  "holoaeon 冻结维度（VERSION 0.9.1 / layers 8 / PACK_ORDER 9）本批未动。",
+  ".github_token（ghp_）已 401 失效，本批 GitHub 走 git credential fill 的 gho_ 凭据，属用户资产范畴未修。"
+ ],
+ "seal": "潮起开门，潮落闭嘴",
+ "signature": "桃花庵出品 / 中科国度 · V89-H MR-V7"
+}
