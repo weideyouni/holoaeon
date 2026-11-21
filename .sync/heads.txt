@@ -1,0 +1,11 @@
+remote_add_rc=0
+fetch_rc=0
+gitee_head=4eb987e6704b33998eb34f46e5fab3b6c01b4012
+checkout_rc=0
+keep_workflows_rc=0
+commit_rc=1
+push_rc=0
+github_head=4eb987e6704b33998eb34f46e5fab3b6c01b4012
+file_count=771
+nogithub_count=766
+object_digest=cde7e0ca3ecec0e51324f2f498ab5d48daaa29e419d959a3104f5c01c0be2050
