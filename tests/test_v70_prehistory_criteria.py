@@ -306,7 +306,7 @@ class SourceDiscipline(unittest.TestCase):
 class DocAndDimensions(unittest.TestCase):
 
     def test_doc_version_bumped(self):
-        self.assertEqual(spec.DOC_VERSION, "0.9.84")  # V84（V89-D MR-V3 同批重钉）
+        self.assertEqual(spec.DOC_VERSION, "0.9.85")  # V84（V89-E MR-V4 同批重钉）
 
     def test_version_frozen(self):
         self.assertEqual(spec.VERSION, "0.9.1")

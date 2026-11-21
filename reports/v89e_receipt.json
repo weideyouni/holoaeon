@@ -1,0 +1,244 @@
+{
+  "schema": "HOLOAEON-RECEIPT/1.0",
+  "batch": "V89",
+  "sub_batch": "V89-E",
+  "date": "2026-11-22",
+  "executor": "豆包 Work（MainAgent 落地，四人组策划评审）",
+  "repo": "holoaeon",
+  "repo_path": "F:\\doubaowork\\holoaeon",
+  "head_at_write": "de28a5443017956949e861450ca1610933c36ca2",
+  "doc_version": "0.9.85",
+  "spec_version": "0.9.1",
+  "base_registration": {
+    "project_entry": {
+      "rel": "data/PROJECT_ENTRY_MIRRAEON.json",
+      "batch": "MR-V4",
+      "batch_gate": "109/109 PASS（十二键）",
+      "bytes": 4040,
+      "sha256": "24c7a4250173fc78942fff5fac5c8cea1c685da5259bc8433e4d696bc606e668",
+      "sha16": "24c7a4250173fc78"
+    },
+    "ctup": {
+      "rel": "data/ctup_onboarding.json",
+      "mirror_facts_batch": "MR-V4",
+      "as_of": "2026-11-22",
+      "bytes": 12429,
+      "sha256": "f9c4659d31865a87de8e86ad861857b0b724ccf94ec27f52053e9b6732166e8a",
+      "sha16": "f9c4659d31865a87"
+    },
+    "genome_dna": {
+      "rel": "data/genome_dna.json",
+      "doc_version_before": "0.9.84",
+      "doc_version_after": "0.9.85",
+      "bytes": 12648,
+      "sha256": "aeb4b979978aa7764c13dff6aa1092b0a3853e56ed45bf8bc61fb8540e372092",
+      "sha16": "aeb4b979978aa776"
+    },
+    "claims_registry": {
+      "rel": "data/claims_registry.json",
+      "observed": "0.9.85",
+      "observed_at": "2026-11-22",
+      "self_digest": "8d22b8f79def448c",
+      "bytes": 27618,
+      "sha256": "13b8f9989904049416556cf3cd0afc85e84db198b0329d381e8fc6ddbac9eca1",
+      "sha16": "13b8f99899040494"
+    },
+    "spec": {
+      "rel": "holoaeon/spec.py",
+      "doc_version": "0.9.85",
+      "bytes": 11060,
+      "sha256": "e29172618fbfa0b385e9031404d37842bbc0a6ff9eee22656a699e68c2643561",
+      "sha16": "e29172618fbfa0b3"
+    },
+    "doc_version_assertions": [
+      {
+        "rel": "tests/test_v22_eng_skills.py",
+        "line": 50,
+        "value": "0.9.85"
+      },
+      {
+        "rel": "tests/test_v64_hangover_zero.py",
+        "line": 396,
+        "value": "0.9.85"
+      },
+      {
+        "rel": "tests/test_v70_prehistory_criteria.py",
+        "line": 309,
+        "value": "0.9.85"
+      },
+      {
+        "rel": "tests/test_v84_tautology_golden_watch.py",
+        "line": 375,
+        "value": "0.9.85"
+      }
+    ],
+    "sums": {
+      "rel": "SHA256SUMS",
+      "lines": 362,
+      "bytes": 34388,
+      "sha256": "50fc67ebcbec51c82f45f6fc3cbf8a475aa619abf3222d75297ea48ef20163cc",
+      "sha16": "50fc67ebcbec51c8",
+      "changed_lines": [
+        41,
+        44,
+        55
+      ]
+    }
+  },
+  "mirror_batch": {
+    "batch_id": "MR-V4",
+    "series": "MR",
+    "assets": [
+      {
+        "path": "mirraeon/README.md",
+        "bytes": 13853,
+        "sha256_16": "eba3203e62008700",
+        "blob": "a516573e807f07903d4b44f021e14d8b0f8fcfb5",
+        "role": "batch README v2.2（含四人组职业分身整章、批闸 98→109）"
+      },
+      {
+        "path": "mirraeon/mirraeon/quartet_twins.py",
+        "bytes": 21213,
+        "sha256_16": "c6e7c37a82692a4a",
+        "blob": "b7191a6617380ab2fb7d0862c315dd6400fb866b",
+        "role": "四席职业分身主件：14 技能 + 五步协议 + 权重矩阵 + 涌现四条件"
+      },
+      {
+        "path": "mirraeon/mirraeon/mirror_ledger.py",
+        "bytes": 19780,
+        "sha256_16": "6ed717226467766a",
+        "blob": "3345a9c99199d7631fef072fa249609767a95d46",
+        "role": "账本 v2.2：check_batch 增 quartet_twins 键（十二键）"
+      },
+      {
+        "path": "mirraeon/tests/test_mr4_quartet_twins.py",
+        "bytes": 5636,
+        "sha256_16": "5f1cddd6d4241fbb",
+        "blob": "ee94902b1f55b80f54d37810c261d62a121e07d0",
+        "role": "MR-V4 测试 22 例"
+      }
+    ],
+    "archives": [
+      {
+        "path": "mirraeon/docs/README_MR-V3.md",
+        "bytes": 12254,
+        "sha256_16": "6239c9b577bcd089",
+        "blob": "02aeeb922e2104e6103b76b662e3d5ca6a1dd531",
+        "note": "MR-V3 README 归档，旧版留根名不复用"
+      }
+    ],
+    "frozen_four_untouched": [
+      "mirraeon/mirror_core.py",
+      "mirraeon/mirror_meridian.py",
+      "mirraeon/occupation_slot.py",
+      "mirraeon/brain_gate.py"
+    ],
+    "batch_gate": {
+      "total": 109,
+      "passed": 109,
+      "failed": 0,
+      "parts": 12,
+      "verdict": "PASS",
+      "caliber": "十键 78 + meridian 展平 31 = 109"
+    },
+    "batch_gate_parts": {
+      "mirror_ledger": 16,
+      "scene": 11,
+      "occupation_slot": 8,
+      "brain_gate": 9,
+      "distill_demo": 12,
+      "fidelity_eval": 8,
+      "readme_sync": 3,
+      "quartet_twins": 11,
+      "mirror_core": 18,
+      "mech_registry": 5,
+      "fragments": 5,
+      "injection": 3
+    },
+    "twins_gate": {
+      "total": 11,
+      "passed": 11,
+      "failed": 0,
+      "verdict": "PASS"
+    },
+    "tests": {
+      "total": 111,
+      "py313": "Ran 111 tests OK",
+      "py311": "Ran 111 tests OK",
+      "per_file": {
+        "mr1": 25,
+        "mr2": 36,
+        "mr3": 28,
+        "mr4": 22
+      }
+    },
+    "twins_locked": {
+      "locked": 4,
+      "all_locked": true,
+      "final_status": "baseline_locked"
+    },
+    "emergence": {
+      "scores": {
+        "P1": 0.85,
+        "P2": 0.85,
+        "P3": 0.85,
+        "P4": 0.3
+      },
+      "resonance_count": 3,
+      "entropy": 0.476314,
+      "order": 0.523686,
+      "emergence": true,
+      "p2p3_frozen": 0.7
+    },
+    "mirraeon_head_assets": "33b6d45fa931dae7e3c74ebe18023a1edabd5de8",
+    "mirraeon_head_final": "ab182ed48325dec773f888327935c456d1b2d7d8",
+    "mirraeon_tracked": 26,
+    "receipt_sha16": "58782e9083672ac1"
+  },
+  "gates": {
+    "doc_version": "0.9.85",
+    "dimensions_untouched": true,
+    "version_untouched": true,
+    "main_suite": "Ran 2415 tests / OK（receipt 补 verification 后复跑，38.811s，rc=0）",
+    "v3_gate": "34/34 PASS",
+    "check_sums": "ok=true total=362 mismatches=[]",
+    "claims_gate": "verdict PASS / mismatch 0",
+    "redline_scan": "files 160 / violations [] / clean true",
+    "genome_dna_gate": "pass true / problems []",
+    "sums_entries": 362
+  },
+  "verification": {
+    "feed": "AGENT_FEED_MR-V4_QUARTET_TWINS_20261122.md 9902B/9017f19b5ebcd3ab",
+    "isolation_copy": "F:\\doubaowork\\mirraeon_mr4_verify（git archive HEAD zip 解包 + 四资产覆盖）",
+    "clean_run": "批闸 109/109、twins 11/11、测试 111/111 双解释器、四席落锁 4/4，全部在隔离副本实测",
+    "unittest_main": 2415,
+    "unittest_failures": 0,
+    "unittest_errors": 0,
+    "redline": 160,
+    "v3_gate": "34/34",
+    "check_sums": "ok=true total=362 mismatches=[]",
+    "checklist_entries": 362,
+    "claims_gate": "verdict PASS / mismatch 0（补 verification.unittest_main=2415 后复跑）",
+    "note": "本回执为 V89 批基座登记子批 V89-E（DOC 0.9.85，承接 V89-D/MR-V3，登记 MR-V4 四人组职业分身）；首跑 5 例 FAIL 全部由本回执缺 verification.unittest_main 级联引起，补齐后 claims gate PASS（mismatch 0），全量 discover 2415 tests OK（38.811s，rc=0，py3.13.16）。"
+  },
+  "anomalies": [
+    "docs/mirror_ledger_v21.py.bak 误标归档：源取 git show HEAD: 实为 v2.2 内容，仓库无 v2.1 可归档，已删除该件",
+    "投喂截图测试分项写 25+36+28+28=117，实测 mr4 为 22 例（合计 111 与实测一致，分项误记）",
+    "外部并发写入（03:22:10-11）令 mirraeon 工作树出现 MR-V5/V6 件，本批验收改用隔离副本 + index 锁提交，外来件未纳入",
+    "MR-V3 回执「批闸 98/98 十一键 / ledger 19653」与仓内真实 19780B/v2.2 存在历史偏差；本批核实 ledger 无内容变更",
+    "首提交 c39eafd 带入前导空格怪路径，已 force-remove + amend 修正为 33b6d45",
+    "投喂 §7 明示「不 push 任何远端」，与口令「五地同步」冲突；依 MR-V3 惯例以口令为准执行 push 并登记偏离"
+  ],
+  "honest_boundaries": [
+    "复刻对象是四人组在本工程中的职业判断模式，不是四位真人的思想；人格公开履历口径仅作登记，不虚称真人本人在此执业",
+    "quartet_toolkit 是章程单一真源，本批未改一行；四席只做锚定引用",
+    "玉安 version_history 实录只引不代改，LEDGER_EVIDENCE 六条逐条带来源",
+    "MR-V1/V2/V3 资产与 test_mr1/2/3 全部冻结未动",
+    "holoaeon 冻结维度 VERSION=0.9.1 / layers=L1-L8 / PACK_ORDER=9 全程未动",
+    "mirror_ledger.BATCH=MR-V2、fidelity_eval.batch=MR-V3、quartet_twins.batch=MR-V4 三标签不一致属投喂原样口径，不为凑口径改文件",
+    "测试 ResourceWarning（mirror_ledger.py:345 unclosed file）仅告警，修则破指纹，保留登记",
+    "S4 向量海 repin 在基座提交后执行，其 repo 段按 holoaeon HEAD blob 重算"
+  ],
+  "seal": "潮起开门，潮落闭嘴",
+  "signature": "桃花庵出品 · 中科国度"
+}

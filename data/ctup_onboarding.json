@@ -96,7 +96,7 @@
     ],
     "mirraeon_note": "MR-V1 纪元族第四员：F:\\doubaowork\\mirraeon（镜面·全职业数字分身矩阵，士农工商 1639 职业/四域 SNGB/八大类 C1-C8/四层认知契约/双脑解耦）；CTUP 条目 data/PROJECT_ENTRY_MIRRAEON.json（按 V89-A 先例不入 SHA256SUMS，保 362 定点）；经络挂接走 meridian_link.mirror_extra_fragments() 懒导入（中文 leg + mirror_native，只经 build_meridian_table 纯 19×25 通道，不进 load_fragments 硬校验组合体）；不开源、不推任何远端（远端建仓须碳基点单）",
     "mirror_facts": {
-      "batch": "MR-V3",
+      "batch": "MR-V4",
       "as_of": "2026-11-22",
       "distill": {
         "module": "mirraeon/distill_demo.py",
@@ -142,11 +142,61 @@
         "formal_rejects_demo_signer": "cross_write_forbidden",
         "note": "演练完成态 cosigned_demo 永不冒充正式 cosigned；正式通道拒演练签名者"
       },
+      "mr4_quartet": {
+        "module": "mirraeon/quartet_twins.py",
+        "seats": 4,
+        "seat_ids": [
+          "MIRRAEON-SLOT-C2-QUARTET-P1",
+          "MIRRAEON-SLOT-C2-QUARTET-P2",
+          "MIRRAEON-SLOT-C2-QUARTET-P3",
+          "MIRRAEON-SLOT-C2-QUARTET-P4"
+        ],
+        "professions": [
+          "人工智能科学家（AI for Science）",
+          "大规模系统工程师（AI 基础设施）",
+          "研究工程负责人（AI 研究工程）",
+          "人工智能安全研究员"
+        ],
+        "toolkit_anchors": [
+          "dao_define_problem",
+          "emergence_chain",
+          "hilbert_project",
+          "qi_algorithm_selection",
+          "quartet_tensor",
+          "shu_constraint_handling"
+        ],
+        "emergence_classic": {
+          "scores": {
+            "P1": 0.85,
+            "P2": 0.85,
+            "P3": 0.85,
+            "P4": 0.3
+          },
+          "resonance_count": 3,
+          "entropy": 0.476314,
+          "order": 0.523686,
+          "emergence": true,
+          "p2p3_frozen": 0.7
+        },
+        "twins_gate": {
+          "total": 11,
+          "passed": 11,
+          "failed": 0,
+          "verdict": "PASS"
+        },
+        "twins_lock": {
+          "locked": 4,
+          "all_locked": true,
+          "final_status": "baseline_locked"
+        },
+        "disclosure": "MIRROR_DISCLOSURE 常量：复刻对象为四人组在本工程中的职业判断模式，非真人思想；人格镜像按公开履历口径登记",
+        "scope": "单一真源＝quartet_toolkit.py 本体（14 技能 + 五步协议 + 权重矩阵 + 涌现四条件冻结）；语料只引玉安 version_history 域 quartet_run 实录"
+      },
       "batch_gate": {
-        "total": 98,
-        "passed": 98,
+        "total": 109,
+        "passed": 109,
         "failed": 0,
-        "parts": 11,
+        "parts": 12,
         "part_counts": {
           "mirror_ledger": 16,
           "scene": 11,
@@ -155,6 +205,7 @@
           "distill_demo": 12,
           "fidelity_eval": 8,
           "readme_sync": 3,
+          "quartet_twins": 11,
           "mirror_core": 18,
           "mech_registry": 5,
           "fragments": 5,
@@ -162,13 +213,14 @@
         }
       },
       "tests": {
-        "total": 89,
+        "total": 111,
         "py313": "OK",
         "py311": "OK",
         "files": [
           "test_mr1_mirror 25",
           "test_mr2_ledger 36",
-          "test_mr3_distill 28"
+          "test_mr3_distill 28",
+          "test_mr4_quartet_twins 22"
         ]
       },
       "readme_sync": {
@@ -179,7 +231,9 @@
       "boundaries": [
         "保真分不进 NUMBER_LEDGER（运行时分走 FIDELITY_REGISTRY + 审计行）",
         "演练签名者一律带 -demo，正式通道拒收",
-        "投喂 §7 原写「不 push 任何远端」，本批按碳基口令执行五地同步并如实登记偏离"
+        "投喂 §7 原写「不 push 任何远端」，本批按碳基口令执行五地同步并如实登记偏离",
+        "MR-V4：投喂 §7 原写「不 push 任何远端」，本批按碳基口令执行五地同步并如实登记偏离（沿用 MR-V3 惯例）",
+        "MR-V4：测试分项投喂截图记 25+36+28+28=117，实测 mr4 为 22 例、合计 111；以实测 111 为口径并登记分项误记"
       ],
       "seal": "潮起开门，潮落闭嘴"
     }
@@ -197,7 +251,7 @@
       "note": "V88 P1-A 方案A：仓外开发副本保留，以仓内正本为准；双登记不删史"
     }
   },
-  "v88_note": "P1-A 仓外脚本归位：unity_check.py / readme_claims_check.py 复制入 scripts/ 为正本，仓外原件保留 dev_copy；path_abs 指向仓内，仓外路径入 dev_copy 字段。\nV89-B（MR-V1 基座登记）：sites 追加 mirraeon；DOC_VERSION 0.9.81→0.9.82。\nV89-C（MR-V2 基座登记）：data/PROJECT_ENTRY_MIRRAEON.json 的 mirror_facts 增补 ledger/scene/slot/brain 四件与批总闸 73/73；DOC_VERSION 0.9.82→0.9.83。",
+  "v88_note": "P1-A 仓外脚本归位：unity_check.py / readme_claims_check.py 复制入 scripts/ 为正本，仓外原件保留 dev_copy；path_abs 指向仓内，仓外路径入 dev_copy 字段。\nV89-B（MR-V1 基座登记）：sites 追加 mirraeon；DOC_VERSION 0.9.81→0.9.82。\nV89-C（MR-V2 基座登记）：data/PROJECT_ENTRY_MIRRAEON.json 的 mirror_facts 增补 ledger/scene/slot/brain 四件与批总闸 73/73；DOC_VERSION 0.9.82→0.9.83。\nV89-D（MR-V3 基座登记）：mirror_facts 增补 distill/fidelity/ledger_v21 与批总闸 98/98（十一键）；DOC_VERSION 0.9.83→0.9.84。\nV89-E（MR-V4 基座登记）：mirror_facts 增补 mr4_quartet（四人组职业分身四席 + twins 闸 11/11 + 涌现四条件）；批总闸 109/109（十二键）；测试 111/111（四文件）；DOC_VERSION 0.9.84→0.9.85。",
   "sequence": [
     {
       "sub": "V87-A.1",
