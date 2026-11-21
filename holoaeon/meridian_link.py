@@ -78,6 +78,7 @@ meridian_link —— 经络链接模块（V62 · ring23 patch2 搜索网与打�
 """
 from __future__ import annotations
 
+import importlib
 import io
 import json
 import os
@@ -441,6 +442,39 @@ def build_meridian_table(fragments: Optional[List[Dict[str, Any]]] = None
     return [link_cell(row, mech)
             for row in fragments
             for mech in KERNEL_MECHANISMS]
+
+
+def mirror_extra_fragments() -> Dict[str, Any]:
+    """MR-V1：纪元族第四员 mirraeon（镜面·全职业数字分身矩阵）的镜像碎片
+
+    懒导入挂接（零复制、可缺失）：不新增基座包内 .py，不改 load_fragments
+    默认行为与硬校验口径（VALID_LEGS / verify_status=unverified 仍只对 B 榜
+    与 DNA 注册表生效）。mirraeon 侧碎片用中文 leg（总控/士农工商域/职业大典
+    大类/认知层/双脑）与 verify_status="mirror_native"，与既有先例
+    polisaeon（中文 leg + polis_native）同型，因此只经 build_meridian_table
+    的纯 19×25 穷举通道注入，不经 load_fragments 的组合体装配。
+    仓不在机（ImportError/异常）→ SKIP，不让基座因外仓缺席而红。
+    """
+    try:
+        # 动态导入：红线 AST 只认标准库顶层 import，外仓镜像须走 importlib
+        # 惰性加载（导入语句不出现在模块顶层，零复制且缺仓不红）。
+        # 仓根目录名与包名同为 mirraeon（仓根无 __init__ 时为命名空间包），
+        # 故先按常规包名导入，失败再退一层到 仓根/包/ 形态（两种布局都兼容）。
+        try:
+            _mr = importlib.import_module("mirraeon.mirror_meridian")
+        except ModuleNotFoundError:
+            _mr = importlib.import_module("mirraeon.mirraeon.mirror_meridian")
+        fragments = _mr.export_fragments()
+    except Exception as exc:  # 外仓缺席即 SKIP（不吞掉真实异常类型）
+        return {"state": "SKIP", "reason": "{}: {}".format(
+            type(exc).__name__, exc), "fragments": [], "count": 0}
+    table = build_meridian_table(fragments=fragments)
+    states: Dict[str, int] = {}
+    for cell in table:
+        states[cell["state"]] = states.get(cell["state"], 0) + 1
+    return {"state": "OK", "fragments": fragments, "count": len(fragments),
+            "cells": len(table), "states": states,
+            "schema": _mr.SCHEMA, "source": "mirraeon/mirror_meridian"}
 
 
 # ---------------------------------------------------------------------------

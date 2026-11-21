@@ -1,0 +1,46 @@
+{
+ "schema": "HOLOAEON-CTUP-ONBOARDING/1.0",
+ "seal": "潮起开门，潮落闭嘴",
+ "project": "mirraeon",
+ "project_cn": "镜面·全职业数字分身矩阵（士农工商 AI 个人助理赋能）",
+ "series": "MR",
+ "version": "0.1.0",
+ "batch": "MR-V1",
+ "relation": {
+  "base": "holoaeon",
+  "mechanism": "M11 城邦架构的个体粒度镜像（城×业双矩阵之业轴）；基座 G25 persona_quartet 数字分身先例的矩阵化",
+  "mechanism_axis": "25 位轴全注册（mirror_meridian.MIRROR_MECH_ALIASES）",
+  "channels": [
+   "meridian extra_fragments：export_fragments() 19 实体×25=475 格",
+   "CTUP v1.3 项目注册表 N7：本条目",
+   "五源对账：meridian_link.KERNEL_MECHANISMS 逐 id 一致"
+  ],
+  "open_source": false,
+  "remote": null,
+  "remote_note": "不开源：本地仓留根；远端建仓须碳基点单"
+ },
+ "mirror_facts": {
+  "realms": [
+   "士",
+   "农",
+   "工",
+   "商"
+  ],
+  "categories": 8,
+  "professions": 1639,
+  "cog_layers": [
+   "knowledge",
+   "reasoning",
+   "expression",
+   "boundary"
+  ],
+  "dual_brain": [
+   "soul",
+   "agent"
+  ]
+ },
+ "sister": "polisaeon（城）× mirraeon（业）——城×业交叉即场景",
+ "draft_note": "初稿 · 供内部讨论，非最终稿",
+ "cross_thread_call": "新线程：import mirror_core; mirror_core.check_mirror() → mirror_meridian.check_mech_registry()/check_injection()",
+ "honest_note": "本条目按 V89-A 先例不入 SHA256SUMS（保 362 定点）；S4 manifest 除外，S4 侧按 tracked blob 重算"
+}

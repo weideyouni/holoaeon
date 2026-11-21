@@ -151,14 +151,14 @@
       "timeboxed": false
     },
     {
-      "as_of_batch": "V84",
+      "as_of_batch": "V89-B",
       "evidence_class": "measured",
       "expected_from": "receipt.doc_version",
       "id": "doc_version_spec",
       "kind": "current",
       "note": "DOC_VERSION 唯一权威点（holoaeon/spec.py）",
       "readback": "spec.doc_version",
-      "sha16": "a45c5e77275b8ed1",
+      "sha16": "d3a51a6ef3a18dae",
       "timeboxed": false
     },
     {
@@ -424,8 +424,8 @@
       "non_evidence": [
         "runtime_snapshot"
       ],
-      "observed": "0.9.81",
-      "observed_at": "2026-11-20"
+      "observed": "0.9.82",
+      "observed_at": "2026-11-21"
     },
     "five_site_head": {
       "authority": "git_ls_remote_origin_main",
@@ -723,7 +723,7 @@
     }
   ],
   "schema": "CLAIMS-GATE-v1",
-  "self_digest": "8607f5544245ba59",
+  "self_digest": "c993313959b745e8",
   "totals": {
     "doc_claims": 21,
     "historical": 3,

@@ -127,7 +127,7 @@
   "genesis": {
     "base_head_measured": "c65d521",
     "base_head_note": "2026-11-17 V86 提交后现场 git rev-parse 回读：c65d521（批前 5d2bb37）；禁写死",
-    "doc_version_after": "0.9.81（V89 贝叶斯内核上基座批落地；母本 SHA 与 test_spec_sha256_matches_dna_master 同批回填）",
+    "doc_version_after": "0.9.82（V89-B MR-V1 基座登记：mirraeon 纪元族第四员 CTUP N7 + 经络镜像碎片懒导入挂接）",
     "doc_version_before": "0.9.79",
     "frozen": [
       "VERSION=0.9.1",
@@ -136,7 +136,7 @@
       "EXTRA_PACK_ORDER=19"
     ],
     "landed_head": "c65d521",
-    "spec_sha256_measured": "ae56e7babe73d0894ff77e52369576944a7eb59f4d8fe16bf3cdd8312df0708f",
+    "spec_sha256_measured": "d3a51a6ef3a18dae283eaf2066e6c984408468a2ab517133d69cf736d449aec4",
     "spec_sha256_note": "V89 贝叶斯内核上基座批（change_class=governance）现场重算：spec.py 仅改 DOC_VERSION 一行注释与号值，VERSION/RUNTIME_ID/MATRIX_ID 未动（ReproHash 黄金值 2fc892cf9af6e755 不受影响）；genome_hash 仍为 V87-A after 值（脱表型不脱基因）；母本与本断言同批回填，禁写死旧值。"
   },
   "genome_revision": {

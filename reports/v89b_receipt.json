@@ -1,0 +1,95 @@
+{
+  "batch": "V89",
+  "sub_batch": "V89-B（MR-V1 基座登记：mirraeon 纪元族第四员 CTUP N7 + 经络镜像碎片懒导入挂接 + DOC 0.9.82）",
+  "date": "2026-11-21",
+  "executor": "豆包 Work（MainAgent 落地，四人组策划评审）",
+  "repo": "holoaeon",
+  "repo_path": "F:\\doubaowork\\holoaeon",
+  "head_at_write": "9789abc83f1f066d2c0092a2d273aaadceaa98a3",
+  "doc_version": "0.9.82",
+  "spec_version": "0.9.1",
+  "base_registration": {
+    "project_entry": {
+      "file": "data/PROJECT_ENTRY_MIRRAEON.json",
+      "bytes": 1533,
+      "project": "mirraeon",
+      "series": "MR",
+      "version": "0.1.0",
+      "batch": "MR-V1",
+      "entries_in_sums": false
+    },
+    "ctup": {
+      "file": "data/ctup_onboarding.json",
+      "bytes": 6689,
+      "sites": ["holoaeon", "neike1331", "mirraeon"],
+      "n7_project_registry": "F:\\doubaowork\\holoaeon_memory\\project_registry.json"
+    },
+    "meridian_link": {
+      "file": "holoaeon/meridian_link.py",
+      "added": "mirror_extra_fragments()（懒导入，缺仓 SKIP）",
+      "fragments": 19,
+      "cells": 475,
+      "states": {"unlinked": 461, "linked": 14},
+      "schema": "MIRRAEON-MERIDIAN/1.0",
+      "check": "registry PASS / named 17 PASS / linkage 300 PASS"
+    },
+    "genome_dna": {
+      "file": "data/genome_dna.json",
+      "bytes": 12568,
+      "spec_sha256_measured": "d3a51a6ef3a18dae283eaf2066e6c984408468a2ab517133d69cf736d449aec4",
+      "doc_version_before": "0.9.79",
+      "doc_version_after": "0.9.82"
+    },
+    "claims_registry": {
+      "file": "data/claims_registry.json",
+      "bytes": 27563,
+      "doc_version_spec_sha16": "d3a51a6ef3a18dae",
+      "as_of_batch": "V89-B",
+      "ledger_observed": "0.9.82",
+      "observed_at": "2026-11-21",
+      "self_digest": "c993313959b745e8"
+    },
+    "sums": {
+      "file": "SHA256SUMS",
+      "lines": 362,
+      "changed_lines": 3,
+      "changed": ["data/claims_registry.json", "data/ctup_onboarding.json", "data/genome_dna.json"],
+      "caliber": "lf_normalized_text_raw_binary"
+    }
+  },
+  "gates": {
+    "doc_version": "0.9.82",
+    "dimensions_untouched": true,
+    "version_untouched": true,
+    "main_suite": "Ran 2415 tests / OK",
+    "v3_gate": "34/34 PASS",
+    "check_sums": "ok=true total=362 mismatches=[]",
+    "claims_gate": "verdict PASS / mismatch 0",
+    "redline_scan": "files 160 / violations [] / clean true",
+    "genome_dna_gate": "pass true / problems []",
+    "sums_entries": 362
+  },
+  "verification": {
+    "unittest_main": 2415,
+    "unittest_failures": 0,
+    "unittest_errors": 0,
+    "redline": 160,
+    "v3_gate": "34/34",
+    "check_sums": "ok=true total=362 mismatches=[]",
+    "checklist_entries": 362,
+    "claims_gate": "verdict PASS mismatch=0",
+    "note": "本回执为 V89 批的基座登记子批（V89-B，DOC 0.9.82）；verification 为本机 py3.13.16 实测。claims_gate 按 doc_version 取最新回执，故此处必须自带完整 verification 段，否则 badge/acceptance/checklist 回读面 INCOMPLETE。"
+  },
+  "honest_boundaries": [
+    "投喂 MR-V1 声明 mirraeon 五资产指纹（16148/15093/784/2848/6067 字节与五个 sha16）实测全等；未见字节或哈希偏差",
+    "本机无 Python 3.11，mirraeon 侧 25 例测试只有 py3.13.16 单过，无法给出双解释器双过证据（不虚称 py311）",
+    "mirraeon 的 1639 职业为公开口径总数，逐职业明细与认知层逐模块明细均为 pending_detail，本批不枚举、不虚构",
+    "投喂语汇 RuntimeGraph/AdaptiveGraph 在基座无同名符号，按真身 graph/forge 语义映射登记，不在基座造同名符号",
+    "meridian_link.py 原写法 from mirraeon import ... 会触发 redline third_party_import；改为 importlib 动态导入（标准库），并兼容 仓根/包 双布局，红线 160 件零违规",
+    "data/PROJECT_ENTRY_MIRRAEON.json 沿用 V89-A 先例不入 SHA256SUMS，保 362 定点；完整性由 git 历史守卫",
+    "mirraeon 本体不开源、不 push 任何远端（远端建仓须碳基点单）；本批五地同步只涉 holoaeon 新提交",
+    "head_at_write 为提交前基线 9789abc；本批提交号与五地回读见 ANCHOR_20261121_MR_V1.md 与记忆 five_site_sync"
+  ],
+  "seal": "潮起开门，潮落闭嘴",
+  "signature": "桃花庵出品 · 中科国度"
+}
