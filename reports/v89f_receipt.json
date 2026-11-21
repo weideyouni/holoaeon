@@ -1,0 +1,283 @@
+{
+ "schema": "holoaeon.receipt/v1",
+ "batch": "V89",
+ "sub_batch": "V89-F",
+ "batch_note": "V89 批基座登记子批 V89-F：登记 MR-V5 mirraeon 军团 66 席 + 算子注册表五族",
+ "date": "2026-11-22",
+ "executor": "本地 Windows PowerShell + py3.13.16（F:\\doubaowork\\holoaeon）",
+ "repo": "holoaeon",
+ "repo_path": "F:\\doubaowork\\holoaeon",
+ "head_at_write": "928fc569780b9e866cb0bc6ff71ba0be7682c206",
+ "head_at_write_note": "写回执时 HEAD 仍是 V89-E（父提交）；本批提交哈希在提交后才知道，自指不可能，故记父提交",
+ "doc_version": "0.9.86",
+ "doc_version_before": "0.9.85",
+ "spec_version": "0.9.1",
+ "base_registration": {
+  "spec": {
+   "bytes": 11179,
+   "sha256": "ee2bdf83a0f833256bac6ae8b9d7cae6c8e7c8b962d8bfdf75f897ed90aa6148",
+   "sha16": "ee2bdf83a0f83325"
+  },
+  "claims_registry": {
+   "bytes": 27618,
+   "sha256": "bbb4fb570163fcc364cecc312a6ef59c59382f99e88e8c257bed87e6b588cdc1",
+   "sha16": "bbb4fb570163fcc3"
+  },
+  "ctup_onboarding": {
+   "bytes": 15344,
+   "sha256": "ff7c1e14df2fb99708e75ec93947e96e1c0d9c9679dfbbf64dfee201b899ba42",
+   "sha16": "ff7c1e14df2fb997"
+  },
+  "genome_dna": {
+   "bytes": 12646,
+   "sha256": "c498f5d4f9de795db1cc8cb6efbbcd0f02bbbbf56c44b034702262d55a5c0e55",
+   "sha16": "c498f5d4f9de795d"
+  },
+  "project_entry": {
+   "bytes": 5360,
+   "sha256": "bbfa261248bfbb795bca2dbf293ad9feec0cf5f1d9ab99a3351ac7335e83a463",
+   "sha16": "bbfa261248bfbb79"
+  }
+ },
+ "doc_version_assertions": [
+  {
+   "rel": "tests/test_v22_eng_skills.py",
+   "line": 50,
+   "value": "0.9.86"
+  },
+  {
+   "rel": "tests/test_v64_hangover_zero.py",
+   "line": 396,
+   "value": "0.9.86"
+  },
+  {
+   "rel": "tests/test_v70_prehistory_criteria.py",
+   "line": 309,
+   "value": "0.9.86"
+  },
+  {
+   "rel": "tests/test_v84_tautology_golden_watch.py",
+   "line": 375,
+   "value": "0.9.86"
+  }
+ ],
+ "sums": {
+  "lines": 362,
+  "bytes": 34388,
+  "sha256": "6420bd4276ac0a4f90a1662770781805e8b8ad4d954cb8682968126dad815ccf",
+  "sha16": "6420bd4276ac0a4f",
+  "changed_lines": [
+   41,
+   44,
+   55
+  ],
+  "changed": [
+   {
+    "line": 41,
+    "path": "data/claims_registry.json",
+    "new": "bbb4fb570163fcc364cecc312a6ef59c59382f99e88e8c257bed87e6b588cdc1"
+   },
+   {
+    "line": 44,
+    "path": "data/ctup_onboarding.json",
+    "new": "ff7c1e14df2fb99708e75ec93947e96e1c0d9c9679dfbbf64dfee201b899ba42"
+   },
+   {
+    "line": 55,
+    "path": "data/genome_dna.json",
+    "new": "c498f5d4f9de795db1cc8cb6efbbcd0f02bbbbf56c44b034702262d55a5c0e55"
+   }
+  ],
+  "caliber": "LF 归一化文本原始字节（check_sums.py report_only）"
+ },
+ "mirror_batch": {
+  "batch_id": "MR-V5",
+  "feed": "AGENT_FEED_MR-V5_LEGION_66_20261122.md 11724B/6437c7add9bbb6ff",
+  "assets": [
+   {
+    "rel": "data/legion.csv",
+    "bytes": 7994,
+    "sha16": "ed6100d2b56e1326"
+   },
+   {
+    "rel": "mirraeon/ledger_legion.py",
+    "bytes": 13512,
+    "sha16": "2dbde0aaf08eb4f0"
+   },
+   {
+    "rel": "mirraeon/mirror_ledger.py",
+    "bytes": 20385,
+    "sha16": "139f04c00f1f41ca"
+   },
+   {
+    "rel": "tests/test_mr5_legion.py",
+    "bytes": 6438,
+    "sha16": "7f65d19eb2c24f7d"
+   },
+   {
+    "rel": "tests/test_mr2_ledger.py",
+    "bytes": 9722,
+    "sha16": "f563c46b8fef94af"
+   },
+   {
+    "rel": "README.md",
+    "bytes": 15875,
+    "sha16": "3548e80b95b5144e"
+   }
+  ],
+  "archives": [
+   {
+    "rel": "docs/README_MR-V4.md",
+    "bytes": 13853,
+    "sha16": "eba3203e62008700",
+    "from": "HEAD README.md（MR-V4 v2.2 基线，非投喂 §1.4 所写 MR-V3 版）"
+   },
+   {
+    "rel": "docs/mirror_ledger_v22.py.bak",
+    "bytes": 19780,
+    "sha16": "6ed717226467766a",
+    "tracked": false,
+    "note": "在盘、被 *.bak 忽略、未跟踪（与历批同口径）"
+   }
+  ],
+  "supersede_chain": "README(MR-V4 v2.2 eba3203e)→v2.3；mirror_ledger v2.2→v2.3；test_mr2 断言 10→11",
+  "frozen_four_untouched": true,
+  "batch_gate": 127,
+  "batch_gate_parts": 13,
+  "batch_gate_part_counts": {
+   "mirror_ledger": 16,
+   "scene": 11,
+   "occupation_slot": 8,
+   "brain_gate": 9,
+   "distill_demo": 12,
+   "fidelity_eval": 8,
+   "readme_sync": 3,
+   "quartet_twins": 11,
+   "ledger_legion": 18,
+   "mirror_core": 18,
+   "mech_registry": 5,
+   "fragments": 5,
+   "injection": 3
+  },
+  "legion_gate": {
+   "total": 18,
+   "passed": 18,
+   "failed": 0,
+   "verdict": "PASS"
+  },
+  "legion_total": 66,
+  "legion_teams": {
+   "思源队": 25,
+   "铸骨队": 18,
+   "通衢队": 12,
+   "格物队": 11
+  },
+  "legion_status": "evidence_fed",
+  "legion_b_correction": {
+   "ledger_says": 5,
+   "csv_measured": 6,
+   "EXPECTED_B_COUNT": 6
+  },
+  "operators": {
+   "families": [
+    "bind",
+    "unbind",
+    "bundle",
+    "permute",
+    "composite"
+   ],
+   "count": 5,
+   "all_assigned": true
+  },
+  "hdc": {
+   "prints": 66,
+   "prints_unique": true,
+   "engine": "hypervector.HypervectorSpace",
+   "sample": {
+    "LGN-士-001": {
+     "family": "bundle",
+     "print": "8b52014ca63eac93"
+    },
+    "LGN-士-002": {
+     "family": "bind",
+     "print": "db5fff956d6e08bf"
+    }
+   }
+  },
+  "tests": {
+   "total": 134,
+   "py313": "134 OK 2.658s",
+   "py311": "134 OK 2.804s",
+   "files": {
+    "test_mr1_mirror": 25,
+    "test_mr2_ledger": 36,
+    "test_mr3_distill": 28,
+    "test_mr4_quartet_twins": 22,
+    "test_mr5_legion": 23
+   }
+  },
+  "mirraeon_head_assets": "91609f60966f022dd1e467b5142a7f9e5b7547d1",
+  "mirraeon_head_final": "91609f60966f022dd1e467b5142a7f9e5b7547d1",
+  "mirraeon_tracked": 30,
+  "hf_mirror": {
+   "repo": "weideyouni/mirraeon",
+   "sha": "c44f24a164b0ad4d22ca6d9561f88b7547079cd4",
+   "files": 30,
+   "verdict": "PASS"
+  },
+  "cross_anchor": {
+   "Sutskever": "士/思源→P4 持衡",
+   "Hassabis": "工/铸骨→P1 探微",
+   "Dean": "工/铸骨→P2 筑基",
+   "Kavukcuoglu": "如实缺席"
+  }
+ },
+ "gates": {
+  "doc_version": "PASS 0.9.85→0.9.86（spec 一行 + 四处断言同批）",
+  "dimensions_untouched": "PASS 25/47/9（A1）",
+  "version_untouched": "PASS VERSION 0.9.1 / layers 8 / PACK_ORDER 9",
+  "main_suite": "2415 tests（见 verification.unittest_main）",
+  "v3_gate": "34/34 PASS",
+  "check_sums": "ok=true total=362 mismatches=[] unreadable=[]",
+  "claims_gate": "PASS（本回执补齐后复跑，见 verification.claims_gate）",
+  "redline_scan": "160 文件 0 违规",
+  "genome_dna_gate": "PASS 7/7（spec_byte_identical / dna_verify / genome_hash_diff0 / self_check_pass / cells_dynamic 12-300 / linkage_pass / registry_schema 3）",
+  "sums_entries": 362
+ },
+ "verification": {
+  "feed": "AGENT_FEED_MR-V5_LEGION_66_20261122.md 11724B/6437c7add9bbb6ff",
+  "isolation_copy": "F:\\doubaowork\\mirraeon_mr5_verify（HEAD zip 解包，非 git 仓）+ $env:TEMP\\mr5_post（提交后干净树 30 件）",
+  "clean_run": "批闸 127/127（十三键）、legion 18/18、hv 66 全唯一、测试 134/134 双解释器，全部在隔离副本与干净树实测",
+  "unittest_main": 2415,
+  "unittest_failures": 0,
+  "unittest_errors": 0,
+  "unittest_note": "receipt 落盘前首跑 2415 例 39.064s，5 FAIL 全部由本回执缺失级联（doc_version_spec 读旧回执 0.9.85）；落盘后复跑见 unittest_rerun",
+  "unittest_rerun": "Ran 2415 tests in 39.221s OK（rc=0，py3.13.16，%TEMP%\\v89f_suite_2.log，2026-11-22）",
+  "redline": 160,
+  "v3_gate": "34/34",
+  "check_sums": "ok=true total=362 mismatches=[]",
+  "checklist_entries": 362,
+  "genome_dna_gate": "pass=true problems=[]",
+  "claims_gate": "PASS（回执落盘后复跑 claims_gate 无 mismatch）",
+  "note": "本回执为 V89 批基座登记子批 V89-F（DOC 0.9.86，承接 V89-E/MR-V4，登记 MR-V5 军团 66 + 算子注册表五族）。"
+ },
+ "anomalies": [
+  "投喂/截图口径写 DOC 0.9.84→0.9.85，但基座在 MR-V4 的 V89-E 已到 0.9.85；本批按真递增落 0.9.86，偏离如实登记。",
+  "投喂 §1.4 称 V89-D 覆写 README 后基线为 MR-V3 版 6239c9b5；真基线实测为 MR-V4 v2.2 eba3203e（HEAD 抽件 13853B），以实测为准。",
+  "回执首跑前 5 例 FAIL 由回执缺失造成（doc_version_spec 指最新回执），非代码缺陷。"
+ ],
+ "honest_boundaries": [
+  "军团 66 席状态 evidence_fed：语料全为逻辑占位 corpus_uri=vector://salvage/legion/NNN，真实语料回填属 SALVAGE 阶段，三未清零不进 baseline_locked。",
+  "军团 domain「科」不入 SNGB 士农工商四域，属军团内部编队口径；农 0 席＝圈层截断如实。",
+  "B 级席位账面 5 vs CSV 实测 6：以 CSV 为准，EXPECTED_B_COUNT=6 双断言。",
+  "算子五族契约齐、66 算子全归族、66 枚耦合指纹经基座 hypervector.HypervectorSpace 真算且全唯一；HDC 后验数学留基座。",
+  "跨锚仅 Sutskever/Hassabis/Dean 三人，Kavukcuoglu 如实缺席，两套分类不强行统一。",
+  "投喂 §7 写「不 push 任何远端」，与口令「五地同步」冲突，按口令 push 并在此登记偏离。",
+  "MR-V5 测试分项截图记 25+36+28+28+23=140，实测 25+36+28+22+23=134，截图误记沿袭 V4 的 28。",
+  "README 与 mirraeon 内 mirror_ledger 的 batch 字段仍 \"MR-V2\"（历史三标签不一致之一），改则破指纹，故不动。",
+  "ResourceWarning mirror_ledger.py 未关 README 句柄：修则破指纹，保留并披露。",
+  "holoaeon 冻结维度（VERSION 0.9.1 / layers 8 / PACK_ORDER 9）本批未动。"
+ ],
+ "seal": "潮起开门，潮落闭嘴",
+ "signature": "桃花庵出品 / 中科国度 · V89-F MR-V5"
+}

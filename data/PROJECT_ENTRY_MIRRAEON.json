@@ -5,7 +5,7 @@
   "project_cn": "镜面·全职业数字分身矩阵（士农工商 AI 个人助理赋能）",
   "series": "MR",
   "version": "0.1.0",
-  "batch": "MR-V4",
+  "batch": "MR-V5",
   "relation": {
     "base": "holoaeon",
     "mechanism": "M11 城邦架构的个体粒度镜像（城×业双矩阵之业轴）；基座 G25 persona_quartet 数字分身先例的矩阵化",
@@ -44,7 +44,7 @@
       "slot": "occupation_slot.py：七字段席位契约 + pending_detail→evidence_fed→validated→baseline_locked 四状态单步前进 + 8 闸",
       "brain": "brain_gate.py：Reject 不入账 / downgrade 建议态 / human 挂起待碳基三分流，pass 唯一入账 + 9 闸 + 审计行 + V89 信封只发不算"
     },
-    "batch_gate": "109/109 PASS（core 18 / ledger 16 / scene 11 / slot 8 / brain 9 / distill 12 / fidelity 8 / readme_sync 3 / quartet_twins 11 / mech_registry 5 / fragments 5 / injection 3）",
+    "batch_gate": "127/127 PASS（core 18 / ledger 16 / scene 11 / slot 8 / brain 9 / distill 12 / fidelity 8 / readme_sync 3 / quartet_twins 11 / ledger_legion 18 / mech_registry 5 / fragments 5 / injection 3）",
     "mr3_components": {
       "distill": "distill_demo.py：四层真内容蒸馏（6 知识 K01–K06 + 13 规则 R01–R13 含 3 干扰 + 3 表达 + 3 红线）+ 真状态机流转至 baseline_locked + 12 闸",
       "fidelity": "fidelity_eval.py：10 题决策盲测 + 确定性关键词契约匹配 + 10/10 命中 / 分 1.0 / 及格线 8 + 8 闸",
@@ -55,10 +55,18 @@
       "twins_lock": "四席走 occupation_slot 真状态机：evidence_fed 直挂 + pending_detail 真三步流转 → 四席全 baseline_locked",
       "disclosure": "MIRROR_DISCLOSURE 常量 + 测试断言：复刻对象为本工程职业判断模式，非真人思想；不虚称真人本人在此执业"
     },
+    "mr5_components": {
+      "ledger_legion": "ledger_legion.py：军团 66 席（思源队 25 / 铸骨队 18 / 通衢队 12 / 格物队 11），CSV 逐字落盘（UTF-8 BOM→utf-8-sig 兼容），18 闸 LEGION-GATE 并入批总闸第十三键",
+      "operators": "OPERATOR_FAMILIES 五族（bind/unbind/bundle/permute/composite），每族 hv_op + 形状 + 失败回执码（legion_bind_ok / legion_unbind_ok / legion_bundle_ok / legion_permute_ok / legion_composite_ok），66 算子全归族",
+      "hdc": "经基座 hypervector.HypervectorSpace 真算 66 枚耦合指纹，prints_unique=true；样例 LGN-士-001 bundle=8b52014ca63eac93、LGN-士-002 bind=db5fff956d6e08bf（确定性双跑逐字一致）",
+      "legion_status": "军团状态 evidence_fed（三未清零不落 baseline_locked）；corpus_uri=vector://salvage/legion/NNN 全逻辑占位，真实语料回填属 SALVAGE 阶段",
+      "layer_note": "军团 domain「科」不入 SNGB 士农工商四域，属军团内部编队口径；与 occupation_slot 大典归类分层不混用（农 0 席＝圈层截断如实）",
+      "b_correction": "B 级席位账面 5→CSV 实测 6（田丰/王元卓/张鹏/姜大昕/Kevin Kelly/苏昊），EXPECTED_B_COUNT=6 双断言"
+    },
     "first_locked_slot": "MIRRAEON-SLOT-C2-KFXZZRY-001（康复医学主任医师，1639 席位首个落锁）"
   },
   "sister": "polisaeon（城）× mirraeon（业）——城×业交叉即场景",
   "draft_note": "初稿 · 供内部讨论，非最终稿",
-  "cross_thread_call": "新线程：import mirror_core; mirror_core.check_mirror() → mirror_meridian.check_mech_registry()/check_injection() → mirror_ledger.check_batch()（MR-V4 批总闸 109/十二键）；四人组四席走 quartet_twins.check_twins()/run_quartet_emergence()",
+  "cross_thread_call": "新线程：import mirror_core; mirror_core.check_mirror() → mirror_meridian.check_mech_registry()/check_injection() → mirror_ledger.check_batch()（MR-V5 批总闸 127/十三键）；军团走 ledger_legion.check()/hv()/families()；四人组四席走 quartet_twins.check_twins()/run_quartet_emergence()",
   "honest_note": "本条目按 V89-A 先例不入 SHA256SUMS（保 362 定点）；S4 manifest 除外，S4 侧按 tracked blob 重算"
 }

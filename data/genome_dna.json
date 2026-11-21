@@ -127,8 +127,8 @@
   "genesis": {
     "base_head_measured": "c65d521",
     "base_head_note": "2026-11-17 V86 提交后现场 git rev-parse 回读：c65d521（批前 5d2bb37）；禁写死",
-    "doc_version_after": "0.9.85（V89-E MR-V4 基座登记：四人组职业分身 quartet_twins 四席（P1 升维/远、P2 筑基/实、P3 构弦/衡、P4 持衡/戒）+ 批总闸 109/109（十二键）+ 测试 111/111 + 四席落锁 4/4）",
-    "doc_version_before": "0.9.84",
+    "doc_version_after": "0.9.86（V89-F MR-V5 基座登记：军团 ledger_legion 66 席（思源 25/铸骨 18/通衢 12/格物 11，evidence_fed）+ 算子注册表五族（bind/unbind/bundle/permute/composite）+ 66 枚 HDC 指纹全唯一 + 批总闸 127/127（十三键）+ 测试 134/134）",
+    "doc_version_before": "0.9.85",
     "frozen": [
       "VERSION=0.9.1",
       "layers=L1-L8",
@@ -136,8 +136,8 @@
       "EXTRA_PACK_ORDER=19"
     ],
     "landed_head": "c65d521",
-    "spec_sha256_measured": "e29172618fbfa0b385e9031404d37842bbc0a6ff9eee22656a699e68c2643561",
-    "spec_sha256_note": "V89-E（MR-V4 基座登记，change_class=governance）现场重算：spec.py 仅改 DOC_VERSION 一行（号值与注释），VERSION/RUNTIME_ID/MATRIX_ID 未动（ReproHash 黄金值 2fc892cf9af6e755 不受影响）；genome_hash 仍为 V87-A after 值；四处测试断言同批 0.9.84→0.9.85 回填。"
+    "spec_sha256_measured": "ee2bdf83a0f833256bac6ae8b9d7cae6c8e7c8b962d8bfdf75f897ed90aa6148",
+    "spec_sha256_note": "V89-F（MR-V5 基座登记，change_class=governance）现场重算：spec.py 仅改 DOC_VERSION 一行（号值与注释），VERSION/RUNTIME_ID/MATRIX_ID 未动；genome_hash 仍为 V87-A after 值；四处测试断言同批 0.9.85→0.9.86 回填。"
   },
   "genome_revision": {
     "after": "84876958e3936c50bf5ce058f716a5a3a1bb9194b7a22f15185cb401fce16707",
