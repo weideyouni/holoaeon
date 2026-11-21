@@ -151,14 +151,14 @@
       "timeboxed": false
     },
     {
-      "as_of_batch": "V89-B",
+      "as_of_batch": "V89-C",
       "evidence_class": "measured",
       "expected_from": "receipt.doc_version",
       "id": "doc_version_spec",
       "kind": "current",
-      "note": "DOC_VERSION 唯一权威点（holoaeon/spec.py）",
+      "note": "DOC_VERSION 唯一权威点（holoaeon/spec.py）；MR-V2 基座登记同批重钉",
       "readback": "spec.doc_version",
-      "sha16": "d3a51a6ef3a18dae",
+      "sha16": "789719e13ca39d6d",
       "timeboxed": false
     },
     {
@@ -424,7 +424,7 @@
       "non_evidence": [
         "runtime_snapshot"
       ],
-      "observed": "0.9.82",
+      "observed": "0.9.83",
       "observed_at": "2026-11-21"
     },
     "five_site_head": {
@@ -723,7 +723,7 @@
     }
   ],
   "schema": "CLAIMS-GATE-v1",
-  "self_digest": "c993313959b745e8",
+  "self_digest": "7c6cfaebcbccc925",
   "totals": {
     "doc_claims": 21,
     "historical": 3,

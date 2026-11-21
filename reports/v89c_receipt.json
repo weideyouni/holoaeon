@@ -1,0 +1,114 @@
+{
+  "batch": "V89",
+  "sub_batch": "V89-C（MR-V2 基座登记：mirraeon 账本/席位契约/双脑失败路径/场景双签四件 + 批总闸 73/73 + DOC 0.9.83）",
+  "date": "2026-11-21",
+  "executor": "豆包 Work（MainAgent 落地，四人组策划评审）",
+  "repo": "holoaeon",
+  "repo_path": "F:\\doubaowork\\holoaeon",
+  "head_at_write": "b411db54beb305109a02b52a7f5667ded0776596",
+  "doc_version": "0.9.83",
+  "spec_version": "0.9.1",
+  "base_registration": {
+    "project_entry": {
+      "file": "data/PROJECT_ENTRY_MIRRAEON.json",
+      "bytes": 2368,
+      "project": "mirraeon",
+      "series": "MR",
+      "version": "0.1.0",
+      "batch": "MR-V2",
+      "mr2_components": ["ledger", "scene", "slot", "brain"],
+      "batch_gate": "73/73 PASS（core 18 / ledger 16 / scene 9 / slot 8 / brain 9 / mech_registry 5 / fragments 5 / injection 3）",
+      "entries_in_sums": false
+    },
+    "ctup": {
+      "file": "data/ctup_onboarding.json",
+      "bytes": 6861,
+      "sites": ["holoaeon", "neike1331", "mirraeon"],
+      "v88_note_append": "V89-C（MR-V2 基座登记）：mirror_facts 增补 ledger/scene/slot/brain 四件与批总闸 73/73；DOC_VERSION 0.9.82→0.9.83。"
+    },
+    "genome_dna": {
+      "file": "data/genome_dna.json",
+      "bytes": 12554,
+      "spec_sha256_measured": "789719e13ca39d6d621efbfe99ec169f64611239637f0835e11cafce1d94f46b",
+      "doc_version_before": "0.9.82",
+      "doc_version_after": "0.9.83"
+    },
+    "claims_registry": {
+      "file": "data/claims_registry.json",
+      "bytes": 27596,
+      "doc_version_spec_sha16": "789719e13ca39d6d",
+      "as_of_batch": "V89-C",
+      "ledger_observed": "0.9.83",
+      "observed_at": "2026-11-21",
+      "self_digest": "7c6cfaebcbccc925"
+    },
+    "sums": {
+      "file": "SHA256SUMS",
+      "lines": 362,
+      "changed_lines": 3,
+      "changed": ["data/claims_registry.json", "data/ctup_onboarding.json", "data/genome_dna.json"],
+      "caliber": "lf_normalized_text_raw_binary"
+    },
+    "spec": {
+      "file": "holoaeon/spec.py",
+      "bytes": 10948,
+      "sha256": "789719e13ca39d6d621efbfe99ec169f64611239637f0835e11cafce1d94f46b",
+      "change": "DOC_VERSION 0.9.82→0.9.83（号值与行尾注释），VERSION/RUNTIME_ID/MATRIX_ID 未动",
+      "entries_in_sums": false
+    },
+    "doc_version_assertions": {
+      "files": [
+        "tests/test_v22_eng_skills.py",
+        "tests/test_v64_hangover_zero.py",
+        "tests/test_v70_prehistory_criteria.py",
+        "tests/test_v84_tautology_golden_watch.py"
+      ],
+      "each_occurrences": 1,
+      "value": "0.9.83"
+    }
+  },
+  "mirror_batch": {
+    "batch_id": "MR-V2",
+    "repo": "F:\\doubaowork\\mirraeon",
+    "repo_head": "b704f73",
+    "repo_commit_stat": "7 files changed, 1397 insertions(+), 11 deletions(-)",
+    "batch_gate": {"total": 73, "passed": 73, "failed": 0, "verdict": "PASS"},
+    "tests": {"ran": 61, "python": "3.13.16", "verdict": "OK"},
+    "repo_remote": null,
+    "open_source": false
+  },
+  "gates": {
+    "doc_version": "0.9.83",
+    "dimensions_untouched": true,
+    "version_untouched": true,
+    "main_suite": "Ran 2415 tests / OK",
+    "v3_gate": "34/34 PASS",
+    "check_sums": "ok=true total=362 mismatches=[]",
+    "claims_gate": "verdict PASS / mismatch 0",
+    "redline_scan": "files 160 / violations [] / clean true",
+    "genome_dna_gate": "pass true / problems []",
+    "sums_entries": 362
+  },
+  "verification": {
+    "unittest_main": 2415,
+    "unittest_failures": 0,
+    "unittest_errors": 0,
+    "redline": 160,
+    "v3_gate": "34/34",
+    "check_sums": "ok=true total=362 mismatches=[]",
+    "checklist_entries": 362,
+    "claims_gate": "verdict PASS mismatch=0",
+    "note": "本回执为 V89 批的基座登记子批（V89-C，DOC 0.9.83，承接 V89-B/MR-V1）；verification 为本机 py3.13.16 实测。本机无 py3.11，不声称双解释器双过。"
+  },
+  "honest_boundaries": [
+    "本机无 Python 3.11：mirraeon 61 例测试仅 py3.13.16 单过，截图的 3.13+3.11 双过只能如实登记为单过",
+    "mirraeon 侧断言与文档口径已实测：批总闸 73/73、测试 61/61；截图修复实录四条（批闸双计 91→73、数字 4 合法双现改名称唯一判据、样例措辞与闸判据对齐、测试断言 or 顺序）已逐条对码复核",
+    "mirraeon 1639 职业明细仍为 pending_detail：席位契约只立流程不造内容，schema_demo 内容全占位零虚构",
+    "holoaeon/spec.py 未入 SHA256SUMS（沿 V89-A/V89-B 先例），其完整性由 genome_dna.spec_sha256_measured 与测试断言双重守卫",
+    "data/PROJECT_ENTRY_MIRRAEON.json 不入 SHA256SUMS，保 362 定点；完整性由 git 历史守卫",
+    "claim 侧 head / five_site_head / batch_stage / carbon_intent 为 DECLARED_ONLY，本批未刷新；head_at_write 为提交前基线 b411db5",
+    "mirraeon 本体不开源、不 push 任何远端（远端建仓须碳基点单）；本批五地同步只涉 holoaeon 新提交"
+  ],
+  "seal": "潮起开门，潮落闭嘴",
+  "signature": "桃花庵出品 · 中科国度"
+}

@@ -109,7 +109,7 @@
    "note": "V88 P1-A 方案A：仓外开发副本保留，以仓内正本为准；双登记不删史"
   }
  },
- "v88_note": "P1-A 仓外脚本归位：unity_check.py / readme_claims_check.py 复制入 scripts/ 为正本，仓外原件保留 dev_copy；path_abs 指向仓内，仓外路径入 dev_copy 字段。\nV89-B（MR-V1 基座登记）：sites 追加 mirraeon；DOC_VERSION 0.9.81→0.9.82。",
+ "v88_note": "P1-A 仓外脚本归位：unity_check.py / readme_claims_check.py 复制入 scripts/ 为正本，仓外原件保留 dev_copy；path_abs 指向仓内，仓外路径入 dev_copy 字段。\nV89-B（MR-V1 基座登记）：sites 追加 mirraeon；DOC_VERSION 0.9.81→0.9.82。\nV89-C（MR-V2 基座登记）：data/PROJECT_ENTRY_MIRRAEON.json 的 mirror_facts 增补 ledger/scene/slot/brain 四件与批总闸 73/73；DOC_VERSION 0.9.82→0.9.83。",
  "sequence": [
   {
    "sub": "V87-A.1",
