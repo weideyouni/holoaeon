@@ -96,7 +96,7 @@
     ],
     "mirraeon_note": "MR-V1 纪元族第四员：F:\\doubaowork\\mirraeon（镜面·全职业数字分身矩阵，士农工商 1639 职业/四域 SNGB/八大类 C1-C8/四层认知契约/双脑解耦）；CTUP 条目 data/PROJECT_ENTRY_MIRRAEON.json（按 V89-A 先例不入 SHA256SUMS，保 362 定点）；经络挂接走 meridian_link.mirror_extra_fragments() 懒导入（中文 leg + mirror_native，只经 build_meridian_table 纯 19×25 通道，不进 load_fragments 硬校验组合体）；不开源、不推任何远端（远端建仓须碳基点单）",
     "mirror_facts": {
-      "batch": "MR-V7",
+      "batch": "MR-V8",
       "as_of": "2026-11-22",
       "distill": {
         "module": "mirraeon/distill_demo.py",
@@ -391,11 +391,107 @@
         "sha_label_note": "投喂 §2 七资产指纹标注「sha16」，实测为 MD5-16（7/7 全中）；同件 SHA-256-16 全不中，判定算法标签口径而非资产漂移，按 MD5 验收通过并如实登记",
         "boundary_note": "催化模板只产追问与清单不产评分；3 错号只登记不回改投喂方历史文档；名字主键对军团主表 140 条生效；alias/slice 仍待碳基终裁；quartet_tensor.csv 不入仓"
       },
+      "mr8_gap_audit_slot_bridge": {
+        "modules": [
+          "mirraeon/gap_audit.py",
+          "mirraeon/legion_slot_bridge.py",
+          "tests/test_mr8_gap_bridge.py"
+        ],
+        "gap_audit": {
+          "gates": 12,
+          "rows": 17,
+          "kind_counts": {
+            "awaiting_carbon": 7,
+            "bridged": 4,
+            "designed": 3,
+            "resolved": 3
+          },
+          "awaiting_carbon_7": [
+            "alias 3 裁定（梁=cost-performance-pareto / 姚=task-tool-trajectory / 周=platform-model-scenario，canonical 收敛后启用禁别名闸）",
+            "slice 4 处置（陈天石 / 闫俊杰 / 何庭波 / 杨植麟）",
+            "mirraeon GitHub 可见性（public→private）",
+            "docs/*.bak 是否 git add -f 入库",
+            "MR-V6 回执 S4/S5 双时点是否回写",
+            "holoaeon 122 行历史 AGENT_FEED_*.md 清理口径",
+            "个人级蒸馏个人语料投喂时点"
+          ],
+          "bridged_4": [
+            "军团↔席位桥断链（金芝为单点手写军团→席位桥，本批泛化为机制）",
+            "E5/E6 试点扩容 3 人（彭鑫 P-0107 / 车万翔 P-0108 / 谢吉宝 P-0115）",
+            "团队 7 entity_owner 空壳",
+            "短板无总账"
+          ],
+          "designed_3": [
+            "个人级蒸馏真链路（evidence_fed→认知四层真内容→validated→fidelity_eval 重测→baseline_locked）",
+            "城×业正式双签（待 polisaeon / PA 系列）",
+            "军团进五步协议（MR-V9+ 全员调度器）"
+          ],
+          "resolved_3": [
+            "tracked 775 vs 记忆 773 = 时点差非丢失件（实测 773→775→776 递增）",
+            "「sha16」标签实为 MD5-16（按 SHA-256 比对全不中，按 MD5 验收通过）",
+            "BATCH 恒 MR-V2 = 建账 schema 标称批，非各批标签（不迁就改常量）"
+          ],
+          "authority": "短板不再口头漂流：每条缺口带类别 / owner / 方案 / 模块指针"
+        },
+        "legion_slot_bridge": {
+          "gates": 12,
+          "bridge_rows": 133,
+          "first_principle": "军团（人域 name 主键）与席位（职业域 slot_id 主键）是两个主键域；桥是双域登记簿，不是合并",
+          "slot_id_rule": "桥值 = MIRRAEON-SLOT-C2-LEGION-P<编号去横杠>，确定性派生（承金芝 P0105 先例）",
+          "status_rule": "桥行状态一律 evidence_fed，不落锁；真状态机只对试点走；桥登记≠真席位",
+          "teams_excluded": 7,
+          "teams_excluded_note": "团队 7 是索引节点不是自然人，不进桥",
+          "pilots": {
+            "金芝": {
+              "person_id": "P0105",
+              "track": "承接 MR-V6",
+              "status": "validated"
+            },
+            "彭鑫": {
+              "person_id": "P-0107",
+              "track": "E5",
+              "status": "validated"
+            },
+            "车万翔": {
+              "person_id": "P-0108",
+              "track": "E5",
+              "status": "validated"
+            },
+            "谢吉宝": {
+              "person_id": "P-0115",
+              "track": "E6",
+              "status": "validated",
+              "note": "E6 非 E5，按军团主表真值"
+            }
+          },
+          "pilot_rule": "试点 1→4，cognitive 四层取公开学术口径职业判断模式，不落锁",
+          "readback": "bridge_names_match_master 零虚构零遗漏；slot_ids_unique 133 枚；TEAM_IN_BRIDGE=[]"
+        },
+        "team_entity_owner": {
+          "count": 7,
+          "owners": {
+            "Anthropic": "Anthropic",
+            "Anysphere": "Anysphere",
+            "Cognition": "Cognition",
+            "GitHub": "GitHub·Microsoft",
+            "OpenAI": "OpenAI",
+            "信通院": "中国信通院",
+            "上海AI实验室": "上海AI实验室×华东师大"
+          },
+          "member_list": "不虚构名单；policy=count_on_public_evidence_pending"
+        },
+        "receipt_rulings": [
+          "「sha16」实为 MD5-16：MR-V7 按 MD5 验收正确，MR-V8 起投喂包如实标注 md5-16",
+          "BATCH 恒 MR-V2：建账时立的 schema 标称批，四人组明确「不迁就改常量」",
+          "tracked 775 vs 记忆 773：每批新增 reports/v89x_receipt.json，时点差非丢失件"
+        ],
+        "boundary_note": "A 类 7 项一条不动等碳基点单；桥≠真席位；试点只到 validated；公开口径占位；真实语料回填前禁入 baseline_locked；团队 member_list 不虚构；个人级蒸馏只交设计"
+      },
       "batch_gate": {
-        "total": 144,
-        "passed": 144,
+        "total": 168,
+        "passed": 168,
         "failed": 0,
-        "parts": 15,
+        "parts": 17,
         "part_counts": {
           "mirror_ledger": 16,
           "scene": 11,
@@ -411,11 +507,13 @@
           "mirror_core": 18,
           "mech_registry": 5,
           "fragments": 5,
-          "injection": 3
+          "injection": 3,
+          "gap_audit": 12,
+          "legion_slot_bridge": 12
         }
       },
       "tests": {
-        "total": 161,
+        "total": 187,
         "py313": "OK",
         "py311": "OK",
         "files": [
@@ -424,7 +522,8 @@
           "test_mr3_distill 28",
           "test_mr4_quartet_twins 22",
           "test_mr6_legion_merge 24",
-          "test_mr7_catalyst 26"
+          "test_mr7_catalyst 26",
+          "test_mr8_gap_bridge 26"
         ]
       },
       "readme_sync": {
@@ -452,10 +551,14 @@
         "MR-V7：第四例并行写事故——tmp_mr7 初拷基座为 mirror_ledger v2.3 非 v2.4，处置为清空重建于四人组权威缓存 tmp_mr6 的 v2.4 基座，v2.5 三处 Edit 在正确基座上完成；权威交付源 .tmp_mr7，动仓文件先拷贝留根，不移动/删除他人落位件",
         "MR-V7：docs/*.bak 四处归档被 .gitignore *.bak 忽略（在盘未跟踪）；docs/README_MR-V6.md 可跟踪入库；4 个 *.bak 是否 git add -f 入库待裁",
         "MR-V7：三条拒收裁决——numpy 依赖违反零依赖→纯标准库重写；模拟四人组评分冒充证明→拒收（涌现数学留 quartet_toolkit）；验收预填值 P4=0.35 等预演冒充实测→拒收（只认实跑回读值）；NO_SCORE_DISCLOSURE 为拒收声明非评分",
-        "MR-V7：seat_match 只登记 3 处错号纠正账（Sanjay/Matei/Ion），不回改投喂方历史文档；名字主键对军团主表 140 条生效；同义异名 3 / 合法切片 4 仍未裁定"
+        "MR-V7：seat_match 只登记 3 处错号纠正账（Sanjay/Matei/Ion），不回改投喂方历史文档；名字主键对军团主表 140 条生效；同义异名 3 / 合法切片 4 仍未裁定",
+        "MR-V8：A 类 7 项（alias 3 / slice 4 / GitHub 可见性 / .bak 入库 / S4S5 双时点回写 / 122 行历史 AGENT_FEED 清理口径 / 个人语料投喂时点）一律挂起未动，每条带执行方案，等碳基逐项点单",
+        "MR-V8：桥登记≠真席位——133 行桥状态一律 evidence_fed 不落锁，真状态机只对试点 4 人走；团队 7 不进桥（索引节点纪律）；member_list 不虚构（policy=count_on_public_evidence_pending）；公开学术口径占位不落锁",
+        "MR-V8：投喂件自本批起如实标注 md5-16（MR-V7 所称「sha16」实为 MD5-16，按 SHA-256 比对全不中）；mirror_ledger check_batch() 的 batch 恒 MR-V2 属建账 schema 标称批，四人组裁决不迁就改常量，顶层 batch=MR-V2 为已知 anomaly",
+        "MR-V8：holoaeon tracked 775 vs 记忆 773 = 时点差非丢失件（每批新增 reports/v89x_receipt.json，实测 773→775→776 递增）；C 类 3 项仅交设计不落地实现；单体语料未到前禁止把桥登记当作能力已锁"
       ],
       "seal": "潮起开门，潮落闭嘴",
-      "ledger_rows": 15
+      "ledger_rows": 17
     }
   },
   "readme_claims_py": {
@@ -471,7 +574,7 @@
       "note": "V88 P1-A 方案A：仓外开发副本保留，以仓内正本为准；双登记不删史"
     }
   },
-  "v88_note": "P1-A 仓外脚本归位：unity_check.py / readme_claims_check.py 复制入 scripts/ 为正本，仓外原件保留 dev_copy；path_abs 指向仓内，仓外路径入 dev_copy 字段。\nV89-B（MR-V1 基座登记）：sites 追加 mirraeon；DOC_VERSION 0.9.81→0.9.82。\nV89-C（MR-V2 基座登记）：data/PROJECT_ENTRY_MIRRAEON.json 的 mirror_facts 增补 ledger/scene/slot/brain 四件与批总闸 73/73；DOC_VERSION 0.9.82→0.9.83。\nV89-D（MR-V3 基座登记）：mirror_facts 增补 distill/fidelity/ledger_v21 与批总闸 98/98（十一键）；DOC_VERSION 0.9.83→0.9.84。\nV89-E（MR-V4 基座登记）：mirror_facts 增补 mr4_quartet（四人组职业分身四席 + twins 闸 11/11 + 涌现四条件）；批总闸 109/109（十二键）；测试 111/111（四文件）；DOC_VERSION 0.9.84→0.9.85。\nV89-F（MR-V5 基座登记）：mirror_facts 增补 mr5_legion（军团 66 席 + 算子五族 + 66 枚 HDC 指纹 + legion 闸 18/18 + evidence_fed）；批总闸 127/127（十三键）；测试 134/134（五文件）；DOC_VERSION 0.9.85→0.9.86。\nV89-G（MR-V6 基座登记）：mirror_facts 增补 mr6_legion（军团 133 跨轴合并三表 66/83/140 自洽、跨轴 9 双证据链、HV 133 unique、军团闸 15/15、E5 金芝 P-0105 validated、140 evidence_fed / B=19 / uri 逻辑占位 / 68 作废闸、同义异名 3 与合法切片 4 待终裁）；批总闸 124/124（十三键）；测试 135/135（五文件）；DOC_VERSION 0.9.86→0.9.87。\nV89-H（MR-V7 基座登记）：mirror_facts 增补 mr7_catalyst_seat_match（catalyst 13 闸 野心四问×五步映射 道=range/法=depth/术=depth/器=speed/升维=altitude；五步主导权取 quartet_toolkit 单一真源；seat_match 7 闸 名字主键编号派生、dispatch 3 错号 P-0067/P-0071/P-0072、P-0006=Michael I. Jordan、四席 P-0028/P-0029/P-0094/P-0008；三条拒收裁决；第四例并行写事故处置）；批总闸 144/144（十五键）；测试 161/161（六文件）；NUMBER_LEDGER 15 行；DOC_VERSION 0.9.87→0.9.88。",
+  "v88_note": "P1-A 仓外脚本归位：unity_check.py / readme_claims_check.py 复制入 scripts/ 为正本，仓外原件保留 dev_copy；path_abs 指向仓内，仓外路径入 dev_copy 字段。\nV89-B（MR-V1 基座登记）：sites 追加 mirraeon；DOC_VERSION 0.9.81→0.9.82。\nV89-C（MR-V2 基座登记）：data/PROJECT_ENTRY_MIRRAEON.json 的 mirror_facts 增补 ledger/scene/slot/brain 四件与批总闸 73/73；DOC_VERSION 0.9.82→0.9.83。\nV89-D（MR-V3 基座登记）：mirror_facts 增补 distill/fidelity/ledger_v21 与批总闸 98/98（十一键）；DOC_VERSION 0.9.83→0.9.84。\nV89-E（MR-V4 基座登记）：mirror_facts 增补 mr4_quartet（四人组职业分身四席 + twins 闸 11/11 + 涌现四条件）；批总闸 109/109（十二键）；测试 111/111（四文件）；DOC_VERSION 0.9.84→0.9.85。\nV89-F（MR-V5 基座登记）：mirror_facts 增补 mr5_legion（军团 66 席 + 算子五族 + 66 枚 HDC 指纹 + legion 闸 18/18 + evidence_fed）；批总闸 127/127（十三键）；测试 134/134（五文件）；DOC_VERSION 0.9.85→0.9.86。\nV89-G（MR-V6 基座登记）：mirror_facts 增补 mr6_legion（军团 133 跨轴合并三表 66/83/140 自洽、跨轴 9 双证据链、HV 133 unique、军团闸 15/15、E5 金芝 P-0105 validated、140 evidence_fed / B=19 / uri 逻辑占位 / 68 作废闸、同义异名 3 与合法切片 4 待终裁）；批总闸 124/124（十三键）；测试 135/135（五文件）；DOC_VERSION 0.9.86→0.9.87。\nV89-H（MR-V7 基座登记）：mirror_facts 增补 mr7_catalyst_seat_match（catalyst 13 闸 野心四问×五步映射 道=range/法=depth/术=depth/器=speed/升维=altitude；五步主导权取 quartet_toolkit 单一真源；seat_match 7 闸 名字主键编号派生、dispatch 3 错号 P-0067/P-0071/P-0072、P-0006=Michael I. Jordan、四席 P-0028/P-0029/P-0094/P-0008；三条拒收裁决；第四例并行写事故处置）；批总闸 144/144（十五键）；测试 161/161（六文件）；NUMBER_LEDGER 15 行；DOC_VERSION 0.9.87→0.9.88。\nV89-I（MR-V8 基座登记）：mirror_facts 增补 mr8_gap_audit_slot_bridge（gap_audit 12 闸 17 条四层 待拍板 7/本批补齐 4/设计先行 3/已核 3；legion_slot_bridge 12 闸 133 桥行 双域登记簿 name×slot_id、团队 7 不进桥、桥行一律 evidence_fed 不落锁、试点 4 人 validated 金芝 P0105 + 彭鑫 P-0107 E5 + 车万翔 P-0108 E5 + 谢吉宝 P-0115 E6；团队 7 entity_owner 7/7 公开口径、member_list 不虚构；三项回执定性 md5-16 / BATCH 恒 MR-V2 / 775 与 773 时点差）；批总闸 168/168（十七键）；测试 187/187（七文件）；NUMBER_LEDGER 17 行；DOC_VERSION 0.9.88→0.9.89。",
   "sequence": [
     {
       "sub": "V87-A.1",

@@ -5,7 +5,7 @@
   "project_cn": "镜面·全职业数字分身矩阵（士农工商 AI 个人助理赋能）",
   "series": "MR",
   "version": "0.1.0",
-  "batch": "MR-V7",
+  "batch": "MR-V8",
   "relation": {
     "base": "holoaeon",
     "mechanism": "M11 城邦架构的个体粒度镜像（城×业双矩阵之业轴）；基座 G25 persona_quartet 数字分身先例的矩阵化",
@@ -44,7 +44,7 @@
       "slot": "occupation_slot.py：七字段席位契约 + pending_detail→evidence_fed→validated→baseline_locked 四状态单步前进 + 8 闸",
       "brain": "brain_gate.py：Reject 不入账 / downgrade 建议态 / human 挂起待碳基三分流，pass 唯一入账 + 9 闸 + 审计行 + V89 信封只发不算"
     },
-    "batch_gate": "144/144 PASS（core 18 / ledger 16 / scene 11 / slot 8 / brain 9 / distill 12 / fidelity 8 / readme_sync 3 / quartet_twins 11 / ledger_legion 15 / catalyst 13 / seat_match 7 / mech_registry 5 / fragments 5 / injection 3）",
+    "batch_gate": "168/168 PASS（core 18 / ledger 16 / scene 11 / slot 8 / brain 9 / distill 12 / fidelity 8 / readme_sync 3 / quartet_twins 11 / ledger_legion 15 / catalyst 13 / seat_match 7 / mech_registry 5 / fragments 5 / injection 3 / gap_audit 12 / legion_slot_bridge 12）",
     "mr3_components": {
       "distill": "distill_demo.py：四层真内容蒸馏（6 知识 K01–K06 + 13 规则 R01–R13 含 3 干扰 + 3 表达 + 3 红线）+ 真状态机流转至 baseline_locked + 12 闸",
       "fidelity": "fidelity_eval.py：10 题决策盲测 + 确定性关键词契约匹配 + 10/10 命中 / 分 1.0 / 及格线 8 + 8 闸",
@@ -79,10 +79,18 @@
       "sha_label": "投喂 §2 标「sha16」实为 MD5-16（7/7 全中）；SHA-256-16 全不中，判为标签口径而非漂移，按 MD5 验收通过并登记",
       "gates_and_tests": "批总闸 144/144（十五键）；unittest 161/161（py3.13 5.778s / py3.11 6.087s）；NUMBER_LEDGER 15 行"
     },
+    "mr8_components": {
+      "gap_audit": "gap_audit.py 12 闸：17 条短板四层入册 待拍板 7（alias 3 / slice 4 / GitHub 可见性 / .bak 入库 / S4S5 双时点 / 122 行历史投喂件 / 个人语料时点）+ 本批补齐 4（军团↔席位断链 / E5E6 扩容三人 / 团队 7 owner 空壳 / 短板无总账）+ 设计先行 3（个人级蒸馏真链路 / 城×业双签 / 军团进五步协议）+ 已核 3；每条带类别 owner 方案 模块指针，短板不再口头漂流",
+      "legion_slot_bridge": "legion_slot_bridge.py 12 闸：桥=双域登记簿（人域 name 主键 × 职业域 slot_id 主键）不是合并；133 自然人全员桥登记 slot_id 确定性派生 MIRRAEON-SLOT-C2-LEGION-P<编号>（承金芝 P0105 先例）；团队 7 不进桥（索引节点纪律）；桥行一律 evidence_fed 不落锁；真状态机只对试点走，试点 1→4（金芝 P0105 + 彭鑫 P-0107 E5 + 车万翔 P-0108 E5 + 谢吉宝 P-0115 E6，全 validated）",
+      "team_entity_owner": "团队 7 entity_owner 公开口径 7/7：Anthropic / Anysphere / Cognition / GitHub·Microsoft / OpenAI / 中国信通院 / 上海AI实验室×华东师大；member_list 不虚构，policy=count_on_public_evidence_pending",
+      "receipt_rulings": "三项回执定性：①「sha16」实为 MD5-16（MR-V7 按 MD5 验收正确，本批起投喂包如实标注）②BATCH 恒 MR-V2 属建账 schema 标称批（四人组裁决不迁就改常量）③tracked 775 vs 记忆 773 = 时点差非丢失件（实测 773→775→776 递增）",
+      "gates_and_tests": "批总闸 168/168（十七键）；unittest 187/187（py3.13 6.477s / py3.11 6.718s）；NUMBER_LEDGER 17 行；DOC 0.9.88→0.9.89",
+      "boundary": "A 类 7 项一条不动等碳基点单；桥≠真席位；试点只到 validated；公开口径占位；真实语料回填前禁入 baseline_locked"
+    },
     "first_locked_slot": "MIRRAEON-SLOT-C2-KFXZZRY-001（康复医学主任医师，1639 席位首个落锁）"
   },
   "sister": "polisaeon（城）× mirraeon（业）——城×业交叉即场景",
   "draft_note": "初稿 · 供内部讨论，非最终稿",
-  "cross_thread_call": "新线程：import mirror_core; mirror_core.check_mirror() → mirror_meridian.check_mech_registry()/check_injection() → mirror_ledger.check_batch()（MR-V7 批总闸 144/十五键）；催化走 catalyst.check_catalyst()（13 闸）；席位匹配走 seat_match.check_seat_match()（7 闸）；军团走 ledger_legion.check()/hv()/families()；四人组四席走 quartet_twins.check_twins()/run_quartet_emergence()",
+  "cross_thread_call": "新线程：import mirror_core; mirror_core.check_mirror() → mirror_meridian.check_mech_registry()/check_injection() → mirror_ledger.check_batch()（MR-V8 批总闸 168/十七键）；短板走 gap_audit.check_gap_audit()（12 闸 17 条四层）；军团↔席位走 legion_slot_bridge.check_bridge()/build_bridge()/pilot_summary()（12 闸 133 桥）；催化走 catalyst.check_catalyst()（13 闸）；席位匹配走 seat_match.check_seat_match()（7 闸）；军团走 ledger_legion.check()/hv_person_prints()/e5_pilot_slot()；四人组四席走 quartet_twins.check_twins()/run_quartet_emergence()",
   "honest_note": "本条目按 V89-A 先例不入 SHA256SUMS（保 362 定点）；S4 manifest 除外，S4 侧按 tracked blob 重算"
 }

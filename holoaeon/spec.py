@@ -32,7 +32,7 @@ VERSION = "0.9.1"
 # VERSION / RUNTIME_ID 会写进每条回执并参与 ReproHash，改动即等于让 DIFF=0 黄金值
 # （2fc892cf9af6e755）漂移，与"V1 黄金值不许漂移"的硬口径冲突。
 # 因此 V2 的版本号单独记在 DOC_VERSION，供文档/快照/徽章使用。
-DOC_VERSION = "0.9.88"  # V89-H（MR-V7 基座登记）：mirraeon 催化机制 catalyst 13 闸（野心四问×五步协议映射：道=range/法=depth/术=depth/器=speed/升维=altitude，一字不改；五步主导权取 quartet_toolkit 单一真源）+ 自动匹配 seat_match 7 闸（名字是主键、编号是派生；dispatch 名单 3 处手写错号现形 Sanjay P-0006→P-0067 / Matei P-0026→P-0071 / Ion P-0027→P-0072，P-0006 真主 Michael I. Jordan；四席 Hassabis P-0028 / Dean P-0029 / Kavukcuoglu P-0094 / Sutskever P-0008）+ 三条拒收裁决 + 批总闸 144/144（十五键）+ 测试 161/161；V89-G（MR-V6）/V89-F（MR-V5）/V89-E（MR-V4）/V89-D（MR-V3）在先；VERSION/layers/PACK_ORDER 冻结维度全未动
+DOC_VERSION = "0.9.89"  # V89-I（MR-V8 基座登记）：mirraeon 短板总账 gap_audit 12 闸（17 条四层：待拍板 7 / 本批补齐 4 / 设计先行 3 / 已核 3；A 类一律挂起等碳基点单）+ 军团席位桥 legion_slot_bridge 12 闸（桥=双域登记簿，人域 name 主键 × 职业域 slot_id 主键；133 自然人全员登记、slot_id 确定性派生 MIRRAEON-SLOT-C2-LEGION-P<编号>；团队 7 不进桥；桥行一律 evidence_fed 不落锁；真状态机只对试点 4 人走 金芝 P0105 + 彭鑫 P-0107 E5 + 车万翔 P-0108 E5 + 谢吉宝 P-0115 E6）+ 三项回执定性（sha16 实为 MD5-16 / BATCH 恒 MR-V2 属 schema 标称批 / tracked 775 vs 773 为时点差非丢失件）+ 批总闸 168/168（十七键）+ 测试 187/187（七文件）；V89-H（MR-V7）/V89-G（MR-V6）/V89-F（MR-V5）/V89-E（MR-V4）/V89-D（MR-V3）在先；VERSION/layers/PACK_ORDER 冻结维度全未动
 MATRIX_ID = "HOLOAEON-MATRIX-0.9.1"
 RUNTIME_ID = "HOLOAEON-RUNTIME-0.9.1"
 PROTOCOL_ID = "HOLOAEON-DATAPROTO v1.0"

@@ -424,7 +424,7 @@
       "non_evidence": [
         "runtime_snapshot"
       ],
-      "observed": "0.9.88",
+      "observed": "0.9.89",
       "observed_at": "2026-11-22"
     },
     "five_site_head": {
@@ -723,7 +723,7 @@
     }
   ],
   "schema": "CLAIMS-GATE-v1",
-  "self_digest": "669282c3a621d6e0",
+  "self_digest": "9a4d3bc87324eee8",
   "totals": {
     "doc_claims": 21,
     "historical": 3,
