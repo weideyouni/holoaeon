@@ -640,17 +640,17 @@
           "id": 51678445,
           "private": true,
           "branch": "master",
-          "aligned_head": "a66b7a103fe18468faf40dd3d55b27212f829e97",
+          "aligned_head": "2bcaa6d1adf6009185ad26eab553b8086695ba40",
           "api": "POST /api/v5/user/repos (private=true, auto_init=false) -> 201",
-          "readback": "contents API 逐文件对齐：13 件 4 写 9 同 0 失败；git ls-remote 传输仍被 SNI 阻断"
+          "readback": "Gitee 内容对齐：13 件 blob 集 0 差、object_digest 718ed48f…(13) 与本地/ GitHub 三方同值；git 传输仍被 SNI 阻断"
         },
         "github": {
           "status": "CREATED",
           "full_name": "weideyouni/netaeon",
           "private": true,
           "branch": "master",
-          "aligned_head": "a66b7a103fe18468faf40dd3d55b27212f829e97",
-          "readback": "git ls-remote https://github.com/weideyouni/netaeon.git refs/heads/master == a66b7a103fe18468faf40dd3d55b27212f829e97",
+          "aligned_head": "c8d5349fda156da0579ed35b0e44f039938e7fde",
+          "readback": "git ls-remote https://github.com/weideyouni/netaeon.git refs/heads/master == c8d5349fda156da0579ed35b0e44f039938e7fde（object_digest 718ed48f… 同值）",
           "note": "HTTPS http.extraheader Basic x-access-token（credential fill 取 gho_）"
         },
         "hf": {
@@ -661,17 +661,17 @@
           "branch": "main",
           "mirrored_head": "824c6fe",
           "reason": "2026-11-22 TLS 层阻断复测：curl schannel handshake failed / python SSL EOF / hf-mirror.com 308 重定向回 hf.co 亦不可达",
-          "note": "镜像件 11 件为 NA-V1 口径；待网络恢复后按 a66b7a1 13 件重刷"
+          "note": "镜像件 11 件为 NA-V1 口径；待网络恢复后按 c8d5349 13 件重刷"
         },
         "open_source": false
       },
-      "note": "投喂中 39/39、28/28、记忆回填四处为策划端预演文本；本机全部重跑取真值后登记。NA-V1b 收口后 head 由 663fa67 前移至 6d7f6ae（五提交/11 追踪件）。",
+      "note": "NA-V1b 终态：head c8d5349（12 提交 / 13 追踪件），Gitee 2bcaa6d1 与 GitHub c8d5349 内容等价（object_digest 718ed48f…）；HF 镜像仍 STALE。",
       "sub_batch": "NA-V1b",
       "project_entry": {
         "path": "PROJECT_ENTRY.json",
-        "bytes": 3943,
+        "bytes": 5780,
         "schema": "NETAEON-PROJECT-ENTRY/1.0",
-        "commit": "6d7f6ae"
+        "commit": "c8d5349fda156da0579ed35b0e44f039938e7fde"
       },
       "five_site": {
         "S1": "PASS",
@@ -679,7 +679,7 @@
         "S3": "PASS",
         "S4": "PASS",
         "S5": "PARTIAL",
-        "note": "S2 Gitee 内容 API 对齐；S3 GitHub ls-remote 复核；S5 镜像旧于现 head 且刷新被 TLS 阻断（如实登记）"
+        "note": "S2 Gitee 内容 API 对齐（digest 同值）；S3 GitHub ls-remote 复核；S5 镜像旧于现 head 且刷新被 TLS 阻断（如实登记）"
       }
     }
   },
