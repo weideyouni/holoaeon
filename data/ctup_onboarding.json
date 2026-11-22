@@ -561,19 +561,27 @@
       "seal": "潮起开门，潮落闭嘴",
       "ledger_rows": 17
     },
-    "netaeon_note": "NA-V1 纪元族第五员：F:\\doubaowork\\netaeon（打捞之网 · 归航路由网：19 节点=18 仓 C01-C18 指针 import salvage_gate.DIMENSIONS + mirraeon 第 19 节点 MIR；25 机制轴=边坐标系，指针 import meridian_link.KERNEL_MECHANISMS 零复制）；打捞局 ring23/24 管出海、netaeon 管归航；仓内无 PROJECT_ENTRY.json（投喂八步未列，待碳基点单）；不开源、不推任何远端（远端建仓须碳基点单，本批仅 S1 本地）；loader REPOS 自 NA-V1 起六仓硬编码",
+    "netaeon_note": "NA-V1 纪元族第五员：F:\\doubaowork\\netaeon（打捞之网 · 归航路由网：19 节点=18 仓 C01-C18 指针 import salvage_gate.DIMENSIONS + mirraeon 第 19 节点 MIR；25 机制轴=边坐标系，指针 import meridian_link.KERNEL_MECHANISMS 零复制）；打捞局 ring23/24 管出海、netaeon 管归航；NA-V1b 收口（2026-11-22）：PROJECT_ENTRY.json 已随建并入库（6d7f6ae）、GAP-C3 逐席 dispatch 设计文档已落、Gitee 私有仓 weideyouni/netaeon(id 51678445) 已建且 master 对齐 6d7f6ae；GitHub/HF 受 2026-11-22 网络层阻断未建（待补）；不开源；loader REPOS 自 NA-V1 起六仓硬编码",
     "netaeon_facts": {
       "batch": "NA-V1",
       "as_of": "2026-11-22",
       "repo": {
         "root": "F:\\doubaowork\\netaeon",
-        "head": "663fa67ecbd623bacb64b178106363858ba0d4ca",
+        "head": "6d7f6ae7ce1db3ec2293f0aa69ccb5a2c9088294",
         "branch": "master",
-        "tracked": 10,
-        "commits": 1,
+        "tracked": 11,
+        "commits": 5,
+        "commit_chain": [
+          "663fa67",
+          "c564431",
+          "4d5fe1c",
+          "beb6df5",
+          "6d7f6ae"
+        ],
         "first_commit_files": 10,
         "first_commit_insertions": 1110,
-        "version": "NA 0.1.0（README 声明 + netaeon/__init__.py __version__ 同值）"
+        "version": "NA 0.1.0（README 声明 + netaeon/__init__.py __version__ 同值）",
+        "closure_commit": "6d7f6ae（README 口径改定 + PROJECT_ENTRY.json + docs/DISPATCH_SEAT_ENTRY_DESIGN_NA-V1.md + 回执 closure_na_v1b）"
       },
       "gates": {
         "net_core": {
@@ -620,8 +628,44 @@
         "打麻将": "unknown（best=None）"
       },
       "receipt": "F:\\doubaowork\\netaeon\\reports\\na_v1_receipt.json",
-      "remote": "未建（Gitee/GitHub/HF 待碳基点单）",
-      "note": "投喂中 39/39、28/28、记忆回填四处为策划端预演文本；本机全部重跑取真值后登记"
+      "remote": {
+        "gitee": {
+          "status": "CREATED",
+          "full_name": "weideyouni/netaeon",
+          "id": 51678445,
+          "private": true,
+          "branch": "master",
+          "aligned_head": "6d7f6ae7ce1db3ec2293f0aa69ccb5a2c9088294",
+          "api": "POST /api/v5/user/repos (private=true, auto_init=false) -> 201",
+          "readback": "git ls-remote master == 6d7f6ae7ce1db3ec2293f0aa69ccb5a2c9088294"
+        },
+        "github": {
+          "status": "BLOCKED",
+          "reason": "2026-11-22 网络层 SSL: UNEXPECTED_EOF_WHILE_READING；DOUBAO_OFFICE 转发端点作 CONNECT 代理 400",
+          "note": "待网络恢复后补建，仓名保持 netaeon"
+        },
+        "hf": {
+          "status": "BLOCKED",
+          "reason": "同层 SSL 不可达；无 netaeon 对象可镜像"
+        },
+        "open_source": false
+      },
+      "note": "投喂中 39/39、28/28、记忆回填四处为策划端预演文本；本机全部重跑取真值后登记。NA-V1b 收口后 head 由 663fa67 前移至 6d7f6ae（五提交/11 追踪件）。",
+      "sub_batch": "NA-V1b",
+      "project_entry": {
+        "path": "PROJECT_ENTRY.json",
+        "bytes": 3943,
+        "schema": "NETAEON-PROJECT-ENTRY/1.0",
+        "commit": "6d7f6ae"
+      },
+      "five_site": {
+        "S1": "PASS",
+        "S2": "PASS",
+        "S3": "BLOCKED",
+        "S4": "PASS",
+        "S5": "BLOCKED",
+        "note": "S2 Gitee 建仓+推送+ls-remote 双对账；S3 GitHub/S5 HF 网络层阻断如实登记"
+      }
     }
   },
   "readme_claims_py": {
