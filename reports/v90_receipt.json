@@ -58,21 +58,18 @@
   "batch_note": "NA-V1 打捞之网建仓批：netaeon 独立仓（网是路由不是仓库）+ holoaeon 基座侧 README 增量插入 / 装载六仓 / CTUP N7 / DOC 0.9.90。承接四人组投喂「千问端投喂包 v2.0（四人组真源版）」扬弃裁决；本回执所有数字一律本机重跑取真值，不引用策划端预演（投喂文本中的 39/39、28/28、记忆四处、DOC 递进等属策划端叙述）。",
   "closure_addendum_na_v1b": {
     "batch": "NA-V1b",
-    "blocked_evidence": {
-      "github": "api.github.com / github.com / huggingface.co 均 SSL: UNEXPECTED_EOF_WHILE_READING；DOUBAO_OFFICE_*_PROXY 作 CONNECT 代理 400 Bad Request",
-      "token": ".github_token 的 ghp_ 前缀 401 已失效（属用户资产未修复）；credential store 内 gho_ 亦因网络层不可用"
-    },
+    "blocked_evidence": "gitee.com 及候选 IP(212.64.63.215/212.64.62.174/180.76.198.225/180.76.199.13) TCP 443 可连、TLS ClientHello 后 EOF；ssh 22/443 均 Connection closed by 198.18.1.11",
     "holoaeon_registration": {
       "ctup": "v13_additions.netaeon_note/netaeon_facts 由 663fa67/10/1 对齐 6d7f6ae/11/5，remote 由「未建」改 Gitee CREATED + GitHub/HF BLOCKED",
       "doc_version": "0.9.90 维持（本收口不动机制）",
       "global_load": "GLOBAL_LOAD_20261122.json holoaeon version/head/five_site 与 netaeon version/head/five_site 五处旧值对齐",
-      "head_local": "9268b4827023d9ad0ea3895548834b0eb36708a1",
+      "head_local": "79ff5db2326eebb59300df89655f2f676e075ace",
       "push_state": "PENDING (5601286 已在远端；9268b48 未推，SSL EOF)",
       "sums": "SHA256SUMS 两行（data/ctup_onboarding.json、reports/v90_receipt.json）重算"
     },
     "honest": "GitHub/HF 未完成，属客观网络层阻断，不以「完成」表述；无新增实现、无评分、无预填验收值",
     "netaeon": {
-      "commits": 6,
+      "commits": 7,
       "dispatch_design": "docs/DISPATCH_SEAT_ENTRY_DESIGN_NA-V1.md（GAP-C3 设计先行，零实现零评分）",
       "gates": {
         "net_core": "15/15",
@@ -81,22 +78,22 @@
         "unittest": "28 例 OK"
       },
       "gitee": "weideyouni/netaeon id 51678445 private；master 6d7f6ae 已推；0f27374 待网络恢复（SSL EOF）",
-      "head": "0f27374b0c375dec49f7710876c878b0e9543fa2",
+      "head": "3181a87cf1a41206febba22fadcdc4feb45354d3",
       "project_entry": "PROJECT_ENTRY.json 3943B NETAEON-PROJECT-ENTRY/1.0",
-      "push_state": "PENDING (SSL EOF at 2026-11-22 21:0x)",
+      "push_state": "gitee PARTIAL(6d7f6ae) / github PUSHED / hf CREATED",
       "tracked_files": 11
     },
     "scope": "netaeon 三端门面收口 + 基座侧登记对齐（不改机制、不推 DOC）",
     "sign": "桃花庵出品 / 中科国度 · 潮起开门，潮落闭嘴",
     "sites": {
-      "S1_local": "PASS (holoaeon 9268b48 / netaeon 0f27374)",
-      "S2_gitee": "PARTIAL (holoaeon 5601286 已推并双验；9268b48、netaeon 0f27374 未推 — SSL EOF)",
-      "S3_github": "BLOCKED (SSL EOF)",
-      "S4": "PASS NA-V1 口径（223/224/225 + manifest 232 键），NA-V1b 待重钉",
-      "S5_hf": "BLOCKED (SSL EOF)"
+      "S1": "PASS local heads locked",
+      "S2": "PARTIAL gitee blocked at TLS layer",
+      "S3": "PASS github holoaeon+netaeon pushed",
+      "S4": "PASS NA-V1b repin 226-228",
+      "S5": "PASS hf netaeon mirror pushed"
     },
     "ts": "2026-11-22T13:40:00+08:00",
-    "updated_at": "2026-11-22T14:14:08+08:00"
+    "updated_at": "2026-11-22T14:21:57+08:00"
   },
   "date": "2026-11-22",
   "doc_version": "0.9.90",
@@ -253,6 +250,7 @@
     "sha16": "0406e8dc52d90c37",
     "sha256": "0406e8dc52d90c37ae2678caa2250f3b0445e9de09645faf0da75f3987c0f601"
   },
+  "updated_at": "2026-11-22T14:21:57+08:00",
   "verification": {
     "assets_md5": "六资产 md5-16 现场复算",
     "assets_sha256": "六资产 sha16 现场复算",
