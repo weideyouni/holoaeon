@@ -127,8 +127,8 @@
   "genesis": {
     "base_head_measured": "c65d521",
     "base_head_note": "2026-11-17 V86 提交后现场 git rev-parse 回读：c65d521（批前 5d2bb37）；禁写死",
-    "doc_version_after": "0.9.89（V89-I MR-V8 基座登记：gap_audit 12 闸 17 条四层——待拍板 7（alias 3 / slice 4 / GitHub 可见性 / .bak 入库 / 双时点回写 / 122 行历史 AGENT_FEED 口径 / 个人语料投喂时点）+ 本批补齐 4（军团↔席位断链 / E5E6 试点扩容三人 / 团队 7 entity_owner 空壳 / 短板无总账）+ 设计先行 3（个人级蒸馏真链路 / 城×业正式双签 / 军团进五步协议）+ 已核 3；legion_slot_bridge 12 闸 133 桥行 + 双域登记簿 + 团队 7 不进桥 + 试点 4 人 validated；批总闸 168/168（十七键）；测试 187/187（七文件））",
-    "doc_version_before": "0.9.88",
+    "doc_version_after": "0.9.90（NA-V1 纪元族第五员建仓：netaeon 打捞之网独立仓 663fa67 首笔 10 files/1110 insertions；19 节点=18 仓 C01-C18 指针 + mirraeon 第 19 节点 MIR；25 机制轴边坐标系零复制；批总闸 39/39（网 15+匹配 16+账本 6+README 锁 2）；unittest 28/28 py311/py313 双过；基座 README 两处增量插入 229497→230528B/2099→2116 行过双闸；装载六仓 head_match 6/6；CTUP N7 增补 sites 四仓；project_registry 六项目；PROJECT_ENTRY 未建与远端未建均待碳基点单；A 类 7 项未动）",
+    "doc_version_before": "0.9.89",
     "frozen": [
       "VERSION=0.9.1",
       "layers=L1-L8",
@@ -136,8 +136,8 @@
       "EXTRA_PACK_ORDER=19"
     ],
     "landed_head": "c65d521",
-    "spec_sha256_measured": "a90a84decdf12be2b41d37cc747b09fce904a47f80309c810012e1bfc0ca707a",
-    "spec_sha256_note": "V89-I（MR-V8 基座登记，change_class=governance）现场重算：spec.py 仅改 DOC_VERSION 一行（号值与注释），VERSION/RUNTIME_ID/MATRIX_ID 未动；genome_hash 仍为 V87-A after 值；四处测试断言同批 0.9.88→0.9.89 回填。"
+    "spec_sha256_measured": "b3ef7b39f2af6cd9416398138b896dcda9602a4f4d8d7b39056f1f3442fc7232",
+    "spec_sha256_note": "NA-V1（纪元族第五员建仓，change_class=governance）现场重算：spec.py 仅改 DOC_VERSION 一行（号值与注释），VERSION/RUNTIME_ID/MATRIX_ID 未动；四处测试断言同批 0.9.89→0.9.90 回填。"
   },
   "genome_revision": {
     "after": "84876958e3936c50bf5ce058f716a5a3a1bb9194b7a22f15185cb401fce16707",

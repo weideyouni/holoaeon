@@ -1,4 +1,4 @@
-# HoloAeon V3 gate run  (2026-11-04T00:05:36)
+# HoloAeon V3 gate run  (2026-11-22T10:39:17)
 
 ===== status =====
 $ scripts/launch_local.py status
@@ -141,50 +141,2816 @@ exit=0
 
 ===== unittest34 =====
 $ -m unittest discover -s tests
-....................................................................
+.....................F:\doubaowork\holoaeon\tests\test_check_sums.py:65: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\Administrator\\AppData\\Local\\Temp\\tmpzlwycqx7\\SHA256SUMS' mode='r' encoding='utf-8'>
+  encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\tests\test_check_sums.py:68: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\Administrator\\AppData\\Local\\Temp\\tmpzlwycqx7\\SHA256SUMS' mode='r' encoding='utf-8'>
+  encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................................................................{
+  "module": "klein_projection",
+  "version": "V27",
+  "schema": "KLEIN-PROJECTION-v1.0",
+  "seal": "潮起开门，潮落闭嘴",
+  "mechanisms": 11,
+  "license_rules": 3,
+  "promote_gates": [
+    "tests_green",
+    "no_forbidden_import",
+    "ast_parse_ok",
+    "manifest_written"
+  ],
+  "library": "F:\\doubaowork\\holoaeon_lathe\\project_library.json",
+  "atlas_entries": 10,
+  "collected_at": "2026-11-22T10:39:18"
+}
+TensorCoupler    收敛判定       -> klein_convergence        [quartet_toolkit]
+HoloEvaluator    全息评估       -> concept_anatomy          [V19 概念解剖器]
+HoloEvaluator    许可证裁决      -> swarm_intel 蒸馏纪律         [V24 先例]
+EphemeralForge   一过性车削      -> skill_lathe              [V14 技能机床]
+ChatFrontendPack 对话窗口前端     -> protocol_plugins         [V14 协议适配]
+KleinProjection  低硬件躯体      -> butler_os                [V12 管家 OS]
+TensorCoupler    张量耦合       -> quartet_tensor           [quartet_toolkit]
+HoloEvaluator    投影扇出       -> mandala_fanout           [quartet_toolkit]
+KleinProjection  评估回传       -> mobius_vortex            [V26]
+ProjectLibrary   账面查询       -> memory_of_yuan           [V17 专用记忆]
+total: 10
+usage: python -m holoaeon.klein_projection status|atlas|assess <candidate.json>|frontend <candidate.json>|library
+unknown command: nope
+..................................................................................................................................................................................................................................................{"spdx": "mit", "class": "permissive", "mode": "absorb", "allow": true}
+ring 0 · 进化编排（环面调度，不新增环） ← mobius_vortex → klein_projection → holo_forge → doc_anatomy → machine_tool
+合入后经 mobius 回流并回写清单，形成进化闭环；缺环则降级为仅出计划
+P01 全息 — 局部包含整体：一条能力的缺口即全局演进方向的一条线索
+P02 万物互联 — 契约即接口：候选只需可判定的元数据即可入链，不必强耦合
+...................................................................F:\doubaowork\holoaeon\tests\test_v12_v17_integration.py:203: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\butler_os.py' mode='r' encoding='utf-8'>
+  source = open(butler_os.__file__, encoding='utf-8').read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+..................sss......{
+  "available_concepts": [
+    "经络",
+    "心跳机制",
+    "细胞骨架",
+    "皮肤机制",
+    "经络机制",
+    "赫布协作场",
+    "语义通信基座",
+    "城邦架构",
+    "自组织耗散",
+    "去幻觉"
+  ]
+}
+...................................................--args 不是合法 JSON: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+.工程技能本地化工具箱（eng_skills）8 技能：
+  - grill_plan: 审讯规划：计划描述→结构化问题清单（心跳机制）
+  - session_handoff: 会话交接：压缩状态为交接文档（经络机制）
+  - re_explain: 重新解释：用项目术语重新表达（语义通信基座）
+  - quick_prototype: 快速原型：验证设计不污染主分支（细胞骨架）
+  - deterministic_tdd: 确定性TDD：红绿重构+selftest+diff0（皮肤机制）
+  - dual_axis_review: 双轴审查：Standards+Spec并行（皮肤机制）
+  - hypothesis_debug: 假设驱动调试：系统化调试环（去幻觉）
+  - shared_glossary: 共享词汇表：CONCEPT_MAP+访问权重（赫布+经络）
+.角色（4）：
+  - planner: 规划师（审讯规划+会话交接）（技能: grill_plan, session_handoff）
+  - reviewer: 审查师（双轴审查+确定性TDD）（技能: dual_axis_review, deterministic_tdd）
+  - debugger: 调试师（假设调试+快速原型）（技能: hypothesis_debug, quick_prototype）
+  - linguist: 语言师（重新解释+共享词汇表）（技能: re_explain, shared_glossary）
+工作流（2）：
+  - full_engineering: 规划→交接→TDD→审查→调试→解释→词汇（完整工程流程）（步骤: planner → reviewer → debugger → linguist）
+  - quick_fix: 假设调试→双轴审查（快速修复流程）（步骤: debugger → reviewer）
+.{
+  "plan": "加个缓存",
+  "questions": [
+    {
+      "round": 1,
+      "question": "为什么选择加个缓存？",
+      "recommended_answer": "需要明确理由",
+      "branch": "motivation"
+    },
+    {
+      "round": 2,
+      "question": "加个缓存的约束是什么？",
+      "recommended_answer": "列出所有硬约束",
+      "branch": "constraint"
+    },
+    {
+      "round": 3,
+      "question": "加个缓存如何验证？",
+      "recommended_answer": "selftest+diff0",
+      "branch": "verify"
+    }
+  ],
+  "total_rounds": 3,
+  "total_questions": 3,
+  "mechanism": "心跳机制",
+  "seal": "潮起开门，潮落闭嘴"
+}
+.未知技能: nope（可选: grill_plan, session_handoff, re_explain, quick_prototype, deterministic_tdd, dual_axis_review, hypothesis_debug, shared_glossary）
+..............................F:\doubaowork\holoaeon\tests\test_v46_pharma_probe.py:108: ResourceWarning: unclosed file <_io.BufferedWriter name='C:\\Users\\Administrator\\AppData\\Local\\Temp\\tmpxuhiyp98\\test-model.gguf'>
+  open(os.path.join(d, "test-model.gguf"), "wb").write(b"\x00" * 10)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.F:\doubaowork\holoaeon\tests\test_v46_pharma_probe.py:129: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\bridges\\local_model_probe.py' mode='r' encoding='utf-8'>
+  src = open(lp.__file__, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+................................................................F:\doubaowork\holoaeon\tests\test_v50_mcp_dual.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\docs\\MLPS3_MAPPING.md' mode='r' encoding='utf-8'>
+  t = open(os.path.join(ROOT, "docs", "MLPS3_MAPPING.md"), encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.F:\doubaowork\holoaeon\tests\test_v50_mcp_dual.py:174: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\docs\\MLPS3_MAPPING.md' mode='r' encoding='utf-8'>
+  t = open(os.path.join(ROOT, "docs", "MLPS3_MAPPING.md"), encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.F:\doubaowork\holoaeon\tests\test_v50_mcp_dual.py:163: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\docs\\MLPS3_MAPPING.md' mode='r' encoding='utf-8'>
+  t = open(os.path.join(ROOT, "docs", "MLPS3_MAPPING.md"), encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.............................................................................................................................................F:\doubaowork\holoaeon\holoaeon\palette_gate.py:216: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\data\\cinema_palettes.json' mode='r' encoding='utf-8'>
+  doc = json.load(io.open(p, encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+...........................F:\doubaowork\holoaeon\holoaeon\palette_gate.py:462: ResourceWarning: unclosed file <_io.TextIOWrapper name='data\\cinema_palette_aux.json' mode='r' encoding='utf-8'>
+  doc = json.load(io.open(p, encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.............F:\doubaowork\holoaeon\tests\test_v54_palette_enhance.py:271: ResourceWarning: unclosed file <_io.TextIOWrapper name='data\\cinema_palettes.json' mode='r' encoding='utf-8'>
+  doc = json.load(io.open(DATA_MAIN, encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.F:\doubaowork\holoaeon\tests\test_v54_palette_enhance.py:278: ResourceWarning: unclosed file <_io.TextIOWrapper name='data\\cinema_palettes.json' mode='r' encoding='utf-8'>
+  doc = json.load(io.open(DATA_MAIN, encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.F:\doubaowork\holoaeon\tests\test_v54_palette_enhance.py:265: ResourceWarning: unclosed file <_io.TextIOWrapper name='data\\cinema_palettes.json' mode='r' encoding='utf-8'>
+  doc = json.load(io.open(DATA_MAIN, encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.----------------------------------------------------------------------
+Ran 35 tests in 4.338s
+
+OK
+.F:\doubaowork\holoaeon\holoaeon\palette_gate.py:216: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\data\\cinema_palettes.json' mode='r' encoding='utf-8'>
+  doc = json.load(io.open(p, encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
 ----------------------------------------------------------------------
-Ran 68 tests in 0.156s
+Ran 37 tests in 0.946s
+
+OK
+.F:\doubaowork\holoaeon\holoaeon\palette_gate.py:216: ResourceWarning: unclosed file <_io.TextIOWrapper name='data\\cinema_palettes.json' mode='r' encoding='utf-8'>
+  doc = json.load(io.open(p, encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.F:\doubaowork\holoaeon\holoaeon\palette_gate.py:558: ResourceWarning: unclosed file <_io.TextIOWrapper name='data\\cinema_palettes.json' mode='r' encoding='utf-8'>
+  doc = json.load(io.open(p, encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\palette_gate.py:462: ResourceWarning: unclosed file <_io.TextIOWrapper name='data\\cinema_palette_aux.json' mode='r' encoding='utf-8'>
+  doc = json.load(io.open(p, encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+..........F:\doubaowork\holoaeon\tests\test_v54_palette_enhance.py:167: ResourceWarning: unclosed file <_io.BufferedReader name='data\\cinema_palettes.json'>
+  h = io.open(DATA_MAIN, "rb").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+......................................................................[continuity_gate] self_check pass=True checks={'contract': True, 'temporal': True, 'structural': True, 'handover': True}
+  G0: PASS (所有不可变项是否已成文件并冻结？)
+  G1: PASS (18 仓是否真实存在且同构达标？)
+  G2: WAIT (是否有一条可复现的真实跨仓日志？)
+  G3: WAIT (五层是否都有可查痕迹？)
+  G4: WAIT (单向连接是否会被自动清理？)
+  G5: WAIT (五项指标是否全部由脚本产出且达标？)
+  G6: WAIT (断仓降级回滚是否全部演练通过？)
+  G7: WAIT (陌生人能否 30 分钟跑起来？)
+  G0: PASS | export_m0_contract frozen=True（编号/相位/边Schema/维度四要素齐）
+  G1: PASS | c18_cluster 注册表 18+1 完好（V55 收口）；远端建仓须碳基确认 create_repos_v55.py --apply
+  G2: WAIT | 连通件待产（V57 候选：event_propagator 实测化）——门禁不替未来签字
+  G3: WAIT | L1/L2 口径在 V55 边Schema；L3-L5 连通件未落，诚实 WAIT
+  G4: WAIT | 双向硬规则属连通/共演化件（V57+ 候选），未落不虚报
+  G5: WAIT | S5 已实测 0.0603（V55）；S1-S4 全息验证件未落——脚本产出指标部分达成
+  G6: WAIT | 免疫压测件未产（M6 属后期批次），诚实 WAIT
+  G7: WAIT | install_check.py 7/7 PASS 在档（V50 实测）——'一仓+跨仓调用'全链路待连通件，WAIT
+  B1 | 手工建仓建目录，第 7 个仓开始结构漂移 | 先例：create_repos_v55.py + scaffold_c18.py（V55 在档，18/18 独立可运行已验收）
+  B2 | 先连后建——共振边指向不存在的模块 | 先例：V55 REUSE_MAP 4 例 import 实测（素材要新建的机制全在仓内可导入）
+  B3 | 契约口头化，字段名各写各的 | 先例：本模块 export_m0_contract()（反向提取冻结契约成文件）
+  B4 | 接口悄悄漂移，三个月后 S2 崩 | 先例：主套 unittest discover + redline_scan.py（V50 实测 129 文件 0 违规）
+  B5 | 无节拍广播，系统震荡/循环依赖 | 先例：bus.py / craft_gate.py 心跳先例（复用引用；scheduler.py 为 untouchable，不新建调度器）
+  B6 | 单向连接堆积，看着连着实死边 | 先例：c18_cluster EDGE 硬约束 ttl>=12 + decay∈(0,1) + rollback 非空
+  B7 | 同质化塌缩，19 仓变成 19 份拷贝 | 先例：V55 S5 实测 18 仓问题向量两两 cosine 0.0603（<=0.70 达标）
+  B8 | 无回滚令牌，出问题只能整体重置 | 先例：c18_cluster.validate_edge 硬约束 rollback_token 非空（V55 落地）
+  B9 | 指标自证——'我觉得达标' | 先例：回执三账惯例（reports/v5x_receipt.json 逐批脚本产出）
+  B10 | 文档滞后，未来的自己看不懂 | 先例：readme_claims_check.py 仓外闸（V46 实测 PASS/mismatch=0）
+......................................................................[org_gate] self_check pass=True checks={'team': True, 'task_card': True, 'arbiter': True, 'adapter': True, 'batches': True}
+  G-M: pass=False states={'12 通道': 'WAIT', '事件传播': 'WAIT', '阻塞机制': 'WAIT', '衰减与终止': 'WAIT', '同构校验': 'PASS', '回滚': 'PASS'}
+  dissipation_measured=False (无真实流不假报)
+{
+ "fingerprint": {
+  "module": "org_gate",
+  "ring": 21,
+  "roles": 5,
+  "resources": 5,
+  "priority_weights": 5,
+  "adapter_states": 10,
+  "adapter_submodules": 6,
+  "dissipation_metrics": 6,
+  "gm_criteria": 6,
+  "batches": 7,
+  "sha16": "223dd78fed7f9233"
+ },
+ "self_check": {
+  "pass": true,
+  "checks": {
+   "team": true,
+   "task_card": true,
+   "arbiter": true,
+   "adapter": true,
+   "batches": true
+  },
+  "problems": []
+ },
+ "c03_gate": {
+  "12 通道": "WAIT",
+  "事件传播": "WAIT",
+  "阻塞机制": "WAIT",
+  "衰减与终止": "WAIT",
+  "同构校验": "PASS",
+  "回滚": "PASS"
+ },
+ "sample_priority": {
+  "C03_hub": 0.3,
+  "C01_plain": 0.0,
+  "C01_starved": -0.1
+ }
+}
+  C01 | holoaeon-c01-source | 本源 | owner=None
+  C02 | holoaeon-c02-body | 身体 | owner=None
+  C03 | holoaeon-c03-meridian | 经络 | owner=None
+  C04 | holoaeon-c04-family | 家庭 | owner=None
+  C05 | holoaeon-c05-education | 教育 | owner=None
+  C06 | holoaeon-c06-career | 职业 | owner=None
+  C07 | holoaeon-c07-wealth | 财富 | owner=None
+  C08 | holoaeon-c08-creation | 创造 | owner=None
+  C09 | holoaeon-c09-relation | 关系 | owner=None
+  C10 | holoaeon-c10-emotion | 情感 | owner=None
+  C11 | holoaeon-c11-meaning | 意义 | owner=None
+  C12 | holoaeon-c12-space | 空间 | owner=None
+  C13 | holoaeon-c13-time | 时间 | owner=None
+  C14 | holoaeon-c14-skill | 技艺 | owner=None
+  C15 | holoaeon-c15-risk | 风险 | owner=None
+  C16 | holoaeon-c16-spirit | 灵性 | owner=None
+  C17 | holoaeon-c17-society | 社会 | owner=None
+  C18 | holoaeon-c18-cosmos | 宇宙 | owner=None
+  B0 | C03 | 木/水（传导枢纽） | 12 通道打通，过 G-M 升级总线仓（领域深化先行——骨架已建成）
+  B1 | C02+C10 | 水+火 | 水克火链可测，情绪-身体双向梯度
+  B2 | C01+C04+C13 | 土+土+水 | 归零锚点闭环、代际与节律耦合
+  B3 | C05+C08+C16 | 木三仓 | 生发链、曼陀罗扇出可观测
+  B4 | C06+C09+C11 | 火三仓（含意义枢纽） | 交联网、语义路由多跳
+  B5 | C07+C14+C17 | 金三仓 | 收敛链、基因漂移复用率
+  B6 | C12+C15+C18 | 土/水/总枢 | 免疫压测、全局镜像 S4 达标
+  开放交换 | 每仓必须有明确输入源与输出汇 | 证据：输入/输出流量日志非空
+  远离平衡态 | 状态向量持续受事件与梯度驱动 | 证据：状态方差非零、非周期收敛
+  非线性反馈 | 生克增益、双向梯度、闭环判定 | 证据：增益矩阵非对角、非单调响应
+  涨落触发 | 风险仓 C15+归零心跳+阻塞反演 | 证据：小扰动可引发结构重构事件
+  持续负熵流 | 心跳、语义包、经络传导即代谢输入 | 证据：停止输入后可观测退化
+  D1 负熵输入率 | 单位心跳有效语义/事件流入量（越高越活）
+  D2 耦合耗散率 | 边强度变化量/输入量（有效转换效率，适中为佳）
+  D3 结构维持成本 | 保持同构所需修复动作数（越低越好）
+  D4 涨落响应度 | 注入扰动后结构重构事件数（非零且可恢复）
+  D5 自组织恢复时间 | 扰动后回到稳态所需心跳数（越短越健壮）
+  D6 死亡判据可观测性 | 切断输入后指标退化是否可测（必须可测）
+....................................................[tensor_gate] self_check pass=True checks={'naming': True, 'morphemes': True, 'tensor': True, 'couplings': True, 'capabilities': True}
+{
+ "fingerprint": {
+  "module": "tensor_gate",
+  "ring": 22,
+  "morpheme_slots": 76,
+  "coupling_units": 361,
+  "capability_slots": 32,
+  "layers": 8,
+  "absorbed": 6,
+  "rejected": 5,
+  "search_dimensions": 5,
+  "sha16": "5f558649d41af9b3"
+ },
+ "self_check": {
+  "pass": true,
+  "checks": {
+   "naming": true,
+   "morphemes": true,
+   "tensor": true,
+   "couplings": true,
+   "capabilities": true
+  },
+  "problems": []
+ },
+ "determinism_proof": true,
+ "sample_coupling": {
+  "i": "C02",
+  "j": "C10",
+  "w_phase": 0.6,
+  "semantic_cos": 0.0212,
+  "value": 0.0127
+ },
+ "sample_hub_coupling": {
+  "i": "C03",
+  "j": "C07",
+  "w_phase": 1.5,
+  "semantic_cos": 0.0282,
+  "value": 0.0423
+ },
+ "c03_search_first2": [
+  {
+   "仓": "holoaeon-c03-meridian",
+   "维度": "D1",
+   "追问": "本体",
+   "查询": "\"meridian\" 第一性原理 定义 综述"
+  },
+  {
+   "仓": "holoaeon-c03-meridian",
+   "维度": "D2",
+   "追问": "能力",
+   "查询": "meridian 开源 项目 能力 对比"
+  }
+ ]
+}
+{"self_count": 19, "directed_count": 342, "total": 361, "undirected_view": 171, "note": "19+342=361 全量（无向 171 为对称视图不重复计数——素材算术澄清留痕）"}
+units: 361 条（首条 {'i': 'C01', 'j': 'C01', 'w_phase': 1.0, 'semantic_cos': 1.0, 'value': 1.0}）
+  L0 | 算力与推理基础设施 | 运行、加速、调度（vLLM/llama.cpp/Ollama 类）
+  L1 | 模型与权重 | 能力本体（开源模型体系）
+  L2 | 训练与微调 | 能力改造（peft/LLaMA-Factory/trl 类）
+  L3 | 数据与知识 | 语料与检索（datasets/FAISS/RAGFlow/MinerU 类）
+  L4 | 编排与协作 | 流程与多体（LangGraph/AutoGen/CrewAI 类思路）
+  L5 | 接口与协议 | 连接与扩展（MCP servers/skills 类技能包）
+  L6 | 应用与产品 | 直接使用（open-webui/n8n/langflow 类自托管）
+  L7 | 评测与可观测 | 度量与治理（lm-evaluation-harness/langfuse 类）
+  槽位框架：32 槽（8 层×4）
+  取 | 显式状态图与可回放 | LangGraph 检查点任意历史点重放 → 心跳三段式+rollback_token 强化
+  取 | 角色/目标/背景三要素 | CrewAI role/goal/backstory → 仓主-职责-第一性问题任务卡语言
+  取 | 对话式协作与批判收敛 | AutoGen 群聊 critique → C11 意义仓多视角意义辩论内部机制
+  取 | 成本归因前置 | 编排层成本占比 → 资源调拨中枢配额与账本（V58 已落）
+  取 | 分层分类与选型决策树 | 按功能分层按场景决策 → 搜索引导提纲组织方式
+  取 | 三要素标注 | 数据/算法/算力三坐标 → 能力槽元数据标签
+  舍 | 重依赖与外部服务锁定 | 主流编排框架与零依赖确定性定位冲突——只取思路不取实现
+  舍 | 抽象层牺牲可控性 | 高层抽象在精确错误处理/重试/状态持久化不如显式图——不引入运行时
+  舍 | 非确定性与不可复现 | 随机初始化/外部时间/网络抖动组件一律拒绝——护同任务两次哈希一致
+  舍 | 自研编排的全套成本 | HoloAeon 只做最小原语+显式契约，不做通用编排平台
+  舍 | 群聊自由发散承载核心链路 | 无延迟与确定性保证的模式不得进入主干
+{"batches": 7, "cang_plans": 18, "tasks": 90}
+  C03 | D1 | "meridian" 第一性原理 定义 综述
+  C03 | D2 | meridian 开源 项目 能力 对比
+  C03 | D3 | meridian 架构 设计 权衡 局限
+  C03 | D4 | meridian 数据集 评测 基准
+  C03 | D5 | meridian 常见 问题 陷阱 失败
+...................................................................................................assets 检查须显式 --root <工作区根>（不在默认路径猜测）
+.{
+ "pass": true,
+ "assets": [
+  {
+   "id": "sk6m_600m",
+   "name": "打捞之王600万超级矩阵V3实战化",
+   "sg_id": "SG-MASTER-SALVAGE-KING-6M-1331x1331-SUPER-MAS-V3.0",
+   "state": "found",
+   "hits": 1
+  },
+  {
+   "id": "defect_600",
+   "name": "缺陷根因600（打捞之王600 分身一）",
+   "sg_id": "SG-SALVAGE-KING-600-SUPER-MATRIX-V1.0",
+   "state": "declared-missing",
+   "hits": 0
+  },
+  {
+   "id": "knowledge_600",
+   "name": "知识更新600（打捞之王600 分身二）",
+   "sg_id": "SG-UPGRADE-KNOWLEDGE-SALVAGE-KING-600AGENT-20260517",
+   "state": "authorized-landed",
+   "hits": 0
+  },
+  {
+   "id": "semantics_600",
+   "name": "打捞600语义确认（双分身消歧文档）",
+   "sg_id": "SG-DOC-SALVAGE-600-SEMANTIC-20260921",
+   "state": "found",
+   "hits": 1
+  },
+  {
+   "id": "mem_salvage",
+   "name": "账号记忆打捞矩阵V3实战化",
+   "sg_id": "SG-MEMSALVAGE-1331-V3-20261023",
+   "state": "found",
+   "hits": 1
+  },
+  {
+   "id": "diamond_log",
+   "name": "打捞之王定向矩阵金刚（打捞实录）",
+   "sg_id": "SG-ASSET-DALAO-DIAMOND",
+   "state": "found",
+   "hits": 1
+  },
+  {
+   "id": "role_card",
+   "name": "千问端角色卡·打捞之王",
+   "sg_id": "SG-ROLE-QWEN-DALAO-V1.0",
+   "state": "found",
+   "hits": 1
+  },
+  {
+   "id": "tribe",
+   "name": "打捞之王部落（矩阵部落协同库）",
+   "sg_id": "SG-TRIBE-SALVAGE-KING",
+   "state": "found",
+   "hits": 1
+  },
+  {
+   "id": "structured_ledger",
+   "name": "向量海结构化打捞台账",
+   "sg_id": "SG-LEDGER-VECSEA-SALVAGE-20260926",
+   "state": "found",
+   "hits": 1
+  },
+  {
+   "id": "feed_plan_6m",
+   "name": "打捞之王600万3个月投喂计划/超级包复盘",
+   "sg_id": "SG-PLAN-SALVAGE-KING-6M-20260921",
+   "state": "found",
+   "hits": 1
+  }
+ ],
+ "root_scanned": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\salvage_fx_63q2rzbs",
+ "note": "指针登记不复制（原件不移动）；knowledge_600=本模块实体（碳基 2026-11-12 授权落地）"
+}
+.{
+ "fingerprint": {
+  "module": "salvage_gate",
+  "ring": 23,
+  "patch": 1,
+  "salvage_assets": 10,
+  "noun_slots": 65,
+  "dims": 18,
+  "per_dim": 10,
+  "total_expected": 180,
+  "cycle_days": 18,
+  "assimilation_forms": 3,
+  "sha16": "4b1a3db391ae7415"
+ },
+ "self_check": {
+  "pass": false,
+  "checks": {
+   "assets": false,
+   "nouns": true,
+   "dimensions": true,
+   "scoring": true,
+   "template": true,
+   "schedule": true,
+   "assimilation": true,
+   "d03_b": true,
+   "patch": true
+  },
+  "problems": [
+   "未指定扫描根——assets 检查待显式 root 实测（不在默认路径猜测）"
+  ]
+ },
+ "day1_plan": {
+  "day": 1,
+  "dim": "D03",
+  "cang": "C03",
+  "cycle_round": 1,
+  "note": "一天一维 18 天一轮；D03 首日先行校准阈值（ORG-02 经络先行同源）"
+ },
+ "d03_prompt_head": [
+  "维度名称：经络-消息路由、编排、链路可观",
+  "对应仓：holoaeon-c03-meridian",
+  "检索意图：消息路由、编排、链路可观测（含基座元层）"
+ ],
+ "sample_score": 0.8691,
+ "off_topic_gate": "OUT",
+ "d03_b_count": 10,
+ "dedup_sample": 1
+}
+  D01 | C01 | 身份/状态归零、可复现快照与回放 | deterministic agent state checkpoint replay
+  D02 | C02 | 生理信号采集与稳态估计 | wearable health data pipeline dashboard
+  D03 | C03 | 消息路由、编排、链路可观测（含基座元层） | agent orchestration framework routing observability
+  D04 | C04 | 亲缘结构与代际关系建模 | genealogy family tree software open source
+  D05 | C05 | 知识内化、间隔复习、辅导 | spaced repetition learning system open source
+  D06 | C06 | 能力—岗位匹配与履历解析 | skill taxonomy job matching resume parser
+  D07 | C07 | 个人财务与资产配置追踪 | personal finance management open source
+  D08 | C08 | 生成式创作与作品沉淀 | generative art creative writing open source
+  D09 | C09 | 人际网络分析与社群图谱 | social network analysis open source toolkit
+  D10 | C10 | 情绪与情感计算识别 | emotion recognition affective computing open source
+  D11 | C11 | 目标、规划、价值与推理 | LLM agent planning reasoning open source
+  D12 | C12 | 环境感知与空间建模 | home automation spatial mapping open source
+  D13 | C13 | 节律、时序预测与调度 | time series forecasting scheduling open source
+  D14 | C14 | 技能库、插件化与能力复用 | plugin framework skill library open source
+  D15 | C15 | 异常检测、事故与混沌演练 | anomaly detection chaos engineering open source
+  D16 | C16 | 冥想、内省与反思记录 | meditation mindfulness journaling open source
+  D17 | C17 | 制度、治理与合规知识 | governance policy compliance open source
+  D18 | C18 | 全局可观测、宏观知识图谱（含总枢镜像） | knowledge graph observability digital twin open source
+  合计 18 维 × 10 目标 = 180（设计上限）
+  day  1 | D03 | C03 | round 1
+  day  2 | D01 | C01 | round 1
+  day  3 | D02 | C02 | round 1
+  day  4 | D04 | C04 | round 1
+  day  5 | D05 | C05 | round 1
+  day  6 | D06 | C06 | round 1
+  day  7 | D07 | C07 | round 1
+  day  8 | D08 | C08 | round 1
+  day  9 | D09 | C09 | round 1
+  day 10 | D10 | C10 | round 1
+  day 11 | D11 | C11 | round 1
+  day 12 | D12 | C12 | round 1
+  day 13 | D13 | C13 | round 1
+  day 14 | D14 | C14 | round 1
+  day 15 | D15 | C15 | round 1
+  day 16 | D16 | C16 | round 1
+  day 17 | D17 | C17 | round 1
+  day 18 | D18 | C18 | round 1
+# 角色
+你是 HoloAeon 项目的开源情报抓取智能体，任务是在 GitHub 等开源平台上，
+按指定维度检索"高星高关注"的真实项目，并把每个项目的实质压缩成 1-2 句话定义。
+
+# 本次任务变量
+维度ID：D03
+维度名称：经络-消息路由、编排、链路可观
+对应仓：holoaeon-c03-meridian
+检索意图：消息路由、编排、链路可观测（含基座元层）
+主查询：agent orchestration framework routing observability
+扩展查询：message bus、distributed tracing、workflow engine、pub/sub、event-driven architecture、state checkpoint、queue broker、trace propagation
+排除条件：closed-source
+返回数量：10                   # 固定 10 条，不足则如实说明并给出实际条数
+排序口径：综合分 = 0.40*stars + 0.15*forks + 0.20*近期活跃度 + 0.15*贡献者数 + 0.10*榜单引用
+抓取时间：2026-11-12T09:00:00    # 统一时间戳，所有指标注明"截至该时间"
+
+# 执行步骤（严格按序，不得跳步）
+1. 用主查询 + 扩展查询在 GitHub 检索，合并去重（按仓库全名 owner/repo 去重）。
+   查询句法（V61 P1 规则——主查询整句禁直接使用）：
+   - 整句七词会被 AND 分词压死（真跑实测 total_count=1）——禁整句单查；
+   - 拆成 2-3 个引号短语组 + OR 连接（如 "agent orchestration" OR
+     "workflow engine" OR "message bus"）；
+   - 每组词数<=3，组内词从主查询与扩展词取；
+   - 扩展词分双类：品类词（message bus 类——描述里少见，召回弱）与
+     能力词（pub/sub、tracing、checkpoint 类——描述里常见，召回强），
+     优先用能力词组。
+2. 对每个候选采集：repo 全名、URL、stars、forks、最近提交日期、贡献者数、
+   许可证、主要语言、一句话官方描述（原文）。
+3. 应用硬门槛淘汰：不可访问、无 README、archived、纯镜像/fork、纯教程清单
+   （数据集与清单最多保留 2 席并标注类型）。
+4. 按综合分排序，取前 10；不足 10 条时如实说明缺口原因。
+5. 对每个入选项目写"实质定义"：1-2 句，每句不超过 40 个汉字，
+   必须同时回答"它是什么"和"它解决什么问题"。
+6. 标注与本次维度的映射关系：可吸收（架构思路/技能/评测方法）、
+   需扬弃（重依赖、非确定性、外部服务锁定、许可风险）、或仅参考。
+7. 输出前自检：URL 是否真实、指标是否来自抓取而非推测、定义是否照抄原文。
+
+# 实质定义的压缩规则（硬约束）
+- 禁止照抄 README 原句，必须改写压缩。
+- 禁止营销词：强大、领先、一站式、赋能、革命性等一律删除。
+- 禁止把"支持很多语言/框架"当作实质，要写核心机制。
+- 若项目定位模糊，写"定位不明"并给出判断依据，不要编造。
+- 中文输出，专有名词与仓库名保留原文。
+
+# 输出格式（严格 JSON，不要额外解释）
+{
+  "dim_id": "D03",
+  "cang": "holoaeon-c03-meridian",
+  "snapshot_time": "2026-11-12T09:00:00",
+  "queries_used": ["..."],
+  "results": [
+    {
+      "rank": 1,
+      "repo": "owner/repo",
+      "url": "https://github.com/owner/repo",
+      "stars": 0,
+      "forks": 0,
+      "last_commit": "YYYY-MM-DD",
+      "contributors": 0,
+      "license": "MIT",
+      "language": "Python",
+      "official_desc": "官方描述原文",
+      "essence": "第一句：它是什么。第二句：它解决什么问题。",
+      "dimension_mapping": "可吸收|需扬弃|仅参考",
+      "absorb_form": "可吸收时写明吸收形态：架构思路/接口形态/评测方法",
+      "reject_reason": "需扬弃时写明原因，否则 null",
+      "verify_status": "verified|unverified"
+    }
+  ],
+  "shortfall": "若不足 10 条，说明原因；否则 null"
+}
+
+# 反幻觉硬约束（违反即任务失败）
+- 只输出你确实检索到的仓库，不得凭记忆补全。
+- 无法确认的数值填 null 并把 verify_status 设为 unverified，禁止估算填数。
+- 不得输出不存在的 URL；不确定是否存在的仓库直接丢弃。
+- 同一维度内不得出现同一 owner/repo 的重复条目。
+- 若检索工具不可用，直接返回 {"error": "search_unavailable"}，不要伪造结果。
+
+.[salvage_gate] self_check pass=True checks={'assets': True, 'nouns': True, 'dimensions': True, 'scoring': True, 'template': True, 'schedule': True, 'assimilation': True, 'd03_b': True, 'patch': True}
+.................................................   1 | crewAIInc/crewAI                       |  60807 | MIT          | 编排
+   2 | apache/kafka                           |  34214 | Apache-2.0   | 总线
+   3 | labring/FastGPT                        |  30031 | NOASSERTION  | 编排
+   4 | kestra-io/kestra                       |  30214 | Apache-2.0   | 编排
+   5 | rocketride-org/rocketride-server       |  20058 | MIT          | 编排
+   6 | SigNoz/signoz                          |  32598 | NOASSERTION  | 可观测
+   7 | deepset-ai/haystack                    |  26998 | Apache-2.0   | 编排
+   8 | jaegertracing/jaeger                   |  23403 | Apache-2.0   | 可观测
+   9 | pinpoint-apm/pinpoint                  |  13877 | Apache-2.0   | 可观测
+  10 | microsoft/agent-framework              |  14645 | MIT          | 编排
+..未知维度：D99
+.# 角色
+你是 HoloAeon 项目的开源情报抓取智能体，任务是在 GitHub 等开源平台上，
+按指定维度检索"高星高关注"的真实项目，并把每个项目的实质压缩成 1-2 句话定义。
+
+# 本次任务变量
+维度ID：D11
+维度名称：意义-目标、规划、价值与推理
+对应仓：holoaeon-c11-meaning
+检索意图：目标、规划、价值与推理
+主查询：LLM agent planning reasoning open source
+扩展查询：goal decomposition、value alignment、task planner
+排除条件：benchmark-only
+返回数量：10                   # 固定 10 条，不足则如实说明并给出实际条数
+排序口径：综合分 = 0.40*stars + 0.15*forks + 0.20*近期活跃度 + 0.15*贡献者数 + 0.10*榜单引用
+抓取时间：2026-11-12T09:00:00    # 统一时间戳，所有指标注明"截至该时间"
+
+# 执行步骤（严格按序，不得跳步）
+1. 用主查询 + 扩展查询在 GitHub 检索，合并去重（按仓库全名 owner/repo 去重）。
+   查询句法（V61 P1 规则——主查询整句禁直接使用）：
+   - 整句七词会被 AND 分词压死（真跑实测 total_count=1）——禁整句单查；
+   - 拆成 2-3 个引号短语组 + OR 连接（如 "agent orchestration" OR
+     "workflow engine" OR "message bus"）；
+   - 每组词数<=3，组内词从主查询与扩展词取；
+   - 扩展词分双类：品类词（message bus 类——描述里少见，召回弱）与
+     能力词（pub/sub、tracing、checkpoint 类——描述里常见，召回强），
+     优先用能力词组。
+2. 对每个候选采集：repo 全名、URL、stars、forks、最近提交日期、贡献者数、
+   许可证、主要语言、一句话官方描述（原文）。
+3. 应用硬门槛淘汰：不可访问、无 README、archived、纯镜像/fork、纯教程清单
+   （数据集与清单最多保留 2 席并标注类型）。
+4. 按综合分排序，取前 10；不足 10 条时如实说明缺口原因。
+5. 对每个入选项目写"实质定义"：1-2 句，每句不超过 40 个汉字，
+   必须同时回答"它是什么"和"它解决什么问题"。
+6. 标注与本次维度的映射关系：可吸收（架构思路/技能/评测方法）、
+   需扬弃（重依赖、非确定性、外部服务锁定、许可风险）、或仅参考。
+7. 输出前自检：URL 是否真实、指标是否来自抓取而非推测、定义是否照抄原文。
+
+# 实质定义的压缩规则（硬约束）
+- 禁止照抄 README 原句，必须改写压缩。
+- 禁止营销词：强大、领先、一站式、赋能、革命性等一律删除。
+- 禁止把"支持很多语言/框架"当作实质，要写核心机制。
+- 若项目定位模糊，写"定位不明"并给出判断依据，不要编造。
+- 中文输出，专有名词与仓库名保留原文。
+
+# 输出格式（严格 JSON，不要额外解释）
+{
+  "dim_id": "D11",
+  "cang": "holoaeon-c11-meaning",
+  "snapshot_time": "2026-11-12T09:00:00",
+  "queries_used": ["..."],
+  "results": [
+    {
+      "rank": 1,
+      "repo": "owner/repo",
+      "url": "https://github.com/owner/repo",
+      "stars": 0,
+      "forks": 0,
+      "last_commit": "YYYY-MM-DD",
+      "contributors": 0,
+      "license": "MIT",
+      "language": "Python",
+      "official_desc": "官方描述原文",
+      "essence": "第一句：它是什么。第二句：它解决什么问题。",
+      "dimension_mapping": "可吸收|需扬弃|仅参考",
+      "absorb_form": "可吸收时写明吸收形态：架构思路/接口形态/评测方法",
+      "reject_reason": "需扬弃时写明原因，否则 null",
+      "verify_status": "verified|unverified"
+    }
+  ],
+  "shortfall": "若不足 10 条，说明原因；否则 null"
+}
+
+# 反幻觉硬约束（违反即任务失败）
+- 只输出你确实检索到的仓库，不得凭记忆补全。
+- 无法确认的数值填 null 并把 verify_status 设为 unverified，禁止估算填数。
+- 不得输出不存在的 URL；不确定是否存在的仓库直接丢弃。
+- 同一维度内不得出现同一 owner/repo 的重复条目。
+- 若检索工具不可用，直接返回 {"error": "search_unavailable"}，不要伪造结果。
+
+.  D01 | C01 | 身份/状态归零、可复现快照与回放 | deterministic agent state checkpoint replay
+  D02 | C02 | 生理信号采集与稳态估计 | wearable health data pipeline dashboard
+  D03 | C03 | 消息路由、编排、链路可观测（含基座元层） | agent orchestration framework routing observability
+  D04 | C04 | 亲缘结构与代际关系建模 | genealogy family tree software open source
+  D05 | C05 | 知识内化、间隔复习、辅导 | spaced repetition learning system open source
+  D06 | C06 | 能力—岗位匹配与履历解析 | skill taxonomy job matching resume parser
+  D07 | C07 | 个人财务与资产配置追踪 | personal finance management open source
+  D08 | C08 | 生成式创作与作品沉淀 | generative art creative writing open source
+  D09 | C09 | 人际网络分析与社群图谱 | social network analysis open source toolkit
+  D10 | C10 | 情绪与情感计算识别 | emotion recognition affective computing open source
+  D11 | C11 | 目标、规划、价值与推理 | LLM agent planning reasoning open source
+  D12 | C12 | 环境感知与空间建模 | home automation spatial mapping open source
+  D13 | C13 | 节律、时序预测与调度 | time series forecasting scheduling open source
+  D14 | C14 | 技能库、插件化与能力复用 | plugin framework skill library open source
+  D15 | C15 | 异常检测、事故与混沌演练 | anomaly detection chaos engineering open source
+  D16 | C16 | 冥想、内省与反思记录 | meditation mindfulness journaling open source
+  D17 | C17 | 制度、治理与合规知识 | governance policy compliance open source
+  D18 | C18 | 全局可观测、宏观知识图谱（含总枢镜像） | knowledge graph observability digital twin open source
+  合计 18 维 × 10 目标 = 180（设计上限）
+  day  1 | D03 | C03 | round 1
+  day  2 | D01 | C01 | round 1
+  day  3 | D02 | C02 | round 1
+  day  4 | D04 | C04 | round 1
+  day  5 | D05 | C05 | round 1
+  day  6 | D06 | C06 | round 1
+  day  7 | D07 | C07 | round 1
+  day  8 | D08 | C08 | round 1
+  day  9 | D09 | C09 | round 1
+  day 10 | D10 | C10 | round 1
+  day 11 | D11 | C11 | round 1
+  day 12 | D12 | C12 | round 1
+  day 13 | D13 | C13 | round 1
+  day 14 | D14 | C14 | round 1
+  day 15 | D15 | C15 | round 1
+  day 16 | D16 | C16 | round 1
+  day 17 | D17 | C17 | round 1
+  day 18 | D18 | C18 | round 1
+# 角色
+你是 HoloAeon 项目的开源情报抓取智能体，任务是在 GitHub 等开源平台上，
+按指定维度检索"高星高关注"的真实项目，并把每个项目的实质压缩成 1-2 句话定义。
+
+# 本次任务变量
+维度ID：D03
+维度名称：经络-消息路由、编排、链路可观
+对应仓：holoaeon-c03-meridian
+检索意图：消息路由、编排、链路可观测（含基座元层）
+主查询：agent orchestration framework routing observability
+扩展查询：message bus、distributed tracing、workflow engine、pub/sub、event-driven architecture、state checkpoint、queue broker、trace propagation
+排除条件：closed-source
+返回数量：10                   # 固定 10 条，不足则如实说明并给出实际条数
+排序口径：综合分 = 0.40*stars + 0.15*forks + 0.20*近期活跃度 + 0.15*贡献者数 + 0.10*榜单引用
+抓取时间：2026-11-12T09:00:00    # 统一时间戳，所有指标注明"截至该时间"
+
+# 执行步骤（严格按序，不得跳步）
+1. 用主查询 + 扩展查询在 GitHub 检索，合并去重（按仓库全名 owner/repo 去重）。
+   查询句法（V61 P1 规则——主查询整句禁直接使用）：
+   - 整句七词会被 AND 分词压死（真跑实测 total_count=1）——禁整句单查；
+   - 拆成 2-3 个引号短语组 + OR 连接（如 "agent orchestration" OR
+     "workflow engine" OR "message bus"）；
+   - 每组词数<=3，组内词从主查询与扩展词取；
+   - 扩展词分双类：品类词（message bus 类——描述里少见，召回弱）与
+     能力词（pub/sub、tracing、checkpoint 类——描述里常见，召回强），
+     优先用能力词组。
+2. 对每个候选采集：repo 全名、URL、stars、forks、最近提交日期、贡献者数、
+   许可证、主要语言、一句话官方描述（原文）。
+3. 应用硬门槛淘汰：不可访问、无 README、archived、纯镜像/fork、纯教程清单
+   （数据集与清单最多保留 2 席并标注类型）。
+4. 按综合分排序，取前 10；不足 10 条时如实说明缺口原因。
+5. 对每个入选项目写"实质定义"：1-2 句，每句不超过 40 个汉字，
+   必须同时回答"它是什么"和"它解决什么问题"。
+6. 标注与本次维度的映射关系：可吸收（架构思路/技能/评测方法）、
+   需扬弃（重依赖、非确定性、外部服务锁定、许可风险）、或仅参考。
+7. 输出前自检：URL 是否真实、指标是否来自抓取而非推测、定义是否照抄原文。
+
+# 实质定义的压缩规则（硬约束）
+- 禁止照抄 README 原句，必须改写压缩。
+- 禁止营销词：强大、领先、一站式、赋能、革命性等一律删除。
+- 禁止把"支持很多语言/框架"当作实质，要写核心机制。
+- 若项目定位模糊，写"定位不明"并给出判断依据，不要编造。
+- 中文输出，专有名词与仓库名保留原文。
+
+# 输出格式（严格 JSON，不要额外解释）
+{
+  "dim_id": "D03",
+  "cang": "holoaeon-c03-meridian",
+  "snapshot_time": "2026-11-12T09:00:00",
+  "queries_used": ["..."],
+  "results": [
+    {
+      "rank": 1,
+      "repo": "owner/repo",
+      "url": "https://github.com/owner/repo",
+      "stars": 0,
+      "forks": 0,
+      "last_commit": "YYYY-MM-DD",
+      "contributors": 0,
+      "license": "MIT",
+      "language": "Python",
+      "official_desc": "官方描述原文",
+      "essence": "第一句：它是什么。第二句：它解决什么问题。",
+      "dimension_mapping": "可吸收|需扬弃|仅参考",
+      "absorb_form": "可吸收时写明吸收形态：架构思路/接口形态/评测方法",
+      "reject_reason": "需扬弃时写明原因，否则 null",
+      "verify_status": "verified|unverified"
+    }
+  ],
+  "shortfall": "若不足 10 条，说明原因；否则 null"
+}
+
+# 反幻觉硬约束（违反即任务失败）
+- 只输出你确实检索到的仓库，不得凭记忆补全。
+- 无法确认的数值填 null 并把 verify_status 设为 unverified，禁止估算填数。
+- 不得输出不存在的 URL；不确定是否存在的仓库直接丢弃。
+- 同一维度内不得出现同一 owner/repo 的重复条目。
+- 若检索工具不可用，直接返回 {"error": "search_unavailable"}，不要伪造结果。
+
+   1 | crewAIInc/crewAI                       |  60807 | MIT          | 编排
+   2 | apache/kafka                           |  34214 | Apache-2.0   | 总线
+   3 | labring/FastGPT                        |  30031 | NOASSERTION  | 编排
+   4 | kestra-io/kestra                       |  30214 | Apache-2.0   | 编排
+   5 | rocketride-org/rocketride-server       |  20058 | MIT          | 编排
+   6 | SigNoz/signoz                          |  32598 | NOASSERTION  | 可观测
+   7 | deepset-ai/haystack                    |  26998 | Apache-2.0   | 编排
+   8 | jaegertracing/jaeger                   |  23403 | Apache-2.0   | 可观测
+   9 | pinpoint-apm/pinpoint                  |  13877 | Apache-2.0   | 可观测
+  10 | microsoft/agent-framework              |  14645 | MIT          | 编排
+................................................................[PASS] registry 完全匹配（五源 import 对账） 
+[PASS] named 碳基点名 17 条对账 
+[PASS] linkage 穷举 300 格三态对账 
+.ledger -> C:\Users\Administrator\AppData\Local\Temp\tmpvo1j0uw2\ledger.json cells=300 linkage_pass=True
+.--out 需要路径参数
+.cang=holoaeon-c03-meridian dim=D03 fragments=12 mechanisms=25 cells=300 linked=19
+  X1   1331×1331 节点矩阵 linked=2
+  M01  心跳             linked=3
+  M02  细胞骨架           linked=1
+  M04  经络             linked=4
+  M06  语义通信基座         linked=1
+  M08  runtime        linked=7
+  M11  城邦架构           linked=1
+gm_gate pass=False wait=4
+hard_rule: C03 未过 G-M 前禁止启动任何领域深化批次（素材硬约束原文）
+.crewAIInc/crewAI                       M08  runtime            linked   编排(leg)
+apache/kafka                           M04  经络                 linked   总线(leg); 事件(essence)
+apache/kafka                           M11  城邦架构               linked   日志(essence)
+labring/FastGPT                        M08  runtime            linked   编排(leg)
+kestra-io/kestra                       M08  runtime            linked   编排(leg)
+rocketride-org/rocketride-server       M08  runtime            linked   编排(leg)
+SigNoz/signoz                          M01  心跳                 linked   可观测(leg)
+deepset-ai/haystack                    M08  runtime            linked   编排(leg)
+jaegertracing/jaeger                   M01  心跳                 linked   可观测(leg)
+jaegertracing/jaeger                   M04  经络                 linked   trac(name)
+pinpoint-apm/pinpoint                  M01  心跳                 linked   可观测(leg); apm(name)
+microsoft/agent-framework              M02  细胞骨架               linked   agent(name)
+microsoft/agent-framework              M08  runtime            linked   编排(leg)
+实用中医内科表典金刚1331x1331超级矩阵V3实战化_20261020  X1   1331×1331 节点矩阵     linked   1331(name)
+实用中医内科表典金刚1331x1331超级矩阵V3实战化_20261020  M04  经络                 linked   总线(essence)
+实用中医内科表典金刚1331x1331超级矩阵V3实战化_20261020  M08  runtime            linked   编排(leg)
+全库医学知识库1331x1331超级矩阵V3实战化_20261020     X1   1331×1331 节点矩阵     linked   1331(name)
+全库医学知识库1331x1331超级矩阵V3实战化_20261020     M04  经络                 linked   总线(leg)
+全库医学知识库1331x1331超级矩阵V3实战化_20261020     M06  语义通信基座             linked   协议(essence)
+cells=300 linked=19 pending=214 unlinked=67
+ledger -> C:\Users\Administrator\AppData\Local\Temp\tmpn976sdpm\t.json
+.crewAIInc/crewAI                       M08  runtime            linked   编排(leg)
+apache/kafka                           M04  经络                 linked   总线(leg); 事件(essence)
+apache/kafka                           M11  城邦架构               linked   日志(essence)
+labring/FastGPT                        M08  runtime            linked   编排(leg)
+kestra-io/kestra                       M08  runtime            linked   编排(leg)
+rocketride-org/rocketride-server       M08  runtime            linked   编排(leg)
+SigNoz/signoz                          M01  心跳                 linked   可观测(leg)
+deepset-ai/haystack                    M08  runtime            linked   编排(leg)
+jaegertracing/jaeger                   M01  心跳                 linked   可观测(leg)
+jaegertracing/jaeger                   M04  经络                 linked   trac(name)
+pinpoint-apm/pinpoint                  M01  心跳                 linked   可观测(leg); apm(name)
+microsoft/agent-framework              M02  细胞骨架               linked   agent(name)
+microsoft/agent-framework              M08  runtime            linked   编排(leg)
+实用中医内科表典金刚1331x1331超级矩阵V3实战化_20261020  X1   1331×1331 节点矩阵     linked   1331(name)
+实用中医内科表典金刚1331x1331超级矩阵V3实战化_20261020  M04  经络                 linked   总线(essence)
+实用中医内科表典金刚1331x1331超级矩阵V3实战化_20261020  M08  runtime            linked   编排(leg)
+全库医学知识库1331x1331超级矩阵V3实战化_20261020     X1   1331×1331 节点矩阵     linked   1331(name)
+全库医学知识库1331x1331超级矩阵V3实战化_20261020     M04  经络                 linked   总线(leg)
+全库医学知识库1331x1331超级矩阵V3实战化_20261020     M06  语义通信基座             linked   协议(essence)
+cells=300 linked=19 pending=214 unlinked=67
+.usage: meridian_link check|table|summary|ledger [--out PATH]
+.usage: meridian_link check|table|summary|ledger [--out PATH]
+....................................................................................skill=forge_probe_skill -> absorbed_into=C14/holoaeon-c14-skill/技艺 score=0.0274
+runner_up=holoaeon-c17-society score=0.027
+base_root: holoaeon/forge_bureau.py | ledger: data/forge_bureau_meridian.json
+cross_thread: from holoaeon.forge_bureau import forge_absorb
+.[PASS] lathe_modules 机床资产 14 位 import 对账 
+[PASS] lathe_meridian 经络联通 350 格穷举 
+[PASS] rail 打造流水线八步状态机 
+[PASS] product_lines 产品线穷举 10 条 
+[PASS] protocols 平台适配 12+缺口 12 
+[PASS] absorb 共振磁吸附入库 
+.ledger -> C:\Users\Administrator\AppData\Local\Temp\tmp9_f5a9ab\l.json cells=350 meridian_pass=True
+.--out 需要路径参数
+.P1 需求 APP 设计          anchored forge_gate.FrontendBriefCard、forge_gate.DeployModeMatrix
+P2 虚拟测试               anchored magic_lamp.EphemeralFirstTester、machine_tool.LabVerify
+P3 虚拟前端后端架构测试         anchored twin_verify、craft_gate
+P4 小程序工程端系统提示词编写      待造       —
+P5 独立智能体引擎架构一键成型      anchored butler_os、demo_product、forge_bureau.FORGE_RAIL
+P6 白皮书编写              anchored academic_gate、doc_anatomy
+P7 士农工商技术实质数字分身       anchored magic_lamp.SkillAssembler
+P8 书籍数字分身融合打造         anchored skill_lathe、doc_anatomy
+P9 神龟神马双系统+类硅基 V2.0 适配 anchored shengui_gate
+P10 脱离基座运行             anchored forge_bureau
+.在册 12：
+  a2a
+  acp
+  anthropic_tool
+  autogen_tool
+  bedrock_converse
+  crewai_tool
+  envelope
+  gemini_function
+  langchain_tool
+  llamaindex_tool
+  mcp
+  openai_function
+未适配缺口 12：
+  dify（工作台）
+  coze（扣子）（工作台）
+  qwen（通义千问 openai-compatible）（大模型）
+  doubao（豆包）（大模型）
+  wenxin（文心）（大模型）
+  zhipu（智谱 GLM）（大模型）
+  xfyun（讯飞星火）（大模型）
+  volcengine（火山方舟）（大模型）
+  openai-compatible-generic（大模型）
+  ollama（本地）（大模型）
+  n8n（工作流）
+  dify-workflow（工作流）
+.F1 需求解析   forge_bureau.parse_intent
+F2 技能创造   skill_lathe.SkillLathe.turn_skill
+F3 测试试错   machine_tool.LabVerify
+F4 调试回炉   craft_gate.StepRail、mobius_vortex
+F5 神灯联动   magic_lamp.MagicLamp
+F6 漩涡联动   mobius_vortex.VortexIngest
+F7 双模块    doc_anatomy、forge_gate、holo_forge
+F8 适配成型   protocol_plugins.export_skill_to_protocol
+.usage: forge_bureau check|rail|products|protocols|absorb|ledger [--out PATH]
+.usage: forge_bureau check|rail|products|protocols|absorb|ledger [--out PATH]
+...................................................................................................................................................................................................................................................................................................................................................................................F........................................................................................{
+  "ok": true,
+  "failures": [],
+  "report": {
+    "schema": "PREHISTORY-TUTOR-v1",
+    "version": "1.0",
+    "root_label": "doubaowork",
+    "card_file_label": "tutor_cards.json",
+    "cards": [
+      {
+        "id": "TUTOR-DX-01",
+        "section": "导学大典",
+        "pointer": "Agent_Native_导学大典_V1.0.md#L11",
+        "sha16": "3de23fc84b8eb12d",
+        "summary_chars": 200,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DX-02",
+        "section": "导学大典",
+        "pointer": "Agent_Native_导学大典_V1.0.md#L19",
+        "sha16": "3de23fc84b8eb12d",
+        "summary_chars": 30,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DX-03",
+        "section": "导学大典",
+        "pointer": "Agent_Native_导学大典_V1.0.md#L31",
+        "sha16": "3de23fc84b8eb12d",
+        "summary_chars": 49,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DX-04",
+        "section": "导学大典",
+        "pointer": "Agent_Native_导学大典_V1.0.md#L46",
+        "sha16": "3de23fc84b8eb12d",
+        "summary_chars": 16,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DX-05",
+        "section": "导学大典",
+        "pointer": "Agent_Native_导学大典_V1.0.md#L57",
+        "sha16": "3de23fc84b8eb12d",
+        "summary_chars": 18,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DX-06",
+        "section": "导学大典",
+        "pointer": "Agent_Native_导学大典_V1.0.md#L76",
+        "sha16": "3de23fc84b8eb12d",
+        "summary_chars": 121,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DX-07",
+        "section": "导学大典",
+        "pointer": "Agent_Native_导学大典_V1.0.md#L1614",
+        "sha16": "3de23fc84b8eb12d",
+        "summary_chars": 45,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DX-08",
+        "section": "导学大典",
+        "pointer": "Agent_Native_导学大典_V1.0.md#L1866",
+        "sha16": "3de23fc84b8eb12d",
+        "summary_chars": 200,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DX-09",
+        "section": "导学大典",
+        "pointer": "Agent_Native_导学大典_V1.0.md#L2119",
+        "sha16": "3de23fc84b8eb12d",
+        "summary_chars": 125,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DX-10",
+        "section": "导学大典",
+        "pointer": "Agent_Native_导学大典_V1.0.md#L2369",
+        "sha16": "3de23fc84b8eb12d",
+        "summary_chars": 200,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DXB-01",
+        "section": "导学大典",
+        "pointer": "Agent_Native_导学大典_V1.0_完整正文.md#L6248",
+        "sha16": "b15672e9f3551960",
+        "summary_chars": 37,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DXB-02",
+        "section": "导学大典",
+        "pointer": "Agent_Native_导学大典_V1.0_完整正文.md#L6543",
+        "sha16": "b15672e9f3551960",
+        "summary_chars": 58,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DXB-03",
+        "section": "导学大典",
+        "pointer": "Agent_Native_导学大典_V1.0_完整正文.md#L6872",
+        "sha16": "b15672e9f3551960",
+        "summary_chars": 64,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DXB-04",
+        "section": "导学大典",
+        "pointer": "Agent_Native_导学大典_V1.0_完整正文.md#L7248",
+        "sha16": "b15672e9f3551960",
+        "summary_chars": 71,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-CL-01",
+        "section": "计算机语言通史",
+        "pointer": "计算机语言通史3000万字/01_正文/卷01_史前到高级语言诞生/V1P1C01S01.md#L1",
+        "sha16": "1284b118f8b8ec0c",
+        "summary_chars": 200,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-CL-02",
+        "section": "计算机语言通史",
+        "pointer": "计算机语言通史3000万字/01_正文/卷01_史前到高级语言诞生/V1P1C01S02.md#L1",
+        "sha16": "d775f9a4becc1667",
+        "summary_chars": 200,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-CL-03",
+        "section": "计算机语言通史",
+        "pointer": "计算机语言通史3000万字/01_正文/卷01_史前到高级语言诞生/V1P1C01S03.md#L1",
+        "sha16": "9263c307591f51ce",
+        "summary_chars": 200,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-CL-04",
+        "section": "计算机语言通史",
+        "pointer": "计算机语言通史3000万字/01_正文/卷01_史前到高级语言诞生/V1P1C01S04.md#L1",
+        "sha16": "d5173cd95610c63a",
+        "summary_chars": 200,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-CL-05",
+        "section": "计算机语言通史",
+        "pointer": "计算机语言通史3000万字/01_正文/卷01_史前到高级语言诞生/V1P1C01S06.md#L1",
+        "sha16": "9928dc91a89daf57",
+        "summary_chars": 200,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-ZY-01",
+        "section": "周易",
+        "pointer": "周易300万字逐字稿_450合集_最终包_20261009/02_合一全文_第001-450篇_约180万字.md#L3",
+        "sha16": "b7b250863c4ad4de",
+        "summary_chars": 23,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-ZY-02",
+        "section": "周易",
+        "pointer": "周易300万字逐字稿_450合集_最终包_20261009/02_合一全文_第001-450篇_约180万字.md#L417",
+        "sha16": "b7b250863c4ad4de",
+        "summary_chars": 74,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-ZY-03",
+        "section": "周易",
+        "pointer": "周易300万字逐字稿_450合集_最终包_20261009/02_合一全文_第001-450篇_约180万字.md#L604",
+        "sha16": "b7b250863c4ad4de",
+        "summary_chars": 67,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-ZY-04",
+        "section": "周易",
+        "pointer": "周易300万字逐字稿_450合集_最终包_20261009/02_合一全文_第001-450篇_约180万字.md#L733",
+        "sha16": "b7b250863c4ad4de",
+        "summary_chars": 73,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-ZY-05",
+        "section": "周易",
+        "pointer": "周易300万字逐字稿_450合集_最终包_20261009/02_合一全文_第001-450篇_约180万字.md#L836",
+        "sha16": "b7b250863c4ad4de",
+        "summary_chars": 20,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-ZY-06",
+        "section": "周易",
+        "pointer": "周易300万字逐字稿_450合集_最终包_20261009/02_合一全文_第001-450篇_约180万字.md#L956",
+        "sha16": "b7b250863c4ad4de",
+        "summary_chars": 25,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-ZY-07",
+        "section": "周易",
+        "pointer": "周易300万字逐字稿_450合集_最终包_20261009/02_合一全文_第001-450篇_约180万字.md#L1092",
+        "sha16": "b7b250863c4ad4de",
+        "summary_chars": 91,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-ZY-08",
+        "section": "周易",
+        "pointer": "周易300万字逐字稿_450合集_最终包_20261009/02_合一全文_第001-450篇_约180万字.md#L1242",
+        "sha16": "b7b250863c4ad4de",
+        "summary_chars": 54,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-ZY-09",
+        "section": "周易",
+        "pointer": "周易300万字逐字稿_450合集_最终包_20261009/02_合一全文_第001-450篇_约180万字.md#L1390",
+        "sha16": "b7b250863c4ad4de",
+        "summary_chars": 45,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-ZY-10",
+        "section": "周易",
+        "pointer": "周易300万字逐字稿_450合集_最终包_20261009/02_合一全文_第001-450篇_约180万字.md#L1529",
+        "sha16": "b7b250863c4ad4de",
+        "summary_chars": 38,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DZ-01",
+        "section": "道藏",
+        "pointer": "道藏讲习录_三年全息工程/综合合集/道藏讲习录_综合报告合集_第001-032天_20261016.md#L59",
+        "sha16": "754f3c69aff7f724",
+        "summary_chars": 121,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DZ-02",
+        "section": "道藏",
+        "pointer": "道藏讲习录_三年全息工程/综合合集/道藏讲习录_综合报告合集_第001-032天_20261016.md#L458",
+        "sha16": "754f3c69aff7f724",
+        "summary_chars": 76,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DZ-03",
+        "section": "道藏",
+        "pointer": "道藏讲习录_三年全息工程/综合合集/道藏讲习录_综合报告合集_第001-032天_20261016.md#L851",
+        "sha16": "754f3c69aff7f724",
+        "summary_chars": 104,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DZ-04",
+        "section": "道藏",
+        "pointer": "道藏讲习录_三年全息工程/综合合集/道藏讲习录_综合报告合集_第001-032天_20261016.md#L1225",
+        "sha16": "754f3c69aff7f724",
+        "summary_chars": 107,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DZ-05",
+        "section": "道藏",
+        "pointer": "道藏讲习录_三年全息工程/综合合集/道藏讲习录_综合报告合集_第001-032天_20261016.md#L1642",
+        "sha16": "754f3c69aff7f724",
+        "summary_chars": 88,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DZ-06",
+        "section": "道藏",
+        "pointer": "道藏讲习录_三年全息工程/综合合集/道藏讲习录_综合报告合集_第001-032天_20261016.md#L2109",
+        "sha16": "754f3c69aff7f724",
+        "summary_chars": 100,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DZ-07",
+        "section": "道藏",
+        "pointer": "道藏讲习录_三年全息工程/综合合集/道藏讲习录_综合报告合集_第001-032天_20261016.md#L2514",
+        "sha16": "754f3c69aff7f724",
+        "summary_chars": 95,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DZA-01",
+        "section": "道藏",
+        "pointer": "道藏讲习录_三年全息工程/artifacts/道藏讲习录_第1年_第1月_第027天_第3篇_道德经第27章_修证应用.md#L3",
+        "sha16": "bd8d3555a08db2ba",
+        "summary_chars": 50,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DZA-02",
+        "section": "道藏",
+        "pointer": "道藏讲习录_三年全息工程/artifacts/道藏讲习录_第1年_第1月_第028天_第3篇_道德经第28章_修证应用.md#L5",
+        "sha16": "2eb730391bf5d3b9",
+        "summary_chars": 64,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DZA-03",
+        "section": "道藏",
+        "pointer": "道藏讲习录_三年全息工程/artifacts/道藏讲习录_第1年_第1月_第029天_第3篇_道德经第29章_修证应用.md#L5",
+        "sha16": "5818a5caab7e5d7c",
+        "summary_chars": 68,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DZA-04",
+        "section": "道藏",
+        "pointer": "道藏讲习录_三年全息工程/artifacts/道藏讲习录_第1年_第1月_第030天_第3篇_道德经第30章_修证应用.md#L5",
+        "sha16": "987e553f77a52534",
+        "summary_chars": 60,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DZA-05",
+        "section": "道藏",
+        "pointer": "道藏讲习录_三年全息工程/artifacts/道藏讲习录_第1年_第2月_第031天_第3篇_道德经第31章_修证应用.md#L5",
+        "sha16": "bf519660faab8488",
+        "summary_chars": 122,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      },
+      {
+        "id": "TUTOR-DZA-06",
+        "section": "道藏",
+        "pointer": "道藏讲习录_三年全息工程/artifacts/道藏讲习录_第1年_第2月_第032天_第3篇_道德经第32章_修证应用.md#L5",
+        "sha16": "a4374e7ffd2f62f2",
+        "summary_chars": 158,
+        "evidence_level": "L2",
+        "ok": true,
+        "failing": []
+      }
+    ],
+    "sections": {
+      "导学大典": 14,
+      "计算机语言通史": 5,
+      "周易": 10,
+      "道藏": 13
+    },
+    "totals": {
+      "cards": 42,
+      "green": 42,
+      "sections_covered": 4,
+      "min_per_section": 3,
+      "max_summary_chars": 200,
+      "max_summary_observed": 200
+    },
+    "criteria": [
+      {
+        "id": "pointer_reachable",
+        "ok": true,
+        "detail": []
+      },
+      {
+        "id": "summary_oversize",
+        "ok": true,
+        "detail": []
+      },
+      {
+        "id": "prescription_violation",
+        "ok": true,
+        "detail": []
+      },
+      {
+        "id": "section_missing",
+        "ok": true,
+        "detail": []
+      },
+      {
+        "id": "section_thin",
+        "ok": true,
+        "detail": {
+          "thin": [],
+          "stats": {
+            "导学大典": 14,
+            "计算机语言通史": 5,
+            "周易": 10,
+            "道藏": 13
+          }
+        }
+      },
+      {
+        "id": "path_broken",
+        "ok": true,
+        "detail": []
+      },
+      {
+        "id": "path_cycle",
+        "ok": true,
+        "detail": []
+      }
+    ],
+    "note": "只存指针与 ≤200 字短摘要，不复制全文；每卡可回溯原文件行号与段落锚；零诊断零处方。",
+    "digest": "9850bb6644a0954c",
+    "self_digest": "db8d370fe15a8048"
+  }
+}
+.usage: python -m holoaeon.prehistory_tutor [verify|report]
+.{
+  "cross_ledger": {
+    "by_kind": {
+      "caliber_difference": 1,
+      "intent_vs_blocker": 1,
+      "known_boundary": 1,
+      "non_evidence": 1,
+      "runtime_snapshot": 1,
+      "stale_pointer": 1
+    },
+    "conflicts": 6,
+    "registered_boundaries": [
+      "D2",
+      "D3",
+      "D4",
+      "D5"
+    ],
+    "sources": 7
+  },
+  "digest": "96e54885bd35dc2f",
+  "env_delta": {
+    "entries": 20,
+    "face": "env_delta_consistency",
+    "guards_attributed": 26,
+    "guards_total": 26,
+    "parity": {
+      "parity_contract_suite": {
+        "cloud": {
+          "ran": 184,
+          "skipped": 11
+        },
+        "executed_diff": -11,
+        "explained_by": [
+          "D02",
+          "D03"
+        ],
+        "id": "D09",
+        "local": {
+          "ran": 184,
+          "skipped": 0
+        },
+        "ran_diff": 0
+      },
+      "parity_main_suite": {
+        "cloud": {
+          "ran": 2177,
+          "skipped": 33
+        },
+        "executed_diff": -271,
+        "explained_by": [
+          "D01",
+          "D04",
+          "D15",
+          "D17",
+          "D18",
+          "D19",
+          "D20"
+        ],
+        "id": "D08",
+        "local": {
+          "ran": 2415,
+          "skipped": 0
+        },
+        "ran_diff": -238
+      }
+    },
+    "unregistered": []
+  },
+  "faces": {
+    "batch_order_monotonic": true,
+    "chain_position_coverage": true,
+    "ci_step_names_readback": true,
+    "claim_registered": true,
+    "cross_ledger_consistency": true,
+    "determinism_self_digest": true,
+    "env_delta_consistency": true,
+    "historical_timeboxed": true,
+    "pin_freshness": true,
+    "readback_consistent": false,
+    "registry_coverage": true,
+    "regulation_pinned": true,
+    "regulation_semantic_consistency": true
+  },
+  "pins": [
+    {
+      "id": "MCP",
+      "status": "current",
+      "verified_at": "2026-11-13",
+      "version": "2026-07-28（第 5 版）"
+    },
+    {
+      "id": "PHC-NORM",
+      "status": "current",
+      "verified_at": "2026-11-13",
+      "version": "第三版（2017），不含慢阻肺"
+    },
+    {
+      "id": "PHC-2025",
+      "status": "current",
+      "verified_at": "2026-11-20",
+      "version": "2025"
+    },
+    {
+      "id": "NHSA-CATALOG",
+      "status": "current",
+      "verified_at": "2026-11-13",
+      "version": "2025 版目录"
+    },
+    {
+      "id": "PHARMACOPOEIA",
+      "status": "current",
+      "verified_at": "2026-11-13",
+      "version": "2025"
+    },
+    {
+      "id": "MLPS3",
+      "status": "current",
+      "verified_at": "2026-11-13",
+      "version": "2019（现行）"
+    },
+    {
+      "id": "SUPPLY-CHAIN-2026-11",
+      "status": "current",
+      "verified_at": "2026-11-19",
+      "version": "2026-11-19"
+    }
+  ],
+  "readbacks": {
+    "acceptance_suite_en": 2415,
+    "acceptance_suite_zh": 2415,
+    "badge_tests_en": 2415,
+    "badge_tests_zh": 2415,
+    "batch_count_zh": true,
+    "batch_order_monotonic": true,
+    "checklist_entries": 362,
+    "doc_version_spec": "0.9.90",
+    "en_timeline_version": true,
+    "gate_redline_zh": 160,
+    "gate_suite_zh": 2415,
+    "ledger_depth_le3": true,
+    "pyfiles_command_zh": true,
+    "redline_files_computed": 160,
+    "ring_count_zh": true,
+    "sums_disclosure_en": true,
+    "sums_disclosure_zh": true,
+    "zh_timeline_version": true
+  },
+  "regulation_semantic": {
+    "claim_site_drift": [],
+    "face": "regulation_semantic_consistency",
+    "freshness_violations": [],
+    "internal_baselines": 4,
+    "internal_stale": [],
+    "pins_with_contract": 7,
+    "risk_tier_dist": {
+      "annual": 2,
+      "fast": 2,
+      "stable": 3
+    },
+    "runtime_unregistered": []
+  },
+  "rings": {
+    "constants": 30,
+    "coverage": "25/25",
+    "declared": 25,
+    "verified": 25
+  },
+  "schema": "CLAIMS-GATE-v1",
+  "totals": {
+    "doc_claims": 21,
+    "historical": 3,
+    "narrative": 9,
+    "regulation_pins": 7
+  },
+  "verdict": "FAIL"
+}
+.unknown command: 'bogus' (use: verify | report)
+.ERROR: FileNotFoundError [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\AppData\\Local\\Temp\\v75_claims_zupwdvue\\nope.json'
+.......................................F.............................................usage: python -m holoaeon.dual_caliber [verify|report|build]
+.{
+ "schema": "DUAL-CALIBER-v1",
+ "as_of": "2026-11-13",
+ "calibers": [
+  "base",
+  "bridge"
+ ],
+ "samples": [
+  {
+   "name": "总沙盘母体Arena1331x1331多智能体矩阵V3实战化_20261024",
+   "base": {
+    "repo": "holoaeon-c01-source",
+    "cang": "C01",
+    "domain": "本源",
+    "score": 0.0
+   },
+   "bridge": {
+    "repo": "holoaeon-c18-cosmos",
+    "cang": "C18",
+    "domain": "宇宙",
+    "score": 0.1463
+   },
+   "delta": {
+    "repo_changed": true,
+    "score_delta": 0.1463
+   },
+   "decision": "bridge_adopted",
+   "attribution": {
+    "matched_terms": [
+     "arena",
+     "母体",
+     "沙盘"
+    ],
+    "labels": [
+     "cosmos"
+    ],
+    "evidence": "lexicon_substring",
+    "vacuum": false
+   },
+   "still_zero": false
+  },
+  {
+   "name": "王静斋V3.0_runtime_独立验证与安全审计报告_20261018.md",
+   "base": {
+    "repo": "holoaeon-c01-source",
+    "cang": "C01",
+    "domain": "本源",
+    "score": 0.0
+   },
+   "bridge": {
+    "repo": "holoaeon-c15-risk",
+    "cang": "C15",
+    "domain": "风险",
+    "score": 0.1538
+   },
+   "delta": {
+    "repo_changed": true,
+    "score_delta": 0.1538
+   },
+   "decision": "bridge_adopted",
+   "attribution": {
+    "matched_terms": [
+     "安全",
+     "审计",
+     "验证"
+    ],
+    "labels": [
+     "risk_legal"
+    ],
+    "evidence": "lexicon_substring",
+    "vacuum": false
+   },
+   "still_zero": false
+  },
+  {
+   "name": "天元法务金刚1331x1331超级矩阵V3实战化_20261018",
+   "base": {
+    "repo": "holoaeon-c01-source",
+    "cang": "C01",
+    "domain": "本源",
+    "score": 0.0
+   },
+   "bridge": {
+    "repo": "holoaeon-c15-risk",
+    "cang": "C15",
+    "domain": "风险",
+    "score": 0.0506
+   },
+   "delta": {
+    "repo_changed": true,
+    "score_delta": 0.0506
+   },
+   "decision": "bridge_adopted",
+   "attribution": {
+    "matched_terms": [
+     "法务"
+    ],
+    "labels": [
+     "risk_legal"
+    ],
+    "evidence": "lexicon_substring",
+    "vacuum": false
+   },
+   "still_zero": false
+  },
+  {
+   "name": "超级办公之王1331x1331超级矩阵V3实战化_20261020",
+   "base": {
+    "repo": "holoaeon-c01-source",
+    "cang": "C01",
+    "domain": "本源",
+    "score": 0.0
+   },
+   "bridge": {
+    "repo": "holoaeon-c06-career",
+    "cang": "C06",
+    "domain": "职业",
+    "score": 0.0556
+   },
+   "delta": {
+    "repo_changed": true,
+    "score_delta": 0.0556
+   },
+   "decision": "bridge_adopted",
+   "attribution": {
+    "matched_terms": [
+     "办公"
+    ],
+    "labels": [
+     "career"
+    ],
+    "evidence": "lexicon_substring",
+    "vacuum": false
+   },
+   "still_zero": false
+  },
+  {
+   "name": "隐私门控路由本地化1331x1331多智能体矩阵V3实战化_20261031",
+   "base": {
+    "repo": "holoaeon-c01-source",
+    "cang": "C01",
+    "domain": "本源",
+    "score": 0.0
+   },
+   "bridge": {
+    "repo": "holoaeon-c15-risk",
+    "cang": "C15",
+    "domain": "风险",
+    "score": 0.092
+   },
+   "delta": {
+    "repo_changed": true,
+    "score_delta": 0.092
+   },
+   "decision": "bridge_adopted",
+   "attribution": {
+    "matched_terms": [
+     "门控",
+     "隐私"
+    ],
+    "labels": [
+     "risk_legal"
+    ],
+    "evidence": "lexicon_substring",
+    "vacuum": false
+   },
+   "still_zero": false
+  },
+  {
+   "name": "AI教育大师每日课程",
+   "base": {
+    "repo": "holoaeon-c05-education",
+    "cang": "C05",
+    "domain": "教育",
+    "score": 0.08
+   },
+   "bridge": {
+    "repo": "holoaeon-c05-education",
+    "cang": "C05",
+    "domain": "教育",
+    "score": 0.2449
+   },
+   "delta": {
+    "repo_changed": false,
+    "score_delta": 0.1649
+   },
+   "decision": "base_kept",
+   "attribution": {
+    "matched_terms": [
+     "教育",
+     "课程"
+    ],
+    "labels": [
+     "education"
+    ],
+    "evidence": "lexicon_substring",
+    "vacuum": false
+   },
+   "still_zero": false
+  },
+  {
+   "name": "认知主权1331x1331多智能体矩阵V3实战化_20261030",
+   "base": {
+    "repo": "holoaeon-c01-source",
+    "cang": "C01",
+    "domain": "本源",
+    "score": 0.0
+   },
+   "bridge": {
+    "repo": "holoaeon-c01-source",
+    "cang": "C01",
+    "domain": "本源",
+    "score": 0.1096
+   },
+   "delta": {
+    "repo_changed": false,
+    "score_delta": 0.1096
+   },
+   "decision": "base_kept",
+   "attribution": {
+    "matched_terms": [
+     "主权",
+     "认知"
+    ],
+    "labels": [
+     "sovereign"
+    ],
+    "evidence": "lexicon_substring",
+    "vacuum": false
+   },
+   "still_zero": false
+  },
+  {
+   "name": "世界考古大师1331x1331超级矩阵V3实战化_20261020",
+   "base": {
+    "repo": "holoaeon-c01-source",
+    "cang": "C01",
+    "domain": "本源",
+    "score": 0.0
+   },
+   "bridge": {
+    "repo": "holoaeon-c13-time",
+    "cang": "C13",
+    "domain": "时间",
+    "score": 0.0548
+   },
+   "delta": {
+    "repo_changed": true,
+    "score_delta": 0.0548
+   },
+   "decision": "bridge_adopted",
+   "attribution": {
+    "matched_terms": [
+     "考古"
+    ],
+    "labels": [
+     "time_arch"
+    ],
+    "evidence": "lexicon_substring",
+    "vacuum": false
+   },
+   "still_zero": false
+  },
+  {
+   "name": "潮起邮差_四重宇宙创作工坊_20261019",
+   "base": {
+    "repo": "holoaeon-c18-cosmos",
+    "cang": "C18",
+    "domain": "宇宙",
+    "score": 0.05
+   },
+   "bridge": {
+    "repo": "holoaeon-c08-creation",
+    "cang": "C08",
+    "domain": "创造",
+    "score": 0.1791
+   },
+   "delta": {
+    "repo_changed": true,
+    "score_delta": 0.1291
+   },
+   "decision": "bridge_adopted",
+   "attribution": {
+    "matched_terms": [
+     "创作",
+     "宇宙",
+     "工坊",
+     "邮差"
+    ],
+    "labels": [
+     "cosmos",
+     "creation"
+    ],
+    "evidence": "lexicon_substring",
+    "vacuum": false
+   },
+   "still_zero": false
+  },
+  {
+   "name": "儒释道三教合一1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+   "base": {
+    "repo": "holoaeon-c01-source",
+    "cang": "C01",
+    "domain": "本源",
+    "score": 0.0
+   },
+   "bridge": {
+    "repo": "holoaeon-c11-meaning",
+    "cang": "C11",
+    "domain": "意义",
+    "score": 0.1042
+   },
+   "delta": {
+    "repo_changed": true,
+    "score_delta": 0.1042
+   },
+   "decision": "bridge_adopted",
+   "attribution": {
+    "matched_terms": [
+     "三教",
+     "儒释道"
+    ],
+    "labels": [
+     "meaning"
+    ],
+    "evidence": "lexicon_substring",
+    "vacuum": false
+   },
+   "still_zero": false
+  },
+  {
+   "name": "数学大师1331_数学史早课",
+   "base": {
+    "repo": "holoaeon-c01-source",
+    "cang": "C01",
+    "domain": "本源",
+    "score": 0.0
+   },
+   "bridge": {
+    "repo": "holoaeon-c05-education",
+    "cang": "C05",
+    "domain": "教育",
+    "score": 0.1132
+   },
+   "delta": {
+    "repo_changed": true,
+    "score_delta": 0.1132
+   },
+   "decision": "bridge_adopted",
+   "attribution": {
+    "matched_terms": [
+     "数学",
+     "早课"
+    ],
+    "labels": [
+     "education",
+     "craft_math"
+    ],
+    "evidence": "lexicon_substring",
+    "vacuum": false
+   },
+   "still_zero": false
+  },
+  {
+   "name": "海派中医全派1331x1331超级矩阵V3_runtime_v3.zip",
+   "base": {
+    "repo": "holoaeon-c01-source",
+    "cang": "C01",
+    "domain": "本源",
+    "score": 0.0
+   },
+   "bridge": {
+    "repo": "holoaeon-c03-meridian",
+    "cang": "C03",
+    "domain": "经络",
+    "score": 0.0253
+   },
+   "delta": {
+    "repo_changed": true,
+    "score_delta": 0.0253
+   },
+   "decision": "bridge_adopted",
+   "attribution": {
+    "matched_terms": [
+     "中医"
+    ],
+    "labels": [
+     "meridian_med"
+    ],
+    "evidence": "lexicon_substring",
+    "vacuum": false
+   },
+   "still_zero": false
+  },
+  {
+   "name": "SG-MASTER-SONGJIANG-1331x1331-SUPER-MAS-V3.0_runtime_20261019.zip",
+   "base": {
+    "repo": "holoaeon-c01-source",
+    "cang": "C01",
+    "domain": "本源",
+    "score": 0.0
+   },
+   "bridge": {
+    "repo": "holoaeon-c01-source",
+    "cang": "C01",
+    "domain": "本源",
+    "score": 0.0
+   },
+   "delta": {
+    "repo_changed": false,
+    "score_delta": 0.0
+   },
+   "decision": "vacuum_kept",
+   "attribution": {
+    "matched_terms": [],
+    "labels": [],
+    "evidence": "none",
+    "vacuum": true
+   },
+   "still_zero": true
+  },
+  {
+   "name": "吴门医派1331x1331_SUPER-MAS-V3.0_runtime_20261018.zip",
+   "base": {
+    "repo": "holoaeon-c01-source",
+    "cang": "C01",
+    "domain": "本源",
+    "score": 0.0
+   },
+   "bridge": {
+    "repo": "holoaeon-c03-meridian",
+    "cang": "C03",
+    "domain": "经络",
+    "score": 0.0217
+   },
+   "delta": {
+    "repo_changed": true,
+    "score_delta": 0.0217
+   },
+   "decision": "bridge_adopted",
+   "attribution": {
+    "matched_terms": [
+     "医派"
+    ],
+    "labels": [
+     "meridian_med"
+    ],
+    "evidence": "lexicon_substring",
+    "vacuum": false
+   },
+   "still_zero": false
+  },
+  {
+   "name": "张量拆解双王矩阵实战化_20261017",
+   "base": {
+    "repo": "holoaeon-c01-source",
+    "cang": "C01",
+    "domain": "本源",
+    "score": 0.0
+   },
+   "bridge": {
+    "repo": "holoaeon-c14-skill",
+    "cang": "C14",
+    "domain": "技艺",
+    "score": 0.1
+   },
+   "delta": {
+    "repo_changed": true,
+    "score_delta": 0.1
+   },
+   "decision": "bridge_adopted",
+   "attribution": {
+    "matched_terms": [
+     "张量",
+     "拆解"
+    ],
+    "labels": [
+     "craft_math"
+    ],
+    "evidence": "lexicon_substring",
+    "vacuum": false
+   },
+   "still_zero": false
+  }
+ ],
+ "totals": {
+  "samples": 15,
+  "zero_before": 13,
+  "zero_after": 1,
+  "changed": 12,
+  "unchanged": 3,
+  "bridge_adopted": 12,
+  "base_kept": 2,
+  "vacuum_kept": 1
+ },
+ "known_vacuum": [
+  "SG-MASTER-SONGJIANG"
+ ],
+ "boundaries": [
+  "主路 forge_absorb 零改动：本模块只读调用，不写入、不替换、不缓存其结果",
+  "bridge 只加文本（两侧显式词表），ngram_dice 与 tie-break 一字未动",
+  "真空样本（名字无领域线索）桥后仍 0 分，登记 KNOWN_VACUUM，不伪装已修复",
+  "18 仓远端重推属外部动作：本批只出确认表，停在 LOCAL_READY",
+  "base 与 bridge 并列登记，任何一方都不是唯一真值，裁决权在碳基"
+ ],
+ "seal": "潮起开门，潮落闭嘴",
+ "self_digest": "38adbb82332911b7"
+}
+.verdict: PASS | digest: 38adbb82332911b7
+  F1_base_readonly_equal       OK
+  F2_bridge_rerun_equal        OK
+  F3_attribution_traceable     OK
+  F4_vacuum_registered         OK
+  F5_deterministic_digest      OK
+  F6_totals_consistent         OK
+  F7_self_digest               OK
+.双口径台账：38adbb82332911b7
+  样本 15 / 旧口径零分 13 / 桥后零分 1 / 换仓 12 / 同仓 3
+  判定：adopted 12 / base_kept 2 / vacuum 1
+  bridge_adopted 总沙盘母体Arena1331x1331多智能体矩阵V3实 holoaeon-c01-source(0.0000) -> holoaeon-c18-cosmos(0.1463) arena、母体、沙盘
+  bridge_adopted 王静斋V3.0_runtime_独立验证与安全审计报告_ holoaeon-c01-source(0.0000) -> holoaeon-c15-risk(0.1538) 安全、审计、验证
+  bridge_adopted 天元法务金刚1331x1331超级矩阵V3实战化_202 holoaeon-c01-source(0.0000) -> holoaeon-c15-risk(0.0506) 法务
+  bridge_adopted 超级办公之王1331x1331超级矩阵V3实战化_202 holoaeon-c01-source(0.0000) -> holoaeon-c06-career(0.0556) 办公
+  bridge_adopted 隐私门控路由本地化1331x1331多智能体矩阵V3实战 holoaeon-c01-source(0.0000) -> holoaeon-c15-risk(0.0920) 门控、隐私
+  base_kept AI教育大师每日课程                   holoaeon-c05-education(0.0800) -> holoaeon-c05-education(0.2449) 教育、课程
+  base_kept 认知主权1331x1331多智能体矩阵V3实战化_202 holoaeon-c01-source(0.0000) -> holoaeon-c01-source(0.1096) 主权、认知
+  bridge_adopted 世界考古大师1331x1331超级矩阵V3实战化_202 holoaeon-c01-source(0.0000) -> holoaeon-c13-time(0.0548) 考古
+  bridge_adopted 潮起邮差_四重宇宙创作工坊_20261019       holoaeon-c18-cosmos(0.0500) -> holoaeon-c08-creation(0.1791) 创作、宇宙、工坊、邮差
+  bridge_adopted 儒释道三教合一1331x1331_SUPER-MAS-V holoaeon-c01-source(0.0000) -> holoaeon-c11-meaning(0.1042) 三教、儒释道
+  bridge_adopted 数学大师1331_数学史早课               holoaeon-c01-source(0.0000) -> holoaeon-c05-education(0.1132) 数学、早课
+  bridge_adopted 海派中医全派1331x1331超级矩阵V3_runtim holoaeon-c01-source(0.0000) -> holoaeon-c03-meridian(0.0253) 中医
+  vacuum_kept SG-MASTER-SONGJIANG-1331x133 holoaeon-c01-source(0.0000) -> holoaeon-c01-source(0.0000) -
+  bridge_adopted 吴门医派1331x1331_SUPER-MAS-V3.0 holoaeon-c01-source(0.0000) -> holoaeon-c03-meridian(0.0217) 医派
+  bridge_adopted 张量拆解双王矩阵实战化_20261017         holoaeon-c01-source(0.0000) -> holoaeon-c14-skill(0.1000) 张量、拆解
+.verdict: PASS | digest: 38adbb82332911b7
+  F1_base_readonly_equal       OK
+  F2_bridge_rerun_equal        OK
+  F3_attribution_traceable     OK
+  F4_vacuum_registered         OK
+  F5_deterministic_digest      OK
+  F6_totals_consistent         OK
+  F7_self_digest               OK
+.......................F.F.................F:\doubaowork\holoaeon\tests\test_v79_cross_ledger_gate.py:450: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\claims_gate.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(open(path, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.............................................................................................................................................................................................................................................F:\doubaowork\holoaeon\tests\test_v83_topology_p23_disposal.py:188: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\topology_resonance_pack.py' mode='r' encoding='utf-8'>
+  src = io.open(T.__file__, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+......F:\doubaowork\holoaeon\tests\test_v83_topology_p23_disposal.py:217: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\topology_resonance_pack.py' mode='r' encoding='utf-8'>
+  src = io.open(T.__file__, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.....F:\doubaowork\holoaeon\tests\test_v83_topology_p23_disposal.py:266: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\topology_resonance_pack.py' mode='r' encoding='utf-8'>
+  src = io.open(T.__file__, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.......F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\__init__.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\academic_gate.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\agent.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\bayes_reasoning.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\bus.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\bus_channel.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\butler_os.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\c18_cluster.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\cache.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\cinema_gate.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\circuit_gate.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\claims_gate.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\cluster.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\concept_anatomy.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\concept_anatomy_render.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\concept_visual_forge.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\continuity_gate.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\cosmo_gate.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\craft_gate.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\dehallucination.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\demo_product.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\deploy_gate.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\doc_anatomy.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\dual_caliber.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\edu_gate.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\envelope.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\event_channel.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\event_filter.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\external_watchdog.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\forge_bureau.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\forge_gate.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\frontend_adapter.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\gap_adapters.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\gap_bridge.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\genome_dna.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\graph.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\guard.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\hardware_gate.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\holo_forge.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\hypervector.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\interrupt.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\kernel.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\klein_projection.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\machine_tool.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\magic_lamp.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\math_gate.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\mcp_adapter.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\mechanism_bearers.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\memory.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\meridian_link.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\meridian_recheck.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\miniapp_prompt.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\mobius_vortex.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\model_adapter.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\org_gate.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\palette_gate.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\pharma_gate.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\phc_chronic_engine.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\phc_recall.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\prehistory_contract.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\prehistory_criteria.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\prehistory_family.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\prehistory_injection.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\prehistory_ledger.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\prehistory_semantic_bridge.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\prehistory_tutor.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\protocol_plugins.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\redline.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\replay_branch.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\resonance_supplement.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\router_layer.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\runnable.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\salvage_gate.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\scheduler.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\selftest.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\semvec.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\shengui_gate.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\skill.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\skill_lathe.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\skill_loader.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\skill_schema.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\spec.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\ssyd_chronic_engine.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\swarm_intel.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\tautology_scan.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\tea_gate.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\teach_gate.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\tensor_gate.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\titan_evolver.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\topology_runtime.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\twin_verify.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\vector_sea_explorer.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\audit\\__init__.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\audit\\attest.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\audit\\fields.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\audit\\honesty.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\audit\\mutation.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\audit\\receipt.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\audit\\span_tree.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\audit\\verdict_policy.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\audit\\verify.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\design_vocab\\__init__.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\design_vocab\\compile_modes.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\design_vocab\\detectors.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\design_vocab\\hebbian.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\design_vocab\\meridian.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\design_vocab\\vocabulary.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\fusion_upgrade\\__init__.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\fusion_upgrade\\admission.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\fusion_upgrade\\contract.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\fusion_upgrade\\dual_sync.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\fusion_upgrade\\external_skill_registry.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\fusion_upgrade\\hebbian_store.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\fusion_upgrade\\manifest.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\fusion_upgrade\\model_gateway.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\fusion_upgrade\\plan.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\fusion_upgrade\\plugin_runtime.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\fusion_upgrade\\protocol.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\fusion_upgrade\\reasoning_adapter.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\fusion_upgrade\\selftest.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\fusion_upgrade\\semantic_family.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\fusion_upgrade\\slot_registry.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\fusion_upgrade\\snapshot.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\fusion_upgrade\\swap.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\fusion_upgrade\\three_field.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\__init__.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\base.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\business.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\concept_anatomy_pack.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\data.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\dehallucination_pack.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\engineering_skills_pack.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\fusion_upgrade_pack.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\gaoyi_pack.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\growth.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\literature.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\metab_pack.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\nephron_pack.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\omnicore_pack.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\omnilife_pack.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\optimization.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\persona_quartet_pack.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\quant.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\quartet_director_pack.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\research.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\skill_matrix_pack.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\sovereignty_pack.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\subdistill_pack.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\super_agent_pack.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\swarm_intel_pack.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\tcm_rehab_pack.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\topology_resonance_pack.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\uplift_pack.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\vector_sea_pack.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\writing.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\skill_matrix\\__init__.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\skill_matrix\\index.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\skill_matrix\\mech.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\skill_matrix\\runtime.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:308: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\skill_matrix\\selftest.py' mode='r' encoding='utf-8'>
+  src = io.open(full, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\tests\test_v84_tautology_golden_watch.py:267: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\data\\tautology_allowlist.json' mode='r' encoding='utf-8'>
+  cls.entries = json.load(io.open(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.................F:\doubaowork\holoaeon\tests\test_v84_tautology_golden_watch.py:362: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\data\\tautology_allowlist.json' mode='r' encoding='utf-8'>
+  doc = json.load(io.open(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.........F:\doubaowork\holoaeon\tests\test_v84_tautology_golden_watch.py:378: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\data\\tautology_allowlist.json' mode='r' encoding='utf-8'>
+  doc = json.load(io.open(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+...............................F...............................................................F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\base.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\business.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\concept_anatomy_pack.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\data.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\dehallucination_pack.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\engineering_skills_pack.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\fusion_upgrade_pack.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\gaoyi_pack.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\growth.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\literature.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\metab_pack.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\nephron_pack.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\omnicore_pack.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\omnilife_pack.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\optimization.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\persona_quartet_pack.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\quant.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\quartet_director_pack.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\research.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\skill_matrix_pack.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\sovereignty_pack.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\subdistill_pack.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\super_agent_pack.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\swarm_intel_pack.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\tcm_rehab_pack.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\topology_resonance_pack.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\uplift_pack.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\vector_sea_pack.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+F:\doubaowork\holoaeon\holoaeon\tautology_scan.py:473: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\holoaeon\\packs\\writing.py' mode='r' encoding='utf-8'>
+  tree = ast.parse(io.open(full, encoding="utf-8").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+..........F.F:\doubaowork\holoaeon\tests\test_v88_p2c_supply.py:53: ResourceWarning: unclosed file <_io.TextIOWrapper name='F:\\doubaowork\\holoaeon\\reports\\security_tier_self_assessment_20261119.md' mode='r' encoding='utf-8'>
+  text = io.open(self.report, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+...........................
+======================================================================
+FAIL: test_real_site_build_passes (test_v71_prehistory_family.RealSiteTest.test_real_site_build_passes)
+V86 起单源：现场期望值只写在 holoaeon/prehistory_family.py 的
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "F:\doubaowork\holoaeon\tests\test_v71_prehistory_family.py", line 383, in test_real_site_build_passes
+    self.assertTrue(ok, problems[:6])
+AssertionError: False is not true : ['bytes 99097955 != 99096450']
+
+======================================================================
+FAIL: test_06_baseline_green (test_v75_claims_gate.TestReadback.test_06_baseline_green)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "F:\doubaowork\holoaeon\tests\test_v75_claims_gate.py", line 132, in test_06_baseline_green
+    self.assertEqual(v["verdict"], "PASS", json.dumps(v["faces"], ensure_ascii=False)[:600])
+AssertionError: 'FAIL' != 'PASS'
+- FAIL
++ PASS
+ : {"claim_registered": {"ok": true, "fails": []}, "readback_consistent": {"ok": false, "fails": [{"face": "readback_consistent", "id": "doc_version_spec", "detail": "MISMATCH readback='0.9.90' expected='0.9.89'"}]}, "historical_timeboxed": {"ok": true, "fails": []}, "regulation_pinned": {"ok": true, "fails": []}, "pin_freshness": {"ok": true, "fails": []}, "determinism_self_digest": {"ok": true, "fails": []}, "chain_position_coverage": {"ok": true, "fails": []}, "registry_coverage": {"ok": true, "fails": []}, "regulation_semantic_consistency": {"ok": true, "fails": []}, "cross_ledger_consistency
+
+======================================================================
+FAIL: test_real_repo_pass (test_v77_registry_coverage.T8RealRepoEightFaces.test_real_repo_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "F:\doubaowork\holoaeon\tests\test_v77_registry_coverage.py", line 196, in test_real_repo_pass
+    self.assertEqual(v["verdict"], "PASS", msg=str(v["faces"]))
+AssertionError: 'FAIL' != 'PASS'
+- FAIL
++ PASS
+ : {'claim_registered': {'ok': True, 'fails': []}, 'readback_consistent': {'ok': False, 'fails': [{'face': 'readback_consistent', 'id': 'doc_version_spec', 'detail': "MISMATCH readback='0.9.90' expected='0.9.89'"}]}, 'historical_timeboxed': {'ok': True, 'fails': []}, 'regulation_pinned': {'ok': True, 'fails': []}, 'pin_freshness': {'ok': True, 'fails': []}, 'determinism_self_digest': {'ok': True, 'fails': []}, 'chain_position_coverage': {'ok': True, 'fails': []}, 'registry_coverage': {'ok': True, 'fails': []}, 'regulation_semantic_consistency': {'ok': True, 'fails': []}, 'cross_ledger_consistency': {'ok': True, 'fails': []}, 'env_delta_consistency': {'ok': True, 'fails': []}, 'batch_order_monotonic': {'ok': True, 'fails': []}, 'ci_step_names_readback': {'ok': True, 'fails': []}}
+
+======================================================================
+FAIL: test_report_has_all_faces (test_v77_registry_coverage.T9SelfDigestAndReport.test_report_has_all_faces)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "F:\doubaowork\holoaeon\tests\test_v77_registry_coverage.py", line 224, in test_report_has_all_faces
+    self.assertTrue(all(snap["faces"][f] for f in cg.FACES))
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_n3_other_faces_still_pass (test_v85_ci_step_names.TestNoRegression.test_n3_other_faces_still_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "F:\doubaowork\holoaeon\tests\test_v85_ci_step_names.py", line 186, in test_n3_other_faces_still_pass
+    self.assertTrue(rep["faces"][f]["ok"], "%s 面色变" % f)
+AssertionError: False is not true : readback_consistent 面色变
+
+======================================================================
+FAIL: test_gate_green_real (test_v88_p2c_supply.TestV88SupplyChain.test_gate_green_real)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "F:\doubaowork\holoaeon\tests\test_v88_p2c_supply.py", line 63, in test_gate_green_real
+    self.assertEqual(res["mismatch"], 0)
+AssertionError: 1 != 0
+
+----------------------------------------------------------------------
+Ran 2415 tests in 50.681s
+
+FAILED (failures=6, skipped=3)
+exit=1
+
+===== unittest-verax =====
+$ -m unittest discover -s tests/verax
+.....................
+----------------------------------------------------------------------
+Ran 21 tests in 0.154s
 
 OK
 exit=0
 
-===== unittest-verax =====
-$ -m unittest discover -s tests/verax
-....................F
-======================================================================
-FAIL: test_word_count_is_stable_and_matches_golden (test_repro.TestRepro.test_word_count_is_stable_and_matches_golden)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "F:\doubaowork\holoaeon\tests\verax\test_repro.py", line 25, in test_word_count_is_stable_and_matches_golden
-    self.assertEqual(verdict["reprohash_list"], [GOLDEN_HASH, GOLDEN_HASH])
-    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError: Lists differ: ['e1b6c4ba5c26943b', 'e1b6c4ba5c26943b'] != ['2b82a6ef7188ce91', '2b82a6ef7188ce91']
-
-First differing element 0:
-'e1b6c4ba5c26943b'
-'2b82a6ef7188ce91'
-
-- ['e1b6c4ba5c26943b', 'e1b6c4ba5c26943b']
-+ ['2b82a6ef7188ce91', '2b82a6ef7188ce91']
-
-----------------------------------------------------------------------
-Ran 21 tests in 0.149s
-
-FAILED (failures=1)
-exit=1
-
 ===== unittest-v3 =====
 $ -m unittest discover -s tests/v3
-.....
+...........
 ----------------------------------------------------------------------
-Ran 5 tests in 0.393s
+Ran 11 tests in 0.437s
 
 OK
 exit=0
 
 ===== redline =====
 $ scripts/redline_scan.py
-扫描文件数：101
+扫描文件数：160
 结果： 干净（零违规）
 exit=0
 
@@ -193,23 +2959,23 @@ $ scripts/verax_verify.py --out reports
 ========================================================================
 VERAX 门禁：红线 → 自检 → 复现 → 篡改 → 诚实 → 热插拔 → 策略
 ========================================================================
-[1/7] 红线扫描：files=101 violations=0
+[1/7] 红线扫描：files=160 violations=0
 [2/7] 自检：25/25
-[3/7] 复现 data_describe    stable=True  golden=False hash=8cd80c70ad275455
+[3/7] 复现 data_describe    stable=True  golden=True  hash=8cd80c70ad275455
 [3/7] 复现 guard_eval       stable=True  golden=True  hash=98b9b7b340f7f980
 [3/7] 复现 guard_os_system  stable=True  golden=True  hash=a7deb622e17a2b55
-[3/7] 复现 quant_sharpe     stable=True  golden=False hash=8ee7170326666303
+[3/7] 复现 quant_sharpe     stable=True  golden=True  hash=8ee7170326666303
 [3/7] 复现 word_count       stable=True  golden=True  hash=e1b6c4ba5c26943b
-[5/7] 诚实契约：h1=0 h2=3
+[5/7] 诚实契约：h1=0 h2=10
 [4/7] 篡改自检：mutations=5 changed=5 sensitive=True base=8cd80c70ad275455
 [6/7] 热插拔：40 → 47（新增 7，未重启）
-[7/7] 策略：red hits=['diff0_drift'] downgradable=False（spec-diff0 v0.2 §8）
+[7/7] 策略：green hits=[] downgradable=False（spec-diff0 v0.2 §8）
 ------------------------------------------------------------------------
-conclusion=red verdict_hash=19d9383cf876dad9
+conclusion=yellow verdict_hash=886af2388a2b7560
 md=reports\attestation.md
 jsonl=reports\attestation.jsonl
-VERAX_EXIT=1
-exit=1
+VERAX_EXIT=2
+exit=2
 
 ===== bench_public =====
 $ benchmarks/bench_public.py
@@ -219,9 +2985,9 @@ HoloAeon 公开基准 v0.9.1
 [1/3] DIFF=0    run1=6d119b2a9f2df687 run2=6d119b2a9f2df687 equal=True
        敏感性   base=6d119b2a9f2df687 tampered=8f424d9ee3ebfb9b sensitive=True
 [2/3] 拦截率     16/16 = 100%；合法放行 4/4
-[3/3] 足迹       build=36.08ms peak=1.69MiB agents=25 skills=47
+[3/3] 足迹       build=48.46ms peak=1.69MiB agents=25 skills=47
 ------------------------------------------------------------------------
-DIFF=0 6d119b2a9f2df687 | 拦截 100% | 冷装配 36.08ms / 峰值 1.69MiB
+DIFF=0 6d119b2a9f2df687 | 拦截 100% | 冷装配 48.46ms / 峰值 1.69MiB
 written: F:\doubaowork\holoaeon\benchmarks\results-0.9.1.json
 BENCH_EXIT=0
 exit=0
@@ -229,7 +2995,7 @@ exit=0
 ===== bench_semvec =====
 $ scripts/bench_semvec.py
 ========================================================================
-semvec 实测  corpus=47 docs  vocab=334  dim=32  fit=199.26ms
+semvec 实测  corpus=47 docs  vocab=334  dim=32  fit=213.09ms
 确定性  digest_a=789b71a36bfcd66a digest_b=789b71a36bfcd66a equal=True
 ------------------------------------------------------------------------
 意图                           基线               语义               混合0.75          
@@ -261,6 +3027,6 @@ exit=0
 $ scripts/make_snapshot.py
 snapshot json: F:\doubaowork\holoaeon\snapshot\project_snapshot.json
 snapshot md  : F:\doubaowork\holoaeon\snapshot\SNAPSHOT.md
-snapshot_sha16=ce7c808d1eec5798
-code: holoaeon/ 101 files / 23049 lines
+snapshot_sha16=d7f2dfc98b6fd2b3
+code: holoaeon/ 160 files / 49803 lines
 exit=0

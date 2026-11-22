@@ -2,8 +2,8 @@
 HoloAeon VERAX 自证报告（Self-Attestation）
 ========================================================================
 runtime_id : HOLOAEON-RUNTIME-0.9.1
-commit     : c36e0156c2db
-ts_build   : 2026-11-03T16:07:11Z   （物理量，不进 verdict_hash）
+commit     : 1ca8ed30e072
+ts_build   : 2026-11-22T02:40:11Z   （物理量，不进 verdict_hash）
 verdict    : YELLOW
 verdict_hash : 886af2388a2b7560
 证据分级   : 本报告全部条目默认 simulated；仿真≠证明。
@@ -65,13 +65,13 @@ task_id=word_count runs=2 stable=True golden_match=True
 ------------------------------------------------------------------------
 三、诚实契约（honesty）
 ------------------------------------------------------------------------
-simulated=0 measured=0 third_party=0 noncompliant=3
-H1（measured 无来源）/ H2（缺 evidence_class）命中计数：3
+simulated=0 measured=0 third_party=0 noncompliant=10
+H1（measured 无来源）/ H2（缺 evidence_class）命中计数：10
 
 ------------------------------------------------------------------------
 四、红线（redline）
 ------------------------------------------------------------------------
-扫描文件数=101 violations=0
+扫描文件数=160 violations=0
 未登记字段（按物理量处理，已告警）：$.results[0].input.csv_text, $.results[0].input.returns_s
 
 五、门禁退出码：0=绿 / 1=红 / 2=黄（scripts/verax_verify.py）

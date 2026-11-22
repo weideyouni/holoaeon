@@ -298,13 +298,13 @@
     {
       "core_py_count": 160,
       "core_py_count_at_measure": 156,
-      "core_py_count_note": "V41-A 核心包 .py 157→158（新增 holoaeon/ssyd_chronic_engine.py）；基线数值本身未重测；V86 158→159（新增 holoaeon/genome_dna.py）；V89 159→160（新增 holoaeon/bayes_reasoning.py）——仅更新规模记录，基线数值未重测，本批沿用 V41-A 基线（回执登记为已知 stale）",
+      "core_py_count_note": "V41-A 核心包 .py 157→158（新增 holoaeon/ssyd_chronic_engine.py）；基线数值本身未重测；V86 158→159（新增 holoaeon/genome_dna.py）；V89 159→160（新增 holoaeon/bayes_reasoning.py）——仅更新规模记录，基线数值未重测，本批沿用 V41-A 基线（回执登记为已知 stale）；NA-V1 2026-11-22 v3 闸重跑同比复测（仅耗时字段变，语义指标未变），pin 随源更新",
       "id": "semvec-0.9.1",
       "max_age_days": 90,
-      "measured_at": "2026-11-04",
+      "measured_at": "2026-11-22",
       "path": "benchmarks/results-semvec-0.9.1.json",
       "risk_tier": "fast",
-      "source_sha16": "c05a4c6d9fefc31a",
+      "source_sha16": "36042768db05680f",
       "stale_if_core_py_count_changes": true
     },
     {
@@ -334,13 +334,13 @@
     {
       "core_py_count": 160,
       "core_py_count_at_measure": 156,
-      "core_py_count_note": "V41-A 核心包 .py 157→158（新增 holoaeon/ssyd_chronic_engine.py）；基线数值本身未重测；V86 158→159（新增 holoaeon/genome_dna.py）；V89 159→160（新增 holoaeon/bayes_reasoning.py）——仅更新规模记录，基线数值未重测，本批沿用 V41-A 基线（回执登记为已知 stale）",
+      "core_py_count_note": "V41-A 核心包 .py 157→158（新增 holoaeon/ssyd_chronic_engine.py）；基线数值本身未重测；V86 158→159（新增 holoaeon/genome_dna.py）；V89 159→160（新增 holoaeon/bayes_reasoning.py）——仅更新规模记录，基线数值未重测，本批沿用 V41-A 基线（回执登记为已知 stale）；NA-V1 2026-11-22 v3 闸重跑同比复测（仅耗时字段变，语义指标未变），pin 随源更新",
       "id": "results-0.9.1",
       "max_age_days": 90,
-      "measured_at": "2026-11-03",
+      "measured_at": "2026-11-22",
       "path": "benchmarks/results-0.9.1.json",
       "risk_tier": "fast",
-      "source_sha16": "a7a523dcc3024bb2",
+      "source_sha16": "ee694a98b016f9cd",
       "stale_if_core_py_count_changes": true
     }
   ],
@@ -424,7 +424,7 @@
       "non_evidence": [
         "runtime_snapshot"
       ],
-      "observed": "0.9.89",
+      "observed": "0.9.90",
       "observed_at": "2026-11-22"
     },
     "five_site_head": {
@@ -568,15 +568,15 @@
       "effective_from": "2025",
       "id": "PHC-2025",
       "max_age_days": 180,
-      "note": "只存文号指针，不复制规范全文（V89-A 插入济世主旨段后按整文件实测重算 sha16）",
+      "note": "只存文号指针，不复制规范全文（V89-A 插入济世主旨段后按整文件实测重算 sha16）；NA-V1 2026-11-22 台账行 V90 改号致 README.zh-CN.md 变（186830B），pin 随源更新（仅台账行，公卫口径段未改）；NA-V1 复算闸活体行 362→363 同步致 README.zh-CN.md sha16 再变，pin 随源更新",
       "risk_tier": "annual",
       "runtime_pointer": "holoaeon/phc_chronic_engine.py#L4-L5",
       "runtime_role": "current",
       "runtime_value": "2025",
       "source_pointer": "README.zh-CN.md#公卫口径段（V41 小节）",
-      "source_sha16": "4160de84b0c92965",
+      "source_sha16": "e9b44074a68ef922",
       "status": "current",
-      "verified_at": "2026-11-20",
+      "verified_at": "2026-11-22",
       "version": "2025",
       "version_chain": [
         {
@@ -723,7 +723,7 @@
     }
   ],
   "schema": "CLAIMS-GATE-v1",
-  "self_digest": "9a4d3bc87324eee8",
+  "self_digest": "c1a1b0978cdc25f7",
   "totals": {
     "doc_claims": 21,
     "historical": 3,

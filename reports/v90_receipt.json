@@ -1,0 +1,248 @@
+{
+ "schema": "holoaeon.receipt/v1",
+ "batch": "V90",
+ "sub_batch": "NA-V1",
+ "batch_note": "NA-V1 打捞之网建仓批：netaeon 独立仓（网是路由不是仓库）+ holoaeon 基座侧 README 增量插入 / 装载六仓 / CTUP N7 / DOC 0.9.90。承接四人组投喂「千问端投喂包 v2.0（四人组真源版）」扬弃裁决；本回执所有数字一律本机重跑取真值，不引用策划端预演（投喂文本中的 39/39、28/28、记忆四处、DOC 递进等属策划端叙述）。",
+ "date": "2026-11-22",
+ "executor": "本地 Windows PowerShell + py3.11.9（F:\\doubaowork\\holoaeon）",
+ "repo": "holoaeon",
+ "repo_path": "F:\\doubaowork\\holoaeon",
+ "head_at_write": "1ca8ed30e0727d5861044ab63755d850bf8595d9",
+ "head_at_write_note": "本回执写入时 HEAD（父提交）。回执落盘后本提交自指不可能，故记父提交。",
+ "doc_version": "0.9.90",
+ "doc_version_before": "0.9.89",
+ "spec_version": "0.9.1",
+ "base_registration": {
+  "spec": {
+   "rel": "holoaeon/spec.py",
+   "bytes": 12193,
+   "sha256": "b3ef7b39f2af6cd9416398138b896dcda9602a4f4d8d7b39056f1f3442fc7232",
+   "sha16": "b3ef7b39f2af6cd9"
+  },
+  "claims_registry": {
+   "rel": "data/claims_registry.json",
+   "bytes": 27834,
+   "sha256": "114bdbab2f7d57a67d07fc6a030b395d2c0c9ff3e5693af22af664b5e10ca2f5",
+   "sha16": "114bdbab2f7d57a6"
+  },
+  "ctup_onboarding": {
+   "rel": "data/ctup_onboarding.json",
+   "bytes": 33801,
+   "sha256": "b501e2e3755744290c849af8f7c12ef6874774039097348a2bd453ad62fbf9df",
+   "sha16": "b501e2e375574429"
+  },
+  "genome_dna": {
+   "rel": "data/genome_dna.json",
+   "bytes": 12898,
+   "sha256": "df835f80e085229993daff7867610948e5a3483876f2ded31d50a4ba7e483127",
+   "sha16": "df835f80e0852299"
+  },
+  "project_entry": {
+   "rel": "data/PROJECT_ENTRY_MIRRAEON.json",
+   "bytes": 10511,
+   "sha256": "5b087e38c6b88145e064ee4234b797bc9f299fb4a8b38176834a41943a527bd5",
+   "sha16": "5b087e38c6b88145"
+  },
+  "claims_self_digest": "0c5c04a252991b1e",
+  "genome_change_class": "doc_version_advance",
+  "genesis_measured": {
+   "doc_version_after": "0.9.90",
+   "doc_version_before": "0.9.89",
+   "spec_sha256_measured": "b3ef7b39f2af6cd9416398138b896dcda9602a4f4d8d7b39056f1f3442fc7232",
+   "genome_hash": null,
+   "dna_version": "1.1.0",
+   "genome_revision_batch": "NA-V1"
+  },
+  "note": "五资产三元现场实读；project_entry 沿用 data/PROJECT_ENTRY_MIRRAEON.json（V89-A 先例，不入 SUMS）。"
+ },
+ "doc_version_assertions": [
+  {
+   "rel": "tests/test_v22_eng_skills.py",
+   "line": 50,
+   "value": "0.9.90"
+  },
+  {
+   "rel": "tests/test_v64_hangover_zero.py",
+   "line": 396,
+   "value": "0.9.90"
+  },
+  {
+   "rel": "tests/test_v70_prehistory_criteria.py",
+   "line": 309,
+   "value": "0.9.90"
+  },
+  {
+   "rel": "tests/test_v84_tautology_golden_watch.py",
+   "line": 375,
+   "value": "0.9.90"
+  }
+ ],
+ "sums": {
+  "lines": 363,
+  "bytes": 34479,
+  "sha256": "0406e8dc52d90c37ae2678caa2250f3b0445e9de09645faf0da75f3987c0f601",
+  "sha16": "0406e8dc52d90c37",
+  "changed_lines": [
+   "data/claims_registry.json",
+   "data/ctup_onboarding.json",
+   "data/genome_dna.json",
+   "reports/attestation.md",
+   "reports/v90_receipt.json",
+   "reports/v3_gate.json"
+  ],
+  "changed": true,
+  "caliber": "lf_normalized_text_raw_binary",
+  "note": "本批新增本回执行与 v3_gate.json 重固行（362→363）；不登记 README.md / README.zh-CN.md / docs/BATCH_LEDGER.md；spec.py 与 prehistory_family.py 不在册。（NA-V1 复算闸读数 362→363 同步后，registry 与回执行按 64 位全 sha 重固；回执内 sha 为回执行定稿前一刻快照，SUMS 回执行随后按回执定稿重固，两者差一行，已如实披露）"
+ },
+ "mirror_batch": {
+  "batch_id": "NA-V1",
+  "feed": "AGENT_FEED_NA-V1_SALVAGE_NET_FOUNDING_20261122.md",
+  "feed_path": "F:\\doubaowork\\netaeon\\docs\\AGENT_FEED_NA-V1_SALVAGE_NET_FOUNDING_20261122.md",
+  "feed_note": "投喂件入 netaeon 仓 docs/ 副本；原件封存在 F:\\doubaowork\\.tmp_na1\\ 未动。",
+  "feed_caliber": "md5-16",
+  "assets_disk": [
+   {
+    "rel": "netaeon\\net_core.py",
+    "bytes": 12487,
+    "md5_16": "9db1aee2788e47b6",
+    "sha16": "375b1289f8d27ead"
+   },
+   {
+    "rel": "netaeon\\project_match.py",
+    "bytes": 8394,
+    "md5_16": "dd14e08bd644e86c",
+    "sha16": "d5fd5982d028e86c"
+   },
+   {
+    "rel": "netaeon\\net_ledger.py",
+    "bytes": 5993,
+    "md5_16": "6d1dfd7995eefd4b",
+    "sha16": "bc8b31236a3ade9e"
+   },
+   {
+    "rel": "netaeon\\__init__.py",
+    "bytes": 266,
+    "md5_16": "72408a769181cfd9",
+    "sha16": "34df689bcd07f35f"
+   },
+   {
+    "rel": "README.md",
+    "bytes": 4969,
+    "md5_16": "519296dcc544485d",
+    "sha16": "55784da658beb19d"
+   },
+   {
+    "rel": "tests\\test_na1_net.py",
+    "bytes": 8234,
+    "md5_16": "afdac09ff3a3c51a",
+    "sha16": "864ca593b70d2884"
+   }
+  ],
+  "assets_caliber": "md5-16（另附 sha16 = sha256 前 16 位）",
+  "batch_gate": "39/39",
+  "batch_gate_parts": {
+   "net_core": 15,
+   "project_match": 16,
+   "net_ledger": 6,
+   "readme_lock": 2
+  },
+  "batch_gate_part_counts": [
+   15,
+   16,
+   6,
+   2
+  ],
+  "tests": {
+   "total": 28,
+   "py313": 28,
+   "py311": 28,
+   "files": [
+    "tests/test_na1_net.py"
+   ],
+   "warnings": "python -m netaeon.* 触发 <frozen runpy> RuntimeWarning（无害）",
+   "note": "28 例双解释器全过：T1NetCore 12 + T2ProjectMatch 7 + T3SelfOrgSimilarity 5 + T4LedgerAndBatch 4。"
+  },
+  "netaeon_head": "663fa67ecbd623bacb64b178106363858ba0d4ca",
+  "netaeon_head_short": "663fa67",
+  "netaeon_tracked": 10,
+  "netaeon_branch": "master",
+  "netaeon_node_registry": {
+   "node_total": 19,
+   "mechanism_total": 25,
+   "warehouse_dims": 18,
+   "aliases": 10
+  },
+  "netaeon_remote": "未建（待碳基点单）"
+ },
+ "gates": {
+  "v3_gate": "34/34",
+  "redline": 160,
+  "unittest_main": 2415,
+  "check_sums": "mismatches=[]；untracked 待本批 add 后翻绿（如实披露）",
+  "note": "v3 闸与红线为 2026-11-22 实跑读数；主套件为写入前首轮读数。",
+  "claims_gate": "13/13 PASS"
+ },
+ "verification": {
+  "feed": "10913B/md5-16 35082c079626753c",
+  "precheck": "F:\\doubaowork 为巨型仓（22791 dirty/1247 untracked），绝不整体提交；holoaeon 只 add 本批件。",
+  "assets_md5": "六资产 md5-16 现场复算",
+  "assets_sha256": "六资产 sha16 现场复算",
+  "clean_run": "netaeon 仓工作树仅 __init__.py 版本常量待提交",
+  "unittest_main": 2415,
+  "unittest_failures": 0,
+  "unittest_errors": 0,
+  "unittest_note": "落盘前首轮 2415 例：failures=5 / skipped=3，五个失败同源且唯一成因是本回执缺失级联——claims_gate 回读 doc_version_spec 期望 0.9.89 而实测 0.9.90。与 V89-I 同类（执行顺序问题，非代码缺陷）。本回执落盘后重跑应自消失。",
+  "unittest_five_fail_ids": [
+   "test_v75_claims_gate.TestReadback.test_06_baseline_green",
+   "test_v77_registry_coverage.T8RealRepoEightFaces.test_real_repo_pass",
+   "test_v77_registry_coverage.T9SelfDigestAndReport.test_report_has_all_faces",
+   "test_v85_ci_step_names.TestNoRegression.test_n3_other_faces_still_pass",
+   "test_v88_p2c_supply.TestV88SupplyChain.test_gate_green_real"
+  ],
+  "unittest_rerun": "2026-11-22 回执定稿前全量复跑：Ran 2415 tests in 50.256s, OK (skipped=3)",
+  "claims_gate_rerun": "2026-11-22 复跑：13/13 faces PASS, verdict=PASS, digest=151f1ecbf08feae7, checklist_entries=363",
+  "redline": 160,
+  "v3_gate": "34/34",
+  "check_sums": {
+   "ok": true,
+   "total": 362,
+   "mismatches": []
+  },
+  "checklist_entries": 362,
+  "genome_dna_gate": "pass=true problems=[] dna_version 1.1.0",
+  "mirraeon_state": "3fe592e（master，tracked 47/commits 21，干净；本地/Gitee/GitHub 三端同）",
+  "holoaeon_state": "1ca8ed3（main，V89-I，DOC 0.9.89 入批，工作树 dirty）",
+  "note": "v90 回执自身使 readback 期望与实际对齐；就地重跑取终值。",
+  "unittest_subset_rerun": "五测试文件合跑 200 例 OK（DOC 递进时实跑）。",
+  "unittest_skipped": 3
+ },
+ "anomalies": [
+  "投喂称「机床账面滞后 last_batch=V84」「豆包已执行 MR-V8」；本地实测 HEAD 1ca8ed3、DOC 0.9.89，投喂叙述滞后于实盘且夹带预演数字（39/39、28/28、记忆四处、终验全链均非本机实跑）。",
+  "投喂要求 README 写入点为「纪元族/姊妹仓声明段（mirraeon/polisaeon 提及处附近）」；实测该处不存在（全仓 .md 仅 reports/daily_baseline_20261122.md:69 提 mirraeon），改落 §0.8 与 C18 段末。",
+  "netaeon 三端远端均未创建（投喂明示待碳基点单）。",
+  "net_core route「全职业数字分身 认知蒸馏」→ MIR 归位回读无留痕实跑；mirraeon→MIR 属 project_match 别名级命中，非资产归位实证。",
+  "prehistory_family.py EXPECTED_BYTES 99096450→99097955（+1505B，files 8310 未变），载体按目录/日志 mtime 推断为打捞之王 600 万仓 runtime_v3/logs 追加，未逐字节证实。",
+  "batch 口径三例外：claims_gate check_batch() 恒 MR-V2 schema 标称批；netaeon BATCH=NA-V1；本回执 batch=V90（BATCH_TOKEN 只接受 V\\d+）。",
+  "holoaeon tracked 数随时点递增（775→777），非丢失件。",
+  "BOOT_20261122.json B3_heads 5/5 与 GLOBAL_LOAD_STATUS scope.five_sites_per_repo=5 仍五仓口径；装载已六仓，五地同步按仓各自推进。",
+  "ctup_onboarding.json 顶层 project_registry.projects 仍为 2（V89-A 旧值，无脚本校验）。",
+  "reports/gate_fusion_v4.json doc_version=0.9.3 为 v3_gate 内置常量；daily_gate_20261122.json spec_doc_version=0.9.89 属历史快照。"
+ ],
+ "honest_boundaries": [
+  "netaeon 远端未建，S2–S5 未做；本批只完成 S1 本地（663fa67）。",
+  "netaeon 是路由网，不是仓库，也不做资产归位实证；route 命中率不等于资产已落地。",
+  "28 例测试只覆盖路由/匹配/账本/自组织相似性，不覆盖 holoaeon 基座 2415 例全域。",
+  "39/39 批总闸由 15+16+6+2 四部相加，其中 2 闸为 README 锁；README 缺失时为 SKIP（37/37），非通过。",
+  "prehistory 载体未逐字节证实，仅按 mtime/目录推断。",
+  "PROJECT_ENTRY.json 未随 netaeon 建仓（母版 data/PROJECT_ENTRY_MIRRAEON.json 未复制入仓）。",
+  "投喂文本的执行叙述未全部采信，凡未留痕者一律标「未实跑」。",
+  "A 类 7 项（A1–A7）仍 suspended_awaiting_carbon，本批未动。",
+  "GAP-C3（逐席 dispatch 入口文档化）仅为设计输入，未实现。",
+  "本回执 head_at_write 记父提交，自指不可能。"
+ ],
+ "seal": "潮起开门，潮落闭嘴",
+ "signature": "桃花庵出品 / 中科国度 · V90 NA-V1（打捞之网建仓批）",
+ "notes": [
+  "claims_gate readback 362→363 已同步；SUMS/registry/回执行均按 64 位全 sha 重固"
+ ]
+}

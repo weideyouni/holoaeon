@@ -92,7 +92,8 @@
     "sites": [
       "holoaeon",
       "neike1331",
-      "mirraeon"
+      "mirraeon",
+      "netaeon"
     ],
     "mirraeon_note": "MR-V1 纪元族第四员：F:\\doubaowork\\mirraeon（镜面·全职业数字分身矩阵，士农工商 1639 职业/四域 SNGB/八大类 C1-C8/四层认知契约/双脑解耦）；CTUP 条目 data/PROJECT_ENTRY_MIRRAEON.json（按 V89-A 先例不入 SHA256SUMS，保 362 定点）；经络挂接走 meridian_link.mirror_extra_fragments() 懒导入（中文 leg + mirror_native，只经 build_meridian_table 纯 19×25 通道，不进 load_fragments 硬校验组合体）；不开源、不推任何远端（远端建仓须碳基点单）",
     "mirror_facts": {
@@ -559,6 +560,68 @@
       ],
       "seal": "潮起开门，潮落闭嘴",
       "ledger_rows": 17
+    },
+    "netaeon_note": "NA-V1 纪元族第五员：F:\\doubaowork\\netaeon（打捞之网 · 归航路由网：19 节点=18 仓 C01-C18 指针 import salvage_gate.DIMENSIONS + mirraeon 第 19 节点 MIR；25 机制轴=边坐标系，指针 import meridian_link.KERNEL_MECHANISMS 零复制）；打捞局 ring23/24 管出海、netaeon 管归航；仓内无 PROJECT_ENTRY.json（投喂八步未列，待碳基点单）；不开源、不推任何远端（远端建仓须碳基点单，本批仅 S1 本地）；loader REPOS 自 NA-V1 起六仓硬编码",
+    "netaeon_facts": {
+      "batch": "NA-V1",
+      "as_of": "2026-11-22",
+      "repo": {
+        "root": "F:\\doubaowork\\netaeon",
+        "head": "663fa67ecbd623bacb64b178106363858ba0d4ca",
+        "branch": "master",
+        "tracked": 10,
+        "commits": 1,
+        "first_commit_files": 10,
+        "first_commit_insertions": 1110,
+        "version": "NA 0.1.0（README 声明 + netaeon/__init__.py __version__ 同值）"
+      },
+      "gates": {
+        "net_core": {
+          "total": 15,
+          "passed": 15,
+          "verdict": "PASS"
+        },
+        "project_match": {
+          "total": 16,
+          "passed": 16,
+          "verdict": "PASS"
+        },
+        "net_ledger_batch": {
+          "total": 39,
+          "passed": 39,
+          "verdict": "PASS",
+          "parts": "网 15 + 匹配 16 + 账本 6 + README 锁 2"
+        },
+        "unittest": {
+          "cases": 28,
+          "py311": "OK",
+          "py313": "OK",
+          "cmd": "python -m unittest discover -s tests -t tests -p test_*.py"
+        },
+        "readme_sync": "README 未落盘时 SKIP（37/37=15+16+6）→ 落盘后转正 +2 → 39/39"
+      },
+      "node_registry": {
+        "nodes": 19,
+        "built_from": "netaeon/net_core.py build_nodes()：NET-C01..NET-C18（18 维指针）+ NET-MIR（D19）",
+        "mechanisms": 25,
+        "mechanism_source": "holoaeon/meridian_link.py KERNEL_MECHANISMS（真 import，零复制）",
+        "search_dims": 18,
+        "search_dim_source": "holoaeon/salvage_gate.py DIMENSIONS（一仓一维 D01-D18）"
+      },
+      "project_aliases": {
+        "count": 10,
+        "anchor": "project_match.PROJECT_ALIASES（名字主键；零命中=unknown 不硬凑）"
+      },
+      "regression_samples": {
+        "消息路由 编排 链路可观测": "NET-C03",
+        "卡尔曼 滤波": "NET-C02",
+        "全职业数字分身 认知蒸馏": "NET-MIR",
+        "财务": "C07",
+        "打麻将": "unknown（best=None）"
+      },
+      "receipt": "F:\\doubaowork\\netaeon\\reports\\na_v1_receipt.json",
+      "remote": "未建（Gitee/GitHub/HF 待碳基点单）",
+      "note": "投喂中 39/39、28/28、记忆回填四处为策划端预演文本；本机全部重跑取真值后登记"
     }
   },
   "readme_claims_py": {
