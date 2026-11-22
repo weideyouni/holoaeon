@@ -1,7 +1,7 @@
 {
   "schema": "HOLOAEON-CTUP-ONBOARDING/1.0",
   "seal": "潮起开门，潮落闭嘴",
-  "date": "2026-11-17",
+  "date": "2026-11-22",
   "batch": "V88-GATE-HARDENING",
   "ctup_schema": "CTUP-v1.3",
   "skill_dir_abs": "C:\\Users\\Administrator\\AppData\\Local\\DoubaoWork\\User Data\\Default\\.doubaowork\\agent_mode\\workspace\\.user_skills\\cross-thread-unity-protocol",
@@ -561,27 +561,32 @@
       "seal": "潮起开门，潮落闭嘴",
       "ledger_rows": 17
     },
-    "netaeon_note": "NA-V1 纪元族第五员：F:\\doubaowork\\netaeon（打捞之网 · 归航路由网：19 节点=18 仓 C01-C18 指针 import salvage_gate.DIMENSIONS + mirraeon 第 19 节点 MIR；25 机制轴=边坐标系，指针 import meridian_link.KERNEL_MECHANISMS 零复制）；打捞局 ring23/24 管出海、netaeon 管归航；NA-V1b 收口（2026-11-22）：PROJECT_ENTRY.json 已随建并入库（6d7f6ae）、GAP-C3 逐席 dispatch 设计文档已落、Gitee 私有仓 weideyouni/netaeon(id 51678445) 已建且 master 对齐 6d7f6ae；GitHub/HF 受 2026-11-22 网络层阻断未建（待补）；不开源；loader REPOS 自 NA-V1 起六仓硬编码",
+    "netaeon_note": "NA-V1 纪元族第五员：F:\\doubaowork\\netaeon（打捞之网 · 归航路由网：19 节点=18 仓 C01-C18 指针 import salvage_gate.DIMENSIONS + mirraeon 第 19 节点 MIR；25 机制轴=边坐标系，指针 import meridian_link.KERNEL_MECHANISMS 零复制）；打捞局 ring23/24 管出海、netaeon 管归航；NA-V1b 收口（2026-11-22）：PROJECT_ENTRY.json 随建、GAP-C3 逐席 dispatch 设计落盘、Gitee 私有仓对齐、GitHub 私有 master 已建并 ls-remote 复核、HF 镜像待刷新（TLS 阻断）；不开源；loader REPOS 六仓硬编码",
     "netaeon_facts": {
       "batch": "NA-V1",
       "as_of": "2026-11-22",
       "repo": {
         "root": "F:\\doubaowork\\netaeon",
-        "head": "6d7f6ae7ce1db3ec2293f0aa69ccb5a2c9088294",
+        "head": "a66b7a103fe18468faf40dd3d55b27212f829e97",
         "branch": "master",
-        "tracked": 11,
-        "commits": 5,
+        "tracked": 13,
+        "commits": 10,
         "commit_chain": [
           "663fa67",
           "c564431",
           "4d5fe1c",
           "beb6df5",
-          "6d7f6ae"
+          "6d7f6ae",
+          "0f27374",
+          "3181a87",
+          "6ab6e6c",
+          "707371f",
+          "a66b7a1"
         ],
         "first_commit_files": 10,
         "first_commit_insertions": 1110,
         "version": "NA 0.1.0（README 声明 + netaeon/__init__.py __version__ 同值）",
-        "closure_commit": "6d7f6ae（README 口径改定 + PROJECT_ENTRY.json + docs/DISPATCH_SEAT_ENTRY_DESIGN_NA-V1.md + 回执 closure_na_v1b）"
+        "closure_commit": "a66b7a1（NA-V1b 终态：PROJECT_ENTRY + dispatch 设计 + 回执五地实况）"
       },
       "gates": {
         "net_core": {
@@ -635,18 +640,28 @@
           "id": 51678445,
           "private": true,
           "branch": "master",
-          "aligned_head": "6d7f6ae7ce1db3ec2293f0aa69ccb5a2c9088294",
+          "aligned_head": "a66b7a103fe18468faf40dd3d55b27212f829e97",
           "api": "POST /api/v5/user/repos (private=true, auto_init=false) -> 201",
-          "readback": "git ls-remote master == 6d7f6ae7ce1db3ec2293f0aa69ccb5a2c9088294"
+          "readback": "contents API 逐文件对齐：13 件 4 写 9 同 0 失败；git ls-remote 传输仍被 SNI 阻断"
         },
         "github": {
-          "status": "BLOCKED",
-          "reason": "2026-11-22 网络层 SSL: UNEXPECTED_EOF_WHILE_READING；DOUBAO_OFFICE 转发端点作 CONNECT 代理 400",
-          "note": "待网络恢复后补建，仓名保持 netaeon"
+          "status": "CREATED",
+          "full_name": "weideyouni/netaeon",
+          "private": true,
+          "branch": "master",
+          "aligned_head": "a66b7a103fe18468faf40dd3d55b27212f829e97",
+          "readback": "git ls-remote https://github.com/weideyouni/netaeon.git refs/heads/master == a66b7a103fe18468faf40dd3d55b27212f829e97",
+          "note": "HTTPS http.extraheader Basic x-access-token（credential fill 取 gho_）"
         },
         "hf": {
-          "status": "BLOCKED",
-          "reason": "同层 SSL 不可达；无 netaeon 对象可镜像"
+          "status": "MIRROR_STALE",
+          "repo": "weideyouni/netaeon",
+          "repo_id": "6b02888b434e2bea86e0f488",
+          "private": true,
+          "branch": "main",
+          "mirrored_head": "824c6fe",
+          "reason": "2026-11-22 TLS 层阻断复测：curl schannel handshake failed / python SSL EOF / hf-mirror.com 308 重定向回 hf.co 亦不可达",
+          "note": "镜像件 11 件为 NA-V1 口径；待网络恢复后按 a66b7a1 13 件重刷"
         },
         "open_source": false
       },
@@ -661,10 +676,10 @@
       "five_site": {
         "S1": "PASS",
         "S2": "PASS",
-        "S3": "BLOCKED",
+        "S3": "PASS",
         "S4": "PASS",
-        "S5": "BLOCKED",
-        "note": "S2 Gitee 建仓+推送+ls-remote 双对账；S3 GitHub/S5 HF 网络层阻断如实登记"
+        "S5": "PARTIAL",
+        "note": "S2 Gitee 内容 API 对齐；S3 GitHub ls-remote 复核；S5 镜像旧于现 head 且刷新被 TLS 阻断（如实登记）"
       }
     }
   },

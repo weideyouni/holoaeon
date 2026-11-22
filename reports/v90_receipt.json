@@ -60,40 +60,36 @@
     "batch": "NA-V1b",
     "blocked_evidence": "gitee.com 及候选 IP(212.64.63.215/212.64.62.174/180.76.198.225/180.76.199.13) TCP 443 可连、TLS ClientHello 后 EOF；ssh 22/443 均 Connection closed by 198.18.1.11",
     "holoaeon_registration": {
-      "ctup": "v13_additions.netaeon_note/netaeon_facts 由 663fa67/10/1 对齐 6d7f6ae/11/5，remote 由「未建」改 Gitee CREATED + GitHub/HF BLOCKED",
+      "ctup": "v13_additions.netaeon_facts 对齐 a66b7a1/13/10，remote GitHub/HF 由 BLOCKED 改 CREATED（HF 镜像本体仍待刷新）",
       "doc_version": "0.9.90 维持（本收口不动机制）",
-      "global_load": "GLOBAL_LOAD_20261122.json holoaeon version/head/five_site 与 netaeon version/head/five_site 五处旧值对齐",
-      "head_local": "79ff5db2326eebb59300df89655f2f676e075ace",
-      "push_state": "PENDING (5601286 已在远端；9268b48 未推，SSL EOF)",
-      "sums": "SHA256SUMS 两行（data/ctup_onboarding.json、reports/v90_receipt.json）重算"
+      "global_load": "GLOBAL_LOAD_20261122.json 六仓 head/five_site 与现场对齐（holoaeon e9ac8b7 / netaeon a66b7a1 / mirraeon 201febe）",
+      "head_local": "e9ac8b7a650151b6d7a7f07750c90bb223e57789",
+      "push_state": "PASS：GitHub main e9ac8b7 已推（HTTPS x-access-token + ls-remote 复核）；Gitee 三件内容 API 已写并回读",
+      "sums": "SHA256SUMS 两行（data/ctup_onboarding.json、reports/v90_receipt.json）按 LF 归一重算"
     },
-    "honest": "GitHub/HF 未完成，属客观网络层阻断，不以「完成」表述；无新增实现、无评分、无预填验收值",
+    "honest": "HF 镜像未刷新属客观网络层阻断，不以「完成」表述；Gitee 走内容 API（git 传输仍被 SNI 阻断）；无新增实现、无评分、无预填验收值。",
     "netaeon": {
-      "commits": 7,
+      "head": "a66b7a103fe18468faf40dd3d55b27212f829e97",
+      "commits": 10,
+      "tracked_files": 13,
+      "branch": "master",
+      "gitee": "weideyouni/netaeon id 51678445 private；master 内容 API 逐文件对齐 a66b7a1（13/4写9同/0失败）",
+      "github": "weideyouni/netaeon private master a66b7a1（ls-remote 复核）",
+      "hf": "model 私仓 id 6b02888b434e2bea86e0f488；现有镜像 main 824c6fe 早于 a66b7a1，本轮刷新被 TLS 层阻断（如实登记）",
       "dispatch_design": "docs/DISPATCH_SEAT_ENTRY_DESIGN_NA-V1.md（GAP-C3 设计先行，零实现零评分）",
-      "gates": {
-        "net_core": "15/15",
-        "net_ledger": "39/39",
-        "project_match": "16/16",
-        "unittest": "28 例 OK"
-      },
-      "gitee": "weideyouni/netaeon id 51678445 private；master 6d7f6ae 已推；0f27374 待网络恢复（SSL EOF）",
-      "head": "3181a87cf1a41206febba22fadcdc4feb45354d3",
-      "project_entry": "PROJECT_ENTRY.json 3943B NETAEON-PROJECT-ENTRY/1.0",
-      "push_state": "gitee PARTIAL(6d7f6ae) / github PUSHED / hf CREATED",
-      "tracked_files": 11
+      "push_state": "gitee PASS / github PASS / hf MIRROR_STALE(refresh blocked)"
     },
     "scope": "netaeon 三端门面收口 + 基座侧登记对齐（不改机制、不推 DOC）",
     "sign": "桃花庵出品 / 中科国度 · 潮起开门，潮落闭嘴",
     "sites": {
-      "S1": "PASS local heads locked",
-      "S2": "PARTIAL gitee blocked at TLS layer",
-      "S3": "PASS github holoaeon+netaeon pushed",
-      "S4": "PASS NA-V1b repin 226-228",
-      "S5": "PASS hf netaeon mirror pushed"
+      "S1": "PASS 本地三仓 head 锁死（holoaeon e9ac8b7 / netaeon a66b7a1 / mirraeon 201febe）",
+      "S2": "PASS Gitee 内容 API 三仓逐文件对齐（holoaeon 3 件写 / netaeon 4 写 9 同 / mirraeon 16 写 34 同，0 失败）",
+      "S3": "PASS GitHub HTTPS 三仓 ls-remote 复核（holoaeon main e9ac8b7 / netaeon master a66b7a1 / mirraeon main 201febe）",
+      "S4": "PASS NA-V1b 226-228 按现 head 重钉 + manifest",
+      "S5": "PARTIAL netaeon 镜像 824c6fe 早于现 head；HF 域名 TLS 握手被阻断（curl schannel handshake failed / python SSL EOF / hf-mirror 308 回 hf.co 亦不可达）"
     },
     "ts": "2026-11-22T13:40:00+08:00",
-    "updated_at": "2026-11-22T14:21:57+08:00"
+    "updated_at": "2026-11-22T15:04:19+08:00"
   },
   "date": "2026-11-22",
   "doc_version": "0.9.90",
@@ -129,7 +125,7 @@
     "unittest_main": 2415,
     "v3_gate": "34/34"
   },
-  "head_at_write": "1ca8ed30e0727d5861044ab63755d850bf8595d9",
+  "head_at_write": "e9ac8b7a650151b6d7a7f07750c90bb223e57789",
   "head_at_write_note": "本回执写入时 HEAD（父提交）。回执落盘后本提交自指不可能，故记父提交。",
   "honest_boundaries": [
     "netaeon 远端未建，S2–S5 未做；本批只完成 S1 本地（663fa67）。",
@@ -246,11 +242,11 @@
       "reports/v3_gate.json"
     ],
     "lines": 363,
-    "note": "本批新增本回执行与 v3_gate.json 重固行（362→363）；不登记 README.md / README.zh-CN.md / docs/BATCH_LEDGER.md；spec.py 与 prehistory_family.py 不在册。（NA-V1 复算闸读数 362→363 同步后，registry 与回执行按 64 位全 sha 重固；回执内 sha 为回执行定稿前一刻快照，SUMS 回执行随后按回执定稿重固，两者差一行，已如实披露）",
+    "note": "本批 NA-V1b 终态：回执内 sums 为定稿前一刻快照；SHA256SUMS 中本文件行按本回执定稿后重算，两者差一行，已如实披露（口径不变 lf_normalized_text_raw_binary）。",
     "sha16": "0406e8dc52d90c37",
     "sha256": "0406e8dc52d90c37ae2678caa2250f3b0445e9de09645faf0da75f3987c0f601"
   },
-  "updated_at": "2026-11-22T14:21:57+08:00",
+  "updated_at": "2026-11-22T15:04:19+08:00",
   "verification": {
     "assets_md5": "六资产 md5-16 现场复算",
     "assets_sha256": "六资产 sha16 现场复算",
@@ -259,13 +255,13 @@
       "ok": true,
       "total": 362
     },
-    "checklist_entries": 362,
+    "checklist_entries": 363,
     "claims_gate_rerun": "2026-11-22 复跑：13/13 faces PASS, verdict=PASS, digest=151f1ecbf08feae7, checklist_entries=363",
-    "clean_run": "netaeon 仓工作树仅 __init__.py 版本常量待提交",
+    "clean_run": "三仓工作树仅备份目录 untracked",
     "feed": "10913B/md5-16 35082c079626753c",
     "genome_dna_gate": "pass=true problems=[] dna_version 1.1.0",
-    "holoaeon_state": "1ca8ed3（main，V89-I，DOC 0.9.89 入批，工作树 dirty）",
-    "mirraeon_state": "3fe592e（master，tracked 47/commits 21，干净；本地/Gitee/GitHub 三端同）",
+    "holoaeon_state": "e9ac8b7（main，DOC 0.9.90，NA-V1b 终态）",
+    "mirraeon_state": "201febe（master，tracked 47/commits 22，批闸 167/167，本地/Gitee/GitHub 三端同）",
     "note": "v90 回执自身使 readback 期望与实际对齐；就地重跑取终值。",
     "precheck": "F:\\doubaowork 为巨型仓（22791 dirty/1247 untracked），绝不整体提交；holoaeon 只 add 本批件。",
     "redline": 160,
