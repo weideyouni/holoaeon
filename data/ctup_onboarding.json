@@ -918,5 +918,145 @@
     }
   ],
   "renumbered_note": "v1.1/v1.2/v1.3 双序列交叉消除，统一子号 V87-A.1/.2/.3；renumbered_from 留痕，禁删史。",
-  "doc_version": "0.9.93"
+  "doc_version": "0.9.94",
+  "v14_additions": {
+    "mr_v9_date": "2026-11-24",
+    "feed": {
+      "path": "F:\\doubaowork\\.tmp_mr9\\AGENT_FEED_MR-V9_YUANJING_PENTAD_20261124.md",
+      "bytes": 8847,
+      "md5_16": "f67ad74f3dfa48c9",
+      "lines": 150
+    },
+    "mirraeon_facts": {
+      "batch": "MR-V9",
+      "baseline_head": "201febe",
+      "assets": [
+        {
+          "path": "mirraeon/mirraeon/yuanjing.py",
+          "bytes": 17806,
+          "md5_16": "82b757c20e9d61eb",
+          "state": "new",
+          "match_feed": true
+        },
+        {
+          "path": "mirraeon/mirraeon/mirror_ledger.py",
+          "bytes": 25722,
+          "md5_16": "4d09e08092d85da8",
+          "state": "overwrite",
+          "match_feed": true
+        },
+        {
+          "path": "mirraeon/tests/test_mr9_yuanjing.py",
+          "bytes": 8440,
+          "md5_16": "fa56d854f4512504",
+          "state": "new",
+          "match_feed": true
+        },
+        {
+          "path": "mirraeon/tests/test_mr2_ledger.py",
+          "bytes": 10157,
+          "md5_16": "da44824e68c255fa",
+          "state": "overwrite",
+          "match_feed": true
+        },
+        {
+          "path": "mirraeon/tests/test_mr6_legion_merge.py",
+          "bytes": 9247,
+          "md5_16": "b0c53b31dc21dde6",
+          "state": "overwrite",
+          "match_feed": true
+        },
+        {
+          "path": "mirraeon/tests/test_mr7_catalyst.py",
+          "bytes": 10612,
+          "md5_16": "ce0240b6cbc024f7",
+          "state": "overwrite",
+          "match_feed": true
+        },
+        {
+          "path": "mirraeon/tests/test_mr8_gap_bridge.py",
+          "bytes": 10271,
+          "md5_16": "4eed398212d124c7",
+          "state": "overwrite",
+          "match_feed": true
+        },
+        {
+          "path": "mirraeon/README.md",
+          "bytes": 24878,
+          "md5_16": "93b68f5589807bb4",
+          "state": "overwrite",
+          "match_feed": true
+        }
+      ],
+      "gate": {
+        "total": 187,
+        "passed": 187,
+        "failed": 0,
+        "parts": 18,
+        "verdict": "PASS",
+        "parts_breakdown": {
+          "mirror_ledger": 18,
+          "scene": 11,
+          "occupation_slot": 8,
+          "brain_gate": 9,
+          "distill_demo": 12,
+          "fidelity_eval": 8,
+          "readme_sync": 3,
+          "quartet_twins": 11,
+          "ledger_legion": 15,
+          "catalyst": 13,
+          "seat_match": 7,
+          "gap_audit": 15,
+          "legion_slot_bridge": 12,
+          "yuanjing": 14,
+          "mirror_core": 18,
+          "mech_registry": 5,
+          "fragments": 5,
+          "injection": 3
+        }
+      },
+      "yuanjing_check": {
+        "schema": "MIRRAEON-YUANJING/1.0",
+        "total": 14,
+        "passed": 14,
+        "verdict": "PASS"
+      },
+      "tests": {
+        "total": 209,
+        "py313_s": 7.402,
+        "py311_s": 7.623,
+        "verdict": "OK"
+      },
+      "honesty": "mirror_ledger 模块常量 BATCH=\"MR-V2\" 历批未滚动（账本自身标签，批总闸按实测判 PASS，与 netaeon BATCH=\"NA-V1\" 同型 anomaly，待碳基点单）"
+    },
+    "persona_facts": {
+      "persona_id": "MR-PERSONA-002",
+      "codename": "渊镜",
+      "entity_type": "persona",
+      "subject_public_bio": "理论物理→生物物理→AI 工程（公开履历口径）",
+      "subject_type": "living_public_figure",
+      "avatar_class": "technical_decision_persona",
+      "corpus_status": "index_only",
+      "status": "P0 定调层",
+      "mount_warehouse_adjusted": "MIR（第 19 节点；千问原案 C08创造(木) 记 adjusted）",
+      "safety_redlines": 8,
+      "machine_checkable": "1/2/5/8 挂 disclosure()",
+      "engineering_debt": [
+        "RLHF 奖励黑客/对齐税",
+        "宪法 AI 价值取向"
+      ],
+      "raw_retention": {
+        "mirraeon": "F:\\doubaowork\\mirraeon\\persona_amodei\\MIR-V9_YUANJING_RAW_PROPOSAL_20261124.md",
+        "memory": "F:\\doubaowork\\holoaeon_memory\\persona_archive\\MR-PERSONA-002_yuanjing\\MIR-V9_YUANJING_RAW_PROPOSAL_20261124.md",
+        "bytes": 11528,
+        "lines": 171,
+        "sha256": "e1f30f8fb99f50991c416620b8b98e02a545b696aa7e759aea54d9fbb6adfc91",
+        "md5_16": "05c0e08f79813773",
+        "verbatim": true
+      }
+    },
+    "pentad_note": "四人组本批最后一次接活，此后编制五人组：P1 探微/P2 筑基/P3 构弦/P4 持衡 + P5 渊镜（MIRRAEON-SLOT-C2-PENTAD-P5）；对外只称代号，不写实名与戏称；P1-P4 指针引用 quartet_twins.QUARTET_TWINS 零复制，PENTAD_PROTOCOL V2 五步不动，涌现判定仍归 quartet_toolkit 本体（零评分）",
+    "legion_note": "66/133 军团技术把控由五人组统领（协议层登记；MR-V8 legion_slot_bridge 133 桥不变）",
+    "discipline_note": "五地同步＝本地→Gitee 权威→GitHub 定时对齐→HF 镜像，对象摘要哈希验收；首选本地向量海 F:\\doubaowork 读取；署名桃花庵出品/中科国度/潮起开门，潮落闭嘴"
+  }
 }
