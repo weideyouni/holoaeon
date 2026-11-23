@@ -657,17 +657,17 @@
           "id": 51678445,
           "private": true,
           "branch": "master",
-          "aligned_head": "2bcaa6d1adf6009185ad26eab553b8086695ba40",
+          "aligned_head": "bb33e7c80700fc929a3e66b743f2ebdfe1c51ce5",
           "api": "POST /api/v5/user/repos (private=true, auto_init=false) -> 201",
-          "readback": "Gitee 内容对齐：13 件 blob 集 0 差、object_digest 718ed48f…(13) 与本地/ GitHub 三方同值；git 传输已恢复（2026-11-23 实证）"
+          "readback": "git ls-remote https://gitee.com/weideyouni/netaeon.git refs/heads/master == bb33e7c80700fc929a3e66b743f2ebdfe1c51ce5（2026-11-23 NA-V2 实测）"
         },
         "github": {
           "status": "CREATED",
           "full_name": "weideyouni/netaeon",
           "private": true,
           "branch": "master",
-          "aligned_head": "c8d5349fda156da0579ed35b0e44f039938e7fde",
-          "readback": "git ls-remote https://github.com/weideyouni/netaeon.git refs/heads/master == c8d5349fda156da0579ed35b0e44f039938e7fde（object_digest 718ed48f… 同值）",
+          "aligned_head": "bb33e7c80700fc929a3e66b743f2ebdfe1c51ce5",
+          "readback": "git ls-remote https://github.com/weideyouni/netaeon.git refs/heads/master == bb33e7c80700fc929a3e66b743f2ebdfe1c51ce5（2026-11-23 NA-V2 实测）",
           "note": "HTTPS http.extraheader Basic x-access-token（credential fill 取 gho_）"
         },
         "hf": {
@@ -676,9 +676,9 @@
           "repo_id": "6b02888b434e2bea86e0f488",
           "private": true,
           "branch": "main",
-          "mirrored_head": "35b2b143cc2eca1844954a2995443747877f6d72",
+          "mirrored_head": "7146825f4876fad5f64d1d36ddf98629d47406b8",
           "reason": "2026-11-22 曾四通道 TLS 阻断；2026-11-23 网络恢复后经 huggingface_hub create_commit 单提交重刷成功（API 200）",
-          "note": "镜像 13 件 + HF_MIRROR_MANIFEST.json = 14 件，按 c8d5349 口径重刷；备份 holoaeon_lathe/_backup_hf_netaeon_refresh_20261123；manifest 1827B sha16 5651782500c2f2d1"
+          "note": "NA-V2 按 bb33e7c 口径经 mirror_hf.py 重刷：镜像 16 件 + HF_MIRROR_MANIFEST.json = 17 件，uploaded 7，mismatch 0"
         },
         "open_source": false
       },
@@ -696,15 +696,17 @@
         "S3": "PASS",
         "S4": "PASS",
         "S5": "PASS",
-        "note": "S2 Gitee 内容 API 对齐（digest 同值；git 传输已恢复）；S3 GitHub ls-remote 复核；S5 HF 镜像已按 c8d5349 13 件口径重刷（35b2b14）"
+        "note": "S2 Gitee git ls-remote 回读 bb33e7c；S3 GitHub gho_ extraheader 通道 ls-remote 回读 bb33e7c；S4 向量海 239/240/241(+242 后置) 重钉；S5 HF 按 bb33e7c 重刷 7146825f（17 件）"
       },
       "hf_refresh": {
         "as_of": "2026-11-23",
-        "script": "holoaeon_lathe/hf_push_netaeon_20261123.py",
-        "source_head": "c8d5349fda156da0579ed35b0e44f039938e7fde",
-        "commit": "35b2b143cc2eca1844954a2995443747877f6d72",
-        "files": 14,
-        "manifest_sha16": "5651782500c2f2d1"
+        "script": "holoaeon/scripts/mirror_hf.py --repo F:\\doubaowork\\netaeon --repo-id weideyouni/netaeon --base <prev> --head bb33e7c",
+        "source_head": "bb33e7c80700fc929a3e66b743f2ebdfe1c51ce5",
+        "commit": "7146825f4876fad5f64d1d36ddf98629d47406b8",
+        "files": 17,
+        "uploaded": 7,
+        "mismatch": [],
+        "note": "件数为仓内 siblings 总数（16 追踪件 + HF_MIRROR_MANIFEST.json）；manifest blob 是否随批刷新见批次回执诚实边界"
       },
       "doc_version": "0.9.91"
     }
