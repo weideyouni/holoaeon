@@ -1,0 +1,196 @@
+{
+  "a1_fix": {
+    "defect": "batch_order_monotonic 以「最新回执 batch」为判据，回执与 README 同为派生位，两派生位互证不构成验证（AR-2 同型缺陷）",
+    "fix": "新增 _spec_batch_token(root)：由 spec.py::DOC_VERSION 派生期望 token（V<minor9-11 段> [-X]），回执仅作为历史发现器写入 detail，不参与判定",
+    "no_semantic_change": "resolve_expected 语义未改（receipt./computed./narrative. 三分支保持原样），v77 双写同值须绿/异值须红 仍成立",
+    "site_guard": "spec 不可解析时单判红 id=spec，不静默降级"
+  },
+  "a2_token_revocation": {
+    "action_taken": "仅呈报不执行（本批未吊销、未改动任何凭据文件）",
+    "instruction": "A2 令牌吊销归碳基独占",
+    "reported_by": "豆包执行端"
+  },
+  "batch": "V96",
+  "batch_note": "MR-V10 会前收口批 A1 基座修法：面13 判据改由 spec.py::DOC_VERSION 派生（两派生位分别回读权威源，回执位仅作历史发现器，AR-2），先证红后转绿",
+  "date": "2026-11-24",
+  "doc_pins": {
+    "test_v22_eng_skills": "02df1bd3a8b0c736",
+    "test_v64_hangover_zero": "1003eea0363f6ea7",
+    "test_v70_prehistory_criteria": "c33400efc9239285",
+    "test_v84_tautology_golden_watch": "25c45b1601f03f70"
+  },
+  "doc_version": "0.9.96",
+  "doc_version_before": "0.9.95",
+  "env_lesson": "PYTHONPATH 必须同时含 mirraeon 与 holoaeon 仓根，否则 legion_slot_bridge / yuanjing import 断",
+  "executor": "doubao-work mainagent (local windows powershell)",
+  "genome_change_class": "doc_version_advance",
+  "honest_boundaries": [
+    "回执位 doc_version/batch 由权威源派生，非独立第二真源；独立互证落在 cross_ledger_consistency",
+    "面13 判据已改为 spec 派生，但 spec.py 与 README 台账仍属同批改动，本批不宣称「三方独立」",
+    "四处 DOC 硬钉为 0.9.96 机械重钉，仅改该行值+注释，未触碰其余断言",
+    "genome 仅改 genesis.spec_sha256_measured 与 note，base_head_measured/landed_head/doc_version_before/after 保留历史值",
+    "SUMS 仍 363 条只换两行；v96 回执不入 SUMS（与 README 复算闸 363 条口径对齐）",
+    "主套数字为复跑真值，本回执不自造增速"
+  ],
+  "main_suite_after": {
+    "before_vs_after": "改前 2415 例 11 红 3 skip → 改后 2415 例 0 红 3 skip（例数守恒）",
+    "log_py311": "%TEMP%\\_mr10_suite_311b_out.txt / _err.txt",
+    "log_py313": "%TEMP%\\_mr10_suite_313b_out.txt / _err.txt",
+    "py311": "Ran 2415 tests in 48.658s | OK (skipped=3) | rc=0",
+    "py313": "Ran 2415 tests | OK (skipped=3) | rc=0"
+  },
+  "main_suite_before": {
+    "attribution": "4 红因 DOC 硬钉 0.9.90、1 红因 genome spec_sha256 未同步，其余 6 红为面13/登记簿/回执位未收口的连带红",
+    "failures": 11,
+    "note": "A1 前基座主套实跑（py311）",
+    "ran": 2415,
+    "red_ids": [
+      "test_genome_dna.TestSpecUntouched.test_spec_sha256_matches_dna_master",
+      "test_v22_eng_skills.TestPackSpec.test_version_sync",
+      "test_v64_hangover_zero.TestBatchSurface.test_doc_version_bumped",
+      "test_v70_prehistory_criteria.DocAndDimensions.test_doc_version_bumped",
+      "test_v75_claims_gate.TestReadback.test_06_baseline_green",
+      "test_v77_registry_coverage.T8RealRepoEightFaces.test_real_repo_pass",
+      "test_v77_registry_coverage.T9SelfDigestAndReport.test_report_has_all_faces",
+      "test_v84_tautology_golden_watch.TestDocSync.test_i1_doc_version_is_0978",
+      "test_v85_ci_step_names.TestNoRegression.test_n3_other_faces_still_pass",
+      "test_v88_batch_order.TestV88BatchOrder.test_real_files_green",
+      "test_v88_p2c_supply.TestV88SupplyChain.test_gate_green_real"
+    ],
+    "seconds": 48.886,
+    "skipped": 3
+  },
+  "mirraeon_batch": {
+    "batch_gate": "202/202/0 PASS（py313 + py311 双解释器）",
+    "five_files": {
+      "README.md": "27691B/737e2ec0283486a5",
+      "mirraeon/legion_dispatch.py": "14604B/7f5de8fbec73421c",
+      "mirraeon/mirror_ledger.py": "27602B/a0aa4ddb7e2814d9",
+      "tests/test_mr10_dispatch.py": "11459B/eb4da90f0e03d844",
+      "tests/test_mr9_yuanjing.py": "8539B/5bd791c741304e89"
+    },
+    "legion_dispatch_check": "total 13 / passed 13 / failed 0 / PASS",
+    "unittest": "Ran 239 tests OK（py313 8.003s / py311 8.134s）"
+  },
+  "notes": [
+    "A2 令牌吊销归碳基独占，本批只呈报不执行",
+    "零评分纪律：本批不产评分口径复算"
+  ],
+  "pre_red_evidence": {
+    "chain_position": "25/25",
+    "command": "python -m holoaeon.claims_gate verify",
+    "constants": 30,
+    "digest": "5951fffd3f1d27fb",
+    "fails": [
+      "readback_consistent: doc_version_spec MISMATCH readback='0.9.95' expected='0.9.90'",
+      "readback_consistent: batch_order_monotonic 叙述位未写回读式",
+      "regulation_semantic_consistency: PHC-2025 source_sha16 漂移 e9b44074a68ef922 → 5209ba28d2a715c3",
+      "cross_ledger_consistency: unregistered_conflict:doc_version 登记 '0.9.90' vs 实测 '0.9.95'",
+      "batch_order_monotonic: readme_zh 最新批次 'V5' != 'V90'",
+      "batch_order_monotonic: readme_en 最新批次 'V5' != 'V90'"
+    ],
+    "mismatch": 6,
+    "rc": 1,
+    "root_cause": "①回执位 v90 未随 DOC 升版；②登记簿 observed 未随实况；③NA-V5 行首被 BATCH_TOKEN 截成 V5 致单调判据误判",
+    "totals": {
+      "doc_claims": 21,
+      "historical": 3,
+      "narrative": 9,
+      "regulation_pins": 7
+    },
+    "verdict": "FAIL"
+  },
+  "readme": {
+    "en": {
+      "bytes": 232056,
+      "lines": 2118,
+      "sha16": "2181fa47ad747cb3"
+    },
+    "ledger": {
+      "bytes": 92600,
+      "lines": 70,
+      "sha16": "5b2d7b5df0933ddf"
+    },
+    "zh": {
+      "bytes": 188611,
+      "lines": 1521,
+      "sha16": "3c00a84af0916e84"
+    }
+  },
+  "receipt_position_note": "本回执位 doc_version/batch 由 import holoaeon.spec 派生写入，非独立真源；独立互证由 cross_ledger_consistency 承担（A1 修法要点）",
+  "registration_readback": {
+    "claims_registry_json": {
+      "bytes": 28190,
+      "sha16": "cfbde986ee682ccb"
+    },
+    "claims_self_digest": "92130f72cf77acdb",
+    "genome_dna_json": {
+      "bytes": 12974,
+      "sha16": "a07116d47829ebf2"
+    },
+    "genome_hash_note": "genome_hash() canonical 键 {axioms,homology,loci} 不含 genesis，本次重钉不动 genome_hash",
+    "genome_spec_sha256_measured": "b903d58ad0519197d2c34e77d40e744e29e46598722309e34076bb412cc50466",
+    "ledger_sources_doc_version": {
+      "observed": "0.9.96",
+      "observed_at": "2026-11-24"
+    },
+    "note": "登记簿 observed 与 PHC pin 均为回读权威源（spec.py 实况 / README 整文件 _file_sha16），self_digest 由 self_digest(reg) 自算写回",
+    "phc_2025_source_sha16": "3c00a84af0916e84"
+  },
+  "repo": "holoaeon",
+  "repo_path": "F:\\doubaowork\\holoaeon",
+  "schema": "holoaeon.receipt/v1",
+  "spec": {
+    "bytes": 23297,
+    "doc_version": "0.9.96",
+    "path": "holoaeon/spec.py",
+    "sha256": "b903d58ad0519197d2c34e77d40e744e29e46598722309e34076bb412cc50466",
+    "version_frozen": "0.9.1",
+    "version_frozen_note": "VERSION/MATRIX_ID/RUNTIME_ID/PROTOCOL_ID/BUS_ID/DATE 全部冻结未动，仅 DOC_VERSION 与 V96 描述段变更"
+  },
+  "sub_batch": "MR-V10-A1",
+  "td_0002": {
+    "evidence_file": "holoaeon_lathe/_mr10_td0002_evidence.json",
+    "note": "跨仓任务：mirraeon 只派单登记，advance 由本仓按执行端回执与实测推进（AR-2 处置权分离）",
+    "path": "dispatched→executing→reported→audited（逐级，带 evidence）",
+    "state": "audited",
+    "tid": "TD-0002"
+  },
+  "updated_at": "2026-11-24",
+  "verification": {
+    "check_sums": {
+      "note": "条目 363（含 1 条口径差），total 沿用历史口径 362",
+      "ok": true,
+      "total": 362
+    },
+    "checklist_entries": 363,
+    "claims_gate_rerun": "PASS",
+    "redline": 160,
+    "sums_note": "SHA256SUMS 仍 363 条，仅替换 data/claims_registry.json 与 data/genome_dna.json 两行；v96 回执不入 SUMS（否则 checklist_entries 变 364 与 README 363 冲突）",
+    "unittest_errors": 0,
+    "unittest_failures": 0,
+    "unittest_main": 2415,
+    "unittest_main_py311": {
+      "cmd": "py311 -m unittest discover -s tests",
+      "cwd": "holoaeon",
+      "failed": 0,
+      "ran": 2415,
+      "seconds": 48.658,
+      "skipped": 3,
+      "verdict": "OK"
+    },
+    "unittest_main_py313": {
+      "cmd": "py313 -m unittest discover -s tests",
+      "cwd": "holoaeon",
+      "failed": 0,
+      "note": "双解释器同源判据；秒数见 _mr10_suite_313b_out.txt",
+      "ran": 2415,
+      "seconds": 38.821,
+      "skipped": 3,
+      "verdict": "OK"
+    },
+    "unittest_note": "本批升版重钉后主套复跑真值（py311 / py313 双解释器）；本回执数字由复跑 stdout 回填，不手打",
+    "unittest_skipped": 3,
+    "v3_gate": "34/34"
+  }
+}

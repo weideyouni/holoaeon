@@ -372,7 +372,7 @@ class TestCrossBatch(unittest.TestCase):
 class TestDocSync(unittest.TestCase):
     def test_i1_doc_version_is_0978(self):
         from holoaeon import spec
-        self.assertEqual(spec.DOC_VERSION, "0.9.90")  # NA-V1 同批重钉
+        self.assertEqual(spec.DOC_VERSION, "0.9.96")  # MR-V10 同批重钉（0.9.95→0.9.96）
 
     def test_i2_allowlist_batch_is_v84(self):
         doc = json.load(io.open(

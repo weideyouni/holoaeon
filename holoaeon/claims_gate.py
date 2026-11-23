@@ -280,7 +280,8 @@ READBACKS = {
     "readme.en.sums_disclosure": lambda c: _has_phrase(
         _text(c, "readme_en", "README.md"),
         ["manifest scope disclosure", "fourfold guard"]),
-    # V88-P2A 批次序号单调：双份 README 最新批次号 == 最新回执批次
+    # V88-P2A 批次序号单调（MR-V10 A1 修法：权威源 spec 派生）：双份 README 最新批次号
+    # == spec.py::DOC_VERSION 派生批次号；回执仅作历史发现器
     "readme.batch_order_consistent": lambda c: len(batch_order_monotonic(c)) == 0,
     # V88-P2B 台账深度：双份 README 活体台账各 ≤3 行，余行移 docs/BATCH_LEDGER.md
     "readme.ledger_depth_ok": lambda c: (
@@ -1380,9 +1381,11 @@ def ci_step_names_readback(ctx=None):
 
 
 # ---------------------------------------------------------------------------
-# 面 13：批次序号单调化（batch_order_monotonic，V88-P2A）
+# 面 13：批次序号单调化（batch_order_monotonic，V88-P2A / MR-V10 修法）
 # 病灶：README「最新批次」写死成旧号、与回执（=git 提交批次）相反。
-# 判据：双份 README 首条最新批次行的 V 号 == 最新回执 batch 字段。
+# 判据（A1 修法）：双份 README 首条最新批次行的 V 号 == 权威源 spec.py::DOC_VERSION
+# 派生批次号。回执只作历史发现器写进 detail，不再充当判定真源（AR-2：两个派生位
+# 互证不算验证）。
 # 离线纪律：本面不起 git 子进程；提交批次经回执状态节点传入（N2 状态节点）。
 # ---------------------------------------------------------------------------
 FACE_BATCH_ORDER = "batch_order_monotonic"
@@ -1404,22 +1407,42 @@ def _ledger_depth(text, labels):
     return sum(1 for ln in text.splitlines() if rx.match(ln))
 
 
+def _spec_batch_token(root=None):
+    """权威源派生批次号：spec.py::DOC_VERSION 第三段 → V<nn>，字母后缀 → -<X>。
+
+    DOC 是版本的唯一权威点；批次号由文档版本派生，回执不得反向定义批次。
+    """
+    ver = _spec_doc_version(root or repo_root())
+    if not ver:
+        return None
+    m = re.match(r"^(\d+)\.(\d+)\.(\d+)([A-Za-z]*)$", ver.strip())
+    if not m:
+        return None
+    tok = "V%d" % int(m.group(3))
+    if m.group(4):
+        tok += "-" + m.group(4).upper()
+    return tok
+
+
 def batch_order_monotonic(ctx=None):
     c = ctx or _ctx()
     fails = []
     rec = _receipt(c)
-    expected = rec.get("batch") if isinstance(rec, dict) else None
+    rec_batch = rec.get("batch") if isinstance(rec, dict) else None
+    expected = _spec_batch_token(c.get("root"))
     if not expected:
-        return [{"face": FACE_BATCH_ORDER, "id": "receipt",
-                 "detail": "无最新批次回执，无法判定批次单调"}]
+        return [{"face": FACE_BATCH_ORDER, "id": "spec",
+                 "detail": "spec.py::DOC_VERSION 不可解析为批次号（权威源缺失）"}]
     zh = _latest_batch_token(_text(c, "readme_zh", "README.zh-CN.md"), "最新批次")
     en = _latest_batch_token(_text(c, "readme_en", "README.md"), "Latest batch")
     if zh != expected:
         fails.append({"face": FACE_BATCH_ORDER, "id": "readme_zh",
-                      "detail": "README 最新批次 %r != 回执批次 %r" % (zh, expected)})
+                      "detail": "README 最新批次 %r != spec 派生批次 %r（历史回执 batch=%r）"
+                                % (zh, expected, rec_batch)})
     if en != expected:
         fails.append({"face": FACE_BATCH_ORDER, "id": "readme_en",
-                      "detail": "README(EN) latest batch %r != receipt %r" % (en, expected)})
+                      "detail": "README(EN) latest batch %r != spec 派生批次 %r（历史回执 batch=%r）"
+                                % (en, expected, rec_batch)})
     return fails
 
 
@@ -1892,7 +1915,9 @@ def verify(reg=None, ctx=None, today=None):
         },
         "batch_order": {
             "face": FACE_BATCH_ORDER,
-            "expected": (_receipt(c) or {}).get("batch") if isinstance(_receipt(c), dict) else None,
+            "expected": _spec_batch_token(c.get("root")),
+            "receipt_batch": (_receipt(c) or {}).get("batch")
+            if isinstance(_receipt(c), dict) else None,
             "zh": _latest_batch_token(
                 _text(c, "readme_zh", "README.zh-CN.md"), "最新批次"),
             "en": _latest_batch_token(
