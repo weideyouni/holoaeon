@@ -564,7 +564,7 @@
     "netaeon_note": "NA-V1 纪元族第五员：F:\\doubaowork\\netaeon（打捞之网 · 归航路由网：19 节点=18 仓 C01-C18 指针 import salvage_gate.DIMENSIONS + mirraeon 第 19 节点 MIR；25 机制轴=边坐标系，指针 import meridian_link.KERNEL_MECHANISMS 零复制）；打捞局 ring23/24 管出海、netaeon 管归航；NA-V1b 收口（2026-11-22）：PROJECT_ENTRY.json 随建、GAP-C3 逐席 dispatch 设计落盘、Gitee 私有仓对齐、GitHub 私有 master 已建并 ls-remote 复核、HF 镜像待刷新（TLS 阻断）；不开源；loader REPOS 六仓硬编码",
     "netaeon_facts": {
       "batch": "NA-V1",
-      "as_of": "2026-11-22",
+      "as_of": "2026-11-23",
       "repo": {
         "root": "F:\\doubaowork\\netaeon",
         "head": "a66b7a103fe18468faf40dd3d55b27212f829e97",
@@ -642,7 +642,7 @@
           "branch": "master",
           "aligned_head": "2bcaa6d1adf6009185ad26eab553b8086695ba40",
           "api": "POST /api/v5/user/repos (private=true, auto_init=false) -> 201",
-          "readback": "Gitee 内容对齐：13 件 blob 集 0 差、object_digest 718ed48f…(13) 与本地/ GitHub 三方同值；git 传输仍被 SNI 阻断"
+          "readback": "Gitee 内容对齐：13 件 blob 集 0 差、object_digest 718ed48f…(13) 与本地/ GitHub 三方同值；git 传输已恢复（2026-11-23 实证）"
         },
         "github": {
           "status": "CREATED",
@@ -654,18 +654,18 @@
           "note": "HTTPS http.extraheader Basic x-access-token（credential fill 取 gho_）"
         },
         "hf": {
-          "status": "MIRROR_STALE",
+          "status": "MIRROR_SYNCED",
           "repo": "weideyouni/netaeon",
           "repo_id": "6b02888b434e2bea86e0f488",
           "private": true,
           "branch": "main",
-          "mirrored_head": "824c6fe",
-          "reason": "2026-11-22 TLS 层阻断复测：curl schannel handshake failed / python SSL EOF / hf-mirror.com 308 重定向回 hf.co 亦不可达",
-          "note": "镜像件 11 件为 NA-V1 口径；待网络恢复后按 c8d5349 13 件重刷"
+          "mirrored_head": "35b2b143cc2eca1844954a2995443747877f6d72",
+          "reason": "2026-11-22 曾四通道 TLS 阻断；2026-11-23 网络恢复后经 huggingface_hub create_commit 单提交重刷成功（API 200）",
+          "note": "镜像 13 件 + HF_MIRROR_MANIFEST.json = 14 件，按 c8d5349 口径重刷；备份 holoaeon_lathe/_backup_hf_netaeon_refresh_20261123；manifest 1827B sha16 5651782500c2f2d1"
         },
         "open_source": false
       },
-      "note": "NA-V1b 终态：head c8d5349（12 提交 / 13 追踪件），Gitee 2bcaa6d1 与 GitHub c8d5349 内容等价（object_digest 718ed48f…）；HF 镜像仍 STALE。",
+      "note": "NA-V1b 终态：head c8d5349（12 提交 / 13 追踪件），Gitee 2bcaa6d1 与 GitHub c8d5349 内容等价（object_digest 718ed48f…）；HF 镜像 2026-11-23 已重刷至 35b2b14（13 件口径）。",
       "sub_batch": "NA-V1b",
       "project_entry": {
         "path": "PROJECT_ENTRY.json",
@@ -678,8 +678,16 @@
         "S2": "PASS",
         "S3": "PASS",
         "S4": "PASS",
-        "S5": "PARTIAL",
-        "note": "S2 Gitee 内容 API 对齐（digest 同值）；S3 GitHub ls-remote 复核；S5 镜像旧于现 head 且刷新被 TLS 阻断（如实登记）"
+        "S5": "PASS",
+        "note": "S2 Gitee 内容 API 对齐（digest 同值；git 传输已恢复）；S3 GitHub ls-remote 复核；S5 HF 镜像已按 c8d5349 13 件口径重刷（35b2b14）"
+      },
+      "hf_refresh": {
+        "as_of": "2026-11-23",
+        "script": "holoaeon_lathe/hf_push_netaeon_20261123.py",
+        "source_head": "c8d5349fda156da0579ed35b0e44f039938e7fde",
+        "commit": "35b2b143cc2eca1844954a2995443747877f6d72",
+        "files": 14,
+        "manifest_sha16": "5651782500c2f2d1"
       }
     }
   },
