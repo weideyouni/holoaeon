@@ -561,16 +561,16 @@
       "seal": "潮起开门，潮落闭嘴",
       "ledger_rows": 17
     },
-    "netaeon_note": "NA-V1 纪元族第五员：F:\\doubaowork\\netaeon（打捞之网 · 归航路由网：19 节点=18 仓 C01-C18 指针 import salvage_gate.DIMENSIONS + mirraeon 第 19 节点 MIR；25 机制轴=边坐标系，指针 import meridian_link.KERNEL_MECHANISMS 零复制）；打捞局 ring23/24 管出海、netaeon 管归航；NA-V1b 收口（2026-11-22）：PROJECT_ENTRY.json 随建、GAP-C3 逐席 dispatch 设计落盘、Gitee 私有仓对齐、GitHub 私有 master 已建并 ls-remote 复核、HF 镜像待刷新（TLS 阻断）；不开源；loader REPOS 六仓硬编码",
+    "netaeon_note": "NA-V1 纪元族第五员：F:\\doubaowork\\netaeon（打捞之网 · 归航路由网：19 节点=18 仓 C01-C18 指针 import salvage_gate.DIMENSIONS + mirraeon 第 19 节点 MIR；25 机制轴=边坐标系，指针 import meridian_link.KERNEL_MECHANISMS 零复制）；打捞局 ring23/24 管出海、netaeon 管归航；NA-V1b 收口（2026-11-22）：PROJECT_ENTRY.json 随建、GAP-C3 逐席 dispatch 设计落盘、Gitee 私有仓对齐、GitHub 私有 master 已建并 ls-remote 复核、HF 镜像已重刷（35b2b14，14 件）；不开源；loader REPOS 六仓硬编码。NA-V2 扬弃批（2026-11-23，head bb33e7c）：千问评审三建议三裁决——LSH 粗筛采纳为两级路由（机制粗筛 route_phase1_mech→节点精排 route_phase2_node，route 输出 phase1/phase2 可回读）、LSH 哈希桶拒收（非确定性命中违反同文同归位）、mmap 无锁 CAS 拒收并登记 designed（单机批处理无长驻并发路由）、WAL 预归航采纳（net_expand.py 新件：pending_homing 零命中入账 + replay 扩容后重路由 + NODE_APPEND_LEDGER 版本化）；批总闸 54/54、unittest 50/50 py313/py311 双过；节点注册表 v2 版本机制启用（19 节点结构不动，v3+ 待碳基点单）；DOC 0.9.90→0.9.91",
     "netaeon_facts": {
-      "batch": "NA-V1",
+      "batch": "NA-V2",
       "as_of": "2026-11-23",
       "repo": {
         "root": "F:\\doubaowork\\netaeon",
-        "head": "a66b7a103fe18468faf40dd3d55b27212f829e97",
+        "head": "bb33e7c80700fc929a3e66b743f2ebdfe1c51ce5",
         "branch": "master",
-        "tracked": 13,
-        "commits": 10,
+        "tracked": 16,
+        "commits": 13,
         "commit_chain": [
           "663fa67",
           "c564431",
@@ -585,13 +585,13 @@
         ],
         "first_commit_files": 10,
         "first_commit_insertions": 1110,
-        "version": "NA 0.1.0（README 声明 + netaeon/__init__.py __version__ 同值）",
-        "closure_commit": "a66b7a1（NA-V1b 终态：PROJECT_ENTRY + dispatch 设计 + 回执五地实况）"
+        "version": "README 声明 NA 0.2.0；netaeon/__init__.py __version__ 实测仍 0.1.0（本批六资产未含 __init__.py，未擅改代码，留待碳基点单）",
+        "closure_commit": "bb33e7c（NA-V2 终态：WAL 预归航 + 两级路由 + 账本七行口径 + README v2）"
       },
       "gates": {
         "net_core": {
-          "total": 15,
-          "passed": 15,
+          "total": 20,
+          "passed": 20,
           "verdict": "PASS"
         },
         "project_match": {
@@ -599,19 +599,35 @@
           "passed": 16,
           "verdict": "PASS"
         },
-        "net_ledger_batch": {
-          "total": 39,
-          "passed": 39,
+        "net_expand": {
+          "total": 10,
+          "passed": 10,
           "verdict": "PASS",
-          "parts": "网 15 + 匹配 16 + 账本 6 + README 锁 2"
+          "note": "NA-V2 新件：WAL 预归航 + replay 归位 + 节点注册表版本化"
+        },
+        "net_ledger_batch": {
+          "total": 54,
+          "passed": 54,
+          "verdict": "PASS",
+          "parts": "网 20 + 匹配 16 + 扩容 10 + 账本 6 + README 锁 2"
         },
         "unittest": {
-          "cases": 28,
+          "cases": 50,
           "py311": "OK",
           "py313": "OK",
-          "cmd": "python -m unittest discover -s tests -t tests -p test_*.py"
+          "cmd": "python -m unittest discover -s tests"
         },
-        "readme_sync": "README 未落盘时 SKIP（37/37=15+16+6）→ 落盘后转正 +2 → 39/39"
+        "readme_sync": "README v2 落盘后锁转正 → 54/54（未落盘时 52/52 SKIP）",
+        "route_phases": {
+          "phase1_hits_R5_卡尔曼滤波": "1",
+          "phase2_best": "NET-C02",
+          "sample": "卡尔曼滤波 传感器"
+        },
+        "expand_replay": {
+          "replayed": 2,
+          "homed": 0,
+          "still_pending": 2
+        }
       },
       "node_registry": {
         "nodes": 19,
@@ -619,7 +635,8 @@
         "mechanisms": 25,
         "mechanism_source": "holoaeon/meridian_link.py KERNEL_MECHANISMS（真 import，零复制）",
         "search_dims": 18,
-        "search_dim_source": "holoaeon/salvage_gate.py DIMENSIONS（一仓一维 D01-D18）"
+        "search_dim_source": "holoaeon/salvage_gate.py DIMENSIONS（一仓一维 D01-D18）",
+        "version_ledger": "v1=NA-V1 十九节点基线；v2=NA-V2 版本机制启用（append-only，新仓入网=节点 append+版本推进+预归航账回放）；19 节点结构不动"
       },
       "project_aliases": {
         "count": 10,
@@ -632,7 +649,7 @@
         "财务": "C07",
         "打麻将": "unknown（best=None）"
       },
-      "receipt": "F:\\doubaowork\\netaeon\\reports\\na_v1_receipt.json",
+      "receipt": "F:\\doubaowork\\holoaeon_lathe\\NA_V2_RECEIPT_20261123.json",
       "remote": {
         "gitee": {
           "status": "CREATED",
@@ -665,8 +682,8 @@
         },
         "open_source": false
       },
-      "note": "NA-V1b 终态：head c8d5349（12 提交 / 13 追踪件），Gitee 2bcaa6d1 与 GitHub c8d5349 内容等价（object_digest 718ed48f…）；HF 镜像 2026-11-23 已重刷至 35b2b14（13 件口径）。",
-      "sub_batch": "NA-V1b",
+      "note": "NA-V2 终态：head bb33e7c（13 提交 / 16 追踪件）；批闸 54/54、50 例双过；三伪一真裁决在案（LSH 桶/mmap-CAS 拒收，WAL 采纳）；五地同步见回执。",
+      "sub_batch": "NA-V2",
       "project_entry": {
         "path": "PROJECT_ENTRY.json",
         "bytes": 5780,
@@ -688,7 +705,8 @@
         "commit": "35b2b143cc2eca1844954a2995443747877f6d72",
         "files": 14,
         "manifest_sha16": "5651782500c2f2d1"
-      }
+      },
+      "doc_version": "0.9.91"
     }
   },
   "readme_claims_py": {
