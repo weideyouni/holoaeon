@@ -561,24 +561,25 @@
       "seal": "潮起开门，潮落闭嘴",
       "ledger_rows": 17
     },
-    "netaeon_note": "NA-V1 纪元族第五员：F:\\doubaowork\\netaeon（打捞之网 · 归航路由网：19 节点=18 仓 C01-C18 指针 import salvage_gate.DIMENSIONS + mirraeon 第 19 节点 MIR；25 机制轴=边坐标系，指针 import meridian_link.KERNEL_MECHANISMS 零复制）；打捞局 ring23/24 管出海、netaeon 管归航；NA-V1b 收口（2026-11-22）：PROJECT_ENTRY.json 随建、GAP-C3 逐席 dispatch 设计落盘、Gitee 私有仓对齐、GitHub 私有 master 已建并 ls-remote 复核、HF 镜像已重刷（35b2b14，14 件）；不开源；loader REPOS 六仓硬编码。NA-V2 扬弃批（2026-11-23，head bb33e7c）：千问评审三建议三裁决——LSH 粗筛采纳为两级路由（机制粗筛 route_phase1_mech→节点精排 route_phase2_node，route 输出 phase1/phase2 可回读）、LSH 哈希桶拒收（非确定性命中违反同文同归位）、mmap 无锁 CAS 拒收并登记 designed（单机批处理无长驻并发路由）、WAL 预归航采纳（net_expand.py 新件：pending_homing 零命中入账 + replay 扩容后重路由 + NODE_APPEND_LEDGER 版本化）；批总闸 54/54、unittest 50/50 py313/py311 双过；节点注册表 v2 版本机制启用（19 节点结构不动，v3+ 待碳基点单）；DOC 0.9.90→0.9.91NA-V3 元层账批（2026-11-24，head bfa9d8e）：本批不新增循环，只把「碳基投喂→四人组扬弃→tmp 权威→豆包执行→回执→记忆回填」范式抽到元层显式入账——net_meta.py 新件三账一函数（批账 BATCH_LEDGER 11 行 / 模式账 PATTERN_LEDGER 6 类 / 闸价值账 GATE_VALUE_LEDGER 3 席全 intercepted），next_improvement() 确定性纯函数三规则 R1 判例库 / R2 下限断言 / R3 行级锁，候选一律 proposed、处置权留碳基；R2 当批试点：na1/na2 六处过时断言全改 assertGreaterEqual；net_ledger v3 九行口径八闸；批总闸 68/68（网20+匹配16+扩容10+元账12+账本8+锁2）、元账 12/12、unittest 69/69 py313/py311 双过；NA-V2 旧件归档 docs/（三 .bak 依 .gitignore 本地留存 + README_NA-V2.md 入库）；DOC 0.9.91→0.9.92",
+    "netaeon_note": "NA-V1 纪元族第五员：F:\\doubaowork\\netaeon（打捞之网 · 归航路由网：19 节点=18 仓 C01-C18 指针 import salvage_gate.DIMENSIONS + mirraeon 第 19 节点 MIR；25 机制轴=边坐标系，指针 import meridian_link.KERNEL_MECHANISMS 零复制）；打捞局 ring23/24 管出海、netaeon 管归航；NA-V1b 收口（2026-11-22）：PROJECT_ENTRY.json 随建、GAP-C3 逐席 dispatch 设计落盘、Gitee 私有仓对齐、GitHub 私有 master 已建并 ls-remote 复核、HF 镜像已重刷（35b2b14，14 件）；不开源；loader REPOS 六仓硬编码。NA-V2 扬弃批（2026-11-23，head bb33e7c）：千问评审三建议三裁决——LSH 粗筛采纳为两级路由（机制粗筛 route_phase1_mech→节点精排 route_phase2_node，route 输出 phase1/phase2 可回读）、LSH 哈希桶拒收（非确定性命中违反同文同归位）、mmap 无锁 CAS 拒收并登记 designed（单机批处理无长驻并发路由）、WAL 预归航采纳（net_expand.py 新件：pending_homing 零命中入账 + replay 扩容后重路由 + NODE_APPEND_LEDGER 版本化）；批总闸 54/54、unittest 50/50 py313/py311 双过；节点注册表 v2 版本机制启用（19 节点结构不动，v3+ 待碳基点单）；DOC 0.9.90→0.9.91NA-V3 元层账批（2026-11-24，head bfa9d8e）：本批不新增循环，只把「碳基投喂→四人组扬弃→tmp 权威→豆包执行→回执→记忆回填」范式抽到元层显式入账——net_meta.py 新件三账一函数（批账 BATCH_LEDGER 11 行 / 模式账 PATTERN_LEDGER 6 类 / 闸价值账 GATE_VALUE_LEDGER 3 席全 intercepted），next_improvement() 确定性纯函数三规则 R1 判例库 / R2 下限断言 / R3 行级锁，候选一律 proposed、处置权留碳基；R2 当批试点：na1/na2 六处过时断言全改 assertGreaterEqual；net_ledger v3 九行口径八闸；批总闸 68/68（网20+匹配16+扩容10+元账12+账本8+锁2）、元账 12/12、unittest 69/69 py313/py311 双过；NA-V2 旧件归档 docs/（三 .bak 依 .gitignore 本地留存 + README_NA-V2.md 入库）；DOC 0.9.91→0.9.92；NA-V4 六轴判例批（2026-11-24，head b9a8c8e）：扬弃式吸纳千问「大型游戏架构模式穷举·六轴正交」文——采纳三（六轴正交把穷举变填矩阵 / 最不可逆轴先定=权威归属指针纪律 / 耦合点显式登记四条），改造采纳一（出海 ADR/MADR considered options + accepted 只 supersede 不编辑 → R1 拒收判例库转正 append-only），拒收二（PR-04 选型打分加权评分=零评分纪律拒收、只取冲突检测改造为确定性 precedents_match；PR-05 游戏域 ECS/帧同步/AOI 实现层照搬=对标错位拒收，只登记类比思想）；net_axes.py 新件 12 闸（六轴 6 / 耦合 4 / 判例 5 + precedents_match），net_meta 批账 11→12 行 + gates=82 + R1 转正 + P3 第四例，net_ledger v4 十一行口径十闸并接线 net_axes，README 升 NA 0.4.0；批总闸 82/82、net_axes 12/12、元账 12/12、unittest 90/90 py313/py311 双过；递归二次兑现：R1 候选出列（只剩 R3）、R2 扩至 na3 十一处下限断言、P3 增证；NA-V3 旧件归档 docs/（三 .bak 依 .gitignore 本地留存 + README_NA-V3.md 入库）；DOC 0.9.92→0.9.93",
     "netaeon_facts": {
-      "batch": "NA-V3",
+      "batch": "NA-V4",
       "as_of": "2026-11-24",
       "feed": {
-        "path": "F:\\doubaowork\\.tmp_na3\\AGENT_FEED_NA-V3_RECURSIVE_SELF_IMPROVEMENT_20261123.md",
-        "bytes": 8864,
-        "md5_16": "d94111143ecc7421",
-        "lines": 163,
-        "dated": "2026-11-23"
+        "path": "F:\\doubaowork\\.tmp_na4\\AGENT_FEED_NA-V4_AXES_PRECEDENTS_20261124.md",
+        "bytes": 9353,
+        "md5_16": "64ad102b9a996186",
+        "lines": 149,
+        "dated": "2026-11-24"
       },
       "repo": {
         "root": "F:\\doubaowork\\netaeon",
-        "head": "bfa9d8e97b4a8e8bd5a421d053d7dfbea080522f",
+        "head": "b9a8c8edff6a362ebcb9705c64f9c7cc3781e967",
         "branch": "master",
-        "tracked": 19,
-        "commits": 14,
+        "tracked": 22,
+        "commits": 15,
         "commit_chain": [
+          "b9a8c8e",
           "bfa9d8e",
           "bb33e7c",
           "c8d5349",
@@ -587,68 +588,67 @@
           "707371f",
           "6ab6e6c",
           "3181a87",
-          "0f27374",
-          "6d7f6ae"
+          "0f27374"
         ],
         "first_commit_files": 10,
         "first_commit_insertions": 1110,
-        "version": "README 声明 NA 0.3.0；netaeon/__init__.py __version__ 实测仍 0.1.0（本批六资产未含 __init__.py，未擅改代码，留待碳基点单）",
-        "closure_commit": "bfa9d8e（NA-V3 终态：net_meta 三账一函数 + next_improvement 三规则全 proposed + net_ledger v3 九行口径 + R2 当批试点）",
+        "version": "README 升 NA 0.4.0；netaeon/__init__.py __version__ 实测仍 0.1.0（本批六件未含 __init__.py，未擅改代码，留待碳基点单）",
+        "closure_commit": "b9a8c8e（NA-V4 终态：net_axes 六轴决策账+耦合账+拒收判例库 + net_meta 批账 12 行/R1 转正 + net_ledger v4 十一行口径十闸 + 接线 net_axes）",
         "assets": {
+          "netaeon/net_axes.py": {
+            "bytes": 15412,
+            "md5_16": "b194ba57f098350e",
+            "state": "new（12 闸：AXES_LEDGER 6 / COUPLING_LEDGER 4 / REJECTED_PRECEDENTS 5 / precedents_match / check_axes）"
+          },
           "netaeon/net_meta.py": {
-            "bytes": 16011,
-            "md5_16": "424b98898fdb571c",
-            "state": "new"
+            "bytes": 16871,
+            "md5_16": "050c129160f66e28",
+            "state": "批账 11→12 行、NA-V4 gates=82、R1 转正、P3 第四例"
           },
           "netaeon/net_ledger.py": {
-            "bytes": 9599,
-            "md5_16": "3839b26cee01a41f",
-            "state": "v3"
+            "bytes": 11561,
+            "md5_16": "1c7abb3717c38c89",
+            "state": "v4：口径表 9→11 行、check 8→10 闸、接线 net_axes"
+          },
+          "tests/test_na4_axes.py": {
+            "bytes": 7298,
+            "md5_16": "3625f32c80292aac",
+            "state": "new（21 例）"
           },
           "tests/test_na3_meta.py": {
-            "bytes": 6626,
-            "md5_16": "b78f2f361a470683",
-            "state": "new"
-          },
-          "tests/test_na1_net.py": {
-            "bytes": 8700,
-            "md5_16": "d95bfed8edf2e6f7",
-            "state": "R2 试点（下限断言）"
-          },
-          "tests/test_na2_expand.py": {
-            "bytes": 8620,
-            "md5_16": "079c983c2e65b1f2",
-            "state": "R2 试点（下限断言）"
+            "bytes": 7388,
+            "md5_16": "d8190f0500dab478",
+            "state": "R2 扩展（十一处改下限断言）"
           },
           "README.md": {
-            "bytes": 9202,
-            "md5_16": "ab7bc92f2688e7c7",
-            "state": "v3"
+            "bytes": 12103,
+            "md5_16": "d9e67c90a9090b62",
+            "state": "v4（NA 0.4.0 / 口径表 11 行 / net_axes 行 / 六轴判例节）"
           }
         },
         "archived": [
           {
-            "path": "docs/net_ledger_v2.py.bak",
-            "bytes": 7870,
-            "md5_16": "6ee212241e3c9864",
+            "path": "docs/net_meta_v3.py.bak",
+            "bytes": 16011,
+            "md5_16": "424b98898fdb571c",
             "tracked": false
           },
           {
-            "path": "docs/test_na1_pre_na3.py.bak",
-            "bytes": 8367,
-            "md5_16": "b592b7cc504df187",
+            "path": "docs/net_ledger_v3.py.bak",
+            "bytes": 9599,
+            "md5_16": "3839b26cee01a41f",
             "tracked": false
           },
           {
-            "path": "docs/test_na2_pre_na3.py.bak",
-            "bytes": 8314,
-            "md5_16": "2893f01c99340332",
+            "path": "docs/test_na3_pre_na4.py.bak",
+            "bytes": 6626,
+            "md5_16": "b78f2f361a470683",
             "tracked": false
           },
           {
-            "path": "docs/README_NA-V2.md",
-            "bytes": 6643,
-            "md5_16": "3121f1672a527923",
+            "path": "docs/README_NA-V3.md",
+            "bytes": 9202,
+            "md5_16": "ab7bc92f2688e7c7",
             "tracked": true
           }
         ]
@@ -670,28 +670,34 @@
           "verdict": "PASS"
         },
         "net_ledger_batch": {
-          "total": 68,
-          "passed": 68,
+          "total": 82,
+          "passed": 82,
           "verdict": "PASS",
-          "parts": "网 20 + 匹配 16 + 扩容 10 + 元账 12 + 账本 8 + 锁 2",
-          "raw": "{\"schema\":\"NETAEON-LEDGER/1.0\",\"batch\":\"NA-V1\",\"seal\":\"潮起开门，潮落闭嘴\",\"total\":68,\"passed\":68,\"failed\":0,\"verdict\":\"PASS\"}"
+          "parts": "网 20 + 匹配 16 + 扩容 10 + 元账 12 + 账本 10 + 六轴 12 + 锁 2",
+          "raw": "{\"schema\":\"NETAEON-LEDGER/1.0\",\"batch\":\"NA-V1\",\"seal\":\"潮起开门，潮落闭嘴\",\"total\":82,\"passed\":82,\"failed\":0,\"verdict\":\"PASS\"}"
+        },
+        "net_axes_check": {
+          "total": 12,
+          "passed": 12,
+          "verdict": "PASS",
+          "raw": "{\"schema\":\"NETAEON-NET-AXES/1.0\",\"batch\":\"NA-V4\",\"total\":12,\"passed\":12,\"failed\":0,\"verdict\":\"PASS\"}"
         },
         "net_meta_check": {
           "total": 12,
           "passed": 12,
           "verdict": "PASS",
-          "batch_count": 11,
+          "batch_count": 12,
           "pattern_count": 6,
-          "candidate_count": 3,
-          "raw": "{\"schema\":\"NETAEON-NET-META/1.0\",\"batch\":\"NA-V3\",\"total\":12,\"passed\":12,\"failed\":0,\"verdict\":\"PASS\",\"batch_count\":11,\"pattern_count\":6,\"candidate_count\":3}"
+          "candidate_count": 1,
+          "raw": "{\"schema\":\"NETAEON-NET-META/1.0\",\"batch\":\"NA-V3\",\"total\":12,\"passed\":12,\"failed\":0,\"verdict\":\"PASS\"}"
         },
         "unittest": {
-          "cases": 69,
-          "py311": "OK",
-          "py313": "OK",
+          "cases": 90,
+          "py311": "OK 0.303s",
+          "py313": "OK 0.308s",
           "cmd": "python -m unittest discover -s tests"
         },
-        "readme_sync": "README v3 落盘后锁转正 → 68/68（未落盘时 66/68）",
+        "readme_sync": "README v4 落盘后锁转正 → 82/82（未落盘时 80/82）",
         "route_phases": {
           "phase1_hits_R5_卡尔曼滤波": "1",
           "phase2_best": "NET-C02",
@@ -701,10 +707,17 @@
           "replayed": 2,
           "homed": 0,
           "still_pending": 2
+        },
+        "precedents_match": {
+          "probes": [
+            "用 numpy 模拟评分",
+            "用 numpy 模拟评分 并预填值"
+          ],
+          "note": "短串命中 PR-01/PR-02；加预填值关键词命中 PR-03（测试以长串三中）"
         }
       },
       "meta_ledger": {
-        "batch_ledger_rows": 11,
+        "batch_ledger_rows": 12,
         "batch_ledger": {
           "MR-V1": 31,
           "MR-V2": 73,
@@ -716,13 +729,14 @@
           "MR-V8": 168,
           "NA-V1": 39,
           "NA-V2": 54,
-          "NA-V3": 68
+          "NA-V3": 68,
+          "NA-V4": 82
         },
         "pattern_ledger": {
           "classes": 6,
-          "P1_error_recurrence": "×3（三拒收 numpy 依赖 / 模拟评分 / 验收预填值）",
-          "P2_idempotency_defect": "×1（NA-V2 check_expand 首版二次入账断言失效）",
-          "P3_stale_assertion": "×3（MR-V7 一处 / MR-V8 四处 / NA-V2 三处）",
+          "P1_error_recurrence": "×3（三拒收 numpy 依赖 / 模拟评分 / 验收预填值）→ NA-V4 已落地判例库",
+          "P2_idempotency_defect": "×1（NA-V2 check_expand 首版二次入账断言失效，当批修复）",
+          "P3_stale_assertion": "×4（MR-V7 一处 / MR-V8 四处 / NA-V2 三处 / NA-V4 自身 na3 批账 11→12 行、闸 68→82——R2 试点当批未覆盖新件自身，本批补改下限断言）",
           "P4_parallel_write_incident": "×5",
           "P5_unit_labeling": "×1（sha16 实为 MD5-16）",
           "P6_weak_lock": "×1（README 子串误过「25」含「2」）"
@@ -738,28 +752,52 @@
         },
         "next_improvement": {
           "mode": "确定性纯函数；候选一律 status=proposed，处置权留碳基",
-          "rules": {
-            "R1": {
-              "condition": "P1 复现≥2 且判例库未建",
-              "proposal": "建 rejected_precedents 判例库",
-              "priority": 1,
-              "status": "proposed"
-            },
-            "R2": {
-              "condition": "P3 复现≥2 且套件仍精确断言",
-              "proposal": "旧套件改 assertGreaterEqual 下限断言",
-              "priority": 2,
-              "status": "proposed"
-            },
+          "rules_in_force": {
+            "R1": "NA-V4 转正落地（net_axes.REJECTED_PRECEDENTS 5 条 + precedents_match）",
+            "R2": "NA-V3 试点 na1/na2，NA-V4 扩至 na3 十一处"
+          },
+          "candidates": {
             "R3": {
               "condition": "P6 弱锁有实绩",
-              "proposal": "readme_sync 升级行级精确匹配",
+              "proposal": "readme_sync 升级行级精确匹配：账本行文本在 README 以整行口径出现才过锁",
               "priority": 3,
-              "status": "proposed"
+              "status": "proposed",
+              "target_batch": "下一批（NA-V4+，碳基点单）"
             }
           },
-          "target_batch": "下一批（NA-V4+，碳基点单）",
-          "pilot": "R2 当批试点：na1/na2 六处过时断言全改下限断言"
+          "candidate_count": 1,
+          "target_batch": "下一批（NA-V5+，碳基点单）"
+        }
+      },
+      "axes": {
+        "count": 6,
+        "ledger": [
+          "1 权威归属（单一真源指针纪律）",
+          "2 结构分层",
+          "3 时间批次（append-only）",
+          "4 数据内容（投喂包驱动+五地同步）",
+          "5 组织流程（四人组扬弃+军团+碳基终裁）",
+          "6 质量属性（闸+回执+诚实边界）"
+        ],
+        "coupling": {
+          "count": 4,
+          "items": [
+            "1↔6 权威归属由质量闸强制（指针漂移即 FAIL）",
+            "1↔3 append-only 依赖单一写方（并行写=P4）",
+            "1↔4 五地同步权威判据=md5-16",
+            "2↔5 康威定律：ring 分工与仓边界对齐"
+          ]
+        },
+        "precedents": {
+          "count": 5,
+          "items": {
+            "PR-01": "重量级依赖 recurrence 2",
+            "PR-02": "模拟评分/伪造数据 recurrence 3",
+            "PR-03": "验收预填值 recurrence 2",
+            "PR-04": "选型打分/加权评分 recurrence 1（本批拒收）",
+            "PR-05": "游戏域模式照搬 recurrence 1（本批拒收）"
+          },
+          "append_only": "只增不改（MADR considered options + accepted 只 supersede 不编辑同构）"
         }
       },
       "node_registry": {
@@ -769,7 +807,7 @@
         "mechanism_source": "holoaeon/meridian_link.py KERNEL_MECHANISMS（真 import，零复制）",
         "search_dims": 18,
         "search_dim_source": "holoaeon/salvage_gate.py DIMENSIONS（一仓一维 D01-D18）",
-        "version_ledger": "v2=NA-V2 版本机制启用；NA-V3 不新增循环、不改节点结构，只把范式抽到元层入账"
+        "version_ledger": "v2=NA-V2 版本机制启用；NA-V4 不新增节点/不改结构，只把批次组合升为六轴决策账"
       },
       "project_aliases": {
         "count": 10,
@@ -782,25 +820,22 @@
         "财务": "C07",
         "打麻将": "unknown（best=None）"
       },
-      "receipt": "F:\\doubaowork\\holoaeon_lathe\\NA_V3_RECEIPT_20261124.json",
+      "receipt": "F:\\doubaowork\\holoaeon_lathe\\NA_V4_RECEIPT_20261124.json",
       "remote": {
         "gitee": {
           "status": "PUSHED",
           "full_name": "weideyouni/netaeon",
-          "id": 51678445,
-          "private": true,
           "branch": "master",
-          "aligned_head": "bfa9d8e97b4a8e8bd5a421d053d7dfbea080522f",
-          "readback": "git ls-remote https://gitee.com/weideyouni/netaeon.git refs/heads/master == bfa9d8e97b4a8e8bd5a421d053d7dfbea080522f（2026-11-24 NA-V3 实测）"
+          "aligned_head": "b9a8c8edff6a362ebcb9705c64f9c7cc3781e967",
+          "readback": "git ls-remote --heads 回读 master == b9a8c8edff6a362ebcb9705c64f9c7cc3781e967（2026-11-24 NA-V4 实测，bfa9d8e..b9a8c8e）"
         },
         "github": {
           "status": "PUSHED",
           "full_name": "weideyouni/netaeon",
-          "private": true,
           "branch": "master",
-          "aligned_head": "bfa9d8e97b4a8e8bd5a421d053d7dfbea080522f",
-          "readback": "git ls-remote https://github.com/weideyouni/netaeon.git refs/heads/master == bfa9d8e97b4a8e8bd5a421d053d7dfbea080522f（2026-11-24 NA-V3 实测）",
-          "note": "HTTPS http.extraheader Basic x-access-token（credential fill 取 gho_）"
+          "aligned_head": "b9a8c8edff6a362ebcb9705c64f9c7cc3781e967",
+          "readback": "git ls-remote --heads 回读 master == b9a8c8edff6a362ebcb9705c64f9c7cc3781e967（2026-11-24 NA-V4 实测，bfa9d8e..b9a8c8e）",
+          "note": "HTTPS http.extraheader Basic x-access-token（credential fill 取 gho_）+ http.version=HTTP/1.1"
         },
         "hf": {
           "status": "MIRROR_SYNCED",
@@ -808,18 +843,19 @@
           "repo_id": "6b02888b434e2bea86e0f488",
           "private": true,
           "branch": "main",
-          "mirrored_head": "ccc8bb1e0dfdd9706bb3614694b728d6f1bc4d3e",
-          "note": "NA-V3 按 bfa9d8e 口径经 mirror_hf.py 重刷：repo_files 20，uploaded 7，mismatch 0"
+          "mirrored_head": "d00f64a8344ed984c725b2602f6a38a80b621153",
+          "note": "NA-V4 按 bfa9d8e..b9a8c8e 口径经 mirror_hf.py 重刷：remote_files 23，uploaded 7，mismatch []"
         },
         "open_source": false
       },
-      "note": "NA-V3 元层账批终态：head bfa9d8e（14 提交 / 19 追踪件）；批闸 68/68、元账 12/12、69 例双解释器过；三账一函数（批账 11 / 模式账 6 / 闸价值账 3）+ next_improvement 三规则全 proposed（R1/R2/R3，处置权留碳基）；R2 当批试点落地；五地同步见 NA_V3 回执。",
-      "sub_batch": "NA-V3",
+      "note": "NA-V4 六轴判例批终态：head b9a8c8e（15 提交 / 22 追踪件）；批闸 82/82（网20+匹配16+扩容10+元账12+账本10+六轴12+锁2）、net_axes 12/12、元账 12/12、90 例双解释器过；六轴 6 / 耦合 4 / 拒收判例 5（R1 转正落地，候选账只剩 R3）；R2 扩至 na3 十一处；千问六轴文采纳三改造一拒收二；五地同步见 NA_V4 回执。",
+      "sub_batch": "NA-V4",
       "project_entry": {
         "path": "PROJECT_ENTRY.json",
         "bytes": 5780,
         "schema": "NETAEON-PROJECT-ENTRY/1.0",
-        "commit": "c8d5349fda156da0579ed35b0e44f039938e7fde"
+        "commit": "c8d5349fda156da0579ed35b0e44f039938e7fde",
+        "state": "未变（NA-V3 建制后本批不触发）"
       },
       "five_site": {
         "S1": "PASS",
@@ -827,26 +863,27 @@
         "S3": "PASS",
         "S4": "PASS",
         "S5": "PASS",
-        "note": "S2 Gitee ls-remote 回读 bfa9d8e；S3 GitHub gho_ extraheader 回读 bfa9d8e；S4 向量海 243/244/245 三件重钉（manifest 242→245 键）；S5 HF 按 bfa9d8e 重刷 ccc8bb1e（20 件，uploaded 7）；明细见 NA_V3_RECEIPT_20261124.json"
+        "note": "S1 本地 b9a8c8e；S2 Gitee ls-remote 回读 b9a8c8e；S3 GitHub extraheader 回读 b9a8c8e；S4 向量海 247/248/249/250 四件重钉（manifest 246→249→250 两段钉）；S5 HF netaeon 按 b9a8c8e 重刷 d00f64a8（23 件，uploaded 7），holoaeon 以本提交为 base 重刷；明细见 NA_V4_RECEIPT_20261124.json"
       },
       "hf_refresh": {
         "as_of": "2026-11-24",
-        "script": "holoaeon/scripts/mirror_hf.py --repo F:\\doubaowork\\netaeon --repo-id weideyouni/netaeon --base bb33e7c… --head bfa9d8e…",
-        "source_base": "bb33e7c80700fc929a3e66b743f2ebdfe1c51ce5",
-        "source_head": "bfa9d8e97b4a8e8bd5a421d053d7dfbea080522f",
-        "commit": "ccc8bb1e0dfdd9706bb3614694b728d6f1bc4d3e",
-        "files": 20,
+        "script": "holoaeon/scripts/mirror_hf.py --repo F:\\doubaowork\\netaeon --repo-id weideyouni/netaeon --base bfa9d8e… --head b9a8c8e…",
+        "source_base": "bfa9d8e97b4a8e8bd5a421d053d7dfbea080522f",
+        "source_head": "b9a8c8edff6a362ebcb9705c64f9c7cc3781e967",
+        "commit": "d00f64a8344ed984c725b2602f6a38a80b621153",
+        "files": 23,
         "uploaded": 7,
         "mismatch": [],
-        "note": "件数为仓内 siblings 总数（19 追踪件 + HF_MIRROR_MANIFEST.json）；HF 警告 README 缺 yaml 元数据，无害"
+        "note": "件数为仓内 siblings 总数（22 追踪件 + HF_MIRROR_MANIFEST.json）；HF 警告 README 缺 yaml 元数据，无害"
       },
       "honest_edges": [
-        "net_ledger batch 输出 batch=\"NA-V1\"：netaeon/net_ledger.py:25 BATCH 常量未随批滚动（docs/net_ledger_v2.py.bak:24 同为 NA-V1）；本批不改代码以保与投喂 §二指纹一致，登记口径差待碳基点单",
-        "python -m netaeon.net_ledger 必打 <frozen runpy>:130 RuntimeWarning（包 __init__ 先行导入所致，非错误）",
-        "tracked 口径差：CTUP NA-V2 记 16，NA-V3 git ls-files 实测 19（+net_meta.py / +test_na3_meta.py / +docs/README_NA-V2.md）",
-        "S4 manifest 仅本批三件重钉，非全目录重算 DNA"
+        "投喂 §四/§五示例 match 短串「用 numpy 模拟评分」只命中 PR-01/PR-02（PR-03 关键词为预填值/验收命令预填/expected_output 恒真/assert True）；tests/test_na4_axes.py:80 以「用 numpy 模拟评分 并预填值」三中——命令示例文本与断言文本轻微不一致，为保指纹本批不改代码",
+        "net_ledger batch 输出 batch=\"NA-V1\"（BATCH 常量未随批滚动）、net_meta check 输出 batch=\"NA-V3\"：账本自身标签，批总闸按实测判 PASS，登记口径差待碳基点单",
+        "python -m netaeon.net_ledger 必打 <frozen runpy>:130 RuntimeWarning（包 __init__ 先行导入，非错误）",
+        "tracked 口径连续滚动：NA-V2 16 → NA-V3 19 → NA-V4 22（+net_axes.py / +test_na4_axes.py / +docs/README_NA-V3.md）",
+        "S4 manifest 仅本批四件重钉，非全目录重算 DNA；自写导出=自证，hash 可复核"
       ],
-      "doc_version": "0.9.92"
+      "doc_version": "0.9.93"
     }
   },
   "readme_claims_py": {
@@ -880,5 +917,6 @@
       "scope": "N6 现场节点 / N7 项目注册表 / registry_check"
     }
   ],
-  "renumbered_note": "v1.1/v1.2/v1.3 双序列交叉消除，统一子号 V87-A.1/.2/.3；renumbered_from 留痕，禁删史。"
+  "renumbered_note": "v1.1/v1.2/v1.3 双序列交叉消除，统一子号 V87-A.1/.2/.3；renumbered_from 留痕，禁删史。",
+  "doc_version": "0.9.93"
 }
