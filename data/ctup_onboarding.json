@@ -918,7 +918,7 @@
     }
   ],
   "renumbered_note": "v1.1/v1.2/v1.3 双序列交叉消除，统一子号 V87-A.1/.2/.3；renumbered_from 留痕，禁删史。",
-  "doc_version": "0.9.94",
+  "doc_version": "0.9.95",
   "v14_additions": {
     "mr_v9_date": "2026-11-24",
     "feed": {
@@ -1058,5 +1058,88 @@
     "pentad_note": "四人组本批最后一次接活，此后编制五人组：P1 探微/P2 筑基/P3 构弦/P4 持衡 + P5 渊镜（MIRRAEON-SLOT-C2-PENTAD-P5）；对外只称代号，不写实名与戏称；P1-P4 指针引用 quartet_twins.QUARTET_TWINS 零复制，PENTAD_PROTOCOL V2 五步不动，涌现判定仍归 quartet_toolkit 本体（零评分）",
     "legion_note": "66/133 军团技术把控由五人组统领（协议层登记；MR-V8 legion_slot_bridge 133 桥不变）",
     "discipline_note": "五地同步＝本地→Gitee 权威→GitHub 定时对齐→HF 镜像，对象摘要哈希验收；首选本地向量海 F:\\doubaowork 读取；署名桃花庵出品/中科国度/潮起开门，潮落闭嘴"
+  },
+  "netaeon_facts": {
+    "batch": "NA-V5",
+    "date": "2026-11-24",
+    "feed": {
+      "path": "F:\\doubaowork\\.tmp_na5\\AGENT_FEED_NA-V5_GATE_AUTHORITY_SOURCE_20261124.md",
+      "bytes": 9377,
+      "md5_16": "e91a185d24f0b66e",
+      "lines": 157
+    },
+    "baseline_head": "b9a8c8e",
+    "head": "f5ffbb6",
+    "commit_files": 7,
+    "insertions": 622,
+    "deletions": 70,
+    "assets": [
+      {
+        "path": "netaeon/net_authority.py",
+        "bytes": 14029,
+        "md5_16": "83508edc03d795b6",
+        "state": "new",
+        "match_feed": true
+      },
+      {
+        "path": "netaeon/net_meta.py",
+        "bytes": 19230,
+        "md5_16": "6a4a3d6ff0fa0b5f",
+        "state": "overwrite",
+        "match_feed": true
+      },
+      {
+        "path": "netaeon/net_ledger.py",
+        "bytes": 14113,
+        "md5_16": "bb63e4fc66a0704b",
+        "state": "overwrite",
+        "match_feed": true
+      },
+      {
+        "path": "tests/test_na5_authority.py",
+        "bytes": 6923,
+        "md5_16": "d0d45d887c0d3a6d",
+        "state": "new",
+        "match_feed": true
+      },
+      {
+        "path": "tests/test_na3_meta.py",
+        "bytes": 7475,
+        "md5_16": "74e08513215de5fe",
+        "state": "overwrite",
+        "match_feed": true
+      },
+      {
+        "path": "tests/test_na4_axes.py",
+        "bytes": 7701,
+        "md5_16": "0e6497c54e89c6df",
+        "state": "overwrite",
+        "match_feed": true
+      },
+      {
+        "path": "README.md",
+        "bytes": 14175,
+        "md5_16": "2026d45ffc72361e",
+        "state": "overwrite",
+        "match_feed": true
+      }
+    ],
+    "gates": {
+      "batch": "96/96",
+      "net_authority_check": "12/12",
+      "unittest": "109 cases py311+py313"
+    },
+    "authority_rules": {
+      "AR-1": "每条判据声明 authority_source",
+      "AR-2": "派生位回读权威源",
+      "AR-3": "以副本互证代替权威源即 FAIL",
+      "AR-4": "漂移即 FAIL，不设豁免"
+    },
+    "next_only": "R3",
+    "urgent_awaiting_carbon": [
+      "S0 token revocation",
+      "S1 base manifest fix (~30min, 12-01 window)"
+    ],
+    "note": "共识不等于正确，共识必须锚定权威；两副本互相盖章即合谋。"
   }
 }
