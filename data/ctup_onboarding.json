@@ -561,32 +561,97 @@
       "seal": "潮起开门，潮落闭嘴",
       "ledger_rows": 17
     },
-    "netaeon_note": "NA-V1 纪元族第五员：F:\\doubaowork\\netaeon（打捞之网 · 归航路由网：19 节点=18 仓 C01-C18 指针 import salvage_gate.DIMENSIONS + mirraeon 第 19 节点 MIR；25 机制轴=边坐标系，指针 import meridian_link.KERNEL_MECHANISMS 零复制）；打捞局 ring23/24 管出海、netaeon 管归航；NA-V1b 收口（2026-11-22）：PROJECT_ENTRY.json 随建、GAP-C3 逐席 dispatch 设计落盘、Gitee 私有仓对齐、GitHub 私有 master 已建并 ls-remote 复核、HF 镜像已重刷（35b2b14，14 件）；不开源；loader REPOS 六仓硬编码。NA-V2 扬弃批（2026-11-23，head bb33e7c）：千问评审三建议三裁决——LSH 粗筛采纳为两级路由（机制粗筛 route_phase1_mech→节点精排 route_phase2_node，route 输出 phase1/phase2 可回读）、LSH 哈希桶拒收（非确定性命中违反同文同归位）、mmap 无锁 CAS 拒收并登记 designed（单机批处理无长驻并发路由）、WAL 预归航采纳（net_expand.py 新件：pending_homing 零命中入账 + replay 扩容后重路由 + NODE_APPEND_LEDGER 版本化）；批总闸 54/54、unittest 50/50 py313/py311 双过；节点注册表 v2 版本机制启用（19 节点结构不动，v3+ 待碳基点单）；DOC 0.9.90→0.9.91",
+    "netaeon_note": "NA-V1 纪元族第五员：F:\\doubaowork\\netaeon（打捞之网 · 归航路由网：19 节点=18 仓 C01-C18 指针 import salvage_gate.DIMENSIONS + mirraeon 第 19 节点 MIR；25 机制轴=边坐标系，指针 import meridian_link.KERNEL_MECHANISMS 零复制）；打捞局 ring23/24 管出海、netaeon 管归航；NA-V1b 收口（2026-11-22）：PROJECT_ENTRY.json 随建、GAP-C3 逐席 dispatch 设计落盘、Gitee 私有仓对齐、GitHub 私有 master 已建并 ls-remote 复核、HF 镜像已重刷（35b2b14，14 件）；不开源；loader REPOS 六仓硬编码。NA-V2 扬弃批（2026-11-23，head bb33e7c）：千问评审三建议三裁决——LSH 粗筛采纳为两级路由（机制粗筛 route_phase1_mech→节点精排 route_phase2_node，route 输出 phase1/phase2 可回读）、LSH 哈希桶拒收（非确定性命中违反同文同归位）、mmap 无锁 CAS 拒收并登记 designed（单机批处理无长驻并发路由）、WAL 预归航采纳（net_expand.py 新件：pending_homing 零命中入账 + replay 扩容后重路由 + NODE_APPEND_LEDGER 版本化）；批总闸 54/54、unittest 50/50 py313/py311 双过；节点注册表 v2 版本机制启用（19 节点结构不动，v3+ 待碳基点单）；DOC 0.9.90→0.9.91NA-V3 元层账批（2026-11-24，head bfa9d8e）：本批不新增循环，只把「碳基投喂→四人组扬弃→tmp 权威→豆包执行→回执→记忆回填」范式抽到元层显式入账——net_meta.py 新件三账一函数（批账 BATCH_LEDGER 11 行 / 模式账 PATTERN_LEDGER 6 类 / 闸价值账 GATE_VALUE_LEDGER 3 席全 intercepted），next_improvement() 确定性纯函数三规则 R1 判例库 / R2 下限断言 / R3 行级锁，候选一律 proposed、处置权留碳基；R2 当批试点：na1/na2 六处过时断言全改 assertGreaterEqual；net_ledger v3 九行口径八闸；批总闸 68/68（网20+匹配16+扩容10+元账12+账本8+锁2）、元账 12/12、unittest 69/69 py313/py311 双过；NA-V2 旧件归档 docs/（三 .bak 依 .gitignore 本地留存 + README_NA-V2.md 入库）；DOC 0.9.91→0.9.92",
     "netaeon_facts": {
-      "batch": "NA-V2",
-      "as_of": "2026-11-23",
+      "batch": "NA-V3",
+      "as_of": "2026-11-24",
+      "feed": {
+        "path": "F:\\doubaowork\\.tmp_na3\\AGENT_FEED_NA-V3_RECURSIVE_SELF_IMPROVEMENT_20261123.md",
+        "bytes": 8864,
+        "md5_16": "d94111143ecc7421",
+        "lines": 163,
+        "dated": "2026-11-23"
+      },
       "repo": {
         "root": "F:\\doubaowork\\netaeon",
-        "head": "bb33e7c80700fc929a3e66b743f2ebdfe1c51ce5",
+        "head": "bfa9d8e97b4a8e8bd5a421d053d7dfbea080522f",
         "branch": "master",
-        "tracked": 16,
-        "commits": 13,
+        "tracked": 19,
+        "commits": 14,
         "commit_chain": [
-          "663fa67",
-          "c564431",
-          "4d5fe1c",
-          "beb6df5",
-          "6d7f6ae",
-          "0f27374",
-          "3181a87",
-          "6ab6e6c",
+          "bfa9d8e",
+          "bb33e7c",
+          "c8d5349",
+          "688567c",
+          "a66b7a1",
           "707371f",
-          "a66b7a1"
+          "6ab6e6c",
+          "3181a87",
+          "0f27374",
+          "6d7f6ae"
         ],
         "first_commit_files": 10,
         "first_commit_insertions": 1110,
-        "version": "README 声明 NA 0.2.0；netaeon/__init__.py __version__ 实测仍 0.1.0（本批六资产未含 __init__.py，未擅改代码，留待碳基点单）",
-        "closure_commit": "bb33e7c（NA-V2 终态：WAL 预归航 + 两级路由 + 账本七行口径 + README v2）"
+        "version": "README 声明 NA 0.3.0；netaeon/__init__.py __version__ 实测仍 0.1.0（本批六资产未含 __init__.py，未擅改代码，留待碳基点单）",
+        "closure_commit": "bfa9d8e（NA-V3 终态：net_meta 三账一函数 + next_improvement 三规则全 proposed + net_ledger v3 九行口径 + R2 当批试点）",
+        "assets": {
+          "netaeon/net_meta.py": {
+            "bytes": 16011,
+            "md5_16": "424b98898fdb571c",
+            "state": "new"
+          },
+          "netaeon/net_ledger.py": {
+            "bytes": 9599,
+            "md5_16": "3839b26cee01a41f",
+            "state": "v3"
+          },
+          "tests/test_na3_meta.py": {
+            "bytes": 6626,
+            "md5_16": "b78f2f361a470683",
+            "state": "new"
+          },
+          "tests/test_na1_net.py": {
+            "bytes": 8700,
+            "md5_16": "d95bfed8edf2e6f7",
+            "state": "R2 试点（下限断言）"
+          },
+          "tests/test_na2_expand.py": {
+            "bytes": 8620,
+            "md5_16": "079c983c2e65b1f2",
+            "state": "R2 试点（下限断言）"
+          },
+          "README.md": {
+            "bytes": 9202,
+            "md5_16": "ab7bc92f2688e7c7",
+            "state": "v3"
+          }
+        },
+        "archived": [
+          {
+            "path": "docs/net_ledger_v2.py.bak",
+            "bytes": 7870,
+            "md5_16": "6ee212241e3c9864",
+            "tracked": false
+          },
+          {
+            "path": "docs/test_na1_pre_na3.py.bak",
+            "bytes": 8367,
+            "md5_16": "b592b7cc504df187",
+            "tracked": false
+          },
+          {
+            "path": "docs/test_na2_pre_na3.py.bak",
+            "bytes": 8314,
+            "md5_16": "2893f01c99340332",
+            "tracked": false
+          },
+          {
+            "path": "docs/README_NA-V2.md",
+            "bytes": 6643,
+            "md5_16": "3121f1672a527923",
+            "tracked": true
+          }
+        ]
       },
       "gates": {
         "net_core": {
@@ -602,22 +667,31 @@
         "net_expand": {
           "total": 10,
           "passed": 10,
-          "verdict": "PASS",
-          "note": "NA-V2 新件：WAL 预归航 + replay 归位 + 节点注册表版本化"
+          "verdict": "PASS"
         },
         "net_ledger_batch": {
-          "total": 54,
-          "passed": 54,
+          "total": 68,
+          "passed": 68,
           "verdict": "PASS",
-          "parts": "网 20 + 匹配 16 + 扩容 10 + 账本 6 + README 锁 2"
+          "parts": "网 20 + 匹配 16 + 扩容 10 + 元账 12 + 账本 8 + 锁 2",
+          "raw": "{\"schema\":\"NETAEON-LEDGER/1.0\",\"batch\":\"NA-V1\",\"seal\":\"潮起开门，潮落闭嘴\",\"total\":68,\"passed\":68,\"failed\":0,\"verdict\":\"PASS\"}"
+        },
+        "net_meta_check": {
+          "total": 12,
+          "passed": 12,
+          "verdict": "PASS",
+          "batch_count": 11,
+          "pattern_count": 6,
+          "candidate_count": 3,
+          "raw": "{\"schema\":\"NETAEON-NET-META/1.0\",\"batch\":\"NA-V3\",\"total\":12,\"passed\":12,\"failed\":0,\"verdict\":\"PASS\",\"batch_count\":11,\"pattern_count\":6,\"candidate_count\":3}"
         },
         "unittest": {
-          "cases": 50,
+          "cases": 69,
           "py311": "OK",
           "py313": "OK",
           "cmd": "python -m unittest discover -s tests"
         },
-        "readme_sync": "README v2 落盘后锁转正 → 54/54（未落盘时 52/52 SKIP）",
+        "readme_sync": "README v3 落盘后锁转正 → 68/68（未落盘时 66/68）",
         "route_phases": {
           "phase1_hits_R5_卡尔曼滤波": "1",
           "phase2_best": "NET-C02",
@@ -629,6 +703,65 @@
           "still_pending": 2
         }
       },
+      "meta_ledger": {
+        "batch_ledger_rows": 11,
+        "batch_ledger": {
+          "MR-V1": 31,
+          "MR-V2": 73,
+          "MR-V3": 98,
+          "MR-V4": 109,
+          "MR-V5": 127,
+          "MR-V6": 124,
+          "MR-V7": 144,
+          "MR-V8": 168,
+          "NA-V1": 39,
+          "NA-V2": 54,
+          "NA-V3": 68
+        },
+        "pattern_ledger": {
+          "classes": 6,
+          "P1_error_recurrence": "×3（三拒收 numpy 依赖 / 模拟评分 / 验收预填值）",
+          "P2_idempotency_defect": "×1（NA-V2 check_expand 首版二次入账断言失效）",
+          "P3_stale_assertion": "×3（MR-V7 一处 / MR-V8 四处 / NA-V2 三处）",
+          "P4_parallel_write_incident": "×5",
+          "P5_unit_labeling": "×1（sha16 实为 MD5-16）",
+          "P6_weak_lock": "×1（README 子串误过「25」含「2」）"
+        },
+        "gate_value_ledger": {
+          "rows": 3,
+          "all_intercepted": true,
+          "gates": [
+            "readme_sync",
+            "base_primitives_resolvable",
+            "pending_idempotent"
+          ]
+        },
+        "next_improvement": {
+          "mode": "确定性纯函数；候选一律 status=proposed，处置权留碳基",
+          "rules": {
+            "R1": {
+              "condition": "P1 复现≥2 且判例库未建",
+              "proposal": "建 rejected_precedents 判例库",
+              "priority": 1,
+              "status": "proposed"
+            },
+            "R2": {
+              "condition": "P3 复现≥2 且套件仍精确断言",
+              "proposal": "旧套件改 assertGreaterEqual 下限断言",
+              "priority": 2,
+              "status": "proposed"
+            },
+            "R3": {
+              "condition": "P6 弱锁有实绩",
+              "proposal": "readme_sync 升级行级精确匹配",
+              "priority": 3,
+              "status": "proposed"
+            }
+          },
+          "target_batch": "下一批（NA-V4+，碳基点单）",
+          "pilot": "R2 当批试点：na1/na2 六处过时断言全改下限断言"
+        }
+      },
       "node_registry": {
         "nodes": 19,
         "built_from": "netaeon/net_core.py build_nodes()：NET-C01..NET-C18（18 维指针）+ NET-MIR（D19）",
@@ -636,7 +769,7 @@
         "mechanism_source": "holoaeon/meridian_link.py KERNEL_MECHANISMS（真 import，零复制）",
         "search_dims": 18,
         "search_dim_source": "holoaeon/salvage_gate.py DIMENSIONS（一仓一维 D01-D18）",
-        "version_ledger": "v1=NA-V1 十九节点基线；v2=NA-V2 版本机制启用（append-only，新仓入网=节点 append+版本推进+预归航账回放）；19 节点结构不动"
+        "version_ledger": "v2=NA-V2 版本机制启用；NA-V3 不新增循环、不改节点结构，只把范式抽到元层入账"
       },
       "project_aliases": {
         "count": 10,
@@ -649,25 +782,24 @@
         "财务": "C07",
         "打麻将": "unknown（best=None）"
       },
-      "receipt": "F:\\doubaowork\\holoaeon_lathe\\NA_V2_RECEIPT_20261123.json",
+      "receipt": "F:\\doubaowork\\holoaeon_lathe\\NA_V3_RECEIPT_20261124.json",
       "remote": {
         "gitee": {
-          "status": "CREATED",
+          "status": "PUSHED",
           "full_name": "weideyouni/netaeon",
           "id": 51678445,
           "private": true,
           "branch": "master",
-          "aligned_head": "bb33e7c80700fc929a3e66b743f2ebdfe1c51ce5",
-          "api": "POST /api/v5/user/repos (private=true, auto_init=false) -> 201",
-          "readback": "git ls-remote https://gitee.com/weideyouni/netaeon.git refs/heads/master == bb33e7c80700fc929a3e66b743f2ebdfe1c51ce5（2026-11-23 NA-V2 实测）"
+          "aligned_head": "bfa9d8e97b4a8e8bd5a421d053d7dfbea080522f",
+          "readback": "git ls-remote https://gitee.com/weideyouni/netaeon.git refs/heads/master == bfa9d8e97b4a8e8bd5a421d053d7dfbea080522f（2026-11-24 NA-V3 实测）"
         },
         "github": {
-          "status": "CREATED",
+          "status": "PUSHED",
           "full_name": "weideyouni/netaeon",
           "private": true,
           "branch": "master",
-          "aligned_head": "bb33e7c80700fc929a3e66b743f2ebdfe1c51ce5",
-          "readback": "git ls-remote https://github.com/weideyouni/netaeon.git refs/heads/master == bb33e7c80700fc929a3e66b743f2ebdfe1c51ce5（2026-11-23 NA-V2 实测）",
+          "aligned_head": "bfa9d8e97b4a8e8bd5a421d053d7dfbea080522f",
+          "readback": "git ls-remote https://github.com/weideyouni/netaeon.git refs/heads/master == bfa9d8e97b4a8e8bd5a421d053d7dfbea080522f（2026-11-24 NA-V3 实测）",
           "note": "HTTPS http.extraheader Basic x-access-token（credential fill 取 gho_）"
         },
         "hf": {
@@ -676,14 +808,13 @@
           "repo_id": "6b02888b434e2bea86e0f488",
           "private": true,
           "branch": "main",
-          "mirrored_head": "7146825f4876fad5f64d1d36ddf98629d47406b8",
-          "reason": "2026-11-22 曾四通道 TLS 阻断；2026-11-23 网络恢复后经 huggingface_hub create_commit 单提交重刷成功（API 200）",
-          "note": "NA-V2 按 bb33e7c 口径经 mirror_hf.py 重刷：镜像 16 件 + HF_MIRROR_MANIFEST.json = 17 件，uploaded 7，mismatch 0"
+          "mirrored_head": "ccc8bb1e0dfdd9706bb3614694b728d6f1bc4d3e",
+          "note": "NA-V3 按 bfa9d8e 口径经 mirror_hf.py 重刷：repo_files 20，uploaded 7，mismatch 0"
         },
         "open_source": false
       },
-      "note": "NA-V2 终态：head bb33e7c（13 提交 / 16 追踪件）；批闸 54/54、50 例双过；三伪一真裁决在案（LSH 桶/mmap-CAS 拒收，WAL 采纳）；五地同步见回执。",
-      "sub_batch": "NA-V2",
+      "note": "NA-V3 元层账批终态：head bfa9d8e（14 提交 / 19 追踪件）；批闸 68/68、元账 12/12、69 例双解释器过；三账一函数（批账 11 / 模式账 6 / 闸价值账 3）+ next_improvement 三规则全 proposed（R1/R2/R3，处置权留碳基）；R2 当批试点落地；五地同步见 NA_V3 回执。",
+      "sub_batch": "NA-V3",
       "project_entry": {
         "path": "PROJECT_ENTRY.json",
         "bytes": 5780,
@@ -696,19 +827,26 @@
         "S3": "PASS",
         "S4": "PASS",
         "S5": "PASS",
-        "note": "S2 Gitee git ls-remote 回读 bb33e7c；S3 GitHub gho_ extraheader 通道 ls-remote 回读 bb33e7c；S4 向量海 239/240/241(+242 后置) 重钉；S5 HF 按 bb33e7c 重刷 7146825f（17 件）"
+        "note": "S2 Gitee ls-remote 回读 bfa9d8e；S3 GitHub gho_ extraheader 回读 bfa9d8e；S4 向量海 243/244/245 三件重钉（manifest 242→245 键）；S5 HF 按 bfa9d8e 重刷 ccc8bb1e（20 件，uploaded 7）；明细见 NA_V3_RECEIPT_20261124.json"
       },
       "hf_refresh": {
-        "as_of": "2026-11-23",
-        "script": "holoaeon/scripts/mirror_hf.py --repo F:\\doubaowork\\netaeon --repo-id weideyouni/netaeon --base <prev> --head bb33e7c",
-        "source_head": "bb33e7c80700fc929a3e66b743f2ebdfe1c51ce5",
-        "commit": "7146825f4876fad5f64d1d36ddf98629d47406b8",
-        "files": 17,
+        "as_of": "2026-11-24",
+        "script": "holoaeon/scripts/mirror_hf.py --repo F:\\doubaowork\\netaeon --repo-id weideyouni/netaeon --base bb33e7c… --head bfa9d8e…",
+        "source_base": "bb33e7c80700fc929a3e66b743f2ebdfe1c51ce5",
+        "source_head": "bfa9d8e97b4a8e8bd5a421d053d7dfbea080522f",
+        "commit": "ccc8bb1e0dfdd9706bb3614694b728d6f1bc4d3e",
+        "files": 20,
         "uploaded": 7,
         "mismatch": [],
-        "note": "件数为仓内 siblings 总数（16 追踪件 + HF_MIRROR_MANIFEST.json）；manifest blob 是否随批刷新见批次回执诚实边界"
+        "note": "件数为仓内 siblings 总数（19 追踪件 + HF_MIRROR_MANIFEST.json）；HF 警告 README 缺 yaml 元数据，无害"
       },
-      "doc_version": "0.9.91"
+      "honest_edges": [
+        "net_ledger batch 输出 batch=\"NA-V1\"：netaeon/net_ledger.py:25 BATCH 常量未随批滚动（docs/net_ledger_v2.py.bak:24 同为 NA-V1）；本批不改代码以保与投喂 §二指纹一致，登记口径差待碳基点单",
+        "python -m netaeon.net_ledger 必打 <frozen runpy>:130 RuntimeWarning（包 __init__ 先行导入所致，非错误）",
+        "tracked 口径差：CTUP NA-V2 记 16，NA-V3 git ls-files 实测 19（+net_meta.py / +test_na3_meta.py / +docs/README_NA-V2.md）",
+        "S4 manifest 仅本批三件重钉，非全目录重算 DNA"
+      ],
+      "doc_version": "0.9.92"
     }
   },
   "readme_claims_py": {
