@@ -1,0 +1,200 @@
+{
+ "batch": "V98",
+ "date": "2026-11-26",
+ "doc_pins": {
+  "test_v22_eng_skills": "446d13d0b23c6128",
+  "test_v64_hangover_zero": "896ed0cdd48461cf",
+  "test_v70_prehistory_criteria": "4af052b2898e76bc",
+  "test_v84_tautology_golden_watch": "13ef23feda2816c6"
+ },
+ "doc_version": "0.9.98",
+ "doc_version_before": "0.9.97",
+ "env_lesson": "PowerShell 无 heredoc；python/git 走绝对路径；写 JSON 用 io.open(...,'w',encoding='utf-8',newline='\\n')；读 README 用 newline='' 防 CRLF 污染。",
+ "executor": "doubao-work mainagent (local windows powershell)",
+ "genome_change_class": "doc_version_advance",
+ "global_load": {
+  "head_match": "7/7",
+  "issues": 0,
+  "result": "PASS",
+  "status_file": "holoaeon_lathe/GLOBAL_LOAD_STATUS_20261122.json"
+ },
+ "honest_boundaries": [
+  "本批为缺陷修法＋CI 结构闸＋DOC 递版，非算法升级：不给资源价值分／加权矩阵／涌现 P 值。",
+  "CI 全量闸未在真实 CI 转绿：私有仓 netaeon/mirraeon 无跨仓读权，full 闸如实 skipped；单仓结构闸降级为已实证出口。",
+  "修法不等于历史免疫：DF-001..004 只保证当前字节不再复发，不宣称同类缺陷绝迹。",
+  "评分口径复算（HA 87.98／口径 B 88.94／qicangaeon 80.80）按投喂包 §二拒收，仅情报留档不落账。",
+  "8-C ATH 评估申请与 S0 剩余 2 仓令牌转 SSH 属碳基独占，只呈报不动手。",
+  "v98 回执不入 SHA256SUMS（保持 363 条既有口径，避免 checklist_entries 与 README 冲突）。"
+ ],
+ "main_suite_after": {
+  "before_vs_after": "9 红（4 DOC_VERSION 死钉＋5 doc_version_spec 派生）→ 0 红",
+  "py311": {
+   "failures": 0,
+   "ran": 2415,
+   "rc": 0,
+   "seconds": 52.434,
+   "skipped": 0,
+   "verdict": "OK"
+  },
+  "py313": {
+   "failures": 0,
+   "ran": 2415,
+   "rc": 0,
+   "seconds": 42.938,
+   "skipped": 0,
+   "verdict": "OK"
+  }
+ },
+ "main_suite_before": {
+  "attribution": "四红为 DOC_VERSION 死钉（本批同批重钉已修）；五红同一根因 doc_version_spec 期望源缺失（v98 回执落盘后消红），非源码缺陷",
+  "failures": 9,
+  "ran": 2415,
+  "red_ids": [
+   "test_v22_eng_skills.TestPackSpec.test_version_sync",
+   "test_v64_hangover_zero.TestBatchSurface.test_doc_version_bumped",
+   "test_v70_prehistory_criteria.DocAndDimensions.test_doc_version_bumped",
+   "test_v84_tautology_golden_watch.TestDocSync.test_i1_doc_version_is_0978",
+   "test_v75_claims_gate.TestReadback.test_06_baseline_green",
+   "test_v77_registry_coverage.T8RealRepoEightFaces.test_real_repo_pass",
+   "test_v77_registry_coverage.T9SelfDigestAndReport.test_report_has_all_faces",
+   "test_v85_ci_step_names.test_n3_other_faces_still_pass",
+   "test_v88_p2c_supply.test_gate_green_real"
+  ]
+ },
+ "notes": [
+  "执行序：qicangaeon 六件→双解释器验收→提交双推→CI 四跑转绿→holoaeon 递版→四测试重钉→v98 回执→主套复跑→TD-0004→S4/S5→五地同步→记忆回填。",
+  "四份 DOC_VERSION 死钉测试按同批重钉惯例改 0.9.97→0.9.98（每文件恰好 1 处），未放宽断言口径。"
+ ],
+ "qicangaeon_batch": {
+  "batch_gate": "35/35（core 19 / ledger 9 / readme_sync 7）",
+  "ci": {
+   "final": "45711269790 success（单仓结构闸 degraded 通过；full 全量闸因私有依赖仓跨仓读权不可达如实 skipped）",
+   "runs": [
+    "45709746861",
+    "45710643277",
+    "45710988672",
+    "45711269790"
+   ]
+  },
+  "defects": [
+   "DF-001 恒真 or True",
+   "DF-002 种子账自证重言式＋检查函数写账本违 AR-2",
+   "DF-003 README 24≠28＋残句＋口径错",
+   "DF-004 新仓无 CI"
+  ],
+  "head": "03c8e03433d57699d43666fdf040dff5c7dcea1e",
+  "repo_path": "F:\\doubaowork\\qicangaeon",
+  "tracked": 12,
+  "unittest": "44 例 × py311 + py313 均 rc0"
+ },
+ "readme": {
+  "en": {
+   "bytes": 234547,
+   "ledger": "Latest V98",
+   "lines": 2121,
+   "sha16": "4f551adf37d05a46"
+  },
+  "zh": {
+   "bytes": 190670,
+   "ledger": "最新 V98",
+   "lines": 1523,
+   "sha16": "2571fd6dfb7594b9"
+  }
+ },
+ "readme_claims_check": {
+  "counts": {
+   "claims": 8,
+   "mismatch": 0,
+   "stale_header": 0
+  },
+  "measured": {
+   "doc_version": "0.9.98",
+   "head": "dbb0e4b",
+   "redline_files": 160,
+   "redline_violations": 0,
+   "sums_total": 363,
+   "unittest_main": 2415,
+   "unittest_v3": 11,
+   "unittest_verax": 21
+  },
+  "note": "scripts/readme_claims_check.py 实跑，中英两 README 各 8 项全 MATCH",
+  "path": "reports/readme_claims_check.json",
+  "verdict": "PASS"
+ },
+ "receipt_position_note": "本回执为 pass-1 记档：四测试已重钉、v98 回执即为 doc_version_spec 期望源；主套绿前数字如实入 main_suite_before，绿后复跑回填 main_suite_after（pass-2）。",
+ "registration_readback": {
+  "claims_registry_json": {
+   "bytes": 26264,
+   "sha16": "01182a4d18d4"
+  },
+  "claims_self_digest": "cf9a79198827a04a",
+  "genome_dna_json": {
+   "bytes": 12375,
+   "sha16": "5acc2dbdf8be64f8"
+  },
+  "genome_hash_note": "genome_hash 只依赖 axioms/homology/loci，本批未动，仍 84876958e3936c50",
+  "genome_spec_sha256_measured": "1d0065d94e4d39c1b717d735d26d0ae206acfc1384e3ac9b62130e08127db506",
+  "ledger_sources_doc_version": {
+   "as_of": "2026-11-26",
+   "observed": "0.9.98"
+  }
+ },
+ "repo": "holoaeon",
+ "repo_path": "F:\\doubaowork\\holoaeon",
+ "schema": "holoaeon.receipt/v1",
+ "spec": {
+  "bytes": 24614,
+  "doc_version": "0.9.98（QC-V2 缺陷修法＋CI 批·2026-11-26）：qicangaeon 三缺陷＋一结构原因全修（DF-001 `or True` 恒真闸／DF-002 种子账自证重言式＋检查函数写账本违 AR-2／DF-003 README 24≠28＋残句＋口径错／DF-004 新仓无 CI），六件落仓、双解释器 35/35＋44 例；CI 四跑由红转绿（`45711269790` success，单仓结构闸降级、full 闸如实 skipped）；本批只递 DOC 版本并重钉四份 DOC_VERSION 死钉测试，不动算法口径。",
+  "md5_16": "81a717eb55df8fca",
+  "sha256": "1d0065d94e4d39c1b717d735d26d0ae206acfc1384e3ac9b62130e08127db506"
+ },
+ "sub_batch": "QC-V2",
+ "td_0004": {
+  "evidence": "qicangaeon HEAD 03c8e03／批闸 35/35／测试 44×2／CI run 45711269790 success",
+  "note": "mirraeon 只派单登记，advance 由 holoaeon 按执行端回执推进（TD-0002／TD-0003 先例）",
+  "repo": "qicangaeon",
+  "state": "dispatched",
+  "tid": "TD-0004"
+ },
+ "updated_at": "2026-11-26T00:30:00+08:00",
+ "verification": {
+  "check_sums": {
+   "mismatches": 0,
+   "ok": true,
+   "total": 363
+  },
+  "checklist_entries": 363,
+  "claims_gate_rerun": "PASS (mismatch 0, digest a58c34af49093782, 13/13 faces green)",
+  "genome_dna_gate": "PASS（pass=true，problems=[]）",
+  "redline": 160,
+  "unittest_errors": 0,
+  "unittest_failures": 0,
+  "unittest_main": 2415,
+  "unittest_main_py311": {
+   "cmd": "py311 -m unittest discover -s tests",
+   "cwd": "F:\\doubaowork\\holoaeon",
+   "failed": 0,
+   "log": "%TEMP%\\_qc2_green_311.err.txt",
+   "ran": 2415,
+   "rc": 0,
+   "seconds": 52.434,
+   "skipped": 0,
+   "verdict": "OK"
+  },
+  "unittest_main_py313": {
+   "cmd": "py313 -m unittest discover -s tests",
+   "cwd": "F:\\doubaowork\\holoaeon",
+   "failed": 0,
+   "log": "%TEMP%\\_qc2_green_313.err.txt",
+   "note": "双解释器同源判据；两解释器均 2415 OK",
+   "ran": 2415,
+   "rc": 0,
+   "seconds": 42.938,
+   "skipped": 0,
+   "verdict": "OK"
+  },
+  "unittest_note": "回执数字一律由复跑 stdout 回填；本批源码级变更为 DOC 升版＋四份死钉测试重钉",
+  "unittest_skipped": 0,
+  "v3_gate": "OK（34/34，readme_claims_check 内部实跑旁证）"
+ }
+}

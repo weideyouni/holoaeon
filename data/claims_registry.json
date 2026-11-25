@@ -424,8 +424,8 @@
    "non_evidence": [
     "runtime_snapshot"
    ],
-   "observed": "0.9.97",
-   "observed_at": "2026-11-25"
+   "observed": "0.9.98",
+   "observed_at": "2026-11-26"
   },
   "five_site_head": {
    "authority": "git_ls_remote_origin_main",
@@ -568,15 +568,15 @@
    "effective_from": "2025",
    "id": "PHC-2025",
    "max_age_days": 180,
-   "note": "只存文号指针，不复制规范全文（V89-A 插入济世主旨段后按整文件实测重算 sha16）；NA-V1 2026-11-22 台账行 V90 改号致 README.zh-CN.md 变（186830B），pin 随源更新（仅台账行，公卫口径段未改）；NA-V1 复算闸活体行 362→363 同步致 README.zh-CN.md sha16 再变，pin 随源更新；MR-V10 2026-11-24 A1 修法后 README.zh-CN.md 台账增 V96 行（188611B），pin 随源按整文件 _file_sha16 重算；QC-V1（2026-11-25）：README.zh-CN.md 台账增 V97 行（qicangaeon 启藏建仓批），整文件 sha16 随源重算 fc83325e856d4dd4。",
+   "note": "只存文号指针，不复制规范全文（V89-A 插入济世主旨段后按整文件实测重算 sha16）；NA-V1 2026-11-22 台账行 V90 改号致 README.zh-CN.md 变（186830B），pin 随源更新（仅台账行，公卫口径段未改）；NA-V1 复算闸活体行 362→363 同步致 README.zh-CN.md sha16 再变，pin 随源更新；MR-V10 2026-11-24 A1 修法后 README.zh-CN.md 台账增 V96 行（188611B），pin 随源按整文件 _file_sha16 重算；QC-V1（2026-11-25）：README.zh-CN.md 台账增 V97 行（qicangaeon 启藏建仓批），整文件 sha16 随源重算 fc83325e856d4dd4；QC-V2 2026-11-26 README.zh-CN.md 台账增 V98 行（190670B），pin 随源更新（仅台账行，公卫口径段未改）。",
    "risk_tier": "annual",
    "runtime_pointer": "holoaeon/phc_chronic_engine.py#L4-L5",
    "runtime_role": "current",
    "runtime_value": "2025",
    "source_pointer": "README.zh-CN.md#公卫口径段（V41 小节）",
-   "source_sha16": "fc83325e856d4dd4",
+   "source_sha16": "e5c9fabe9221beff",
    "status": "current",
-   "verified_at": "2026-11-25",
+   "verified_at": "2026-11-26",
    "version": "2025",
    "version_chain": [
     {
@@ -723,7 +723,7 @@
   }
  ],
  "schema": "CLAIMS-GATE-v1",
- "self_digest": "5aaf0f33dde476b0",
+ "self_digest": "cf9a79198827a04a",
  "totals": {
   "doc_claims": 21,
   "historical": 3,
