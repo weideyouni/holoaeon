@@ -1,0 +1,214 @@
+{
+  "batch": "V97",
+  "date": "2026-11-25",
+  "doc_pins": {
+    "test_v22_eng_skills": "a576cfdfde4ce2db",
+    "test_v64_hangover_zero": "1978f9d7b63c4353",
+    "test_v70_prehistory_criteria": "afff256cfedf6792",
+    "test_v84_tautology_golden_watch": "5ff78e454f2fc991"
+  },
+  "doc_version": "0.9.97",
+  "doc_version_before": "0.9.96",
+  "env_lesson": "PowerShell 不支持 heredoc；python/git 走绝对路径；写 JSON 用 io.open(...,'w',encoding='utf-8',newline='\\n')；读 README 用 newline='' 防 CRLF 污染。",
+  "executor": "doubao-work mainagent (local windows powershell)",
+  "genome_change_class": "doc_version_advance",
+  "global_load": {
+    "head_match": "7/7",
+    "issues": 0,
+    "note": "提交窗口内口径：holoaeon/mirraeon 新提交后须再跑 qc_v1_registry_heads.py ＋ 生成器取终态 head",
+    "result": "PASS",
+    "status_file": "holoaeon_lathe/GLOBAL_LOAD_STATUS_20261122.json"
+  },
+  "honest_boundaries": [
+    "本批为 DOC 升版＋全域装载＋新仓孵化，非算法升级：不给资源价值分／加权矩阵／涌现 P 值。",
+    "SHA256SUMS 收录口径历史上无明文；本批以「改前 363 条固定集为既有口径」实证判定，7 条追加属越口径扩张已回退，此自决在此披露。",
+    "qicangaeon 四件字节锁定为交付基线（指纹链优先），读码所见缺陷（qc_core 尾 `or True`、README「Ran 24 tests」漂移与 L54 残句、qc_ledger n0 未参与判定）登记 INC-004，本批不改字节。",
+    "ring 编号裁决为 24：投喂自称 ring-25 被实测推翻（netaeon 占 ring23）。",
+    "netaeon 侧扩键（MIR 同型第 20 节点 / C01-C18 扩词）属点单制，本批不抢跑，verdict=unknown 如实登记。",
+    "全域装载 STATUS 的 7/7 为提交前时点实测，终态 head 待 quiс收口后刷新（不得以旧值充终值）。"
+  ],
+  "main_suite_after": {
+    "py311": {
+      "ran": 2415,
+      "failures": 0,
+      "skipped": 0,
+      "seconds": 52.008,
+      "verdict": "OK",
+      "rc": 0
+    },
+    "py313": {
+      "ran": 2415,
+      "failures": 0,
+      "skipped": 0,
+      "seconds": 41.369,
+      "verdict": "OK",
+      "rc": 0
+    },
+    "before_vs_after": "5 红（单一根因 readback doc_version_spec）→ 0 红",
+    "log_py311": "%TEMP%\\_qc_green_311_err.txt",
+    "log_py313": "%TEMP%\\_qc_green_313_err.txt"
+  },
+  "main_suite_before": {
+    "attribution": "同一根因（doc_version_spec 期望源缺失），非源码缺陷；py313 同源 5 红",
+    "failures": 5,
+    "note": "py311 Ran 2415 in 80.316s；py313 Ran 2415 in 46.173s",
+    "ran": 2415,
+    "red_ids": [
+      "test_v75_claims_gate.TestReadback.test_06_baseline_green",
+      "test_v77_registry_coverage.T8RealRepoEightFaces.test_real_repo_pass",
+      "test_v77_registry_coverage.T9SelfDigestAndReport.test_report_has_all_faces",
+      "test_v85_ci_step_names.TestNoRegression.test_n3_other_faces_still_pass",
+      "test_v88_p2c_supply.TestV88SupplyChain.test_gate_green_real"
+    ],
+    "seconds": 80.316,
+    "skipped": 3
+  },
+  "notes": [
+    "本批执行序 8 步：独立建仓→三重验收→GLOBAL_LOAD 六→七→README 增行→五地同步→DOC 0.9.96→0.9.97→TD-0003。",
+    "第 4 步 5 红根因为期望源缺失，非回归；补 v97 回执后主套应回绿，green 复跑数字见 pass-2。"
+  ],
+  "pre_red_evidence": {
+    "chain_position": "25/25",
+    "command": "py311 -m unittest discover -s tests（cwd=holoaeon）",
+    "constants": 30,
+    "digest": "7464f388a02b244b",
+    "fails": [
+      {
+        "detail": "MISMATCH readback='0.9.97' expected='0.9.96'",
+        "id": "doc_version_spec"
+      }
+    ],
+    "mismatch": 1,
+    "note": "12 面绿，唯一红面 readback_consistent 单条；5 例单测红全部由该面派生（test_v75_claims_gate / test_v77_registry_coverage ×2 / test_v85_ci_step_names / test_v88_p2c_supply）",
+    "rc": 1,
+    "root_cause": "reports/v97_receipt.json 缺失，claims_gate._receipt() 按回执自身 doc_version 取最大者，仍指向 v96（0.9.96）；注册簿钉值与 README 文本均无误",
+    "totals": {
+      "doc_claims": 21,
+      "historical": 3,
+      "narrative": 9,
+      "regulation_pins": 7
+    },
+    "verdict": "FAIL"
+  },
+  "qicangaeon_batch": {
+    "batch_gate": "33/33（qc_core 19 / qc_ledger 7 / readme_sync 7）",
+    "head": "24acdcad34b4aa672c935d3566cf05e1b0906894",
+    "incubation_protocol": "7 步（需求锚定→出网打捞→路由归位→孵化立仓→验收登记→全域装载→五地同步）",
+    "note": "纪元族第六员；19 仓库 designed→done 带 adjusted 口径；Z 维与 IPU 一律 designed 不落账",
+    "repo_path": "F:\\doubaowork\\qicangaeon",
+    "ring": 24,
+    "tracked": 10,
+    "unittest": "28 例 × py311 + py313 均 rc0"
+  },
+  "readme": {
+    "en": {
+      "bytes": 233158,
+      "lines": 2119,
+      "sha16": "e3087ef5fece8303"
+    },
+    "zh": {
+      "bytes": 189515,
+      "lines": 1521,
+      "sha16": "fc83325e856d4dd4"
+    }
+  },
+  "receipt_position_note": "本回执为本批 pass-1 记档：主套绿前 5 红（同一根因 doc_version_spec）已如实入 pre_red_evidence；绿后复跑数字于 pass-2 回填。",
+  "registration_readback": {
+    "claims_registry_json": {
+      "bytes": 26136,
+      "sha16": "15014fbe3e51d5d0"
+    },
+    "claims_self_digest": "5aaf0f33dde476b0",
+    "genome_dna_json": {
+      "bytes": 12374,
+      "sha16": "b60eb2d8a63f98d7"
+    },
+    "genome_hash_note": "genome_hash 只依赖 axioms/homology/loci，本批未动，仍 84876958e3936c50",
+    "genome_spec_sha256_measured": "b6b1d29a7063904c20cee16f9370cde305612c982c747c6daa2ea261416fb053",
+    "ledger_sources_doc_version": {
+      "observed": "0.9.97",
+      "observed_at": "2026-11-25"
+    },
+    "note": "PHC-2025 源指针指向 README.zh-CN.md 台账段，整文件 sha16 随 V97 行重算",
+    "phc_2025_source_sha16": "fc83325e856d4dd4"
+  },
+  "repo": "holoaeon",
+  "repo_path": "F:\\doubaowork\\holoaeon",
+  "schema": "holoaeon.receipt/v1",
+  "spec": {
+    "bytes": 23983,
+    "doc_version": "0.9.97\"  # V97（QC-V1 qicangaeon 启藏建仓批·2026-11-25）：纪元族第六员独立仓 `qicangaeon`（ring24 文明挖掘环，出网侧）首笔 `24acdca` tracked 10；打捞之网模式升格为全局七步孵化协议（INCUBATION_PROTOCOL + INCUBATION_REGISTRY）；全域装载 repos 6→7、head_match 7/7、loader issues 0；基座 README 增量插入（工程链路表增行＋纪元族增第六员），清单复算与 README 复算双绿；两网级联：netaeon 归航（入网）+ qicangaeon 出网（需求→打捞→归档）；TD-0003 登记入 mirraeon 调度账；诚实边界：Z 维五槽/IPU 一律 `designed`、归航级联 `unknown` 不虚称全通、零评分。；V96（MR-V10 会前收口批·12-01 大会前全硅基裁决）：采纳三（①军团五步协议调度器 legion_dispatch.py 落仓——真 import 133 桥与五席 pentad_roster，六步位路由（道 P4 / 法 P5+全员 / 术 P3 / 器 P2 / 升维 P1 / 横切 P5）各带 legion_track S1–S5 与 authority_source，DISPATCH_LEDGER append-only 状态机 dispatched→executing→reported→audited，13 闸 PASS；②AR-1/AR-4 落调度层——判据须锚权威源、不得以派生位互证代替验证；③ATH 同构五要素登记）；改造一（A1 修法归基座侧、处置权在豆包执行端，本仓只派 TD-0002 单）；碳基独占一（A2 令牌吊销只呈报不执行）；拒收一（评分口径复算——零评分纪律）；mirraeon 五件（legion_dispatch.py 14604B 7f5de8fbec73421c 新件 / mirror_ledger.py 27602B a0aa4ddb7e2814d9 / test_mr10_dispatch.py 11459B eb4da90f0e03d844 新件 / test_mr9_yuanjing.py 8539B 5bd791c741304e89 / README.md 27691B 737e2ec0283486a5），批总闸 202/202、legion_dispatch check 13/13、unittest 239 例 py311/py313 双过；基座侧 A1 修法：面 13 判据由「README 最新批次",
+    "path": "holoaeon/spec.py",
+    "sha256": "b6b1d29a7063904c20cee16f9370cde305612c982c747c6daa2ea261416fb053",
+    "version_frozen": "0.9.1",
+    "version_frozen_note": "VERSION=0.9.1 / MATRIX_ID / RUNTIME_ID / DATE 全部冻结未动，仅 DOC_VERSION 0.9.96→0.9.97 与 V97 描述段变更"
+  },
+  "sub_batch": "QC-V1",
+  "td_0003": {
+    "evidence": "qicangaeon HEAD 24acdca／批闸 33/33／测试 28×2",
+    "note": "mirraeon 只派单登记，advance 由 holoaeon 按执行端回执推进（TD-0002 先例）",
+    "state": "dispatched",
+    "tid": "TD-0003"
+  },
+  "updated_at": "2026-11-25T21:05:00+08:00",
+  "verification": {
+    "check_sums": {
+      "note": "SHA256SUMS 363 条固定集口径（reports/ 与 tests/ 顶层不计），verify ok / mismatches 0 / dup 0",
+      "ok": true,
+      "total": 363
+    },
+    "checklist_entries": 363,
+    "claims_gate_rerun": "PASS (mismatch 0, digest 5899a5f53884dbdf, 13/13 faces green)",
+    "redline": 160,
+    "sums_note": "本批先把 7 条越口径追加（两 README＋spec.py＋4 tests）回退，回到既有 363 口径；v97 回执不入 SUMS（否则 checklist_entries 变 364 与 README 363 冲突）",
+    "unittest_errors": 0,
+    "unittest_failures": 0,
+    "unittest_main": 2415,
+    "unittest_main_py311": {
+      "cmd": "py311 -m unittest discover -s tests",
+      "cwd": "F:\\doubaowork\\holoaeon",
+      "ran": 2415,
+      "seconds": 52.008,
+      "skipped": 0,
+      "failed": 0,
+      "verdict": "OK",
+      "rc": 0,
+      "log": "%TEMP%\\_qc_green_311_err.txt"
+    },
+    "unittest_main_py313": {
+      "cmd": "py313 -m unittest discover -s tests",
+      "cwd": "F:\\doubaowork\\holoaeon",
+      "ran": 2415,
+      "seconds": 41.369,
+      "skipped": 0,
+      "failed": 0,
+      "verdict": "OK",
+      "rc": 0,
+      "log": "%TEMP%\\_qc_green_313_err.txt",
+      "note": "双解释器同源判据；两解释器均 2415 OK"
+    },
+    "unittest_note": "回执数字一律由复跑 stdout 回填，不手打；本批唯一源码级变更为 DOC 升版重钉",
+    "unittest_skipped": 0,
+    "v3_gate": "34/34"
+  },
+  "readme_claims_check": {
+    "path": "reports/readme_claims_check.json",
+    "verdict": "PASS",
+    "counts": {
+      "claims": 8,
+      "mismatch": 0,
+      "stale_header": 0
+    },
+    "measured": {
+      "doc_version": "0.9.97",
+      "head": "662b141",
+      "unittest_main": 2415,
+      "unittest_v3": 11,
+      "unittest_verax": 21,
+      "sums_total": 363,
+      "redline_files": 160,
+      "redline_violations": 0
+    },
+    "note": "scripts/readme_claims_check.py 实跑，中英两 README 各 8 项全 MATCH"
+  }
+}

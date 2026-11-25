@@ -1,0 +1,112 @@
+{
+ "schema": "README-CLAIMS-CHECK-v1.0",
+ "measured": {
+  "doc_version": "0.9.97",
+  "head": "662b141",
+  "unittest_main": 2415,
+  "unittest_v3": 11,
+  "unittest_verax": 21,
+  "selftest": "25/25",
+  "v3_gate": "OK",
+  "redline_files": 160,
+  "redline_violations": 0,
+  "sums_total": 363,
+  "sums_ok": true
+ },
+ "readme": {
+  "README.zh-CN.md": [
+   {
+    "claim": "徽章 tests-2415%2B11%2B21",
+    "readme": "tests-2415%2B11%2B21",
+    "measured": "True",
+    "verdict": "MATCH"
+   },
+   {
+    "claim": "工程验收行（主套+合计）",
+    "readme": "2415 OK / 合计 2447",
+    "measured": "True",
+    "verdict": "MATCH"
+   },
+   {
+    "claim": "门禁行（主套+redline）",
+    "readme": "unittest 2415 OK / redline 160",
+    "measured": "True",
+    "verdict": "MATCH"
+   },
+   {
+    "claim": "清单条数",
+    "readme": "363 条 0 不匹配",
+    "measured": "True",
+    "verdict": "MATCH"
+   },
+   {
+    "claim": "### V41 小节存在",
+    "readme": "present",
+    "measured": "True",
+    "verdict": "MATCH"
+   },
+   {
+    "claim": "宣言头 DOC/HEAD（回读式）",
+    "readme": "readback-style",
+    "measured": "readback-style",
+    "verdict": "MATCH"
+   },
+   {
+    "claim": "对照表去硬编码（无“| 本机实测 |”列）",
+    "readme": "absent",
+    "measured": "True",
+    "verdict": "MATCH"
+   },
+   {
+    "claim": "对照表改为回读判定列",
+    "readme": "present",
+    "measured": "True",
+    "verdict": "MATCH"
+   }
+  ],
+  "README.md": [
+   {
+    "claim": "徽章 tests-2415%2B11%2B21",
+    "readme": "tests-2415%2B11%2B21",
+    "measured": "True",
+    "verdict": "MATCH"
+   },
+   {
+    "claim": "工程验收行（主套+合计）",
+    "readme": "2415 OK / 合计 2447",
+    "measured": "True",
+    "verdict": "MATCH"
+   },
+   {
+    "claim": "门禁行（主套+redline）",
+    "readme": "unittest 2415 OK / redline 160",
+    "measured": "True",
+    "verdict": "MATCH"
+   },
+   {
+    "claim": "清单条数",
+    "readme": "363 条 0 不匹配",
+    "measured": "True",
+    "verdict": "MATCH"
+   },
+   {
+    "claim": "### V41 小节存在",
+    "readme": "present",
+    "measured": "True",
+    "verdict": "MATCH"
+   },
+   {
+    "claim": "宣言头 DOC/HEAD（回读式）",
+    "readme": "readback-style",
+    "measured": "readback-style",
+    "verdict": "MATCH"
+   }
+  ]
+ },
+ "counts": {
+  "claims": 14,
+  "mismatch": 0,
+  "stale_header": 0
+ },
+ "verdict": "PASS"
+}

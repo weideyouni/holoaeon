@@ -1,733 +1,733 @@
 {
-  "coverage": [
-    {
-      "as_of_batch": "V77",
-      "covered_by": "badge_tests_zh",
-      "id": "cover_zh_badge",
-      "must_appear": true,
-      "must_write_readback": false,
-      "note": "徽章主套数由面 2 回读比对，此处只登记「此处有活体写死位」这一事实",
-      "pattern": "tests_badge",
-      "window": "zh_badge"
-    },
-    {
-      "as_of_batch": "V77",
-      "covered_by": "acceptance_suite_zh",
-      "id": "cover_zh_acceptance",
-      "must_appear": true,
-      "must_write_readback": false,
-      "note": "工程验收行主套数，由面 2 回读比对",
-      "pattern": "suite_count",
-      "window": "zh_acceptance"
-    },
-    {
-      "as_of_batch": "V77",
-      "covered_by": "zh_timeline_version",
-      "id": "cover_zh_timeline",
-      "must_appear": false,
-      "must_write_readback": true,
-      "note": "先证红：L158 V0.1→V38 未登记；改回读式后本写死位应消失",
-      "pattern": "version_range",
-      "window": "zh_timeline"
-    },
-    {
-      "as_of_batch": "V77",
-      "covered_by": "badge_tests_en",
-      "id": "cover_en_badge",
-      "must_appear": true,
-      "must_write_readback": false,
-      "note": "英文徽章主套数",
-      "pattern": "tests_badge",
-      "window": "en_badge"
-    },
-    {
-      "as_of_batch": "V77",
-      "covered_by": "acceptance_suite_en",
-      "id": "cover_en_acceptance",
-      "must_appear": true,
-      "must_write_readback": false,
-      "note": "英文 Gates 行主套数",
-      "pattern": "suite_count",
-      "window": "en_acceptance"
-    },
-    {
-      "as_of_batch": "V77",
-      "covered_by": "en_timeline_version",
-      "id": "cover_en_timeline",
-      "must_appear": false,
-      "must_write_readback": true,
-      "note": "先证红：L1069 V0.1 to V59 未登记；改回读式后消失",
-      "pattern": "version_range",
-      "window": "en_timeline"
-    }
-  ],
-  "doc_claims": [
-    {
-      "as_of_batch": "V82",
-      "evidence_class": "measured",
-      "expected_from": "receipt.verification.unittest_main",
-      "id": "badge_tests_zh",
-      "kind": "current",
-      "note": "中文 README 徽章主套数（shields.io 静态值，与回执同源）",
-      "readback": "readme.zh.tests_badge",
-      "sha16": "",
-      "timeboxed": false
-    },
-    {
-      "as_of_batch": "V82",
-      "evidence_class": "measured",
-      "expected_from": "receipt.verification.unittest_main",
-      "id": "badge_tests_en",
-      "kind": "current",
-      "note": "英文 README 徽章主套数",
-      "readback": "readme.en.tests_badge",
-      "sha16": "",
-      "timeboxed": false
-    },
-    {
-      "as_of_batch": "V84",
-      "evidence_class": "measured",
-      "expected_from": "receipt.verification.unittest_main",
-      "id": "acceptance_suite_zh",
-      "kind": "current",
-      "note": "中文「工程验收」行主套单测数",
-      "readback": "readme.zh.acceptance_main",
-      "sha16": "",
-      "timeboxed": false
-    },
-    {
-      "as_of_batch": "V84",
-      "evidence_class": "measured",
-      "expected_from": "receipt.verification.unittest_main",
-      "id": "acceptance_suite_en",
-      "kind": "current",
-      "note": "英文「工程验收」行主套单测数",
-      "readback": "readme.en.acceptance_main",
-      "sha16": "",
-      "timeboxed": false
-    },
-    {
-      "as_of_batch": "V84",
-      "evidence_class": "measured",
-      "expected_from": "receipt.verification.unittest_main",
-      "id": "gate_suite_zh",
-      "kind": "current",
-      "note": "中文「当前工程状态」门禁行主套数",
-      "readback": "readme.zh.gate_unittest",
-      "sha16": "",
-      "timeboxed": false
-    },
-    {
-      "as_of_batch": "V84",
-      "evidence_class": "measured",
-      "expected_from": "receipt.verification.redline",
-      "id": "gate_redline_zh",
-      "kind": "current",
-      "note": "中文门禁行红线文件数",
-      "readback": "readme.zh.gate_redline",
-      "sha16": "",
-      "timeboxed": false
-    },
-    {
-      "as_of_batch": "",
-      "evidence_class": "measured",
-      "expected_from": "receipt.verification.redline",
-      "id": "redline_files_computed",
-      "kind": "current",
-      "note": "递归口径包内 .py 实数（与红线扫描 os.walk 同口径）",
-      "readback": "computed.py_recursive",
-      "sha16": "",
-      "timeboxed": false
-    },
-    {
-      "as_of_batch": "",
-      "evidence_class": "measured",
-      "expected_from": "computed.sums_entries",
-      "id": "checklist_entries",
-      "kind": "current",
-      "note": "复算闸条数：README 视图 vs SHA256SUMS 实际行数",
-      "readback": "readme.zh.checklist_entries",
-      "sha16": "",
-      "timeboxed": false
-    },
-    {
-      "as_of_batch": "V89-D",
-      "evidence_class": "measured",
-      "expected_from": "receipt.doc_version",
-      "id": "doc_version_spec",
-      "kind": "current",
-      "note": "DOC_VERSION 唯一权威点（holoaeon/spec.py）；MR-V3 活蒸馏+保真盲测基座登记同批重钉",
-      "readback": "spec.doc_version",
-      "sha16": "2983b0a2f4a610cc",
-      "timeboxed": false
-    },
-    {
-      "as_of_batch": "V46",
-      "evidence_class": "snapshot",
-      "expected_from": "literal.v46",
-      "id": "v46d_badge_note_zh",
-      "kind": "historical",
-      "note": "V46-D 徽章注记（tests-526）：保留原样、不判红、不改写成当前值",
-      "readback": "readme.zh.v46d_note",
-      "sha16": "",
-      "timeboxed": true
-    },
-    {
-      "as_of_batch": "V46",
-      "evidence_class": "snapshot",
-      "expected_from": "literal.v46",
-      "id": "v46d_badge_note_en",
-      "kind": "historical",
-      "note": "V46-D badge note（tests-526），英文侧同构",
-      "readback": "readme.en.v46d_note",
-      "sha16": "",
-      "timeboxed": true
-    },
-    {
-      "as_of_batch": "V73",
-      "evidence_class": "snapshot",
-      "expected_from": "literal.v73",
-      "id": "v73_suite_snapshot",
-      "kind": "historical",
-      "note": "V73 批次小节里的主套/红线数（当时真值），不随本批刷新",
-      "readback": "readme.zh.v73_snapshot",
-      "sha16": "",
-      "timeboxed": true
-    },
-    {
-      "as_of_batch": "",
-      "evidence_class": "pointer",
-      "expected_from": "narrative.readback",
-      "id": "ring_count_zh",
-      "kind": "narrative",
-      "note": "领域编排环数：写「以 claims_gate report 回读为准」，禁写死环数",
-      "readback": "readme.zh.ring_readback",
-      "sha16": "",
-      "timeboxed": false
-    },
-    {
-      "as_of_batch": "",
-      "evidence_class": "pointer",
-      "expected_from": "narrative.readback",
-      "id": "batch_count_zh",
-      "kind": "narrative",
-      "note": "批次数：写「不写死、以台账回读为准」，禁写 V73 / 条数",
-      "readback": "readme.zh.batch_readback",
-      "sha16": "",
-      "timeboxed": false
-    },
-    {
-      "as_of_batch": "",
-      "evidence_class": "pointer",
-      "expected_from": "narrative.readback",
-      "id": "pyfiles_command_zh",
-      "kind": "narrative",
-      "note": "包内 .py 计数命令必须走 find 递归口径（ls 只数顶层）",
-      "readback": "readme.zh.pyfiles_recursive",
-      "sha16": "",
-      "timeboxed": false
-    },
-    {
-      "as_of_batch": "V77",
-      "evidence_class": "computed",
-      "expected_from": "narrative.readback",
-      "id": "zh_timeline_version",
-      "kind": "narrative",
-      "note": "中文 README L158 时间线行：版本范围禁写死（V75 漏改的 V0.1 → V38 由此面接管），须写回读式",
-      "readback": "readme.zh.timeline_readback",
-      "sha16": null,
-      "timeboxed": false
-    },
-    {
-      "as_of_batch": "V77",
-      "evidence_class": "computed",
-      "expected_from": "narrative.readback",
-      "id": "en_timeline_version",
-      "kind": "narrative",
-      "note": "英文 README 时间线行：同上（原写死 V0.1 to V59，比中文更旧，属同一病）",
-      "readback": "readme.en.timeline_readback",
-      "sha16": null,
-      "timeboxed": false
-    },
-    {
-      "as_of_batch": "V88",
-      "evidence_class": "pointer",
-      "expected_from": "narrative.readback",
-      "id": "sums_disclosure_zh",
-      "kind": "narrative",
-      "note": "清单口径披露：SHA256SUMS 钉数据与文档侧（.json/.md/.csv 及关键 .py），源码完整性由 git 历史 + 四项冻结哈希 + genome_hash + 维度锁四重守卫；禁另造第二份源码清单",
-      "readback": "readme.zh.sums_disclosure",
-      "sha16": "",
-      "timeboxed": false
-    },
-    {
-      "as_of_batch": "V88",
-      "evidence_class": "pointer",
-      "expected_from": "narrative.readback",
-      "id": "sums_disclosure_en",
-      "kind": "narrative",
-      "note": "Manifest scope disclosure (EN mirror): SHA256SUMS pins data/doc side; source integrity rests on git history + four frozen hashes + genome_hash + dimension lock; no second source-code manifest",
-      "readback": "readme.en.sums_disclosure",
-      "sha16": "",
-      "timeboxed": false
-    },
-    {
-      "as_of_batch": "V88",
-      "evidence_class": "pointer",
-      "expected_from": "narrative.readback",
-      "id": "batch_order_monotonic",
-      "kind": "narrative",
-      "note": "批次序号单调：双份 README 首条最新批次号 == 最新回执 batch（git 提交批次经回执状态节点传入，闸不起 git 子进程）；改错 V 号必红",
-      "readback": "readme.batch_order_consistent",
-      "sha16": "",
-      "timeboxed": false
-    },
-    {
-      "as_of_batch": "V88",
-      "evidence_class": "pointer",
-      "expected_from": "narrative.readback",
-      "id": "ledger_depth_le3",
-      "kind": "narrative",
-      "note": "README 活体批次台账深度 ≤3（中英双份）；历史批次行逐字移入 docs/BATCH_LEDGER.md（append-only 禁删史）",
-      "readback": "readme.ledger_depth_ok",
-      "sha16": "",
-      "timeboxed": false
-    }
-  ],
-  "internal_baselines": [
-    {
-      "core_py_count": 160,
-      "core_py_count_at_measure": 156,
-      "core_py_count_note": "V41-A 核心包 .py 157→158（新增 holoaeon/ssyd_chronic_engine.py）；基线数值本身未重测；V86 158→159（新增 holoaeon/genome_dna.py）；V89 159→160（新增 holoaeon/bayes_reasoning.py）——仅更新规模记录，基线数值未重测，本批沿用 V41-A 基线（回执登记为已知 stale）；NA-V1 2026-11-22 v3 闸重跑同比复测（仅耗时字段变，语义指标未变），pin 随源更新",
-      "id": "semvec-0.9.1",
-      "max_age_days": 90,
-      "measured_at": "2026-11-22",
-      "path": "benchmarks/results-semvec-0.9.1.json",
-      "risk_tier": "fast",
-      "source_sha16": "36042768db05680f",
-      "stale_if_core_py_count_changes": true
-    },
-    {
-      "core_py_count": 160,
-      "core_py_count_at_measure": 156,
-      "core_py_count_note": "V41-A 核心包 .py 157→158（新增 holoaeon/ssyd_chronic_engine.py）；基线数值本身未重测；V86 158→159（新增 holoaeon/genome_dna.py）；V89 159→160（新增 holoaeon/bayes_reasoning.py）——仅更新规模记录，基线数值未重测，本批沿用 V41-A 基线（回执登记为已知 stale）",
-      "id": "semvec-kfold-0.9.2",
-      "max_age_days": 90,
-      "measured_at": "2026-11-01",
-      "path": "benchmarks/results-semvec-kfold-0.9.2.json",
-      "risk_tier": "fast",
-      "source_sha16": "95257ff017a02140",
-      "stale_if_core_py_count_changes": true
-    },
-    {
-      "core_py_count": 160,
-      "core_py_count_at_measure": 156,
-      "core_py_count_note": "V41-A 核心包 .py 157→158（新增 holoaeon/ssyd_chronic_engine.py）；基线数值本身未重测；V86 158→159（新增 holoaeon/genome_dna.py）；V89 159→160（新增 holoaeon/bayes_reasoning.py）——仅更新规模记录，基线数值未重测，本批沿用 V41-A 基线（回执登记为已知 stale）",
-      "id": "semvec-kfold-0.9.3",
-      "max_age_days": 90,
-      "measured_at": "2026-11-01",
-      "path": "benchmarks/results-semvec-kfold-0.9.3.json",
-      "risk_tier": "fast",
-      "source_sha16": "5bcd42b0e95821bd",
-      "stale_if_core_py_count_changes": true
-    },
-    {
-      "core_py_count": 160,
-      "core_py_count_at_measure": 156,
-      "core_py_count_note": "V41-A 核心包 .py 157→158（新增 holoaeon/ssyd_chronic_engine.py）；基线数值本身未重测；V86 158→159（新增 holoaeon/genome_dna.py）；V89 159→160（新增 holoaeon/bayes_reasoning.py）——仅更新规模记录，基线数值未重测，本批沿用 V41-A 基线（回执登记为已知 stale）；NA-V1 2026-11-22 v3 闸重跑同比复测（仅耗时字段变，语义指标未变），pin 随源更新",
-      "id": "results-0.9.1",
-      "max_age_days": 90,
-      "measured_at": "2026-11-22",
-      "path": "benchmarks/results-0.9.1.json",
-      "risk_tier": "fast",
-      "source_sha16": "ee694a98b016f9cd",
-      "stale_if_core_py_count_changes": true
-    }
-  ],
-  "ledger_conflicts": [
-    {
-      "carbon_canon": "碳基 11-14 01:57 终裁：必须补 workflow scope，当时只是同步报错才搁置，任务从未取消",
-      "disposition": "登记为 blocker_not_intent；三处污染措辞由 PL-7 批清理，本批不代改",
-      "id": "D0",
-      "keys": [
-        "carbon_intent"
-      ],
-      "kind": "intent_vs_blocker",
-      "root_cause": "技术阻塞（推送含 workflow 变更被硬拒 → 改走 cron 内容镜像）被误记成碳基意图",
-      "truth": "碳基 11-14 01:57 终裁：必须补 workflow scope，当时只是同步报错才搁置，任务从未取消",
-      "was": "碳基决议：先不加工作流权限，等以后条件允许再做；该任务永不重启",
-      "where": "NOTE_20261113_HOLOAEON_S3_MIRROR_MODE.md L1/L3 + v77_decision_defer_workflow.py L2/L48/L50/L51 + engineering_machine.STATE.pending"
-    },
-    {
-      "disposition": "本批撤销过期挂账并改为回读式",
-      "id": "D1",
-      "keys": [],
-      "kind": "stale_pointer",
-      "truth": "V78/V78a/V78b 均已落地（7dc9bf0）",
-      "was": "下一批 V78 = CI 门禁补齐",
-      "where": "reports/feed_index.json#pending_note"
-    },
-    {
-      "disposition": "登记为合法口径差",
-      "id": "D2",
-      "keys": [],
-      "kind": "caliber_difference",
-      "truth": "回执 status 描述推送与 CI 结果，STATE 描述机床断点，二者口径不同不构成冲突",
-      "was": "receipt.status=PUSHED_CI_GREEN，机床 STATE 另记一套批次阶段",
-      "where": "reports/v78b_receipt.json#status vs engineering_machine.STATE"
-    },
-    {
-      "disposition": "登记为 NON_EVIDENCE：缓存不得当 S3 落后证据",
-      "id": "D3",
-      "keys": [
-        "five_site_head"
-      ],
-      "kind": "non_evidence",
-      "truth": "真实远端 7dc9bf0（V78b 五地回执 S2/S3 同头）",
-      "was": "本地 refs/remotes/origin/main 停在 9423ff7",
-      "where": "origin/main remote-tracking 缓存"
-    },
-    {
-      "disposition": "登记为合法历史键，不删不手改",
-      "id": "D4",
-      "keys": [],
-      "kind": "runtime_snapshot",
-      "truth": "运行期快照，不随批次手改",
-      "was": "灯塔内两枚历史键仍存 1703 / 153 的旧快照名",
-      "where": "reports/state_beacon.json#unittest_main_1703 / redline_153_zero"
-    },
-    {
-      "disposition": "登记为能力边界，不判红、不伪装成已解决",
-      "id": "D5",
-      "keys": [],
-      "kind": "known_boundary",
-      "truth": "local green ≠ cloud green；云端 runner 环境差异仍在",
-      "was": "本地预检全绿即视为云端会绿",
-      "where": "ci.yml 步数 vs ci_preflight 本地回放"
-    }
-  ],
-  "ledger_sources": {
-    "batch_stage": {
-      "authority": "memory_of_yuan.version_history[-1].stage",
-      "caliber_note": "receipt.status 与 stage 是口径差不是冲突；仓外账在云端读不到，故不比数值",
-      "observed": "batch_executed",
-      "observed_at": "2026-11-14"
-    },
-    "carbon_intent": {
-      "authority": "carbon_utterance_terminal",
-      "observed": "碳基 11-14 01:57 终裁：必须补 workflow scope，当时只是同步报错才搁置，任务从未取消",
-      "observed_at": "2026-11-14",
-      "precedence": "above_all_derived_ledgers"
-    },
-    "doc_version": {
-      "authority": "holoaeon/spec.py:DOC_VERSION",
-      "non_evidence": [
-        "runtime_snapshot"
-      ],
-      "observed": "0.9.96",
-      "observed_at": "2026-11-24"
-    },
-    "five_site_head": {
-      "authority": "git_ls_remote_origin_main",
-      "non_evidence": [
-        "git_remote_tracking_ref"
-      ],
-      "observed": "509d20e",
-      "observed_at": "2026-11-14"
-    },
-    "head": {
-      "authority": "git_rev_parse_HEAD",
-      "caliber_note": "提交窗口内 head 天然滞后一个收口提交，故只做权威校验不比数值",
-      "non_evidence": [
-        "git_remote_tracking_ref"
-      ],
-      "observed": "d7cda13",
-      "observed_at": "2026-11-20"
-    },
-    "main_suite": {
-      "authority": "unittest_discover_measured",
-      "caliber_note": "V89 主套实测 2415（V88 2392 + V89 23：test_v89_bayes_mech_matching 23 例）",
-      "non_evidence": [
-        "runtime_snapshot",
-        "timeboxed_historical"
-      ],
-      "observed": 2415,
-      "observed_at": "2026-11-20"
-    },
-    "redline": {
-      "authority": "redline_scan_measured",
-      "non_evidence": [
-        "runtime_snapshot",
-        "timeboxed_historical"
-      ],
-      "observed": 160,
-      "observed_at": "2026-11-20",
-      "observed_note": "V89 159→160：holoaeon/bayes_reasoning.py 入包；红线实跑 160 文件 0 违规"
-    }
+ "coverage": [
+  {
+   "as_of_batch": "V77",
+   "covered_by": "badge_tests_zh",
+   "id": "cover_zh_badge",
+   "must_appear": true,
+   "must_write_readback": false,
+   "note": "徽章主套数由面 2 回读比对，此处只登记「此处有活体写死位」这一事实",
+   "pattern": "tests_badge",
+   "window": "zh_badge"
   },
-  "regulation_pins": [
-    {
-      "change_probe": {
-        "mode": "manual_review_only",
-        "note": "只登记检索指针，不联网、不声称已核实",
-        "probe_doc_no": "SEP-2575 / SEP-2567",
-        "probe_query": "MCP protocol version latest revision",
-        "probe_url": "https://modelcontextprotocol.io/specification/versioning"
-      },
-      "claim_sites": [
-        "README.md#~dual-version pointer",
-        "README.zh-CN.md#~双版本指针",
-        "holoaeon/mcp_adapter.py#L40"
-      ],
-      "doc_no": "SEP-2575 / SEP-2567",
-      "effective_from": "2026-07-28",
-      "id": "MCP",
-      "max_age_days": 90,
-      "note": "MCP PROTOCOL_VERSION 口径：V85 裁决取**选项 C（披露）**——代码保留双版本（运行时默认 PROTOCOL_VERSION=2024-11-05 legacy，2026-07-28 第 5 版可显式启用），本批**不改默认值**（选项 A）、**不改对外宣称**（选项 B），只在注册簿逐字披露「运行时默认仍是 legacy 2024-11-05、current 版本为 2026-07-28（第 5 版）」；A/B 切换留待碳基单点裁决，代码零改动。",
-      "risk_tier": "fast",
-      "runtime_pointer": "holoaeon/mcp_adapter.py#PROTOCOL_VERSION",
-      "runtime_role": "legacy",
-      "runtime_value": "2024-11-05",
-      "source_pointer": "holoaeon/mcp_adapter.py#SUPPORTED_PROTOCOL_VERSIONS",
-      "source_sha16": "8dc7919fe5d98623",
-      "status": "current",
-      "verified_at": "2026-11-13",
-      "version": "2026-07-28（第 5 版）",
-      "version_chain": [
-        {
-          "effective_from": "2024-11-05",
-          "role": "legacy",
-          "superseded_by": "2026-07-28",
-          "version": "2024-11-05"
-        },
-        {
-          "effective_from": "2026-07-28",
-          "role": "current",
-          "supersedes": "2024-11-05",
-          "version": "2026-07-28"
-        }
-      ]
-    },
-    {
-      "change_probe": {
-        "mode": "manual_review_only",
-        "note": "只登记检索指针，不联网",
-        "probe_doc_no": "《国家基本公共卫生服务规范》第三版 +〔2024〕31号/336号",
-        "probe_query": "国家基本公共卫生服务规范 现行版本 慢阻肺 纳入"
-      },
-      "claim_sites": [
-        "README.zh-CN.md#~第三版（2017）",
-        "holoaeon/phc_chronic_engine.py#L48"
-      ],
-      "doc_no": "《国家基本公共卫生服务规范》",
-      "effective_from": "2017",
-      "id": "PHC-NORM",
-      "max_age_days": 365,
-      "note": "慢阻肺 2024 由〔2024〕31号 / 336号试行纳入，不是第三版原内容",
-      "risk_tier": "stable",
-      "runtime_pointer": "holoaeon/phc_chronic_engine.py#L4-L5",
-      "runtime_role": "current",
-      "runtime_value": "2025",
-      "source_pointer": "holoaeon/phc_chronic_engine.py#L4 +〔2024〕31号 / 336号",
-      "source_sha16": "b7b234c71e6448ca",
-      "status": "current",
-      "verified_at": "2026-11-13",
-      "version": "第三版（2017），不含慢阻肺",
-      "version_chain": [
-        {
-          "effective_from": "2017",
-          "role": "legacy",
-          "superseded_by": "2024 增补（慢阻肺纳入）",
-          "version": "第三版（2017）"
-        },
-        {
-          "effective_from": "2024",
-          "role": "current",
-          "supersedes": "第三版（2017）",
-          "version": "2024 增补（慢阻肺纳入）"
-        },
-        {
-          "effective_from": "2025",
-          "role": "current",
-          "supersedes": "2024 增补（慢阻肺纳入）",
-          "version": "2025 口径（国卫基层发〔2025〕7号）"
-        }
-      ]
-    },
-    {
-      "change_probe": {
-        "mode": "manual_review_only",
-        "note": "只登记检索指针，不联网",
-        "probe_doc_no": "国卫基层发〔2025〕7号 /〔2025〕15号 / 国卫办基层函〔2025〕439号",
-        "probe_query": "国卫基层发 2025 基层卫生健康 文件"
-      },
-      "claim_sites": [
-        "holoaeon/phc_chronic_engine.py#L4"
-      ],
-      "doc_no": "国卫基层发〔2025〕7号 /〔2025〕15号 / 国卫办基层函〔2025〕439号",
-      "effective_from": "2025",
-      "id": "PHC-2025",
-      "max_age_days": 180,
-      "note": "只存文号指针，不复制规范全文（V89-A 插入济世主旨段后按整文件实测重算 sha16）；NA-V1 2026-11-22 台账行 V90 改号致 README.zh-CN.md 变（186830B），pin 随源更新（仅台账行，公卫口径段未改）；NA-V1 复算闸活体行 362→363 同步致 README.zh-CN.md sha16 再变，pin 随源更新；MR-V10 2026-11-24 A1 修法后 README.zh-CN.md 台账增 V96 行（188611B），pin 随源按整文件 _file_sha16 重算",
-      "risk_tier": "annual",
-      "runtime_pointer": "holoaeon/phc_chronic_engine.py#L4-L5",
-      "runtime_role": "current",
-      "runtime_value": "2025",
-      "source_pointer": "README.zh-CN.md#公卫口径段（V41 小节）",
-      "source_sha16": "3c00a84af0916e84",
-      "status": "current",
-      "verified_at": "2026-11-24",
-      "version": "2025",
-      "version_chain": [
-        {
-          "effective_from": "2025",
-          "role": "current",
-          "version": "2025"
-        }
-      ]
-    },
-    {
-      "change_probe": {
-        "mode": "manual_review_only",
-        "note": "只登记检索指针，不联网",
-        "probe_doc_no": "医保发〔2025〕33号",
-        "probe_query": "国家基本医疗保险药品目录 最新版 执行"
-      },
-      "claim_sites": [
-        "holoaeon/pharma_gate.py#L127"
-      ],
-      "doc_no": "医保发〔2025〕33号",
-      "effective_from": "2026-01-01",
-      "id": "NHSA-CATALOG",
-      "max_age_days": 180,
-      "note": "只登记年份/文号/生效日；SAMPLE_ENTRIES 仍为 simulated，不落地真实目录",
-      "risk_tier": "annual",
-      "runtime_pointer": "holoaeon/pharma_gate.py#L127",
-      "runtime_role": "current",
-      "runtime_value": "2025",
-      "source_pointer": "holoaeon/pharma_gate.py#version_pin",
-      "source_sha16": "60849bd3acab48b2",
-      "status": "current",
-      "verified_at": "2026-11-13",
-      "version": "2025 版目录",
-      "version_chain": [
-        {
-          "effective_from": "2026-01-01",
-          "role": "current",
-          "version": "2025 版目录"
-        }
-      ]
-    },
-    {
-      "change_probe": {
-        "mode": "manual_review_only",
-        "note": "只登记检索指针，不联网",
-        "probe_doc_no": "2025 版《中华人民共和国药典》 / 医保办函〔2026〕10号",
-        "probe_query": "中华人民共和国药典 2025年版 实施日期"
-      },
-      "claim_sites": [
-        "holoaeon/pharma_gate.py#L131"
-      ],
-      "doc_no": "2025 版《中华人民共和国药典》 / 医保办函〔2026〕10号",
-      "effective_from": "2025",
-      "id": "PHARMACOPOEIA",
-      "max_age_days": 365,
-      "note": "2025 版药典变更部分饮片名称，指针化登记、不复制条目",
-      "risk_tier": "stable",
-      "runtime_pointer": "holoaeon/pharma_gate.py#L131",
-      "runtime_role": "current",
-      "runtime_value": "2025",
-      "source_pointer": "holoaeon/pharma_gate.py#version_pin",
-      "source_sha16": "60849bd3acab48b2",
-      "status": "current",
-      "verified_at": "2026-11-13",
-      "version": "2025",
-      "version_chain": [
-        {
-          "effective_from": "2025",
-          "role": "current",
-          "version": "2025"
-        }
-      ]
-    },
-    {
-      "change_probe": {
-        "mode": "manual_review_only",
-        "note": "只登记检索指针，不联网",
-        "probe_doc_no": "GB/T 22239-2019 + GB/T 28448-2019",
-        "probe_query": "网络安全等级保护 2.0 现行国家标准"
-      },
-      "claim_sites": [
-        "docs/MLPS3_MAPPING.md#L1"
-      ],
-      "doc_no": "GB/T 22239-2019 + GB/T 28448-2019",
-      "effective_from": "2019",
-      "id": "MLPS3",
-      "max_age_days": 365,
-      "note": "等保 2.0 现行标准；README 只提 MLPS3，此处补联动指针",
-      "risk_tier": "stable",
-      "runtime_pointer": "docs/MLPS3_MAPPING.md#L1",
-      "runtime_role": "current",
-      "runtime_value": "2019",
-      "source_pointer": "docs/MLPS3_MAPPING.md",
-      "source_sha16": "bdb5b747c96270f2",
-      "status": "current",
-      "verified_at": "2026-11-13",
-      "version": "2019（现行）",
-      "version_chain": [
-        {
-          "effective_from": "2019",
-          "role": "current",
-          "version": "2019（现行）"
-        }
-      ]
-    },
-    {
-      "boundaries": [
-        "零依赖仅覆盖核心包 holoaeon/（bridges/ 部署环境除外）；",
-        "装入已含恶意包的宿主环境时 .pth 仍会执行，本仓不能保护宿主；",
-        "正确表述是「不引入该风险」，不是「能防御该风险」。"
-      ],
-      "change_probe": {
-        "mode": "manual_review_only",
-        "note": "离线复核检索指针；不联网、不声称已核实",
-        "probe_query": "agent-framework PyPI supply-chain poisoning 2026-11-17"
-      },
-      "claim_sites": [
-        "README.md#~supply-chain poisoning structurally inapplicable",
-        "README.zh-CN.md#~供应链投毒结构性不适用"
-      ],
-      "doc_no": "SUPPLY-CHAIN-2026-11",
-      "event": "2026-11-17 微软官方 agent-framework PyPI 投毒事件：恶意版 1.26.1/1.26.2，.pth 解释器启动级凭据窃取，周下载约 4.1 万，扫 60 凭据文件 / 读 300 进程环境变量",
-      "id": "SUPPLY-CHAIN-2026-11",
-      "max_age_days": 90,
-      "name": "供应链投毒事件登记（agent-framework PyPI）",
-      "note": "2026-11-17 微软 agent-framework PyPI 投毒事件登记；基座立场 dependencies=[] 结构性不适用。三条边界原样保留。",
-      "our_stance": "本仓核心包 pyproject.toml 显式 dependencies=[]，该攻击面结构性不适用",
-      "risk_tier": "fast",
-      "runtime_pointer": "pyproject.toml#dependencies",
-      "runtime_role": "current",
-      "runtime_value": "[]",
-      "source_pointer": "reports/security_tier_self_assessment_20261119.md",
-      "source_sha16": "cab319324c78c4b2",
-      "status": "current",
-      "verified_at": "2026-11-19",
-      "version": "2026-11-19",
-      "version_chain": [
-        {
-          "effective_from": "2026-11-19",
-          "role": "current",
-          "version": "2026-11-19"
-        }
-      ]
-    }
-  ],
-  "schema": "CLAIMS-GATE-v1",
-  "self_digest": "92130f72cf77acdb",
-  "totals": {
-    "doc_claims": 21,
-    "historical": 3,
-    "narrative": 9,
-    "regulation_pins": 7
+  {
+   "as_of_batch": "V77",
+   "covered_by": "acceptance_suite_zh",
+   "id": "cover_zh_acceptance",
+   "must_appear": true,
+   "must_write_readback": false,
+   "note": "工程验收行主套数，由面 2 回读比对",
+   "pattern": "suite_count",
+   "window": "zh_acceptance"
+  },
+  {
+   "as_of_batch": "V77",
+   "covered_by": "zh_timeline_version",
+   "id": "cover_zh_timeline",
+   "must_appear": false,
+   "must_write_readback": true,
+   "note": "先证红：L158 V0.1→V38 未登记；改回读式后本写死位应消失",
+   "pattern": "version_range",
+   "window": "zh_timeline"
+  },
+  {
+   "as_of_batch": "V77",
+   "covered_by": "badge_tests_en",
+   "id": "cover_en_badge",
+   "must_appear": true,
+   "must_write_readback": false,
+   "note": "英文徽章主套数",
+   "pattern": "tests_badge",
+   "window": "en_badge"
+  },
+  {
+   "as_of_batch": "V77",
+   "covered_by": "acceptance_suite_en",
+   "id": "cover_en_acceptance",
+   "must_appear": true,
+   "must_write_readback": false,
+   "note": "英文 Gates 行主套数",
+   "pattern": "suite_count",
+   "window": "en_acceptance"
+  },
+  {
+   "as_of_batch": "V77",
+   "covered_by": "en_timeline_version",
+   "id": "cover_en_timeline",
+   "must_appear": false,
+   "must_write_readback": true,
+   "note": "先证红：L1069 V0.1 to V59 未登记；改回读式后消失",
+   "pattern": "version_range",
+   "window": "en_timeline"
   }
+ ],
+ "doc_claims": [
+  {
+   "as_of_batch": "V82",
+   "evidence_class": "measured",
+   "expected_from": "receipt.verification.unittest_main",
+   "id": "badge_tests_zh",
+   "kind": "current",
+   "note": "中文 README 徽章主套数（shields.io 静态值，与回执同源）",
+   "readback": "readme.zh.tests_badge",
+   "sha16": "",
+   "timeboxed": false
+  },
+  {
+   "as_of_batch": "V82",
+   "evidence_class": "measured",
+   "expected_from": "receipt.verification.unittest_main",
+   "id": "badge_tests_en",
+   "kind": "current",
+   "note": "英文 README 徽章主套数",
+   "readback": "readme.en.tests_badge",
+   "sha16": "",
+   "timeboxed": false
+  },
+  {
+   "as_of_batch": "V84",
+   "evidence_class": "measured",
+   "expected_from": "receipt.verification.unittest_main",
+   "id": "acceptance_suite_zh",
+   "kind": "current",
+   "note": "中文「工程验收」行主套单测数",
+   "readback": "readme.zh.acceptance_main",
+   "sha16": "",
+   "timeboxed": false
+  },
+  {
+   "as_of_batch": "V84",
+   "evidence_class": "measured",
+   "expected_from": "receipt.verification.unittest_main",
+   "id": "acceptance_suite_en",
+   "kind": "current",
+   "note": "英文「工程验收」行主套单测数",
+   "readback": "readme.en.acceptance_main",
+   "sha16": "",
+   "timeboxed": false
+  },
+  {
+   "as_of_batch": "V84",
+   "evidence_class": "measured",
+   "expected_from": "receipt.verification.unittest_main",
+   "id": "gate_suite_zh",
+   "kind": "current",
+   "note": "中文「当前工程状态」门禁行主套数",
+   "readback": "readme.zh.gate_unittest",
+   "sha16": "",
+   "timeboxed": false
+  },
+  {
+   "as_of_batch": "V84",
+   "evidence_class": "measured",
+   "expected_from": "receipt.verification.redline",
+   "id": "gate_redline_zh",
+   "kind": "current",
+   "note": "中文门禁行红线文件数",
+   "readback": "readme.zh.gate_redline",
+   "sha16": "",
+   "timeboxed": false
+  },
+  {
+   "as_of_batch": "",
+   "evidence_class": "measured",
+   "expected_from": "receipt.verification.redline",
+   "id": "redline_files_computed",
+   "kind": "current",
+   "note": "递归口径包内 .py 实数（与红线扫描 os.walk 同口径）",
+   "readback": "computed.py_recursive",
+   "sha16": "",
+   "timeboxed": false
+  },
+  {
+   "as_of_batch": "",
+   "evidence_class": "measured",
+   "expected_from": "computed.sums_entries",
+   "id": "checklist_entries",
+   "kind": "current",
+   "note": "复算闸条数：README 视图 vs SHA256SUMS 实际行数",
+   "readback": "readme.zh.checklist_entries",
+   "sha16": "",
+   "timeboxed": false
+  },
+  {
+   "as_of_batch": "V89-D",
+   "evidence_class": "measured",
+   "expected_from": "receipt.doc_version",
+   "id": "doc_version_spec",
+   "kind": "current",
+   "note": "DOC_VERSION 唯一权威点（holoaeon/spec.py）；MR-V3 活蒸馏+保真盲测基座登记同批重钉",
+   "readback": "spec.doc_version",
+   "sha16": "2983b0a2f4a610cc",
+   "timeboxed": false
+  },
+  {
+   "as_of_batch": "V46",
+   "evidence_class": "snapshot",
+   "expected_from": "literal.v46",
+   "id": "v46d_badge_note_zh",
+   "kind": "historical",
+   "note": "V46-D 徽章注记（tests-526）：保留原样、不判红、不改写成当前值",
+   "readback": "readme.zh.v46d_note",
+   "sha16": "",
+   "timeboxed": true
+  },
+  {
+   "as_of_batch": "V46",
+   "evidence_class": "snapshot",
+   "expected_from": "literal.v46",
+   "id": "v46d_badge_note_en",
+   "kind": "historical",
+   "note": "V46-D badge note（tests-526），英文侧同构",
+   "readback": "readme.en.v46d_note",
+   "sha16": "",
+   "timeboxed": true
+  },
+  {
+   "as_of_batch": "V73",
+   "evidence_class": "snapshot",
+   "expected_from": "literal.v73",
+   "id": "v73_suite_snapshot",
+   "kind": "historical",
+   "note": "V73 批次小节里的主套/红线数（当时真值），不随本批刷新",
+   "readback": "readme.zh.v73_snapshot",
+   "sha16": "",
+   "timeboxed": true
+  },
+  {
+   "as_of_batch": "",
+   "evidence_class": "pointer",
+   "expected_from": "narrative.readback",
+   "id": "ring_count_zh",
+   "kind": "narrative",
+   "note": "领域编排环数：写「以 claims_gate report 回读为准」，禁写死环数",
+   "readback": "readme.zh.ring_readback",
+   "sha16": "",
+   "timeboxed": false
+  },
+  {
+   "as_of_batch": "",
+   "evidence_class": "pointer",
+   "expected_from": "narrative.readback",
+   "id": "batch_count_zh",
+   "kind": "narrative",
+   "note": "批次数：写「不写死、以台账回读为准」，禁写 V73 / 条数",
+   "readback": "readme.zh.batch_readback",
+   "sha16": "",
+   "timeboxed": false
+  },
+  {
+   "as_of_batch": "",
+   "evidence_class": "pointer",
+   "expected_from": "narrative.readback",
+   "id": "pyfiles_command_zh",
+   "kind": "narrative",
+   "note": "包内 .py 计数命令必须走 find 递归口径（ls 只数顶层）",
+   "readback": "readme.zh.pyfiles_recursive",
+   "sha16": "",
+   "timeboxed": false
+  },
+  {
+   "as_of_batch": "V77",
+   "evidence_class": "computed",
+   "expected_from": "narrative.readback",
+   "id": "zh_timeline_version",
+   "kind": "narrative",
+   "note": "中文 README L158 时间线行：版本范围禁写死（V75 漏改的 V0.1 → V38 由此面接管），须写回读式",
+   "readback": "readme.zh.timeline_readback",
+   "sha16": null,
+   "timeboxed": false
+  },
+  {
+   "as_of_batch": "V77",
+   "evidence_class": "computed",
+   "expected_from": "narrative.readback",
+   "id": "en_timeline_version",
+   "kind": "narrative",
+   "note": "英文 README 时间线行：同上（原写死 V0.1 to V59，比中文更旧，属同一病）",
+   "readback": "readme.en.timeline_readback",
+   "sha16": null,
+   "timeboxed": false
+  },
+  {
+   "as_of_batch": "V88",
+   "evidence_class": "pointer",
+   "expected_from": "narrative.readback",
+   "id": "sums_disclosure_zh",
+   "kind": "narrative",
+   "note": "清单口径披露：SHA256SUMS 钉数据与文档侧（.json/.md/.csv 及关键 .py），源码完整性由 git 历史 + 四项冻结哈希 + genome_hash + 维度锁四重守卫；禁另造第二份源码清单",
+   "readback": "readme.zh.sums_disclosure",
+   "sha16": "",
+   "timeboxed": false
+  },
+  {
+   "as_of_batch": "V88",
+   "evidence_class": "pointer",
+   "expected_from": "narrative.readback",
+   "id": "sums_disclosure_en",
+   "kind": "narrative",
+   "note": "Manifest scope disclosure (EN mirror): SHA256SUMS pins data/doc side; source integrity rests on git history + four frozen hashes + genome_hash + dimension lock; no second source-code manifest",
+   "readback": "readme.en.sums_disclosure",
+   "sha16": "",
+   "timeboxed": false
+  },
+  {
+   "as_of_batch": "V88",
+   "evidence_class": "pointer",
+   "expected_from": "narrative.readback",
+   "id": "batch_order_monotonic",
+   "kind": "narrative",
+   "note": "批次序号单调：双份 README 首条最新批次号 == 最新回执 batch（git 提交批次经回执状态节点传入，闸不起 git 子进程）；改错 V 号必红",
+   "readback": "readme.batch_order_consistent",
+   "sha16": "",
+   "timeboxed": false
+  },
+  {
+   "as_of_batch": "V88",
+   "evidence_class": "pointer",
+   "expected_from": "narrative.readback",
+   "id": "ledger_depth_le3",
+   "kind": "narrative",
+   "note": "README 活体批次台账深度 ≤3（中英双份）；历史批次行逐字移入 docs/BATCH_LEDGER.md（append-only 禁删史）",
+   "readback": "readme.ledger_depth_ok",
+   "sha16": "",
+   "timeboxed": false
+  }
+ ],
+ "internal_baselines": [
+  {
+   "core_py_count": 160,
+   "core_py_count_at_measure": 156,
+   "core_py_count_note": "V41-A 核心包 .py 157→158（新增 holoaeon/ssyd_chronic_engine.py）；基线数值本身未重测；V86 158→159（新增 holoaeon/genome_dna.py）；V89 159→160（新增 holoaeon/bayes_reasoning.py）——仅更新规模记录，基线数值未重测，本批沿用 V41-A 基线（回执登记为已知 stale）；NA-V1 2026-11-22 v3 闸重跑同比复测（仅耗时字段变，语义指标未变），pin 随源更新",
+   "id": "semvec-0.9.1",
+   "max_age_days": 90,
+   "measured_at": "2026-11-22",
+   "path": "benchmarks/results-semvec-0.9.1.json",
+   "risk_tier": "fast",
+   "source_sha16": "36042768db05680f",
+   "stale_if_core_py_count_changes": true
+  },
+  {
+   "core_py_count": 160,
+   "core_py_count_at_measure": 156,
+   "core_py_count_note": "V41-A 核心包 .py 157→158（新增 holoaeon/ssyd_chronic_engine.py）；基线数值本身未重测；V86 158→159（新增 holoaeon/genome_dna.py）；V89 159→160（新增 holoaeon/bayes_reasoning.py）——仅更新规模记录，基线数值未重测，本批沿用 V41-A 基线（回执登记为已知 stale）",
+   "id": "semvec-kfold-0.9.2",
+   "max_age_days": 90,
+   "measured_at": "2026-11-01",
+   "path": "benchmarks/results-semvec-kfold-0.9.2.json",
+   "risk_tier": "fast",
+   "source_sha16": "95257ff017a02140",
+   "stale_if_core_py_count_changes": true
+  },
+  {
+   "core_py_count": 160,
+   "core_py_count_at_measure": 156,
+   "core_py_count_note": "V41-A 核心包 .py 157→158（新增 holoaeon/ssyd_chronic_engine.py）；基线数值本身未重测；V86 158→159（新增 holoaeon/genome_dna.py）；V89 159→160（新增 holoaeon/bayes_reasoning.py）——仅更新规模记录，基线数值未重测，本批沿用 V41-A 基线（回执登记为已知 stale）",
+   "id": "semvec-kfold-0.9.3",
+   "max_age_days": 90,
+   "measured_at": "2026-11-01",
+   "path": "benchmarks/results-semvec-kfold-0.9.3.json",
+   "risk_tier": "fast",
+   "source_sha16": "5bcd42b0e95821bd",
+   "stale_if_core_py_count_changes": true
+  },
+  {
+   "core_py_count": 160,
+   "core_py_count_at_measure": 156,
+   "core_py_count_note": "V41-A 核心包 .py 157→158（新增 holoaeon/ssyd_chronic_engine.py）；基线数值本身未重测；V86 158→159（新增 holoaeon/genome_dna.py）；V89 159→160（新增 holoaeon/bayes_reasoning.py）——仅更新规模记录，基线数值未重测，本批沿用 V41-A 基线（回执登记为已知 stale）；NA-V1 2026-11-22 v3 闸重跑同比复测（仅耗时字段变，语义指标未变），pin 随源更新",
+   "id": "results-0.9.1",
+   "max_age_days": 90,
+   "measured_at": "2026-11-22",
+   "path": "benchmarks/results-0.9.1.json",
+   "risk_tier": "fast",
+   "source_sha16": "ee694a98b016f9cd",
+   "stale_if_core_py_count_changes": true
+  }
+ ],
+ "ledger_conflicts": [
+  {
+   "carbon_canon": "碳基 11-14 01:57 终裁：必须补 workflow scope，当时只是同步报错才搁置，任务从未取消",
+   "disposition": "登记为 blocker_not_intent；三处污染措辞由 PL-7 批清理，本批不代改",
+   "id": "D0",
+   "keys": [
+    "carbon_intent"
+   ],
+   "kind": "intent_vs_blocker",
+   "root_cause": "技术阻塞（推送含 workflow 变更被硬拒 → 改走 cron 内容镜像）被误记成碳基意图",
+   "truth": "碳基 11-14 01:57 终裁：必须补 workflow scope，当时只是同步报错才搁置，任务从未取消",
+   "was": "碳基决议：先不加工作流权限，等以后条件允许再做；该任务永不重启",
+   "where": "NOTE_20261113_HOLOAEON_S3_MIRROR_MODE.md L1/L3 + v77_decision_defer_workflow.py L2/L48/L50/L51 + engineering_machine.STATE.pending"
+  },
+  {
+   "disposition": "本批撤销过期挂账并改为回读式",
+   "id": "D1",
+   "keys": [],
+   "kind": "stale_pointer",
+   "truth": "V78/V78a/V78b 均已落地（7dc9bf0）",
+   "was": "下一批 V78 = CI 门禁补齐",
+   "where": "reports/feed_index.json#pending_note"
+  },
+  {
+   "disposition": "登记为合法口径差",
+   "id": "D2",
+   "keys": [],
+   "kind": "caliber_difference",
+   "truth": "回执 status 描述推送与 CI 结果，STATE 描述机床断点，二者口径不同不构成冲突",
+   "was": "receipt.status=PUSHED_CI_GREEN，机床 STATE 另记一套批次阶段",
+   "where": "reports/v78b_receipt.json#status vs engineering_machine.STATE"
+  },
+  {
+   "disposition": "登记为 NON_EVIDENCE：缓存不得当 S3 落后证据",
+   "id": "D3",
+   "keys": [
+    "five_site_head"
+   ],
+   "kind": "non_evidence",
+   "truth": "真实远端 7dc9bf0（V78b 五地回执 S2/S3 同头）",
+   "was": "本地 refs/remotes/origin/main 停在 9423ff7",
+   "where": "origin/main remote-tracking 缓存"
+  },
+  {
+   "disposition": "登记为合法历史键，不删不手改",
+   "id": "D4",
+   "keys": [],
+   "kind": "runtime_snapshot",
+   "truth": "运行期快照，不随批次手改",
+   "was": "灯塔内两枚历史键仍存 1703 / 153 的旧快照名",
+   "where": "reports/state_beacon.json#unittest_main_1703 / redline_153_zero"
+  },
+  {
+   "disposition": "登记为能力边界，不判红、不伪装成已解决",
+   "id": "D5",
+   "keys": [],
+   "kind": "known_boundary",
+   "truth": "local green ≠ cloud green；云端 runner 环境差异仍在",
+   "was": "本地预检全绿即视为云端会绿",
+   "where": "ci.yml 步数 vs ci_preflight 本地回放"
+  }
+ ],
+ "ledger_sources": {
+  "batch_stage": {
+   "authority": "memory_of_yuan.version_history[-1].stage",
+   "caliber_note": "receipt.status 与 stage 是口径差不是冲突；仓外账在云端读不到，故不比数值",
+   "observed": "batch_executed",
+   "observed_at": "2026-11-14"
+  },
+  "carbon_intent": {
+   "authority": "carbon_utterance_terminal",
+   "observed": "碳基 11-14 01:57 终裁：必须补 workflow scope，当时只是同步报错才搁置，任务从未取消",
+   "observed_at": "2026-11-14",
+   "precedence": "above_all_derived_ledgers"
+  },
+  "doc_version": {
+   "authority": "holoaeon/spec.py:DOC_VERSION",
+   "non_evidence": [
+    "runtime_snapshot"
+   ],
+   "observed": "0.9.97",
+   "observed_at": "2026-11-25"
+  },
+  "five_site_head": {
+   "authority": "git_ls_remote_origin_main",
+   "non_evidence": [
+    "git_remote_tracking_ref"
+   ],
+   "observed": "509d20e",
+   "observed_at": "2026-11-14"
+  },
+  "head": {
+   "authority": "git_rev_parse_HEAD",
+   "caliber_note": "提交窗口内 head 天然滞后一个收口提交，故只做权威校验不比数值",
+   "non_evidence": [
+    "git_remote_tracking_ref"
+   ],
+   "observed": "d7cda13",
+   "observed_at": "2026-11-20"
+  },
+  "main_suite": {
+   "authority": "unittest_discover_measured",
+   "caliber_note": "V89 主套实测 2415（V88 2392 + V89 23：test_v89_bayes_mech_matching 23 例）",
+   "non_evidence": [
+    "runtime_snapshot",
+    "timeboxed_historical"
+   ],
+   "observed": 2415,
+   "observed_at": "2026-11-20"
+  },
+  "redline": {
+   "authority": "redline_scan_measured",
+   "non_evidence": [
+    "runtime_snapshot",
+    "timeboxed_historical"
+   ],
+   "observed": 160,
+   "observed_at": "2026-11-20",
+   "observed_note": "V89 159→160：holoaeon/bayes_reasoning.py 入包；红线实跑 160 文件 0 违规"
+  }
+ },
+ "regulation_pins": [
+  {
+   "change_probe": {
+    "mode": "manual_review_only",
+    "note": "只登记检索指针，不联网、不声称已核实",
+    "probe_doc_no": "SEP-2575 / SEP-2567",
+    "probe_query": "MCP protocol version latest revision",
+    "probe_url": "https://modelcontextprotocol.io/specification/versioning"
+   },
+   "claim_sites": [
+    "README.md#~dual-version pointer",
+    "README.zh-CN.md#~双版本指针",
+    "holoaeon/mcp_adapter.py#L40"
+   ],
+   "doc_no": "SEP-2575 / SEP-2567",
+   "effective_from": "2026-07-28",
+   "id": "MCP",
+   "max_age_days": 90,
+   "note": "MCP PROTOCOL_VERSION 口径：V85 裁决取**选项 C（披露）**——代码保留双版本（运行时默认 PROTOCOL_VERSION=2024-11-05 legacy，2026-07-28 第 5 版可显式启用），本批**不改默认值**（选项 A）、**不改对外宣称**（选项 B），只在注册簿逐字披露「运行时默认仍是 legacy 2024-11-05、current 版本为 2026-07-28（第 5 版）」；A/B 切换留待碳基单点裁决，代码零改动。",
+   "risk_tier": "fast",
+   "runtime_pointer": "holoaeon/mcp_adapter.py#PROTOCOL_VERSION",
+   "runtime_role": "legacy",
+   "runtime_value": "2024-11-05",
+   "source_pointer": "holoaeon/mcp_adapter.py#SUPPORTED_PROTOCOL_VERSIONS",
+   "source_sha16": "8dc7919fe5d98623",
+   "status": "current",
+   "verified_at": "2026-11-13",
+   "version": "2026-07-28（第 5 版）",
+   "version_chain": [
+    {
+     "effective_from": "2024-11-05",
+     "role": "legacy",
+     "superseded_by": "2026-07-28",
+     "version": "2024-11-05"
+    },
+    {
+     "effective_from": "2026-07-28",
+     "role": "current",
+     "supersedes": "2024-11-05",
+     "version": "2026-07-28"
+    }
+   ]
+  },
+  {
+   "change_probe": {
+    "mode": "manual_review_only",
+    "note": "只登记检索指针，不联网",
+    "probe_doc_no": "《国家基本公共卫生服务规范》第三版 +〔2024〕31号/336号",
+    "probe_query": "国家基本公共卫生服务规范 现行版本 慢阻肺 纳入"
+   },
+   "claim_sites": [
+    "README.zh-CN.md#~第三版（2017）",
+    "holoaeon/phc_chronic_engine.py#L48"
+   ],
+   "doc_no": "《国家基本公共卫生服务规范》",
+   "effective_from": "2017",
+   "id": "PHC-NORM",
+   "max_age_days": 365,
+   "note": "慢阻肺 2024 由〔2024〕31号 / 336号试行纳入，不是第三版原内容",
+   "risk_tier": "stable",
+   "runtime_pointer": "holoaeon/phc_chronic_engine.py#L4-L5",
+   "runtime_role": "current",
+   "runtime_value": "2025",
+   "source_pointer": "holoaeon/phc_chronic_engine.py#L4 +〔2024〕31号 / 336号",
+   "source_sha16": "b7b234c71e6448ca",
+   "status": "current",
+   "verified_at": "2026-11-13",
+   "version": "第三版（2017），不含慢阻肺",
+   "version_chain": [
+    {
+     "effective_from": "2017",
+     "role": "legacy",
+     "superseded_by": "2024 增补（慢阻肺纳入）",
+     "version": "第三版（2017）"
+    },
+    {
+     "effective_from": "2024",
+     "role": "current",
+     "supersedes": "第三版（2017）",
+     "version": "2024 增补（慢阻肺纳入）"
+    },
+    {
+     "effective_from": "2025",
+     "role": "current",
+     "supersedes": "2024 增补（慢阻肺纳入）",
+     "version": "2025 口径（国卫基层发〔2025〕7号）"
+    }
+   ]
+  },
+  {
+   "change_probe": {
+    "mode": "manual_review_only",
+    "note": "只登记检索指针，不联网",
+    "probe_doc_no": "国卫基层发〔2025〕7号 /〔2025〕15号 / 国卫办基层函〔2025〕439号",
+    "probe_query": "国卫基层发 2025 基层卫生健康 文件"
+   },
+   "claim_sites": [
+    "holoaeon/phc_chronic_engine.py#L4"
+   ],
+   "doc_no": "国卫基层发〔2025〕7号 /〔2025〕15号 / 国卫办基层函〔2025〕439号",
+   "effective_from": "2025",
+   "id": "PHC-2025",
+   "max_age_days": 180,
+   "note": "只存文号指针，不复制规范全文（V89-A 插入济世主旨段后按整文件实测重算 sha16）；NA-V1 2026-11-22 台账行 V90 改号致 README.zh-CN.md 变（186830B），pin 随源更新（仅台账行，公卫口径段未改）；NA-V1 复算闸活体行 362→363 同步致 README.zh-CN.md sha16 再变，pin 随源更新；MR-V10 2026-11-24 A1 修法后 README.zh-CN.md 台账增 V96 行（188611B），pin 随源按整文件 _file_sha16 重算；QC-V1（2026-11-25）：README.zh-CN.md 台账增 V97 行（qicangaeon 启藏建仓批），整文件 sha16 随源重算 fc83325e856d4dd4。",
+   "risk_tier": "annual",
+   "runtime_pointer": "holoaeon/phc_chronic_engine.py#L4-L5",
+   "runtime_role": "current",
+   "runtime_value": "2025",
+   "source_pointer": "README.zh-CN.md#公卫口径段（V41 小节）",
+   "source_sha16": "fc83325e856d4dd4",
+   "status": "current",
+   "verified_at": "2026-11-25",
+   "version": "2025",
+   "version_chain": [
+    {
+     "effective_from": "2025",
+     "role": "current",
+     "version": "2025"
+    }
+   ]
+  },
+  {
+   "change_probe": {
+    "mode": "manual_review_only",
+    "note": "只登记检索指针，不联网",
+    "probe_doc_no": "医保发〔2025〕33号",
+    "probe_query": "国家基本医疗保险药品目录 最新版 执行"
+   },
+   "claim_sites": [
+    "holoaeon/pharma_gate.py#L127"
+   ],
+   "doc_no": "医保发〔2025〕33号",
+   "effective_from": "2026-01-01",
+   "id": "NHSA-CATALOG",
+   "max_age_days": 180,
+   "note": "只登记年份/文号/生效日；SAMPLE_ENTRIES 仍为 simulated，不落地真实目录",
+   "risk_tier": "annual",
+   "runtime_pointer": "holoaeon/pharma_gate.py#L127",
+   "runtime_role": "current",
+   "runtime_value": "2025",
+   "source_pointer": "holoaeon/pharma_gate.py#version_pin",
+   "source_sha16": "60849bd3acab48b2",
+   "status": "current",
+   "verified_at": "2026-11-13",
+   "version": "2025 版目录",
+   "version_chain": [
+    {
+     "effective_from": "2026-01-01",
+     "role": "current",
+     "version": "2025 版目录"
+    }
+   ]
+  },
+  {
+   "change_probe": {
+    "mode": "manual_review_only",
+    "note": "只登记检索指针，不联网",
+    "probe_doc_no": "2025 版《中华人民共和国药典》 / 医保办函〔2026〕10号",
+    "probe_query": "中华人民共和国药典 2025年版 实施日期"
+   },
+   "claim_sites": [
+    "holoaeon/pharma_gate.py#L131"
+   ],
+   "doc_no": "2025 版《中华人民共和国药典》 / 医保办函〔2026〕10号",
+   "effective_from": "2025",
+   "id": "PHARMACOPOEIA",
+   "max_age_days": 365,
+   "note": "2025 版药典变更部分饮片名称，指针化登记、不复制条目",
+   "risk_tier": "stable",
+   "runtime_pointer": "holoaeon/pharma_gate.py#L131",
+   "runtime_role": "current",
+   "runtime_value": "2025",
+   "source_pointer": "holoaeon/pharma_gate.py#version_pin",
+   "source_sha16": "60849bd3acab48b2",
+   "status": "current",
+   "verified_at": "2026-11-13",
+   "version": "2025",
+   "version_chain": [
+    {
+     "effective_from": "2025",
+     "role": "current",
+     "version": "2025"
+    }
+   ]
+  },
+  {
+   "change_probe": {
+    "mode": "manual_review_only",
+    "note": "只登记检索指针，不联网",
+    "probe_doc_no": "GB/T 22239-2019 + GB/T 28448-2019",
+    "probe_query": "网络安全等级保护 2.0 现行国家标准"
+   },
+   "claim_sites": [
+    "docs/MLPS3_MAPPING.md#L1"
+   ],
+   "doc_no": "GB/T 22239-2019 + GB/T 28448-2019",
+   "effective_from": "2019",
+   "id": "MLPS3",
+   "max_age_days": 365,
+   "note": "等保 2.0 现行标准；README 只提 MLPS3，此处补联动指针",
+   "risk_tier": "stable",
+   "runtime_pointer": "docs/MLPS3_MAPPING.md#L1",
+   "runtime_role": "current",
+   "runtime_value": "2019",
+   "source_pointer": "docs/MLPS3_MAPPING.md",
+   "source_sha16": "bdb5b747c96270f2",
+   "status": "current",
+   "verified_at": "2026-11-13",
+   "version": "2019（现行）",
+   "version_chain": [
+    {
+     "effective_from": "2019",
+     "role": "current",
+     "version": "2019（现行）"
+    }
+   ]
+  },
+  {
+   "boundaries": [
+    "零依赖仅覆盖核心包 holoaeon/（bridges/ 部署环境除外）；",
+    "装入已含恶意包的宿主环境时 .pth 仍会执行，本仓不能保护宿主；",
+    "正确表述是「不引入该风险」，不是「能防御该风险」。"
+   ],
+   "change_probe": {
+    "mode": "manual_review_only",
+    "note": "离线复核检索指针；不联网、不声称已核实",
+    "probe_query": "agent-framework PyPI supply-chain poisoning 2026-11-17"
+   },
+   "claim_sites": [
+    "README.md#~supply-chain poisoning structurally inapplicable",
+    "README.zh-CN.md#~供应链投毒结构性不适用"
+   ],
+   "doc_no": "SUPPLY-CHAIN-2026-11",
+   "event": "2026-11-17 微软官方 agent-framework PyPI 投毒事件：恶意版 1.26.1/1.26.2，.pth 解释器启动级凭据窃取，周下载约 4.1 万，扫 60 凭据文件 / 读 300 进程环境变量",
+   "id": "SUPPLY-CHAIN-2026-11",
+   "max_age_days": 90,
+   "name": "供应链投毒事件登记（agent-framework PyPI）",
+   "note": "2026-11-17 微软 agent-framework PyPI 投毒事件登记；基座立场 dependencies=[] 结构性不适用。三条边界原样保留。",
+   "our_stance": "本仓核心包 pyproject.toml 显式 dependencies=[]，该攻击面结构性不适用",
+   "risk_tier": "fast",
+   "runtime_pointer": "pyproject.toml#dependencies",
+   "runtime_role": "current",
+   "runtime_value": "[]",
+   "source_pointer": "reports/security_tier_self_assessment_20261119.md",
+   "source_sha16": "cab319324c78c4b2",
+   "status": "current",
+   "verified_at": "2026-11-19",
+   "version": "2026-11-19",
+   "version_chain": [
+    {
+     "effective_from": "2026-11-19",
+     "role": "current",
+     "version": "2026-11-19"
+    }
+   ]
+  }
+ ],
+ "schema": "CLAIMS-GATE-v1",
+ "self_digest": "5aaf0f33dde476b0",
+ "totals": {
+  "doc_claims": 21,
+  "historical": 3,
+  "narrative": 9,
+  "regulation_pins": 7
+ }
 }
