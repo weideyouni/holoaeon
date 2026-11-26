@@ -1,0 +1,139 @@
+{
+ "batch": "V100",
+ "date": "2026-11-26",
+ "doc_pins": {
+  "test_v22_eng_skills": "89192bb47e03ecab",
+  "test_v64_hangover_zero": "eb5138b4258d85f7",
+  "test_v70_prehistory_criteria": "0a8adb1fc689b871",
+  "test_v84_tautology_golden_watch": "c5011ed081959276"
+ },
+ "doc_version": "0.9.100",
+ "doc_version_before": "0.9.99",
+ "env_lesson": "PowerShell 无 heredoc；python/git 走绝对路径；写 JSON 用 io.open(...,'w',encoding='utf-8',newline='\\n')；读 README 用 newline='' 防 CRLF 污染；claims_gate 的 expected 来自最新回执 doc_version 而非 registry；batch_order expected 由 spec.DOC_VERSION 派生（回执 batch 不参与），故伪造 token 须取永不等于派生值的 V0。",
+ "executor": "doubao-work mainagent (local windows powershell)",
+ "genome_change_class": "doc_version_advance",
+ "global_load": {
+  "head_match": "9/9",
+  "issues": 0,
+  "result": "PASS",
+  "status_file": "holoaeon_lathe/GLOBAL_LOAD_STATUS_20261122.json"
+ },
+ "honest_boundaries": [
+  "S3 GitHub / S5 HF：本机 DNS 不可解析、直连 TLS 不过、订阅节点不承载数据，本轮如实记 BLOCKED（用户第六次重申允许延后）",
+  "五地不虚称 5of5：verdict 逐地分列，S1/S2/S4 以 ls-remote/哈希判等取证",
+  "eduaeon 与 EduRing(holoaeon.edu_gate, ring8) 分层不混：机制层/域层分离",
+  "master_claims() 无 evidence 即 unverified，零评分",
+  "PR-QX1 危险类比降格为 designed 灵感映射并显式过闸",
+  "状态四分 done/designed/planned/speculative：planned 仅投喂文档自身性质，2027+ 与外部指针不落账"
+ ],
+ "main_suite_after": {
+  "before_vs_after": "首跑 6 红（4 份 DOC_VERSION 死钉＋doc_version_spec 派生＋batch_order 金丝雀失靶）→ 最终树 0 红；py311 52.057s / py313 42.111s，均 Ran 2415 / OK (skipped=3)",
+  "py311": {
+   "failures": 0,
+   "ran": 2415,
+   "rc": 0,
+   "seconds": 52.057,
+   "skipped": 3,
+   "verdict": "OK (skipped=3)"
+  },
+  "py313": {
+   "failures": 0,
+   "ran": 2415,
+   "rc": 0,
+   "seconds": 42.111,
+   "skipped": 3,
+   "verdict": "OK (skipped=3)"
+  }
+ },
+ "main_suite_before": {
+  "attribution": "六红＝四份 DOC_VERSION 死钉（本批同批重钉已修）＋五条 doc_version_spec 派生红（v99 回执落盘后消红）－其中 test_v88_batch_order.test_wrong_token_red 系金丝雀写死 V99 伪号与派生批次同名而失效，已改 V0 活靶",
+  "failures": 6,
+  "ran": 2415,
+  "red_ids": [
+   "test_v75_claims_gate.TestReadback.test_06_baseline_green",
+   "test_v77_registry_coverage.T8RealRepoEightFaces.test_real_repo_pass",
+   "test_v77_registry_coverage.T9SelfDigestAndReport.test_report_has_all_faces",
+   "test_v85_ci_step_names.TestNoRegression.test_n3_other_faces_still_pass",
+   "test_v88_batch_order.TestV88BatchOrder.test_wrong_token_red",
+   "test_v88_p2c_supply.TestV88SupplyChain.test_gate_green_real"
+  ]
+ },
+ "notes": [
+  "ED-V1：eduaeon 建仓（第八员 ring26），七步孵化协议第三次应用",
+  "DOC 递版 0.9.99→0.9.100；四测试同批重钉；genesis.spec_sha256_measured 重钉新 spec"
+ ],
+ "readme": {
+  "en": {
+   "bytes": 239612,
+   "ledger": "Latest V100",
+   "lines": 2148,
+   "sha16": "e514201531d83569"
+  },
+  "zh": {
+   "bytes": 193114,
+   "ledger": "最新 V100",
+   "lines": 1525,
+   "sha16": "f0777718e1a38761"
+  }
+ },
+ "receipt_position_note": "pass-1：先落 doc_version=0.9.100 解 claims_gate doc_version_spec 与主套五条派生红；pass-2 回填真实秒数、INC-005/TD-0006、readme_claims_check 与五地读数。本文件不属 SHA256SUMS。",
+ "registration_readback": {
+  "claims_registry_json": {
+   "bytes": 26450,
+   "sha16": "f30a02ad5ffe994c"
+  },
+  "claims_self_digest": "deba26bd08efbdff",
+  "genome_dna_json": {
+   "bytes": 12625,
+   "sha16": "d7d1571d2e740c25"
+  },
+  "genome_hash_note": "genome_hash 只依赖 axioms/homology/loci，仍 84876958e3936c50",
+  "genome_spec_sha256_measured": "aff78e54b38e7c24a18f20a7f6ec074934b19e93429f2ccbf870b1a3bdc30f8f",
+  "ledger_sources_doc_version": {
+   "as_of": "2026-11-26",
+   "observed": "0.9.100"
+  }
+ },
+ "repo": "holoaeon",
+ "repo_path": "F:\\doubaowork\\holoaeon",
+ "schema": "holoaeon.receipt/v1",
+ "spec": {
+  "bytes": 26484,
+  "doc_version": "0.9.100（ED-V1 eduaeon 建仓批：纪要族第八员 ring26；同批重钉四测试与 claims_registry doc_version_spec，PHC-2025 pin 随 README.zh 台账行重算）",
+  "md5_16": "55ab88fdb078bb0c",
+  "sha256": "aff78e54b38e7c24a18f20a7f6ec074934b19e93429f2ccbf870b1a3bdc30f8f"
+ },
+ "sub_batch": "ED-V1",
+ "updated_at": "2026-11-26T00:40:00+08:00",
+ "verification": {
+  "check_sums": {
+   "mismatches": [],
+   "ok": true,
+   "total": 363
+  },
+  "checklist_entries": 363,
+  "claims_gate_rerun": "PASS (mismatch 0) — 本回执落地后复跑",
+  "genome_dna_gate": "PASS（pass=true，problems=[]）",
+  "redline": 160,
+  "unittest_errors": 0,
+  "unittest_failures": 0,
+  "unittest_main": 2415,
+  "unittest_main_py311": {
+   "failed": 0,
+   "ran": 2415,
+   "rc": 0,
+   "skipped": 3,
+   "verdict": "OK"
+  },
+  "unittest_main_py313": {
+   "failed": 0,
+   "ran": 2415,
+   "rc": 0,
+   "skipped": 3,
+   "verdict": "OK"
+  },
+  "unittest_note": "ED-V1 五条派生红随本回执落地消红；pass-2 回填实测秒数",
+  "unittest_skipped": 3,
+  "v3_gate": "OK（34/34）"
+ }
+}
