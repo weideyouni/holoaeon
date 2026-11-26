@@ -1,0 +1,192 @@
+{
+ "batch": "V99",
+ "date": "2026-11-26",
+ "doc_pins": {
+  "test_v22_eng_skills": "3c0f350bdc35ee7d",
+  "test_v64_hangover_zero": "60baf8db607485c6",
+  "test_v70_prehistory_criteria": "18206461cd4744e9",
+  "test_v84_tautology_golden_watch": "a87f525c793d80c7"
+ },
+ "doc_version": "0.9.99",
+ "doc_version_before": "0.9.98",
+ "env_lesson": "PowerShell 无 heredoc；python/git 走绝对路径；写 JSON 用 io.open(...,'w',encoding='utf-8',newline='\\n')；读 README 用 newline='' 防 CRLF 污染；claims_gate 的 expected 来自最新回执 doc_version 而非 registry；batch_order expected 由 spec.DOC_VERSION 派生（回执 batch 不参与），故伪造 token 须取永不等于派生值的 V0。",
+ "executor": "doubao-work mainagent (local windows powershell)",
+ "genome_change_class": "doc_version_advance",
+ "global_load": {
+  "head_match": "8/8",
+  "issues": 0,
+  "result": "PASS",
+  "status_file": "holoaeon_lathe/GLOBAL_LOAD_STATUS_20261122.json"
+ },
+ "honest_boundaries": [
+  "本批为建仓＋DOC 递版，非算法升级：分形骨架只作生成骨架登记，不给覆盖率／价值分。",
+  "曼德博结构是灵感源不是新图腾：边界维数≈2 不能给资产覆盖率背书（PR-QX1 常设拒收判例，量纲不同的危险类比 AR-4）。",
+  "单步迭代演示态：QX-V1 只跑 depth=1，多步迭代链（深度>1）口径留待后续批次定裁，不虚称已实现。",
+  "designed 两条如实承接：分岔芽体修法（11³＋polisaeon 席位）、Y 轴需求回弹模型无权威源，标 designed 不标 done。",
+  "INC-004／TD-0005 走派单不越权：holoaeon 只落派单指针，advance 由执行端回执推进。",
+  "v99 回执不入 SHA256SUMS（保持 363 条既有口径，避免 checklist_entries 与 README 冲突）。"
+ ],
+ "inc_004": {
+  "gate": "qicangaeon core 20/20（新增 incubation_inc004_binding 闸绑定 name/note/M07）",
+  "id": "INC-004",
+  "name": "qixiaeon（启曦·分形式生成骨架·ring25）",
+  "note": "qicangaeon 孵化账第 4 条；本仓管孵化、qixiaeon 管生成骨架，两环相邻同承 M07 全息相似性口径",
+  "state": "done",
+  "target_head": "d299ecda9052e80ea3a7621ffefd0389c2f1a7b9",
+  "target_repo": "qixiaeon",
+  "target_tracked": 11
+ },
+ "main_suite_after": {
+  "before_vs_after": "首跑 6 红（4 份 DOC_VERSION 死钉＋doc_version_spec 派生＋batch_order 金丝雀失靶）→ 最终树 0 红；py311 52.057s / py313 42.111s，均 Ran 2415 / OK (skipped=3)",
+  "py311": {
+   "failures": 0,
+   "ran": 2415,
+   "rc": 0,
+   "seconds": 52.057,
+   "skipped": 3,
+   "verdict": "OK (skipped=3)"
+  },
+  "py313": {
+   "failures": 0,
+   "ran": 2415,
+   "rc": 0,
+   "seconds": 42.111,
+   "skipped": 3,
+   "verdict": "OK (skipped=3)"
+  }
+ },
+ "main_suite_before": {
+  "attribution": "六红＝四份 DOC_VERSION 死钉（本批同批重钉已修）＋五条 doc_version_spec 派生红（v99 回执落盘后消红）－其中 test_v88_batch_order.test_wrong_token_red 系金丝雀写死 V99 伪号与派生批次同名而失效，已改 V0 活靶",
+  "failures": 6,
+  "ran": 2415,
+  "red_ids": [
+   "test_v75_claims_gate.TestReadback.test_06_baseline_green",
+   "test_v77_registry_coverage.T8RealRepoEightFaces.test_real_repo_pass",
+   "test_v77_registry_coverage.T9SelfDigestAndReport.test_report_has_all_faces",
+   "test_v85_ci_step_names.TestNoRegression.test_n3_other_faces_still_pass",
+   "test_v88_batch_order.TestV88BatchOrder.test_wrong_token_red",
+   "test_v88_p2c_supply.TestV88SupplyChain.test_gate_green_real"
+  ]
+ },
+ "notes": [
+  "执行序：①qixiaeon 独立建仓→②双解释器验收（批闸 28/28＋25 例 ×2）→③全域装载八仓→④双 README 增行＋spec.py 递 0.9.99＋四份断言重钉＋claims_registry 改账＋genome_dna 重钉＋SHA256SUMS 两行→⑤v99 回执→⑥S2–S5 同步→⑦INC-004→⑧TD-0005→⑨S4 编号件→⑩S5 HF→⑪记忆回填→⑫收口七件。",
+  "doc_version_spec 期望由最新回执 doc_version 提供（claims_gate._receipt），故递版红面以落 v99 回执消解，不改 registry 凑数。"
+ ],
+ "qicangaeon_batch": {
+  "batch_gate": "36/36（core 20 / ledger 9 / readme_sync 7）",
+  "head": "4c9b9a865072f991a2aabfbff8c120fca1013006",
+  "inc_004_binding": "新增独立闸 incubation_inc004_binding（断言 name 含 qixiaeon、note 含 d299ecd 与 M07），core 19→20，批总闸 35→36",
+  "repo_path": "F:\\doubaowork\\qicangaeon",
+  "tracked": 12,
+  "unittest": "44 例 × py311 + py313 均 rc0 OK"
+ },
+ "readme": {
+  "en": {
+   "bytes": 236779,
+   "ledger": "Latest V99",
+   "lines": 2134,
+   "sha16": "198bdcff57d7cdc8"
+  },
+  "zh": {
+   "bytes": 191694,
+   "ledger": "最新 V99",
+   "lines": 1524,
+   "sha16": "0a6eddedf8dfdf61"
+  }
+ },
+ "readme_claims_check": {
+  "counts": {
+   "claims": 8,
+   "mismatch": 0,
+   "stale_header": 0
+  },
+  "measured": {
+   "doc_version": "0.9.99",
+   "head": "1c19beb",
+   "redline_files": 160,
+   "redline_violations": 0,
+   "sums_total": 363,
+   "unittest_main": 2415,
+   "unittest_v3": 11,
+   "unittest_verax": 21
+  },
+  "note": "scripts/readme_claims_check.py 实跑（前置 PATH 含 git），中英两 README 各 8/6 项全 MATCH",
+  "path": "reports/readme_claims_check.json",
+  "verdict": "PASS"
+ },
+ "receipt_position_note": "pass-1：先落 README 徽标读回所需两项（verification.unittest_main / redline）以解 6 条 INCOMPLETE；pass-2：主套在最终树转绿后同文件补齐 main_suite_after、verification 13 键、inc_004、td_0005、qicangaeon_batch、env_lesson、updated_at。本文件不属 SHA256SUMS 条目，改后无需重钉清单。",
+ "registration_readback": {
+  "claims_registry_json": {
+   "bytes": 26264,
+   "sha16": "71431d9bcde8826e"
+  },
+  "claims_self_digest": "4028b0ebf134790a",
+  "genome_dna_json": {
+   "bytes": 12375,
+   "sha16": "70cc52a2870b97ba"
+  },
+  "genome_hash_note": "genome_hash 只依赖 axioms/homology/loci，本批未动，仍 84876958e3936c50",
+  "genome_spec_sha256_measured": "528ac7403f72e9f47246bbdefebe2a7fdcc73dc68f8c909f523bb225957ce537",
+  "ledger_sources_doc_version": {
+   "as_of": "2026-11-26",
+   "observed": "0.9.99"
+  }
+ },
+ "repo": "holoaeon",
+ "repo_path": "F:\\doubaowork\\holoaeon",
+ "schema": "holoaeon.receipt/v1",
+ "spec": {
+  "bytes": 25579,
+  "doc_version": "0.9.99（QX-V1 启曦纪元建仓批·2026-11-26）：新建第九仓 qixiaeon（纪元族第七员·ring25 分形式生成骨架），一条迭代规则＋四真源种子集＋一条逃逸判据（命中>0 才 in_set，零命中即 escaped 拒收），批总闸 28/28、25 例双解释器；全域装载八仓；本批只递 DOC 版本并重钉四份 DOC_VERSION 死钉测试与 registry/genome/SUMS，不动算法口径。",
+  "md5_16": "b942bc97062c810999bc23d9dcb66f93",
+  "sha256": "528ac7403f72e9f47246bbdefebe2a7fdcc73dc68f8c909f523bb225957ce537"
+ },
+ "sub_batch": "QX-V1",
+ "td_0005": {
+  "evidence": "52fde9836a9af3ff0e5bc4df6dc030a4d8f8ddc9（+13 行，单文件 legion_dispatch.py）；Gitee 已推 3eba3a3..52fde98，GitHub 本轮 TLS 不可达未推",
+  "note": "跨仓只派单与登记；生成骨架执行权在 qixiaeon（首笔 d299ecd），基座侧处置权在 holoaeon（DOC 0.9.99）",
+  "repo": "mirraeon",
+  "state": "dispatched",
+  "tid": "TD-0005"
+ },
+ "updated_at": "2026-11-26T15:36:36+08:00",
+ "verification": {
+  "check_sums": {
+   "mismatches": [],
+   "ok": true,
+   "total": 363
+  },
+  "checklist_entries": 363,
+  "claims_gate_rerun": "PASS (mismatch 0, digest d43cd6885b9dde85, 13/13 faces green)",
+  "genome_dna_gate": "PASS（pass=true，problems=[]）",
+  "redline": 160,
+  "unittest_errors": 0,
+  "unittest_failures": 0,
+  "unittest_main": 2415,
+  "unittest_main_py311": {
+   "cmd": "py311 -m unittest discover -s tests",
+   "cwd": "F:\\doubaowork\\holoaeon",
+   "failed": 0,
+   "log": "%TEMP%\\_qx1_after_311.err.txt",
+   "ran": 2415,
+   "rc": 0,
+   "seconds": 52.057,
+   "skipped": 3,
+   "verdict": "OK"
+  },
+  "unittest_main_py313": {
+   "cmd": "py313 -m unittest discover -s tests",
+   "cwd": "F:\\doubaowork\\holoaeon",
+   "failed": 0,
+   "log": "%TEMP%\\_qx1_after_313.err.txt",
+   "ran": 2415,
+   "rc": 0,
+   "seconds": 42.111,
+   "skipped": 3,
+   "verdict": "OK"
+  },
+  "unittest_note": "回执数字一律由最终树上复跑 stdout 回填；本批源码级变更为 DOC 0.9.98→0.9.99＋四份 DOC_VERSION 死钉重钉＋batch_order 金丝雀改 V0 活靶；skipped=3 为实测（v98 记 0），如实回填不沿用",
+  "unittest_skipped": 3,
+  "v3_gate": "OK（34/34，readme_claims_check 内部实跑旁证）"
+ }
+}

@@ -136,7 +136,7 @@
    "EXTRA_PACK_ORDER=19"
   ],
   "landed_head": "c65d521",
-  "spec_sha256_measured": "1d0065d94e4d39c1b717d735d26d0ae206acfc1384e3ac9b62130e08127db506",
+  "spec_sha256_measured": "528ac7403f72e9f47246bbdefebe2a7fdcc73dc68f8c909f523bb225957ce537",
   "spec_sha256_note": "NA-V1（纪元族第五员建仓，change_class=governance）现场重算：spec.py 仅改 DOC_VERSION 一行（号值与注释），VERSION/RUNTIME_ID/MATRIX_ID 未动；四处测试断言同批 0.9.89→0.9.90 回填。；MR-V10 2026-11-24 A1 修法 DOC 0.9.95→0.9.96，spec.py 整文件重钉；QC-V1 2026-11-25 DOC 0.9.96→0.9.97，spec.py 整文件重钉 b6b1d29a7063904c20cee16f9370cde305612c982c747c6daa2ea261416fb053（前值 b903d58ad0519197d2c34e77d40e744e29e46598722309e34076bb412cc50466）。"
  },
  "genome_revision": {

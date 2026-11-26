@@ -393,7 +393,7 @@ class TestBatchSurface(unittest.TestCase):
 
     def test_doc_version_bumped(self):
         from holoaeon import spec
-        self.assertEqual(spec.DOC_VERSION, "0.9.98")  # QC-V2 同批重钉（0.9.97→0.9.98）
+        self.assertEqual(spec.DOC_VERSION, "0.9.99")  # QX-V1 同批重钉（0.9.98→0.9.99）
         self.assertEqual(spec.VERSION, "0.9.1")
 
 

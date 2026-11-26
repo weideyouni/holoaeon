@@ -11,9 +11,11 @@ from holoaeon import claims_gate as G
 
 class TestV88BatchOrder(unittest.TestCase):
     def test_wrong_token_red(self):
+        # V0 为活靶：expected 由 spec.py::DOC_VERSION 第三段派生（V99 批起派生值即 V99），
+        # 故伪造 token 须取永不等于派生批次的 V0，不能写死旧批次号。
         ctx = G._ctx(texts={
-            "readme_zh": "| 最新批次 | **V99 伪批次（错误号）** |\n",
-            "readme_en": "| Latest batch | **V99 fake batch (wrong)** |\n",
+            "readme_zh": "| 最新批次 | **V0 伪批次（错误号）** |\n",
+            "readme_en": "| Latest batch | **V0 fake batch (wrong)** |\n",
         })
         fails = G.batch_order_monotonic(ctx)
         ids = [f["id"] for f in fails]

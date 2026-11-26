@@ -158,7 +158,7 @@
    "kind": "current",
    "note": "DOC_VERSION 唯一权威点（holoaeon/spec.py）；MR-V3 活蒸馏+保真盲测基座登记同批重钉",
    "readback": "spec.doc_version",
-   "sha16": "2983b0a2f4a610cc",
+   "sha16": "528ac7403f72e9f4",
    "timeboxed": false
   },
   {
@@ -424,7 +424,7 @@
    "non_evidence": [
     "runtime_snapshot"
    ],
-   "observed": "0.9.98",
+   "observed": "0.9.99",
    "observed_at": "2026-11-26"
   },
   "five_site_head": {
@@ -574,7 +574,7 @@
    "runtime_role": "current",
    "runtime_value": "2025",
    "source_pointer": "README.zh-CN.md#公卫口径段（V41 小节）",
-   "source_sha16": "e5c9fabe9221beff",
+   "source_sha16": "0a6eddedf8dfdf61",
    "status": "current",
    "verified_at": "2026-11-26",
    "version": "2025",
@@ -723,7 +723,7 @@
   }
  ],
  "schema": "CLAIMS-GATE-v1",
- "self_digest": "cf9a79198827a04a",
+ "self_digest": "4028b0ebf134790a",
  "totals": {
   "doc_claims": 21,
   "historical": 3,
