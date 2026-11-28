@@ -1,8 +1,8 @@
 {
  "schema": "README-CLAIMS-CHECK-v1.0",
  "measured": {
-  "doc_version": "0.9.101",
-  "head": "feedd8e",
+  "doc_version": "0.9.102",
+  "head": "ee7870a",
   "unittest_main": 2415,
   "unittest_v3": 11,
   "unittest_verax": 21,

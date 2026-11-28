@@ -96,8 +96,7 @@ def step_hotplug() -> dict:
     after = len(kernel.skills.names())
     return {"before": before, "after": after, "added": after - before,
             "restarted": False, "pack": "optimization",
-            "agents_unchanged": len(info.get("agents", [])) == 0
-            or True}
+            "agents_unchanged": len(info.get("agents", [])) == 0}
 
 
 def step_honesty(out_dir: str, case: str) -> dict:

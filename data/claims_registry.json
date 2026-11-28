@@ -158,7 +158,7 @@
    "kind": "current",
    "note": "DOC_VERSION 唯一权威点（holoaeon/spec.py）；MR-V3 活蒸馏+保真盲测基座登记同批重钉",
    "readback": "spec.doc_version",
-   "sha16": "aff78e54b38e7c24",
+   "sha16": "03b23ff41942969a",
    "timeboxed": false
   },
   {
@@ -424,8 +424,8 @@
    "non_evidence": [
     "runtime_snapshot"
    ],
-   "observed": "0.9.100",
-   "observed_at": "2026-11-26"
+   "observed": "0.9.102",
+   "observed_at": "2026-11-28"
   },
   "five_site_head": {
    "authority": "git_ls_remote_origin_main",
@@ -568,15 +568,15 @@
    "effective_from": "2025",
    "id": "PHC-2025",
    "max_age_days": 180,
-   "note": "只存文号指针，不复制规范全文（V89-A 插入济世主旨段后按整文件实测重算 sha16）；NA-V1 2026-11-22 台账行 V90 改号致 README.zh-CN.md 变（186830B），pin 随源更新（仅台账行，公卫口径段未改）；NA-V1 复算闸活体行 362→363 同步致 README.zh-CN.md sha16 再变，pin 随源更新；MR-V10 2026-11-24 A1 修法后 README.zh-CN.md 台账增 V96 行（188611B），pin 随源按整文件 _file_sha16 重算；QC-V1（2026-11-25）：README.zh-CN.md 台账增 V97 行（qicangaeon 启藏建仓批），整文件 sha16 随源重算 fc83325e856d4dd4；QC-V2 2026-11-26 README.zh-CN.md 台账增 V98 行（190670B），pin 随源更新（仅台账行，公卫口径段未改）。；ED-V1 2026-11-26 README.zh-CN.md 台账增 V100 行（eduaeon 教育环第八员，193114B），pin 随源按整文件 _file_sha16 重算（仅台账行，公卫口径段未改）。",
+   "note": "只存文号指针，不复制规范全文（V89-A 插入济世主旨段后按整文件实测重算 sha16）；NA-V1 2026-11-22 台账行 V90 改号致 README.zh-CN.md 变（186830B），pin 随源更新（仅台账行，公卫口径段未改）；NA-V1 复算闸活体行 362→363 同步致 README.zh-CN.md sha16 再变，pin 随源更新；MR-V10 2026-11-24 A1 修法后 README.zh-CN.md 台账增 V96 行（188611B），pin 随源按整文件 _file_sha16 重算；QC-V1（2026-11-25）：README.zh-CN.md 台账增 V97 行（qicangaeon 启藏建仓批），整文件 sha16 随源重算 fc83325e856d4dd4；QC-V2 2026-11-26 README.zh-CN.md 台账增 V98 行（190670B），pin 随源更新（仅台账行，公卫口径段未改）。；ED-V1 2026-11-26 README.zh-CN.md 台账增 V100 行（eduaeon 教育环第八员，193114B），pin 随源按整文件 _file_sha16 重算（仅台账行，公卫口径段未改）；FG-V2 2026-11-28 README.zh-CN.md 台账随 V101 批次变动，pin 随源按整文件 _file_sha16 重算 d266f306bb6f3d99（仅台账行，公卫口径段未改）。；V102 2026-11-28 README.zh-CN.md 台账随 V102 批次变动（195108B），pin 随源按整文件 _file_sha16 重算 670d9787d505d2b0（仅台账行，公卫口径段未改）。",
    "risk_tier": "annual",
    "runtime_pointer": "holoaeon/phc_chronic_engine.py#L4-L5",
    "runtime_role": "current",
    "runtime_value": "2025",
    "source_pointer": "README.zh-CN.md#公卫口径段（V41 小节）",
-   "source_sha16": "f0777718e1a38761",
+   "source_sha16": "670d9787d505d2b0",
    "status": "current",
-   "verified_at": "2026-11-26",
+   "verified_at": "2026-11-28",
    "version": "2025",
    "version_chain": [
     {
@@ -723,7 +723,7 @@
   }
  ],
  "schema": "CLAIMS-GATE-v1",
- "self_digest": "deba26bd08efbdff",
+ "self_digest": "86cd6a9ac9146f3b",
  "totals": {
   "doc_claims": 21,
   "historical": 3,

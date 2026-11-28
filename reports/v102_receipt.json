@@ -1,0 +1,160 @@
+{
+ "batch": "V102",
+ "date": "2026-11-28",
+ "doc_pins": {
+  "test_v22_eng_skills": "429bd8214c7c3d17",
+  "test_v64_hangover_zero": "023cdedae1ccd16d",
+  "test_v70_prehistory_criteria": "ad7e871bdc6c28e5",
+  "test_v84_tautology_golden_watch": "3b2c6868e221fb8f"
+ },
+ "doc_version": "0.9.102",
+ "doc_version_before": "0.9.101",
+ "env_lesson": "claims_gate 的 expected 取自最新回执自身 doc_version（非 registry 字面量），故路径 B 必须先落一份 doc_version=0.9.102 回执对齐 readback，派生红才转绿；batch_order expected 由 spec.DOC_VERSION 派生，回执 batch 不参与判据；PHC-2025 pin 钉 README.zh-CN.md 全文 sha16，改 ZH 字节须随源重钉；SUMS 清单不含 spec.py / README 双语 / 四测试，改它们字节无需重建 SUMS，但 registry / genome_dna 在清单内，回写后须最小副作用重建 SHA256SUMS 复算；PowerShell 无 heredoc，python 写 JSON 用 io.open(...,'w',encoding='utf-8',newline='\\n')。",
+ "executor": "doubao-work mainagent (local windows powershell)",
+ "genome_change_class": "doc_version_advance",
+ "global_load": {
+  "head_match": "10/10",
+  "issues": 0,
+  "result": "PASS",
+  "status_file": "holoaeon_lathe/GLOBAL_LOAD_STATUS_20261122.json",
+  "note": "STATUS 实测 10 仓 head_match 全 true；其 holoaeon version_readback 仍记 0.9.101 属陈旧值，留同步段回写，本批不虚称已对齐。"
+ },
+ "honest_boundaries": [
+  "forgaeon/eduaeon GitHub 与 Gitee 远端均已存在且 HEAD 一致（#73/#101 闭环），本批不重复建仓、不重复配 remote",
+  "cluster_scan 九条兄弟仓 DT-04 head=null 属各仓自身批次收口范围，forgaeon 不越权代回填；本仓 DT-04 已由 FR-02 回填 PE 顶层 head",
+  "千问 HA 89.36/+1.44 外部评分指针、12-01 大会窗口、D9/D12 外部背书碳基侧事项，按裁决拒收不入账",
+  "五地不虚称 5of5：S1/S2/S4 以本地与远端哈希判等取证，S3 GitHub / S5 HF 连通性以实测为准如实分列",
+  "主套五条派生红同根于 readback_consistent doc_version 失配，无独立第二病源；落对齐回执前 readback 仍红属预期，不虚记 0 红",
+  "零剂量、合规红线、本地 PowerShell、不 force／不改写历史、令牌明文不入入库文件"
+ ],
+ "main_suite_after": {
+  "before_vs_after": "落回执前：py313 5 红 / py311 5 红（五红同根 readback_consistent doc_version 失配，无独立第二病源）；落 v102 回执对齐 readback 后双解释器复跑 0 红，二套均 rc=0。",
+  "py311": {
+   "failures": 0,
+   "ran": 2415,
+   "errors": 0,
+   "skipped": 3,
+   "seconds": 52.228,
+   "rc": 0,
+   "verdict": "OK",
+   "red_ids": []
+  },
+  "py313": {
+   "failures": 0,
+   "ran": 2415,
+   "errors": 0,
+   "skipped": 0,
+   "seconds": 42.746,
+   "rc": 0,
+   "verdict": "OK",
+   "red_ids": []
+  }
+ },
+ "main_suite_before": {
+  "attribution": "五红同根于 readback_consistent：expected 取自最新回执 v100 doc_version=0.9.100，readback spec 实测 0.9.102 失配；五条主套 FAIL 为该红的派生面，无独立第二病源。落 v102 回执后 expected 对齐 0.9.102，预期五条转绿。",
+  "failures": 5,
+  "ran": 2415,
+  "errors": 0,
+  "py313": {
+   "failures": 5,
+   "ran": 2415,
+   "errors": 0,
+   "skipped": 0,
+   "seconds": 42.613,
+   "rc": 1
+  },
+  "py311": {
+   "failures": 5,
+   "ran": 2415,
+   "errors": 0,
+   "skipped": 3,
+   "seconds": 52.23,
+   "rc": 1
+  },
+  "red_ids": [
+   "test_v75_claims_gate.TestReadback.test_06_baseline_green",
+   "test_v77_registry_coverage.T8RealRepoEightFaces.test_real_repo_pass",
+   "test_v77_registry_coverage.T9SelfDigestAndReport.test_report_has_all_faces",
+   "test_v85_ci_step_names.TestNoRegression.test_n3_other_faces_still_pass",
+   "test_v88_p2c_supply.TestV88SupplyChain.test_gate_green_real"
+  ]
+ },
+ "notes": [
+  "FG-V2：forgaeon 锻闸 V2 同仓升级——forge_gate 增 self 通道（六探针先扫本仓零红才放行，医者自医判例 PR-FG1），cluster_scan 九仓活体先证红；FR-03/04/05 修法批收口；FR-06 CI 接入 cluster_scan job（full/degraded 双模式）",
+  "DOC 递版 0.9.101→0.9.102；四测试同批重钉；genesis.spec_sha256_measured 重钉新 spec；PHC-2025 pin 随 README.zh 台账行重算；registry self_digest 重算回填"
+ ],
+ "readme": {
+  "en": {
+   "bytes": 243082,
+   "ledger": "Latest V102",
+   "lines": 2163,
+   "sha16": "3105a4cf9cfb00bd"
+  },
+  "zh": {
+   "bytes": 195108,
+   "ledger": "最新 V102",
+   "lines": 1525,
+   "sha16": "670d9787d505d2b0"
+  }
+ },
+ "receipt_position_note": "pass-1：先落 doc_version=0.9.102 解 claims_gate doc_version_spec 与主套五条派生红；pass-2：双解释器实测秒数 / verdict、claims_gate digest、SUMS 与 v3_gate 读数已回填。本文件不属 SHA256SUMS。",
+ "registration_readback": {
+  "claims_registry_json": {
+   "bytes": 26797,
+   "sha16": "87c55b65b905ec0d"
+  },
+  "claims_self_digest": "86cd6a9ac9146f3b",
+  "genome_dna_json": {
+   "bytes": 13172,
+   "sha16": "7d03e761ac7684e8"
+  },
+  "genome_hash_note": "verification_measured.genome_hash=0a69e93d46bee46dbbadf8081617d2cdbf1c7730dde785a89e66df5c16af234f（只依赖 axioms/homology/loci，本批未动）；genome_revision.after=84876958e3936c50bf5ce058f716a5a3a1bb9194b7a22f15185cb401fce16707、before=0a69e93d…，本批未动。",
+  "genome_spec_sha256_measured": "03b23ff41942969a24b3634654a147af44ed1e13c05bf0506c4f35a24524e28d",
+  "ledger_sources_doc_version": {
+   "as_of": "2026-11-28",
+   "observed": "0.9.102"
+  }
+ },
+ "repo": "holoaeon",
+ "repo_path": "F:\\doubaowork\\holoaeon",
+ "schema": "holoaeon.receipt/v1",
+ "spec": {
+  "bytes": 29021,
+  "doc_version": "0.9.102（FG-V2 forgaeon 锻闸自免疫与九仓集群扫描收口批：同批重钉四测试与 claims_registry doc_version_spec，PHC-2025 pin 随 README.zh 台账行重算，genesis.spec_sha256_measured 重钉）",
+  "md5_16": "0297a3c62d8201dd",
+  "sha256": "03b23ff41942969a24b3634654a147af44ed1e13c05bf0506c4f35a24524e28d"
+ },
+ "sub_batch": "FG-V2",
+ "updated_at": "2026-11-28T13:01:54+08:00",
+ "verification": {
+  "check_sums": {
+   "mismatches": [],
+   "ok": true,
+   "total": 363
+  },
+  "checklist_entries": 363,
+  "claims_gate_rerun": "PASS (mismatch 0) — 本回执落地后复跑；digest 80a4e00a65cabd92；13 面全绿；readback doc_version_spec=0.9.102；redline=160；checklist_entries=363",
+  "genome_dna_gate": "PASS（pass=true，problems=[]）",
+  "redline": 160,
+  "unittest_errors": 0,
+  "unittest_failures": 0,
+  "unittest_main": 2415,
+  "unittest_main_py313": {
+   "failed": 0,
+   "ran": 2415,
+   "rc": 0,
+   "skipped": 0,
+   "verdict": "OK"
+  },
+  "unittest_main_py311": {
+   "failed": 0,
+   "ran": 2415,
+   "rc": 0,
+   "skipped": 3,
+   "verdict": "OK"
+  },
+  "unittest_note": "FG-V2 五条派生红随本回执落地消红；双解释器实测复跑 0 红，py313 skipped=0、py311 skipped=3。",
+  "unittest_skipped": 3,
+  "v3_gate": "OK（34/34 PASS；A12 SUMS 363 条复算一致，mismatches=[]）"
+ }
+}

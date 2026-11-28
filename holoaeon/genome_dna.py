@@ -257,7 +257,7 @@ def unity_check(coordinate: Dict[str, Any], state: Dict[str, Any],
     elif not re.search(r"\d", str(evidence)):
         problems.append("N4 回读断：证据无数值")
     return {"pass": not problems, "problems": problems, "axiom": "G-DNA-04",
-            "nodes": {"coordinate": not problems or True,
+            "nodes": {"coordinate": not problems,
                       "state": state.get("receipt_present", False),
                       "credential": credential.get("status") == "VALID",
                       "readback": bool(evidence)}}

@@ -1,0 +1,129 @@
+{
+ "batch": "V101",
+ "date": "2026-11-27",
+ "doc_pins": {
+  "test_v22_eng_skills": "c6c91df6100bda58",
+  "test_v64_hangover_zero": "28c686f8aca88179",
+  "test_v70_prehistory_criteria": "e4e9c53fa8eef879",
+  "test_v84_tautology_golden_watch": "4fbe0c25db8b9404"
+ },
+ "doc_version": "0.9.101",
+ "doc_version_before": "0.9.100",
+ "env_lesson": "本件为回溯补落：文件指纹从 git commit ee7870a 的 blob 原始字节复原，运行读数只取 v100/v102 回执夹证可证项；v101 现场未留档的单测秒数、claims_gate digest、SUMS 现场复算结果一律标 retrospective_unverified，不以 v102 现值冒充当时。PowerShell 无 heredoc；python 写 JSON 用 io.open(...,'w',encoding='utf-8',newline='\\n')。",
+ "executor": "doubao-work mainagent (local windows powershell)",
+ "genome_change_class": "doc_version_advance",
+ "commit": "ee7870a79d19dfd99619fbbfdecc43c3c2173d01",
+ "commit_message": "FG-V1 forgaeon 锻闸建仓批：基座 DOC 0.9.100→0.9.101（纪元族第十员 ring28 六病型前置闸）",
+ "retrospective_backfill": {
+  "is_retrospective": true,
+  "backfill_date": "2026-11-28",
+  "reason": "V101 批次现场回执件漏落；本件于 FG-V2（V102）收口阶段依据 commit ee7870a 的 git blob 快照与 forgaeon 仓 reports/fg_v1_receipt.json 跨仓回执互证补落，非 v101 时点现场留档。",
+  "fingerprint_source": "文件指纹由 `git show ee7870a:<path>` 原始字节复原并复算 md5-16 / sha256-16 / 全 sha256；主套规模、SUMS 条数、redline、v3_gate 口径由 v100 与 v102 回执夹证；未留档项见 verification.unverified_at_v101。",
+  "status": "backfilled"
+ },
+ "global_load": {
+  "head_match": "5/10",
+  "issues": 5,
+  "result": "ISSUES",
+  "source": "commit ee7870a spec 自述 + forgaeon reports/fg_v1_receipt.json global_load 段双源互证",
+  "issues_detail": [
+   "holoaeon: root=True entry=True head_match=False",
+   "mirraeon: root=True entry=True head_match=False",
+   "qicangaeon: root=True entry=True head_match=False",
+   "qixiaeon: root=True entry=True head_match=False",
+   "eduaeon: root=True entry=True head_match=False"
+  ],
+  "note": "五条 STALE 仓为收口二次提交后 HEAD 偏离首笔快照预期值，按先例如实标注；现场 STATUS 派生快照未留档，head_match 计数由跨仓回执互证。"
+ },
+ "honest_boundaries": [
+  "本件为 retrospective backfill：指纹来自 git blob 复原，未留档运行读数标 unverified，不以 v102 现值冒充当时",
+  "v101 两条冻结派单（holoaeon genome_dna.py:260 恒真尾、netaeon net_expand.py DT-02 结构性重构）归基座 OTA 批，本批不擅改；FG-V2 FR-03/04 收口后已修清账复验消失",
+  "五地不虚称 5of5：v101 时点 S1 本地 PASS，S2 Gitee / S4 向量海 PENDING 降级优先，S3 GitHub 401 待重签、S5 HF BLOCKED，均为跨仓回执如实记录",
+  "零剂量、合规红线、本地 PowerShell、不 force／不改写历史、令牌明文不入入库文件"
+ ],
+ "notes": [
+  "FG-V1：forgaeon 锻闸建仓（纪元族第十员 ring28），七步孵化协议第四次应用；首笔 b7bf2889、收口 ee7870a",
+  "DOC 递版 0.9.100→0.9.101；四测试同批重钉；README 双语批次表顺延 V101/V100",
+  "INC-007 落 qicangaeon（db514bc）、TD-0007 落 mirraeon（5b959dc，audited）；NV-V1 nivaeon 占位存档不建仓不抢号"
+ ],
+ "readme": {
+  "en": {
+   "bytes": 242682,
+   "ledger": "Latest V101",
+   "lines": 2163,
+   "sha16": "465ddcabf958ca82"
+  },
+  "zh": {
+   "bytes": 194683,
+   "ledger": "最新 V101",
+   "lines": 1525,
+   "sha16": "d266f306bb6f3d99"
+  }
+ },
+ "receipt_position_note": "本文件为 V101 漏落回执的回溯补落件，归入历史批次留档，不回写其他历史批次数值；不属 SHA256SUMS。",
+ "registration_readback": {
+  "claims_registry_json": {
+   "bytes": 26450,
+   "sha16": "f30a02ad5ffe994c"
+  },
+  "claims_self_digest": null,
+  "claims_self_digest_note": "v101 现场 self_digest 未留档，retrospective_unverified；blob 复原 registry 与 v100 同字节",
+  "genome_dna_json": {
+   "bytes": 12625,
+   "sha16": "d7d1571d2e740c25"
+  },
+  "genome_hash_note": "v101 现场 genome_hash 读数未留档；blob 复原 genome_dna.json 与 v100 同字节（axioms/homology/loci 未动），不据此回填全值。",
+  "genome_spec_sha256_measured": "3140b5c15a0b21e96055d4f43a74db26d36e611b4f65afd7cbdaaafd70ccf05a",
+  "ledger_sources_doc_version": {
+   "as_of": "2026-11-27",
+   "observed": "0.9.101"
+  }
+ },
+ "repo": "holoaeon",
+ "repo_path": "F:\\doubaowork\\holoaeon",
+ "schema": "holoaeon.receipt/v1",
+ "spec": {
+  "bytes": 27634,
+  "lines": 246,
+  "doc_version": "0.9.101（FG-V1 forgaeon 锻闸建仓批：纪元族第十员 ring28 六病型前置闸；同批重钉四测试与 README 双语批次表）",
+  "md5_16": "a9091d6d1b27f9df",
+  "sha16": "3140b5c15a0b21e9",
+  "sha256": "3140b5c15a0b21e96055d4f43a74db26d36e611b4f65afd7cbdaaafd70ccf05a"
+ },
+ "sub_batch": "FG-V1",
+ "updated_at": "2026-11-28T13:26:56+08:00",
+ "verification": {
+  "check_sums": {
+   "mismatches": null,
+   "ok": null,
+   "total": 363,
+   "evidence": "total 由 v100/v102 回执夹证；现场复算 mismatches 未留档，retrospective_unverified"
+  },
+  "checklist_entries": 363,
+  "claims_gate_rerun": "retrospective_unverified：v101 现场 claims_gate digest 与 13 面读数未留档；补落本件后已在 v102 基线上复跑，见 v102 回执。",
+  "cross_referenced_fg_v1": {
+   "receipt": "forgaeon/reports/fg_v1_receipt.json",
+   "verdict": "PASS",
+   "batch_gate": "31/31 PASS（fg_core 18/18、fg_ledger 5/5、readme_sync 8/8）",
+   "core_check": "18/18 PASS",
+   "gate_channel": "positive 7/7 red、negative 6/6 green、probe_effective=true",
+   "unittest": "py3.11.9 Ran 31 OK、py3.13.16 Ran 31 OK"
+  },
+  "genome_dna_gate": "retrospective_unverified：现场 problems 清单未留档；blob 复原 genome_dna.json 与 v100 同字节。",
+  "redline": 160,
+  "redline_evidence": "v100/v102 回执夹证",
+  "unittest_errors": null,
+  "unittest_failures": null,
+  "unittest_main": 2415,
+  "unittest_main_evidence": "ran=2415 由 v100/v102 回执夹证（v101 commit 仅改版本串/断言串/README 行，未增删用例）；现场 failures/seconds/skipped 未留档",
+  "unittest_note": "现场双解释器秒数与 skipped 明细未留档，retrospective_unverified，不回填 v102 现值。",
+  "v3_gate": "34/34（口径由 v100/v102 夹证；现场复核记录未留档，retrospective_unverified）",
+  "unverified_at_v101": [
+   "双解释器单测现场秒数与 skipped 明细",
+   "claims_gate 现场 digest 与 13 面读数",
+   "SUMS 现场复算 mismatches 清单",
+   "registry claims_self_digest 现场值",
+   "global_load STATUS 文件现场派生快照"
+  ]
+ }
+}

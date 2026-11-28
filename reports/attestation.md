@@ -2,8 +2,8 @@
 HoloAeon VERAX 自证报告（Self-Attestation）
 ========================================================================
 runtime_id : HOLOAEON-RUNTIME-0.9.1
-commit     : 1ca8ed30e072
-ts_build   : 2026-11-22T02:40:11Z   （物理量，不进 verdict_hash）
+commit     : ee7870a79d19
+ts_build   : 2026-11-28T00:22:58Z   （物理量，不进 verdict_hash）
 verdict    : YELLOW
 verdict_hash : 886af2388a2b7560
 证据分级   : 本报告全部条目默认 simulated；仿真≠证明。
@@ -77,17 +77,3 @@ H1（measured 无来源）/ H2（缺 evidence_class）命中计数：10
 五、门禁退出码：0=绿 / 1=红 / 2=黄（scripts/verax_verify.py）
 六、已知限制：measured 只证明「来源存在」，不证明外部真实性；VERAX 不改 C1–C12 行为，只读观测。
 
-
-------------------------------------------------------------------------
-七、重钉记录（NA-V1b 收尾，2026-11-22）
-------------------------------------------------------------------------
-原报告 commit : 1ca8ed30e072（构建时点记录，保留原值不改写；verdict_hash 不动）
-重钉基准 HEAD : 9998c2afc28524bc0f0f4cc30ba177d182376d74（本附注所在的前一提交；本文件再次提交后以 git rev-parse 为准）
-重钉 tree     : 7092950a890c6696e048ce40c13a56028dcfb65f（git 对象级树）
-内容等价判据  : 与 Gitee 权威 4cacb8ef、GitHub 镜像 763d2f7e 三方比对 ——
-                逐 path+mode+blob 全等；object_digest
-                34930f7fc034d428e1ff3ccbd1af69573f5daaf9eb0f5e669e78975ae103620a（773 件）
-                两端同值（holoaeon_lathe/gitee_three_repo_diff_20261122.json）
-口径声明      : head sha 不追平（Gitee git 传输被隧道阻断、GitHub pack 大包下载挂死）；
-                同步验收以 blob 集合 + object_digest 相等为准，head 差异登记不改写历史
-封存密语      : 潮起开门，潮落闭嘴
